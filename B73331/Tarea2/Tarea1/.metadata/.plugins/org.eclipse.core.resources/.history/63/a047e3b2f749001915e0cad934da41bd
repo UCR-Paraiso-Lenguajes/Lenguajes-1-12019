@@ -1,0 +1,26 @@
+package cr.ac.ucr.ie.domain;
+
+import cr.ac.ucr.ie.dataContainer.DataList;
+
+public class CowController {
+	DataList dataList = new DataList();
+	public void insertACow(Cow cowToInsert) {
+    	dataList.listOfCows.add(cowToInsert);
+    }
+	public void delteACow(int possitionOfTheCow) {
+		dataList.listOfCows.remove(possitionOfTheCow);
+    }
+	public void listAllCows() {
+    	int flag = dataList.listOfCows.size()-1;
+    	int counter = 0;
+    	while(flag>-1) {
+    		System.out.println(counter+".  "+dataList.listOfCows.get(flag));
+    		flag--;
+    		counter++;
+    	}
+    }
+	public void updateACow(int possitionOfTheCow, Cow cowUpdated) {
+		dataList.listOfCows.remove(possitionOfTheCow);
+		dataList.listOfCows.add(possitionOfTheCow, cowUpdated);
+	}
+}

@@ -1,0 +1,23 @@
+package cr.ac.ucr.ie.homeworkOne;
+
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	//Here is the while that manages the menu of the app
+        int flag = 1;
+        Scanner scannerReader = new Scanner(System.in);
+        System.out.println("Welcome to the farm application");
+        while(flag>=0 & flag<2) {
+        	
+        	System.out.println("Press '0' to finish"+"\n"
+        						+"Press '1' to add a cow to the farm "+"\n");
+        }//End of whie
+    }
+}

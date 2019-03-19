@@ -1,0 +1,20 @@
+package cr.ac.ucr.ie.domain;
+
+public class Cow {
+private int numberOfTheCow;
+private int ageOfTheCow;
+private String raceOfTheCow;
+
+public Cow(int numberOfTheCow, int ageOfTheCow, String raceOfTheCow) {
+	if(numberOfTheCow<0) throw new RuntimeException("El id debe ser mayor a 0");
+	this.numberOfTheCow = numberOfTheCow;
+	this.ageOfTheCow = ageOfTheCow;
+	this.raceOfTheCow = raceOfTheCow;
+}
+
+public Cow() {
+}
+
+
+
+}

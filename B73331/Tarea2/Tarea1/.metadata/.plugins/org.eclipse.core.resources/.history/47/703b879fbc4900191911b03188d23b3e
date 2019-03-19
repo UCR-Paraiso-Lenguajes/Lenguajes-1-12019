@@ -1,0 +1,7 @@
+package cr.ac.ucr.ie.homeworkOne;
+
+import junit.framework.TestCase;
+
+public class Tester extends TestCase {
+
+}

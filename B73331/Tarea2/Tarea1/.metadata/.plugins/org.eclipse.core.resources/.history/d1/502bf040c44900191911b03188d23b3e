@@ -1,0 +1,65 @@
+package cr.ac.ucr.ie.homeworkOne;
+
+import java.util.ArrayList;
+
+import cr.ac.ucr.ie.dataContainer.DataList;
+import cr.ac.ucr.ie.domain.Cow;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+    extends TestCase
+{
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+	DataList dataList = new DataList();
+    public AppTest( String testName )
+    {
+        super( testName );
+    }
+
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( AppTest.class );
+    }
+
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp()
+    {
+        assertTrue( true );
+    }
+    public void testingCowClass() {
+    	Cow cow  = new Cow(15,5,"Jersey");
+    	System.out.println(cow);
+    }
+    public void initializeDataList() {
+    	dataList.listOfCows = new ArrayList<>();
+    }
+    public void testingListOfCows() {
+    	dataList.listOfCows.add(new Cow(3,5,"Holstein"));
+    	dataList.listOfCows.add(new Cow(5,9,"Jersey"));
+    	dataList.listOfCows.add(new Cow(7,9,"Holstein"));
+    	dataList.listOfCows.add(new Cow(3,4,"Simental"));
+    }
+    public void testingShowingList() {
+    	int flag = dataList.listOfCows.size();
+    	System.out.println("I am here"+dataList.listOfCows.size());
+    	while(flag>0) {
+    		System.out.println(dataList.listOfCows.get(flag));
+    		flag--;
+    	}
+    }
+    
+}

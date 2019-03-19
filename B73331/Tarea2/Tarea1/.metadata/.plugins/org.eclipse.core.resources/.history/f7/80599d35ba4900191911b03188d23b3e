@@ -1,0 +1,23 @@
+package cr.ac.ucr.ie.domain;
+
+public class Cow {
+private int numberOfTheCow;
+private int ageOfTheCow;
+private String raceOfTheCow;
+
+public Cow(int numberOfTheCow, int ageOfTheCow, String raceOfTheCow) {
+	if(numberOfTheCow<0) throw new RuntimeException("The number of the cow must be greater than 0");
+	if(ageOfTheCow<0) throw new RuntimeException("The age of the cow must be greater than 0");
+	if(raceOfTheCow.trim().equals("")||raceOfTheCow.equals(null))throw new RuntimeException("The race of the cow is required");
+	
+	this.numberOfTheCow = numberOfTheCow;
+	this.ageOfTheCow = ageOfTheCow;
+	this.raceOfTheCow = raceOfTheCow;
+}
+
+public Cow() {
+}
+
+
+
+}

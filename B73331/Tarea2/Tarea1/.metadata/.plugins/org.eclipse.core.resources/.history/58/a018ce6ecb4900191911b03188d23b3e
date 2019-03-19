@@ -1,0 +1,5 @@
+package cr.ac.ucr.ie.domain;
+
+public class CowController {
+
+}

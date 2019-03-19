@@ -1,0 +1,9 @@
+package cr.ac.ucr.ie.dataContainer;
+
+import java.util.List;
+
+import cr.ac.ucr.ie.domain.Cow;
+
+public class DataList {
+public List<Cow>listOfCows;
+}
