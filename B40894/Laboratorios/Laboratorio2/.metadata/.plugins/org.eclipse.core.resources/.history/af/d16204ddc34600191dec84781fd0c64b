@@ -1,0 +1,26 @@
+package cr.ac.ucr.ie.app.controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ListarEmpleadosController {
+	private ArrayList<Empleado> empleados;
+	@RequestMapping("/")
+	public List<Empleado> listar() {
+		empleados= new ArrayList();
+		empleados.add(new Empleado(1, "Esteban"));
+		empleados.add(new Empleado(2, "Daniel"));
+		empleados.add(new Empleado(3, "Leo"));
+		empleados.add(new Empleado(4, "Karen"));
+		
+		
+		
+		return empleados;
+		
+	}
+	
+}

@@ -1,0 +1,26 @@
+package cr.ac.ucr.ie.app.domain;
+
+import java.util.List;
+
+public class Departamento {
+	private Empleados empleados = new Empleados();
+	private int codDepto;
+	private String nombreDepartamento;
+	
+	public Departamento(int codDepto, String nombreDepartamento) {
+		if(codDepto <=0) throw new RuntimeException("El id debe ser mayor a 0");
+		if(nombreDepartamento !=null && nombreDepartamento.trim().equals("")) throw new RuntimeException("El id debe ser mayor a 0");
+		
+		this.codDepto= codDepto;
+		this.nombreDepartamento = nombreDepartamento;
+		
+	}
+	
+	public void RegistrarEmpleado(Empleado empleado) {
+		empleados.Agregar(empleado);
+	}
+	
+	public List<Empleado> listarEmpleados(){
+		return empleados.listar();
+	}
+}
