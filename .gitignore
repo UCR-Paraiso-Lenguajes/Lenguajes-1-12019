@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 
 *.class
-B63199/Laboratorios/Lab2/app/target/classes/application.properties
-B63199/Laboratorios/Lab2/app/target/classes/META-INF/MANIFEST.MF
-B63199/Laboratorios/Lab2/app/target/classes/META-INF/maven/cr.ac.ucr.ie/app/pom.properties
-B63199/Laboratorios/Lab2/app/target/classes/META-INF/maven/cr.ac.ucr.ie/app/pom.xml
-=======
-B52265/clases/app/target/classes/cr/ac/ucr/ie/app/domain/Employeers.class
-*.class
->>>>>>> b0b9559e8c462749112fbbab02d8dde75ea64035
+*.prefs
+*.MF
+*.properties
+*.xml
+
