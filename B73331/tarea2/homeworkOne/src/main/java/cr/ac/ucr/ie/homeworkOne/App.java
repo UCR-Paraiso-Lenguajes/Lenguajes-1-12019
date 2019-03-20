@@ -3,6 +3,8 @@ package cr.ac.ucr.ie.homeworkOne;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import cr.ac.ucr.ie.dataContainer.DataList;
 import cr.ac.ucr.ie.domain.Cow;
@@ -14,6 +16,7 @@ import cr.ac.ucr.ie.domain.CowController;
  */
 public class App 
 {
+    private static Logger logger = Logger.getLogger("cr.ac.ucr.ie.homeworkOne.App");
 	
     public static void main( String[] args )
     {
@@ -25,6 +28,7 @@ public class App
     	//Tip #3 Secciones dentro de funciones (declaracion de variables, inicializarlas y operaciones)
     	DataList dataList = new DataList();
     	dataList.listOfCows =  new ArrayList<>();
+    	
     	/**
     	Tip #10 Nombre de variables, funciones, claves deben decir por que de la existencia,
    	  	que hacen y como se usan
@@ -32,8 +36,7 @@ public class App
         byte flag = 1; //Flag es la variable que le indica al menu cual accion el usuario quiere realizar
         Scanner scannerReader = new Scanner(System.in);
         CowController cowController = new CowController();
-        
-        System.out.println("Welcome to the farm application");
+        logger.log(Level.INFO,"Welcome to the farm application");
         showMenu();
         flag = scannerReader.nextByte();
         // Tip #4 Bloques y Sangrias en el codigo
@@ -41,25 +44,25 @@ public class App
         	
         	try {
         	if(flag<0 || flag >=5) {
-        		System.out.println("Number selected is not correct please enter an autorized one");
+        		logger.log(Level.INFO,"Number selected is not correct please enter an autorized one");
         		
         	}else if(flag==1) {
-        		System.out.println("Insert the values in this order: 1.Number of the cow, "
-        				+ "2.Age of the cow, 3.Race of the cow");
+        		logger.log(Level.INFO,"Insert the values in this order: 1.Number of the cow, \"\r\n" + 
+        				"        				+ \"2.Age of the cow, 3.Race of the cow");
         		Cow cowToInsert = new Cow(scannerReader.nextInt(),scannerReader.nextInt(),scannerReader.next());
         		cowController.insertACow(cowToInsert);
         		
         	}else if(flag==2){
-        		System.out.println("Plese choose the number of the cow that you want to delete");
+        		logger.log(Level.INFO,"Plese choose the number of the cow that you want to delete");
         		cowController.listAllCows();
         		cowController.delteACow(scannerReader.nextByte());
         		
         	}else if(flag==3){
         		cowController.listAllCows();
-        		System.out.println("Plese choose the number of the cow that you want to update");
+        		logger.log(Level.INFO,"Plese choose the number of the cow that you want to update");
         		int cowPossition = scannerReader.nextByte();
-        		System.out.println("Insert the values of the new cow in this order: 1.Number of the cow, "
-        				+ "2.Age of the cow, 3.Race of the cow");
+        		logger.log(Level.INFO,"Insert the values of the new cow in this order: 1.Number of the cow, \"\r\n" + 
+        				"        				+ \"2.Age of the cow, 3.Race of the cow");
         		Cow cowToInsert = new Cow(scannerReader.nextInt(),scannerReader.nextInt(),scannerReader.next());
         		cowController.updateACow(cowPossition, cowToInsert);
         		
@@ -70,11 +73,11 @@ public class App
         	flag = scannerReader.nextByte();
     		
         	}catch (Exception exception) 	{
-        		System.out.println("The number selected is not an autorized one");
+        		logger.log(Level.INFO,"The number selected is not an autorized one");
         		flag = 0;
 			}//End catch
         }//End whie
-        System.out.println("Thank's for using the app, good luck!");
+        logger.log(Level.INFO,"Thank's for using the app, good luck!");
     
     }
     public static void showMenu() {
@@ -83,7 +86,7 @@ public class App
     	 * Metodo que me muestra el String explicativo del menu y me 
     	 * ahorra lineas de codigo en el main
     	 * */
-    	System.out.println("Press '0' to finish"+"\n"
+    	logger.log(Level.INFO,"Press '0' to finish"+"\n"
 				+"Press '1' to add a cow to the farm "+"\n"
 				+"Press '2' to remove a cow of the farm list"+"\n"
 				+"Press '3' to update a cow on the farm list"+"\n"
