@@ -1,0 +1,28 @@
+package cr.ac.ucr.ie.app.controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Empleados {
+	private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+	
+	public Empleados() {
+		
+		Agregar(new Empleado(1, "Esteban"));
+		Agregar(new Empleado(2, "Daniel"));
+		Agregar(new Empleado(3, "Leo"));
+		Agregar(new Empleado(4, "Karen"));
+		
+		
+	}
+
+	public void Agregar(Empleado empleado) {
+		if(empleados.contains(empleado)) throw new RuntimeException("El empleado ya existe");
+		empleados.add(empleado);
+	}
+
+	public List<Empleado> listar() {
+		
+		return empleados;
+	}
+}
