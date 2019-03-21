@@ -20,10 +20,12 @@ public class Estudiante {
     private String apellidos;
     private String carrera;
 
-    public Estudiante() {
-    }
-
     public Estudiante(String id, String nombre, String apellidos, String carrera) {
+	   if(id != null && id.trim().equals("")) throw new RuntimeException("La identificación es requerida");
+        if(nombre != null && nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
+        if(apellidos != null && apellidos.trim().equals("")) throw new RuntimeException("El apellido es requerido");
+        if(carrera != null && carrera.trim().equals("")) throw new RuntimeException("La carrera es requerida");
+
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;

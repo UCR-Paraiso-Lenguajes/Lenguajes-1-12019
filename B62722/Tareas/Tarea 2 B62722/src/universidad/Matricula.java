@@ -21,7 +21,7 @@ public class Matricula {
     El Objetivo es que el código se lea como un texto de arriba a abajo.
     */
     
-    ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    private ArrayList<Estudiante> estudiantes = new ArrayList<>();
     
     /*
     Small!
