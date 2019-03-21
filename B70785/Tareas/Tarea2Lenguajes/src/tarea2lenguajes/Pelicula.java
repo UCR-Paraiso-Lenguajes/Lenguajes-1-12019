@@ -128,18 +128,16 @@ public class Pelicula {
     // El nombre PeliGenTe no es una palabra normal y es extrano pronunciarla
     public Iterator<Pelicula> PeliGenTe() {
         Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> listaDeTodasLasPeliculas = new ArrayList<>();
+
         ArrayList<Pelicula> listaDeLasPeliculasDeTerror = new ArrayList<>();
-        
-        while(listaDeTodasLasPeliculasIterator.hasNext()){
-            listaDeTodasLasPeliculas.add(listaDeTodasLasPeliculasIterator.next());
-        }
-        
-        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-            if (pelicula.getGeneroDeLaPelicula().equalsIgnoreCase("TERROR")) {
-                listaDeLasPeliculasDeTerror.add(pelicula);
+
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+            if (listaDeTodasLasPeliculasIterator.next().getGeneroDeLaPelicula().equalsIgnoreCase("TERROR")) {
+                listaDeLasPeliculasDeTerror.add(listaDeTodasLasPeliculasIterator.next());
             }
+
         }
+
         Iterator<Pelicula> listaDeLasPeliculasDeTerrorIterator = listaDeLasPeliculasDeTerror.iterator();
         return listaDeLasPeliculasDeTerrorIterator;
     }
@@ -148,20 +146,16 @@ public class Pelicula {
     // Es un poco largo pero especifica bien de lo que trata el metodo.
     public Iterator<Pelicula> ListaDePeliculasDeGeneroDeTerror() {
         Iterator<Pelicula> listaDeTodasLasPeliculasIterador = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> listaDeTodasLasPeliculas = new ArrayList<>();
-        ArrayList<Pelicula> ListaDeLasPeliculasDeTerror = new ArrayList<>();
-        
-        while(listaDeTodasLasPeliculasIterador.hasNext()){
-            listaDeTodasLasPeliculas.add(listaDeTodasLasPeliculasIterador.next());
+
+        ArrayList<Pelicula> listaDeLasPeliculasDeTerror = new ArrayList<>();
+
+        while (listaDeTodasLasPeliculasIterador.hasNext()) {
+            if (listaDeTodasLasPeliculasIterador.next().getGeneroDeLaPelicula().equalsIgnoreCase("TERROR"));
+            listaDeLasPeliculasDeTerror.add(listaDeTodasLasPeliculasIterador.next());
         }
-        
-        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-            if (pelicula.getGeneroDeLaPelicula().equalsIgnoreCase("TERROR")) {
-                ListaDeLasPeliculasDeTerror.add(pelicula);
-            }
-        }
-        Iterator<Pelicula> ListaDeLasPeliculasDeTerrorIterator = ListaDeLasPeliculasDeTerror.iterator();
-        return ListaDeLasPeliculasDeTerrorIterator;
+
+        Iterator<Pelicula> listaDeLasPeliculasDeTerrorIterator = listaDeLasPeliculasDeTerror.iterator();
+        return listaDeLasPeliculasDeTerrorIterator;
     }
 
     //Ejemplo 5: Don’t Be Cute, pag 26
@@ -169,51 +163,46 @@ public class Pelicula {
     // Es mejor colocar nombres que nos ayuden a entender bien lo que hace el metodo.
     public int ObtenerLaDuracionMaximaDeLasPeliculas() {
         Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> listaDeTodasLasPeliculas = new ArrayList<>();
+
         int duracionMaximaTemporal = 0;
-        
-        while(listaDeTodasLasPeliculasIterator.hasNext()){
-            listaDeTodasLasPeliculas.add(listaDeTodasLasPeliculasIterator.next());
-        }
-        
-        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-            if (pelicula.getDuracionEnMinutosDeLaPelicula() > duracionMaximaTemporal) {
-                duracionMaximaTemporal = pelicula.getDuracionEnMinutosDeLaPelicula();
+
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+            if (listaDeTodasLasPeliculasIterator.next().getDuracionEnMinutosDeLaPelicula() > duracionMaximaTemporal) {
+                duracionMaximaTemporal = listaDeTodasLasPeliculasIterator.next().getDuracionEnMinutosDeLaPelicula();
             }
         }
+
         return duracionMaximaTemporal;
     }
 
     public Pelicula ObtenerLaPeliculaQueDuraUnLeñazo() {
-        Iterator<Pelicula> ListaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> ListaDeTodasLasPeliculas = new ArrayList<>();
+        Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
+
         Pelicula peliculaConDuracionMaxima = null;
-        
-        while(ListaDeTodasLasPeliculasIterator.hasNext()){
-            ListaDeTodasLasPeliculas.add(ListaDeTodasLasPeliculasIterator.next());
-        }
-        
-        for (Pelicula pelicula : ListaDeTodasLasPeliculas) {
-            if (pelicula.getDuracionEnMinutosDeLaPelicula() == ObtenerLaDuracionMaximaDeLasPeliculas()) {
-                peliculaConDuracionMaxima = pelicula;
+
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+            if (listaDeTodasLasPeliculasIterator.next().getDuracionEnMinutosDeLaPelicula() == ObtenerLaDuracionMaximaDeLasPeliculas()) {
+                peliculaConDuracionMaxima = listaDeTodasLasPeliculasIterator.next();
             }
+
         }
+
         return peliculaConDuracionMaxima;
     }
 
     // Mejor le cambiamos el nombre
     public Pelicula ObtenerLaPeliculaConMayorDuracion() {
-        Iterator<Pelicula> ListaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> ListaDeTodasLasPeliculas = new ArrayList<>();
+        Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
+
         Pelicula peliculaConDuracionMaxima = null;
-        while(ListaDeTodasLasPeliculasIterator.hasNext()){
-            ListaDeTodasLasPeliculas.add(ListaDeTodasLasPeliculasIterator.next());
-        }
-        for (Pelicula pelicula : ListaDeTodasLasPeliculas) {
-            if (pelicula.getDuracionEnMinutosDeLaPelicula() == ObtenerLaDuracionMaximaDeLasPeliculas()) {
-                peliculaConDuracionMaxima = pelicula;
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+
+            if (listaDeTodasLasPeliculasIterator.next().getDuracionEnMinutosDeLaPelicula() == ObtenerLaDuracionMaximaDeLasPeliculas()) {
+                peliculaConDuracionMaxima = listaDeTodasLasPeliculasIterator.next();
             }
+
         }
+
         return peliculaConDuracionMaxima;
     }
 
@@ -223,52 +212,49 @@ public class Pelicula {
     // Small! capitulo 3 pag 34  y  Do One Thing capitulo 3 pag 35
     //La idea es hacer metodos pequenos, y que hagan solamente 1 tarea especifica
     // Primero hare un ejemplo mal hecho, y luego lo voy a separar en 2 funciones.
-//      public Iterator<Pelicula> ListaDePeliculasConDuracionMayorADosHoras(Iterator<Pelicula> ListaDeTodasLasPeliculasIterator){
-//          ArrayList<Pelicula> ListaDePeliculasConDuracionMayorADosHoras = new ArrayList<>();
-//          ArrayList<Pelicula> ListaDePeliculasDeMelGibson = new ArrayList<>();
-//          ArrayList<Pelicula> ListaDeTodasLasPeliculas = new ArrayList<>();
+//      public Iterator<Pelicula> listaDePeliculasConDuracionMayorADosHoras(Iterator<Pelicula> ListaDeTodasLasPeliculasIterator){
+//          ArrayList<Pelicula> listaDePeliculasConDuracionMayorADosHoras = new ArrayList<>();
+//          ArrayList<Pelicula> listaDePeliculasDeMelGibson = new ArrayList<>();
 //          While(listaDePeliculasIterador.HasNext){
-//             listaDePeliculas.add(listaDePeliculasIterador.next());
+//           if(listaDePeliculasIterador.next().getDuracionEnMinutos() > 120){ 
+//               listaDePeliculasConDuracionMayorADosHoras.add(listaDePeliculasIterador.next());
 //          }
-//          for (Pelicula pelicula:ListaDeTodasLasPeliculas){
-//              if(pelicula.getDuracionEnMinutosDeLaPelicula() > 120){
-//                  ListaDePeliculasConDuracionMayorADosHoras.add(pelicula);
-//              }
-//              if(pelicula.getNombreDelDirectorrDeLaPelicula().equalsIgnoreCase("MEL GIBSON")){
-//              ListaDePeliculasDeMelGibson.add(pelicula);
-//          }
-//          }
-//          Iterator<Pelicula> ListaDePeliculasConDuracionMayorADosHorasIterator = ListaDePeliculasConDuracionMayorADosHoras.iterator();
-//          return ListaDePeliculasConDuracionMayorADosHorasIterator;
+//          if()listaDePeliculasIterador.next().getNombreDelDirectorDeLaPelicula().equalsIgnoreCase("MEL GIBSON"){
+//                listaDePeliculasDeMelGibson.add(listaDePeliculas().next());   
+//             }
+//           }   
+//          Iterator<Pelicula> listaDePeliculasConDuracionMayorADosHorasIterator = ListaDePeliculasConDuracionMayorADosHoras.iterator();
+//          return listaDePeliculasConDuracionMayorADosHorasIterator;
 //      }
     //Como pueden ver, aparte de que el codigo es largo, esta haciendo 2 cosas a la vez
     // Hace una lista de peliculas que duran mas de 2 horas, y aparte una lista
     // de peliculas del director Mel Gibson, lo cual no tiene nada que ver con el nombre del metodo
     //Vamos a separarlo en 2 Metodos:
-    public Iterator<Pelicula> ListaDePeliculasConDuracionMayorADosHoras(ArrayList<Pelicula> ListaDeTodasLasPeliculas) {
-        ArrayList<Pelicula> ListaDePeliculasConDuracionMayorADosHoras = new ArrayList<>();
+    public Iterator<Pelicula> ListaDePeliculasConDuracionMayorADosHoras(Iterator<Pelicula> listaDeTodasLasPeliculas) {
+        ArrayList<Pelicula> listaDePeliculasConDuracionMayorADosHoras = new ArrayList<>();
 
-        for (Pelicula pelicula : ListaDeTodasLasPeliculas) {
-            if (pelicula.getDuracionEnMinutosDeLaPelicula() > 120) {
-                ListaDePeliculasConDuracionMayorADosHoras.add(pelicula);
+        while (listaDeTodasLasPeliculas.hasNext()) {
+            if (listaDeTodasLasPeliculas.next().getDuracionEnMinutosDeLaPelicula() > 120) {
+                listaDePeliculasConDuracionMayorADosHoras.add(listaDeTodasLasPeliculas.next());
             }
-
         }
-        Iterator<Pelicula> ListaDePeliculasConDuracionMayorADosHorasIterator = ListaDePeliculasConDuracionMayorADosHoras.iterator();
-        return ListaDePeliculasConDuracionMayorADosHorasIterator;
+
+        Iterator<Pelicula> listaDePeliculasConDuracionMayorADosHorasIterator = listaDePeliculasConDuracionMayorADosHoras.iterator();
+        return listaDePeliculasConDuracionMayorADosHorasIterator;
     }
 
-    public Iterator<Pelicula> ListaDePeliculasDelDirectorMelGibson(ArrayList<Pelicula> ListaDeTodasLasPeliculas) {
+    public Iterator<Pelicula> ListaDePeliculasDelDirectorMelGibson(Iterator<Pelicula> listaDeTodasLasPeliculas) {
 
         ArrayList<Pelicula> ListaDePeliculasDeMelGibson = new ArrayList<>();
-        for (Pelicula pelicula : ListaDeTodasLasPeliculas) {
 
-            if (pelicula.getNombreDelDirectorrDeLaPelicula().equalsIgnoreCase("MEL GIBSON")) {
-                ListaDePeliculasDeMelGibson.add(pelicula);
+        while (listaDeTodasLasPeliculas.hasNext()) {
+            if (listaDeTodasLasPeliculas.next().getNombreDelDirectorrDeLaPelicula().equalsIgnoreCase("MEL GIBSON")) {
+                ListaDePeliculasDeMelGibson.add(listaDeTodasLasPeliculas.next());
             }
         }
-        Iterator<Pelicula> ListaDePeliculasDeMelGibsonIterator = ListaDePeliculasDeMelGibson.iterator();
-        return ListaDePeliculasDeMelGibsonIterator;
+
+        Iterator<Pelicula> listaDePeliculasDeMelGibsonIterator = ListaDePeliculasDeMelGibson.iterator();
+        return listaDePeliculasDeMelGibsonIterator;
     }
 
     // Ahora si quedaron metodos mas pequenos y hacen solo 1 cosa.
@@ -284,8 +270,8 @@ public class Pelicula {
         listaDeTodasLasPeliculas.add(peliculaDePruebaDos);
         listaDeTodasLasPeliculas.add(peliculaDePruebaTres);
 
-        Iterator<Pelicula> ListaDeTodasLasPeliculasIterator = listaDeTodasLasPeliculas.iterator();
-        return ListaDeTodasLasPeliculasIterator;
+        Iterator<Pelicula> listaDeTodasLasPeliculasIterator = listaDeTodasLasPeliculas.iterator();
+        return listaDeTodasLasPeliculasIterator;
     }
 
     // Si le colocamos el nombre ListaDeTodasLasPeliculasRegistradas ya sabemos
@@ -301,24 +287,24 @@ public class Pelicula {
         listaDeTodasLasPeliculas.add(peliculaDePruebaDos);
         listaDeTodasLasPeliculas.add(peliculaDePruebaTres);
 
-        Iterator<Pelicula> ListaDeTodasLasPeliculasIterator = listaDeTodasLasPeliculas.iterator();
-        return ListaDeTodasLasPeliculasIterator;
+        Iterator<Pelicula> listaDeTodasLasPeliculasIterator = listaDeTodasLasPeliculas.iterator();
+        return listaDeTodasLasPeliculasIterator;
     }
 
     //Ejemplo 9: Function Arguments, capitulo 3, pag 40
     // Segun dice el libro, lo ideal seria tener metodos que no tengan que usar
     // parametros, ya que pueden traer mucos posibles resultados y se nos puede
     // salir de las manos.
-    public Iterator<Pelicula> ListaDePeliculasDeCienciaFiccion(ArrayList<Pelicula> listaDeTodasLasPeliculas) {
+    public Iterator<Pelicula> ListaDePeliculasDeCienciaFiccion(Iterator<Pelicula> listaDeTodasLasPeliculasIterator) {
 
         ArrayList<Pelicula> listaDePeliculasDeCienciaFiccion = new ArrayList<>();
 
-        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-            if (pelicula.getGeneroDeLaPelicula().equalsIgnoreCase("CIENCIA FICCION")) {
-                listaDePeliculasDeCienciaFiccion.add(pelicula);
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+            if (listaDeTodasLasPeliculasIterator.next().getGeneroDeLaPelicula().equalsIgnoreCase("CIENCIA FICCION")) {
+                listaDePeliculasDeCienciaFiccion.add(listaDeTodasLasPeliculasIterator.next());
             }
-
         }
+
         Iterator<Pelicula> listaDePeliculasDeCienciaFiccionIterator = listaDePeliculasDeCienciaFiccion.iterator();
         return listaDePeliculasDeCienciaFiccionIterator;
     }
@@ -327,19 +313,13 @@ public class Pelicula {
     public Iterator<Pelicula> ListaDePeliculasDeCienciaFiccion() {
 
         Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> listaDeTodasLasPeliculas = new ArrayList<>();
-        while (listaDeTodasLasPeliculasIterator.hasNext()) {
-            listaDeTodasLasPeliculas.add(listaDeTodasLasPeliculasIterator.next());
-        }
-
         ArrayList<Pelicula> listaDePeliculasDeCienciaFiccion = new ArrayList<>();
-
-        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-            if (pelicula.getGeneroDeLaPelicula().equalsIgnoreCase("CIENCIA FICCION")) {
-                listaDePeliculasDeCienciaFiccion.add(pelicula);
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+            if (listaDeTodasLasPeliculasIterator.next().getGeneroDeLaPelicula().equalsIgnoreCase("CIENCIA FICCION")) {
+                listaDePeliculasDeCienciaFiccion.add(listaDeTodasLasPeliculasIterator.next());
             }
-
         }
+
         Iterator<Pelicula> listaDePeliculasDeCienciaFiccionIterator = listaDePeliculasDeCienciaFiccion.iterator();
         return listaDePeliculasDeCienciaFiccionIterator;
     }
@@ -349,18 +329,13 @@ public class Pelicula {
     // y que no tenga funciones ocultas a lo que uno espera que vaya a realizar. Ejemplo
 //    public Iterator<Pelicula> ListaDePeliculasDelSiglo21() {
 //        Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-//        ArrayList<Pelicula> listaDeTodasLasPeliculas = new ArrayList<>();
+//        
 //        ArrayList<Pelicula> listaDePeliculasDelSiglo21 = new ArrayList<>();
 //
 //        while(listaDePeliculasIterator.HasNext){
-//              listaDePeliculas.add(listaDePeliculasIterator.next());
+//              if(listaDePeliculasIterator.next().getAnoDeLanzamientoDeLaPelicula() >= 2000){
+//               listaDePeliculasDelSiglo21.add(listaDePeliculasIterator.next())
 //           }
-//        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-//            if (pelicula.getAñoDeLanzamientoDeLaPelicula() >= 2000) {
-//                pelicula.setPrecioEnColonesDeLaPelicula(1000);
-//                listaDePeliculasDelSiglo21.add(pelicula);
-//            }
-//        }
 //        Iterator<Pelicula> listaDePeliculasDelSiglo21Iterator - listaDePeliculasDelSiglo21.iterator();
 //        return listaDePeliculasDelSiglo21;
 //    }
@@ -371,19 +346,15 @@ public class Pelicula {
     // y le quitamos la signacion del precio nuevo:
     public ArrayList<Pelicula> ListaDePeliculasDelSiglo21() {
         Iterator<Pelicula> listaDeTodasLasPeliculasIterator = ListaDeTodasLasPeliculasRegistradas();
-        ArrayList<Pelicula> listaDeTodasLasPeliculas = new ArrayList<Pelicula>();
+
         ArrayList<Pelicula> listaDePeliculasDelSiglo21 = new ArrayList<>();
-        
-        while(listaDeTodasLasPeliculasIterator.hasNext()){
-            listaDeTodasLasPeliculas.add(listaDeTodasLasPeliculasIterator.next());
-        }
 
-        for (Pelicula pelicula : listaDeTodasLasPeliculas) {
-            if (pelicula.getAñoDeLanzamientoDeLaPelicula() >= 2000) {
-
-                listaDePeliculasDelSiglo21.add(pelicula);
+        while (listaDeTodasLasPeliculasIterator.hasNext()) {
+            if (listaDeTodasLasPeliculasIterator.next().getAñoDeLanzamientoDeLaPelicula() >= 2000) {
+                listaDePeliculasDelSiglo21.add(listaDeTodasLasPeliculasIterator.next());
             }
         }
+
         return listaDePeliculasDelSiglo21;
     }
 
