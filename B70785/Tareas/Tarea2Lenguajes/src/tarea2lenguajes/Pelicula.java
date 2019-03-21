@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author MELVIN ASTORGA Guevara B70785
+ * @author MELVIN ASTORGA Guevara carné B70785
  */
 public class Pelicula {
 
