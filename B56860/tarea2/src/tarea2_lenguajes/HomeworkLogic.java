@@ -1,4 +1,4 @@
-package tarea2_lenguajes;
+﻿package tarea2_lenguajes;
 
 import java.util.ArrayList;
 
@@ -35,13 +35,20 @@ public class HomeworkLogic { //ejemplo 1 --> class names // nombres de clase deb
     //ejemplo 4 --> Member Prefixes / evitar prefijos complejos con descripciones y usar nombres simples    p.24
     
     public class Worker{
-        int id;
-        String proffesion;//instead of:   n_o_prof + //description of the variable 
-        String name;
+        private int id;
+        private String proffesion;//instead of:   n_o_prof + //description of the variable 
+        private String name;
         
-        
-        
+        public Worker(){}
+
+	public getNameById(int id){
+	     if(this.id == id)
+		return this.name;
+	}        
          
+	public getProffesion(){
+	    return this.proffesion;
+	}
     }
    
     
