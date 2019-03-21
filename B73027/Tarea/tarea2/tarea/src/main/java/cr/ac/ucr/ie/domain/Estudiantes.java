@@ -5,9 +5,9 @@ import java.util.logging.Logger;
 /* Segun el libro los nombres de las clases tienen que ser un sustantivo y no un verbo */
 public class Estudiantes {
 /*El nombre de las variables tiene que ser representativo al metodo*/
-	String nombreEstudiante;
-	String apellidoEstudiante;
-	int carnetEstudiante;
+	private String nombreEstudiante;
+	private String apellidoEstudiante;
+	private int carnetEstudiante;
 	
 	public Estudiantes(String nombreEstudiante, String apellidoEstudiante,int carnetEstudiante) {
 		
