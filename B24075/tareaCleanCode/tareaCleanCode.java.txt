@@ -1,0 +1,86 @@
+
+package domain;
+
+import java.util.ArrayList;
+
+
+
+// los nombres de las clases deben de ser sustantivos
+public class tareaCleanCode{
+
+    
+    //metodos nombrados con un verbo
+    //las variables nombradas como un sustantivo y deben ser nombradas de acuerdo a su uso 
+    //Use Intention-Revealing Names Pag.18
+    public int sumarDosNumeros() {
+
+        int resultado = 0;
+        int numero1 = 1;
+        int numero2= 9;
+	resultado= numero1+numero2;
+        return resultado;
+    }
+
+    
+    //es innecesario usar la palabra list en las listas o arreglos
+    //Avoid Disinformation Pag.19
+    public void verCodigos() {
+
+      
+        int[] codigos= new int[3];
+	
+	for (int i = 0; i < 3; i++) {
+
+            System.out.println(codigos[i]);
+        }
+    }
+
+    //evitar las abreviaturas porque son confusas
+    // no usar nombres similares en variables
+    //Use Pronounceable Names Pag.21
+    //No utilizar un metodo para dos propòsitosdiferentes
+    //Do one thing Pag.35
+    public int calcularPromedioSemestre() {
+        int promedioTotal= 0;
+
+       
+        int primerPromedio=7;
+        int segundoPromedio=8;
+
+        return promedioTotal= = (primerPromedio+segundoPromedio)/2;
+    }
+  
+    
+    //no usar los nombres de las clases en las variables
+    //Member Prefixes Pag.24
+    public class gato{
+
+        private String raza;
+        private int peso;
+
+    }
+
+
+    //usar nombres que que describan bien la funcion sin importar el largo del nombre
+    //Use Descriptive Names Pag.39
+    public int generarCodigoDeBarras() {
+	int codigoBarras = (int) (Math.random() * 10) + 1;
+	return codigoBarras;
+    }
+
+
+    //correcto nombramiento de las banderas    
+    // Flag Arguments Pag.41
+    public String condicion(boolean esLibre){
+        return esLibre? "si":"no";
+    }
+    
+    //utilizar excepciones en vez de mensajes de error
+    //Prefer Exceptions to Returning Error Codes Pag.46
+    public void setPeso(int peso){
+        if(peso<=0) throw new RuntimeException("El peso debe de ser positivo");
+        this.peso = peso;
+    }
+
+
+}
