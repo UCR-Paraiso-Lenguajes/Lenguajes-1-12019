@@ -1,4 +1,4 @@
-package cr.ac.ucr.ie.domain;
+﻿package cr.ac.ucr.ie.domain;
 
 import java.util.LinkedList;
 
@@ -22,7 +22,7 @@ public class Biblioteca {
 	 * El siguiente bloque de métodos, su función es modificación y acceso, por tanto se utilizan los
 	 * prefijos correspondientes: get para acceso, set para modificación
 	 * ver Pag 53*/
-	public LinkedList<Libro> getLibros() {
+	public Iterable<Libro> getLibros() {
 		return libros;
 	}
 
@@ -30,7 +30,7 @@ public class Biblioteca {
 		this.libros = libros;
 	}
 
-	public LinkedList<Audivisuales> getAudivisuales() {
+	public Iterable<Audivisuales> getAudivisuales() {
 		return audivisuales;
 	}
 

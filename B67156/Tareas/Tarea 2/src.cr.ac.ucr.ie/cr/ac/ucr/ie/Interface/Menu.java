@@ -1,4 +1,4 @@
-package cr.ac.ucr.ie.Interface;
+﻿package cr.ac.ucr.ie.Interface;
 
 import javax.swing.JOptionPane;
 
@@ -16,9 +16,9 @@ public class Menu {
 	 *No existen redundancias
 	 *No existen abreviaciones o simplificaciones 
 	 *ver Pag de 45 a 50*/
-	String descripcionLibro = "";
-	String descripcionAudiovisual = "";
-	Biblioteca biblioteca = new Biblioteca();
+	private String descripcionLibro = "";
+	private String descripcionAudiovisual = "";
+	private Biblioteca biblioteca = new Biblioteca();
 	
 	/*Tip 6
 	 * Método que contiene nombres significativos
