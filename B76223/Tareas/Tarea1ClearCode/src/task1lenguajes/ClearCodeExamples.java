@@ -60,28 +60,11 @@ public class ClearCodeExamples {
         return triangleArea;
     }
 
-    // Prefer Exceptions to Returning Error Codes (Chapter 3 P.46)
-    public String determineCapitalLetterArray(ArrayList wordArray) {
-        String wordInArray = "";
-        Character letter = ' ';
-        boolean isCapitalLetter = false;
-
-        for (int i = 0; i < wordArray.size() && isCapitalLetter == false; i++) {
-            try {
-                wordInArray = (String) wordArray.get(i);
-                for (int j = 0; j < wordInArray.length(); j++) {
-                    letter = wordInArray.charAt(i);
-                    if (letter >= 65 && letter <= 90) {
-                        isCapitalLetter = true;
-                        return "The capital letter is on space " + i;
-                    }
-                }
-            } catch (Exception e) {
-                e.getMessage();
-            }
-
-        }
-        return "There's no capital letter";
+    //Example of Argument Object
+    //It is not necesary to add other features about the car
+    public String createCar(String brand, String licensePlate) {
+        String carDescription = "The car with brand '" + brand + "' with license plate '" + licensePlate + "' is registered";
+        return carDescription;
     }
 
     //Example of Do One Thing (Chapter 3 P.35)

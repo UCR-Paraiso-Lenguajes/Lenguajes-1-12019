@@ -12,7 +12,7 @@ public class Task1Lenguajes {
 //        System.out.println(clearCodeExample.calculateYourAge(1999));
 //        System.out.println(array.size());
 //
-//        System.out.println(clearCodeExample.determineCapitalLetterArray(array));
+//        System.out.println(clearCodeExample.createCar("MAZDA", "AB-908"));
 //        ArrayList<Object> array = new ArrayList<>();
 //
 //        array.add("moana");
