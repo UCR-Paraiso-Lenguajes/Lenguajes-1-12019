@@ -10,13 +10,53 @@ public class TipsOfCleanCode {
 
 	// Tip 1: Use intention-Revealing Names Page 18 
 
-	int s; // incorrecto
-	int amountSalaryPerEmployee; // correcto
+	int s = 1000000; // incorrect
+	
+	public void s() {
+		
+		Employee employee = new Employee();
+		
+		if(s>1200000) {
+			employee.setSalary(1100000);
+		}else {
+			employee.setSalary(1000000);
+		}
+	}
+	
+	int amountSalaryPerEmployee = 1000000; // correct
+	
+	public void amountSalaryPerEmployee() {
+		
+		Employee employee = new Employee();
+		
+		if(amountSalaryPerEmployee>1200000) {
+			employee.setSalary(1100000);
+			
+		}else {
+			
+			employee.setSalary(1000000);
+		}
+	}
 
 	// Tip: 2 Avoid desinformation Page 19
 
-	int pl2; // incorrecto
-	int polynomialGradeTwo; // correcto
+	String pl2; // incorrect
+	
+	public String pl2() {
+		
+		pl2 = "X^2+x+4";
+		
+		return pl2;
+	}
+	
+	String polynomialGradeTwo; // correct
+	
+	public String polynomialGradeTwo() {
+		
+		polynomialGradeTwo = "X^2+X+4";
+		
+		return polynomialGradeTwo;
+	}
 
 	// Tip: 3 Make meaningful distinctions Page 20
 
@@ -27,21 +67,40 @@ public class TipsOfCleanCode {
 	}
 
 	public void addStudent(String student) {
-
+		
+		Logger logger = Logger.getLogger("My Logger");
+		logger.log(Level.WARNING, "Remember add student");
 	}
 
 	//Tip 4: Use a pronounceable names Page 21
 
-	String nOC; // incorrect (abbreviation to name Of Customer)
-	String nameOfCustomer; // Correct
+	public void nOC() {
+		String nOC = "María Jiménez"; // incorrect (abbreviation to name Of Customer)
+		Logger logger = Logger.getLogger("MYLOOGER");
+		
+		if(nOC.equalsIgnoreCase("María Jiménez")) {
+			logger.log(Level.INFO, "Es un cliente frecuente");
+		}
+	}
+		public void nameOfCustomer() {
+			String nameOfCustomer = "María Jiménez"; // correct name
+			Logger logger = Logger.getLogger("MYLOOGER");
+			
+			if(nameOfCustomer.equalsIgnoreCase("María Jiménez")) {
+				logger.log(Level.INFO, "Es un cliente frecuente");
+			}
+	}
 
 	//Tip 5: Don't be cute Page 26
 	
 	public void goToShopping(ArrayList products) {// incorrect (it's a joke)
-
+			
+			products.add("Shampoo");
 	}
 
 	public void supermarketProductList(ArrayList productsList) { // correct
+
+			productsList.add("Shampoo");
 
 	}
 
@@ -114,17 +173,26 @@ public class TipsOfCleanCode {
 
 	// Tips 9: Prefer exception to returning error codes Page 46
 
-	public void letters() {// correct
-
-		try {
-
-			char[] letters = { 'a', 'b', 'c' };
-
-		} catch (Exception e) {
-			e.getMessage();
+	public void connectFromDatabase() {
+		
+	Logger logger = Logger.getLogger("MYLOOGER");
+	Connection connectToDatabase = null;
+	String sURL = "jdbc:mysql://localhost:3306/databaseAlfonsoPrueba";
+	
+	try (PreparedStatement stmt = ((java.sql.Connection) connectToDatabase).prepareStatement("SELECT name FROM Employee")) {
+		
+		  connectToDatabase = (Connection) DriverManager.getConnection(sURL,"Alfonso","1234");
+		  
+		  ResultSet rs = stmt.executeQuery();
+		 
+		  while (rs.next())
+		    logger.log(Level.INFO,rs.getString("Employee"));
+		 
+		} catch (SQLException sqle) { 
+			
+			  logger.log(Level.WARNING,"ERROR, THE CONNECTION TO THE DATABASE COULDN'T BE MADE!!");
+		 
 		}
-
-	}
 
 	// tip 10: Block and indenting page 35
 
