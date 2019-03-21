@@ -20,9 +20,13 @@ public class Estudiante {
 	}
 	public Estudiante(String nombre, String cedula, String grado) {
 		super();
-		this.nombre = nombre;
-		this.cedula = cedula;
-		this.grado = grado;
+		if (nombre!=null || cedula!=null || nombre!=" " || cedula!=" " ) {
+			this.nombre = nombre;
+			this.cedula = cedula;
+			this.grado = grado;	
+		}else {
+			throw new RuntimeException("Nombre y cédula parece son campos requeridos");
+		}		
 	}
 	/*
 	 *Cap 2:Method Names
@@ -43,7 +47,7 @@ public class Estudiante {
 		return grado;
 	}
 	public void setGrado(String grado) {
-		grado = grado;
+		this.grado = grado;
 	}
 	@Override
 	public String toString() {

@@ -32,7 +32,7 @@ public class Curso {
 	}
 
 	public void setEstudiantesMatriculados(Estudiante[] estudiantesMatriculados) {
-		estudiantesMatriculados = estudiantesMatriculados;
+		this.estudiantesMatriculados = estudiantesMatriculados;
 	}
 	@Override
 	public String toString() {
