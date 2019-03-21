@@ -14,7 +14,7 @@ public class App
 	 * utilizar nombres completos.
 	 */
 	
-	public static Menu menu;
+	private static Menu menu;
 	
     public static void main( String[] args ) throws Exception
     {

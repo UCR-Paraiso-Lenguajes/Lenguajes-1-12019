@@ -1,6 +1,7 @@
 package cr.ac.ucr.ie.data;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import cr.ac.ucr.ie.domain.Car;
@@ -27,8 +28,8 @@ public class Registry {
 	 *están implícitos en el código.
 	 */
 	
-	Logger exitPrint = Logger.getLogger("Control");
-	ArrayList<Car> carList = new ArrayList<Car>();
+	private Logger exitPrint = Logger.getLogger("Control");
+	private ArrayList<Car> carList = new ArrayList<Car>();
 	
 	
 	/* Capitulo 3 - Tip 1
@@ -40,8 +41,7 @@ public class Registry {
 	public void addCar (Car car) {
 		
 		carList.add(car);
-		exitPrint.log(null,"Proceso exitoso");
-		System.out.println("The car was successfully registered.");
+		exitPrint.log(Level.INFO, "The car was successfully registered.");
 		
 	}// addCar
 	
@@ -58,11 +58,11 @@ public class Registry {
 	 */
 	
 	
-	public String searchCar (short id) {
+	public Car searchCar (short id) {
 		
-		for (int i = 0; i < carList.size(); i++) {
+		for (int indexSize = 0; indexSize < carList.size(); indexSize++) {
 			
-		    if (carList.get(i).getIdCar() == id) return carList.get(i).toString(); // fin del if 
+		    if (carList.get(indexSize).getIdCar() == id) return carList.get(indexSize); // fin del if 
 		    
 		}// fin del for 
 		
@@ -96,16 +96,17 @@ public class Registry {
 		
 	}
 	
-	public void deleteCar (short id) {
+	public void deleteCar (short id){
 		
-		for (int i = 0; i < carList.size(); i++) {
+		for (int indexSize = 0; indexSize < carList.size(); indexSize++) {
 			
-		    if (carList.get(i).getIdCar() == id)  {
+		    if (carList.get(indexSize).getIdCar() == id)  {
 		    	
-		    	carList.remove(i);
-		    	System.out.println("The car with the requested id number: "+id+" was found and removed.\n"); 
+		    	carList.remove(indexSize);
+		    	exitPrint.log(Level.INFO,"The car with the requested "
+		    			+ "id number: "+id+" was found and removed.\n"); 
 		    	
-		    }else System.out.println("The requested car was not found.\n");
+		    }else exitPrint.log(Level.WARNING,"The requested car was not found.\n");
 		    
 		}// fin del for 
 	
@@ -115,15 +116,16 @@ public class Registry {
 		
 		short id = car.getIdCar();
 		
-		for (int i = 0; i < carList.size(); i++) {
+		for (int indexSize = 0; indexSize < carList.size(); indexSize++) {
 			
-		    if (carList.get(i).getIdCar() == id) {
+		    if (carList.get(indexSize).getIdCar() == id) {
 		    	
-		    	carList.remove(i); 
-		    	System.out.println("The car with the requested id number: "+id+" was found and modified.\n"); 
+		    	carList.remove(indexSize); 
+		    	exitPrint.log(Level.INFO,"The car with the requested id number: "+id+" was found and modified.\n"); 
 		    	carList.add(car);
 		    	
-		    }else System.out.println("The requested car was not found.\n");
+		    }else exitPrint.log(Level.WARNING,"The requested car was not found.\n");
+		    
 		    
 		}// fin del for 
 		

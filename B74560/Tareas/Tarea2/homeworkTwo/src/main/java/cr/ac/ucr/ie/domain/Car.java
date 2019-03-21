@@ -9,10 +9,10 @@ package cr.ac.ucr.ie.domain;
 
 public class Car {
 	
-	short idCar = 0;
-	String brandCar = "";
-	String styleCar = "";
-	String license_plateCar="";
+	private short idCar = 0;
+	private String brandCar = "";
+	private String styleCar = "";
+	private String license_plateCar="";
 	
 	public Car() {}
 	

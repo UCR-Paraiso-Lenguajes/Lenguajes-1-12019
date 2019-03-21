@@ -1,6 +1,5 @@
 package cr.ac.ucr.ie.gui;
 
-import java.awt.Label;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,17 +27,17 @@ public class Menu {
 	 */
 	
 	
-	public Scanner dataEntry;
+	private Scanner dataEntry;
 	
-	Car car;//Objeto
+	private Car car;//Objeto
 	
-	Registry registryCar = new Registry();
+	private Registry registryCar = new Registry();
 	
-	short idCarEntry;
+	private short idCarEntry;
 	
-	String brandCarEntry, styleCarEntry, license_plateCarEntry; 
+	private String brandCarEntry, styleCarEntry, license_plateCarEntry; 
 	
-	Logger exitPrint = Logger.getLogger("Control");
+	private Logger exitPrint = Logger.getLogger("Control");
 	
 	
 	
@@ -100,8 +99,9 @@ public class Menu {
 				exitPrint.log(Level.INFO,"Modify information about the car.\n");
 				exitPrint.log(Level.INFO,"Insert id of the Car.\n");
 				idCarEntry = dataEntry.nextShort();
-				
-				exitPrint.log(Level.INFO,registryCar.searchCar(idCarEntry));
+
+				car = registryCar.searchCar(idCarEntry);
+				exitPrint.log(Level.INFO,car.toString());
 				
 				exitPrint.log(Level.INFO,"Insert brand of the Car.\n");
 				brandCarEntry = dataEntry.next();
@@ -122,8 +122,8 @@ public class Menu {
 				exitPrint.log(Level.INFO,"Insert id of the Car.\n");
 				
 				idCarEntry = dataEntry.nextShort();
-				
-				exitPrint.log(Level.INFO,registryCar.searchCar(idCarEntry));
+				car = registryCar.searchCar(idCarEntry);
+				exitPrint.log(Level.INFO,car.toString());
 				
 			}else if (numberSelected==4) {
 				
@@ -137,7 +137,8 @@ public class Menu {
 				
 				idCarEntry = dataEntry.nextShort();
 				
-				exitPrint.log(Level.INFO,registryCar.searchCar(idCarEntry));
+				car = registryCar.searchCar(idCarEntry);
+				exitPrint.log(Level.INFO,car.toString());
 				
 				registryCar.deleteCar(idCarEntry);
 				
