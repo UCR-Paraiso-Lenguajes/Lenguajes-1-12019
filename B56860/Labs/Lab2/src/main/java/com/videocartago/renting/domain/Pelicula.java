@@ -2,7 +2,7 @@ package com.videocartago.renting.domain;
 
 public class Pelicula {
 	
-	
+	private Genero genero;
 	
 	public void setCodPelicula(Integer id) {
 		// TODO Auto-generated method stub
@@ -14,9 +14,9 @@ public class Pelicula {
 		
 	}
 
-	public Genero setGenero() {
+	public void setGenero() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	public void setTotalPeliculas(int int1) {
