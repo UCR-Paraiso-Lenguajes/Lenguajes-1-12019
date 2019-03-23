@@ -23,7 +23,7 @@ de Clean Code pág 25*/
 	/*incorrecto
 	 * public void choosenAction*/
 	//correcto
-	public void chooseAction() {
+	public void chooseAction() throws Exception{
 		/*3.Basado en: Paginas 21 y 22 "Nombres pronunciables". Es importante usar nombres pronunciables acorde a su naturaleza
 		 * de la creación, es decir con solo el nombre se debe entender lo que hace
 		 * */
@@ -67,6 +67,8 @@ de Clean Code pág 25*/
 			}else{
 				Logger.getLogger(getClass().getName()).log(
 							Level.INFO, "Error al introducir dato");
+				throw new Exception("Ocurrió un falló");
+				
 			}
 				
 		}while(optionToChooseInMenu!=-1);

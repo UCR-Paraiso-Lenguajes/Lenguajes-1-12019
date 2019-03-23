@@ -63,30 +63,42 @@ public class ProblemsToResolve {
 		 * otro metodo para mostrarlos, algo incorrecto seria hacer las operaciones para mostrarlos
 		 * en este mismo metodo
 		 * */
-		for(int i = 0; i < listNumber.length - 1; i++)
-        {
-            for(int j = 0; j < listNumber.length - 1; j++)
-            {
-                if (listNumber[j] > listNumber[j + 1])
-                {
-                    int aux = listNumber[j+1];
-                    listNumber[j+1] = listNumber[j];
-                    listNumber[j] = aux;
-                }
-            }
-        }
-		showListOfNumber(listNumber);
+		if(listNumber.length > 0) {
+			for(int i = 0; i < listNumber.length - 1; i++)
+	        {
+	            for(int j = 0; j < listNumber.length - 1; j++)
+	            {
+	                if (listNumber[j] > listNumber[j + 1])
+	                {
+	                    int aux = listNumber[j+1];
+	                    listNumber[j+1] = listNumber[j];
+	                    listNumber[j] = aux;
+	                }
+	            }
+	        }
+			showListOfNumber(listNumber);
+		}else {
+			Logger.getLogger(getClass().getName()).log(
+		            Level.INFO, "El arreglo se encuentra vació\n");
+		}
+		
         
 	}
 	
 	public void showListOfNumber(int[] arrayOfNumbers) {
-		for(int i = 0;i < arrayOfNumbers.length; i++)
-        {
-        	Logger.getLogger(getClass().getName()).log(
-    	            Level.INFO,arrayOfNumbers[i]+", ");
-        }
-        Logger.getLogger(getClass().getName()).log(
-	            Level.INFO, "\n");
+		if(arrayOfNumbers.length > 0) {
+			for(int i = 0;i < arrayOfNumbers.length; i++)
+	        {
+	        	Logger.getLogger(getClass().getName()).log(
+	    	            Level.INFO,arrayOfNumbers[i]+", ");
+	        }
+	        Logger.getLogger(getClass().getName()).log(
+		            Level.INFO, "\n");
+		}else {
+			Logger.getLogger(getClass().getName()).log(
+		            Level.INFO, "El arreglo se encuentra vació\n");
+		}
+		
 	}
 
 
