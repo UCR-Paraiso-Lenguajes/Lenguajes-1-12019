@@ -1,6 +1,6 @@
 package task1lenguajes;
 
-// Example of Class Name (Chapter 2 P.25)
+//Example of Class Name (Chapter 2 P.25)
 public class Animal {
 
 //Example of use Pronunceable Names(Chapter 2 P.21)
