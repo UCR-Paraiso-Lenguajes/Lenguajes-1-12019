@@ -9,7 +9,7 @@
 
   /**
      
-     * CAPÍTULO 2
+     * CAPÃ�TULO 2
      
  **/
 
@@ -41,21 +41,24 @@
 
          public Worker(){}
 
- 	public getNameById(int id){
+ 	public String getNameById(int id){
 	     if(this.id == id)
 		return this.name;
+        throw new RuntimeException("The person doesn´t exist");
 	}        
 
- 	public getProffesion(){
+ 	public String getProffesion(){
 	    return this.proffesion;
 	}
     }
 
 
-     //ejemplo 5 --> Avoid disinformation / ser claro con la información
-    public static String WORD;
+     //ejemplo 5 --> Avoid disinformation / ser claro con la informaciÃ³n
+
+     
+    public static String word;
     public void appendLetters(char letter){
-        WORD+=letter;
+        word+=letter;
     }
 
 
@@ -75,7 +78,7 @@
                 return worker.name;
             }
         }
-        return "Id not in the DB.";
+        throw new RuntimeException("The person doesn´t exist");
     }
 
 
@@ -96,13 +99,8 @@
      //ejemplo 4 --> Structured Programming / uso de break, continue, etc en operaciones largas      p.48-49
     public boolean exists(int id){
         ArrayList<Worker> workers = new ArrayList<>();
-        for (Worker worker : workers) {
-            if(id == worker.id){
-                return true;                 // if there are *TOO MANY* workers this may be useful
-            }                                   // obiously there are more efective ways to make a search
-        }
-        return false;
-    }
+        return workers.stream().anyMatch((worker) -> (id == worker.id));//I make a lambda expression, because the if was a litle bit redundant --"I think"
+    }                                                                   //But most of all, because it´s less code.
 
 
     //ejemplo 5 --> Dyadic Functions / funciones que reciben 2 parametros
