@@ -6,6 +6,6 @@
 *.cmd
 *mvnw
 /target
-/settings
+/.settings
 /mvn
 
