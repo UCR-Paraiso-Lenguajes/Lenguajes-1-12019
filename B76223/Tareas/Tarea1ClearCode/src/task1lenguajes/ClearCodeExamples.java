@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-// All methods are Example of Block and Identing (Chapter 3 P.35)
+//All methods are Example of Block and Identing (Chapter 3 P.35)
 public class ClearCodeExamples {
 
     //Example of Avoid misinformation (Chapter 2 P.19)
