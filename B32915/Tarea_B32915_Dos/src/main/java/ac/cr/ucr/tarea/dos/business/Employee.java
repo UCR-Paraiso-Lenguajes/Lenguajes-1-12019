@@ -1,5 +1,6 @@
 package ac.cr.ucr.tarea.dos.business;
 
+import java.io.IOException;
 import java.util.Date;
 
 /*Capitulo 2 Pagina 25 Class Names: "Classes and objects should have noun or noun 
@@ -24,12 +25,12 @@ public class Employee {
 	public Employee(String cod, String firtsName, String lastName, String identification, String rol, Date dateBirth,
 			double salary) throws Exception {
 
-		if(firtsName.equals(null)) {
-			throw(new Exception("El valor de nombre debe aparecer"));
-		}else if(lastName.equals(null)) {
-			throw(new Exception("El valor de apellido debe aparecer"));			
-		}else if(identification.equals(null)) {
-			throw(new Exception("El valor de identificacion debe aparecer"));
+		try{
+		if(firtsName.equals("") || lastName.equals("") || identification.equals("")) {
+	
+		   }
+		}catch(IllegalArgumentException e) {
+			throw(new Exception("El valor es requerido"));
 		}
 		
 		this.cod = cod;

@@ -22,7 +22,8 @@ public class EmployeeData {
 	 * o que compliquen o generen codificación excesiva
 	 */
 
-	double employeeSalary = payEmployee(1);
+	private double employeeSalary = payEmployee(1);
+	public ArrayList<Employee> listEmployee = new ArrayList<Employee>();
 
 	/*
 	 * Capitulo 2 Pagina 25 Method Names: "Methods should have verb or verb phrase
@@ -75,8 +76,6 @@ public class EmployeeData {
 	 */
 
 	public List<Employee> createEmployee() {
-
-		ArrayList<Employee> listEmployee = new ArrayList<Employee>();
 
 		Date date = new Date();
 
