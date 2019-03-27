@@ -1,7 +1,6 @@
-package cr.ac.ucr.ie.Domain;
+﻿package cr.ac.ucr.ie.Domain;
 
 import cr.ac.ucr.ie.Exceptions.Excepciones;
-
 
 /* Capirulo 6 - Tip 2 
  * Asimetría de datos y objectos
