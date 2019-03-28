@@ -14,6 +14,9 @@ public class Estudiante {
 	
 	public Estudiante(String nombre, String carnet, String cedula) {
 		super();
+		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
+		if(carnet == null || carnet.trim().equals("")) throw new RuntimeException("El carnet es requerido");
+		if(cedula == null || cedula.trim().equals("")) throw new RuntimeException("La cedula es requerido");
 		this.nombre = nombre;
 		this.carnet = carnet;
 		this.cedula = cedula;

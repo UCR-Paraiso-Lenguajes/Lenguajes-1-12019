@@ -15,7 +15,7 @@ public class Matricula {
 		if(!estudiante.getListaAsignaturas().contains(asignatura) ){
 		            estudiante.getListaAsignaturas().add(asignatura);
 		 }else{
-		            System.out.println("La asignatura ya esta matriculada!");
+			 throw new RuntimeException("La asignatura ya està matriculada");
 		 }
 		  
 		    }

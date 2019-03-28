@@ -7,6 +7,7 @@ public class Asignatura {
 	private double calificacion;
 	public Asignatura(String nombre, double calificacion) {
 		super();
+		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
 		this.nombre = nombre;
 		this.calificacion = calificacion;
 	}
