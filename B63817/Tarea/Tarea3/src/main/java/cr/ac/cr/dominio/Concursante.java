@@ -3,6 +3,11 @@ package cr.ac.cr.dominio;
 public class Concursante {
 
 	private String nombre;
+	
+	
+	public Concursante() {
+		
+	}
 
 	public Concursante(String nombre) {
 		//Cap7-caso8: No pasar Null
@@ -11,13 +16,6 @@ public class Concursante {
 	}
 
 	
-
-	public Concursante() {
-	
-	}
-
-
-
 	public String getNombre() {
 		return nombre;
 	}

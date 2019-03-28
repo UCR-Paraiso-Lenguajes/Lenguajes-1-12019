@@ -8,15 +8,22 @@ public class Circulo implements Figura {
 	private double radio;
 	public final double PI=3.1415;
 	
+	public Circulo(double diametro, double radio) {
+		super();
+		if(diametro == 0 ) throw new RuntimeException("El diametro debe ser mayor a 0");
+		if(radio == 0 ) throw new RuntimeException("El radio debe ser mayor a 0");
+		this.diametro = diametro;
+		this.radio = radio;
+	}
 	@Override
 	public double area() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return PI*(radio*radio);
 	}
 	@Override
 	public double perimetro() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return PI*diametro;
 	}
 	
 	public double getDiametro() {
