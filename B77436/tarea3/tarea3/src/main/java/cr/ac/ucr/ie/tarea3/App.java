@@ -30,17 +30,8 @@ public class App
     * ocurran errores, no falle el programa
     * */
     public void iniciarApp() throws MensajeExcepción{
-        try {
-            AritmeticaDatosObjetos aritmetica = new AritmeticaDatosObjetos(0, 0);
-            aritmetica.sumar();
-            
-        }catch(MensajeExcepción me) {
-        	Logger.getLogger(getClass().getName()).log(
-    	            Level.INFO, me.getMessage());
-        }finally {
-        	Logger.getLogger(getClass().getName()).log(
-    	            Level.INFO, "Se finalizó la corrida del programa");
-        }
+        AritmeticaDatosObjetos aritmetica = new AritmeticaDatosObjetos(0, 0);
+        aritmetica.sumar();
 	}
     	
 

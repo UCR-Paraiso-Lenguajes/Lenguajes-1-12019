@@ -16,7 +16,8 @@ public class Auto {
 	
 	//se implementan metodos para recuperacion de los datos
 	public Auto(String marca, String modelo, int año, String placa, String numeroChasis, String estiloAuto) {
-		
+		if(marca.equals("") || modelo.equals("") || placa.equals("") || numeroChasis.equals("") || estiloAuto.equals("")) throw new RuntimeException("No se ingresaron datos en las variables");
+		if(año ==0) throw new RuntimeException("No se ingreso un datos en la variable año");
 		this.marca = marca;
 		this.modelo = modelo;
 		this.año = año;
