@@ -10,6 +10,9 @@ public class Editorial {
 	private int telefono;
 	private List<Libro> libros;
 	
+	public Editorial() {
+		
+	}
 	
 	public Editorial(int id_editorial, String nombre, String direccion, int telefono, List<Libro> libros) {
 		super();
