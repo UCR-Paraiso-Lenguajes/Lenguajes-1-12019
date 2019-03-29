@@ -90,6 +90,9 @@ public class Boxeo implements Deporte{
 	 Capítulo 6, page 100
 	 */
 	public void setTamañoRing(int tamañoRing) {
+		
+		if(cantidadJugadores <= 0) throw new RuntimeException("No se admiten numeros negativos.");
+		
 		this.tamañoRing = tamañoRing;
 	}
 

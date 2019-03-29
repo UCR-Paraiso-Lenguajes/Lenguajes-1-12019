@@ -143,11 +143,11 @@ public class BoxeoData {
 	 * daría un NullPointerException
 	 */
 
-	public ArrayList<String> agregarEquipamiento(String equipamiento) {
+	public void agregarEquipamiento(String equipamiento) {
 
 		equipamientos.add(equipamiento);
 
-		return equipamientos;
+		
 
 	}
 
