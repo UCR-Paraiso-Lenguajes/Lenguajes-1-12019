@@ -1,5 +1,6 @@
 ﻿package data;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import domain.Cliente;
@@ -8,13 +9,13 @@ import domain.Vuelo;
 
 public class ReservacionesData {
 
-	private LinkedList<Reservacion> reservaciones;
+	private ArrayList<Reservacion> reservaciones;
 
 
 
 	public ReservacionesData() {
 		super();
-		reservaciones = new LinkedList<Reservacion>();
+		reservaciones = new ArrayList()<Reservacion>();
 	}
 	
 	

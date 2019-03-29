@@ -1,7 +1,7 @@
 package domain;
 
 public class Cliente {
-
+    //cap 6:{//cap 6:Abstracci贸n de datos
 	//cap 6: La ley de demeter
     private String nombre;
     private String apellidos;
@@ -23,13 +23,13 @@ public class Cliente {
 			int numeroPasaporte) {
 		super();
 		
-		//cap 7:Utilice excepciones en lugar de c骴igos de retorno
+		//cap 7:Utilice excepciones en lugar de c锟絛igos de retorno
 		
 		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
 		if(apellidos == null || apellidos.trim().equals("")) throw new RuntimeException("El apellido es requerido");
 		if(correo == null || correo.trim().equals("")) throw new RuntimeException("El correo es requerido");
-		if(identificacion == null || identificacion.trim().equals("")) throw new RuntimeException("La identificacion es requerida");
-		if(direccion == null || direccion.trim().equals("")) throw new RuntimeException("La direccion es requerida");
+		if(identificacion == null || identificacion.trim().equals("")) throw new RuntimeException("La identificaci贸n es requerida");
+		if(direccion == null || direccion.trim().equals("")) throw new RuntimeException("La direcci贸n es requerida");
 		if(numeroPasaporte <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		
 		
@@ -42,22 +42,25 @@ public class Cliente {
 	}
 
 
-	public String getNombre() {//cap 6:Abstracci髇 de datos
+	public String getNombre() {
 		return nombre;
 	}
 
 
 	public void setNombre(String nombre) {
+		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
 		this.nombre = nombre;
 	}
 
 
 	public String getApellidos() {
+		
 		return apellidos;
 	}
 
 
 	public void setApellidos(String apellidos) {
+		if(apellidos == null || apellidos.trim().equals("")) throw new RuntimeException("El apellido es requerido");
 		this.apellidos = apellidos;
 	}
 
@@ -68,6 +71,7 @@ public class Cliente {
 
 
 	public void setCorreo(String correo) {
+		if(correo == null || correo.trim().equals("")) throw new RuntimeException("El correo es requerido");
 		this.correo = correo;
 	}
 
@@ -78,6 +82,7 @@ public class Cliente {
 
 
 	public void setIdentificacion(String identificacion) {
+		if(identificacion == null || identificacion.trim().equals("")) throw new RuntimeException("La identificaci贸n es requerida");
 		this.identificacion = identificacion;
 	}
 
@@ -88,6 +93,7 @@ public class Cliente {
 
 
 	public void setDireccion(String direccion) {
+		if(direccion == null || direccion.trim().equals("")) throw new RuntimeException("La direcci贸n es requerida");
 		this.direccion = direccion;
 	}
 
@@ -98,6 +104,7 @@ public class Cliente {
 
 
 	public void setNumeroPasaporte(int numeroPasaporte) {
+		if(numeroPasaporte <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		this.numeroPasaporte = numeroPasaporte;
 	}
     
