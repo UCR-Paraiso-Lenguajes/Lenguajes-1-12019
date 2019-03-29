@@ -6,26 +6,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cr.ac.ucr.TareaTres.domain.Producto;
 import cr.ac.ucr.TareaTres.domain.Productos;
+import cr.ac.ucr.TareaTres.exception.Excepcion;
 
 @RestController
 public class ProductosController {
 	
 	private Productos productos = new Productos();
-	
-	@SuppressWarnings("finally")
+
 	@RequestMapping("/productos")
-	public @ResponseBody Iterable<Producto> listar() {
-		/*
-		 * Crear primero la instrucciòn try-catch-finally
-		 */
-		try {
-			productos.listar();
-		} catch (Exception e) {
-			throw new NullPointerException("No hay productos registrados");
-		} finally {
+	public @ResponseBody Iterable<Producto> listar() throws Excepcion {
+
+		if (!contieneProductos()) {
+			throw new Excepcion("No hay productos registrados");
+		} else
 			return productos.listar();
-		}
-		
+	}
+	
+	public boolean contieneProductos() {
+		if (productos.listar() != null) {
+			return true;
+		} else
+			return false;
 	}
 	
 }
