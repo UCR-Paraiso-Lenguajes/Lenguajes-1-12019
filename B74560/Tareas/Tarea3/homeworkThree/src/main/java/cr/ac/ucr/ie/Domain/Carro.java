@@ -2,6 +2,7 @@
 
 import cr.ac.ucr.ie.Exceptions.Excepciones;
 
+
 /* Capirulo 6 - Tip 2 
  * Asimetría de datos y objectos
  * Estructura de datos: Facilita la inclusión de nuevas funciones.
@@ -67,30 +68,62 @@ public class Carro {
 		this.numPlacaCarro = numPlacaCarro;
 		
 	}
-	
+
+	/*
+	* Cambios realizados, segun el Pull Request.
+	* Validar los sets
+	*/
+
 	public short getIdCarro() {
 		return idCarro;
 	}
 	public void setIdCarro(short idCarro) {
-		this.idCarro = idCarro;
+
+		if (idCarro<=0 && idCarro>100) { 
+			throw new Excepciones("The text field of the License plate of the car is empty, fill correctly.");
+		} else {
+			this.idCarro = idCarro;
+		}
+		
 	}
+
 	public String getMarcaCarro() {
 		return marcaCarro;
 	}
 	public void setMarcaCarro(String marcaCarro) {
-		this.marcaCarro = marcaCarro;
+
+		if (marcaCarro==null || marcaCarro.trim().equals("")) {
+			throw new Excepciones("The text field of the brand of the car is empty, fill correctly.");
+		} else {
+			this.marcaCarro = marcaCarro;
+		}
+
 	}
+
 	public String getEstiloCarro() {
 		return estiloCarro;
 	}
 	public void setEstiloCarro(String estiloCarro) {
-		this.estiloCarro = estiloCarro;
+
+		if (marcaCarro==null || marcaCarro.trim().equals("")) {
+			throw new Excepciones("The text field of the brand of the car is empty, fill correctly.");
+		} else {
+			this.estiloCarro = estiloCarro;
+		}
+
 	}
+
 	public String getNumPlacaCarro() {
 		return numPlacaCarro;
 	}
 	public void setNumPlacaCarro(String numPlacaCarro) {
-		this.numPlacaCarro = numPlacaCarro;
+
+		if (numPlacaCarro==null || numPlacaCarro.trim().equals("")) {
+			throw new Excepciones("The text field of the License plate of the car is empty, fill correctly.");
+		} else {
+			this.numPlacaCarro = numPlacaCarro;
+		}
+
 	}
 	
 }
