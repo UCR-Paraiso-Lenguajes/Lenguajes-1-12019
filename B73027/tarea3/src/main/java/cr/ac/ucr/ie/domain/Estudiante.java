@@ -11,22 +11,22 @@ public class Estudiante implements EstudianteInterface {
 	private final static Logger LOGGER = Logger.getLogger("");
 	
 	/* Para no devolver un nulos se le da un mensaje al usuario*/
-	public void AgregarEstudiante(Estudiantes estudiante) {
+	public void AgregarEstudiante(Estudiantes estudiante)throws EstudianteExcepcion {
 		if(estudiante!=null) {
 			listaEstudiantes.add(estudiante);
 		}else {
-			LOGGER.log(Level.WARNING,"No se logro añadir estudiante");
+			throw new EstudianteExcepcion("No se logro anadir el estudiante");
 		}
 			
 	}
 	
-	public void EliminarEstudiante(String nombreEstudiante) {
+	public void EliminarEstudiante(String nombreEstudiante) throws EstudianteExcepcion{
 		
 		for (int i = 0; i < listaEstudiantes.size(); i++) {
 			if(nombreEstudiante.equalsIgnoreCase(listaEstudiantes.get(i).getNombreEstudiante())) {
 				listaEstudiantes.remove(i);
 			}else {
-				LOGGER.log(Level.WARNING,"No se encontro el estudiante a eliminar");
+				throw new EstudianteExcepcion("No se logro eliminar el estudiante");
 			}
 		}
 	}
