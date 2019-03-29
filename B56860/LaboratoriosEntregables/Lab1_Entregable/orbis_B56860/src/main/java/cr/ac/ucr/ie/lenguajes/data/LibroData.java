@@ -25,9 +25,9 @@ public class LibroData {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Transactional(readOnly=true)
-	public Collection<Libro> ListarLibros(int inicio,int _final){
+	public List<Libro> ListarLibros(int inicio,int _final){
 		String sqlSelect = "SELECT l.id_libro, l.titulo, l.ano, l.precio, l.id_editorial "
-				+ "FROM Libro l"
+				+ " FROM Libro l"
 				+ " WHERE consecutivo BETWEEN "+inicio+" AND "+_final;
 		return jdbcTemplate.query(sqlSelect, new LibrosEstractor());
 	}//findMoviesByTitleAndGenre

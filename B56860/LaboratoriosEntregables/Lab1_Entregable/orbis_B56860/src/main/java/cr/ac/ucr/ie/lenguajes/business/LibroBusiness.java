@@ -1,6 +1,6 @@
 package cr.ac.ucr.ie.lenguajes.business;
 
-import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ public class LibroBusiness {
 	@Autowired
 	private LibroData libroData;
 	
-	public Iterator<Libro> ListarLibros(int inicio,int _final){
+	public List<Libro> ListarLibros(int inicio,int _final){
 		if((_final -inicio)<5) {
-			return (Iterator<Libro>) libroData.ListarLibros(inicio, _final);
+			return libroData.ListarLibros(inicio, _final);
 		}
 		throw new RuntimeException("No se pueden mostrar mas de 5 libros a la vez");
 	}
