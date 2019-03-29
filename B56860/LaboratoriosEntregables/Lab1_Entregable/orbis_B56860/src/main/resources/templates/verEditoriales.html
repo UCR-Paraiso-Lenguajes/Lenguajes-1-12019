@@ -38,7 +38,7 @@ crossorigin="anonymous"></script>
 </thead>
 <tbody>
 <tr th:each="editorial : ${editoriales}">
-<td> <a th:href="@{/libros}" th:text="${editorial.idEditorial}"></a></td>
+<td> <a th:href="@{/libros}" th:text="${editorial.id_editorial}"></a></td>
 <td><span th:text="${editorial.nombre}"></span></td>
 </tr>
 </tbody>

@@ -17,7 +17,7 @@ public class EditorialController {
 	EditorialBusiness editorialBusiness;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
-	public @ResponseBody String iniciar(Model model) {
+	public String iniciar(Model model) {
 		List<Editorial> editoriales = editorialBusiness.ListarEditoriales(1, 3);
 		model.addAttribute("editoriales",editoriales);
 		return "verEditoriales";
