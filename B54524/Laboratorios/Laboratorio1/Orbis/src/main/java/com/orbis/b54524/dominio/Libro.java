@@ -73,6 +73,7 @@ public class Libro {
 	 */
 	public Libro() {
 		// TODO Auto-generated constructor stub
+		autores = new ArrayList<>();
 	}
 
 	public int getIdLibro() {
