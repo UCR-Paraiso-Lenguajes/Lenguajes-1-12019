@@ -16,11 +16,30 @@ public class EditorialController {
 	@Autowired
 	EditorialBusiness editorialBusiness;
 	
+	private int inicio=1;
+	private int fin=3;
+	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String iniciar(Model model) {
-		List<Editorial> editoriales = editorialBusiness.ListarEditoriales(1, 3);
+		List<Editorial> editoriales = editorialBusiness.ListarEditoriales(inicio, fin);
 		model.addAttribute("editoriales",editoriales);
 		return "verEditoriales";
 	}
 	
+	@RequestMapping(value="/sig",method=RequestMethod.GET)
+	public String sigiente(Model model) {
+		inicio+=3;
+		fin+=3;
+		List<Editorial> editoriales = editorialBusiness.ListarEditoriales(inicio, fin);
+		model.addAttribute("editoriales",editoriales);
+		return "verEditoriales";
+	}
+	@RequestMapping(value="/ant",method=RequestMethod.GET)
+	public String anterior(Model model) {
+		inicio-=3;
+		fin-=3;
+		List<Editorial> editoriales = editorialBusiness.ListarEditoriales(inicio, fin);
+		model.addAttribute("editoriales",editoriales);
+		return "verEditoriales";
+	}
 }

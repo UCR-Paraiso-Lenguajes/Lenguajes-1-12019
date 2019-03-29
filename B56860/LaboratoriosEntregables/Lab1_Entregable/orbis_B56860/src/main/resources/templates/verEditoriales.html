@@ -27,20 +27,22 @@ crossorigin="anonymous"></script>
 <body>
 <div class="container">
 <div class="row">
-<div class="col-sm-4"></div>
 <div class="col-sm-4">
-<table class="table table-striped">
+<table class="table ">
 <thead>
 <tr>
 <th>Codigo Editorial</th>
-<th>Nombre</th>
+<th>Nombre Editorial</th>
 </tr>
 </thead>
 <tbody>
 <tr th:each="editorial : ${editoriales}">
-<td> <a th:href="@{/libros}" th:text="${editorial.id_editorial}"></a></td>
+<td> <a th:href="@{/ver_libros}" th:text="${editorial.id_editorial}"></a></td>
 <td><span th:text="${editorial.nombre}"></span></td>
 </tr>
+<br/>
+<td><a th:href="@{/ant}" th:text="Anterior"></td>
+<td><a th:href="@{/sig}" th:text="Siguiente"></td>
 </tbody>
 </table>
 </div>

@@ -16,12 +16,35 @@ import cr.ac.ucr.ie.lenguajes.domain.Libro;
 
 public class LibroController {
 	
+	private int inicio=1;
+	private int fin=3;
+	
+	
+	
 	@Autowired
 	LibroBusiness libroBusiness;
 	
 	@RequestMapping(value="/ver_libros",method=RequestMethod.GET)
-	public @ResponseBody String iniciar(Model model) {
-		List<Libro> libros=libroBusiness.ListarLibros(1, 3);
+	public String iniciar(Model model) {
+		List<Libro> libros=libroBusiness.ListarLibros(inicio, fin);
+		model.addAttribute("libros", libros);
+		return "mostrarLibros";
+	}
+	
+	@RequestMapping(value="/siguiente",method=RequestMethod.GET)
+	public String siguiente(Model model) {
+		inicio+=3;
+		fin+=3;
+		List<Libro> libros=libroBusiness.ListarLibros(inicio, fin);
+		model.addAttribute("libros", libros);
+		return "mostrarLibros";
+	}
+	
+	@RequestMapping(value="/anterior",method=RequestMethod.GET)
+	public String anterior(Model model) {
+		inicio-=3;
+		fin-=3;
+		List<Libro> libros=libroBusiness.ListarLibros(inicio, fin);
 		model.addAttribute("libros", libros);
 		return "mostrarLibros";
 	}
