@@ -7,17 +7,11 @@ public class Editorial {
 	private String direccion;
 	private String telefono;
 	
-	public Editorial(int id_editorial, String nombre, String direccion, String telefono) {
-		this.id_editorial = id_editorial;
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		
-		if(id_editorial <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
-		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
+	public Editorial() {
 	}
 
 	public int getId_editorial() {
+		if(id_editorial <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		return id_editorial;
 	}
 
@@ -30,6 +24,7 @@ public class Editorial {
 	}
 
 	public void setNombre(String nombre) {
+		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre es requerido");
 		this.nombre = nombre;
 	}
 
