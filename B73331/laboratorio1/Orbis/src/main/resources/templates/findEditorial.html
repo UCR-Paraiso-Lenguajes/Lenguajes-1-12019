@@ -13,14 +13,45 @@
 <div class="container">
 <h1>Mantenimiento de editoriales</h1>
 	<h4>Busqueda por ID</h4>
-	<form action="#" th:action="@{/findEditorial}" method="post">
+	<form action="#" onsubmit="verificacion()" th:action="@{/findEditorial}" method="post">
 	ID editorial <input type="number" name="id" id="campoId"/> <br> 
 	
 	<h4>Busqueda por rangos</h4>
 	Primer rango <input type="number" name="desde" id="campoDesde" /> <br> <br>
 	Segundo rango <input type="number" name="hasta" id="campoHasta" /> <br> <br>
 	
-	<input id="buscarButtom" value="Buscar" type="submit" />
+	<input  id="buscarButtom" value="Buscar" type="submit" />
+	<script>
+//$(function() {});
+	function verificacion() { 
+		var idField=document.getElementById("campoId").value;
+    	var desdeField=document.getElementById("campoDesde").value;
+    	var hastaField=document.getElementById("campoHasta").value;
+    	var buscarButtom=document.getElementById("buscarButtom").value;
+    	if(desdeField===""&&hastaField===""&&idField===""){
+    		alert("Todos campos no deben quedar vacios (desde, hasta, id)");
+    		event.preventDefault();
+    	}else if(desdeField!==""&&hastaField===""&&idField===""){
+    		alert("Los campos no de rango no deben quedar vacios (hasta)");
+    		event.preventDefault();
+    	}else if(desdeField===""&&hastaField!==""&&idField===""){
+    		alert("Los campos no de rango no deben quedar vacios (desde)");
+    		event.preventDefault();
+    	}else if(desdeField!==""&&hastaField!==""&&idField!==""){
+    		alert("Todos campos no deben estar llenos, elija algunoas de los dos metodos de "
+					+ "busqueda (desde, hasta, id)");
+    		event.preventDefault();
+    	}else if(desdeField!==""&&hastaField===""&&idField!==""){
+    		alert("Todos campos no deben estar llenos, elija algunoas de los dos metodos de "
+					+ "busqueda");
+    		event.preventDefault();
+    	}else if(desdeField===""&&hastaField!==""&&idField!==""){
+    		alert("Todos campos no deben estar llenos, elija algunoas de los dos metodos de "
+					+ "busqueda");
+    		event.preventDefault();
+    	}
+	}
+</script>
 	</form>
 	
 	<table class="table table-striped">
@@ -37,17 +68,5 @@
 	</table>
 </div>
 </body>
-<script>
-	function verificacion() {
-		var idField = document.getElementById("campoId");
-    	var desdeField = document.getElementById("campoDesde");
-    	var hastaField = document.getElementById("campoHasta");
-    	var buscarButtom = document.getElementById("buscarButtom");
-    	if(desdeField!===null&&hastaField!===null&&idField!===null){
-    		alert("Debe llenar campos");
-    	//location.href = "findEditorial";
-    	}
-    /**/
-});
-</script>
+
 </html>
