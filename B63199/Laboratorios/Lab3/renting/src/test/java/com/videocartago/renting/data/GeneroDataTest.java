@@ -1,6 +1,4 @@
 package com.videocartago.renting.data;
-
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -11,19 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.videocartago.renting.domain.Pelicula;
+import com.videocartago.renting.data.GeneroData;
+import com.videocartago.renting.domain.Genero;
+
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PeliculaDataTest {
+public class GeneroDataTest {
+	
 	@Autowired
-	private PeliculaData peliculaData;
+	private GeneroData generoData;
 	
 	@Test
-	public void findMoviesByTitleAndGenre() {
-		List<Pelicula> peliculas = peliculaData.findMoviesByTitleAndGenre("time", "suspenso");
-		assertNotNull(peliculas);
-		assertTrue(!peliculas.isEmpty());
+	public void findAll() {
+		List<Genero> generos = generoData.findAllGenres(0, 3000);
+		assertTrue( generos.get(0).getCodGenero() == 1000);
+		assertTrue( generos.get(1).getCodGenero() == 2000);
 	}
-	
 }
