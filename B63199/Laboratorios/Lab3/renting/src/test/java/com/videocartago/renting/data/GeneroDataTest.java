@@ -25,4 +25,5 @@ public class GeneroDataTest {
 		assertTrue( generos.get(0).getCodGenero() == 1000);
 		assertTrue( generos.get(1).getCodGenero() == 2000);
 	}
+
 }
