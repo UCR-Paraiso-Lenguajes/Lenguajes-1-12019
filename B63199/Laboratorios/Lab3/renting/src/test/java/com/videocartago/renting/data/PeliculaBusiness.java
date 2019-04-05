@@ -1,4 +1,5 @@
 package com.videocartago.renting.data;
+
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -9,20 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.videocartago.renting.data.GeneroData;
-import com.videocartago.renting.domain.Genero;
+import com.videocartago.renting.domain.Pelicula;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeneroDataTest {
-	
+public class PeliculaBusiness {
+
 	@Autowired
-	private GeneroData generoData;
+	private PeliculaBusiness peliculaBusiness;
 	
 	@Test
-	public void findAll() {
-		List<Genero> generos = generoData.findAllGenres(0, 3000);
-		assertTrue( generos.get(0).getCodGenero() == 1000);
-		assertTrue( generos.get(1).getCodGenero() == 2000);
+	public List<Pelicula> findAllMovieByTitle(String title){
+		assertTrue(title != null);
+		return peliculaBusiness.findAllMovieByTitle(title);
 	}
+	
 }

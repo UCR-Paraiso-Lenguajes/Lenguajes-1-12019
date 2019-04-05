@@ -4,9 +4,10 @@ public class Genero {
 
 	private int codGenero;
 	private String nombreGenero;
-	
-	
 
+	public Genero() {
+		super();
+	}
 	public Genero(int codGenero, String nombreGenero) {
 		if(codGenero!=0) 		
 		this.codGenero = codGenero;
@@ -16,7 +17,7 @@ public class Genero {
 	public int getCodGenero() {
 		return codGenero;
 	}
-	public void setCodGenero(String string) {
+	public void setCodGenero(int codGenero) {
 		this.codGenero = codGenero;
 	}
 	public String getNombreGenero() {

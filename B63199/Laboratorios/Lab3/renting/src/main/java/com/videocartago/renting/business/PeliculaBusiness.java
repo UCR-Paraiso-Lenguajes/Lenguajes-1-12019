@@ -18,10 +18,11 @@ public class PeliculaBusiness {
 		return peliculaDao.findMoviesByTitleAndGenre(title, genre);
 	}
 	
-	public Pelicula save(Pelicula pelicula)throws SQLException{
-		if(pelicula==null)throw new RuntimeException("La pelicula es requerida");
-		if(pelicula.getTitulo().length()>200) throw new RuntimeException("El titulo es muy largo");
-		if(pelicula.getGenero()==null) throw new RuntimeException("El genero es requerido");
+	public Pelicula save(Pelicula pelicula){
 		return peliculaDao.save(pelicula);
+	}
+	
+	public List<Pelicula> findAllMovieByTitle(String title){
+		return peliculaDao.findMoviesByTitle(title);
 	}
 }

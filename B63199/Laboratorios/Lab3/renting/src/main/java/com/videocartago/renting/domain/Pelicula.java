@@ -1,5 +1,6 @@
 package com.videocartago.renting.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pelicula {
@@ -9,9 +10,12 @@ public class Pelicula {
 	private int totalPeliculas;
 	private boolean subtitulada;
 	private boolean estreno;
+	private Genero genero;
+	private List<Actor> actores;
 	
 	public Pelicula() {
-		// TODO Auto-generated constructor stub
+		genero=new Genero();
+		actores=new ArrayList<>();
 	}
 	public int getCodPelicula() {
 		return codPelicula;
@@ -44,13 +48,18 @@ public class Pelicula {
 		this.estreno = estreno;
 	}
 	public Genero getGenero() {
-		// TODO Auto-generated method stub
-		return null;
+		return genero;
+	}
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 	public List<Actor> getActores() {
-		// TODO Auto-generated method stub
-		return null;
+		return actores;
 	}
+	public void setActores(List<Actor> actores) {
+		this.actores = actores;
+	}
+
 	
 
 

@@ -9,15 +9,13 @@ import org.springframework.stereotype.Service;
 import com.videocartago.renting.data.GeneroData;
 import com.videocartago.renting.domain.Genero;
 
-
 @Service
 public class GeneroBusiness {
 	@Autowired
-	private GeneroData generoDao;
+	private GeneroData generoData;
 	
-	public List<Genero> findAll(){
-		return generoDao.findAllGenres(0,200);
+	public List<Genero> findAll(int inicio, int fin){
+		return generoData.findAllGenres(inicio,fin);
 	}
-
 }
 

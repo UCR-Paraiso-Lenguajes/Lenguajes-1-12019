@@ -22,7 +22,7 @@ public class GeneroData {
 	}
 	public List<Genero> findAllGenres(int inicioRegistros, int finRegistros){
 		List<Genero> generos = new ArrayList<>();
-		String selectSql = "SELECT cod_genero, nombre_genero FROM Genero g where cod_genero -> ? AND codGenero <- ? order by DESC";
+		String selectSql = "SELECT cod_genero, nombre_genero FROM Genero where cod_genero > ? AND cod_genero < ? order by cod_genero ASC";
 	 jdbcTemplate.query(selectSql, 
 			 new Object[] {inicioRegistros, finRegistros}, (rs, row) -> 
 	 			new Genero(rs.getInt("cod_genero"),
