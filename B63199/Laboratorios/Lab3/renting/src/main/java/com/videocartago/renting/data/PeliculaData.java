@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.videocartago.renting.domain.Actor;
 import com.videocartago.renting.domain.Genero;
+import com.videocartago.renting.domain.Movimiento;
 import com.videocartago.renting.domain.Pelicula;
 
 
@@ -32,6 +33,8 @@ public class PeliculaData {
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	private DataSource dataSource;
+	
+	//public MovimientoData movimientoData=new MovimientoData();
 	
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
@@ -45,9 +48,11 @@ public class PeliculaData {
 				.declareParameters(new SqlParameter("@codGenero", Types.INTEGER))
 				.declareParameters(new SqlParameter("@totalPeliculas", Types.INTEGER))
 				.declareParameters(new SqlParameter("@subtitulada", Types.BIT))
-				.declareParameters(new SqlParameter("@estreno", Types.BIT));
+				.declareParameters(new SqlParameter("@estreno", Types.BIT))
+				.declareParameters(new SqlParameter("@tipoPublico", Types.VARCHAR));
 	}
 	
+	//insertar una nueva película
 	@Transactional
 	public Pelicula save(Pelicula pelicula)  {
 		SqlParameterSource parameterSource = new MapSqlParameterSource()
@@ -55,7 +60,10 @@ public class PeliculaData {
 				.addValue("@codGenero", pelicula.getGenero().getCodGenero())
 				.addValue("@totalPeliculas", pelicula.getTotalPeliculas())
 				.addValue("@subtitulada", pelicula.isSubtitulada())
-				.addValue("@estreno", pelicula.isEstreno());
+				.addValue("@estreno", pelicula.isEstreno())
+				.addValue("@tipoPublico", pelicula.getTipoPublico());
+		
+		
 		Map<String, Object> outParameters = simpleJdbcCall.execute(parameterSource);
 		pelicula.setCodPelicula(Integer.parseInt(outParameters.get("@codPelicula").toString()));
 		return pelicula;
@@ -83,6 +91,7 @@ public class PeliculaData {
 				+ " WHERE p.titulo like '%"+title.trim() + "%'";
 		return jdbcTemplate.query(sqlSelect, new PeliculasWithActoresExtractor());
 	}// findMoviesByTitleAndGenre
+
 	
 }
 
@@ -118,4 +127,6 @@ class PeliculasWithActoresExtractor implements ResultSetExtractor<List<Pelicula>
 		} // while
 		return new ArrayList<Pelicula>(map.values());
 	} // extractData
+	
+	
 }
