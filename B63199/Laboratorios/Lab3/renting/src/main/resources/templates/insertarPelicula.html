@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Insertar nueva pelicula</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+	
+	<script>
+		function moveRight(e) {
+			var leftSelect = document.forms[0].leftList;
+			for (var i = 0, len = leftSelect.options.length; i < len; i++) {
+				var option = leftSelect.options[i];
+				if (option.selected) {
+					document.forms[0].rightList.add(option, null);
+				}
+			}
+			if (!e) {
+				e.preventDefault();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container" style="max-width: 600px; padding: 40px 20px;">
+	<h1>Insertar nueva película</h1>
+		<form th:object="${peliculaForm}" action="#"
+			th:action="@{/insertarPelicula}" method="post">
+			<label>Título:</label><input type="text" th:field="*{titulo}"
+				class="form-control" placeholder="Título" /> 
+				<div th:if="${#fields.hasErrors('titulo')}">El título debe
+				contener al menos dos letras</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+				<label> Genero:
+				<select
+				th:field="*{codGenero}">
+				<option th:each="genero: ${generos}" th:value="${genero.codGenero}"
+					th:text="${genero.nombreGenero}"></option>
+			</select> 
+				</label>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+			<label>Total películas<input type="number"
+				th:field="*{totalPeliculas}" class="form-control"
+				placeholder="Total películas" /></label>
+				<div th:if="${#fields.hasErrors('totalPeliculas')}">Debe ingresar al menos dos películas</div>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				 <label> <input
+				type="checkbox" th:field="*{subtitulada}"> Subtitulada
+			</label> <label> <input type="checkbox" th:field="*{estreno}">
+				Estreno
+			</label>
+			<button type="submit">Salvar</button>
+		</form>
+	</div>
+<!--  <div th:text="#{texto}"></div> -->
+</body>
+</html>
