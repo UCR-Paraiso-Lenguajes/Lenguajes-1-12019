@@ -1,4 +1,4 @@
-Ôªøpackage tarea2_lenguajes;
+package tarea2_lenguajes;
 
  import java.util.ArrayList;
 
@@ -9,7 +9,7 @@
 
   /**
      
-     * CAP√ÉÔøΩTULO 2
+     * CAP√?TULO 2
      
  **/
 
@@ -44,7 +44,7 @@
  	public String getNameById(int id){
 	     if(this.id == id)
 		return this.name;
-        throw new RuntimeException("The person doesn¬¥t exist");
+        throw new RuntimeException("The person doesn¥t exist");
 	}        
 
  	public String getProffesion(){
@@ -53,7 +53,7 @@
     }
 
 
-     //ejemplo 5 --> Avoid disinformation / ser claro con la informaci√É¬≥n
+     //ejemplo 5 --> Avoid disinformation / ser claro con la informaci√≥n
 
      
     public static String word;
@@ -65,7 +65,7 @@
 
      /**
      
-     * CAP√çTULO 3
+     * CAPÕTULO 3
      *
     **/
 
@@ -78,7 +78,7 @@
                 return worker.name;
             }
         }
-        throw new RuntimeException("The person doesn¬¥t exist");
+        throw new RuntimeException("The person doesn¥t exist");
     }
 
 
@@ -100,7 +100,7 @@
     public boolean exists(int id){
         ArrayList<Worker> workers = new ArrayList<>();
         return workers.stream().anyMatch((worker) -> (id == worker.id));//I make a lambda expression, because the if was a litle bit redundant --"I think"
-    }                                                                   //But most of all, because it¬¥s less code.
+    }                                                                   //But most of all, because it¥s less code.
 
 
     //ejemplo 5 --> Dyadic Functions / funciones que reciben 2 parametros
