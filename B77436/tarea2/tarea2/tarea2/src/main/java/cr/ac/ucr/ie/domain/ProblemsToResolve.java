@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class ProblemsToResolve {
 	/*5. Basado en: Pagina 27 y 28. "Añadir un contexto significativo", es decir un explicacion significativa de lo que va a 
 	 * realizar el metodoo funciones, para que sea facil de entender*/
-	//La funcion para recibir un numero y calcular el factorial de ese numero
+	//La funcion para recibir un numero y calcular el factorial de ese numero.........
 	public  void getFactorial(int getNumber)  {
 		/*Capitulo 2
 		 * 6.Basado en: Pagina 36. "NO tener efectos secundarios", el codigo debe estar bien identado dentro de lso ciclos, metodos

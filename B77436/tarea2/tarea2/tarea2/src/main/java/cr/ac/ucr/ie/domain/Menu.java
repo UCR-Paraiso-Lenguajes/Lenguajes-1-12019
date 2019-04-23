@@ -67,7 +67,7 @@ de Clean Code pág 25*/
 			}else{
 				Logger.getLogger(getClass().getName()).log(
 							Level.INFO, "Error al introducir dato");
-				throw new Exception("Ocurrió un falló");
+				throw new Exception("Ocurrió un falló en el sistema");
 				
 			}
 				
