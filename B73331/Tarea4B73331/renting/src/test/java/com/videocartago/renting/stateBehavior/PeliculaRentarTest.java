@@ -47,7 +47,7 @@ public class PeliculaRentarTest {
 	public void rentarPeliculaTest() {
 		Pelicula pelicula = llenarPelicula();
 		EstadoRenta estado = new EstadoRenta();//Por default ya esta disponible para ponerla en false
-		pelicula.setEstadoRentada(estado);
+		pelicula.rentar(estado);
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, "##rentarPeliculaTest==La pelicula esta disponible: "+pelicula.getEstado());
 	}
@@ -55,8 +55,8 @@ public class PeliculaRentarTest {
 	public void disponiblePeliculaTest() {
 		Pelicula pelicula = llenarPelicula();
 		EstadoRenta estado = new EstadoRenta();
-		pelicula.setEstadoRentada(estado);//La pongo en false(esta rentada) para devolverla
-		pelicula.setEstadoDisponible(estado);
+		pelicula.rentar(estado);//La pongo en false(esta rentada) para devolverla
+		pelicula.devolver(estado);
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, "##disponiblePeliculaTest==La pelicula esta disponible: "+pelicula.getEstado());
 	}
@@ -64,8 +64,8 @@ public class PeliculaRentarTest {
 	public void rentarPeliculaTestErr() {
 		Pelicula pelicula = llenarPelicula();
 		EstadoRenta estado = new EstadoRenta();//La pongo como anteriormente rentada
-		pelicula.setEstadoRentada(estado);
-		pelicula.setEstadoRentada(estado);
+		pelicula.rentar(estado);
+		pelicula.rentar(estado);
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, "##rentarPeliculaTest==La pelicula esta disponible: "+pelicula.getEstado());
 	}
@@ -73,7 +73,7 @@ public class PeliculaRentarTest {
 	public void disponiblePeliculaTestErr() {
 		Pelicula pelicula = llenarPelicula();
 		EstadoRenta estado = new EstadoRenta();
-		pelicula.setEstadoDisponible(estado);//Ya esta disponible anteriormente
+		pelicula.devolver(estado);//Ya esta disponible anteriormente
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, "##disponiblePeliculaTest==La pelicula esta disponible: "+pelicula.getEstado());
 	}

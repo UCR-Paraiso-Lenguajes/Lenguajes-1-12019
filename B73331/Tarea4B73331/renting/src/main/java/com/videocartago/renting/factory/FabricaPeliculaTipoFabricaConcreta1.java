@@ -5,10 +5,10 @@ import com.videocartago.renting.domain.PeliculaMayores12;
 import com.videocartago.renting.domain.PeliculaMayores18;
 import com.videocartago.renting.domain.PeliculaTP;
 
-public class FabricaPeliculaTipo_FabricaConcreta1 extends Pelicula_FabricaAbstracta{
-	private static Pelicula_TipoAbstracta peliculaAbs;
+public class FabricaPeliculaTipoFabricaConcreta1 extends PeliculaFabricaAbstracta{
+	private static PeliculaTipoAbstracta peliculaAbs;
 	@Override
-	public Pelicula_TipoAbstracta crearPelicula(Pelicula pelicula) {
+	public PeliculaTipoAbstracta crearPelicula(Pelicula pelicula) {
 		if(pelicula.getGenero().getNombreGenero().equalsIgnoreCase("Terror")) {
 			PeliculaMayores18 pelicula18 = new PeliculaMayores18(pelicula);
 			pelicula18.setTipo();

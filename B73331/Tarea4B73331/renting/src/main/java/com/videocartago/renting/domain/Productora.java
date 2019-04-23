@@ -3,9 +3,6 @@ package com.videocartago.renting.domain;
 public class Productora {
 	private static Productora instance= new Productora();
 	private String contenido = "";
-	public Productora() {
-		
-	}
 	public static Productora getInstance(){
         return instance;
     }

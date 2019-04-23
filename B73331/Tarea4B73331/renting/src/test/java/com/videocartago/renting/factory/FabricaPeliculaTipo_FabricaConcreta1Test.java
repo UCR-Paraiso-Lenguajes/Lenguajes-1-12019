@@ -19,8 +19,8 @@ import com.videocartago.renting.domain.PeliculaMayores18;
 @SpringBootTest
 public class FabricaPeliculaTipo_FabricaConcreta1Test {
 	private Genero genero;
-	private Pelicula_TipoAbstracta peliculaTipo;
-	private FabricaPeliculaTipo_FabricaConcreta1 fabrica;
+	private PeliculaTipoAbstracta peliculaTipo;
+	private FabricaPeliculaTipoFabricaConcreta1 fabrica;
 	@Test
 	public void testingPeliculaTP() {
 		Pelicula pelicula = new Pelicula();
@@ -37,7 +37,7 @@ public class FabricaPeliculaTipo_FabricaConcreta1Test {
 		pelicula.setTitulo("Los cuentos de mi tia panchita");
 		pelicula.setTotalPeliculas(5);
 		
-		fabrica=new FabricaPeliculaTipo_FabricaConcreta1();
+		fabrica=new FabricaPeliculaTipoFabricaConcreta1();
 		peliculaTipo = fabrica.crearPelicula(pelicula);
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, peliculaTipo.getTitulo()+"\nGenero:  "+peliculaTipo.getGenero().getNombreGenero()+"\n  Tipo de pelicula:  "+peliculaTipo.getTipo());
@@ -58,7 +58,7 @@ public class FabricaPeliculaTipo_FabricaConcreta1Test {
 		pelicula.setTitulo("Los cuentos de mi tia panchita");
 		pelicula.setTotalPeliculas(5);
 		
-		fabrica=new FabricaPeliculaTipo_FabricaConcreta1();
+		fabrica=new FabricaPeliculaTipoFabricaConcreta1();
 		peliculaTipo = fabrica.crearPelicula(pelicula);
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, peliculaTipo.getTitulo()+"\nGenero:  "+peliculaTipo.getGenero().getNombreGenero()+"\n  Tipo de pelicula:  "+peliculaTipo.getTipo());
@@ -79,7 +79,7 @@ public class FabricaPeliculaTipo_FabricaConcreta1Test {
 		pelicula.setTitulo("Los cuentos de mi tia panchita");
 		pelicula.setTotalPeliculas(5);
 		
-		fabrica=new FabricaPeliculaTipo_FabricaConcreta1();
+		fabrica=new FabricaPeliculaTipoFabricaConcreta1();
 		peliculaTipo = fabrica.crearPelicula(pelicula);
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, peliculaTipo.getTitulo()+"\nGenero:  "+peliculaTipo.getGenero().getNombreGenero()+"\n  Tipo de pelicula:  "+peliculaTipo.getTipo());

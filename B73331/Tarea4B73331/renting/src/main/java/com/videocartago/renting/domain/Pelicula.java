@@ -70,12 +70,12 @@ public class Pelicula {
 
 	
 
-	public void setEstadoRentada(EstadoPelicula estado) {
+	public void rentar(EstadoPelicula estado) {
 		if(!this.estado)
 			throw new RuntimeException("La pelicula ya estaba rentada");
 		this.estado = estado.rentar();
 	}
-	public void setEstadoDisponible(EstadoPelicula estado) {
+	public void devolver(EstadoPelicula estado) {
 		if(this.estado)
 			throw new RuntimeException("La pelicula ya estaba disponible");
 		this.estado = estado.devolver();
