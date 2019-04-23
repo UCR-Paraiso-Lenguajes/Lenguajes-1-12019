@@ -7,35 +7,8 @@ public class Stock extends Estado{
 		
 		pelicula.setEstado(this);
 	}
-
 	
 	@Override
 	public void rentar(Pelicula pelicula) {	
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	}	
 }
