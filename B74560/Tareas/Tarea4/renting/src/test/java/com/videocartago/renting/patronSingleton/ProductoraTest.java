@@ -1,5 +1,7 @@
 package com.videocartago.renting.patronSingleton;
 
+import static org.junit.Assert.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,10 +19,12 @@ public class ProductoraTest {
 	Productora productora;
 	@Test
 	public void productoraTest() {
+		
 		productora = Productora.getInstance();
 		productora.setTipoContenido("Clíps");
+		assertNotNull("Vacío getTipoContenido", productora.getTipoContenido());
 		Logger.getLogger(getClass().getName()).log(Level.INFO, productora.getTipoContenido());
-
+		
 	}
 
 }

@@ -79,22 +79,36 @@ public class Pelicula {
 		this.estreno = estreno;
 	}
 
-	public void setRentar(EstadoPelicula estadoPelicula) {
+	public boolean rentar(EstadoPelicula estadoPelicula) {
 
-		if (!estadoPelicula.rentarPelicula()) {
+		/*
+		 * Saber sí la pelicula es posible rentarla Sí estadoPelicula.devolverPelicula()
+		 * es diferente de true aun no han devuelto la pelicula, por lo tanto, no es
+		 * posible rentar la pelicula, de lo contrario podrá rentarse
+		 */
+
+		if (!estadoPelicula.devolverPelicula()) {
 			throw new RentingException("No es posible rentar la pelicula");
 		} else {
 			Logger.getLogger(getClass().getName()).log(Level.INFO, "Pelicula fue rentada con exito");
+			return true;
 		}
 
 	}
 
-	public void setDevolver(EstadoPelicula estadoPelicula) {
+	public boolean devolver(EstadoPelicula estadoPelicula) {
 
-		if (!estadoPelicula.devolverPelicula()) {
+		/*
+		 * Saber sí la pelicula es posible devolverla Sí estadoPelicula.rentarPelicula()
+		 * es diferente de true aun no han rentado la pelicula, por lo tanto, no es
+		 * posible devolverla la pelicula, de lo contrario podrá devoverse
+		 */
+
+		if (!estadoPelicula.rentarPelicula()) {
 			throw new RentingException("No es posible devolver la pelicula");
 		} else {
 			Logger.getLogger(getClass().getName()).log(Level.INFO, "Pelicula fue devuelta con exito");
+			return true;
 		}
 
 	}

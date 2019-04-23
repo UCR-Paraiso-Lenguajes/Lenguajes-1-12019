@@ -22,7 +22,7 @@ public class GeneroBusinessTest {
 	@Test
 	public void findAll() {
 		List<Genero> genero = generoBusiness.findAll(2, 99999);
-		assertNotNull(genero);
+		assertNotNull("Genero esta vacío", genero);
 		assertTrue(!genero.isEmpty());
 	}
 }

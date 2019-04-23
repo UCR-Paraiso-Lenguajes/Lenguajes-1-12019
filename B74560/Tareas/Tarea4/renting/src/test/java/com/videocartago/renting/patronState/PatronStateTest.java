@@ -2,6 +2,8 @@ package com.videocartago.renting.patronState;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 import com.videocartago.renting.domain.Pelicula;
 
 public class PatronStateTest {
@@ -11,30 +13,38 @@ public class PatronStateTest {
 	RentaPelicula rentaPelicula = new RentaPelicula();
 
 	@Test
-	public void rentarPelicula() {
-
-		pelicula.setRentar(rentaPelicula);
-
-	}
-
-	@Test
-	public void devolverPelicula() {
-
-		pelicula.setDevolver(devolucionPelicula);
-
-	}
-
-	@Test
 	public void rentarPeliculaException() {
-
-		pelicula.setDevolver(rentaPelicula);
+		
+		assertTrue("No se puede rentar", 
+				pelicula.rentar(rentaPelicula));
+		pelicula.rentar(rentaPelicula);
 
 	}
 
 	@Test
 	public void devolverPeliculaException() {
+		
+		assertTrue("No se puede rentar", 
+				pelicula.devolver(devolucionPelicula));
+		pelicula.devolver(devolucionPelicula);
 
-		pelicula.setRentar(devolucionPelicula);
+	}
+
+	@Test
+	public void rentarPelicula() {
+
+		assertTrue("No se puede rentar", 
+				pelicula.devolver(rentaPelicula));
+		pelicula.devolver(rentaPelicula);
+
+	}
+
+	@Test
+	public void devolverPelicula() {
+		
+		assertTrue("No se puede rentar", 
+				pelicula.rentar(devolucionPelicula));
+		pelicula.rentar(devolucionPelicula);
 
 	}
 

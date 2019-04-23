@@ -8,19 +8,19 @@ import javax.validation.constraints.Size;
 public class PeliculaForm {
 	private int codPelicula;
 	@NotNull
-	@Size (min=2, max=50)
+	@Size(min = 2, max = 50)
 	private String titulo;
 	@NotNull
-	@Min (2)
-	@Max (200)
+	@Min(2)
+	@Max(200)
 	private int totalPeliculas;
 	private boolean subtitulada;
 	private boolean estreno;
 	@NotNull
 	private int codGenero;
-	
-	public PeliculaForm () {
-		
+
+	public PeliculaForm() {
+
 	}
 
 	public int getCodPelicula() {
@@ -38,7 +38,6 @@ public class PeliculaForm {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	
 
 	public int getTotalPeliculas() {
 		return totalPeliculas;
@@ -71,6 +70,5 @@ public class PeliculaForm {
 	public void setCodGenero(int codGenero) {
 		this.codGenero = codGenero;
 	}
-	
-	
+
 }

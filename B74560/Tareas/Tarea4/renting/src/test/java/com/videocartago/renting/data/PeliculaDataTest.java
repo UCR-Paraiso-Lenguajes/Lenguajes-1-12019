@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.videocartago.renting.domain.Genero;
 import com.videocartago.renting.domain.Pelicula;
+import com.videocartago.renting.exception.RentingException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -24,7 +25,7 @@ public class PeliculaDataTest {
 	@Test
 	public void findMoviesByTitleAndGenre() {
 		List<Pelicula> peliculas = peliculaData.findMoviesByTitleAndGenre("time", "Suspenso");
-		assertNotNull(peliculas);
+		assertNotNull("Película vacía", peliculas);
 		assertTrue(!peliculas.isEmpty());
 		
 	}
@@ -35,16 +36,20 @@ public class PeliculaDataTest {
 		Genero g = new Genero();
 		g.setCodGenero(1000);
 		g.setNombreGenero("Accion");
+		assertNotNull("Genero vacía", g);
+		
 		pelicula.setGenero(g);
 		pelicula.setTotalPeliculas(4);
 		pelicula.setTitulo("Avengers");
 		pelicula.setCodPelicula(111);
 		pelicula.setSubtitulada(true);
 		pelicula.setEstreno(true);
+		assertNotNull("Película vacía", pelicula);
+		
 		try {
 			peliculaData.save(pelicula);
 		} catch (SQLException e) {
-			// TODO: handle exception
+			throw new RentingException("Error al cargar los datos en SQL");
 		}
 		
 	}

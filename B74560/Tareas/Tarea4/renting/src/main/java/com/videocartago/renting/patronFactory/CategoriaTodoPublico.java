@@ -2,21 +2,18 @@ package com.videocartago.renting.patronFactory;
 
 import com.videocartago.renting.domain.Pelicula;
 
-public class Categoria_TodoPublico extends CategoriaPelicula_Producto {
+public class CategoriaTodoPublico extends CategoriaPeliculaProducto {
 
-	private Pelicula pelicula;
-	private String categoriaTipo;
-
-	public Categoria_TodoPublico(Pelicula pelicula) {
+	public CategoriaTodoPublico(Pelicula pelicula) {
 		this.pelicula = pelicula;
 	}
 
-	public String getCategoriaEdad() {
+	public String getCategoriaTipo() {
 		return this.categoriaTipo;
 	}
 
-	public void setCategoriaEdad() {
-		this.categoriaTipo = "TP";
+	public void setCategoriaTipo() {
+		this.categoriaTipo = CategoriaPeliculas.TodoPublico.getNombreCategoria();
 	}
 
 	public Pelicula getPelicula() {
