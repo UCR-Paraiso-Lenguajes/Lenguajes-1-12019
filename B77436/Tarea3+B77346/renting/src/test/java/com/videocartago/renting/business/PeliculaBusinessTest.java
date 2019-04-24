@@ -41,15 +41,18 @@ public class PeliculaBusinessTest {
 		pelicula.setSubtitulada(true);
 		pelicula.setEstreno(true);
 		try {
+			assertNotNull(pelicula);
+			assertTrue(!pelicula.equals(""));
 			peliculaBusiness.save(pelicula);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 	
 	@Test
 	public void codGenero() {
-		peliculaBusiness.codGenero(2000);
+		Genero genero=peliculaBusiness.codGenero(2000);
+		assertNotNull(genero);
+		assertTrue(!genero.equals(""));
 	}
 }

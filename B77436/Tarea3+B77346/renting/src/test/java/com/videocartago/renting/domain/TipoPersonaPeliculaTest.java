@@ -1,5 +1,8 @@
 package com.videocartago.renting.domain;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -28,11 +31,17 @@ public class TipoPersonaPeliculaTest {
 		pelicula.setEstreno(false);
 		Genero genero = new Genero(3000,"Infantil");
 		pelicula.setGenero(genero);
+		assertNotNull(pelicula);
+		assertTrue(!pelicula.equals(""));
 		List<Actor> actores = new ArrayList<Actor>();
 		actores.add(new Actor(1,"Luis","Fernando"));
 		actores.add(new Actor(2,"Marta","Soto"));
+		assertNotNull(actores);
+		assertTrue(!actores.isEmpty());
 		TipoPersonaPelicula tipoPersona = new TipoPersonaPelicula();
 		PeliculaAbstract mipelicula = tipoPersona.elegirTipoDeTelevidente(pelicula);
+		assertNotNull(mipelicula);
+		assertTrue(!mipelicula.equals(""));
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, mipelicula.getTitulo()+" Para: "+mipelicula.getTipo());
 	}
@@ -47,11 +56,17 @@ public class TipoPersonaPeliculaTest {
 		pelicula.setEstreno(false);
 		Genero genero = new Genero(3000,"Terror");
 		pelicula.setGenero(genero);
+		assertNotNull(pelicula);
+		assertTrue(!pelicula.equals(""));
 		List<Actor> actores = new ArrayList<Actor>();
 		actores.add(new Actor(1,"Albert","Fonseca"));
 		actores.add(new Actor(2,"Maria","Solano"));
+		assertNotNull(actores);
+		assertTrue(!actores.isEmpty());
 		TipoPersonaPelicula tipoPersona = new TipoPersonaPelicula();
 		PeliculaAbstract mipelicula = tipoPersona.elegirTipoDeTelevidente(pelicula);
+		assertNotNull(mipelicula);
+		assertTrue(!mipelicula.equals(""));
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, mipelicula.getTitulo()+" Para: "+mipelicula.getTipo());
 	}
@@ -66,11 +81,17 @@ public class TipoPersonaPeliculaTest {
 		pelicula.setEstreno(false);
 		Genero genero = new Genero(3000,"Suspenso");
 		pelicula.setGenero(genero);
+		assertNotNull(pelicula);
+		assertTrue(!pelicula.equals(""));
 		List<Actor> actores = new ArrayList<Actor>();
 		actores.add(new Actor(1,"Luis","Fernando"));
 		actores.add(new Actor(2,"Marta","Soto"));
+		assertNotNull(actores);
+		assertTrue(!actores.isEmpty());
 		TipoPersonaPelicula tipoPersona = new TipoPersonaPelicula();
 		PeliculaAbstract mipelicula = tipoPersona.elegirTipoDeTelevidente(pelicula);
+		assertNotNull(mipelicula);
+		assertTrue(!mipelicula.equals(""));
 		Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, mipelicula.getTitulo()+" Para: "+mipelicula.getTipo());
 	}

@@ -1,5 +1,8 @@
 package com.videocartago.renting.comportamiento.state;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,8 +24,11 @@ public class PeliculaEstadoTest {
 		EstadoDevuelto estadoDevuelto = new EstadoDevuelto();
 		
 		pelicula.setEstadoRentado(estadoRenta);
+		assertTrue(estadoRenta.rentar());
 		pelicula.setEstadoRentado(estadoDevuelto);
+		assertTrue(estadoDevuelto.devolver());
 		pelicula.setEstadoDevuelto(estadoDevuelto);
+		assertTrue(estadoDevuelto.devolver());
 		
 	}
 	
@@ -33,7 +39,9 @@ public class PeliculaEstadoTest {
 		EstadoRenta estadoRenta = new EstadoRenta();
 		
 		pelicula.setEstadoDevuelto(estadoDevuelto);
+		assertTrue(estadoDevuelto.devolver());
 		pelicula.setEstadoRentado(estadoRenta);
+		assertTrue(estadoRenta.rentar());
 	}
 
 }

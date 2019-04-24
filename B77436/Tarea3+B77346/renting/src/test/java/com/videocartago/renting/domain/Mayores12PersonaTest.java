@@ -1,5 +1,8 @@
 package com.videocartago.renting.domain;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,12 @@ public class Mayores12PersonaTest {
 		pelicula.setGenero(new Genero(2000,"Suspenso"));
 		List<Actor> listActores = new ArrayList<Actor>();
 		listActores.add(new Actor(6, "Dennis","Leary"));
+		assertNotNull(listActores);
+		assertTrue(!listActores.isEmpty());
 		pelicula.setActores(listActores);
+		assertNotNull(pelicula);
+		assertTrue(!pelicula.equals(""));
+		
 		Mayores12Persona mayores12 = new Mayores12Persona(pelicula);
 		mayores12.setCodPelicula(4);
 		mayores12.setTitulo("Austin Powers");
@@ -32,11 +40,15 @@ public class Mayores12PersonaTest {
 		mayores12.setEstreno(false);
 		mayores12.setGenero(new Genero(2000,"Suspenso"));
 		List<Actor> listActores2 = new ArrayList<Actor>();
-		listActores.add(new Actor(6, "Dennis","Leary"));
+		listActores2.add(new Actor(6, "Dennis","Leary"));
+		assertNotNull(listActores2);
+		assertTrue(!listActores2.isEmpty());
 		mayores12.setActores(listActores);
 		mayores12.getCodPelicula();
 		mayores12.getTotalPeliculas();
 		mayores12.getTitulo();
 		mayores12.getActores();
+		assertNotNull(mayores12);
+		assertTrue(!mayores12.equals(""));
 	}
 }

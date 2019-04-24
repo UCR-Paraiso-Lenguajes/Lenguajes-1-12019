@@ -1,5 +1,8 @@
 package com.videocartago.renting.domain;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,5 +21,7 @@ public class ActorTest {
 		actor.getCodActor();
 		actor.getNombreActor();
 		actor.getApellidosActor();
+		assertNotNull(actor);
+		assertTrue(!actor.equals(""));
 	}
 }

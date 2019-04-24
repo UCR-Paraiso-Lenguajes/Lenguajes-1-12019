@@ -50,6 +50,8 @@ public class PeliculaDataTest {
 		pelicula.setSubtitulada(true);
 		pelicula.setEstreno(true);
 		try {
+			assertNotNull(pelicula);
+			assertTrue(!pelicula.equals(""));
 			peliculaData.save(pelicula);
 		} catch (SQLException e) {
 			// TODO: handle exception

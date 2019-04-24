@@ -1,5 +1,8 @@
 package com.videocartago.renting.domain;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -10,6 +13,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.videocartago.renting.comportamiento.state.EstadoDevuelto;
+import com.videocartago.renting.comportamiento.state.EstadoPeliculas;
+import com.videocartago.renting.comportamiento.state.EstadoRenta;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,6 +33,16 @@ public class PeliculaTest {
 		pelicula.setGenero(new Genero(2000,"Comedia"));
 		List<Actor> listActores = new ArrayList<Actor>();
 		listActores.add(new Actor(6, "Dennis","Leary"));
+		assertNotNull(listActores);
+		assertTrue(!listActores.isEmpty());
 		pelicula.setActores(listActores);
+		assertNotNull(pelicula);
+		assertTrue(!pelicula.equals(""));
+		
+		EstadoRenta estadoPelicula = new EstadoRenta();
+		pelicula.setEstadoDevuelto(estadoPelicula);
+		EstadoDevuelto estadoDevuelto = new EstadoDevuelto();
+		pelicula.setEstadoDevuelto(estadoDevuelto);
+	
 	}
 }

@@ -1,5 +1,8 @@
 package com.videocartago.renting.domain;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +19,8 @@ public class GeneroTest {
 		genero.setNombreGenero("Suspenso3");
 		genero.getCodGenero();
 		genero.getNombreGenero();
+		assertNotNull(genero);
+		assertTrue(!genero.equals(""));
 	}
 
 }
