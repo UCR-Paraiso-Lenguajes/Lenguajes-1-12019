@@ -1,0 +1,8 @@
+package cr.ac.ucr.ie.app.domain;
+
+public class Snippet {
+	public static void main(String[] args) {
+		Agregar
+	}
+}
+

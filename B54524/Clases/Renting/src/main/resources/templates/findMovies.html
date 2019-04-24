@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mantenimiento de peliculas</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Mantenimiento de peliculas</h1>
+		<form action="#" th:action="@{/findMovies}" method="post">
+		Titulo de la pelicula: <input type="text" name="titulo"/>
+		<br>
+		<br>
+		Nombre genero: <input type="text" name="genero"/>
+		<input type="submit" value="Buscar"/>
+		</form>
+	</div>
+	<br>
+	<table class="table table-striped">
+		<tr>
+			<th>Codigo</th>
+			<th>Titulo</th>
+			<th>Genero</th>
+			<th>Total Peliculas</th>
+			<th>Indice</th>
+		</tr>
+		<tr th:each="pelicula : ${peliculas}">
+			<td><span th:text="${pelicula.codPelicula}"></span></td>
+			<td><span th:text="${pelicula.titulo}"></span></td>
+			<td><span th:text="${pelicula.genero.nombreGenero}"></span></td>
+			<td><span th:text="${pelicula.totalPeliculas}"></span></td>
+			<td><span th:text="${peliculaStat.count}"></span></td>
+		</tr>
+	</table>
+</body>
+</html>

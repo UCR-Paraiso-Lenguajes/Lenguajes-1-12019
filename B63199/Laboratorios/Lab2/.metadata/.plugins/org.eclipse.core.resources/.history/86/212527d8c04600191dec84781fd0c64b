@@ -1,0 +1,15 @@
+package cr.ac.ucr.ie.app.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ListarEmpleadosController {
+
+	@RequestMapping("/")
+	public String listar() {
+		return "Spring Boot is working";
+		
+	}
+	
+}
