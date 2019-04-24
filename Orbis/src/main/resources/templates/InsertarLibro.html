@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Libro</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+	
+	<script>
+		function moveRight(e) {
+			var leftSelect = document.forms[0].leftList;
+			for (var i = 0, len = leftSelect.options.length; i < len; i++) {
+				var option = leftSelect.options[i];
+				if (option.selected) {
+					document.forms[0].rightList.add(option, null);
+				}
+			}
+			if (!e) {
+				e.preventDefault();
+			}
+		}
+	</script>
+</head>
+<body>
+  	<div class="container" style="max-width: 600px; padding: 40px 20px;">
+	<h1>Insertar libro</h1>
+		<form th:object="${libroForm}" action="#"
+			th:action="@{/insertarLibro}" method="post">
+			 <div class="form-group">
+    <label for="titulo">Titulo:</label> <input type="text"
+     class="form-control" id="titulo">
+   </div>
+
+   <div class="form-group">
+    <label for="anno">Año:</label> <input type="number"
+     class="form-control" id="anno" placeholder="2019" value="2019">
+   </div>
+
+   <div class="form-group">
+    <label>Publicador: </label> <select name="*{idEditorial}"
+     class="form-control">
+     <option th:each="lista: ${editoriales}"
+      th:value="${lista.idEditorial}" th:text="${lista.nombre}">
+     </option>
+    </select>
+   </div>
+
+   <div class="form-group">
+    <label for="isbn">ISBN:</label> <input type="number"
+     class="form-control" id="isbn">
+   </div>
+
+   <div class="form-group">
+
+    <label for="listActors">Seleccione 1 o más autores:</label>
+
+    <div class=row>
+     <div class="col-md-4">
+      <div class="panel panel-default">
+
+       <div class="panel-body">
+       
+       <select name="*{idAutor}" id="idAutor"
+     class="custom-select" multiple>
+     <option th:each="lista: ${autores}"
+      th:value="${lista.idAutor}" th:text="${lista.nombreAutor +' '+ lista.apellidosAutor}">
+     </option>
+    </select>
+       
+       </div>
+      </div>
+     </div>
+
+     <div class="col-md-2">
+      <button type="button" class="btn btn-primary" onclick="sacarDelArrayInicial()">Agregar</button>
+      <button type="button" class="btn btn-primary" onclick="sacarDelArrayFinal()">Quitar</button>
+     </div>
+
+     <div class="col-md-4">
+      <div class="panel panel-default">
+
+       <div class="panel-body">
+       
+       <select name="*{idAutor}" id="listaF"
+     class="custom-select" multiple>
+     <option th:each="listaF: ${listaAutoresFinales}"
+      th:value="${listaF.idAutor}" th:text="${listaF.nombreAutor +' '+ listaF.apellidosAutor}">
+     </option>
+    </select>
+       
+       </div>
+      </div>
+     </div>
+     
+    </div>
+   </div>
+
+   <button type="submit" class="btn btn-primary">Insertar Libro</button>
+  </form>
+
+
+ </div>
+
+</body>
+<script>
+
+
+function sacarDelArrayInicial(){
+
+ var elemento = document.getElementById("idAutor");
+ var autor = elemento.options[elemento.selectedIndex];
+ console.log(autor);
+ 
+ var option = document.getElementById("listaF");
+ option.add(autor);
+ 
+}
+
+function sacarDelArrayFinal(){
+
+ var elemento = document.getElementById("listaF");
+ var autor = elemento.options[elemento.selectedIndex];
+ console.log(autor);
+ 
+ var option = document.getElementById("idAutor");
+ option.add(autor);
+ 
+ 
+}
+
+</script>
+ 
+</html>
