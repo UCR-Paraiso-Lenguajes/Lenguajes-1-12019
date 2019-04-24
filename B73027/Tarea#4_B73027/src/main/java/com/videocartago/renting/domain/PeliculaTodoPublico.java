@@ -8,14 +8,7 @@ import com.videocartago.renting.Factory.PeliculaAbtractTipo;
 
 public class PeliculaTodoPublico extends PeliculaAbtractTipo{
 	
-	private int codPelicula;
-	private String titulo;
-	private int totalPeliculas;
-	private boolean subtitulada;
-	private boolean estreno;
-	private Genero genero;
-	private List<Actor> actores;
-	private String categoriaEdad;
+
 	
 	public PeliculaTodoPublico (Pelicula pelicula) {
 		

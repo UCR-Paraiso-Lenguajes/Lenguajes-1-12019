@@ -23,4 +23,13 @@ public abstract class PeliculaAbtractTipo {
 		public abstract void setSubtitulada(boolean subtitulada);
 		public abstract boolean isEstreno();
 		public abstract void setEstreno(boolean estreno);
+		
+		public int codPelicula;
+		public String titulo;
+		public int totalPeliculas;
+		public boolean subtitulada;
+		public boolean estreno;
+		public Genero genero;
+		public List<Actor> actores;
+		public String categoriaEdad;
 	}

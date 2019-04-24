@@ -30,7 +30,7 @@ public class PeliculaDataTest {
 	}
 	
 	@Test
-	public void saveTest() {
+	public void saveTest() throws SQLException {
 		Pelicula pelicula = new Pelicula();
 		Genero g = new Genero();
 		g.setCodGenero(1000);
@@ -41,11 +41,12 @@ public class PeliculaDataTest {
 		pelicula.setCodPelicula(111);
 		pelicula.setSubtitulada(true);
 		pelicula.setEstreno(true);
-		try {
-			peliculaData.save(pelicula);
-		} catch (SQLException e) {
-			// TODO: handle exception
-		}
+		
+		assertNotNull(pelicula);
+		assertTrue(!pelicula.equals(""));
+		
+		peliculaData.save(pelicula);
+		
 		
 	}
 }

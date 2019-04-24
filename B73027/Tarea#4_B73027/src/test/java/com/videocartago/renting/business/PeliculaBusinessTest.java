@@ -29,7 +29,7 @@ public class PeliculaBusinessTest {
 	}
 	
 	@Test
-	public void save() {
+	public void save() throws SQLException {
 		Pelicula pelicula = new Pelicula();
 		Genero g = new Genero();
 		g.setCodGenero(1000);
@@ -40,12 +40,9 @@ public class PeliculaBusinessTest {
 		pelicula.setCodPelicula(111);
 		pelicula.setSubtitulada(true);
 		pelicula.setEstreno(true);
-		try {
+
 			peliculaBusiness.save(pelicula);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 }
