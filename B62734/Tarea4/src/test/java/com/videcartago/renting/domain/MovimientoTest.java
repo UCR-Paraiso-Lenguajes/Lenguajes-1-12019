@@ -2,6 +2,7 @@ package com.videcartago.renting.domain;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,9 +15,9 @@ public class MovimientoTest {
 	private MovimientosIterable movimientosIterable=new MovimientosIterable();
 	@Test
 	public void test() {
-		String renta=pelicula.rentar();
+		//String renta=pelicula.rentar();
 		
-		String disponible=pelicula.devolver();
+	//	String disponible=pelicula.devolver();
 		
 		
 		movimientosIterable=pelicula.getMovimientosIterable();

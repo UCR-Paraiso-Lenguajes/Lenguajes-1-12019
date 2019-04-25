@@ -1,10 +1,11 @@
 package com.videcartago.renting.domain;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Productora {
 	private static Productora productora=new Productora();;
-	private LinkedList<Contenido> contenidoProducido=new LinkedList<Contenido>();
+	private List<Contenido> contenidoProducido=new ArrayList<Contenido>();
 	
 	public static Productora getProductora() {
 		return productora;

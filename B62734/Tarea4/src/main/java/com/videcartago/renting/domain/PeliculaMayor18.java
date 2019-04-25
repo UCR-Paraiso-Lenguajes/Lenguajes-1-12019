@@ -2,7 +2,7 @@ package com.videcartago.renting.domain;
 
 import java.util.List;
 
-public class PeliculaMayor18 extends PeliculaFactory{
+public final class PeliculaMayor18 extends Pelicula{
 
 	public PeliculaMayor18(String duracion, String descripcion, int codPelicula, String titulo, int totalPeliculas,
 			boolean subtitulada, boolean estreno, Genero genero, List<Actor> actores) {

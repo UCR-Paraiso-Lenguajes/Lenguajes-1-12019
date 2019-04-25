@@ -16,15 +16,17 @@ public class Pelicula extends Contenido {
 	private boolean estreno;
 	private Genero genero;
 	private List<Actor> actores;
+	public MovimientosIterable movimientosIterable;
 	private EstadoPelicula estado;
-	private MovimientosIterable movimientosIterable;
+	private EstadoComparacion estadoComparacion;
 
 	public Pelicula(String duracion, String descripcion) {
 		super(duracion, descripcion);
 		genero = new Genero();
 		actores = new LinkedList<Actor>();
-		estado = new Disponible();
+		estado= new Disponible();
 		movimientosIterable=new MovimientosIterable();
+		estadoComparacion=estadoComparacion.disponible;
 	}
 
 	public Pelicula(String duracion, String descripcion, int codPelicula, String titulo, int totalPeliculas,
@@ -39,32 +41,35 @@ public class Pelicula extends Contenido {
 		this.actores = actores;
 		estado = new Disponible();
 		movimientosIterable=new MovimientosIterable();
+		estadoComparacion=estadoComparacion.disponible;
 
 	}
-
-	public String rentar() {
-		if (estado instanceof Rentada) {
-			throw new RuntimeException("La Pelicula ya esta rentada");		
+	public void rentar() {
+		if (estadoComparacion== estadoComparacion.rentada) {
+			throw new RuntimeException("La pelicula ya la rento alguien mas.");		
 		}else {
-			setEstado(new Rentada());
+			estadoComparacion=estadoComparacion.rentada;
+			estado=new Rentada();
 	        Date fecha = new Date();
 	        fecha.getDate();
-			movimientosIterable.agregar(new Movimiento(fecha,titulo,estado));
-			return estado.Estado();
+			movimientosIterable.agregar(new Movimiento(fecha,getTitulo(),getEstado()));
 		}
+		
 	}
 
-	public String devolver() {
-		if (estado instanceof Disponible) {
-			throw new RuntimeException("La Pelicula ya fue devuelta");		
+	
+	 public  void devolver() {
+		if (estadoComparacion== estadoComparacion.disponible) {
+			throw new RuntimeException("La pelicula ya la devolvieron antes.");		
 		}else {
-			setEstado(new Disponible());
+			estadoComparacion=estadoComparacion.disponible;
+			estado=new Disponible();
 	        Date fecha = new Date();
 	        fecha.getDate();
-			movimientosIterable.agregar(new Movimiento(fecha,titulo,estado));
-			return estado.Estado();
-		}
+			movimientosIterable.agregar(new Movimiento(fecha,getTitulo(),getEstado()));	}
 	}
+
+	
 
 	public Genero getGenero() {
 		return genero;
@@ -122,6 +127,15 @@ public class Pelicula extends Contenido {
 		this.estreno = estreno;
 	}
 
+
+	public MovimientosIterable getMovimientosIterable() {
+		return movimientosIterable;
+	}
+
+	public void setMovimientosIterable(MovimientosIterable movimientosIterable) {
+		this.movimientosIterable = movimientosIterable;
+	}
+
 	public EstadoPelicula getEstado() {
 		return estado;
 	}
@@ -130,12 +144,12 @@ public class Pelicula extends Contenido {
 		this.estado = estado;
 	}
 
-	public MovimientosIterable getMovimientosIterable() {
-		return movimientosIterable;
+	public EstadoComparacion getEstadoComparacion() {
+		return estadoComparacion;
 	}
 
-	public void setMovimientosIterable(MovimientosIterable movimientosIterable) {
-		this.movimientosIterable = movimientosIterable;
+	public void setEstadoComparacion(EstadoComparacion estadoComparacion) {
+		this.estadoComparacion = estadoComparacion;
 	}
 
 
