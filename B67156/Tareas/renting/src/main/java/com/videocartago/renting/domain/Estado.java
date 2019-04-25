@@ -2,6 +2,12 @@ package com.videocartago.renting.domain;
 
 public interface Estado {
 	
-	public String definirEstado();
+	enum EstadoEnum{
+		Rentada,
+		Disponible
+		
+	}
+	
+	public EstadoEnum definirEstado();
 
 }

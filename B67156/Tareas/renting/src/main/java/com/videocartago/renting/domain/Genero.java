@@ -4,13 +4,15 @@ public class Genero {
 	
 	private int codGenero;
 	private String nombreGenero;
+	private EnumGenero enumGenero;
 	public Genero() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Genero(int codGenero, String nombreGenero) {
+	public Genero(int codGenero, String nombreGenero, EnumGenero enumGenero) {
 		this.codGenero = codGenero;
 		this.nombreGenero = nombreGenero;
+		this.enumGenero = enumGenero;
 	}
 
 	public int getCodGenero() {
@@ -24,6 +26,14 @@ public class Genero {
 	}
 	public void setNombreGenero(String nombreGenero) {
 		this.nombreGenero = nombreGenero;
+	}
+	
+	public EnumGenero getEnumGenero() {
+		return enumGenero;
+	}
+
+	public void setEnumGenero(EnumGenero enumGenero) {
+		this.enumGenero = enumGenero;
 	}
 
 	@Override

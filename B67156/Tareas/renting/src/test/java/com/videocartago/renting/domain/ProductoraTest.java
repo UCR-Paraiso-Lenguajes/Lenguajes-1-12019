@@ -1,5 +1,7 @@
 package com.videocartago.renting.domain;
 
+import static org.junit.Assert.assertSame;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +35,10 @@ public class ProductoraTest {
         //-------------------------------------------
         Logger.getLogger(getClass().getName()).log(
 	            Level.INFO, productora2.toString());
+        
+        //Se comprueba que sea la misma instancia 
+        assertSame(productora, productora1);
+        assertSame(productora1, productora2);
 	}
 
 }

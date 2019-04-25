@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.videocartago.renting.data.PeliculaData;
+import com.videocartago.renting.domain.EnumGenero;
 import com.videocartago.renting.domain.Genero;
 import com.videocartago.renting.domain.Pelicula;
 
@@ -22,7 +23,8 @@ public class PeliculaDataTest {
 	private PeliculaData peliculaData;//No pide el import ya que el nombre del paquete es el mismo al de datos
 	
 	/**
-	@Test
+	@throws SQLException 
+	 * @Test
 	public void findMoviesByTitleAndGenre() {
 		List<Pelicula> peliculas = peliculaData.findMoviesByTitleAndGenre("time", "suspenso");
 		assertNotNull(peliculas);
@@ -31,23 +33,19 @@ public class PeliculaDataTest {
 	}
 	**/
 	@Test
-	public void saveMovie() {
+	public void saveMovie() throws SQLException {
 		Pelicula pelicula = new Pelicula();
-		Genero g = new Genero(1000, "Suspenso3");
+		Genero g = new Genero(1000, "Suspenso3",EnumGenero.SIN_DEFINIR);
 		pelicula.setCodPelicula(111);
 		pelicula.setTitulo("BMW");
 		pelicula.setGenero(g);
 		pelicula.setTotalPeliculas(8);
 		pelicula.setSubtitulada(true);
 		pelicula.setEstreno(false);
+
+		peliculaData.save(pelicula);
 		
-	
-		try {
-			peliculaData.save(pelicula);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			assertTrue(true);
-		}
+		assertNotNull(pelicula);
 		
 	}
 }

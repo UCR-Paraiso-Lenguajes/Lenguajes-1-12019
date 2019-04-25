@@ -3,7 +3,7 @@ package com.videocartago.renting.domain;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Pelicula implements PeliculaAbstract{
+public class Pelicula extends PeliculaAbstract{
 	private int codPelicula;
 	private String titulo;
 	private int totalPeliculas;
@@ -11,7 +11,7 @@ public class Pelicula implements PeliculaAbstract{
 	private boolean estreno;
 	private Genero genero;
 	private String categoria;
-	private String estado;
+	
 	private List<Actor> actores;
 	
 	public Pelicula() {
@@ -23,7 +23,7 @@ public class Pelicula implements PeliculaAbstract{
 	
 	public Pelicula(int codPelicula, String titulo, int totalPeliculas, boolean subtitulada, boolean estreno,
 			Genero genero, String categoria, String estado) {
-		super();
+		super(estado);
 		this.codPelicula = codPelicula;
 		this.titulo = titulo;
 		this.totalPeliculas = totalPeliculas;
@@ -31,7 +31,6 @@ public class Pelicula implements PeliculaAbstract{
 		this.estreno = estreno;
 		this.genero = genero;
 		this.categoria = categoria;
-		this.estado = estado;
 	}
 
 
@@ -91,19 +90,11 @@ public class Pelicula implements PeliculaAbstract{
 		this.categoria = categoria;
 	}
 
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
 	@Override
 	public String toString() {
 		return "Pelicula [codPelicula=" + codPelicula + ", titulo=" + titulo + ", totalPeliculas=" + totalPeliculas
 				+ ", subtitulada=" + subtitulada + ", estreno=" + estreno + ", genero=" + genero + ", categoria="
-				+ categoria + ", estado=" + estado + ", actores=" + actores + "]";
+				+ categoria  + ", actores=" + actores + "]"+ super.toString();
 	}
 	
 	
