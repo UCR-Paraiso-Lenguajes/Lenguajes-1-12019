@@ -1,12 +1,12 @@
 *.class
 *.prefs
 *.MF
+*.project
 *.classpath
-*.md
+*.project
 *.cmd
 *mvnw
+.mvn
 /target
-/settings
 /mvn
-.mvn/
-.settings/
+/settings

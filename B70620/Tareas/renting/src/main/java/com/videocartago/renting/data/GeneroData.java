@@ -1,0 +1,45 @@
+package com.videocartago.renting.data;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.stereotype.Repository;
+
+import com.videocartago.renting.domain.Genero;
+
+@Repository
+public class GeneroData {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate= new JdbcTemplate(dataSource);
+	}
+
+
+	public List<Genero> findAllGenres(int inicio, int fin)  {
+		
+		List<Genero> generos = new ArrayList<>();
+		String selectSql = 
+				"SELECT cod_genero, nombre_genero FROM Genero g WHERE cod_genero > ? AND  cod_genero < ? order by cod_genero ASC";
+					jdbcTemplate.query(
+							selectSql,
+							new Object[] {inicio,fin},
+							(rs,row)->	new Genero(rs.getInt("cod_genero"),
+											rs.getString("nombre_genero")))
+							.forEach(entry -> generos.add(entry)
+					);
+		return generos;
+	}
+}
