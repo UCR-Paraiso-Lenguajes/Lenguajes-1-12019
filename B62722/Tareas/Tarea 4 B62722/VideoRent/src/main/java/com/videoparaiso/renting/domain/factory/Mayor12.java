@@ -12,7 +12,7 @@ public class Mayor12 extends PeliculaFactory {
 	}
 
 	public Mayor12(int codPelicula, String titulo, int totalPeliculas, boolean subtitulada, boolean estreno, Genero genero, List<Actor> actores) {
-		super(codPelicula, titulo, totalPeliculas, subtitulada, estreno, genero, actores);
+		super();
 	}
 
 }

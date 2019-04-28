@@ -18,30 +18,18 @@ public class PeliculaFactory extends Pelicula {
 		super();
 	}
 
-	public PeliculaFactory(int codPelicula, String titulo, int totalPeliculas, boolean subtitulada, boolean estreno,
+	public Pelicula clasificar(int codPelicula, String titulo, int totalPeliculas, boolean subtitulada, boolean estreno,
 			Genero genero, List<Actor> actores) {
-		super(codPelicula, titulo, totalPeliculas, subtitulada, estreno, genero, actores);
-	}
-
-	public void clasificar() {
-		Genero genero = getGenero();
 		if (genero.getNombreGenero().equalsIgnoreCase("Terror")) {
-			clasificacion = new Mayor18(getCodPelicula(), getTitulo(), getTotalPeliculas(), isSubtitulada(),
+			return clasificacion = new Mayor18(getCodPelicula(), getTitulo(), getTotalPeliculas(), isSubtitulada(),
 					isEstreno(), getGenero(), getActores());
 		} else if (genero.getNombreGenero().equalsIgnoreCase("Suspenso")) {
-			clasificacion = new Mayor12(getCodPelicula(), getTitulo(), getTotalPeliculas(), isSubtitulada(),
+			return clasificacion = new Mayor12(getCodPelicula(), getTitulo(), getTotalPeliculas(), isSubtitulada(),
 					isEstreno(), getGenero(), getActores());
 		} else {
-			clasificacion = new TodoPublico(getCodPelicula(), getTitulo(), getTotalPeliculas(), isSubtitulada(),
+			return clasificacion = new TodoPublico(getCodPelicula(), getTitulo(), getTotalPeliculas(), isSubtitulada(),
 					isEstreno(), getGenero(), getActores());
 		}
 	}
 
-	public Pelicula getClasificacion() {
-		return clasificacion;
-	}
-
-	public void setClasificacion(Pelicula clasificacion) {
-		this.clasificacion = clasificacion;
-	}
 }

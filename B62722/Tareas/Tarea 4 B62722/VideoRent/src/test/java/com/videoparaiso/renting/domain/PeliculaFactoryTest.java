@@ -19,11 +19,10 @@ public class PeliculaFactoryTest {
 	
 	 Genero genero = new Genero(1, "Comedia");
 	 List<Actor> lista = new ArrayList<Actor>();
-	 PeliculaFactory peliculaFactory = new PeliculaFactory(1, "Test", 2, false, false, genero, lista);
+	 PeliculaFactory peliculaFactory;
 
 	@Test
 	public void clasificarTest() {
-		peliculaFactory.clasificar();
-		assertNotNull(peliculaFactory.getClasificacion());
+		assertNotNull(peliculaFactory.clasificar(1, "Test", 2, false, false, genero, lista));
 	}
 }
