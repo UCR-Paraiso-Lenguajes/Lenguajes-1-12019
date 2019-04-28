@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mantenimiento de peliculas</title>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+	<div class="container">
+
+
+		<div class="container" style="max-width: 400px; padding: 40px 20 px;">
+			<div class="p-3 mb-2 bg-success text-white"
+				style="max-width: 400px; padding: 40px 20 px;">
+				<h1>Insercción efectuada</h1>
+			</div>
+			<div class="p-3 mb-2 bg-light text-dark">
+				<h2 class="text-success">El libro ha sido insertado de manera
+					correcta</h2>
+				<p>
+					<b>Libro insertado:</b>
+				</p>
+				<p id="tituloInput" th:text="${titulo}">
+				<p>
+					<b>Identificación del libro:</b>
+				</p>
+				<p id="idLibroInput" th:text="${idLibro}">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
