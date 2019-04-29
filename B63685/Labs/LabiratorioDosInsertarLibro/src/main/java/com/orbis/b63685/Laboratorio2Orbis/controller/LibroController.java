@@ -30,7 +30,38 @@ public class LibroController {
 
 		return "lista_libros";
 	}
-	
+	@RequestMapping(value = "/insertarLibro", method = RequestMethod.GET)
+	public String insertar(Model model, LibroForm libroForm) {
+
+		List<Editorial> editoriales = editorialBusiness.listarEditoriales();
+
+		model.addAttribute("editoriales", editoriales);
+		model.addAttribute("libroform", new LibroForm());
+		return "insertarLibro";
+	}
+
+	@RequestMapping(value = "/insertarLibro", method = RequestMethod.POST)
+	public String save(@Valid LibroForm libroForm, BindingResult bindingResult, Model model) throws SQLException {
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("editoriales", editorialBusiness.listarEditoriales());
+			return "error";
+		} else {
+			
+			LinkedList<Autor> autores = new LinkedList<Autor>();
+			LinkedList<Libro> libros = new LinkedList<Libro>();
+			
+			Editorial editorial = new Editorial(1345, "Prentice hall", "cartaga", "768756");
+			Libro libro = new Libro(3344556, "hola", (short)1997, 23456, autores, editorial);
+			
+			
+			
+			BeanUtils.copyProperties(libroForm, libro);
+			libro.getEditorial().setIdEditorial(libroForm.getEditorial().getIdEditorial());
+			libroBusiness.save(libro);
+
+			return "exito";
+		}
+	}
 
 	
 }
