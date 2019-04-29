@@ -1,4 +1,4 @@
-package cr.ac.ucr.ie.Exceptions;
+﻿package cr.ac.ucr.ie.Exceptions;
 
 
 /* Capitulo 7 - Tip 3 
@@ -9,6 +9,7 @@ package cr.ac.ucr.ie.Exceptions;
  * los costes de dependencia superan las
  * ventajas.
  */
+
 
 /* Capitulo 7 - Tip 6
  * Definir el flujo normal

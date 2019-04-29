@@ -1,4 +1,4 @@
-package cr.ac.ucr.ie.Domain;
+﻿package cr.ac.ucr.ie.Domain;
 
 /*Capitulo 6 - Tip 1
  * Abstracción 
@@ -13,6 +13,7 @@ package cr.ac.ucr.ie.Domain;
  * Estructura de datos, es una clase con variables públicas y sin funciones.
  * Importante para bases de datos y analizar mensajes de conexión.
  */
+
 
 public abstract interface CarroInterface {
 	
