@@ -24,7 +24,7 @@ public class EditorialController {
 
 	public int pag = 1;
 	public int next = pag + 2;
-
+	private boolean isEmpty;
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String verEditoriales(Model model) {
 		List<Editorial> list = editorial.getEditorial(pag, next);
@@ -55,7 +55,9 @@ public class EditorialController {
 	@RequestMapping(value = "/libros", method = RequestMethod.GET)
 	public String verLibros(@RequestParam("id") int id, Model model) {
 		List<Libro> list = libro.getLibros(id);
+		isEmpty = list.isEmpty() ? true:false;
 		model.addAttribute("libros", list);
+		model.addAttribute("isEmpty", isEmpty);
 		return "libros";
 	}
 

@@ -14,6 +14,11 @@ public class Autor {
 		this.apellidosAutor = apellidosAutor;
 		this.libros = libros;
 	}
+	public Autor(int idAutor, String nombreAutor, String apellidosAutor) {
+		this.idAutor = idAutor;
+		this.nombreAutor = nombreAutor;
+		this.apellidosAutor = apellidosAutor;
+	}
 
 	public Autor() {
 	}

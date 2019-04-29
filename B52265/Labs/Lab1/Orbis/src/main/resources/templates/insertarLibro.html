@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Insertar Libro</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="row" id="app">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form th:object="${editorialForm}" th:action="@{/insertarLibro}" method="POST">
+                <div class="form-group">
+                    <label for="titulo_libro">Titulo:</label>
+                    <input th:field="*{titulo}" type="text" class="form-control" id="titulo_libro" required
+                        maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label for="date">Fecha:</label>
+                    <input th:field="*{ano}" type="date" class="form-control" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="editorial">Publicador:</label>
+                    <select th:field="*{idEditorial}" id="editorial" class="form-control">
+                        <option th:each="editorial:${editoriales}" th:value="${editorial.idEditorial}"
+                            th:text="${editorial.nombre}">seleccionar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN:</label>
+                    <input th:field="*{ISBN}" type="text" class="form-control" id="isbn" required maxlength="13"
+                        minlength="13">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre Autor</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="autor:${autores}">
+                                        <td th:value="${autor.nombreAutor}" th:text=${autor.nombreAutor}
+                                            v-model="nombreAutor">
+                                        </td>
+                                        <td th:value="${autor.idAutor}" v-model="idAutor">
+                                            <input type="button" class="btn btn-default" value=">>"
+                                                v-on:click="agregarAutor"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-6">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre Autor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="autor in autores">
+                                        <td v-text="autor.nombreAutor">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Insertar Libro</button>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                autores: [],
+                idAutor: '',
+                nombreAutor: ''
+            },
+            methods: {
+                agregarAutor: function () {
+                    if (this.nombreAutor == '') {
+                        alert('vacio');
+                    } else {
+                        this.autores.push({ idAutor: this.idAutor, nombreAutor: this.nombreAutor })
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

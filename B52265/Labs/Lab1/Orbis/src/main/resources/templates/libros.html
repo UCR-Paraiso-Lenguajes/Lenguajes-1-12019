@@ -43,8 +43,14 @@
                         </tr>
                     </tbody>
                 </table>
+            <div>
+                <h2 th:if=${isEmpty}>Esta editorial no tiene libros asociados</h2>
+            </div>
             </div>
             <div class="col-sm-4"></div>
+        </div>
+        <div>
+            <a type="button" class="btn btn-success" th:href="@{/}">Regresar</a>
         </div>
     </div>
 </body>
