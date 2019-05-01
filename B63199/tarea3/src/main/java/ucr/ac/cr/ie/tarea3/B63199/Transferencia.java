@@ -9,10 +9,15 @@ public class Transferencia {
 	private double montoTotal;
 	private double montoTranferido;
 	public Transferencia(Object cliente, String numTarjeta, double montoTotal, double montoTranferido) {
+		if(cliente!=null) throw new RuntimeException("El cliente debe no es valido");
 		this.cliente = cliente;
+		if(numTarjeta.lenght()<4) throw new RuntimeException("El numero de tarjeta debe de contener al menos 4 dígitos");
 		this.numTarjeta = numTarjeta;
-		this.montoTotal = montoTotal;
+		if(montoTranferido>0) throw new RuntimeException("El monto transferido debe de ser mayor a 0");
 		this.montoTranferido = montoTranferido;
+		if(montoTotal>=montoTranferido) throw new RuntimeException("El monto total debe de ser mayor o igual al monto transferido");
+		this.montoTotal = montoTotal;
+
 	}
 	public Object getCliente() {
 		return cliente;
