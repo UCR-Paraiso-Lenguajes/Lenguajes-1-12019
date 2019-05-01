@@ -87,4 +87,9 @@ public class Libro {
 	public boolean validaFechaActual() {
 		return false;
 	}
+
+	public Editorial getEditorial() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
