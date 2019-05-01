@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Orbis
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Space
+Implementation-Vendor-Id: com.orbis.b32915.ventas
+Build-Jdk: 1.8.0_111
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/ventas
+Created-By: Maven Integration for Eclipse
+

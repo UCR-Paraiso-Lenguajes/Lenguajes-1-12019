@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Libros</title>
+</head>
+<body>
+
+	<div class="container">
+		<h2>Insertar un nuevo Libro</h2>
+
+
+		<form th:object="${libroForm}" th:action="@{/insertar_libro/salvar}" action="#" method="post">
+
+			<div class="form-group">
+				<label for="titulo">Titulo:</label> <input type="text"
+					class="form-control" id="titulo" name="titulo" required>
+			</div>
+
+			<div class="form-group">
+				<label for="anno">Año:</label> <input type="number"
+					class="form-control" id="anno" placeholder="2019" value="2019" name="anno" required>
+			</div>
+
+			<div class="form-group">
+				<label>Publicador: </label> <select th:field="*{idEditorial}"
+					class="form-control" required>
+					<option th:each="lista: ${listaEditorial}"
+						th:value="${lista.idEditorial}" th:text="${lista.nombre}">
+					</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="isbn">ISBN:</label> <input type="number"
+					class="form-control" id="isbn" name="isbn" required>
+			</div>
+			
+			<div class="form-group">
+				<label for="precio">Precio:</label> <input type="number" step=".01"
+					class="form-control" id="precio" name="precio" required>
+			</div>
+
+			<div class="form-group">
+
+				<label for="listActors">Seleccione 1 o más autores:</label>
+
+				<div class=row>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+
+							<div class="panel-body">
+							
+							<select name="*{idAutor}" id="idAutor"
+					class="custom-select" multiple>
+					<option th:each="lista: ${listaAutor}"
+						th:value="${lista.idAutor}" th:text="${lista.nombreAutor +' '+ lista.apellidosAutor}">
+					</option>
+				</select>
+							
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-2">
+						<button type="button" class="btn btn-primary" onclick="sacarDelArrayInicial()">Agregar</button>
+						<button type="button" class="btn btn-primary" onclick="sacarDelArrayFinal()">Quitar</button>
+					</div>
+
+					<div class="col-md-4">
+						<div class="panel panel-default">
+
+							<div class="panel-body">
+							
+							<select th:field="*{listaFinal}" id="listaFinal"
+					class="custom-select" multiple>
+					<option th:each="listaFinal: ${listaAutoresFinales}"
+						th:value="${listaFinal.idAutor}" th:text="${listaFinal.nombreAutor +' '+ listaFinal.apellidosAutor}">
+					</option>
+				</select>
+							
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Insertar Libro</button>
+		</form>
+
+
+	</div>
+
+</body>
+<script>
+
+
+function sacarDelArrayInicial(){
+
+	var elemento = document.getElementById("idAutor");
+	var autor = elemento.options[elemento.selectedIndex];
+	console.log(autor);
+	
+	var option = document.getElementById("listaFinal");
+	option.add(autor);
+	
+}
+
+function sacarDelArrayFinal(){
+
+	var elemento = document.getElementById("listaFinal");
+	var autor = elemento.options[elemento.selectedIndex];
+	console.log(autor);
+	
+	var option = document.getElementById("idAutor");
+	option.add(autor);
+	
+	
+}
+
+</script>
+ 
+</html>
+
