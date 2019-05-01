@@ -6,7 +6,6 @@ public class Autor {
 	private String nombre_autor;
 	private String apellidos_autor;
 	
-	
 	public Autor(int id_autor, String nombre_autor, String apellidos_autor) {
 		if(id_autor <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		if(nombre_autor == null || nombre_autor.trim().equals("")) throw new RuntimeException("El nombre es requerido");
@@ -16,6 +15,9 @@ public class Autor {
 		this.nombre_autor = nombre_autor;
 		this.apellidos_autor = apellidos_autor;
 	}
+	
+	public Autor() {
+	}
 
 	public int getId_autor() {
 		return id_autor;
@@ -23,6 +25,7 @@ public class Autor {
 
 
 	public void setId_autor(int id_autor) {
+		if(id_autor <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		this.id_autor = id_autor;
 	}
 
@@ -33,6 +36,7 @@ public class Autor {
 
 
 	public void setNombre_autor(String nombre_autor) {
+		if(nombre_autor == null || nombre_autor.trim().equals("")) throw new RuntimeException("El nombre es requerido");
 		this.nombre_autor = nombre_autor;
 	}
 
@@ -43,11 +47,8 @@ public class Autor {
 
 
 	public void setApellidos_autor(String apellidos_autor) {
+		if(apellidos_autor == null || apellidos_autor.trim().equals("")) throw new RuntimeException("El apellido es requerido");
 		this.apellidos_autor = apellidos_autor;
 	}
-	
-	
-	
-	
 	
 }
