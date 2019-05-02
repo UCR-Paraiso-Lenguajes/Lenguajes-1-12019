@@ -70,9 +70,7 @@ public class Tranferencia implements Transfiere {
 	    	* si se tiene un registro para guardar los problemas, es mejor tener una buena 
 	    	* descripcion de tales
 	    	*/
-			mesajeLog.log(Level.WARNING, null, e.getStackTrace()); 
-		    libro = new Libro();
-		 	return libro;
+		 	throw new RuntimeException("Problemas para prestar libro");
 		} finally { 
 			mesajeLog.log(Level.INFO,"Finalizo la solicitud del servicio");  
 		}

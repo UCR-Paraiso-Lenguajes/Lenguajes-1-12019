@@ -58,18 +58,21 @@ public class Libro {
 		return nombreDeLibro;
 	}
 	public void setNombreDeLibro(String nombreDeLibro) {
+		if(nombreDeLibro == null && nombreDeLibro.trim().equals("")) throw new RuntimeException("el nombre del libro es requerido");
 		this.nombreDeLibro = nombreDeLibro;
 	}
 	public String getEditorial() {
 		return Editorial;
 	}
 	public void setEditorial(String editorial) {
+		if(editorial == null && editorial.trim().equals("")) throw new RuntimeException("el nombre del editorial es requerido");
 		Editorial = editorial;
 	}
 	public int getAño() {
 		return Año;
 	}
 	public void setAño(int año) {
+		if(año == 0) throw new RuntimeException("el año es requerido");
 		Año = año;
 	}
 }
