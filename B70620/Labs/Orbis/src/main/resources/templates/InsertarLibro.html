@@ -45,7 +45,7 @@
         <form action="#" th:object="${libroForm}" th:action="@{/insertarlibro}" method="POST">
             <label>T&iacute;tulo:</label>
             <input type="text" th:field="*{titulo}"> <br>
-            <div class="alert alert-danger" th:if="${#fields.hasErrors('titulo')}" style="max-width: 60%;">El titulo debe tener al menos una letra y maximo 30.</div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('titulo')}" style="max-width: 40%;">El titulo debe tener al menos una letra y maximo 30.</div>
             <label>A&ntilde;o:</label>
             <input type="number" th:field="*{anio}"> <br>
             <div class="alert alert-danger" th:if="${#fields.hasErrors('anio')}" style="max-width: 20%;">Fecha incorrecta.</div>
@@ -58,7 +58,7 @@
 
             <label>Precio:</label>
             <input type="number" th:field="*{precio}"> <br>
-            <div class="alert alert-danger" th:if="${#fields.hasErrors('precio')}" style="max-width: 30%;">Precio no puede ser negativo.</div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('precio')}" style="max-width: 20%;">Precio no puede ser negativo.</div>
             <div class="autores-container">
                 <label>Seleccione 1 o m&aacute;s autores: </label> <br>
                 
@@ -72,7 +72,7 @@
                 
                 <select id="rightSelect" th:field="*{idAutores}" multiple="multiple" style="width: 12.5%;"></select>
             </div>
-            <div class="alert alert-danger" th:if="${#fields.hasErrors('idAutores')}" style="max-width: 30%;">Minimo debe tener un autor.</div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('idAutores')}" style="max-width: 20%;">Minimo debe tener un autor.</div>
             <button type="submit">Guardar Libro</button>
         </form>
     </div>

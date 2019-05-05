@@ -70,12 +70,13 @@ public class LibroData {
 			
 			String sqlInsertLibroAutor = "Insert into LIBRO_AUTOR VALUES (?,?)";
 			
-			
+			if(true)throw new SQLException("JJoo");
 			for(int i=0; i < idAutores.size(); i++) {
 				PreparedStatement statementLibroAutor = conexion.prepareStatement(sqlInsertLibroAutor);
 				statementLibroAutor.setInt(1, libro.getId());
 				statementLibroAutor.setInt(2, idAutores.get(i));
 				statementLibroAutor.executeUpdate();
+				
 				
 			}
 			conexion.commit();	

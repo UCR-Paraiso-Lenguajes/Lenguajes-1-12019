@@ -1,11 +1,13 @@
-package cr.ac.ucr.ie.app;
+package com.dove.grupo1.msn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class App {
+public class DoveChatApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
+		SpringApplication.run(DoveChatApplication.class, args);
 	}
+
 }
