@@ -8,6 +8,7 @@ public class DoveChatApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DoveChatApplication.class, args);
+		//
 	}
 
 }
