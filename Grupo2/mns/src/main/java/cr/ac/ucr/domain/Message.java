@@ -11,8 +11,7 @@ public class Message {
 	}
 
 	private void validMessage(String content) {
-		if(content == null ||content.trim().equals("") ) throw new ProjectExceptions();		
-		
+		if(content == null ||content.trim().equals("") ) throw new ProjectExceptions("El mensaje no puede estar vacío");		
 		this.content = content;
 	}
 

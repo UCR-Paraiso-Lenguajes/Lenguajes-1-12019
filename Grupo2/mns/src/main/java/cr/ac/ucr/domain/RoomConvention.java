@@ -1,5 +1,7 @@
 package cr.ac.ucr.domain;
 
+import cr.ac.ucr.exceptions.ProjectExceptions;
+
 public abstract class RoomConvention
 {
 
@@ -25,7 +27,7 @@ public abstract class RoomConvention
 		} 
 		catch (InterruptedException e)
 		{
-			throw new RuntimeException(e);
+			throw new ProjectExceptions(e);
 		}
 	}
 

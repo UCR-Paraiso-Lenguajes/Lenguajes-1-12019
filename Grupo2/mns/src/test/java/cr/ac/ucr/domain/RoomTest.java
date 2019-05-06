@@ -13,7 +13,7 @@ public class RoomTest {
 
 
 	@Test
-	public void PrecosarMensajes() 
+	public void ProcessMessages() 
 	{
 		Room room = new Room ();
 		Message mns1 = new Message("mensaje 1");
@@ -38,7 +38,7 @@ public class RoomTest {
 	
 	
 	@Test
-	public void OrderOfMensajes() 
+	public void OrderOfMessages() 
 	{
 		Room room = new Room ();
 			

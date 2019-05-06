@@ -5,6 +5,7 @@ import java.util.concurrent.BlockingQueue;
 
 public final class Room extends RoomConvention{
 	
+	
 	private final int MAX_QUEUE=50; 
 	private	BlockingQueue<Message> messages = new ArrayBlockingQueue<Message>(MAX_QUEUE);
 	
@@ -16,8 +17,7 @@ public final class Room extends RoomConvention{
 	@Override
 	protected void updateMetrics(Message message)
 	{
-		// TODO Auto-generated method stub
-		
+		Metrics.updateMetrics();
 	}
 
 	@Override
