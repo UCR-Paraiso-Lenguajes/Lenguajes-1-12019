@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ver Libros</title>
+</head>
+<body>
+
+<div class="container">
+  <p>Listado de Libros por editorial</p>            
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>ID Libro</th>
+        <th>Titulo</th>
+        <th>Ano</th>
+        <th>Precio</th>
+        <th>ID Editorial</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="entry,status : ${listaLibro}">
+						<td><span  th:text="${entry.id_libro}"></span></td>
+						<td><span th:text="${entry.titulo}"></span></td>
+						<td><span th:text="${entry.ano}"></span></td>
+						<td><span th:text="${entry.precio}"></span></td>
+						<td><span th:text="${entry.idEditorial}"></span></td>
+	 </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

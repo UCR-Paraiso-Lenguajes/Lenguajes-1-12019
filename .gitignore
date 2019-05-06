@@ -2,10 +2,13 @@
 *.prefs
 *.MF
 *.classpath
+*.md
+*.gitignore
 *.project
 *.cmd
 *mvnw
 /target
 /settings
 /mvn
-
+.mvn/
+.settings/
