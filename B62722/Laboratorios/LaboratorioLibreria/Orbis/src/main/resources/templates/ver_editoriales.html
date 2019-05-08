@@ -13,16 +13,14 @@
 <body>
 <h1>Editoriales</h1>
 	<table class="table table-striped">
-	  <tr>
-	    <th>Código</th>
-	    <th>Nombre</th>
-	  </tr>
-	  <tr th:each="editorial : ${editoriales}">
-	    <td>
-	    <a th:href="@{/mostrar_libros(idEditorial=${editorial.id_editorial})}">
-	    <span th:text="${editorial.id_editorial}"></span></a></td>
-	    <td><span th:text="${editorial.nombre}"></span></td>
-	  </tr>
+		<tr>
+			<td>Código Editorial</td>
+			<td>Nombre</td>
+		</tr>
+		<tr th:each="editorial: ${editoriales}">
+		<td><a href="/mostrar_libros" th:href="@{/mostrar_libros(id_editorial=${editorial.id_editorial})}" th:text="${editorial.id_editorial}"></a></td>
+		<td><span th:text="${editorial.nombre}"></span></td>
+		</tr>
 	</table>
 </body>
 </html>

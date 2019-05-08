@@ -1,0 +1,5 @@
+package cr.ac.ucr.ie.app.controllers;
+
+public class HolaController {
+
+}

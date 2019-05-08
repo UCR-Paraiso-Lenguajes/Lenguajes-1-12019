@@ -28,9 +28,9 @@ public class LibroData {
 
 	@Transactional(readOnly = true)
 	public List<Libro> buscarLibro(int idEditorial) {
-		String sqlSelect= "select l.id_libro, l.año,l.titulo,l.precio, e.nombre "
-				+ "from Libro l, Editorial e where l.id_editorial="+idEditorial +"and e.id_editorial=" +idEditorial;
-
+		String sqlSelect="select l.id_libro, l.año,l.titulo,l.precio, e.nombre" + 
+		          " from Libro l, Editorial e where l.id_editorial="
+		          + idEditorial+ " and e.id_editorial="+ idEditorial;
 		return jdbcTemplate.query(sqlSelect, new LibroExtractor());
 
 	}
@@ -63,6 +63,7 @@ class LibroExtractor implements ResultSetExtractor<List<Libro>> {
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setAno(rs.getInt("año"));
 				libro.setPrecio(rs.getFloat("precio"));
+				libro.getEditorial().setId_editorial(rs.getInt("id_editorial"));
 				map.put(id, libro);
 			} 
 		} 

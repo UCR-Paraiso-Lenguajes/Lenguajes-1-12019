@@ -26,6 +26,8 @@ public class EditorialData {
 	public List<Editorial> buscarEditorial() {
 		String sqlSelect = "SELECT e.id_editorial,e.nombre,e.direccion,e.telefono"
 				+ " FROM Editorial e ";
+		String sqlSelect = "select *"
+				+ "from Editorial";
 		return jdbcTemplate.query(sqlSelect, new EditorialExtractor());
 		
 	}

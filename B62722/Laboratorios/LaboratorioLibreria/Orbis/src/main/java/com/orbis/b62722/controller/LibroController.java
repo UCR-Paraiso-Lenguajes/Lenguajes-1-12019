@@ -63,4 +63,9 @@ public class LibroController {
 			return "exito";
 		}
 	}
+  
+    public String buscarPorEditorial(int id_editorial, Model model) {
+		model.addAttribute("libros", libroBusiness.buscarLibro(id_editorial));
+        return "mostrar_libros";
+    }
 }

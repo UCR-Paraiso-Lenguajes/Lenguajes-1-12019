@@ -20,7 +20,7 @@ public class Libro {
 	public int getId_libro() {
 		return id_libro;
 	}
-
+  
 	public void setId_libro(int id_libro) {
 		if(id_libro <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		this.id_libro = id_libro;
@@ -41,7 +41,6 @@ public class Libro {
 
 	public void setAno(int ano) {
 		this.ano = ano;
-	}
 
 	public float getPrecio() {
 		return precio;

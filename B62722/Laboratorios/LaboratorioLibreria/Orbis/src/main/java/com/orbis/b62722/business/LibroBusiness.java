@@ -1,6 +1,8 @@
 package com.orbis.b62722.business;
 
+
 import java.sql.SQLException;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,3 @@ public class LibroBusiness {
 	public List<Libro> buscarLibro(int id_editorial) {
 		return libroData.buscarLibro(id_editorial);
 	}
-	
-	public Libro save(Libro libro) throws SQLException {
-		return libroData.save(libro);
-		
-	}
-}

@@ -1,0 +1,15 @@
+package cr.ac.ucr.ie.app.controllers;
+
+public class Departamento {
+	private Empleados empleados = new Empleados();
+	private int codDepto;
+	
+	public Departamento() {
+		
+		
+	}
+	
+	public void RegistrarEmpleado(Empleado empleado) {
+		empleados.Agregar(empleado);
+	}
+}
