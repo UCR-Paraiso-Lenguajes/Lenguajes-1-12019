@@ -1,4 +1,4 @@
-package com.orbis.B77436.domain;
+package com.projectOne.interactiveMessaging.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,7 +46,7 @@ public class Metrics {
 		
 	}
 	
-	
+	/*
 	public Message compareLongerMessage(Message messageActual, Message messageNew) {
 		//falta logica
 		return null;
@@ -56,5 +56,6 @@ public class Metrics {
 		//falta logica
 		return null;
 	}
+	*/
 
 }
