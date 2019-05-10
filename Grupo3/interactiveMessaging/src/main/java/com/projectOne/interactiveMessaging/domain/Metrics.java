@@ -18,7 +18,7 @@ public class Metrics {
 	
 	
 	public boolean compareMetrics(Metrics metrics) {
-		//falta logica
+		//falta logica del metodo
 		return false;
 	
 	}
@@ -41,14 +41,14 @@ public class Metrics {
 	}
 	
 	public Date compareDateFirstLogin(Date dateLoginActual, Date dateLogin) {
-		//falta logica
+		//falta logica del metodo
 		return dateFirstLogin;
 		
 	}
 	
-	/*
+	
 	public Message compareLongerMessage(Message messageActual, Message messageNew) {
-		//falta logica
+		//falta logica del metodo
 		return null;
 	}
 	
@@ -56,6 +56,6 @@ public class Metrics {
 		//falta logica
 		return null;
 	}
-	*/
+	
 
 }
