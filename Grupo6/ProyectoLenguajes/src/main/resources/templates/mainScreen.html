@@ -12,7 +12,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
-
 <body>
 
 	<div class="container">
@@ -21,21 +20,159 @@
 
 			<div id="colformGroups" class="col-sm-4 text-center">
 
-				<input id="searchBar" type="text" placeholder="Search..">
+				<input id="searchBar" type="text" placeholder="   Search..">
 
-				<button id="buttonCreate" type="button" class="btn">Create
+				<div id="panelGroups" class="panel panel-default">
+
+					<div class="panel panel-primary">
+						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+						</div>
+					</div>
+				</div>
+
+				<button id="buttonCreate" type="button" class="btn"
+					data-toggle="modal" data-target="#ModalCreateGroup">Create
 					Group</button>
 			</div>
 
-			<div id="colformChat" class="col-sm-8 text-center"></div>
+			<div id="colformChat" class="col-sm-8 text-center">
+
+
+				<div id="panelTop" class="panel panel-default">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h3 class="panel-title">Chat Name</h3>
+						</div>
+
+						<div class="dropdown">
+							<span id="glyphAdd" class="glyphicon glyphicon-plus-sign"
+								data-toggle="dropdown"></span>
+
+							<ul id="dropDown" class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="dropdownMenu1">
+								<li><a href="#" onclick="" data-toggle="modal"
+									data-target="#ModalNewMember">New Member</a></li>
+							</ul>
+
+							<div class="pull-right">
+								<span id="glyphUser" class="glyphicon glyphicon-user"
+									data-toggle="dropdown"></span>
+
+								<ul class="dropdown-menu dropdown-menu-center"
+									aria-labelledby="dropdownMenu2">
+									<li><a href="#" onclick="" data-toggle="modal"
+										data-target="#ModalAboutUs">About Us</a></li>
+									<li><a href="/login" onclick="">Log Out</a></li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 
 		</div>
 
 	</div>
 
+	<!-- Modal Add Member-->
+
+	<div id="ModalNewMember" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Invite new Members</h4>
+				</div>
+				<div id="inputGroup" class="form-group">
+					<label for="usr">Members emails</label> <input type="text"
+						class="form-control" id="newGroupMember">
+				</div>
+
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="Invite">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Modal Create Chat-->
+
+	<div id="ModalCreateGroup" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">New Chat Room</h4>
+				</div>
+				<div id="inputGroup" class="form-group">
+					<label for="usr">Group Name</label> <input type="text"
+						class="form-control" id="newGroup">
+				</div>
+
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="Create">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- Modal About Us-->
+	<div id="ModalAboutUs" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Chat App Project</h4>
+				</div>
+				<div id="AboutUs" class="modal-body">
+					<p>University of Costa Rica</p>
+					<p>Atlantic Headquarters</p>
+					<p>Enclosure Paraiso</p>
+					<br>
+					<p>Programming Languages</p>
+					<br>
+					<p>Programmers</p>
+					<p>JeanCarlo Monge Mendez</p>
+					<p>JeanCarlo Leiva Quiros</p>
+					<p>Karen Guillen Arguello</p>
+					<p>Leonardo Gomez Rodriguez</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 </body>
 
 <style>
+.my-custom-scrollbar {
+	position: relative;
+	height: 415px;
+	overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+	display: block;
+}
+
 body {
 	background-image:
 		url(https://s2.best-wallpaper.net/wallpaper/1920x1200/1401/Ireland-lighthouse-ocean-seascape-sunset-clouds_1920x1200.jpg);
@@ -46,20 +183,19 @@ body {
 	margin-bottom: 50px;
 }
 
-#searchBar{
+#searchBar {
 	margin-top: 25px;
-
 }
 
 #buttonCreate {
-	margin-top: 450px;
-	margin-right:28px;
+	d margin-right: 28px;
 }
 
 #colformGroups {
 	opacity: 0.5;
 	border-radius: 25px;
-	border: 2px solid #3D6F99;
+	border-style: ridge;
+	border: 2px ridge #3D6F99;
 	width: 350px;
 	height: 550px;
 }
@@ -67,11 +203,73 @@ body {
 #colformChat {
 	opacity: 0.5;
 	margin-left: 25px;
+	border-style: ridge;
 	border-radius: 25px;
-	border: 2px solid #3D6F99;
+	border: 2px ridge #3D6F99;
 	width: 775px;
 	height: 550px;
 }
+
+#glyphAdd {
+	font-size: 25px;
+}
+
+#AboutUs {
+	font-size: 25px;
+	text-align: center;
+}
+
+#glyphUser {
+	font-size: 25px;
+}
+
+#inputGroup {
+	font-size: 25px;
+	margint-top: 25px;
+	margin-left: 200px;
+	width: 250px;
+	height: 150px;
+	margint-top: 25px;
+}
+
+#dropDown {
+	left: 50%;
+	right: auto;
+	text-align: center;
+	transform: translate(-50%, 0);
+}
+
+#panelTop {
+	margin-top: 10px;
+	width: 745px;
+	border-style: ridge;
+	border-radius: 25px;
+	border: 2px ridge #3D6F99;
+}
+
+#panelGroups {
+	margin-top: 10px;
+	width: 320px;
+	height: 420px;
+}
+
+#newGroupMember {
+	width: 200px;
+}
+
+#newGroup {
+	width: 220px;
+}
+
+.panel-heading {
+	min-height: 36px;
+}
 </style>
+
+<script type="text/javascript">
+	function valg(nr) {
+		alert('Du valgte valg nr ' + nr);
+	}
+</script>
 
 </html>
