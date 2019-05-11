@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UtilitiesTest {
+public class UtilTest {
 
 	@Test
 	public void getUsersNamesArrayList() {
@@ -20,5 +20,11 @@ public class UtilitiesTest {
 		assertNotNull(usersNames);
 		assertTrue(usersNames.size() == 50);
 		assertTrue(!usersNames.get(37).equals("") && usersNames.get(12) != null);
+	}
+	
+	@Test
+	public void sendEmail() {
+		MailService emailService = new MailService();
+		emailService.sendEmail();
 	}
 }
