@@ -6,7 +6,6 @@ public class Role {
 	private String name_Role;
 	
 	public Role(int role_id, String name_Role) {
-		super();
 		this.role_id = role_id;
 		this.name_Role = name_Role;
 	}
