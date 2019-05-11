@@ -20,7 +20,6 @@ public class Message {
 		setText(text);
 		setShipDate(shipDate);
 		setShipHour(shipHour);
-		userRa
 	}
 	
 	public User getSender() {

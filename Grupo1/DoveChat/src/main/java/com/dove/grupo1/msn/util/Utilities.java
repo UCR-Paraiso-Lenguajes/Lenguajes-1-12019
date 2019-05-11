@@ -16,7 +16,7 @@ public class Utilities {
 		ArrayList<String> usersNames = new ArrayList<>();
 		
 		//declaracion de objetos para realizar lectura de archivos
-		File archivo = new File("/assets/names.txt");
+		File archivo = new File("assets/names.txt");
         BufferedReader br = null;
         try{
             FileInputStream fis = new FileInputStream(archivo);
@@ -25,14 +25,14 @@ public class Utilities {
             
             String nameInLine = br.readLine();
             //ciclo para llenar el arraylist
-            while (nameInLine != null) {
+            while (nameInLine != null && !nameInLine.equals("")) {
 				usersNames.add(nameInLine);
             	nameInLine = br.readLine();
 			}
             br.close();
         }
         catch(FileNotFoundException fnfe){
-            throw new RuntimeException("Error reading the names.txt");
+            throw new RuntimeException("Error finding the names.txt");
         }catch (IOException ioe) {
         	throw new RuntimeException("Error reading the names.txt");
 		}
