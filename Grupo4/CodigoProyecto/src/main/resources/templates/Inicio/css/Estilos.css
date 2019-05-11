@@ -1,0 +1,82 @@
+/*----------------- CABECERA ---------------*/
+.Navegacion {    
+    border-bottom: #467FD7 2px solid; /* Borde de la barra de navegación, recibe el color, el tamaño del borde y una propiedad. */
+    height: 150px; /* Alto */
+    width: 100%; /* Ancho */
+    background-color: white; /* Color de fondo */
+    position: relative; /* la posición relativa normal que va a tener el bloque(div) de navegación. */
+  }
+  
+.Navegacion .logo {  
+  float: right; /* la posición en la que se va a encontrar el elemento "logo" */
+  padding: 6px 10px 10px 10px; /* Esta es para acomodar "manualmente" la posición de un elemento de manera más exacta */
+}
+
+  .Navegacion > .nav-header {
+    display: inline; /* Propiedad para que se muestre en la misma línea, es decir, todo el contenido dentro de "nav-header" se va a posicionar en la misma línea */
+  }
+  
+  .Navegacion > .nav-header > .nav-title {
+    font-family: sans-serif; /* Tipo de fuente a usar*/
+    display: inline-block; /* Esto es para que no se salga del margen del header*/
+    font-size: 30px; /* Tamaño de la fuente */
+    color: #467FD7; /* Color de la fuente */
+    padding: 50px 0px 0px 0px; 
+  }
+/*----------------------------------------------------------*/
+
+/* -------------- Tamaño del DIV: es una sección o divisor, es un bloque de contenido -----------*/
+.Contenedor {
+    width: 80%; /*Este es el ancho, por lo general se puede usar px(pixeles), pero en este caso % para que se ajuste automaticament*/
+    margin: auto; /* Margen: el tamaño del div se va a adaptar al contenido dentro de este */
+    overflow: hidden; /*Especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque, en este caso se oculta. */
+  }
+/* -------------------------------------------------------- */
+
+/* --- Label de CorreoElectronico --- */
+.Formulario label {
+    color: #467FD7;
+    font-family: 'Lucida Sans';
+}
+/*-----------------------------------------------------------*/
+
+/* --- Centrar los elementos del bloque: Formulario, las clases se definen en el HTML y se llaman acá por medio de un "." --- */
+.Formulario {
+    position:absolute; /* Obtiene una posición absoluta de los elementos dentro del bloque, recibe top, bottom, left y right, si están en 0 van a estar en el medio del bloque */
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display: flex; /* Elemento flexible, sin esto se va para la esquina superior izquierda, o sea, se desordena */ 
+    align-items: center; /* Centra los elementos en el punto medio de la página */
+    justify-content:center
+}
+/* -------------------------------------------------------- */
+
+/* ------------------------- Formulario de entrada: CorreoElectronico ------------------------- */
+.Formulario input[type="text"], input[type="email"] {
+    padding: 20px; /* Tamaño del relleno */
+    display: inline-block; /* Ubicados en la misma linea que el label */
+    width: 300px; /* Tamaño del input */
+    border: 0; /* Le quitamos los bordes */
+    border-bottom: 2px solid #467FD7; /* Agregamos el borde inferior y le pasamos los parámetros para darle color */
+  }
+
+/* --- Botón de enviar, no explico todo porque me da navidad jaja, son sólo propiedades que podés travesear */
+.Formulario input[type="submit"] { /* Botón de enviar, esta vara lo generé con una vara en línea que se llama html button generator, vos seleccionas como se va a ver el botón y te da el código*/
+	background-color:transparent;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #4680d7;
+	display:block;
+	cursor:pointer;
+	color:#4680d7;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #4680d7;
+    float: right;
+}
+
