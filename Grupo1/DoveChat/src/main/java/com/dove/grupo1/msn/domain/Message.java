@@ -2,6 +2,8 @@ package com.dove.grupo1.msn.domain;
 
 import java.util.Date;
 
+import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
+
 public class Message {
 
 	private User sender; 
@@ -18,6 +20,7 @@ public class Message {
 		setText(text);
 		setShipDate(shipDate);
 		setShipHour(shipHour);
+		userRa
 	}
 	
 	public User getSender() {
