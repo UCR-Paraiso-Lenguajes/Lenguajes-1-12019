@@ -17,7 +17,7 @@ public final class Room extends RoomConvention{
 	@Override
 	protected void updateMetrics(Message message)
 	{
-		Metrics.updateMetrics();
+		Metrics.getInstance().updateMetrics(message);
 	}
 
 	@Override
