@@ -1,9 +1,11 @@
 package com.projectOne.interactiveMessaging.data;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.sql.Timestamp;
 
 import javax.jws.soap.SOAPBinding.Use;
 
@@ -21,18 +23,16 @@ public class MessageData {
 	private JdbcTemplate jdbcTemplate;
 
 	public Iterator<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList) {
-																							
 		List<Message> messagesTemp = new ArrayList<>();
 		List<Message> messages = new ArrayList<>();
 		List<Integer> messagesUserId = new ArrayList<>();
 		String selectMysql;
-		selectMysql = "SELECT id,messageM,idUser,date,size " + "FROM LosMagnificosMessages "
+		selectMysql = "SELECT id,messageM,idUser,dateM,size " + "FROM LosMagnificosMessages "
 				+ "WHERE id >= ? AND id <= ? " + "ORDER BY id";
 		jdbcTemplate
 				.query(selectMysql, new Object[] { inicio, fin }, (rs, row) -> new Message(rs.getInt("id"),
-						rs.getString("messageM"), new Date(), rs.getInt("size")))
+						rs.getString("messageM"), rs.getTimestamp("dateM"), rs.getInt("size")))
 				.forEach(entry -> messagesTemp.add(entry));
-
 		selectMysql = "SELECT idUser " + "FROM LosMagnificosMessages " + "WHERE id >= ? AND id <= ? " + "ORDER BY id";
 		jdbcTemplate.query(selectMysql, new Object[] { inicio, fin }, (rs, row) -> new Integer(rs.getInt("idUser")))
 				.forEach(entry -> messagesUserId.add(entry));

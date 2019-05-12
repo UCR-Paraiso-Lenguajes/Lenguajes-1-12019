@@ -1,5 +1,7 @@
 package com.projectOne.interactiveMessaging.domain;
 
+import java.sql.Timestamp;
+import java.sql.Time;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -8,27 +10,31 @@ public class Message {
 	private int message_id;
 	private String message;
 	private User userTransmitter;
-	private Date dateMessage;
+	private Timestamp dateMessage;
 	private int sizeOfMessage;
-	public Message(int message_id, String message, User userTransmitter, Date dateMessage) {
+	public Message(int message_id, String message, User userTransmitter, Timestamp dateMessage) {
 		
 		if(message == null || message.trim().toLowerCase().equals("")) throw new RuntimeException("El mensaje es requerido");
-		if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException
-		("La fecha es requerida o corresponde a una fecha erronea."); //La fecha que ingresa debe ser inferior a la actual
+		//if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException
+		//("La fecha es requerida o corresponde a una fecha erronea."); //La fecha que ingresa debe ser inferior a la actual
 		if(userTransmitter == null) throw new RuntimeException("El usuario es requerido.");
 		this.message_id = message_id;
 		this.message = message;
 		this.userTransmitter = userTransmitter;
-		this.dateMessage = dateMessage;
+		Timestamp temp = dateMessage;
+		temp.setHours(dateMessage.getHours()+1);
+		this.dateMessage = temp;
 	}
 	
-	public Message(int message_id, String message, Date dateMessage, int sizeOfMessage) {
+	public Message(int message_id, String message, Timestamp dateMessage, int sizeOfMessage) {
 		if(message == null || message.trim().toLowerCase().equals("")) throw new RuntimeException("El mensaje es requerido");
-		if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException
-		("La fecha es requerida o corresponde a una fecha erronea."); //La fecha que ingresa debe ser inferior a la actual
+		//if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException
+		//("La fecha es requerida o corresponde a una fecha erronea."); //La fecha que ingresa debe ser inferior a la actual
 		this.message_id = message_id;
 		this.message = message;
-		this.dateMessage = dateMessage;
+		Timestamp temp = dateMessage;
+		temp.setHours(dateMessage.getHours()+1);
+		this.dateMessage = temp;
 		this.sizeOfMessage = sizeOfMessage;
 	}
 
@@ -60,14 +66,16 @@ public class Message {
 		this.userTransmitter = userTransmitter;
 	}
 
-	public Date getDateMessage() {
-		if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException("La fecha es requerida o corresponde a una fecha erronea.");;
+	public Timestamp getDateMessage() {
+		//if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException("La fecha es requerida o corresponde a una fecha erronea.");;
 		return dateMessage;
 	}
 
-	public void setDateMessage(Date dateMessage) {
-		if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException("La fecha es requerida o corresponde a una fecha erronea.");
-		this.dateMessage = dateMessage;
+	public void setDateMessage(Timestamp dateMessage) {
+		//if(dateMessage == null || dateMessage.before(new Date())) throw new RuntimeException("La fecha es requerida o corresponde a una fecha erronea.");
+		Timestamp temp = dateMessage;
+		temp.setHours(dateMessage.getHours()+1);
+		this.dateMessage = temp;
 	}
 
 	public int getSizeOfMessage() {

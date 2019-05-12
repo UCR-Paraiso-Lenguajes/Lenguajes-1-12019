@@ -1,8 +1,10 @@
 package com.projectOne.interactiveMessaging.data;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.timeout;
 
 import java.util.Iterator;
+import java.sql.Time;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +26,7 @@ public class MessageDataTest {
 	@Test
 	public void getMessagesByRangeTest() {
 		Iterator<Message>messages = messageData.getMessagesByRange(1, 3, userData.findUsersCertainRoom(2));
+		
 		assertNotNull(messages);
 	}
 }
