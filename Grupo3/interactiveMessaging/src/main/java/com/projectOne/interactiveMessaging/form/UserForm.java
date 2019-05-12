@@ -22,7 +22,6 @@ public class UserForm {
 	private String hash;
 	
 	public UserForm() {
-		super();
 	}
 	public int getUser_id() {
 		return user_id;

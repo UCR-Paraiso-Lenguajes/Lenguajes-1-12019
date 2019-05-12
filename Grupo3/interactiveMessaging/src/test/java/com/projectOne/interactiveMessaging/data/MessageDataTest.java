@@ -10,23 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.projectOne.interactiveMessaging.domain.User;
+import com.projectOne.interactiveMessaging.domain.Message;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserDataTest {
+public class MessageDataTest {
 
+	@Autowired
+	private MessageData messageData;
 	@Autowired
 	private UserData userData;
 	
 	@Test
-	public void findUsersTest() {
-		Iterator<User>userList = userData.findUsersCertainRoom(2);
-		assertNotNull(userList);
-	}
-	@Test
-	public void getIdGroupsOfUsrTest() {
-		Iterator<Integer>idGroupsOfUsr = userData.getIdGroupsOfUsr(1);
-		assertNotNull(idGroupsOfUsr);
+	public void getMessagesByRangeTest() {
+		Iterator<Message>messages = messageData.getMessagesByRange(1, 3, userData.findUsersCertainRoom(2));
+		assertNotNull(messages);
 	}
 }
