@@ -25,9 +25,7 @@
 				<div id="panelGroups" class="panel panel-default">
 
 					<div class="panel panel-primary">
-						<div class="table-wrapper-scroll-y my-custom-scrollbar">
-
-						</div>
+						<div class="table-wrapper-scroll-y my-custom-scrollbar"></div>
 					</div>
 				</div>
 
@@ -38,11 +36,14 @@
 
 			<div id="colformChat" class="col-sm-8 text-center">
 
-
 				<div id="panelTop" class="panel panel-default">
+
 					<div class="panel-heading">
+
 						<div class="pull-left">
+
 							<h3 class="panel-title">Chat Name</h3>
+
 						</div>
 
 						<div class="dropdown">
@@ -70,6 +71,37 @@
 						</div>
 
 					</div>
+
+				</div>
+
+				<div id="panelMessages" class="panel panel-default">
+
+					<div id="internalPanel" class="panel panel-primary">
+						<div class="table-wrapper-scroll-y my-custom-scrollbar"></div>
+					</div>
+
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-4 text-center">
+
+						<div id="messageInput" class="form-group">
+							<label for="message"></label> <input id="messageForm" type="text"
+								class="form-control">
+						</div>
+					</div>
+
+					<div class="col-sm-4 text-center">
+
+						<div id="btnSendMessage">
+							<a href="#" class="btn btn-primary btn-circle"> <span
+								class="glyphicon glyphicon-play" onclick="getValues()"></span>
+							</a>
+						</div>
+					</div>
+
 				</div>
 
 			</div>
@@ -85,10 +117,12 @@
 
 			<!-- Modal content-->
 			<div class="modal-content">
+
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Invite new Members</h4>
 				</div>
+
 				<div id="inputGroup" class="form-group">
 					<label for="usr">Members emails</label> <input type="text"
 						class="form-control" id="newGroupMember">
@@ -98,9 +132,11 @@
 					<input type="submit" class="btn btn-primary" value="Invite">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
+
 			</div>
 
 		</div>
+
 	</div>
 
 	<!-- Modal Create Chat-->
@@ -130,6 +166,7 @@
 
 
 	<!-- Modal About Us-->
+
 	<div id="ModalAboutUs" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -162,6 +199,15 @@
 
 </body>
 
+<script type="text/javascript">
+	function getValues() {
+
+		var messageChat = document.getElementById("messageForm").value;
+
+		document.getElementById("panelMessages").innerHTML += '<div id="bubbles" class="panel-body">'
+				+ messageChat + '</div>';
+	}
+</script>
 <style>
 .my-custom-scrollbar {
 	position: relative;
@@ -183,12 +229,26 @@ body {
 	margin-bottom: 50px;
 }
 
+#bubbles {
+margin-top:10px;
+marging-right:40px;
+width: 350px;
+height: auto;
+padding: 5px;
+border­radius: 100%;
+border-style: solid;
+webkit­shape­inside: rectangle(0,0,100%,100%,100%,100%);
+background­color: #6D6C80;
+font­size: 30px;
+text­align: justify;
+}
+
 #searchBar {
 	margin-top: 25px;
 }
 
 #buttonCreate {
-	d margin-right: 28px;
+	margin-right: 30px;
 }
 
 #colformGroups {
@@ -198,6 +258,20 @@ body {
 	border: 2px ridge #3D6F99;
 	width: 350px;
 	height: 550px;
+}
+
+#panelMessages {
+	opacity: 0.5;
+	border-radius: 25px;
+	border-style: ridge;
+	border: 2px ridge #3D6F99;
+	width: 735px;
+	height: 275px;
+}
+
+#btnSendMessage {
+	margin-top: 130px;
+	margin-left: 425px;
 }
 
 #colformChat {
@@ -247,6 +321,12 @@ body {
 	border: 2px ridge #3D6F99;
 }
 
+#messageInput {
+	margin-top: 110px;
+	width: 625px;
+	margin-left: 50px;
+}
+
 #panelGroups {
 	margin-top: 10px;
 	width: 320px;
@@ -265,11 +345,5 @@ body {
 	min-height: 36px;
 }
 </style>
-
-<script type="text/javascript">
-	function valg(nr) {
-		alert('Du valgte valg nr ' + nr);
-	}
-</script>
 
 </html>
