@@ -1,93 +1,78 @@
 package com.projectOne.interactiveMessaging.mask;
 
 import java.util.ArrayList;
-import java.util.Queue;
-
-import com.projectOne.interactiveMessaging.tda.Nodo;
-import com.projectOne.interactiveMessaging.tda.QueueException;
-import com.projectOne.interactiveMessaging.tda.QueueLinked;
-
 public class Mask {
 	
-	private ArrayList<String> userfakes;
-	private QueueLinked tail;
+	private ArrayList<String> userfakesList;
 	
 	public Mask() {
-		this.userfakes = new ArrayList<String>();
-		this.tail = new QueueLinked();
+		this.userfakesList = new ArrayList<String>();
 	}
 	
 	public void assignNamesUserfakes() {
-		userfakes.add("Frodo");
-		userfakes.add("Darth Vader");
-		userfakes.add("Luke");
-		userfakes.add("Pantera Rosa");
-		userfakes.add("Iron Man");
-		userfakes.add("Thanos");
-		userfakes.add("Luke Skywalker");
-		userfakes.add("Yoda");
-		userfakes.add("Chuwi");
-		userfakes.add("Han Solo");
-		userfakes.add("Black Widow");
-		userfakes.add("Jon Snow");
-		userfakes.add("Ned Stark");
-		userfakes.add("Daenerys Targaryen");
-		userfakes.add("Cersei Lannister");
-		userfakes.add("Sauron");
-		userfakes.add("Legolas");
-		userfakes.add("Arwen");
-		userfakes.add("Aragorn");
-		userfakes.add("Gandalf");
-		userfakes.add("Bilbo Bolsón");
-		userfakes.add("Boromir");
-		userfakes.add("Glorfindel");
-		userfakes.add("Leia");
-		userfakes.add("Obi wan kenobi");
-		userfakes.add("R2D2");
-		userfakes.add("C3PO");
-		userfakes.add("Lord Stark");
-		userfakes.add("Thor");
-		userfakes.add("Superman");
-		userfakes.add("Jorah Mormont");
-		userfakes.add("Captain America");
-		userfakes.add("Spider-man");
-		userfakes.add("Loki");
-		userfakes.add("Clint Barton");
-		userfakes.add("Hulk");
-		userfakes.add("Doctor Strange");
-		userfakes.add("Ant-man");
-		userfakes.add("Rocket");
-		userfakes.add("Black Panther");
-		userfakes.add("Wong");
-		userfakes.add("Valquiria");
-		userfakes.add("Witch Scarlet");
-		userfakes.add("Gamora");
-		userfakes.add("Vision");
-		userfakes.add("Winter Soldier");
-		userfakes.add("Nebula");
-		userfakes.add("Mantis");
-		userfakes.add("War machine");
-		userfakes.add("Drax");
-		for(int i=0;i<userfakes.size();i++) {
-			tail.queueUp(userfakes.get(i));
-		}
+		userfakesList.add("Frodo");
+		userfakesList.add("Darth Vader");
+		userfakesList.add("B8");
+		userfakesList.add("Pantera Rosa");
+		userfakesList.add("Iron Man");
+		userfakesList.add("Thanos");
+		userfakesList.add("Luke Skywalker");
+		userfakesList.add("Yoda");
+		userfakesList.add("Chuwi");
+		userfakesList.add("Han Solo");
+		userfakesList.add("Black Widow");
+		userfakesList.add("Jon Snow");
+		userfakesList.add("Ned Stark");
+		userfakesList.add("Daenerys Targaryen");
+		userfakesList.add("Cersei Lannister");
+		userfakesList.add("Sauron");
+		userfakesList.add("Legolas");
+		userfakesList.add("Arwen");
+		userfakesList.add("Aragorn");
+		userfakesList.add("Gandalf");
+		userfakesList.add("Bilbo Bolsón");
+		userfakesList.add("Boromir");
+		userfakesList.add("Glorfindel");
+		userfakesList.add("Leia");
+		userfakesList.add("Obi wan kenobi");
+		userfakesList.add("R2D2");
+		userfakesList.add("C3PO");
+		userfakesList.add("Lord Stark");
+		userfakesList.add("Thor");
+		userfakesList.add("Superman");
+		userfakesList.add("Jorah Mormont");
+		userfakesList.add("Captain America");
+		userfakesList.add("Spider-man");
+		userfakesList.add("Loki");
+		userfakesList.add("Clint Barton");
+		userfakesList.add("Hulk");
+		userfakesList.add("Doctor Strange");
+		userfakesList.add("Ant-man");
+		userfakesList.add("Rocket");
+		userfakesList.add("Black Panther");
+		userfakesList.add("Wong");
+		userfakesList.add("Valquiria");
+		userfakesList.add("Witch Scarlet");
+		userfakesList.add("Gamora");
+		userfakesList.add("Vision");
+		userfakesList.add("Winter Soldier");
+		userfakesList.add("Nebula");
+		userfakesList.add("Mantis");
+		userfakesList.add("War machine");
+		userfakesList.add("Drax");
 	}
 	
 	
-	public String assignUserfake() {
-		String userFake="";
-		userFake = (String) tail.uncoil();
+	public ArrayList<String> assignUserfake(int numberOfmembers) {
+		ArrayList<String> userFake= new ArrayList<String>();
+		for(int i=0;i<userfakesList.size();i++) {
+			if(i<numberOfmembers)
+				userFake.add(userfakesList.get(i));
+			else
+				i=userfakesList.size();
+		}
 		return userFake;
 	}
 	
-	public void removeUserFake(String userFake) throws QueueException {
-		QueueLinked tailAux = new QueueLinked();
-		tailAux.queueUp(userFake);
-		for(int i=0; i< tail.getSize(); i++) {
-			tailAux.queueUp(tail.uncoil());
-		}
-		tail.annul();
-		tail = tailAux;
-	}
 	
 }
