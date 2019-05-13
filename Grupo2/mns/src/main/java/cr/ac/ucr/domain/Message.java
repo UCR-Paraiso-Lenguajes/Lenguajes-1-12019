@@ -6,6 +6,7 @@ import cr.ac.ucr.exceptions.ProjectExceptions;
 
 public class Message {
 
+	private int id;
 	private String content;
 	private Room roomWhereThisMessageBelong;
 	private Date date;
@@ -14,6 +15,10 @@ public class Message {
 	{
 		validMessage(content);
 		this.date = new Date();
+	}
+
+	public Message() {
+		// TODO Auto-generated constructor stub
 	}
 
 	private void validMessage(String content) {
@@ -39,6 +44,14 @@ public class Message {
 	Date getDate() 
 	{
 		return null;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
