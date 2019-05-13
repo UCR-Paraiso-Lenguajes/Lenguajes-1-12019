@@ -27,7 +27,7 @@
 
 /* -------------- Tamaño del DIV: es una sección o divisor, es un bloque de contenido -----------*/
 .Contenedor {
-    width: 80%; /*Este es el ancho, por lo general se puede usar px(pixeles), pero en este caso % para que se ajuste automaticament*/
+    width: 80%; /*Este es el ancho, por lo general se puede usar px(pixeles), pero en este caso % para que se ajuste automaticamente*/
     margin: auto; /* Margen: el tamaño del div se va a adaptar al contenido dentro de este */
     overflow: hidden; /*Especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque, en este caso se oculta. */
   }
@@ -62,8 +62,8 @@
     border-bottom: 2px solid #467FD7; /* Agregamos el borde inferior y le pasamos los parámetros para darle color */
   }
 
-/* --- Botón de enviar, no explico todo porque me da navidad jaja, son sólo propiedades que podés travesear */
-.Formulario input[type="submit"] { /* Botón de enviar, esta vara lo generé con una vara en línea que se llama html button generator, vos seleccionas como se va a ver el botón y te da el código*/
+/* --- Botón de enviar, propiedades */
+.Formulario input[type="submit"] { /* Botón de enviar*/
 	background-color:transparent;
 	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
