@@ -83,3 +83,5 @@ B77436/tarea2/tarea2/tarea2/target/classes/META-INF/MANIFEST.MF
 B77436/tarea2/tarea2/tarea2/target/classes/META-INF/maven/cr.ac.ucr.ie/tarea2/pom.properties
 B77436/tarea2/tarea2/tarea2/target/classes/META-INF/maven/cr.ac.ucr.ie/tarea2/pom.xml
 B77436/tarea2/tarea2/tarea2/target/test-classes/cr/ac/ucr/ie/tarea2/AppTest.class
+*.class
+*.xml
