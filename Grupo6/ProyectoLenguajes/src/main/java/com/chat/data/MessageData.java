@@ -21,26 +21,18 @@ public class MessageData {
 	}
 	
 	@Transactional(readOnly = true)
-	public List<Message> getMessages(int begin, int end)
-	{
+	public List<Message> getMessages(int begin, int end) {
 		List<Message> messages = new ArrayList<Message>();
-		String selectSql = 
-			"SELECT message_id, message_description, message_date, id_sending_user "
-			+ "FROM Message g "
-			+ "WHERE message_id > ? AND message_id < ? order by message_id ASC";
-				jdbcTemplate.query(
-						selectSql, 
-						new Object[] {begin, end}, 
-						(rs, row) -> new Message(rs.getInt("message_id"),
-										rs.getString("message_description"), 
-										rs.getString("message_date"), 
-										rs.getInt("id_sending_user"))
-							)
-						.forEach(entry -> messages.add(entry)
-				);
+		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user " + "FROM Message g "
+				+ "WHERE message_id > ? AND message_id < ? order by message_id ASC";
+		jdbcTemplate
+				.query(selectSql, new Object[] { begin, end },
+						(rs, row) -> new Message(rs.getInt("message_id"), rs.getString("message_description"),
+								rs.getString("message_date"), rs.getInt("id_sending_user")))
+				.forEach(entry -> messages.add(entry));
 		return messages;
 	}
-	
+
 	@Transactional
 	public Message save(Message message)
 	{
