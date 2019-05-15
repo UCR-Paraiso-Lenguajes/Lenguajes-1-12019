@@ -4,8 +4,8 @@
   height: 100%;
   margin-top:2%;
   margin-bottom:2%;
-  margin-left: 3%;
-  width:  98%;
+  margin-left: 4%;
+  width:  96%;
  
 }
 #header{
@@ -15,40 +15,48 @@
     size: 30%;
     width: 95%;
     margin-bottom:1%;
-    background-color: moccasin;
+    background-color: darkgoldenrod;
+
 
 }
-.container{
-max-width: 100%;
-width: 100%;
+#container{
+max-width: 90%;
+width: 90%;
 margin-top:2%;
+margin-left: 2%;
 margin-bottom:2%;
-align-self: center;
+
+
 
 }
-#chat-row{
-
-    min-height:70%;
-    max-height: 70%;
-    height: 70%;
-    width: 70%;
+#chat-column{
+    min-height:75%;
+    max-height: 75%;
+    height: 75%;
+    width: 75%;
     max-width: 70%;
     min-width: 70%;
-    background-color: rgb(255, 255, 255);
-}
-#space{
 
-    width: 3%;
-    max-width: 3%;
-    min-width: 3%;
-    background-color: rgb(255, 255, 255);
+}
+
+#SearchRoom-input-div{
+
+    width: 140%;
+}
+
+.search-room{
+
+    width: 140%;
+
 }
 #room-select-column{
 
-    width: 17%;
-    max-width: 17%;
-    min-width: 17%;
-    background-color: rgb(255, 255, 255);
+    width: 20%;
+    max-width: 20%;
+    min-width: 20%;
+    margin-left: 6%;
+    background-color: darkgoldenrod;
+
 }
 #chat-received{
     background-color: darkgrey;
@@ -60,12 +68,15 @@ align-self: center;
 #chat-sent{
     background-color: darkslategray;
     color: aliceblue;
+    max-height: 2%;
+    min-height: 2%;
+    height: 2%;
+    margin-top:2%;
+
 }
 
 #send-group-row{
 
-    bottom: 50%;
-    height: 50%;
-    width: 50%;
+  margin-top: 60%;
 }
 
