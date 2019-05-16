@@ -16,23 +16,21 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 
 @Repository
 public class MensajeData {
-
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private SimpleJdbcCall simpleJdbcCall;
+	private  SimpleJdbcCall simpleJdbcCall;
 	private DataSource dataSource;
-
-	@Transactional(readOnly = true)
+	@Transactional(readOnly=true)
 	public void save(Mensaje mensaje) {
-		Connection conexion = null;
+		Connection conexion = null; 
 		try {
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
 			String sqlInsertrol = "INSERT INTO MENSAJE(contenido,version,idUsuario) VALUES(?,?,?)";
 			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
-			statementrol.setString(1, mensaje.getContenido());
-			statementrol.setInt(2, mensaje.getVersion());
-			statementrol.setInt(3, mensaje.getUsuario().getId());
+			statementrol.setString(1,mensaje.getContenido());
+			statementrol.setInt(2,mensaje.getVersion());
+			statementrol.setInt(3,mensaje.getUsuario().getId());
 			statementrol.executeUpdate();
 			conexion.commit();
 		} catch (SQLException e) {
@@ -42,8 +40,8 @@ public class MensajeData {
 				throw new RuntimeException(e2);
 			}
 			throw new RuntimeException(e);
-		} finally {
-			if (conexion != null) {
+		}finally {
+			if(conexion != null) {
 				try {
 					conexion.close();
 				} catch (SQLException e3) {
@@ -52,4 +50,6 @@ public class MensajeData {
 			}
 		}
 	}
+	
+
 }

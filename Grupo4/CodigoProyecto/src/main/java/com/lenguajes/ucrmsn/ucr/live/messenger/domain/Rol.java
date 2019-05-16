@@ -1,7 +1,7 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.domain;
 
 public class Rol {
-	private int rollid;
+	private int rolid;
 	private String nombre;
 	
 	
@@ -12,18 +12,18 @@ public class Rol {
 
 	public Rol(int rollid, String nombre) {
 		super();
-		this.rollid = rollid;
+		this.rolid = rollid;
 		this.nombre = nombre;
 	}
 
 
-	public int getRollid() {
-		return rollid;
+	public int getRolid() {
+		return rolid;
 	}
 
 
-	public void setRollid(int rollid) {
-		this.rollid = rollid;
+	public void setRolid(int rollid) {
+		this.rolid = rollid;
 	}
 
 
