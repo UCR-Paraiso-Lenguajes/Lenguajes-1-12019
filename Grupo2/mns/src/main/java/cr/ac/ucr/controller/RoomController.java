@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class GrupoController {
+public class RoomController {
 
 
 
 
-	@RequestMapping(value = "/crearGrupo", method = RequestMethod.GET)
+	@RequestMapping(value = "/createGrupo", method = RequestMethod.GET)
 	public String showForm() throws SQLException {
 		
-			return "crearGrupo";
+			return "createGrupo";
 		}
 		
 	}

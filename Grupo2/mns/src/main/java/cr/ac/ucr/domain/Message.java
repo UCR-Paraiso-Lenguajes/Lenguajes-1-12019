@@ -8,6 +8,7 @@ public class Message {
 
 	private int id;
 	private String content;
+	private	User messageSender;
 	private Room roomWhereThisMessageBelong;
 	private Date date;
 	
@@ -36,13 +37,13 @@ public class Message {
 	
 	void setRoomWhereThisMessageBelongs(Room roomWhereThisMessageBelong) 
 	{
-		//TODO vdalidaciones
+		if(roomWhereThisMessageBelong == null  ) throw new ProjectExceptions("El grupo debe existir");		
 		this.roomWhereThisMessageBelong = roomWhereThisMessageBelong;
 	}
 
 	Date getDate() 
 	{
-		return null;
+		return date;
 	}
 
 	public int getId() {
@@ -51,6 +52,15 @@ public class Message {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public User getMessageSender() {
+		return messageSender;
+	}
+
+	public void setMessageSender(User messageSender) {
+		if(messageSender == null  ) throw new ProjectExceptions("El usuario debe existir");		
+		this.messageSender = messageSender;
 	}
 	
 }
