@@ -21,15 +21,15 @@
         <div id="header-row" class="row">
 
             <div id="chat-logo-div" class="col-sm">
-                <img src="../templates/assets/batman.png" alt="logo" class="logo"style="margin-left: 65%">
+                <img src="../templates/assets/batman.png" alt="logo" class="logo" style="margin-left: 65%">
                 <label id="label-chat-name" class="name">
                     xGeneration
                 </label>
             </div>
 
-        
 
-           
+
+
 
             <div id="user-logo-div" class="col-sm" align="right" style="margin-right: 8%">
                 <img src="../templates/assets/cat.png" alt="logo" class="logo">
@@ -50,22 +50,43 @@
 
         <div id="chat-column" class="col-sm">
 
-            <div id="chat-logs" class="row">
+            <div class="chat-box">
 
-                <div id="chat-received" class="col-sm">
-                    <div class="img-user"></div>
-                    <p class="chat-message">b</p>
-                </div>
+                <div class="chat-logs">
 
-                <div id="chat-sent" class="col-sm">
-                    <div class="img-user"></div>
-                    <p class="chat-message">a</p>
+                    <div class="chat friend">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">b</p>
+                    </div>
+
+                    <div class="chat self">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">a</p>
+                    </div>
+                    <div class="chat self">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">a</p>
+                    </div>
+                    <div class="chat friend">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">b</p>
+                    </div>
+                    <div class="chat self">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">a</p>
+                    </div>
+                    <div class="chat self">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">a</p>
+                    </div>
+                    <div class="chat friend">
+                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <p class="chat-message">b</p>
+                    </div>
+
                 </div>
 
             </div>
-
-          
-
         </div>
 
 
@@ -73,7 +94,12 @@
         <div id="room-select-column" class="col-sm">
 
             <div id="SearchRoom-input-div" class="row">
-                <input type="text" class="search-room">
+                <div class="col-sm">
+                    <input type="text" class="search-room">
+                </div>
+                <div class="col-sm">
+                    <button class="button-search">Buscar</button>
+                </div>
             </div>
 
             <div id="room-select-div" class="row">
