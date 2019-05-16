@@ -22,7 +22,7 @@ public class EmailServiceImpl {
        
         SimpleMailMessage message = new SimpleMailMessage(); 
         message.setTo(to); 
-        message.setFrom("daniiela.p182@gmail.com");
+        message.setFrom("priscipo@gmail.com");
         message.setSubject("Hola"); 
         message.setText("Se ha enviado el correo");
         javaMailSender.send(message);
