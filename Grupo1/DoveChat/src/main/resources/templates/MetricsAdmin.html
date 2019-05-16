@@ -46,28 +46,34 @@
 
     <div id="container" class="row">
 
-        <div id="chat-column" class="col-sm">
+            <div id="chat-logs" class="col-sm-3">
 
-            <div id="chat-logs" class="row">
+                    <p class="text">Room's Quantity</p>
+                    <p class="text">User's Quantity</p>
+                    <p class="text">User's Average per Room</p>
+                    <p class="text">Average users per group</p>
+                    <p class="text">Last message date</p>
+                    <p class="text">First login date</p>
+                    <p class="text">User with more messages and quantity</p>
+                    <p class="text">Largest message</p>
+                    <p class="text">Last created room</p>
+                    <p class="text">Room with more messages and quantity</p>
 
-                <div id="chat-received" class="col-sm">
-                    <div class="img-user"></div>
-                    <p class="chat-message">b</p>
+
                 </div>
 
-                <div id="chat-received" class="col-sm">
-                    <div class="img-user"></div>
-                    <p class="chat-message">b</p>
-                </div>
-                
-                <div id="chat-received" class="col-sm">
-                    <div class="img-user"></div>
-                    <p class="chat-message">b</p>
-                </div>
+            <div id="chat-logs" class="col-sm-3">
 
-            </div>
-
-
+                    <p class="text">1019</p>
+                    <p class="text">74839</p>
+                    <p class="text">10</p>
+                    <p class="text">78</p>
+                    <p class="text">11-06-2019</p>
+                    <p class="text">11-5-2019</p>
+                    <p class="text">jdkañ</p>
+                    <p class="text">jklfa</p>
+                    <p class="text">jdkl</p>
+                    <p class="text">b</p>
 
         </div>
 
@@ -76,18 +82,22 @@
         <div id="room-select-column" class="col-sm">
 
             <div id="SearchRoom-input-div" class="row">
-                <input type="text" class="search-room">
+                <input type="search" class="search-room" required>
             </div>
 
             <div id="room-select-div" class="row">
                 <select name="chat-select" class="chat-select" id="chat-select" multiple="multiple" size="23"></select>
             </div>
 
+            
+
         </div>
-        <div id="send-group-row" class="row">
-            <textarea type="text" class="message"></textarea>
-            <button class="button">Enviar</button>
+
+        <div id="btnSearch" class="col-sm-2">
+                <button>Search</button>  
         </div>
+
+        
     </div>
 
 

@@ -29,9 +29,11 @@ public class UtilTest {
  
  @Test
  public void sendEmail() {
-  emailService.sendEmail("no-reply@dovechat.com", "meli8538@gmail.com","Prueba","Funcional");
+  emailService.sendEmail("no-reply@dovechat.com", "meli8538@gmail.com,melvin.astorga@gmail.com","Prueba","Funcional");
  
  }
+ 
+ 
 }
 
 	
