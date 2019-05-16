@@ -25,6 +25,7 @@ public class UsuarioData {
 	public void save(Usuario usuario) {
 		Connection conexion = null; 
 		try {
+			
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
 			String sqlInsertrol = "INSERT INTO USUARIO(codigoHash,cantidadMensaje) VALUES(?,?)";
@@ -51,5 +52,66 @@ public class UsuarioData {
 			}
 		}
 	}
-	
+	@Transactional(readOnly=true)
+	public void eliminar(Usuario usuario) {
+		Connection conexion = null; 
+		try {
+			
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			String sqlInsertrol = "DELETE FROM USUARIO WHERE codigoHash=(?), cantidadMensaje=(?) ";
+			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
+			statementrol.setString(1,usuario.getHash());
+			statementrol.setInt(2,usuario.getCantidadMensajes());
+
+			statementrol.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
+			try {
+				conexion.rollback();
+			} catch (SQLException e2) {
+				throw new RuntimeException(e2);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(conexion != null) {
+				try {
+					conexion.close();
+				} catch (SQLException e3) {
+					throw new RuntimeException(e3);
+				}
+			}
+		}
+	}
+	@Transactional(readOnly=true)
+	public void updateCantidadMensajes(Usuario usuario) {
+		Connection conexion = null; 
+		try {
+			
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			String sqlInsertrol = "UPDATE USUARIO WHERE codigoHash=(?) SET cantidadMensaje=(?) ";
+			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
+			statementrol.setString(1,usuario.getHash());
+			statementrol.setInt(2,usuario.getCantidadMensajes());
+
+			statementrol.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
+			try {
+				conexion.rollback();
+			} catch (SQLException e2) {
+				throw new RuntimeException(e2);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(conexion != null) {
+				try {
+					conexion.close();
+				} catch (SQLException e3) {
+					throw new RuntimeException(e3);
+				}
+			}
+		}
+	}
 }

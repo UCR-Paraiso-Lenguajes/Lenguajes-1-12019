@@ -91,5 +91,34 @@ public class GrupoData {
 			}
 		}
 	}
+	@Transactional(readOnly=true)
+	public void update(Grupo grupo) {
+		Connection conexion = null; 
+		try {
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			String sqlInsertrol = "UPDATE GRUPO SET nombre=(?),"
+					+ "numeroParticipantes=(?),cantidadMensajes=(?)  WHERE id=(?)";
+			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
+			statementrol.setInt(1, grupo.getId());
+			statementrol.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
+			try {
+				conexion.rollback();
+			} catch (SQLException e2) {
+				throw new RuntimeException(e2);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(conexion != null) {
+				try {
+					conexion.close();
+				} catch (SQLException e3) {
+					throw new RuntimeException(e3);
+				}
+			}
+		}
+	}
 }
 

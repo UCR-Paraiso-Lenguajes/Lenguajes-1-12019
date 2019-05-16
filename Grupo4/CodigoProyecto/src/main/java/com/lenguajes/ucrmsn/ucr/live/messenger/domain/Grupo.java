@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class Grupo {
@@ -17,8 +18,11 @@ public class Grupo {
 	private Usuario dueno;
 	
 	public Grupo(int id, String nombre, int numeroParticipantes, int cantidadMensajes, Usuario administrador,
-			Usuario dueno) {
+			Usuario dueno)throws GrupoException {
 		super();
+		if (nombre==null && administrador==null && dueno==null) {
+			throw new GrupoException("El Grupo esta vacio");
+		}
 		this.id = id;
 		this.nombre = nombre;
 		this.numeroParticipantes = numeroParticipantes;
