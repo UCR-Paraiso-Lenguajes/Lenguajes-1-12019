@@ -35,9 +35,9 @@ private DataSource dataSource;
 	}
 	
 	@Transactional(readOnly=true)
-	public List<Role> ListarLibros(int inicio,int _final){
-		String sqlSelect = "SELECT top "+inicio+" l.id_libro, l.titulo, l.ano, l.precio "
-				+ " FROM Libro l";
+	public List<Role> ListRoles(int amount){
+		String sqlSelect = "SELECT r.idRole, r.detail"
+				+ " FROM Role r LIMIT "+amount;
 		return jdbcTemplate.query(sqlSelect, new RolesEstractor());
 	}
 	
@@ -62,7 +62,7 @@ private DataSource dataSource;
 					
 					role = new	Role();
 					role.setIdRole(rs.getInt("idRole"));
-					role.setDetail(rs.getString("titulo"));
+					role.setDetail(rs.getString("detail"));
 					map.put(id, role);
 					
 				}//if

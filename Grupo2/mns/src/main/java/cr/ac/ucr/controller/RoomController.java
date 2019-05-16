@@ -1,8 +1,7 @@
 package cr.ac.ucr.controller;
 
-import java.sql.SQLException;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,12 +11,12 @@ public class RoomController {
 
 
 
-	@RequestMapping(value = "/createGrupo", method = RequestMethod.GET)
-	public String showForm() throws SQLException {
-		
-			return "createGrupo";
-		}
-		
+	@RequestMapping(value = "/createRoom", method = RequestMethod.GET)
+	public String showForm(Model model)  {
+			return "createRoom";
 	}
+	
+	
+}
 
 	
