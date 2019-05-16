@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Insertar Nuevo Libro</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script>
+	function moveRight(e) {
+		var leftSelect = document.forms[0].leftList;
+		for (var i = 0, len = leftSelect.options.length; i < len; i++) {
+			var option = leftSelect.options[i];
+			if (option.selected) {
+				document.forms[0].correos.add(option, null);
+			}
+		}
+		if (!e) {
+			e.preventDefault();
+		}
+	}
+
+</script>
 </head>
 <body>
+	<h1>Crear Grupo</h1>
+	<div class="container" style="max-width: 600px; padding: 40px 20px;">
+		<form th:object="${RoomForm}" th:action="@{/insertRoom/save}"
+			method="post">
+			<label>Grupo:<input type="text" th:field="*{name}"
+				class="form-control" placeholder="NombreGrupo"></label>
+			<div th:if="${#fields.hasErrors('name')}">debe escribir nombre del grupo</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
 
+			<label>Agregue participantes al grupo</label>
+			<div class="form-group">
+				<select name="leftList" multiple="multiple">
+					<option th:each="user: ${users}" th:value="${user.email}"
+						th:text="${user.email}"></option>
+				</select>
+				<div class="btn-group-vertical">
+					<button type="button" class="btn btn-primary"
+						onclick="moveRight(event)">Inluir</button>
+				
+				</div>
+				<select name="correos" multiple="multiple" th:field="*{correos}">
+				</select>
+			</div>
+
+			<button type="submit">Crear grupo</button>
+
+		</form>
+	</div>
 </body>
 </html>
