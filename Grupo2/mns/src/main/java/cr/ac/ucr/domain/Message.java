@@ -18,7 +18,6 @@ public class Message {
 	}
 
 	public Message() {
-		// TODO Auto-generated constructor stub
 	}
 
 	private void validMessage(String content) {

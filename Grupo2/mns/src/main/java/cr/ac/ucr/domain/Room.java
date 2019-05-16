@@ -1,11 +1,13 @@
 package cr.ac.ucr.domain;
 
+import java.util.ArrayList;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public final class Room extends RoomConvention{
 	
-	
+	private User roomAdministrator;
+	private ArrayList<User> roomUsers = new ArrayList<>();
 	private final int MAX_QUEUE=50; 
 	private	BlockingQueue<Message> messages = new ArrayBlockingQueue<Message>(MAX_QUEUE);
 	
@@ -43,5 +45,9 @@ public final class Room extends RoomConvention{
 	{
 		return  messages.peek();
 	}
-
+	
+	
+	int totalUsers() {
+		return roomUsers.size();
+	}
 }

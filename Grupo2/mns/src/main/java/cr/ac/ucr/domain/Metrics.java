@@ -2,6 +2,8 @@ package cr.ac.ucr.domain;
 
 import java.util.Date;
 
+import cr.ac.ucr.exceptions.ProjectExceptions;
+
 public class Metrics {
 	
 	private int idMetric;
@@ -10,11 +12,9 @@ public class Metrics {
 	private Date lastMessage;
 	private Date firstLogin;
 	
-	//crear User y Group
-	
-	//private User mostActiveUser; 
+	private User mostActiveUser; 
 	private Room lastGroup;
-	private Room mostActiveGroup;
+	private Room mostActiveRoom;
 	
 	private static Metrics metrics;
 	private Metrics() {}
@@ -28,14 +28,20 @@ public class Metrics {
 	
 	public void updateMetrics(Message msn) 
 	{
-		//TODO validaciones if ()
+		if(msn == null) throw new ProjectExceptions("El mensaje no puede ser vacío");
 		
 		updateLastDateMessage(msn).
 		
 		and().
 		
-		updateGruopWithMoreMessages(msn);
+		updateRoomWithMoreMessages(msn).
+		
+		and().
+		
+		updateFirstLogin(msn)
+		;
 	}
+	
 	
 	private Metrics and() 
 	{
@@ -43,19 +49,19 @@ public class Metrics {
 	}
 
 	
-	private Metrics updateGruopWithMoreMessages(Message msn) 
+	private Metrics updateRoomWithMoreMessages(Message msn) 
 	{
-		if(mostActiveGroup == null)
+		if(mostActiveRoom == null)
 		{
-			mostActiveGroup = msn.getRoomWhereThisMessageBelongs();
+			mostActiveRoom = msn.getRoomWhereThisMessageBelongs();
 		}
 		else
 		{
-			boolean theGroupHasMoreMessagesThanTheStoredGroup = mostActiveGroup.obtenerCantMensajes() < msn.getRoomWhereThisMessageBelongs().obtenerCantMensajes() ;
+			boolean roomHasMoreMessagesThanTheStoredGroup = mostActiveRoom.obtenerCantMensajes() < msn.getRoomWhereThisMessageBelongs().obtenerCantMensajes() ;
 			
-			if( theGroupHasMoreMessagesThanTheStoredGroup )
+			if( roomHasMoreMessagesThanTheStoredGroup )
 			{
-				mostActiveGroup = msn.getRoomWhereThisMessageBelongs();
+				mostActiveRoom = msn.getRoomWhereThisMessageBelongs();
 			}
 		}
 		
@@ -67,8 +73,18 @@ public class Metrics {
 
 	private Metrics updateLastDateMessage(Message msn) 
 	{
+		
 		lastMessage = msn.getDate();
 		
 		return this;
 	}
+
+
+	private Metrics updateFirstLogin(Message msn) {
+		if(firstLogin == null) firstLogin = msn.getDate();
+		
+		return this;
+	}
+
+	
 }
