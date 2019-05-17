@@ -12,6 +12,7 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
 
 @Service
 public class GrupoBusiness {
@@ -20,7 +21,7 @@ public class GrupoBusiness {
     private JavaMailSender javaMailSender;
 	
 	@Transactional
-	public List<Grupo> crear(Usuario usuario,Grupo grupo) {	
+	public List<Grupo> crear(Usuario usuario,Grupo grupo) throws GrupoException {	
 		
 		if (usuario == null) 
 			throw new RuntimeException("El usuario es requerido");
