@@ -203,9 +203,16 @@
 	function getValues() {
 
 		var messageChat = document.getElementById("messageForm").value;
-
-		document.getElementById("panelMessages").innerHTML += '<div id="bubbles" class="panel-body">'
+/*
+		document.getElementById("panelMessages").innerHTML = '<div id="bubbles" class="panel-body">'
 				+ messageChat + '</div>';
+		*/
+		
+		document.getElementById("panelMessages").innerHTML = '<div id="bubbles" class="panel-body">'
+			+ messageChat + '</div>';
+			
+		document.getElementById("messageForm").value('');
+	
 	}
 </script>
 <style>
