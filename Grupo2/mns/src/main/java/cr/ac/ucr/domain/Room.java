@@ -6,6 +6,8 @@ import java.util.concurrent.BlockingQueue;
 
 public final class Room extends RoomConvention{
 	
+	
+	private static int totalRooms;
 	private User roomAdministrator;
 	private User roomOwner;
 	private ArrayList<User> roomUsers = new ArrayList<>();

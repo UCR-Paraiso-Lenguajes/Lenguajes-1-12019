@@ -12,5 +12,6 @@ public class User {
 	private Image avatar;
 	private ArrayList<Role> roleList;
 	private ArrayList<Room> listRoom;
+	private static int totalUsers;
 	
 }

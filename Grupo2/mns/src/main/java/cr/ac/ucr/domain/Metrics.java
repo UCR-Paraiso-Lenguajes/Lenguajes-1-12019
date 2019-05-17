@@ -6,15 +6,19 @@ import cr.ac.ucr.exceptions.ProjectExceptions;
 
 public class Metrics {
 	
-	private int idMetric;
-	private int roomsQuantity;
-	private int usersQuantity;
-	private Date lastMessage;
-	private Date firstLogin;
+	private int idMetric;//identificador
+	private int roomsQuantity;//Cantidad de rooms globales
+	private int usersQuantity;//Cantidad de usuarios globales
+	private Date lastMessage;//Fecha del último mensaje.
+	private Date firstLogin;//Fecha del 1er login.
+	private Message longestMessage;//Mensaje más largo.
+	private User mostActiveUser; //Usuario con más mensajes
+	private int mostActiveUserMessageAmount;// y su cantidad.
+	private Room lastGroup;//Último grupo creado.
+	private Room mostActiveRoom;//Grupo con más mensajes
+	private int mostActiveRoomMessageAmount;// y su cantidad.
+	private int usersPromedyByRoom;//Promedio de usuarios por grupo.
 	
-	private User mostActiveUser; 
-	private Room lastGroup;
-	private Room mostActiveRoom;
 	
 	private static Metrics metrics;
 	private Metrics() {}
