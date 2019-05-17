@@ -1,9 +1,9 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.excepciones;
 
-public class UsuarioException extends Exception{
+public class MensajeException extends Exception{
 	private String mensaje="";
 
-	public UsuarioException(String mensaje) {
+	public MensajeException(String mensaje) {
 		super();
 		if (mensaje!=null) {
 			this.mensaje = mensaje;
@@ -17,5 +17,4 @@ public class UsuarioException extends Exception{
 	public String toString() {
 		return mensaje ;
 	}
-	
 }
