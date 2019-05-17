@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<title>Mantenimiento Autores</title>
+</head>
+<body>
+	<div class="container">
+		<h3>Mantenimiento de Autores</h3>
+		<div id="filtro">
+			<form class="form-horizontal" action="#"
+				th:action="@{/mantenimientoAutores}" method="POST">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="apellidos">Apellido(os):</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="apellidos"
+							placeholder="Ingresar Apellido(os)" name="apellidos">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="container" id="tabla">
+
+			<table class="table">
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellidos</th>
+					<th>Acción</th>
+				</tr>
+				<tr th:each="autor : ${autores}">
+					<td><span th:text="${autor.id}"></span></td>
+					<td><span th:text="${autor.nombre}"></span></td>
+					<td><span th:text="${autor.apellidos}"></span></td>
+					<td><a th:text="Editar"
+						th:href="@{editarAutor?(idAutor=${autor.id})}"></a></td>
+					<td><a th:text="Borrar"
+						th:href="@{eliminarAutor?(idAutor=${autor.id})}"></a></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="error" style="display: none;">
+			<h3>No hay datos que mostrar</h3>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			var number = "[[${autoresSize}]]";
+			if (number <= 0) {
+				document.getElementById("tabla").style.display = 'none';
+				document.getElementById("error").style.display = 'block';
+			}
+		})
+	</script>
+</body>
+</html>
