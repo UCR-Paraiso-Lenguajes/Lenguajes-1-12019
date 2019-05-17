@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cssDove.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,200' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
 
     <title>Dove Chat</title>
@@ -18,11 +19,12 @@
 
     <div id="header" class="header">
 
-        <div id="header-row" class="row">
+        <div id="header-row" class="row" style="height: 100%;">
 
             <div id="chat-logo-div" class="col-sm">
-                <img src="../templates/assets/batman.png" alt="logo" class="logo" style="margin-left: 65%">
-                <label id="label-chat-name" class="name">
+                <img src="../templates/assets/batman.png" alt="logo" class="logo" style="margin-left: 60% ; border-style: ridge;
+                border-color:  rgb(252, 244, 200);  border-radius: 100%;background-color: rgb(241, 239, 231)">
+                <label id="label-chat-name" class="name" style="margin-left: 2%">
                     xGeneration
                 </label>
             </div>
@@ -31,12 +33,13 @@
 
 
 
-            <div id="user-logo-div" class="col-sm" align="right" style="margin-right: 8%">
-                <img src="../templates/assets/cat.png" alt="logo" class="logo">
-                <label id="label-user-name" class="name">
+            <div id="user-logo-div" class="col-sm" align="right" style="margin-right: 3%;">
+                <img src="../templates/assets/cat.png" alt="logo" class="logo"  style=" border-style:ridge;
+                border-color:  rgb(252, 244, 200);  border-radius: 100%; background-color:  rgb(241, 239, 231);">
+                <label id="label-user-name" class="name" style="margin-left: 2%">
                     patitos@gmail.com
                 </label>
-                <button class="button">Logout</button>
+                <button class="button-loggout">Logout</button>
             </div>
 
         </div>
@@ -46,7 +49,7 @@
 
 <body class="body" align="center">
 
-    <div id="container" class="row">
+    <div id="container"  align="center" class="row">
 
         <div id="chat-column" class="col-sm">
 
@@ -94,22 +97,22 @@
         <div id="room-select-column" class="col-sm">
 
             <div id="SearchRoom-input-div" class="row">
-                <div class="col-sm">
-                    <input type="text" class="search-room">
+                <div id="search-input" >
+                    <input style="color: rgb(80, 79, 79);font-weight: bold;" type="text" class="search-room">
                 </div>
-                <div class="col-sm">
+                <div id="search-button">
                     <button class="button-search">Buscar</button>
                 </div>
             </div>
 
             <div id="room-select-div" class="row">
-                <select name="chat-select" class="chat-select" id="chat-select" multiple="multiple" size="23"></select>
+                <select name="chat-select" class="chat-select" id="chat-select" multiple="multiple" size="19"></select>
             </div>
 
         </div>
         <div id="send-group-row" class="row">
-            <textarea type="text" class="message"></textarea>
-            <button class="button">Enviar</button>
+            <input type="text" class="message"></input>
+            <button class="button-send">Enviar</button>
         </div>
     </div>
 

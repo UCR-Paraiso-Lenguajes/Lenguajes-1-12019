@@ -1,11 +1,18 @@
 
 .body,#body{
- font-size: 82.5%;
   height: 100%;
   margin-top:2%;
   margin-bottom:2%;
   margin-left: 4%;
   width:  96%;
+  align-content: center;
+  color: azure;
+  background-color: rgb(241, 239, 231);
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  
+  
  
 }
 #header{
@@ -15,7 +22,7 @@
     size: 30%;
     width: 95%;
     margin-bottom:1%;
-    background-color: darkgoldenrod;
+    background-color:rgb(80, 79, 79);
     border-radius: 8px;
 
 
@@ -34,15 +41,34 @@ margin-bottom:2%;
     min-height:75%;
     max-height: 75%;
     height: 75%;
-    width: 75%;
-    max-width: 70%;
-    min-width: 70%;
+    width: 74%;
+    max-width: 74%;
+    min-width: 74%;
 }
 
 #SearchRoom-input-div{
-    width: 170%;
+    width: 110%;
     border-radius: 8px;
-  margin-bottom: 1%;
+    margin-bottom: 1%;
+    
+}
+
+#search-input{
+
+min-width: 73%;
+max-width: 73%;
+width: 73%;
+color: rgb(80, 79, 79);
+font-size: 15px;
+font-weight: bold;
+
+}
+#search-button{
+ 
+    min-width: 21%;
+    max-width: 21%;
+    width: 21%
+    
 }
 
 
@@ -53,43 +79,69 @@ width: 98%;
 
 }
 #room-select-column{
-
-    width: 28%;
-    max-width: 28%;
-    min-width: 23%;
-    margin-left: 5%;
+   
+    width: 24%;
+    max-width: 24%;
+    min-width: 24%;
+    margin-left: 2%;
  
 }
 
 #chat-select{
+
 size: 100%;
 height: 100%;
 min-height: 100%;
 width: 100%;
 border-radius: 8px;
+background-color:rgb(80, 79, 79);
 }
 
 #send-group-row{
 margin-left: 1%;
-width: 79%;
-max-width:79%;
+width: 70%;
+max-width:70%;
 }
 
 .message{
 
-width: 75.7%;
-max-width: 75.7%;
+width: 78%;
+max-width: 78%;
 border-radius: 8px;
+margin-right: 1%;
+margin-left: 1%;
+color: rgb(80, 79, 79);
+font-size: 15px;
+font-weight: bold;
+overflow-x: hidden;
+overflow-y: scroll;
 }
-.button{
+.button-send{
     border-radius: 8px;
-    size: 40%;
-    width: 10%;
+    size: 100%;
+    width: 20%;
+    background-color:rgb(80, 79, 79);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.button-loggout{
+    border-radius: 8px;
+    size: 50%;
+    width: 14%;
+    background-color: rgb(247, 243, 224);
+    margin-left: 2%;
+    font-size: 80%;
+    font-weight: bold;
 }
 .button-search{
     border-radius: 8px;
-    width: 25%;
-    size: 25%;
+    size: 100%;
+    width: 130%;
+    background-color:rgb(80, 79, 79);
+    color: rgb(255, 255, 255);
+    font-size: 80%;
+    font-weight: bold;
 }
 .chat-box{
     width: 100%;
@@ -105,14 +157,15 @@ border-radius: 8px;
     width: 100%;
     height: 450px;
     border-radius: 8px;
-    background-color: darkgrey;
+    background-color:rgb(80, 79, 79);
     overflow-x: hidden;
     overflow-y: scroll;
+   
     
     }
 
 .chat{
-
+  
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
@@ -124,8 +177,10 @@ border-radius: 8px;
 
     width: 60px;
     height: 60px;
-    background-color: darkgrey;
-    border-radius: 50%;
+    border-style:ridge;
+    border-color:  rgb(252, 244, 200); 
+    border-radius: 100%;
+    background-color:  rgb(241, 239, 231);
 
 }
 
@@ -142,12 +197,14 @@ border-radius: 8px;
 
 .friend .chat-message {
 
-    background-color: cadetblue;
+    background-color: rgb(255, 255, 255);
+    color: rgb(80, 79, 79);
 }
 
 .self .chat-message {
-
-    background-color: rgb(95, 160, 104);
+    border-style: dotted;
+    border-color:  rgb(255, 255, 255);
+    background-color: rgba(247, 243, 224, 0.664);
     order: -1;
 }
 
