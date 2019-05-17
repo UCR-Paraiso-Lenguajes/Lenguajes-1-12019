@@ -77,9 +77,15 @@
 				<div id="panelMessages" class="panel panel-default">
 
 					<div id="internalPanel" class="panel panel-primary">
-						<div class="table-wrapper-scroll-y my-custom-scrollbar"></div>
-					</div>
 
+							<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+								<div id="item" class="list-group list-group-flush">
+
+							</div>
+
+						</div>
+					</div>
 
 				</div>
 
@@ -203,16 +209,12 @@
 	function getValues() {
 
 		var messageChat = document.getElementById("messageForm").value;
-/*
-		document.getElementById("panelMessages").innerHTML = '<div id="bubbles" class="panel-body">'
-				+ messageChat + '</div>';
-		*/
-		
-		document.getElementById("panelMessages").innerHTML = '<div id="bubbles" class="panel-body">'
-			+ messageChat + '</div>';
-			
+
+		document.getElementById("item").innerHTML += '<li id="item" class="list-group-item">'+ messageChat +'</li>';
+
+				
 		document.getElementById("messageForm").value('');
-	
+
 	}
 </script>
 <style>
@@ -236,18 +238,13 @@ body {
 	margin-bottom: 50px;
 }
 
-#bubbles {
-margin-top:10px;
-marging-right:40px;
-width: 350px;
-height: auto;
-padding: 5px;
-border­radius: 100%;
-border-style: solid;
-webkit­shape­inside: rectangle(0,0,100%,100%,100%,100%);
-background­color: #6D6C80;
-font­size: 30px;
-text­align: justify;
+#item {
+margin-top: 20px;
+text-align: left;
+
+border-style: ridge;
+list-style-position:inside;
+border: 1px solid black;
 }
 
 #searchBar {
