@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UCR Live Messenger</title>
+<!-- <link rel="stylesheet" type="text/css" media="all" href="src/main/resources/css/Estilos.css" th:href="@{/css/Estilos.css}"> -->
+<link rel="stylesheet" type="text/css" href="static/css/Estilos.css" th:href="@{/css/Estilos.css}">
+
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<div class="Navegacion">
+		<div class="nav-header">
+			<div class="nav-title">UCR Live Messenger</div>
+			<div class="logo">
+				<a href="msn.html"><img src="img/firma-ucr-ico.png"
+					th:src="@{/img/firma-ucr-ico.png}" alt=""></a>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+	<section id="Vision">
+		<div class="Contenedor"></div>
+		<div class="Formulario">
+			<form action="#" method="POST" th:action="@{/msn}" id="emailForm"
+				class="container">
+				<label for="CorreoElectronico"><b>Correo electrónico:
+				</b></label> <input type="text" name="CorreoElectronico" id="CorreoElectronico"
+					placeholder="Ingrese su correo electrónico" required> <br>
+				<br> <input type="submit" name="BotonEnviar" id="BotonEnviar"
+					value="Enviar">
+			</form>
+		</div>
+	</section>
+</body>
+</html>
