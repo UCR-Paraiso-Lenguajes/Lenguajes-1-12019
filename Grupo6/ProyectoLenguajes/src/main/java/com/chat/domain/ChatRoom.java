@@ -8,19 +8,29 @@ public class ChatRoom {
 	private String name;
 	private int version;
 	private String url;
-	private Iterator<User> UserList;
-	
-	public ChatRoom() {
-		super();
-	}
+	private Iterator<User> userList;
 
 	public ChatRoom(int id, String name, int version, String url, Iterator<User> userList) {
 		super();
+		if (id < 0)
+			throw new RuntimeException("El id de la sala debe ser mayor  0.");
+		if (name == null || name.trim().equals(""))
+			throw new RuntimeException("El nombre es requerido");
+		if (version < 0)
+			throw new RuntimeException("La version de la sala debe ser mayor  0.");
+		if (url == null || url.trim().equals(""))
+			throw new RuntimeException("La url es requerida");
+		if (userList.hasNext() == false)
+			throw new RuntimeException("La sala debe contener un usuario");
 		this.id = id;
 		this.name = name;
 		this.version = version;
 		this.url = url;
-		UserList = userList;
+		this.userList = userList;
+	}
+
+	public ChatRoom() {
+		super();
 	}
 
 	public int getId() {
@@ -56,14 +66,17 @@ public class ChatRoom {
 	}
 
 	public Iterator<User> getUserList() {
-		return UserList;
+		return userList;
 	}
 
 	public void setUserList(Iterator<User> userList) {
-		UserList = userList;
+		this.userList = userList;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "ChatRoom [id=" + id + ", name=" + name + ", version=" + version + ", url=" + url + ", userList="
+				+ userList + "]";
+	}
+
 }

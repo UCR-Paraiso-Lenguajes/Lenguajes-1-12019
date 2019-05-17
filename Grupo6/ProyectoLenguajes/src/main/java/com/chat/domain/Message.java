@@ -8,6 +8,10 @@ public class Message {
 	
 	public Message(int id, String message, String date, int idSendingUser) {
 		super();
+		if (id < 0)
+			throw new RuntimeException("El id del mensaje debe ser mayor  0.");
+		if (message == null || message.trim().equals(""))
+			throw new RuntimeException("El mensaje es requerida es requerido");
 		this.id = id;
 		this.message = message;
 		this.date = date;
