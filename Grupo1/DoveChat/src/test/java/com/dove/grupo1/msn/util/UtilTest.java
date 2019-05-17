@@ -15,27 +15,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class UtilTest {
 
- @Autowired
- MailService emailService;
+	@Autowired
+	MailService emailService;
 
+	@Test
+	public void getUsersNamesArrayList() {
+		ArrayList<String> usersNames = Utilities.getUsersNamesArrayList();
+		assertNotNull(usersNames);
+		assertTrue(usersNames.size() == 50);
+		assertTrue(!usersNames.get(37).equals("") && usersNames.get(12) != null);
+	}
 
- @Test
- public void getUsersNamesArrayList() {
-  ArrayList<String> usersNames = Utilities.getUsersNamesArrayList();
-  assertNotNull(usersNames);
-  assertTrue(usersNames.size() == 50);
-  assertTrue(!usersNames.get(37).equals("") && usersNames.get(12) != null);
- }
- 
- @Test
- public void sendEmail() {
-  emailService.sendEmail("no-reply@dovechat.com", "meli8538@gmail.com,melvin.astorga@gmail.com","Prueba","Funcional");
- 
- }
- 
- 
+	@Test
+	public void sendEmail() {
+		emailService.sendEmail("no-reply@dovechat.com", "meli8538@gmail.com", "Prueba", "Funcional");
+
+	}
+
 }
-
-	
-	
-
