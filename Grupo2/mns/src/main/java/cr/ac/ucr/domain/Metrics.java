@@ -14,14 +14,19 @@ public class Metrics {
 	private Message longestMessage;//Mensaje más largo.
 	private User mostActiveUser; //Usuario con más mensajes
 	private int mostActiveUserMessageAmount;// y su cantidad.
-	private Room lastGroup;//Último grupo creado.
+	private Room lastRoomCreated;//Último grupo creado.
 	private Room mostActiveRoom;//Grupo con más mensajes
 	private int mostActiveRoomMessageAmount;// y su cantidad.
-	private int usersPromedyByRoom;//Promedio de usuarios por grupo.
+	private double usersPromedyByRoom;//Promedio de usuarios por grupo.
 	
 	
 	private static Metrics metrics;
 	private Metrics() {}
+	
+	public void setState(int roomsQuantity, int usersQuantity) 
+	{
+		
+	}
 	
 	public static Metrics getInstance() 
 	{
@@ -42,11 +47,19 @@ public class Metrics {
 		
 		and().
 		
-		updateFirstLogin(msn)
+		updateFirstLogin(msn).
+		
+		and().
+		
+		updateLongestMessage(msn).
+		
+		and().
+		
+		updateMostActiveUser(msn)
 		;
 	}
 	
-	
+
 	private Metrics and() 
 	{
 		return this;
@@ -58,14 +71,16 @@ public class Metrics {
 		if(mostActiveRoom == null)
 		{
 			mostActiveRoom = msn.getRoomWhereThisMessageBelongs();
+			mostActiveRoomMessageAmount = msn.getRoomWhereThisMessageBelongs().getTotalMessages();
 		}
 		else
 		{
-			boolean roomHasMoreMessagesThanTheStoredGroup = mostActiveRoom.obtenerCantMensajes() < msn.getRoomWhereThisMessageBelongs().obtenerCantMensajes() ;
+			boolean roomHasMoreMessagesThanTheStoredGroup = mostActiveRoom.getTotalMessages() < msn.getRoomWhereThisMessageBelongs().getTotalMessages() ;
 			
 			if( roomHasMoreMessagesThanTheStoredGroup )
 			{
 				mostActiveRoom = msn.getRoomWhereThisMessageBelongs();
+				mostActiveRoomMessageAmount = msn.getRoomWhereThisMessageBelongs().getTotalMessages();
 			}
 		}
 		
@@ -78,11 +93,30 @@ public class Metrics {
 	private Metrics updateLastDateMessage(Message msn) 
 	{
 		
-		lastMessage = msn.getDate();
+		this.lastMessage = msn.getDate();
 		
 		return this;
 	}
-
+	
+	
+	public Metrics updateRooms(Room room) 
+	{
+		
+		lastRoomCreated = room;	
+		
+		roomsQuantity=roomsQuantity+1;
+		
+		return this;
+	}
+	
+	
+	public Metrics updateUsersQuantity() 
+	{
+		
+		usersQuantity = usersQuantity+1;
+		
+		return this;
+	}
 
 	private Metrics updateFirstLogin(Message msn) {
 		if(firstLogin == null) firstLogin = msn.getDate();
@@ -90,5 +124,42 @@ public class Metrics {
 		return this;
 	}
 
+	
+	private Metrics updateLongestMessage(Message msn) 
+	{
+		if(longestMessage == null)
+		{
+			longestMessage = msn;
+		}
+		else if( msn.isLongerThan(longestMessage) )
+		{
+				longestMessage = msn;	
+		}
+		
+		return this;
+		
+	}
+	
+	private Metrics updateMostActiveUser(Message msn) {
+		
+		msn.getSender().updateTotalSendedMessages();
+		
+		if(mostActiveUser == null)
+		{
+			mostActiveUser = msn.getSender();
+			mostActiveUserMessageAmount = msn.getSender().getTotalSendedMessages();
+		}
+		else if(msn.getSender().hasMoreMessagesThan(mostActiveUser)) {
+			mostActiveUser =  msn.getSender();
+			mostActiveUserMessageAmount = msn.getSender().getTotalSendedMessages();
+		}
+		
+		return this;
+	}
+	
+	
+	public void updateUsersPromedyByRoom() {
+		usersPromedyByRoom = usersQuantity / roomsQuantity;
+	}
 	
 }

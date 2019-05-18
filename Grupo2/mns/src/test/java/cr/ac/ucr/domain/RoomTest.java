@@ -15,17 +15,18 @@ public class RoomTest {
 	@Test
 	public void ProcessMessages() 
 	{
-		Room room = new Room ();
+		User user = new User();
+		Room room = new Room (user);
 		Message mns1 = new Message("mensaje 1");
 		Message mns2 = new Message("mensaje 2");
 		
 		room.process(mns1);
 		
-		assertEquals( 1, room.obtenerCantMensajes() );
+		assertEquals( 1, room.getTotalMessages() );
 		
 		room.process(mns2);
 		
-		assertEquals( 2, room.obtenerCantMensajes() );
+		assertEquals( 2, room.getTotalMessages() );
 		assertEquals( "mensaje 1", room.getFirst().getContent() );
 		
 		for(int i =0; i<60 ;i++)
@@ -33,14 +34,15 @@ public class RoomTest {
 			room.process(new Message("mensaje "+i));
 		}
 		
-		assertEquals( 50, room.obtenerCantMensajes() );
+		assertEquals( 50, room.getTotalMessages() );
 	}
 	
 	
 	@Test
 	public void OrderOfMessages() 
 	{
-		Room room = new Room ();
+		User user = new User();
+		Room room = new Room (user);
 			
 		for(int i =0; i<60 ;i++)
 		{
@@ -52,9 +54,11 @@ public class RoomTest {
 			}
 		}
 		
-		assertEquals( 50, room.obtenerCantMensajes() );
+		assertEquals( 50, room.getTotalMessages() );
 	}
 
+	
+	//hacer test de JOIN
 }
 
 

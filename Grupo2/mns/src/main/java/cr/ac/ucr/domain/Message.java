@@ -8,7 +8,7 @@ public class Message {
 
 	private int id;
 	private String content;
-	private	User messageSender;
+	private	User sender;
 	private Room roomWhereThisMessageBelong;
 	private Date date;
 	
@@ -54,13 +54,18 @@ public class Message {
 		this.id = id;
 	}
 
-	public User getMessageSender() {
-		return messageSender;
+	User getSender() {
+		return sender;
 	}
 
-	public void setMessageSender(User messageSender) {
+	public void setSender(User messageSender) {
 		if(messageSender == null  ) throw new ProjectExceptions("El usuario debe existir");		
-		this.messageSender = messageSender;
+		this.sender = messageSender;
+	}
+	
+	
+	public boolean isLongerThan(Message msn) {
+		return this.getContent().length() > msn.getContent().length();
 	}
 	
 }

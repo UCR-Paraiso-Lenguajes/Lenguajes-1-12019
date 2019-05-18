@@ -4,9 +4,19 @@ import cr.ac.ucr.domain.Metrics;
 
 public class MetricsData {
 
-	public void insertMessage(Metrics instance) {
+	
+	
+	public void insertMessage(Metrics instance)
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
+	
+	public void setState(Metrics m)
+	{
+		// TODO conexion a bd y dataextractor 
+		
+		 m.setState(0, 0);
+	}
 }

@@ -1,5 +1,6 @@
 package cr.ac.ucr.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -26,6 +27,7 @@ public class RoleDataTest {
 		List<Role> roles = roleData.ListRoles(3);
 		assertNotNull(roles);
 		assertTrue(!roles.isEmpty());
+		assertEquals("Administrador",roles.get(1).getDetail() );
 	}
 
 	

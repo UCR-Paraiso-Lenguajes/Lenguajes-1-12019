@@ -15,6 +15,5 @@ public class Role {
 	}
 	public void setDetail(String detail) {
 		this.detail = detail;
-	}
-	
+	}	
 }

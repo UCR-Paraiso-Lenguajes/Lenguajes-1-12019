@@ -37,4 +37,6 @@ public abstract class RoomConvention
 
 	protected abstract void insertMessage(Message message);
 	
+	protected abstract void join(User user);
+	
 }

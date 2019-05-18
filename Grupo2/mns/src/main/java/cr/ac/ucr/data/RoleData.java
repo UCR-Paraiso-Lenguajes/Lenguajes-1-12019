@@ -22,53 +22,47 @@ import cr.ac.ucr.domain.Role;
 
 @Repository
 public class RoleData {
-	
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
-private DataSource dataSource;
-	
+
+	private DataSource dataSource;
+
 	@Autowired
-	public void setDataSource(DataSource dataSource) 
-	{
+	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-	
-	@Transactional(readOnly=true)
-	public List<Role> ListRoles(int amount){
-		String sqlSelect = "SELECT r.idRole, r.detail"
-				+ " FROM Role r LIMIT "+amount;
+
+	@Transactional(readOnly = true)
+	public List<Role> ListRoles(int amount) {
+		String sqlSelect = "SELECT r.idRole, r.detail  FROM Role r LIMIT " + amount;
 		return jdbcTemplate.query(sqlSelect, new RolesEstractor());
 	}
-	
-	
-	
-	
-	
-	class RolesEstractor implements ResultSetExtractor<List<Role>>{
+
+	class RolesEstractor implements ResultSetExtractor<List<Role>> {
 
 		@Override
 		public List<Role> extractData(ResultSet rs) throws SQLException, DataAccessException {
-			
+
 			Map<Integer, Role> map = new HashMap<Integer, Role>();
 			Role role = null;
-			
-			while(rs.next()) {
-				
+
+			while (rs.next()) {
+
 				Integer id = rs.getInt("idRole");
 				role = map.get(id);
-				
-				if(role == null) {
-					
-					role = new	Role();
+
+				if (role == null) {
+
+					role = new Role();
 					role.setIdRole(rs.getInt("idRole"));
 					role.setDetail(rs.getString("detail"));
 					map.put(id, role);
-					
-				}//if
-			}//while
+
+				} // if
+			} // while
 			return new ArrayList<Role>(map.values());
-		}//extractData
+		}// extractData
 	}
-	
+
 }

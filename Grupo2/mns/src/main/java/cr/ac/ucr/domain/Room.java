@@ -1,20 +1,28 @@
 package cr.ac.ucr.domain;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+
+import cr.ac.ucr.exceptions.ProjectExceptions;
 
 public final class Room extends RoomConvention{
 	
 	
-	private static int totalRooms;
 	private User roomAdministrator;
 	private User roomOwner;
-	private ArrayList<User> roomUsers = new ArrayList<>();
+	private HashSet<User> users = new HashSet<>();
 	private final int MAX_QUEUE=50; 
 	private	BlockingQueue<Message> messages = new ArrayBlockingQueue<Message>(MAX_QUEUE);
 	
-	int obtenerCantMensajes()
+	
+	public Room(User roomOwner) {
+		this.roomOwner = this.roomAdministrator = roomOwner; 
+		join(roomOwner); 
+		Metrics.getInstance().updateRooms(this);
+	}
+
+	int getTotalMessages()
 	{
 		return messages.size();
 	}
@@ -35,7 +43,7 @@ public final class Room extends RoomConvention{
 	@Override
 	protected void insertMessage(Message message) 
 	{
-		if(obtenerCantMensajes() >= MAX_QUEUE) 
+		if(getTotalMessages() >= MAX_QUEUE) 
 		{
 			messages.poll();
 		}
@@ -51,6 +59,22 @@ public final class Room extends RoomConvention{
 	
 	
 	int totalUsers() {
-		return roomUsers.size();
+		return users.size();
 	}
+
+	public HashSet<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(HashSet<User> users) {
+		this.users = users;
+	}
+
+	@Override
+	protected void join(User user) {
+		if(user == null) throw new ProjectExceptions("Tiene que haber un usuario");
+		users.add(user);
+		Metrics.getInstance().updateUsersPromedyByRoom();
+	}
+	
 }
