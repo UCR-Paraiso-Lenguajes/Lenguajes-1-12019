@@ -1,6 +1,10 @@
 package com.chat.data;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +19,61 @@ public class MessageData {
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private DataSource dataSource;
+	
 	public void setDataSource(DataSource dataSource) 
 	{
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-	@Transactional(readOnly = true)
-	public List<Message> getMessages(int begin, int end) {
+	/*@Transactional(readOnly = true)
+	public Iterator<Message> getMessages(int begin, int end, int room) {
 		List<Message> messages = new ArrayList<Message>();
-		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user " + "FROM Message g "
-				+ "WHERE message_id > ? AND message_id < ? order by message_id ASC";
+		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user "
+				+ "FROM Message g "
+				+ "WHERE message_id > ? AND message_id < ? AND receiver = ? "
+				+ "ORDER BY message_id ASC";
 		jdbcTemplate
 				.query(selectSql, new Object[] { begin, end },
 						(rs, row) -> new Message(rs.getInt("message_id"), rs.getString("message_description"),
 								rs.getString("message_date"), rs.getInt("id_sending_user")))
 				.forEach(entry -> messages.add(entry));
-		return messages;
-	}
+		return messages.iterator();
+	}*/
 
 	@Transactional
-	public Message save(Message message)
+	public void save(Message message, int idRoom)
 	{
-		String sqlInsert = "INSERT INTO Message (message_description, message_date, id_sending_user) "
-				+ "VALUES ('"+message.getMessage()+"', '"+message.getDate()+"', "+message.getIdSendingUser()+")";
-		jdbcTemplate.execute(sqlInsert);
-		return message;
+		Connection conexion = null;
+		try {
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			String sqlInsert = "INSERT INTO Message (message_description, message_date, id_sending_user, receiver) "
+					+ "VALUES (?, ?, ?, ?)";
+			PreparedStatement statementInser = conexion.prepareStatement(sqlInsert);
+			statementInser.setString(1, message.getMessage());
+			statementInser.setString(2, message.getDate());
+			statementInser.setInt(3, message.getIdSendingUser());
+			statementInser.setInt(4, idRoom);
+			statementInser.executeUpdate();
+			//TODO Falta actualizar metricas
+			conexion.commit();
+		} catch (SQLException e) {
+			try {
+				conexion.rollback();
+			} catch (SQLException e1) {
+				throw new RuntimeException(e1);
+			}
+			throw new RuntimeException(e);
+		} finally {
+			if (conexion != null) {
+				try {
+					conexion.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
 	}
 }

@@ -9,8 +9,9 @@ public class ChatRoom {
 	private int version;
 	private String url;
 	private Iterator<User> userList;
+	private User user_creator;
 
-	public ChatRoom(int id, String name, int version, String url, Iterator<User> userList) {
+	public ChatRoom(int id, String name, int version, String url, Iterator<User> userList, User user_creator) {
 		super();
 		if (id < 0)
 			throw new RuntimeException("El id de la sala debe ser mayor  0.");
@@ -22,11 +23,14 @@ public class ChatRoom {
 			throw new RuntimeException("La url es requerida");
 		if (userList.hasNext() == false)
 			throw new RuntimeException("La sala debe contener un usuario");
+		if (user_creator == null)
+			throw new RuntimeException("La sala debe contener un usuario creador");
 		this.id = id;
 		this.name = name;
 		this.version = version;
 		this.url = url;
 		this.userList = userList;
+		this.user_creator = user_creator;
 	}
 
 	public ChatRoom() {
@@ -55,6 +59,14 @@ public class ChatRoom {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	public User getUser_creator() {
+		return user_creator;
+	}
+
+	public void setUser_creator(User user_creator) {
+		this.user_creator = user_creator;
 	}
 
 	public String getUrl() {

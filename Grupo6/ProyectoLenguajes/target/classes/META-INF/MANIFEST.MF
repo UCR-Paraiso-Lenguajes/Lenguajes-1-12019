@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ProyectoLenguajes
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Extreme PC
+Implementation-Vendor-Id: com.chat.ucr.ac.cr
+Build-Jdk: 1.8.0_111
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/chat
+Created-By: Maven Integration for Eclipse
+
