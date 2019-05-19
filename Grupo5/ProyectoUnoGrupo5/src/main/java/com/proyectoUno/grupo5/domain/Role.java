@@ -12,7 +12,9 @@ public class Role {
 		this.idRole = idRole;
 		this.roleType = roleType;
 	}
+	public Role(){
 
+	}
 
 	public int getIdRole() {
 		return idRole;
