@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Administracion</title>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<div class="container">
+<br>
+  <h3 style="color: rgb(101, 180, 206) ;">Administración</h3>
+</div>
+<div class="container">
+<br>
+  <table width="974" height="498" border="0">
+  <tbody>
+    <tr>
+      <td width="400"  style="vertical-align: top;">
+      	<p><span style="color: rgb(101, 180, 206);">Salas</span></p><br>
+      	<table width="490" border="0" class="table table-striped">
+      	  <tbody>
+      	   <tr th:each="usuario : ${salas}">
+      	      <td> <span class="align-center"  th:text="${salas.nombre}" href="url">prueba</span></td>
+    	   </tr>
+    	  </tbody>
+  	  </table>
+      	<p>&nbsp;</p>
+      	<br>
+      </td>
+      <td width="500" style="vertical-align: top;">
+          <p><span style="color: rgb(101, 180, 206);">Metricas</span></p><br>
+          
+            <table width="436" border="0">
+              <tbody>
+                <tr>
+                  <td width="231"><label>Cantidad de salas: </label></td>
+                   <td><span th:text="${metricas.cantidadSalas}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Cantidad de usuarios:</label></td>
+                   <td><span th:text="${metricas.cantidadUsuarios}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Promedio de usuarios por grupo:</label></td>
+                   <td><span th:text="${metricas.promedioUsuarios}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Fecha del ultimo mensaje:</label></td>
+                   <td><span th:text="${metricas.fechaUltimoMensaje}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Fecha del primer login:</label></td>
+                   <td><span th:text="${metricas.fechaPrimerLogin}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Usuario con m�s mensajes:</label></td>
+                   <td><span th:text="${metricas.usuarioMasMensajes}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Mensaje m�s largo:</label></td>
+                   <td><span th:text="${metricas.mensajeLargo}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>�ltimo grupo creado:</label></td>
+                   <td><span th:text="${metricas.ultimoGrupo}"></span></td>
+                </tr>
+                <tr>
+                  <td><label>Grupo con mas mensajes:</label></td>
+                  <td><span th:text="${metricas.grupoMasMensajes}"></span></td>
+                </tr>
+              </tbody>
+            </table>            <br>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</body>
+</html>
