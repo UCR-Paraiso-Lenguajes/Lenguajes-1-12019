@@ -26,7 +26,7 @@ public class PruebaDao {
     private DataSource dataSource;
 
     @Transactional(readOnly = true)
-    public List<Role> getRole(int id) {
+    public List<Role> getRole() {
         String sqlSelect = "select * from role";
         return jdbcTemplate.query(sqlSelect, new RoleWithExtractor());
     }

@@ -14,7 +14,7 @@ public class User {
 	private String hash;
 	
 	public User(int idUser, String email, String username, String avatar, ArrayList<Role> roleUser,
-			ArrayList<Message> messages, ArrayList<Room> rooms, String hash) {
+                ArrayList<Message> messages, ArrayList<Room> rooms, String hash) {
 		super();
 		this.idUser = idUser;
 		this.email = email;

@@ -17,8 +17,8 @@ public class Metrics {
 	
 	
 	public Metrics(int quantityOfRooms, int quantityOfUsers, int averageUsersForRooms, Date dateOfLastMessage,
-			Date dateOfFirstLogin, User userWithMoreMessage, Message longerMesssage, Room lastGroupCreate,
-			Room roomWithMoreMessage) {
+                   Date dateOfFirstLogin, User userWithMoreMessage, Message longerMesssage, Room lastGroupCreate,
+                   Room roomWithMoreMessage) {
 		
 		super();
 		this.quantityOfRooms = quantityOfRooms;
