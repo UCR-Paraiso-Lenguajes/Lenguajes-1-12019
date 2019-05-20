@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.sql.DataSource;
 
@@ -92,17 +93,51 @@ public class ChatRomData {
 	}
 	
 	@Transactional(readOnly = true)
-	public Iterator<Message> getMessages(int begin, int end, ChatRoom room) {
-		List<Message> messages = new ArrayList<Message>();
+	public ConcurrentHashMap<Integer, Message> getMessages(int begin, int end, ChatRoom room) {
+		ConcurrentHashMap<Integer, Message> messages = new ConcurrentHashMap<>();
 		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user "
 				+ "FROM messages_"+room.getName()+" g "
 				+ "WHERE message_id > ? AND message_id < ? "
 				+ "ORDER BY message_id ASC";
-		jdbcTemplate
+		
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			statement.setInt(1, begin);
+			statement.setInt(2, end);
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				Message message = new Message(
+						rs.getInt("message_id"), 
+						rs.getString("message_description"),
+						rs.getString("message_date"), 
+						rs.getInt("id_sending_user"));
+				messages.put(messages.size(), message);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		return messages;
+		/*jdbcTemplate
 				.query(selectSql, new Object[] { begin, end },
 						(rs, row) -> new Message(rs.getInt("message_id"), rs.getString("message_description"),
 								rs.getString("message_date"), rs.getInt("id_sending_user")))
-				.forEach(entry -> messages.add(entry));
-		return messages.iterator();
+				.forEach(entry -> messages.put("", entry));
+				//.forEach(entry -> messages.add(entry));*/
+	}
+	
+	@Transactional(readOnly = true)
+	public Iterator<ChatRoom> getRooms() {
+		List<ChatRoom> rooms = new ArrayList<>();
+		String sql = "SELECT room_id, room_name, version, room_user_creator "
+				+ "FROM room";
+		jdbcTemplate.query(sql, (rs, row) -> new ChatRoom(rs.getInt("room_id"), 
+				rs.getString("room_name"), 
+				rs.getInt("version"), 
+				rs.getInt("room_user_creator")))
+		.forEach(entry -> rooms.add(entry));
+		return rooms.iterator();
 	}
 }

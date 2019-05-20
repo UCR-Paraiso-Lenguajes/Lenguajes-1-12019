@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 
 @Repository
@@ -43,19 +44,19 @@ public class MessageData {
 	}*/
 
 	@Transactional
-	public void save(Message message, int idRoom)
+	public void save(Message message, ChatRoom chatRoom)
 	{
 		Connection conexion = null;
 		try {
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
-			String sqlInsert = "INSERT INTO Message (message_description, message_date, id_sending_user, receiver) "
+			String sqlInsert = "INSERT INTO messages_"+chatRoom.getName()+" (message_description, message_date, id_sending_user, receiver) "
 					+ "VALUES (?, ?, ?, ?)";
 			PreparedStatement statementInser = conexion.prepareStatement(sqlInsert);
 			statementInser.setString(1, message.getMessage());
 			statementInser.setString(2, message.getDate());
 			statementInser.setInt(3, message.getIdSendingUser());
-			statementInser.setInt(4, idRoom);
+			statementInser.setInt(4, chatRoom.getId());
 			statementInser.executeUpdate();
 			//TODO Falta actualizar metricas
 			conexion.commit();

@@ -1,6 +1,7 @@
 package com.chat.domain;
 
 import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ChatRoom {
 
@@ -10,6 +11,7 @@ public class ChatRoom {
 	private String url;
 	private Iterator<User> userList;
 	private User user_creator;
+	private ConcurrentHashMap<Integer, Message> messages;
 
 	public ChatRoom(int id, String name, int version, String url, Iterator<User> userList, User user_creator) {
 		super();
@@ -31,6 +33,23 @@ public class ChatRoom {
 		this.url = url;
 		this.userList = userList;
 		this.user_creator = user_creator;
+	}
+
+	public ChatRoom(int id, String name, int version, int user_creator) {
+		super();
+		if (id < 0)
+			throw new RuntimeException("El id de la sala debe ser mayor  0.");
+		if (name == null || name.trim().equals(""))
+			throw new RuntimeException("El nombre es requerido");
+		if (version < 0)
+			throw new RuntimeException("La version de la sala debe ser mayor  0.");
+		if (user_creator < 0)
+			throw new RuntimeException("La sala debe contener un usuario creador");
+		this.id = id;
+		this.name = name;
+		this.version = version;
+		this.user_creator = new User();
+		this.user_creator.setId(user_creator);
 	}
 
 	public ChatRoom() {
@@ -85,10 +104,17 @@ public class ChatRoom {
 		this.userList = userList;
 	}
 
+	public ConcurrentHashMap<Integer, Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(ConcurrentHashMap<Integer, Message> messages) {
+		this.messages = messages;
+	}
+
 	@Override
 	public String toString() {
 		return "ChatRoom [id=" + id + ", name=" + name + ", version=" + version + ", url=" + url + ", userList="
 				+ userList + "]";
 	}
-
 }
