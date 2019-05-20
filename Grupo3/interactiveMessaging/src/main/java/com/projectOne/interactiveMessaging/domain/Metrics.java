@@ -5,48 +5,44 @@ import java.util.Date;
 
 public class Metrics {
 	
+	private int id_Metrics;
 	private int numberOfUsers;
 	private int numberOfRooms;
-	private float averageUsers;
+	private float averageOfUsersPerRoom;
 	private Date dateLastMessage;
 	private Date dateFirstLogin;
-	private String userWithManyMessage;
-	private int numberOfUserWithManyMessage;
-	private String longerMessage;
-	private String lastRoomsCreate;
-	private String roomWithMoreMessage;
+	private int idBigUser;
+	private int idLongestMessage;
+	private int idLastRoomCreated;
+	private int idBiggestRoom;
 	
 	
 	
 	
-	public Metrics(int numberOfUsers, int numberOfRooms, float averageUsers, Date dateLastMessage, Date dateFirstLogin,
-			String userWithManyMessage, int numberOfUserWithManyMessage, String longerMessage, String lastRoomsCreate,
-			String roomWithMoreMessage) {
+	public Metrics(int id_Metrics, int numberOfUsers, int numberOfRooms, float averageOfUsersPerRoom, Date dateLastMessage, Date dateFirstLogin,
+			int idBigUser, int idLongestMessage, int idLastRoomCreated,
+			int idBiggestRoom) {
 		
 		if(numberOfUsers < 1) throw new RuntimeException("El numero de usuario es requerido.");
 		if(numberOfRooms < 1) throw new RuntimeException("El numero de grupos es requerido.");
-		if(averageUsers < 1) throw new RuntimeException("El porcentaje de usuarios es requerido.");
+		if(averageOfUsersPerRoom < 1) throw new RuntimeException("El porcentaje de usuarios es requerido.");
 		if(dateLastMessage == null ) throw new RuntimeException("La fecha de ultimo mensaje es requerida.");
 		if(dateFirstLogin == null ) throw new RuntimeException("La fecha del primer login es requerida.");
-		if(userWithManyMessage == null || userWithManyMessage.trim().toLowerCase().equals("")) 
-			throw new RuntimeException("El usuario con mas mensajes es requerido.");
-		if(longerMessage == null || longerMessage.trim().toLowerCase().equals("")) 
-			throw new RuntimeException("El mensaje mas largo es requerido.");
-		if(lastRoomsCreate == null || lastRoomsCreate.trim().toLowerCase().equals("")) 
-			throw new RuntimeException("El ultimo grupo creado es requerido.");
-		if(roomWithMoreMessage == null || roomWithMoreMessage.trim().toLowerCase().equals("")) 
-			throw new RuntimeException("El grupo con mas mensajes es requerido.");
+		if(idBigUser < 1) throw new RuntimeException("El usuario con mas mensajes es requerido.");
+		if(idLongestMessage < 1) throw new RuntimeException("El mensaje mas largo es requerido.");
+		if(idLastRoomCreated < 1) throw new RuntimeException("El ultimo grupo creado es requerido.");
+		if(idBiggestRoom <1) throw new RuntimeException("El grupo con mas mensajes es requerido.");
 		
+		this.id_Metrics = id_Metrics;
 		this.numberOfUsers = numberOfUsers;
 		this.numberOfRooms = numberOfRooms;
-		this.averageUsers = averageUsers;
+		this.averageOfUsersPerRoom = averageOfUsersPerRoom;
 		this.dateLastMessage = dateLastMessage;
 		this.dateFirstLogin = dateFirstLogin;
-		this.userWithManyMessage = userWithManyMessage;
-		this.numberOfUserWithManyMessage = numberOfUserWithManyMessage;
-		this.longerMessage = longerMessage;
-		this.lastRoomsCreate = lastRoomsCreate;
-		this.roomWithMoreMessage = roomWithMoreMessage;
+		this.idBigUser = idBigUser;
+		this.idLongestMessage = idLongestMessage;
+		this.idLastRoomCreated = idLastRoomCreated;
+		this.idBiggestRoom = idBiggestRoom;
 	}
 
 	public boolean compareMetrics(Metrics metrics) {
