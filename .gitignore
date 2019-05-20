@@ -96,3 +96,6 @@ Grupo6/ProyectoLenguajes/target/classes/com/chat/bussines/MessageBussines.class
 Grupo6/ProyectoLenguajes/target/classes/com/chat/domain/ChatRoom.class
 Grupo6/ProyectoLenguajes/target/classes/com/chat/domain/Rol.class
 Grupo6/ProyectoLenguajes/target/classes/com/chat/domain/Rol.class
+*.properties
+*.class
+*.MF
