@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <title>Administracion</title>
@@ -15,28 +15,24 @@
 <body>
 <div class="container">
 <br>
-  <h3 style="color: rgb(101, 180, 206) ;">Administracion</h3>
+  <h3 style="color: rgb(101, 180, 206) ;">AdministraciÃ³n</h3>
 </div>
 <div class="container">
 <br>
   <table width="974" height="498" border="0">
   <tbody>
     <tr>
-      <td width="500"  style="vertical-align: top;">
-      	<p><span style="color: rgb(101, 180, 206);">Usuarios de la sala #</span></p><br>
-      	<table width="490" border="0" class="table table-striped>
+      <td width="400"  style="vertical-align: top;">
+      	<p><span style="color: rgb(101, 180, 206);">Salas</span></p><br>
+      	<table width="490" border="0" class="table table-striped">
       	  <tbody>
-      	   <tr th:each="usuario : ${usuarios}">
-      	      <td <span width="49">foto </span></td>
-      	      <td <span width="203" th:text="${usuario.NombreUsuario}" /span></td>
-      	      <td <span width="73"><input type="button" name="button" id="button" value="Promover" class="btn btn-success"> </span></td>
-      	      <td <span width="82"><input type="button" name="button2" id="button2" value="Castigar" class="btn btn-danger"> </span></td>
-    	      </tr>
-    	    </tbody>
+      	   <tr th:each="usuario : ${salas}">
+      	      <td> <span class="align-center"  th:text="${salas.nombre}" href="url">prueba</span></td>
+    	   </tr>
+    	  </tbody>
   	  </table>
       	<p>&nbsp;</p>
       	<br>
-      
       </td>
       <td width="500" style="vertical-align: top;">
           <p><span style="color: rgb(101, 180, 206);">Metricas</span></p><br>
@@ -64,15 +60,15 @@
                    <td><span th:text="${metricas.fechaPrimerLogin}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Usuario con más mensajes:</label></td>
+                  <td><label>Usuario con mï¿½s mensajes:</label></td>
                    <td><span th:text="${metricas.usuarioMasMensajes}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Mensaje más largo:</label></td>
+                  <td><label>Mensaje mï¿½s largo:</label></td>
                    <td><span th:text="${metricas.mensajeLargo}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Último grupo creado:</label></td>
+                  <td><label>ï¿½ltimo grupo creado:</label></td>
                    <td><span th:text="${metricas.ultimoGrupo}"></span></td>
                 </tr>
                 <tr>

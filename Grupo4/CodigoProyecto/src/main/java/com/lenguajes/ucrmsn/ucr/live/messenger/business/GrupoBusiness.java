@@ -1,5 +1,7 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,16 +12,16 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
 
 @Service
 public class GrupoBusiness {
 
-	private Grupo grupo;
 	@Autowired
     private JavaMailSender javaMailSender;
 	
 	@Transactional
-	public void crear(Usuario usuario) {	
+	public List<Grupo> crear(Usuario usuario,Grupo grupo) throws GrupoException {	
 		
 		if (usuario == null) 
 			throw new RuntimeException("El usuario es requerido");
@@ -34,19 +36,20 @@ public class GrupoBusiness {
 					grupo = new Grupo(0, "", 0, 0, usuario, usuario);
 			}
 		}
+		return null;
 	}
 	
-	@Transactional
-	public void invitar(String correo, String link) {
-		SimpleMailMessage mail = new SimpleMailMessage();
+	public void invitar(String to, String link) {
+
+        SimpleMailMessage mail = new SimpleMailMessage();
 
         mail.setFrom("ucrlivemessenger@gmail.com");
-        mail.setTo(correo);
-        mail.setSubject("Invitación");
+        mail.setTo(to);
+        mail.setSubject("Invitación a participar en el chat");
         mail.setText(link);
 
         javaMailSender.send(mail);
-	}
+    }
 	
 	@Transactional
 	public void unirse(Usuario usuario) {
