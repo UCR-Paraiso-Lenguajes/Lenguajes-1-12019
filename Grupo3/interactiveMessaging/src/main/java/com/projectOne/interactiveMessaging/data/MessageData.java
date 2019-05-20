@@ -21,13 +21,13 @@ import com.projectOne.interactiveMessaging.domain.User;
 public class MessageData {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
-	public Iterator<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList) {
+	//Este metodo me trae los mensajes por rango
+	public Iterator<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup) {
 		List<Message> messagesTemp = new ArrayList<>();
 		List<Message> messages = new ArrayList<>();
 		List<Integer> messagesUserId = new ArrayList<>();
 		String selectMysql;
-		selectMysql = "SELECT id,messageM,idUser,dateM,size " + "FROM LosMagnificosMessages "
+		selectMysql = "SELECT id,messageM,idUser,dateM,size " + "FROM "+nameMessageTableGroup+" "
 				+ "WHERE id >= ? AND id <= ? " + "ORDER BY id";
 		jdbcTemplate
 				.query(selectMysql, new Object[] { inicio, fin }, (rs, row) -> new Message(rs.getInt("id"),
