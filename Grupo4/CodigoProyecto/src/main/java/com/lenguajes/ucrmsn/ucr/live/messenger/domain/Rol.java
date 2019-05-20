@@ -1,5 +1,7 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.domain;
 
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.RolException;
+
 public class Rol {
 	private int rolid;
 	private String nombre;
@@ -10,8 +12,11 @@ public class Rol {
 	}
 
 
-	public Rol(int rollid, String nombre) {
+	public Rol(int rollid, String nombre) throws RolException {
 		super();
+		if (nombre==null) {
+		throw new RolException("el rol esta vacio");
+		}
 		this.rolid = rollid;
 		this.nombre = nombre;
 	}

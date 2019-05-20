@@ -33,10 +33,11 @@ public class GrupoData {
 		try {
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
-			//if (grupo.getListaMensajes().isEmpty()==true) {	
-			//String sqlInsertrol = "create table MENSAJE(id integer PRIMARY KEY AUTO_INCREMENT, idGrupo integer, contenido varchar(50), version integer, idUsuario integer);";
-			//	PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
-			//}
+			
+			  if (grupo.getListaMensajes().isEmpty()==true) {
+			  crearTablaMensajes(grupo.getNombre());
+			  }
+			 
 			String sqlInsertrol = "INSERT INTO GRUPO(nombre,numeroParticipantes,idOwner,idAdmin) VALUES(?,?,?,?)";
 			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
 			statementrol.setString(1, grupo.getNombre());
@@ -61,6 +62,11 @@ public class GrupoData {
 				}
 			}
 		}
+	}
+	public void crearTablaMensajes(String nombreGrupo) {
+		String sql = "create table MENSAJE"+nombreGrupo+"(id integer PRIMARY KEY AUTO_INCREMENT,"
+				+ " idGrupo integer, contenido varchar(50), version integer, idUsuario integer);";
+ 		jdbcTemplate.batchUpdate(sql);
 	}
 	
 	@Transactional(readOnly=true)
@@ -100,7 +106,11 @@ public class GrupoData {
 			String sqlInsertrol = "UPDATE GRUPO SET nombre=(?),"
 					+ "numeroParticipantes=(?),cantidadMensajes=(?)  WHERE id=(?)";
 			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
-			statementrol.setInt(1, grupo.getId());
+			statementrol.setString(1, grupo.getNombre());
+			statementrol.setInt(2, grupo.getNumeroParticipantes());
+			statementrol.setInt(3, grupo.getCantidadMensajes());
+			statementrol.setInt(4, grupo.getId());
+
 			statementrol.executeUpdate();
 			conexion.commit();
 		} catch (SQLException e) {

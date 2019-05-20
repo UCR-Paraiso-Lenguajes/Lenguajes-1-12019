@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.RolException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class Grupo {
@@ -32,6 +33,7 @@ public class Grupo {
 		listaMiembros=new ArrayList<Usuario>();
 		listaMensajes=new SynchronousQueue<Mensaje>();
 	}
+	
 	public boolean nuevoMiembro(Usuario usuario) throws UsuarioException {
 		if (listaMiembros.contains(usuario)) {
 			throw new UsuarioException("El usuario ya existe en el grupo.");		
@@ -47,7 +49,7 @@ public class Grupo {
 		}else 
 		listaMiembros.remove(usuario);
 	}
-	public boolean promoverMiembro(Usuario usuario) throws UsuarioException {
+	public boolean promoverMiembro(Usuario usuario) throws UsuarioException, RolException {
 		if (!listaMiembros.contains(usuario)) {
 			throw new UsuarioException("El usuario no existe");		
 		}else {

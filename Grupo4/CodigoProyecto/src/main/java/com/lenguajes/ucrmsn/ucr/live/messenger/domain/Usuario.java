@@ -15,8 +15,11 @@ public class Usuario {
 	private ArrayList<Grupo> listaGrupos;
 	
 	
-	public Usuario(int id, Image avatar, String nombreUsuario, int cantidadMensajes,String hash) {
+	public Usuario(int id, Image avatar, String nombreUsuario, int cantidadMensajes,String hash) throws UsuarioException {
 		super();
+		if (avatar==null && nombreUsuario==null && hash==null) {
+			throw new UsuarioException("el usuario esta vacio");
+		}
 		this.id = id;
 		this.avatar = avatar;
 		this.nombreUsuario = nombreUsuario;
