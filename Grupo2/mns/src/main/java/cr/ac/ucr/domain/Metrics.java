@@ -23,9 +23,25 @@ public class Metrics {
 	private static Metrics metrics;
 	private Metrics() {}
 	
-	public void setState(int roomsQuantity, int usersQuantity) 
+	public void setState(int idMetric, int roomsQuantity, 
+							int usersQuantity,Date lastMessage,
+							Date firstLogin,Message longestMessage,
+							User mostActiveUser,int mostActiveUserMessageAmount,
+							Room lastRoomCreated,Room mostActiveRoom,
+							int mostActiveRoomMessageAmount,double usersPromedyByRoom) 
 	{
-		
+		setIdMetric(idMetric);
+		setRoomsQuantity(roomsQuantity);
+		setUsersQuantity(usersQuantity);
+		setLastMessage(lastMessage);
+		setFirstLogin(firstLogin);
+		setLongestMessage(longestMessage);
+		setMostActiveUser(mostActiveUser);
+		setMostActiveUserMessageAmount(mostActiveUserMessageAmount);
+		setLastRoomCreated(lastRoomCreated);
+		setMostActiveRoom(mostActiveRoom);
+		setMostActiveRoomMessageAmount(mostActiveRoomMessageAmount);
+		setUsersPromedyByRoom(usersPromedyByRoom);
 	}
 	
 	public static Metrics getInstance() 
@@ -161,5 +177,117 @@ public class Metrics {
 	public void updateUsersPromedyByRoom() {
 		usersPromedyByRoom = usersQuantity / roomsQuantity;
 	}
+
+	public int getIdMetric() {
+		return idMetric;
+	}
+
+	public void setIdMetric(int idMetric) {
+		/*validacion*/
+		this.idMetric = idMetric;
+	}
+
+	public int getRoomsQuantity() {
+		return roomsQuantity;
+	}
+
+	public void setRoomsQuantity(int roomsQuantity) {
+		/*validacion*/
+		this.roomsQuantity = roomsQuantity;
+	}
+
+	public int getUsersQuantity() {
+		return usersQuantity;
+	}
+
+	public void setUsersQuantity(int usersQuantity) {
+		/*validacion*/
+		this.usersQuantity = usersQuantity;
+	}
+
+	public Date getLastMessage() {
+		return lastMessage;
+	}
+
+	public void setLastMessage(Date lastMessage) {
+		/*validacion*/
+		this.lastMessage = lastMessage;
+	}
+
+	public Date getFirstLogin() {
+		return firstLogin;
+	}
+
+	public void setFirstLogin(Date firstLogin) {
+		/*validacion*/
+		this.firstLogin = firstLogin;
+	}
+
+	public Message getLongestMessage() {
+		return longestMessage;
+	}
+
+	public void setLongestMessage(Message longestMessage) {
+		/*validacion*/
+		this.longestMessage = longestMessage;
+	}
+
+	public User getMostActiveUser() {
+		return mostActiveUser;
+	}
+
+	public void setMostActiveUser(User mostActiveUser) {
+		/*validacion*/
+		this.mostActiveUser = mostActiveUser;
+	}
+
+	public int getMostActiveUserMessageAmount() {
+		return mostActiveUserMessageAmount;
+	}
+
+	public void setMostActiveUserMessageAmount(int mostActiveUserMessageAmount) {
+		/*validacion*/
+		this.mostActiveUserMessageAmount = mostActiveUserMessageAmount;
+	}
+
+	public Room getLastRoomCreated() {
+		return lastRoomCreated;
+	}
+
+	public void setLastRoomCreated(Room lastRoomCreated) {
+		/*validacion*/
+		this.lastRoomCreated = lastRoomCreated;
+	}
+
+	public Room getMostActiveRoom() {
+		return mostActiveRoom;
+	}
+
+	public void setMostActiveRoom(Room mostActiveRoom) {
+		/*validacion*/
+		this.mostActiveRoom = mostActiveRoom;
+	}
+
+	public int getMostActiveRoomMessageAmount() {
+		return mostActiveRoomMessageAmount;
+	}
+
+	public void setMostActiveRoomMessageAmount(int mostActiveRoomMessageAmount) {
+		/*validacion*/
+		this.mostActiveRoomMessageAmount = mostActiveRoomMessageAmount;
+	}
+
+	public double getUsersPromedyByRoom() {
+		return usersPromedyByRoom;
+	}
+
+	public void setUsersPromedyByRoom(double usersPromedyByRoom) {
+		/*validacion*/
+		this.usersPromedyByRoom = usersPromedyByRoom;
+	}
+	
+	
+	
+	
 	
 }

@@ -8,7 +8,7 @@ import cr.ac.ucr.exceptions.ProjectExceptions;
 
 public final class Room extends RoomConvention{
 	
-	
+	private int idRoom;
 	private User roomAdministrator;
 	private User roomOwner;
 	private HashSet<User> users = new HashSet<>();
@@ -75,6 +75,14 @@ public final class Room extends RoomConvention{
 		if(user == null) throw new ProjectExceptions("Tiene que haber un usuario");
 		users.add(user);
 		Metrics.getInstance().updateUsersPromedyByRoom();
+	}
+
+	public int getIdRoom() {
+		return idRoom;
+	}
+
+	public void setIdRoom(int idRoom) {
+		this.idRoom = idRoom;
 	}
 	
 }

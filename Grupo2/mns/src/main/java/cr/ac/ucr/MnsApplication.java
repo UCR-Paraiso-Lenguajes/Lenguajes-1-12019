@@ -10,13 +10,13 @@ import cr.ac.ucr.business.RecoverStateBusiness;
 
 @SpringBootApplication
 public class MnsApplication {
-	@Autowired
-	private static	RecoverStateBusiness reb;
+	//@Autowired
+	//private static	RecoverStateBusiness reb;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MnsApplication.class, args);
 		//RecoverStateBusiness reb = new RecoverStateBusiness();
-		reb.retrieveState();
+		//reb.retrieveState();
 	}
 
 }
