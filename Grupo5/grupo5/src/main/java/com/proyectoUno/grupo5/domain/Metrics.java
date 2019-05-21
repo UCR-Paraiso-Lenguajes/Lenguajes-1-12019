@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Metrics {
 	
-	
+	private int idmetrics;
 	private int quantityOfRooms;
 	private int quantityOfUsers;
 	private int averageUsersForRooms;
@@ -16,11 +16,12 @@ public class Metrics {
 	private Room roomWithMoreMessage;
 	
 	
-	public Metrics(int quantityOfRooms, int quantityOfUsers, int averageUsersForRooms, Date dateOfLastMessage,
+	public Metrics(int idmetrics,int quantityOfRooms, int quantityOfUsers, int averageUsersForRooms, Date dateOfLastMessage,
                    Date dateOfFirstLogin, User userWithMoreMessage, Message longerMesssage, Room lastGroupCreate,
                    Room roomWithMoreMessage) {
 		
 		super();
+		this.idmetrics=idmetrics;
 		this.quantityOfRooms = quantityOfRooms;
 		this.quantityOfUsers = quantityOfUsers;
 		this.averageUsersForRooms = averageUsersForRooms;
@@ -33,6 +34,11 @@ public class Metrics {
 	}
 
 
+	public Metrics() {
+		super();
+	}
+
+
 	public int getQuantityOfRooms() {
 		return quantityOfRooms;
 	}
@@ -40,6 +46,16 @@ public class Metrics {
 
 	public void setQuantityOfRooms(int quantityOfRooms) {
 		this.quantityOfRooms = quantityOfRooms;
+	}
+
+
+	public int getIdmetrics() {
+		return idmetrics;
+	}
+
+
+	public void setIdmetrics(int idmetrics) {
+		this.idmetrics = idmetrics;
 	}
 
 

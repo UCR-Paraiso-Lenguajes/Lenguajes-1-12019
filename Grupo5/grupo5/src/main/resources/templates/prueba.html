@@ -24,9 +24,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="role:${roles}">
-                <td th:text="${role.idRole}"></td>
-                <td th:text="${role.roleType}"></td>
+            <tr th:each="metric:${metrics}">
+                <td th:text="${metric.idmetrics}"></td>
+                <td th:text="${metric.quantityOfRooms}"></td>
             </tr>
         </tbody>
     </table>
