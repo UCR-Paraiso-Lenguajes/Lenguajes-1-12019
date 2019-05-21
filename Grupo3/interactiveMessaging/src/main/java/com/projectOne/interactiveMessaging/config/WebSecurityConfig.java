@@ -1,23 +1,15 @@
 package com.projectOne.interactiveMessaging.config;
+/*
 import javax.sql.DataSource;
 
 import org.apache.catalina.authenticator.SpnegoAuthenticator.AuthenticateAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled=true, proxyTargetClass=true)
+
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
@@ -49,8 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			frameOptions().sameOrigin()
 				.and()
 			.authorizeRequests() 
-				.antMatchers("/insertarPelicula").hasRole("ADMIN")/*.permitAll()*/
-				.antMatchers("/findMovies").hasRole("ADMIN")/*.permitAll()*/
+				.antMatchers("/insertarPelicula").hasRole("ADMIN")
+				.antMatchers("/findMovies").hasRole("ADMIN")
 				.antMatchers("/api/***").permitAll()
 				.anyRequest().authenticated()
 				.and().
@@ -69,3 +61,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 }
+	*/
+
