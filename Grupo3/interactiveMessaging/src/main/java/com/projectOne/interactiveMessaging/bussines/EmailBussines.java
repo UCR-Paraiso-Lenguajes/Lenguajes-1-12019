@@ -1,0 +1,18 @@
+package com.projectOne.interactiveMessaging.bussines;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.projectOne.interactiveMessaging.data.EmailData;
+
+public class EmailBussines {
+	
+	@Autowired
+	private EmailData emailData;
+	
+	public void sendMail(String from, String to, String subject, String body) {
+		
+		emailData.sendMail(from, to, subject, body);
+		
+	}
+
+}
