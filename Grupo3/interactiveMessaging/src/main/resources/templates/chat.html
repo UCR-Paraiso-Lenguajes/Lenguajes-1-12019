@@ -144,7 +144,6 @@ body {
 	width: 50px;
 	border-radius: 50%;
 	padding: 3px;
-	border: 2px solid #e74c3c;
 	height: auto;
 	float: left;
 	cursor: pointer;
@@ -159,14 +158,6 @@ body {
 		width: 40px;
 		margin-left: 4px;
 	}
-}
-
-#frame #sidepanel #profile .wrap img.online {
-	border: 2px solid #2ecc71;
-}
-
-#frame #sidepanel #profile .wrap img.offline {
-	border: 2px solid #95a5a6;
 }
 
 #frame #sidepanel #profile .wrap p {
@@ -801,7 +792,7 @@ body {
 				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 				<p>Harvey Specter</p>
 				<div class="settings-media" id="settings">
-					<i class="fa fa-cog fa-fw" aria-hidden="true" title="Informacion"></i>
+					<i class="fa fa-cog fa-fw" onclick="location.href='chatSetting'" aria-hidden="true" title="Informacion"></i>
 					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
 				</div>
 			</div>
@@ -856,31 +847,9 @@ body {
 			scrollTop : $(document).height()
 		}, "fast");
 
-		$("#profile-img").click(function() {
-			$("#status-options").toggleClass("active");
-		});
-
 		$(".expand-button").click(function() {
 			$("#profile").toggleClass("expanded");
 			$("#contacts").toggleClass("expanded");
-		});
-
-		$("#status-options ul li").click(function() {
-			$("#profile-img").removeClass();
-			$("#status-online").removeClass("active");
-			$("#status-offline").removeClass("active");
-			$(this).addClass("active");
-
-			if ($("#status-online").hasClass("active")) {
-				$("#profile-img").addClass("online");
-			} else if ($("#status-offline").hasClass("active")) {
-				$("#profile-img").addClass("offline");
-			} else {
-				$("#profile-img").removeClass();
-			}
-			;
-
-			$("#status-options").removeClass("active");
 		});
 
 		function newMessage() {

@@ -40,6 +40,7 @@
 </script>
 
 <style class="cp-pen-styles">
+
 body {
 	display: flex;
 	align-items: center;
@@ -142,10 +143,13 @@ body {
 	width: 50px;
 	border-radius: 50%;
 	padding: 3px;
-	border: 2px solid #e74c3c;
 	height: auto;
 	float: left;
 	cursor: pointer;
+}
+
+#frame #sidepanel #profile .wrap img.online {
+	border: 2px solid #2ecc71;
 }
 
 @media screen and (max-width: 735px) {
@@ -467,6 +471,7 @@ body {
 
 #frame .content .contact-profile p {
 	float: left;
+	margin-left: 250px;
 }
 
 #frame .content .contact-profile .settings-media {
@@ -574,7 +579,7 @@ body {
 			<div id="profile">
 				<div class="wrap">
 					<img id="profile-img"
-						src="http://emilcarlsson.se/assets/mikeross.png" class="online"
+						src="http://emilcarlsson.se/assets/mikeross.png"
 						alt="" />
 					<p>Mike Ross</p>
 
@@ -588,8 +593,7 @@ body {
 				<ul>
 					<li class="contact">
 						<div onclick="location.href='signIn'" class="wrap">
-							<span onclick="location.href='signIn'"
-								class="contact-status online"></span> <img
+							 <img
 								src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
 							<div onclick="location.href='signIn'" class="meta">
 								<p onclick="location.href='signIn'" class="name">Louis Litt</p>
@@ -624,7 +628,7 @@ body {
 		
 			<div class="contact-profile">
 				
-				<p align="center" >Informacion del Grupo</p>
+				<p>Informacion del Grupo</p>
 				<div class="settings-media" id="settings">
 					<i class="fa fa-cog fa-fw" aria-hidden="true" title="Informacion"></i>
 					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
@@ -633,7 +637,7 @@ body {
 			<div class="setting">
 			
 				<div class="contact-group" align="center">
-					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+					<img src="http://emilcarlsson.se/assets/harveyspecter.png" class="online" alt="" />
 					<br><br>
 					<b>Grupo:</b>
 					<p>Grupo#1</p>
@@ -643,36 +647,6 @@ body {
 					<p>Manfred</p>
 				</div>
 				<ul>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p>
-					</li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p>
-					</li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p>
-					</li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p>
-					</li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p>
-					</li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p>
-					</li>
 					<li class=""><img
 						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 						<p>Jeremy</p>
@@ -708,34 +682,11 @@ body {
 			scrollTop : $(document).height()
 		}, "fast");
 
-		$("#profile-img").click(function() {
-			$("#status-options").toggleClass("active");
-		});
-
 		$(".expand-button").click(function() {
 			$("#profile").toggleClass("expanded");
 			$("#contacts").toggleClass("expanded");
 		});
 
-		function newMessage() {
-			message = $(".message-input input").val();
-			if ($.trim(message) == '') {
-				return false;
-			}
-			$(
-					'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
-							+ message + '</p></li>')
-					.appendTo($('.messages ul'));
-			$('.message-input input').val(null);
-			$('.contact.active .preview').html('<span>You: </span>' + message);
-			$(".messages").animate({
-				scrollTop : $(document).height()
-			}, "fast");
-		};
-
-		$('.submit').click(function() {
-			newMessage();
-		});
 
 		$(window).on('keydown', function(e) {
 			if (e.which == 13) {
