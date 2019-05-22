@@ -15,4 +15,22 @@ public class RoomController {
 	public String userLogin(){
 		return "loginUser";
 	}
+	
+	
+	@RequestMapping(value="/user/msn/userChatRoom", method=RequestMethod.GET)
+	public String userRoom(){
+		return "UserChatRoom";
+	}
+	
+	
+	@RequestMapping(value="/user/msn/adminMenu", method=RequestMethod.GET)
+	public String adminRoom(){
+		return "AdminMenu";
+	}
+	
+	
+	@RequestMapping(value="/user/msn/adminManagementRoom", method=RequestMethod.GET)
+	public String adminManagementRoom(){
+		return "AdminManagementRoom";
+	}
 }
