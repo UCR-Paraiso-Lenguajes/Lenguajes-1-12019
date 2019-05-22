@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<link rel="stylesheet" type="text/css" href="static/css/EstilosChat.css" th:href="@{/css/EstilosChat.css}">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="chat-index">
+        <div class="chat-column-left">
+            <div class="chat-profile">
+                <i class="material-icons">UCR Live Messenger</i>
+                <br>
+                <div class="chat-profile_content">
+                    <div class="avatar-user">
+                        <img src="IMG/pc.png">
+                    </div>
+                    <div class="user-fullname">Lenguajes 2019</div>
+                </div>
+            </div>
+            <div class="chat-list">
+                <div class="chat-list_search">
+                    <input type="text" placeholder="Conversaciones" id="search">
+                </div>
+                <div class="chat-list_rooms">
+                    <div class="chat-list_content">
+                        <div class="avatar">
+                            <img src="IMG/ico.jpg">
+                        </div>
+                        <div class="chat-list_content_description">
+                            <div class="chat-list_content_description_header">
+                                <span>Alfred Pennyworth</span>
+                            </div>
+                            <div class="chat-list_content_description_body">
+                                <div class="chat-list_content_description_body_message">
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                                <div class="chat-list_content_description_body_time">
+                                    <span>10.12.2019</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-list_content">
+                        <div class="avatar">
+                            <img src="IMG/batman.png">
+                        </div>
+                        <div class="chat-list_content_description">
+                            <div class="chat-list_content_description_header">
+                                <span>Dick Grayson</span>
+                            </div>
+                            <div class="chat-list_content_description_body">
+                                <div class="chat-list_content_description_body_message">
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                                <div class="chat-list_content_description_body_time">
+                                    <span>10.12.2019</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-column-right">
+            <div class="chat-info">
+                <div class="chat-info_user">
+                <!--     <div class="chat-info_user_fullname">ConversaciÃ³n usuario actual</div> -->
+                <!--    <div class="chat-info_user_last_visit">Ãšltima vez conectado: hace 5 minutos.</div>-->
+<!--                     <label for="Name">th:text="${grupo.nombre}"</label> -->
+                    
+                </div>
+                <div class = "formulario"> </div>
+                <button type="button">Información de grupo</button>
+                <button type="button">Invitar</button> 
+                <div class="chat-info_search">
+                    <div class="chat-info_search_icon">
+                    </div>
+                </div>
+            </div>
+            <div class="chat-message">
+                <div class="chat-message_content interlocutor-message">
+                    <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                        unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content interlocutor-message">
+                    <div class="chat-message_content_text">Editors will often require specific character or word counts for your work. They do this for a variety of reasonsâ€”to save themselves from having to read entire novels, to test how clearly and concisely an essayist can write. The first thing an editor will check is your character or word count and if your essay is too long, it will be immediately disqualified. How Essay Contests Define Characters Characters are the basic building blocks of writing. Whether you are composing a writing contest entNI</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content interlocutor-message">
+                    <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                        unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content own-message">
+                    <div class="chat-message_content_text">Sergio</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content own-message">
+                    <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                        unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content interlocutor-message">
+                    <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                        unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content interlocutor-message">
+                    <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                        unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+                <div class="chat-message_content own-message">
+                    <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                        unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
+                    <div class="chat-message_content_date">
+                        10.12.2019
+                    </div>
+                </div>
+            </div>
+            <div class="chat-form">
+                <form action="#" class="chat-form_form">
+                    <div class="chat-form_form_attach">
+                    </div>
+                    <div class="chat-form_form_message">
+                        <textarea maxlength="500" id="Enviar" placeholder="Escribe un mensaje..."></textarea>
+                        <script>
+                            function maxLength(el) {
+                                if (!('maxLength' in el)) {
+                                    var max = el.attributes.maxLength.value;
+                                    el.onkeypress = function () {
+                                        if (this.value.length >= max) return false;
+                                    };
+                                }
+                            }
+
+                            maxLength(document.getElementById("Enviar"));
+                        </script>
+                    </div>
+                    <div class="chat-form_form_submit">
+                        <button>
+                            <i class="material-icons">Enviar</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
