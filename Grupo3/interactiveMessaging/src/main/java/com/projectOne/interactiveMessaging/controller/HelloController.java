@@ -22,4 +22,8 @@ public class HelloController {
         return "chat";
     }
 	
+	@RequestMapping("/chatSetting")
+    public String chatSetting() {
+        return "setting";
+    }
 }
