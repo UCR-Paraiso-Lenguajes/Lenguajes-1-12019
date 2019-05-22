@@ -12,7 +12,6 @@ import javax.jws.soap.SOAPBinding.Use;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.Role;
@@ -23,7 +22,6 @@ public class MessageData {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	//Este metodo me trae los mensajes por rango
-	@Transactional(readOnly = true)
 	public Iterator<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup) {
 		List<Message> messagesTemp = new ArrayList<>();
 		List<Message> messages = new ArrayList<>();

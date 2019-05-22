@@ -8,7 +8,6 @@ import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.projectOne.interactiveMessaging.domain.Role;
 import com.projectOne.interactiveMessaging.domain.User;
@@ -19,7 +18,7 @@ public class UserData {
 	private JdbcTemplate jdbcTemplate;
 	private List<User> userList = new ArrayList<>();
 	private ArrayList<Role> rolesUser = new ArrayList<>();
-	@Transactional(readOnly = true)
+
 	public Iterator<User> findUsersCertainRoom(int roomID) {// Trae los usuarios de un grupo en especifico con sus
 															// debidos roles en el grupo
 
