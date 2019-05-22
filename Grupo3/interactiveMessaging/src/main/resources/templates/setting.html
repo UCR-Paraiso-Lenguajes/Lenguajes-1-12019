@@ -101,7 +101,6 @@ body {
 		width: 100%;
 		margin: 0 auto;
 		padding: 5px 0 0 0;
-		background: #32465a;
 	}
 }
 
@@ -147,10 +146,6 @@ body {
 	height: auto;
 	float: left;
 	cursor: pointer;
-	-moz-transition: 0.3s border ease;
-	-o-transition: 0.3s border ease;
-	-webkit-transition: 0.3s border ease;
-	transition: 0.3s border ease;
 }
 
 @media screen and (max-width: 735px) {
@@ -158,14 +153,6 @@ body {
 		width: 40px;
 		margin-left: 4px;
 	}
-}
-
-#frame #sidepanel #profile .wrap img.online {
-	border: 2px solid #2ecc71;
-}
-
-#frame #sidepanel #profile .wrap img.offline {
-	border: 2px solid #95a5a6;
 }
 
 #frame #sidepanel #profile .wrap p {
@@ -478,13 +465,6 @@ body {
 	background: #f5f5f5;
 }
 
-#frame .content .contact-profile img {
-	width: 40px;
-	border-radius: 50%;
-	float: left;
-	margin: 9px 12px 0 9px;
-}
-
 #frame .content .contact-profile p {
 	float: left;
 }
@@ -494,7 +474,7 @@ body {
 }
 
 #frame .content .contact-profile .settings-media i {
-	margin-left: 14px;
+	margin-left: 15px;
 	cursor: pointer;
 }
 
@@ -506,7 +486,12 @@ body {
 	color: #435f7a;
 }
 
-#frame .content .messages {
+
+
+<!-- -->
+
+
+#frame .content .setting {
 	height: auto;
 	min-height: calc(100% - 93px);
 	max-height: calc(100% - 93px);
@@ -515,21 +500,21 @@ body {
 }
 
 @media screen and (max-width: 735px) {
-	#frame .content .messages {
+	#frame .content .setting {
 		max-height: calc(100% - 105px);
 	}
 }
 
-#frame .content .messages::-webkit-scrollbar {
+#frame .content .setting::-webkit-scrollbar {
 	width: 8px;
 	background: transparent;
 }
 
-#frame .content .messages::-webkit-scrollbar-thumb {
+#frame .content .setting::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-#frame .content .messages ul li {
+#frame .content .setting ul li {
 	display: inline-block;
 	clear: both;
 	float: left;
@@ -538,36 +523,17 @@ body {
 	font-size: 0.9em;
 }
 
-#frame .content .messages ul li:nth-last-child(1) {
+#frame .content .setting ul li:nth-last-child(1) {
 	margin-bottom: 20px;
 }
 
-#frame .content .messages ul li.sent img {
-	margin: 6px 8px 0 0;
-}
-
-#frame .content .messages ul li.sent p {
-	background: #435f7a;
-	color: #f5f5f5;
-}
-
-#frame .content .messages ul li.replies img {
-	float: right;
-	margin: 6px 0 0 8px;
-}
-
-#frame .content .messages ul li.replies p {
-	background: #f5f5f5;
-	float: right;
-}
-
-#frame .content .messages ul li img {
-	width: 22px;
+#frame .content .setting ul li img {
+	width: 50px;
 	border-radius: 50%;
 	float: left;
 }
 
-#frame .content .messages ul li p {
+#frame .content .setting ul li p {
 	display: inline-block;
 	padding: 10px 15px;
 	border-radius: 20px;
@@ -576,87 +542,27 @@ body {
 }
 
 @media screen and (min-width: 735px) {
-	#frame .content .messages ul li p {
+	#frame .content .setting ul li p {
 		max-width: 300px;
 	}
 }
 
-#frame .content .message-input {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	z-index: 99;
+#frame .content .contact-group img {
+	width: 150px;
+	border-radius: 50%;
+	float: center;
+	margin: 9px 12px 0 9px;
 }
 
-#frame .content .message-input .wrap {
-	position: relative;
+#frame .content .contact-group p {
+	float: center;
+}
+#frame .content .contact-group b{
+	float: center;
+  	font-weight: bold;
 }
 
-#frame .content .message-input .wrap input {
-	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
-	float: left;
-	border: none;
-	width: calc(100% - 90px);
-	padding: 11px 32px 10px 8px;
-	font-size: 0.8em;
-	color: #32465a;
-}
 
-@media screen and (max-width: 735px) {
-	#frame .content .message-input .wrap input {
-		padding: 15px 32px 16px 8px;
-	}
-}
-
-#frame .content .message-input .wrap input:focus {
-	outline: none;
-}
-
-#frame .content .message-input .wrap .attachment {
-	position: absolute;
-	right: 60px;
-	z-index: 4;
-	margin-top: 10px;
-	font-size: 1.1em;
-	color: #435f7a;
-	opacity: .5;
-	cursor: pointer;
-}
-
-@media screen and (max-width: 735px) {
-	#frame .content .message-input .wrap .attachment {
-		margin-top: 17px;
-		right: 65px;
-	}
-}
-
-#frame .content .message-input .wrap .attachment:hover {
-	opacity: 1;
-}
-
-#frame .content .message-input .wrap button {
-	float: right;
-	border: none;
-	width: 50px;
-	padding: 12px 0;
-	cursor: pointer;
-	background: #32465a;
-	color: #f5f5f5;
-}
-
-@media screen and (max-width: 735px) {
-	#frame .content .message-input .wrap button {
-		padding: 16px 0;
-	}
-}
-
-#frame .content .message-input .wrap button:hover {
-	background: #435f7a;
-}
-
-#frame .content .message-input .wrap button:focus {
-	outline: none;
-}
 </style>
 
 </head>
@@ -671,7 +577,7 @@ body {
 						src="http://emilcarlsson.se/assets/mikeross.png" class="online"
 						alt="" />
 					<p>Mike Ross</p>
-					
+
 				</div>
 			</div>
 			<div id="search">
@@ -682,18 +588,19 @@ body {
 				<ul>
 					<li class="contact">
 						<div onclick="location.href='signIn'" class="wrap">
-							<span onclick="location.href='signIn'" class="contact-status online"></span> <img
+							<span onclick="location.href='signIn'"
+								class="contact-status online"></span> <img
 								src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
 							<div onclick="location.href='signIn'" class="meta">
 								<p onclick="location.href='signIn'" class="name">Louis Litt</p>
-								<p onclick="location.href='signIn'" class="preview">You just got LITT up, Mike.</p>
+								<p onclick="location.href='signIn'" class="preview">You just
+									got LITT up, Mike.</p>
 							</div>
 						</div>
 					</li>
-					<li class="contact active">
+					<li class="contact">
 						<div class="wrap">
-						<img
-								src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 							<div class="meta">
 								<p class="name">Harvey Specter</p>
 								<p class="preview">Wrong. You take the gun, or you pull out
@@ -702,92 +609,7 @@ body {
 							</div>
 						</div>
 					</li>
-					<li class="contact">
-						<div class="wrap">
-						<img
-								src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
-								<p class="name">Rachel Zane</p>
-								<p class="preview">I was thinking that we could have chicken
-									tonight, sounds good?</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							 <img
-								src="http://emilcarlsson.se/assets/donnapaulsen.png" alt="" />
-							<div class="meta">
-								<p class="name">Donna Paulsen</p>
-								<p class="preview">Mike, I know everything! I'm Donna..</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img
-								src="http://emilcarlsson.se/assets/jessicapearson.png" alt="" />
-							<div class="meta">
-								<p class="name">Jessica Pearson</p>
-								<p class="preview">Have you finished the draft on the
-									Hinsenburg deal?</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							 <img
-								src="http://emilcarlsson.se/assets/haroldgunderson.png" alt="" />
-							<div class="meta">
-								<p class="name">Harold Gunderson</p>
-								<p class="preview">Thanks Mike! :)</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							 <img
-								src="http://emilcarlsson.se/assets/danielhardman.png" alt="" />
-							<div class="meta">
-								<p class="name">Daniel Hardman</p>
-								<p class="preview">We'll meet again, Mike. Tell Jessica I
-									said 'Hi'.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							</span> <img
-								src="http://emilcarlsson.se/assets/katrinabennett.png" alt="" />
-							<div class="meta">
-								<p class="name">Katrina Bennett</p>
-								<p class="preview">I've sent you the files for the Garrett
-									trial.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div  class="wrap">
-							</span> <img
-								src="http://emilcarlsson.se/assets/charlesforstman.png" alt="" />
-							<div class="meta">
-								<p class="name">Charles Forstman</p>
-								<p class="preview">Mike, this isn't over.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							 <img
-								src="http://emilcarlsson.se/assets/jonathansidwell.png" alt="" />
-							<div class="meta">
-								<p class="name">Jonathan Sidwell</p>
-								<p class="preview">
-									<span>You:</span> That's bullshit. This deal is solid.
-								</p>
-							</div>
-						</div>
-					</li>
+					
 				</ul>
 			</div>
 			<div id="bottom-bar">
@@ -799,15 +621,85 @@ body {
 			</div>
 		</div>
 		<div class="content">
+		
 			<div class="contact-profile">
-				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-				<p>Harvey Specter</p>
+				
+				<p align="center" >Informacion del Grupo</p>
 				<div class="settings-media" id="settings">
 					<i class="fa fa-cog fa-fw" aria-hidden="true" title="Informacion"></i>
 					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
 				</div>
 			</div>
+			<div class="setting">
 			
+				<div class="contact-group" align="center">
+					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+					<br><br>
+					<b>Grupo:</b>
+					<p>Grupo#1</p>
+					<b>Propietario</b>
+					<p>Manfred</p>
+					<b>Administrador</b>
+					<p>Manfred</p>
+				</div>
+				<ul>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 
