@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RoomController {
 
+	/**
+	 * Muestra la vista del login de usuario 
+	 * @return
+	 */
 	@RequestMapping(value="/user/msn", method=RequestMethod.GET)
 	public String userLogin(){
 		return "loginUser";

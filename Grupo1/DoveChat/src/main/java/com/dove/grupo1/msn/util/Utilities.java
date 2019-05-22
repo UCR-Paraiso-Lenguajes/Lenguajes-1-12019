@@ -16,7 +16,7 @@ public class Utilities {
 		ArrayList<String> usersNames = new ArrayList<>();
 		
 		//declaracion de objetos para realizar lectura de archivos
-		File archivo = new File("src/main/resources/templates/assets/names.txt");
+		File archivo = new File("src/main/resources/static/assets/names.txt");
         BufferedReader br = null;
         try{
             FileInputStream fis = new FileInputStream(archivo);
