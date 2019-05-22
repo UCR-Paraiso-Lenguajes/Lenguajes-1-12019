@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaft.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Eliminar Autor</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="all"
+	href="css/bootstrap-glyphicons.css"></link>
+<link rel="stylesheet" type="text/css" media="all" href="css/styles.css"></link>
+</head>
+<body>
+	<div th:if="${autorActual==null}">El autor que desea eliminar no existe.</div>
+
+	<div th:if="${autorActual!=null}">
+
+		¿Está seguro que desea eliminar el autor siguiente? <br>
+		Codigo del autor: <span th:text="${autorActual.idAutor}"></span>
+		Nombre del autor: <span th:text="${autorActual.nombre}"></span>
+		Apellido del autor: <span th:text="${autorActual.apellidos}"></span>
+
+		<td><a th:href="@{/eliminarAutor/accept}" class="btn btn-danger">Aceptar</a></td>
+		<td><a th:href="@{/mantenimientoAutores}" class="btn btn-success">Cancelar</a></td>
+
+	</div>
+
+</body>
+</html>
