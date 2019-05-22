@@ -22,7 +22,7 @@ public class GrupoController {
 	@RequestMapping(value = "/msn", method = RequestMethod.POST)
 	public String sendMail(@RequestParam("CorreoElectronico") String mail) {
 
-		grupoBusiness.invitar(mail, "link");
+		//grupoBusiness.invitar(mail, grupoBusiness.crear());
 
 		return "msn";
 	}

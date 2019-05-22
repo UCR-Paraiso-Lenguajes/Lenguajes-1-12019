@@ -1,5 +1,6 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lenguajes.ucrmsn.ucr.live.messenger.data.GrupoData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Enlace;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
@@ -22,7 +24,9 @@ public class GrupoBusiness {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
-	private static List<Enlace> enlacesEnviados;
+	@Autowired
+	private GrupoData grupoData;
+	private static List<Enlace> enlacesEnviados = new ArrayList<>();
 
 	@Transactional
 	public String crear(Usuario usuario) throws GrupoException {
@@ -32,8 +36,9 @@ public class GrupoBusiness {
 		Random random = new Random();
 		for (int i = 0; i < 10; i++) {
 			caracteres += (char) (random.nextInt(91) + 65);
-			hash = DigestUtils.sha256Hex(caracteres);
 		}
+		
+		hash = "/msn/"+DigestUtils.sha256Hex(caracteres);
 
 		if (usuario == null)
 			throw new RuntimeException("El usuario es requerido");
@@ -45,16 +50,18 @@ public class GrupoBusiness {
 			for (int i = 0; i < usuario.getListaRoles().size(); i++) {
 				Rol rol = usuario.getListaRoles().get(i);
 				if (rol.getNombre().equals("admin")) {
-					Grupo grupo = new Grupo(0, "", 0, 0, usuario, usuario);
+					grupoData.save(new Grupo(0, null, 0, 0, usuario, usuario));
 				}
 			}
 		}
-
 		return hash;
 	}
 
 	public void invitar(String to, String link) {
-
+		
+		Enlace enlace = new Enlace(link);
+		enlacesEnviados.add(enlace);
+		
 		SimpleMailMessage mail = new SimpleMailMessage();
 
 		mail.setFrom("ucrlivemessenger@gmail.com");
@@ -87,7 +94,11 @@ public class GrupoBusiness {
 
 	@Transactional
 	public int getVersion(Grupo grupo) {
-		return 0;
+
+		int version = grupo.getCantidadMensajes();
+		version++;
+
+		return version;
 	}
 
 	@Transactional
