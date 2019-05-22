@@ -9,15 +9,17 @@ import cr.ac.ucr.exceptions.ProjectExceptions;
 public final class Room extends RoomConvention{
 	
 	private int idRoom;
+	private static int version;
 	private User roomAdministrator;
 	private User roomOwner;
 	private HashSet<User> users = new HashSet<>();
 	private final int MAX_QUEUE=50; 
+	private final int MAX_USERS=50; 
 	private	BlockingQueue<Message> messages = new ArrayBlockingQueue<Message>(MAX_QUEUE);
 	
 	
 	public Room(User roomOwner) {
-		this.roomOwner = this.roomAdministrator = roomOwner; 
+		this.setRoomOwner(this.setRoomAdministrator(roomOwner)); 
 		join(roomOwner); 
 		Metrics.getInstance().updateRooms(this);
 	}
@@ -69,6 +71,10 @@ public final class Room extends RoomConvention{
 	public void setUsers(HashSet<User> users) {
 		this.users = users;
 	}
+	
+	public boolean isFull() {
+		return users.size() == MAX_USERS;
+	}
 
 	@Override
 	protected void join(User user) {
@@ -83,6 +89,31 @@ public final class Room extends RoomConvention{
 
 	public void setIdRoom(int idRoom) {
 		this.idRoom = idRoom;
+	}
+
+	public static int getVersion() {
+		return version;
+	}
+
+	public void updateVersion() {
+		Room.version++;
+	}
+
+	public User getRoomAdministrator() {
+		return roomAdministrator;
+	}
+
+	public User setRoomAdministrator(User roomAdministrator) {
+		this.roomAdministrator = roomAdministrator;
+		return roomAdministrator;
+	}
+
+	public User getRoomOwner() {
+		return roomOwner;
+	}
+
+	public void setRoomOwner(User roomOwner) {
+		this.roomOwner = roomOwner;
 	}
 	
 }

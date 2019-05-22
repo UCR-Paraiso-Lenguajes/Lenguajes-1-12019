@@ -11,11 +11,13 @@ public class Message {
 	private	User sender;
 	private Room roomWhereThisMessageBelong;
 	private Date date;
+	private int version ;
 	
 	public Message(String content) 
 	{
 		validMessage(content);
 		this.date = new Date();
+		version = Room.getVersion();
 	}
 
 	public Message() {
@@ -66,6 +68,10 @@ public class Message {
 	
 	public boolean isLongerThan(Message msn) {
 		return this.getContent().length() > msn.getContent().length();
+	}
+
+	public int getVersion() {
+		return version;
 	}
 	
 }
