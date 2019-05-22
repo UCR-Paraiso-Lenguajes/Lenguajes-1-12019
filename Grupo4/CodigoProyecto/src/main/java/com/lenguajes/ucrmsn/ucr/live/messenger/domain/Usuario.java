@@ -8,14 +8,14 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 public class Usuario {
 	private int id;
 	private String hash;
-	private Image avatar;
+	private String avatar;
 	private String nombreUsuario;
 	private ArrayList<Rol> listaRoles;
 	private int cantidadMensajes;
 	private ArrayList<Grupo> listaGrupos;
 	
 	
-	public Usuario(int id, Image avatar, String nombreUsuario, int cantidadMensajes,String hash) throws UsuarioException {
+	public Usuario(int id, String avatar, String nombreUsuario, int cantidadMensajes,String hash) throws UsuarioException {
 		super();
 		if (avatar==null && nombreUsuario==null && hash==null) {
 			throw new UsuarioException("el usuario esta vacio");
@@ -48,10 +48,10 @@ public class Usuario {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Image getAvatar() {
+	public String getAvatar() {
 		return avatar;
 	}
-	public void setAvatar(Image avatar) {
+	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
 	public String getNombreUsuario() {
