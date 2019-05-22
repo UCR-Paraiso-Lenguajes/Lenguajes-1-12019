@@ -33,4 +33,9 @@ public class RoomController {
 	public String adminManagementRoom(){
 		return "AdminManagementRoom";
 	}
+	
+	@RequestMapping(value="/user/msn/newRoom", method=RequestMethod.GET)
+	public String newRoom(){
+		return "NewRoom";
+	}
 }
