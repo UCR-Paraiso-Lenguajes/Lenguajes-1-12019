@@ -29,6 +29,7 @@ public abstract class RoomConvention
 		{
 			throw new ProjectExceptions(e);
 		}
+		updateVersion();
 	}
 
 	protected abstract void updateMetrics(Message message);
@@ -38,5 +39,7 @@ public abstract class RoomConvention
 	protected abstract void insertMessage(Message message);
 	
 	protected abstract void join(User user);
+	
+	protected abstract void updateVersion();
 	
 }
