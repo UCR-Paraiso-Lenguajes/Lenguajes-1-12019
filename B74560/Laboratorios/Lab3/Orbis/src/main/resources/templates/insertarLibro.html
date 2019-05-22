@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Insertar Libros</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous">
+	
+</script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous">
+	
+</script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous">
+	
+</script>
+
+<script>
+	$(function() {
+		$("#btnDown")
+				.click(
+						function() {
+							var autoresD = document.getElementById("autoresDB");
+							var autoresS = document
+									.getElementById("autoresSelected");
+							for (i = 0; i < autoresD.length; i++) {
+								currentOption = autoresD[i];
+								if (currentOption.selected == true) {
+									autoresS.options[autoresS.options.length] = new Option(
+											currentOption.text,
+											currentOption.value, false, false);
+									currentOption.parentNode
+											.removeChild(currentOption);
+								}
+							}
+						});
+		$("#btnUp")
+				.click(
+						function() {
+							var autoresD = document
+									.getElementById("autoresSelected");
+							var autoresS = document.getElementById("autoresDB");
+							for (i = 0; i < autoresD.length; i++) {
+								currentOption = autoresD[i];
+								if (currentOption.selected == true) {
+									autoresS.options[autoresS.options.length] = new Option(
+											currentOption.text,
+											currentOption.value, false, false);
+
+									currentOption.parentNode
+											.removeChild(currentOption);
+								}
+							}
+
+						});
+		$("#btnSubmit").click(function() {
+			var autoresS = document.getElementById("autoresSelected");
+			for (i = 0; i < autoresS.length; i++) {
+				currentOption = autoresS[i];
+				currentOption.selected = true
+			}
+
+		});
+
+	});
+</script>
+
+<style>
+#etiquetaError {
+	color: #FF0000;
+}
+</style>
+
+</head>
+
+
+<body>
+
+	<div class="container">
+
+		<h1>Insertar Un Nuevo Libro</h1>
+
+		<form th:action="@{/insertarLibro}" th:object="${libroForm}"
+			method="post" onsubmit="">
+
+			T&iacute;tulo: <input type="text" name="titulo" id="titulo"
+				th:field="*{titulo}" /> <br> <br>
+
+			<div id="etiquetaError" th:if="${#fields.hasErrors('titulo')}">El
+				t&iacute;tulo debe tener m&iacute;nimo 2 letras y m&aacute;ximo 50
+				letras</div>
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			A&ntilde;o: <input type="number" min=500 max=2019 name="ano" id="ano"
+				th:field="*{ano}" /> <br> <br>
+
+			<div id="etiquetaError" th:if="${#fields.hasErrors('ano')}">El
+				a&ntilde;o debe de ser mayor a 500 e inferior a la fecha actual</div>
+
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			Precio: <input type="number" min=0 name="precio" id="precio"
+				th:field="*{precio}" /> <br> <br>
+
+			<div id="etiquetaError" th:if="${#fields.hasErrors('precio')}">
+				El precio debe de ser mayor o igual a cero</div>
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			Editoriales: <select class="mdb-select md-form"
+				th:field="*{id_editorial}">
+
+				<option th:each="editorial: ${editoriales}"
+					th:value="${editorial.id_editorial}" th:text="${editorial.nombre}">
+				</option>
+
+			</select> 
+			<br> 
+			<br> 
+			ISBN: <input type="number" min=1 name="id_libro"
+				id="id_libro" th:field="*{id_libro}" /> <br> <br>
+
+			<div id="etiquetaError" th:if="${#fields.hasErrors('id_libro')}">El
+				id del libro debe de ser mayor a cero</div>
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<br> Seleccione 1 o más autores: <br> <select
+				id="autoresDB" size="2" multiple>
+
+				<option th:each="autor: ${autores}" th:value="${autor.id_autor}"
+					th:text="${autor.nombre_autor}"></option>
+
+			</select>
+
+			<div id="btnUp">
+
+				<i class="fa fa-angle-double-up"></i>
+
+			</div>
+
+			<div id="btnDown">
+
+				<i class="fa fa-angle-double-down"></i>
+
+			</div>
+
+			<select id="autoresSelected" size="2" multiple th:field="*{autor}"></select><br>
+
+			<br>
+
+			<div id="etiquetaError" th:if="${#fields.hasErrors('autor')}">Es
+				requerido un autor</div>
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<button type="Reset">Borrar</button>
+			
+			<button id="btnSubmit" type="submit">Insertar libro</button>
+			
+			
+
+		</form>
+	</div>
+</body>
+</html>
