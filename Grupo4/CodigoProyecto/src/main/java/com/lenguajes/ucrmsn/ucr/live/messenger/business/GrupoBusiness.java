@@ -1,6 +1,8 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -22,11 +24,11 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
 @Service
 public class GrupoBusiness {
 
+	private static List<Enlace> enlacesEnviados = new ArrayList<>();
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private GrupoData grupoData;
-	private static List<Enlace> enlacesEnviados = new ArrayList<>();
 
 	@Transactional
 	public String crear(Usuario usuario) throws GrupoException {
@@ -57,17 +59,26 @@ public class GrupoBusiness {
 		return hash;
 	}
 
+	@Transactional
 	public void invitar(String to, String link) {
 		
 		Enlace enlace = new Enlace(link);
 		enlacesEnviados.add(enlace);
 		
+		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
 
 		mail.setFrom("ucrlivemessenger@gmail.com");
 		mail.setTo(to);
-		mail.setSubject("Invitación a participar en el chat");
-		mail.setText(link);
+		mail.setSubject("Invitación UCR Live Messenger");
+		mail.setText("Bienvenido a UCR Live Messenger" 
+				+ " \n" 
+				+ "Utilice el link adjunto para comenzar a chatear."
+				+ "\n" 
+				+ "Expira en 3 minutos."
+				+ "\n"
+				+ "Hora del servidor: "
+				+ fecha.getTime());
 
 		javaMailSender.send(mail);	
 	}

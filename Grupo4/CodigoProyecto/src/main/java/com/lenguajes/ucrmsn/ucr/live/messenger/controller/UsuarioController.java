@@ -10,25 +10,22 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.business.UsuarioBusiness;
 
 @Controller
 public class UsuarioController {
-	@Autowired
-	private UsuarioBusiness usuarioBusiness;
-	
-	@RequestMapping(value = "/msn", method = RequestMethod.GET)
-	public String enviarCorreo() {
-		return "msn";
-	}
-
-	@RequestMapping(value = "/msn", method = RequestMethod.POST)
-	public String sendMail(@RequestParam("CorreoElectronico") String mail) {
-
-		usuarioBusiness.invitar(mail, "localhost:8080/ucrmsn/interfazchat");
-
-		return "msn";
-	}
-	@RequestMapping(value = "/interfazchat", method = RequestMethod.GET)
-	public String chatsUsuario() {
-		return "interfazchat";
-	}
+	/*
+	 * @Autowired private UsuarioBusiness usuarioBusiness;
+	 * 
+	 * @RequestMapping(value = "/msn", method = RequestMethod.GET) public String
+	 * enviarCorreo() { return "msn"; }
+	 * 
+	 * @RequestMapping(value = "/msn", method = RequestMethod.POST) public String
+	 * sendMail(@RequestParam("CorreoElectronico") String mail) {
+	 * 
+	 * usuarioBusiness.invitar(mail, "localhost:8080/ucrmsn/interfazchat");
+	 * 
+	 * return "msn"; }
+	 * 
+	 * @RequestMapping(value = "/interfazchat", method = RequestMethod.GET) public
+	 * String chatsUsuario() { return "interfazchat"; }
+	 */
 
 }
 
