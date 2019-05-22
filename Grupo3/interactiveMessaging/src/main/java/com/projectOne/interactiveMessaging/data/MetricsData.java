@@ -88,9 +88,9 @@ public class MetricsData {
 	@Transactional(readOnly=true)
 	public Iterator <Metrics> findMetrics (int idMetrics){
 		//TODO Falta el parametro de entrada para ver porque voy a buscar
-		String mySqlSelect = "SELECT idMetrics, numbersOfRooms, numbersOfUsers, averageOfUsersPerRoom,"
-				+ "dateLastMessage, dateFirstLogin, idBigUser, numbersMessagesBigUser, idLongestMessage,"
-				+ "idLastRoomCreated, idBiggestRoom, numberMessageBiggestRoom "
+		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom,"
+				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, idLongestMessage,"
+				+ "idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom "
 				+ "FROM Metrics "
 				+ "WHERE idMetrics = "+ idMetrics;
 		
@@ -110,9 +110,9 @@ class MetricsExtractor implements ResultSetExtractor<Iterator<Metrics>>{
 				if(metrics == null) {
 					metrics = new Metrics(idMetrics,rs.getInt("numberOfUsers"),
 							rs.getInt("numberOfRooms"),rs.getFloat("averageOfUsersPerRoom"),
-							rs.getDate("dateLastMessage"),rs.getDate("dateFirstLogin"),
-							rs.getInt("idBigUser"),rs.getInt("idLongestMessage"),
-							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"));
+							rs.getTimestamp("dateLastMessage"),rs.getTimestamp("dateFirstLogin"),
+							rs.getInt("idBigUser"),rs.getInt("numberMessagesBigUser"),rs.getInt("idLongestMessage"),
+							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"),rs.getInt("numberMessagesBiggestRoom"));
 					//TODO faltan agregar dos valores que si estan en base, Cambiar metrics domain
 					map.put(idMetrics, metrics);
 				}
