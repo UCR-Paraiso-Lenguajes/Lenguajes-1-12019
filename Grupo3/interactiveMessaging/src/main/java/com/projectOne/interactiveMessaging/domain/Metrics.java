@@ -1,5 +1,6 @@
 package com.projectOne.interactiveMessaging.domain;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,19 +10,20 @@ public class Metrics {
 	private int numberOfUsers;
 	private int numberOfRooms;
 	private float averageOfUsersPerRoom;
-	private Date dateLastMessage;
-	private Date dateFirstLogin;
+	private Timestamp dateLastMessage;
+	private Timestamp dateFirstLogin;
 	private int idBigUser;
 	private int idLongestMessage;
 	private int idLastRoomCreated;
 	private int idBiggestRoom;
+	private int numberMessagesBigUser;
+	private int numberMessagesBiggestRoom;
 	
 	
 	
-	
-	public Metrics(int id_Metrics, int numberOfUsers, int numberOfRooms, float averageOfUsersPerRoom, Date dateLastMessage, Date dateFirstLogin,
-			int idBigUser, int idLongestMessage, int idLastRoomCreated,
-			int idBiggestRoom) {
+	public Metrics(int id_Metrics, int numberOfUsers, int numberOfRooms, float averageOfUsersPerRoom, Timestamp dateLastMessage, Timestamp dateFirstLogin,
+			int idBigUser,int numberMessagesBigUser, int idLongestMessage, int idLastRoomCreated,
+			int idBiggestRoom, int numberMessagesBiggestRoom) {
 		
 		if(numberOfUsers < 1) throw new RuntimeException("El numero de usuario es requerido.");
 		if(numberOfRooms < 1) throw new RuntimeException("El numero de grupos es requerido.");
@@ -43,6 +45,8 @@ public class Metrics {
 		this.idLongestMessage = idLongestMessage;
 		this.idLastRoomCreated = idLastRoomCreated;
 		this.idBiggestRoom = idBiggestRoom;
+		this.numberMessagesBigUser = numberMessagesBigUser;
+		this.numberMessagesBiggestRoom = numberMessagesBiggestRoom;
 	}
 
 	public boolean compareMetrics(Metrics metrics) {
