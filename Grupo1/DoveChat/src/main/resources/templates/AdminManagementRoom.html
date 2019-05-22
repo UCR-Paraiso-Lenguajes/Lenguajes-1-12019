@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<link href='https://fonts.googleapis.com/css?family=Raleway:300,200'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/cssDove.css}" />
+<link href='https://fonts.googleapis.com/css?family=Raleway:300,200'
+	rel='stylesheet' type='text/css'>
+<meta charset="UTF-8">
+
+<title>Dove Chat</title>
+
+</head>
+
+<header>
+
+
+	<div id="header" class="header">
+
+		<div id="header-row" class="row" style="height: 100%;">
+
+
+
+			<div id="chat-logo-div" class="col-sm">
+				<img th:src="@{/assets/batman.png}" alt="logo" class="logo"
+					style="margin-left: 60%; border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231)">
+				<label id="label-chat-name" class="name" style="margin-left: 2%">
+					xGeneration </label>
+			</div>
+			<div id="user-logo-div" class="col-sm" align="right"
+				style="margin-right: 3%;">
+				<img th:src="@{/assets/cat.png}" alt="logo" class="logo"
+					style="border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231);">
+				<label id="label-user-name" class="name" style="margin-left: 2%">
+					patitos@gmail.com </label>
+				<button class="button-loggout">Logout</button>
+			</div>
+
+		</div>
+	</div>
+</header>
+
+<body class="body" align="center">
+
+	<div id="container" class="row">
+
+		<div id="chat-column" class="col-sm">
+
+			<div class="chat-box">
+
+				<div class="chat-logs">
+
+
+					<div class="row" style="margin-bottom: 2%; background-color: rgba(247, 243, 224, 0.664); color: rgb(80, 79, 79)">
+
+						<div  class="col-sm">
+							<p class="text">Usuario</p>
+						</div>
+
+
+						<div  class="col-sm">
+							<p class="text">Rol</p>
+						</div>
+
+						<div  class="col-sm">
+							<p>Destitucion</p>
+						</div>
+
+						<div  class="col-sm">
+							<p>Promocion</p>
+						</div>
+					</div>
+
+
+					<div class="row">
+
+						<div id="user" class="col-sm">
+							<p class="text">Josue</p>
+						</div>
+
+
+						<div id="role" class="col-sm">
+							<p class="text">Admin</p>
+						</div>
+
+						<div id="remover" class="col-sm">
+							<button>Remover</button>
+						</div>
+
+						<div id="promover" class="col-sm">
+							<button>Promover</button>
+						</div>
+					</div>
+
+
+					<div class="row">
+
+						<div id="user" class="col-sm">
+							<p class="text">Melissa</p>
+						</div>
+
+
+						<div id="role" class="col-sm">
+							<p class="text">User</p>
+						</div>
+
+						<div id="remover" class="col-sm">
+							<button>Remover</button>
+						</div>
+
+						<div id="promover" class="col-sm">
+							<button>Promover</button>
+						</div>
+					</div>
+
+
+
+				</div>
+
+
+			</div>
+		</div>
+
+
+
+		<div id="room-select-column" class="col-sm">
+
+			<div id="SearchRoom-input-div" class="row">
+				<div id="search-input">
+					<input style="color: rgb(80, 79, 79); font-weight: bold;"
+						type="text" class="search-room">
+				</div>
+				<div id="search-button">
+					<button class="button-search">Buscar</button>
+				</div>
+			</div>
+
+			<div id="room-select-div" class="row">
+				<select name="chat-select" class="chat-select" id="chat-select"
+					multiple="multiple" size="19"></select>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+</body>
+
+</html>

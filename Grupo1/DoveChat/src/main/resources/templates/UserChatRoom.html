@@ -3,10 +3,11 @@
 
 <head>
 
+   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,200' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/cssDove.css">
+   <link rel="stylesheet" th:href="@{/css/cssDove.css}"/>
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,200' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
 
@@ -22,7 +23,7 @@
         <div id="header-row" class="row" style="height: 100%;">
 
             <div id="chat-logo-div" class="col-sm">
-                <img src="../templates/assets/batman.png" alt="logo" class="logo" style="margin-left: 60% ; border-style: ridge;
+                <img th:src="@{/assets/batman.png}" alt="logo" class="logo" style="margin-left: 60% ; border-style: ridge;
                 border-color:  rgb(252, 244, 200);  border-radius: 100%;background-color: rgb(241, 239, 231)">
                 <label id="label-chat-name" class="name" style="margin-left: 2%">
                     xGeneration
@@ -34,7 +35,7 @@
 
 
             <div id="user-logo-div" class="col-sm" align="right" style="margin-right: 3%;">
-                <img src="../templates/assets/cat.png" alt="logo" class="logo"  style=" border-style:ridge;
+                <img th:src="@{/assets/cat.png}" alt="logo" class="logo"  style=" border-style:ridge;
                 border-color:  rgb(252, 244, 200);  border-radius: 100%; background-color:  rgb(241, 239, 231);">
                 <label id="label-user-name" class="name" style="margin-left: 2%">
                     patitos@gmail.com
@@ -58,32 +59,32 @@
                 <div class="chat-logs">
 
                     <div class="chat friend">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">b</p>
                     </div>
 
                     <div class="chat self">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">a</p>
                     </div>
                     <div class="chat self">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">a</p>
                     </div>
                     <div class="chat friend">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">b</p>
                     </div>
                     <div class="chat self">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">a</p>
                     </div>
                     <div class="chat self">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">a</p>
                     </div>
                     <div class="chat friend">
-                        <div class="img-user"><img src="../templates/assets/cat.png" alt=""></div>
+                        <div class="img-user"><img th:src="@{/assets/cat.png}" alt=""></div>
                         <p class="chat-message">b</p>
                     </div>
 

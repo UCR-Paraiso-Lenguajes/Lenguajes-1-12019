@@ -22,9 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	private static BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	@Autowired
 	private UserDetailsService customerDetailsService;
-	@Autowired
-	private DataSource datasource;
-	
+
 	@Bean
 	public  PasswordEncoder  passwordEncoder() {
 		return encoder;
