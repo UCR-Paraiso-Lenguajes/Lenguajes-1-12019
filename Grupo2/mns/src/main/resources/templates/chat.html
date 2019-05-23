@@ -122,7 +122,16 @@
             <div class="col-md-9">
                   
 					<div id="caja-chat" style="height:350px; max-widht:100%; overflow-y:scroll;">
-						<div id="chat"></div>
+						
+						
+						<div id="oldMessages" class="row-area" th:each="message: ${messages}">
+							<div class="column2 tariff-date" style="width: 15%; "><span th:text="${message.getContent()}">Dummy Data</span></div>
+						</div>
+						
+						
+						<div id="chat" class="col-sm-5"></div>
+						
+						
 					</div>
 			
 					<br>
@@ -130,8 +139,6 @@
 					<textarea maxlength="500" id="mensaje" placeholder="Ingresa tu mensaje" style="resize: none; margin: 0px; width: 499px; height: 70px;"></textarea>
 			
 			
-					
-
  			</div >
  	</div>
 </div>	
@@ -140,11 +147,10 @@
 
 
 
-
 function myFunction() {
  
 
-  var spanElement = document.createElement('span')
+  	var spanElement = document.createElement('span')
 	spanElement.innerText="aqui el avatar mensaje y fecha"
 	var DOMobject=document.createElement('br');
 	var divejemplo=document.createElement('div')
