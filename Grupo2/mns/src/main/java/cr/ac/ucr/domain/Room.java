@@ -1,6 +1,7 @@
 package cr.ac.ucr.domain;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -115,5 +116,11 @@ public final class Room extends RoomConvention{
 	public void setRoomOwner(User roomOwner) {
 		this.roomOwner = roomOwner;
 	}
+
+	public Iterator<Message> getMessages() {
+		return messages.iterator();
+	}
+
+	
 	
 }
