@@ -13,8 +13,9 @@ public class ChatRoom {
 	private String url;
 	private List<User> listUsers;
 	private List<Message> listMessage;
+	private User user_creator;
 
-	public ChatRoom(int id, String name, int version, String url, List<User> listUsers, List<Message> listMessage) {
+	public ChatRoom(int id, String name, int version, String url, List<User> listUsers, List<Message> listMessage, User userCreator) {
 		super();
 		if (id < 0)
 			throw new RuntimeException("El id de la sala debe ser mayor  0.");
@@ -24,16 +25,21 @@ public class ChatRoom {
 			throw new RuntimeException("La version de la sala debe ser mayor  0.");
 		if (url == null || url.trim().equals(""))
 			throw new RuntimeException("La url es requerida");
+		if (userCreator == null)
+			throw new RuntimeException("El usuario creador es requerido");
 		this.id = id;
 		this.name = name;
 		this.version = version;
 		this.url = url;
+		this.setUser_creator(userCreator);
 		this.listUsers = Collections.synchronizedList(new ArrayList<User>());
 		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
 	public ChatRoom() {
 		super();
+		this.listUsers = Collections.synchronizedList(new ArrayList<User>());
+		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
 	public int getId() {
@@ -90,4 +96,11 @@ public class ChatRoom {
 				+ listUsers + ", listMessage=" + listMessage + "]";
 	}
 
+	public User getUser_creator() {
+		return user_creator;
+	}
+
+	public void setUser_creator(User user_creator) {
+		this.user_creator = user_creator;
+	}
 }
