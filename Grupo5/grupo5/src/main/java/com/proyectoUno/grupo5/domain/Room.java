@@ -20,6 +20,14 @@ public class Room {
 		this.users = users;
 	}
 
+	public Room() {
+	}
+
+	public Room(String roomName, int version) {
+		this.roomName = roomName;
+		this.version = version;
+	}
+
 	public int getIdRoom() {
 		return idRoom;
 	}
