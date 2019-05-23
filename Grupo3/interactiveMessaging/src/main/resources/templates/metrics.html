@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html class=''>
-
+<html>
 <head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Metrics</title>
 
 <script
 	src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
@@ -659,220 +663,21 @@ body {
 </style>
 
 </head>
-
 <body>
 
-
-
-	<div id="frame">
-		<div id="sidepanel">
-			<div id="profile">
-				<div class="wrap">
-					<img id="profile-img"
-						src="http://emilcarlsson.se/assets/mikeross.png" class="online"
-						alt="" />
-					<p>Mike Ross</p>
-
-				</div>
-			</div>
-			<div id="search">
-				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="text" placeholder="Search contacts..." />
-			</div>
-			<div id="contacts">
-				<ul>
-					<li class="contact">
-						<div onclick="location.href='signIn'" class="wrap">
-							 <img
-								src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
-							<div onclick="location.href='signIn'" class="meta">
-								<p onclick="location.href='signIn'" class="name">Louis Litt</p>
-								<p onclick="location.href='signIn'" class="preview">You just
-									got LITT up, Mike.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact active">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<div class="meta">
-								<p class="name">Harvey Specter</p>
-								<p class="preview">Wrong. You take the gun, or you pull out
-									a bigger one. Or, you call their bluff. Or, you do any one of a
-									hundred and forty six other things.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
-								<p class="name">Rachel Zane</p>
-								<p class="preview">I was thinking that we could have chicken
-									tonight, sounds good?</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/donnapaulsen.png" alt="" />
-							<div class="meta">
-								<p class="name">Donna Paulsen</p>
-								<p class="preview">Mike, I know everything! I'm Donna..</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/jessicapearson.png"
-								alt="" />
-							<div class="meta">
-								<p class="name">Jessica Pearson</p>
-								<p class="preview">Have you finished the draft on the
-									Hinsenburg deal?</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/haroldgunderson.png"
-								alt="" />
-							<div class="meta">
-								<p class="name">Harold Gunderson</p>
-								<p class="preview">Thanks Mike! :)</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/danielhardman.png" alt="" />
-							<div class="meta">
-								<p class="name">Daniel Hardman</p>
-								<p class="preview">We'll meet again, Mike. Tell Jessica I
-									said 'Hi'.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							</span> <img src="http://emilcarlsson.se/assets/katrinabennett.png"
-								alt="" />
-							<div class="meta">
-								<p class="name">Katrina Bennett</p>
-								<p class="preview">I've sent you the files for the Garrett
-									trial.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							</span> <img src="http://emilcarlsson.se/assets/charlesforstman.png"
-								alt="" />
-							<div class="meta">
-								<p class="name">Charles Forstman</p>
-								<p class="preview">Mike, this isn't over.</p>
-							</div>
-						</div>
-					</li>
-					<li class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/jonathansidwell.png"
-								alt="" />
-							<div class="meta">
-								<p class="name">Jonathan Sidwell</p>
-								<p class="preview">
-									<span>You:</span> That's bullshit. This deal is solid.
-								</p>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div id="bottom-bar">
-				<button id="addcontact">
-					<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add
-						contact</span>
-				</button>
-
-			</div>
-		</div>
-		
-		
-		
-		
-		<div class="content">
-			<div class="contact-profile">
-				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-				<p>Harvey Specter</p>
-				<div class="settings-media" id="settings">
-				
-					
-					<!-- boton para abrir los metrics data-toggle="modal" data-target="popup()"   onclick="location.href='metrics'" aria-hidden="true" -->
-						<i class="fa fa-cog fa-fw"  onclick="location.href='metrics'" title="Informacion"></i>
-						<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
-						
-					
-				</div>
-			</div>
-			<div class="messages">
-				<ul>
-                    <li th:each="message: ${messages}" th:class="${message.type}"><img
-                        src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-                        <p th:text="${message.message}"></p></li>  
-                </ul>
-			</div>
-			<div class="message-input">
-				<div class="wrap">
-					<input type="text" placeholder="Write your message..." /> <i
-						class="fa fa-paperclip attachment" aria-hidden="true"></i>
-					<button class="submit">
-						<i class="fa fa-paper-plane" aria-hidden="true"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container">
+	
+	<label>Identificación:
+		</label><input type="text" id="id_autor" class="form-control"  disabled /> <br><br>
+	<label>Nombre:
+		</label><input type="text" id="nombre" class="form-control" /> <br><br>
+	<label>Apellidos:
+		</label><input type="text" id="apellidos_autor" class="form-control"  /> <br><br>
+	<button id="editar" onClick="location.href='mantenimientoAutores'">Editar</button><br><br>
+	<button onClick="location.href='mantenimientoAutores'">Cancelar</button><br> <br>
 	
 	
-	
-	
+</div>
 
-	<script>
-		$(".messages").animate({
-			scrollTop : $(document).height()
-		}, "fast");
-
-		$(".expand-button").click(function() {
-			$("#profile").toggleClass("expanded");
-			$("#contacts").toggleClass("expanded");
-		});
-
-		function newMessage() {
-			message = $(".message-input input").val();
-			if ($.trim(message) == '') {
-				return false;
-			}
-			$(
-					'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
-							+ message + '</p></li>')
-					.appendTo($('.messages ul'));
-			$('.message-input input').val(null);
-			$('.contact.active .preview').html('<span>You: </span>' + message);
-			$(".messages").animate({
-				scrollTop : $(document).height()
-			}, "fast");
-		};
-		
-		$('.submit').click(function() {
-			newMessage();
-		});
-
-		$(window).on('keydown', function(e) {
-			if (e.which == 13) {
-				newMessage();
-				return false;
-			}
-		});
-	</script>
 </body>
 </html>
