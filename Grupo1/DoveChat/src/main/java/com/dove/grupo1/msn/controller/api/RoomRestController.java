@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class RoomRestController {
 	
@@ -13,8 +14,7 @@ public class RoomRestController {
 	 * Api para recibir el correo en nuevo login
 	 * @param String email
 	 */
-	
-	@RequestMapping(value="/user/msn/{email}", method=RequestMethod.PUT)
+	@RequestMapping(value="/api/user/{email}", method=RequestMethod.PUT)
 	public @ResponseBody void userLogin(@PathVariable String email){
 		email.charAt(0);
 	}

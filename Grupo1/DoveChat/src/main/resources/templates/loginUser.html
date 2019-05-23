@@ -50,15 +50,18 @@
 
 <script>
 var emailInput = $("#email");
-
-alert("ds");
+var user = {
+		"userId" : 0,
+		"email" : ""
+};
 $("#submit").click(function(){	
-	
+
 	$.ajax(	{
-		method:"PUT",
+		method:"POST",
+		data:JSON.stringify(user),
 		contentType:"application/json; charset=utf-8",
 		dataType:"json",
-		url: "user/msn/"+emailInput.text()
+		url: "api/user/email"
 	}).done(function() {
 		alert("The mail was send.");
 		 window.history.back();
@@ -72,7 +75,7 @@ $("#submit").click(function(){
         $("#locales").change(function () {
             var selectedOption = $('#locales').val();
             if (selectedOption !== ''){
-                window.location.replace('locale?lang=' + selectedOption);
+                window.location.replace('?language=' + selectedOption);
             }
         });
     });
