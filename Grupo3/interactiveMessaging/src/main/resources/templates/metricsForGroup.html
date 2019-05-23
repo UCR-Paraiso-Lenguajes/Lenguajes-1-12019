@@ -670,6 +670,11 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	visibility: hidden;
+	}
+	
+	.overlay.active {
+	visibility: visible;
 	}
 	
 	.popup {
@@ -708,10 +713,9 @@ body {
 	color: #fff;
 	background: #5E7DE3;
 	border-radius: 3px;
-	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	cursor: pointer;
-	transition: .3s ease all;
+	/*transition: .3s ease all;*/
 	}
 
 </style>
@@ -856,9 +860,9 @@ body {
 				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 				<p>Harvey Specter</p>
 				<div class="settings-media" id="settings">
-					<i class="fa fa-cog fa-fw" aria-hidden="true" title="Informacion"></i>
+					<i class="fa fa-cog fa-fw" aria-hidden="true" title="Informacion" id="btn-abrir-popup"></i>
 					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
-					<button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////77 -->					
 				</div>
 			</div>
 			<div class="messages">
@@ -921,7 +925,6 @@ body {
 						<input type="email" placeholder="Correo">
 					</div>
 					<input type="submit" class="btn-submit" value="Suscribirse">
-					<button type="button" class="btn btn-default" id = "cerrarPopUp">Cerrar</button>
 				</form>
 			</div>
 		</div>
@@ -989,22 +992,23 @@ body {
 		
 		
 		
+		
 		var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
 		overlay = document.getElementById('overlay'),
 		popup = document.getElementById('popup'),
 		btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+	btnAbrirPopup.addEventListener('click', function(){
+		overlay.classList.add('active');
+		popup.classList.add('active');
 		
-		btnAbrirPopup.addEventListener('click', function(){
-			overlay.classList.add('active');
-			popup.classList.add('active');
-		});
-		
-		$("#cerrarPopUp").click(function(){
-		<!-- 	overlay.classList.remove('active'); -->
-		<!-- 	popup.classList.remove('active'); -->
-			document.getElementById("overlay").innerHTML = ''; //eliminamos todo dentro del div
-			document.getElementById("popup").innerHTML = '';
-		});
+	});
+
+	btnCerrarPopup.addEventListener('click', function(e){
+		e.preventDefault();
+		overlay.classList.remove('active');
+		popup.classList.remove('active');
+	});
 		
 	</script>
 </body>
