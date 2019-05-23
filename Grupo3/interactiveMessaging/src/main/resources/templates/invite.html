@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Invite</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+	integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+	integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/5b5fa05dbf.js"></script>
+<script>
+	$(function() {
+		$("#btnAgregar").click(
+				function() {
+					var select = document.getElementById("emailsSel");
+					var email = document.getElementById("Text1");
+					///console.log(email);
+					select.options[select.options.length] = new Option(
+							email.value, email.value, false, false);
+					email.value = "";
+				});
+		$("#btnElimina").click(function() {
+			var select = document.getElementById("emailsSel");
+			for (i = 0; i < select.length; i++) {
+				currentOption = select[i];
+				if (currentOption.selected == true) {
+					currentOption.parentNode.removeChild(currentOption);
+				}
+			}
+
+		});
+		$("#btnSubmit").click(function() {
+			var autoresS = document.getElementById("emailsSel");
+			for (i = 0; i < autoresS.length; i++) {
+				currentOption = autoresS[i];
+				currentOption.selected = true
+			}
+
+		});
+	});
+</script>
+
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="container">
+			
+			<div class="panel-body">
+				<div class="form-group">
+					<label>Correos a Invitar</label>
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<div class="input-group-addon">@</div>
+						<input id="Text1" type="email" placeholder="Correo electronico" />
+
+					</div>
+					<button type="button" id="btnAgregar" class="btn btn-warning">Agregar</button>
+					<button type="button" id="btnElimina" class="btn btn-danger">Eliminar</button>
+				</div>
+				<form th:action="@{/invite}" th:object="${emailForm}" method="post"
+					onsubmit="">
+					<div>
+						<label>Correos Invitados</label>
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon">@</div>
+
+							<select id="emailsSel" multiple class="form-control"
+								th:field="*{emailsSel}"></select>
+						</div>
+					</div>
+					<button id="btnSubmit" type="submit" class="btn btn-success">Insertar
+						libro</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+</body>
+</html>
