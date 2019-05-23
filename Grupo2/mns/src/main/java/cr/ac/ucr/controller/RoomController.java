@@ -19,7 +19,7 @@ public class RoomController {
 	
 	@RequestMapping(value = "/createRoom", method = RequestMethod.GET)
 	public String showForm(Model model)  {
-			return "createFullRoom";
+			return "createRoom";
 	}
 	
 	

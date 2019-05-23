@@ -18,7 +18,7 @@ public class UserController {
 	
 	@RequestMapping(value="/Usuarios", method=RequestMethod.GET )
 	public String usuarios(Model model) {
-		model.addAttribute("usuarios", userBusiness.findUser());
+		model.addAttribute("usuarios", userBusiness.findUsers());
 		return "informacion";
 }
 	

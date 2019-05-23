@@ -22,8 +22,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.orbis.b53953.domain.Libro;
-
 import cr.ac.ucr.domain.User;
 
 
@@ -36,7 +34,7 @@ public class UserData {
 	private DataSource dataSource;
 	
 	
-	public List<User> findtUsers() {
+	public List<User> findUsers() {
 		String sqlSelect = "SELECT u.id_user,u.name,u.email"
 				+ " FROM User u";
 		return jdbcTemplate.query(sqlSelect, new ListUsers());
@@ -57,8 +55,7 @@ public class UserData {
 		
    }
 	
-@Transactional
-	
+	@Transactional
 	public User save(User user) throws SQLException{
 		
 		SqlParameterSource parameterSource = new MapSqlParameterSource()
