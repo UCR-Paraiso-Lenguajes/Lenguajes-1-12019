@@ -1,5 +1,6 @@
 package cr.ac.ucr.business;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class UserBusiness {
 	
 	public List<User> findUsers(){
 		return userData.findUsers();
+	}
+	
+	public User save(User user) throws SQLException{
+		return userData.save(user);
 	}
 
 }
