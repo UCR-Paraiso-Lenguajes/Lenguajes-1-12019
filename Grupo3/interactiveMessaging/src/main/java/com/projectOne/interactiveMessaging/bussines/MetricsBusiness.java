@@ -17,4 +17,8 @@ public class MetricsBusiness {
 	public Iterator<Metrics> recoverMetricsData(){
 		return metricsData.recoverMetricsData();
 	}
+	
+	public Iterator<Metrics> findMetrics(int idMetrics) {
+		return metricsData.findMetrics(idMetrics);
+	}
 }
