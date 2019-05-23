@@ -4,11 +4,17 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.chat.data.UserData;
 import com.chat.domain.User;
+import com.chat.domain.form.UserForm;
 
+@Service
 public class UserBussines {
-
+	
+	@Autowired
+	UserData userData;
 	
 	private String names[] = {"Insecure","Nervous","Tense","Anxious","Angry","Confused","Weak","Petrified","Tense","Horrified",
 	"Inadequate","Flat","Motivade","Surprised","Satisfied","Upset","Miserable","Sad","Foolish","Discontented",
@@ -21,7 +27,7 @@ public class UserBussines {
 			"wild boar", "giraffe", "lion", "parrot", "fly", "mosquito", "bear", "sheep", " partridge", "dog",
 			"penguin", "chick", "grasshoppers", "snake", "tiger", "mole", "bull", "turtle", "cow", "fox" };
 	
-	public void createUser() {
+	public void createUser(UserForm user) {
 		
 		Random r = new Random();
 		
@@ -31,14 +37,13 @@ public class UserBussines {
 		int valueAnimal = r.nextInt((max - min) + 1) + min;
 		int valueNames  = r.nextInt((max - min) + 1) + min;
 		int valueAvatar  = r.nextInt((max - min) + 1) + min;
-		
-		
-		
 	
 		String userFake = names[valueNames]+" "+animals[valueAnimal];
 		String avatar= "/img/img"+valueAvatar;
 			
-		
+		if(user != null) {
+		userData.addUser(user);
+		} throw new RuntimeException("El user es requerido");
 				
 	}
 	

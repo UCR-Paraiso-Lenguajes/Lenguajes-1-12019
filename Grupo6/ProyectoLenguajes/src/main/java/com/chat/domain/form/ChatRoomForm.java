@@ -17,7 +17,7 @@ public class ChatRoomForm {
 	@Size(min=2, max=500)
 	private String name;
 	@NotNull
-	@Min(2)
+	@Min(0)
 	private int version;
 	private String url;
 	@NotNull

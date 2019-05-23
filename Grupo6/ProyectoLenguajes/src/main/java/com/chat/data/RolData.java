@@ -5,64 +5,56 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Types;
 import java.util.List;
-import java.util.Map;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.core.SqlParameter;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chat.domain.Rol;
 import com.chat.domain.User;
-import com.chat.domain.form.UserForm;
-
+import com.chat.domain.form.ChatRoomForm;
 
 @Repository
-public class UserData {
+public class RolData {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private SimpleJdbcCall simpleJdbcCall;
 	private DataSource dataSource;
-
+	
 	@Transactional(readOnly = true)
-	public void addUser(UserForm user) {
+	public void addRol(Rol rol) {
 		
-		System.out.println(user.toString());
+		System.out.println(rol.toString());
 		
-		String sqlInsertUser = "Insert into User(password) values (?)";	
+		String sqlInsertRol = "Insert into Rol(id,name) values (?,?)";	
 		
 		Connection conexion = null;
+
 		
 		try {
-		
+			
 		conexion = dataSource.getConnection();
 		conexion.setAutoCommit(false);
-			
-		PreparedStatement statementInsertUser = conexion.prepareStatement(sqlInsertUser, Statement.RETURN_GENERATED_KEYS);
+	
+		PreparedStatement statementInsertRol = conexion.prepareStatement(sqlInsertRol, Statement.RETURN_GENERATED_KEYS);
 		
-		statementInsertUser.setString(1, user.getPassword());
+	    statementInsertRol.setString(1, rol.getName());
 	    
-		int filas = statementInsertUser.executeUpdate();
+		int filas = statementInsertRol.executeUpdate();
 		
 		conexion.commit();
 		
 		if (filas == 0) {
-            throw new SQLException("Inserción de Usuario fallida.");
+            throw new SQLException("Inserción de Rol fallida.");
         }
 
-        try (ResultSet generatedKeys = statementInsertUser.getGeneratedKeys()) {
+        try (ResultSet generatedKeys = statementInsertRol.getGeneratedKeys()) {
             if (generatedKeys.next()) {
-            	user.setCodUser(generatedKeys.getInt(1));
-            	
+            	rol.setId(generatedKeys.getInt(1)); 
             }
             else {
                 throw new SQLException("No se tienen PK generadas.");
@@ -84,14 +76,6 @@ public class UserData {
 			}
 		  }
 	    }
+
 	
-	public void update(int id, User user) 
-	{
-		String sqlSelect = "UPDATE User SET password = '"+
-	user.getPassword()
-		+"' where id = "+id;
-		jdbcTemplate.batchUpdate(sqlSelect);
-	}	
-
-
 }
