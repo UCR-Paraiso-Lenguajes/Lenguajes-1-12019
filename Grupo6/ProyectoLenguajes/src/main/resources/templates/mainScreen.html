@@ -157,12 +157,12 @@
 					<h4 class="modal-title">New Chat Room</h4>
 				</div>
 				<div id="inputGroup" class="form-group">
-					<label for="usr">Group Name</label> <input type="text"
+					<label for="newGroup">Group Name</label> <input type="text"
 						class="form-control" id="newGroup">
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value="Create">
+					<input type="submit" class="btn btn-primary" id="create" value="Create">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
@@ -216,6 +216,30 @@
 		document.getElementById("messageForm").value('');
 
 	}
+	var create = $("#create");
+	var newGroup = $("#newGroup");
+	var obj =     {
+	        "name": newGroup,
+	        "version": 0,
+	        "url": "",
+	        "avatar": null,
+	        "listUsers": [],
+			"listMessage": []
+	    };
+	$("#create").click(function(){
+		
+		obj.name=newGroup.val();
+		
+		$.ajax(	{
+			method:"POST",
+			data:JSON.stringify( obj),
+			contentType:"application/json; charset=utf-8",
+			dataType:"json",
+			url: "api/ChatRoom"
+		}).done(function( data ) {
+			alert("Exito");
+		});
+	});
 </script>
 <style>
 .my-custom-scrollbar {

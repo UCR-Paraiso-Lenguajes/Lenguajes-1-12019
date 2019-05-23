@@ -12,9 +12,9 @@ import com.chat.domain.Rol;
 public class RolBussines {
 
 	@Autowired
-	RolData roldata;
+	private RolData roldata;
 	
-	@Autowired
+	
 	public void agregarRol(Rol rol)  {
 		if(rol != null) {
 			roldata.addRol(rol);
