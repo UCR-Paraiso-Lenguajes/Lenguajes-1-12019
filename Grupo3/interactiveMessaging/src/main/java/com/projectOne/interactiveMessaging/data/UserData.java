@@ -58,5 +58,16 @@ public class UserData {
 				.forEach(entry -> idGroupsOfUsr.add(entry));
 		return idGroupsOfUsr.iterator();
 	}
+	
+	@Transactional
+	public Iterator<User> findUsersOwnerOrAdmin(int idRoom, int idRole){
+		ArrayList<User> listOfUserOwnerOrAdmin = new ArrayList<User>();
+		String selectMySqlOwner = "select u.correo from UserApp u inner join UserRoleRoom usr on u.id=usr.idUser inner join RoomApp ro on usr.idRoomUR=ro.id inner " + 
+				" join RoleApp rol on usr.idRole=rol.id where ro.id = ? and rol.id = ?";
+		jdbcTemplate.query(selectMySqlOwner, new Object[] {idRoom, idRole}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
+			.forEach(entry -> listOfUserOwnerOrAdmin.add(entry));
+		return listOfUserOwnerOrAdmin.iterator();
+	}
+	
 
 }

@@ -628,7 +628,7 @@ body {
 		
 			<div class="contact-profile">
 				
-				<p>Informacion del Grupo</p>
+				<p>Información del Grupo</p>
 				<div class="settings-media" id="settings">
 					<i class="fa fa-cog fa-fw" aria-hidden="true" title="Informacion"></i>
 					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
@@ -639,12 +639,15 @@ body {
 				<div class="contact-group" align="center">
 					<img src="http://emilcarlsson.se/assets/harveyspecter.png" class="online" alt="" />
 					<br><br>
+					<label>Last room created:
+						</label><input type="text"  class="form-control" th:field="*{metrics.idLastRoomCreated}" disabled/> <br><br>
+		
 					<b>Grupo:</b>
-					<p>Grupo#1</p>
+					<input type="text" class="form-control" th:field="*{room.descripcion}" disabled/>
 					<b>Propietario</b>
-					<p>Manfred</p>
+					<input type="text" class="form-control" th:field="*{room.descripcion}" disabled/>
 					<b>Administrador</b>
-					<p>Manfred</p>
+					<input type="text" class="form-control" th:field="*{room.descripcion}" disabled/>
 				</div>
 				<ul>
 					<li class=""><img
