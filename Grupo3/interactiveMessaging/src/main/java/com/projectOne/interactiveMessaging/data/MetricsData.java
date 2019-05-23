@@ -88,9 +88,9 @@ public class MetricsData {
 	@Transactional(readOnly=true)
 	public Iterator <Metrics> findMetrics (int idMetrics){
 		//TODO Falta el parametro de entrada para ver porque voy a buscar
-		String mySqlSelect = "SELECT idMetrics, numbersOfRooms, numbersOfUsers, averageOfUsersPerRoom,"
-				+ "dateLastMessage, dateFirstLogin, idBigUser, numbersMessagesBigUser, idLongestMessage,"
-				+ "idLastRoomCreated, idBiggestRoom, numberMessageBiggestRoom "
+		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom,"
+				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, idLongestMessage,"
+				+ "idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom "
 				+ "FROM Metrics "
 				+ "WHERE idMetrics = "+ idMetrics;
 		
