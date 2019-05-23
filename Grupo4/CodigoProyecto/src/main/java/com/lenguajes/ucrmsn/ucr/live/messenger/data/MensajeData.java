@@ -21,7 +21,7 @@ public class MensajeData {
 	private  SimpleJdbcCall simpleJdbcCall;
 	private DataSource dataSource;
 	@Transactional(readOnly=true)
-	public void save(Mensaje mensaje) {
+	public void nuevoMensaje(Mensaje mensaje) {
 		Connection conexion = null; 
 		try {
 			conexion = dataSource.getConnection();

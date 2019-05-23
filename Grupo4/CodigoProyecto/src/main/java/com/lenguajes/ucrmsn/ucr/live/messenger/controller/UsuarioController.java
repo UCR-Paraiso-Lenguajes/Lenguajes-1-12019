@@ -22,10 +22,10 @@ public class UsuarioController {
 	 * usuarioBusiness.invitar(mail, "localhost:8080/ucrmsn/interfazchat");
 	 * 
 	 * return "msn"; }
-	 * 
-	 * @RequestMapping(value = "/interfazchat", method = RequestMethod.GET) public
-	 * String chatsUsuario() { return "interfazchat"; }
-	 */
+	 * */
+	  @RequestMapping(value = "/interfazchat", method = RequestMethod.GET) public
+	  String chatsUsuario() { return "interfazchat"; }
+	 
 
 }
 

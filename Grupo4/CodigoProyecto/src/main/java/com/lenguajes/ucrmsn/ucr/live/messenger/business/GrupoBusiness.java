@@ -3,6 +3,7 @@ package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -24,7 +25,8 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
 @Service
 public class GrupoBusiness {
 
-	private static List<Enlace> enlacesEnviados = new ArrayList<>();
+	public static List<Enlace> enlacesEnviados = new ArrayList<>();
+	
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
@@ -64,6 +66,7 @@ public class GrupoBusiness {
 		
 		Enlace enlace = new Enlace(link);
 		enlacesEnviados.add(enlace);
+		expirarEnlace(enlace);
 		
 		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
@@ -82,15 +85,24 @@ public class GrupoBusiness {
 
 		javaMailSender.send(mail);	
 	}
+	public void expirarEnlace(Enlace enlace) {
+        try {
+			Thread.sleep(180000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        enlacesEnviados.remove(enlace);	}
 	
 	@Transactional
 	public void unirse(Usuario usuario, Grupo grupo) {
 		grupo.getListaUsuarios().add(usuario);
+		grupoData.update(grupo);
 	}
 
 	@Transactional
 	public void actualizarMensajes(Usuario usuario) {
-
+		
 	}
 
 	@Transactional
@@ -99,7 +111,12 @@ public class GrupoBusiness {
 	}
 
 	@Transactional
-	public void guardarMensajes(Usuario usuario, Mensaje mensaje) {
+	public void guardarMensajes(Grupo grupo,Usuario usuario, Mensaje mensaje) {
+		mensaje.setUsuario(usuario);
+		mensaje.setGrupo(grupo);
+		grupo.mandarMensaje(mensaje);
+		grupo.setCantidadMensajes(grupo.getCantidadMensajes()+1);
+		grupoData.update(grupo);
 
 	}
 
@@ -113,8 +130,8 @@ public class GrupoBusiness {
 	}
 
 	@Transactional
-	public void getMessagesFrom(int index) {
-
+	public ArrayList<Mensaje> getMessagesFrom(int index) {
+		return grupoData.buscarMensajes();
 	}
 	
 }
