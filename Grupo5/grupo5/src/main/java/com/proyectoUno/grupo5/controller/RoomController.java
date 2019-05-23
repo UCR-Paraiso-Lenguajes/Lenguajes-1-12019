@@ -1,7 +1,7 @@
 package com.proyectoUno.grupo5.controller;
 
 import com.proyectoUno.grupo5.business.RoomBussiness;
-import com.proyectoUno.grupo5.business.UserBussiness;
+import com.proyectoUno.grupo5.business.UserBusiness;
 import com.proyectoUno.grupo5.domain.Room;
 import com.proyectoUno.grupo5.domain.User;
 

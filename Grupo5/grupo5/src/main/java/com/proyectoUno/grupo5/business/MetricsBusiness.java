@@ -6,17 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyectoUno.grupo5.dao.MetricsDao;
+import com.proyectoUno.grupo5.dao.MetricsDaoRoom;
 import com.proyectoUno.grupo5.domain.Metrics;
+import com.proyectoUno.grupo5.domain.MetricsRooms;
 
 @Service
 public class MetricsBusiness{
 
 	 @Autowired
-	    private MetricsDao metrics;
+	    private MetricsDao metrics;	
 
-	    public List<Metrics> getMetrics () {
+	 
+	   
+	 public List<Metrics> getMetrics () {
 	       return metrics.getMetrics();
 	    	
 	    }
-	
+	    
+
 }

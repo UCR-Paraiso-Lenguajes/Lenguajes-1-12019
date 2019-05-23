@@ -5,45 +5,49 @@ import java.util.Date;
 public class MetricsRooms {
 
 	private int idMetricsRoom;
-	private User userWithMoreMessage;
-	private Message longerMesssage;
+	private String userWithMoreMessage;
+	private String longerMesssage;
 	private Date dateOfLastMessage;
-	private Room room;
+	private int idRoom;
 	
 	
-	public MetricsRooms(int idMetricsRoom, User userWithMoreMessage, Message longerMesssage, Date dateOfLastMessage,
-			Room room) {
+	public MetricsRooms(int idMetricsRoom, String userWithMoreMessage, String longerMesssage, Date dateOfLastMessage,
+			int idRoom) {
 		super();
 		this.idMetricsRoom = idMetricsRoom;
 		this.userWithMoreMessage = userWithMoreMessage;
 		this.longerMesssage = longerMesssage;
 		this.dateOfLastMessage = dateOfLastMessage;
-		this.room = room;
+		this.idRoom = idRoom;
 	}
 	
+	public MetricsRooms() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdMetricsRoom() {
 		return idMetricsRoom;
 	}
 	public void setIdMetricsRoom(int idMetricsRoom) {
 		this.idMetricsRoom = idMetricsRoom;
 	}
-	public Room getRoom() {
-		return room;
+	public int getRoom() {
+		return idRoom;
 	}
-	public void setRoom(Room room) {
-		this.room = room;
+	public void setRoom(int idRoom) {
+		this.idRoom = idRoom;
 	}
-	public User getUserWithMoreMessage() {
+	public String getUserWithMoreMessage() {
 		return userWithMoreMessage;
 	}
-	public void setUserWithMoreMessage(User userWithMoreMessage) {
-		this.userWithMoreMessage = userWithMoreMessage;
+	public void setUserWithMoreMessage(String string) {
+		this.userWithMoreMessage = string;
 	}
-	public Message getLongerMesssage() {
+	public String getLongerMesssage() {
 		return longerMesssage;
 	}
-	public void setLongerMesssage(Message longerMesssage) {
-		this.longerMesssage = longerMesssage;
+	public void setLongerMesssage(String string) {
+		this.longerMesssage = string;
 	}
 	public Date getDateOfLastMessage() {
 		return dateOfLastMessage;
