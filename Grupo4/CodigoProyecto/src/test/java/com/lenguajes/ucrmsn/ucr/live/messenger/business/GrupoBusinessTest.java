@@ -19,8 +19,9 @@ public class GrupoBusinessTest {
 	@Test
 	public void invitarTest() throws GrupoException, UsuarioException {
 		GrupoBusiness grupoBusiness = new  GrupoBusiness();
-		grupoBusiness.crear(new Usuario(0, null, null, 0, null));
-        
+		/*
+		 * grupoBusiness.crear(new Usuario(0, null, null, 0, null));
+		 */		grupoBusiness.invitar("dfonse11@gmail.com","cjlkckjkjdf");
 	}
 
 }

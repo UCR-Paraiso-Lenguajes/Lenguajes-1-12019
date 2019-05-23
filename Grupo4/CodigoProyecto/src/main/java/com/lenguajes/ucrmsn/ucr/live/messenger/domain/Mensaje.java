@@ -8,6 +8,10 @@ public class Mensaje {
 	private String contenido;
 	private int version;
 	private Grupo grupo;
+	
+	public Mensaje() {
+		super();
+	}
 	public Mensaje(int id, Usuario usuario, String contenido, int version,Grupo grupo) throws MensajeException {
 		super();
 		if (usuario==null && contenido.equals(null)) {
