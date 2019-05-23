@@ -6,12 +6,14 @@ public class User {
 	private String password;
 	private String avatar;
 	private String email;
+	private String name;
+	private Rol rol;
 
 	public User() {
 		super();
 	}
 
-	public User(int id, String password, String avatar, String email) {
+	public User(int id, String password, String avatar, String email, String name, Rol rol) {
 		super();
 		if (id < 0)
 			throw new RuntimeException("El id del usuario debe ser mayor  0.");
@@ -21,11 +23,17 @@ public class User {
 			throw new RuntimeException("El avatar requerido");
 		if (email == null || email.trim().equals(""))
 			throw new RuntimeException("El email requerido");
+		if (name == null || name.trim().equals(""))
+			throw new RuntimeException("El nombre requerido");
+		if (rol == null)
+			throw new RuntimeException("El rol requerido");
 
 		this.id = id;
 		this.password = password;
 		this.avatar = avatar;
 		this.email = email;
+		this.setName(name);
+		this.setRol(rol);
 	}
 
 	public int getId() {
@@ -63,6 +71,22 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", password=" + password + ", avatar=" + avatar + ", email=" + email + "]";
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
 
 }

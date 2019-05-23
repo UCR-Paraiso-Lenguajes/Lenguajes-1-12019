@@ -5,152 +5,177 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.chat.domain.ChatRoom;
+import com.chat.domain.Message;
+import com.chat.domain.Rol;
 import com.chat.domain.User;
-import com.chat.domain.form.ChatRoomForm;
 
 @Repository
 public class ChatRomData {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
 	private DataSource dataSource;
 	
-	@Transactional(readOnly = true)
-	public void addBook(ChatRoomForm charRoom) throws SQLException {
-		
-		System.out.println(charRoom.toString());
-		
-		String sqlInsertBook = "Insert into Room(name,version,url) values (?,?,?)";	
-		
+	@Transactional
+	public void add(ChatRoom chatRoom) {
 		Connection conexion = null;
-		conexion = dataSource.getConnection();
-		conexion.setAutoCommit(false);
-		
 		try {
-		PreparedStatement statementInsertBook = conexion.prepareStatement(sqlInsertBook, Statement.RETURN_GENERATED_KEYS);
-		
-	    statementInsertBook.setString(1, charRoom.getName());
-	    statementInsertBook.setInt(2, charRoom.getVersion());
-	    statementInsertBook.setString(3, charRoom.getUrl());
-	  //  statementInsertBook.setObject(4, charRoom.getUserList());
-	    
-		int filas = statementInsertBook.executeUpdate();
-		
-		conexion.commit();
-		
-		if (filas == 0) {
-            throw new SQLException("Inserción de ChatRoom fallida.");
-        }
-
-        try (ResultSet generatedKeys = statementInsertBook.getGeneratedKeys()) {
-            if (generatedKeys.next()) {
-            	charRoom.setCodChat(generatedKeys.getInt(1));
-            	
-            	addUserByChatRoom(charRoom.getCodChat(),charRoom);
-            	
-            }
-            else {
-                throw new SQLException("No se tienen PK generadas.");
-            }
-        }
-		}catch (SQLException e) {
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			String sqlInsert = "Insert into Room (room_name,version,room_user_creator) values (?,?,?)";
+			PreparedStatement statementInsert = conexion.prepareStatement(sqlInsert);
+			statementInsert.setString(1, chatRoom.getName());
+			statementInsert.setInt(2, chatRoom.getVersion());
+			statementInsert.setInt(3, chatRoom.getUser_creator().getId());
+			// statementInsert.setObject(4, charRoom.getUserList());
+			statementInsert.executeUpdate();
+			String sqlmessages = "CREATE TABLE messages_" + chatRoom.getName() + " (" + "message_id INT "
+					+ "message_description NVARCHAR(50) " + "message_date NVARCHAR(50)" + "id_sending_user INT "
+					+ "receiver INT " + ")";
+			PreparedStatement statementMessages = conexion.prepareStatement(sqlmessages);
+			statementMessages.executeUpdate(sqlmessages);
+			String alter = "ALTER TABLE message_" + chatRoom.getName() + " ENGINE = ARCHIVE ;" ;
+			PreparedStatement alterStatement = conexion.prepareStatement(alter);
+			alterStatement.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
 			try {
 				conexion.rollback();
 			} catch (SQLException e1) {
 				throw new RuntimeException(e1);
 			}
-		}finally {
-			if(conexion != null) {
+			throw new RuntimeException(e);
+		} finally {
+			if (conexion != null) {
 				try {
 					conexion.close();
-				}catch (SQLException e) {
+				} catch (SQLException e) {
 					throw new RuntimeException(e);
 				}
 			}
-		  }
-	    }
-	
+		}
+	}
 
-	@Autowired(required = false)
-	public void addUserByChatRoom(int idChatRoom, ChatRoomForm chatRoom) throws SQLException {
-		
-		String sqlInsertUserByChatRoom = "Insert into Room_User(idChatRoom,idUser, idRole) values (?,?,?)";
-		
+	//@Autowired(required = false)
+	@Transactional
+	public void addUserByChatRoom(int idChatRoom, int idUser, int idRol) throws SQLException {
+
 		Connection conexion = null;
-		conexion = dataSource.getConnection();
-		conexion.setAutoCommit(false);
 		try {
-		
-        PreparedStatement statementInsertUserByChat = conexion.prepareStatement(sqlInsertUserByChatRoom);
-        List<User> listaUser = chatRoom.getListaChat();
-        
-        
-		for (int i = 0; i < chatRoom.getListaChat().size(); i++) {
-					
-			int id_Role = Integer.parseInt(chatRoom.getListaChat().get(i).toString());
-			int id_User = Integer.parseInt(listaUser.get(i).toString());
-			System.out.println(id_User);
+			String sqlInsertUserByChatRoom = "Insert into Room_User(ir_room, id_user, id_role) values (?,?,?)";
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			PreparedStatement statementInsertUserByChat = conexion.prepareStatement(sqlInsertUserByChatRoom);
 			statementInsertUserByChat.setInt(1, idChatRoom);
-			statementInsertUserByChat.setInt(2, id_User);
-			statementInsertUserByChat.setInt(2, id_Role);
-			
-			statementInsertUserByChat.addBatch();				
+			statementInsertUserByChat.setInt(2, idUser);
+			statementInsertUserByChat.setInt(3, idRol);
+			statementInsertUserByChat.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-
-		statementInsertUserByChat.executeBatch();
-		
-		conexion.commit();
-	       }catch (SQLException e) {
-				throw new RuntimeException(e);
-	       }
-		}
-	
-	@Transactional(readOnly = true)
-	public List<ChatRoom> findChatRoomByUser(int idUser) {
-		String sqlSelect = "Select id,name,url,version,idUser " + "From ChatRoom " + "Where idUser ="
-				+ idUser;
-
-		return jdbcTemplate.query(sqlSelect, new ChatRoomExtractor());
 	}
 	
-}
-
-class ChatRoomExtractor implements ResultSetExtractor<List<ChatRoom>> {
-	@Override
-	public List<ChatRoom> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		
-		List<ChatRoom> list= Collections.synchronizedList(new ArrayList<ChatRoom>());
-		ChatRoom chatRoom = null;
-		while (rs.next()) {
-			Integer id = rs.getInt("id");
-			chatRoom = list.get(id);
-			if (chatRoom == null) {
-				chatRoom = new ChatRoom();
-				chatRoom.setId(id);;
-				chatRoom.setName(rs.getString("name"));
-				chatRoom.setUrl(rs.getString("url"));
-				chatRoom.setVersion(rs.getInt("version"));
-				list.add(id, chatRoom);
+	@Transactional(readOnly = true)
+	public List<User> getUsers(ChatRoom room) {
+		List<User> users = Collections.synchronizedList(new ArrayList<User>());
+		String selectSql = "SELECT user_id, user_name, user_email, user_password, "
+				+ "role_id, role_name "
+				+ "FROM user u JOIN room_user ru ON u.user_id = id_user "
+				+ "JOIN role r ON r.role_id = ru.id_role"
+				+ "WHERE ru.id_room = ? ";
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			statement.setInt(1, room.getId());
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("user_id"));
+				user.setName(rs.getString("user_name"));
+				user.setEmail(rs.getString("user_email"));
+				user.setPassword(rs.getString("user_password"));
+				Rol rol = new Rol();
+				rol.setId(rs.getInt("role_id"));
+				rol.setName(rs.getString("role_name"));
+				user.setRol(rol);
+				users.add(user);
 			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
 		}
-		return new ArrayList<ChatRoom>(list);
+		return users;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Message> getMessages(int begin, int end, ChatRoom room) {
+		List<Message> messages = Collections.synchronizedList(new ArrayList<Message>());
+		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user "
+				+ "FROM messages_"+room.getName()+" g "
+				+ "WHERE message_id > ? AND message_id < ? "
+				+ "ORDER BY message_id ASC";
+		
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			statement.setInt(1, begin);
+			statement.setInt(2, end);
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				Message message = new Message(
+						rs.getInt("message_id"), 
+						rs.getString("message_description"),
+						rs.getString("message_date"), 
+						rs.getInt("id_sending_user"));
+				messages.add(message);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		return messages;
+	}
+
+	@Transactional(readOnly = true)
+	public List<ChatRoom> getRooms() {
+		List<ChatRoom> rooms = Collections.synchronizedList(new ArrayList<ChatRoom>());
+		String sql = "SELECT room_id, room_name, version, room_user_creator "
+				+ "FROM room";
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(sql);
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				ChatRoom room = new ChatRoom();
+				room.setId(rs.getInt("room_id"));
+				room.setName(rs.getString("room_name"));
+				room.setVersion(rs.getInt("version"));
+				User user = new User();
+				user.setId(rs.getInt("room_user_creator"));
+				room.setUser_creator(user);
+				rooms.add(room);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		
+		for (ChatRoom room : rooms) {
+			room.setListMessage(getMessages(0, 50, room));
+			room.setListUsers(getUsers(room));
+		}
+		return rooms;
 	}
 }
