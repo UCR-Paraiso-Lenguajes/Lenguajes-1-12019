@@ -80,7 +80,7 @@
 
 							<div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-								<div id="item" class="list-group list-group-flush">
+								<div id="item" class="">
 
 							</div>
 
@@ -157,12 +157,12 @@
 					<h4 class="modal-title">New Chat Room</h4>
 				</div>
 				<div id="inputGroup" class="form-group">
-					<label for="newGroup">Group Name</label> <input type="text"
+					<label for="usr">Group Name</label> <input type="text"
 						class="form-control" id="newGroup">
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" id="create" value="Create">
+					<input type="submit" class="btn btn-primary" value="Create">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
@@ -210,36 +210,12 @@
 
 		var messageChat = document.getElementById("messageForm").value;
 
-		document.getElementById("item").innerHTML += '<li id="item" class="list-group-item">'+ messageChat +'</li>';
+		document.getElementById("item").innerHTML += '<div id="item" class="">'+ messageChat +'</div>';
 
 				
 		document.getElementById("messageForm").value('');
 
 	}
-	var create = $("#create");
-	var newGroup = $("#newGroup");
-	var obj =     {
-	        "name": newGroup,
-	        "version": 0,
-	        "url": "",
-	        "avatar": null,
-	        "listUsers": [],
-			"listMessage": []
-	    };
-	$("#create").click(function(){
-		
-		obj.name=newGroup.val();
-		
-		$.ajax(	{
-			method:"POST",
-			data:JSON.stringify( obj),
-			contentType:"application/json; charset=utf-8",
-			dataType:"json",
-			url: "api/ChatRoom"
-		}).done(function( data ) {
-			alert("Exito");
-		});
-	});
 </script>
 <style>
 .my-custom-scrollbar {
@@ -253,8 +229,7 @@
 }
 
 body {
-	background-image:
-		url(https://s2.best-wallpaper.net/wallpaper/1920x1200/1401/Ireland-lighthouse-ocean-seascape-sunset-clouds_1920x1200.jpg);
+	background-image: url(https://s2.best-wallpaper.net/wallpaper/1920x1200/1401/Ireland-lighthouse-ocean-seascape-sunset-clouds_1920x1200.jpg);
 }
 
 .container {
@@ -263,11 +238,12 @@ body {
 }
 
 #item {
-margin-top: 20px;
+margin-top: 10px;
+margin-left: 10px;
+height:auto;
+width: auto;
 text-align: left;
-
 border-style: ridge;
-list-style-position:inside;
 border: 1px solid black;
 }
 

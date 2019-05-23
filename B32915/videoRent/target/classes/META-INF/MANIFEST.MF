@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: videoRent
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Leonardo
+Implementation-Vendor-Id: com.videocartago
+Build-Jdk: 1.8.0_201
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/ventas
+Created-By: Maven Integration for Eclipse
+
