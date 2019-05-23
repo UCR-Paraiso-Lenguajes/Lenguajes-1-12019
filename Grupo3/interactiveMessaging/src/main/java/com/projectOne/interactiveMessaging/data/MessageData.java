@@ -70,4 +70,13 @@ public class MessageData {
 		}
 		return array;
 	}
+	//
+	public ArrayList<Message> convertIteratorToArrayMessage(Iterator<Message> userList){
+		ArrayList<Message>array = new ArrayList<>();
+		while (userList.hasNext()) {
+			
+			array.add(userList.next());
+		}
+		return array;
+	}
 }
