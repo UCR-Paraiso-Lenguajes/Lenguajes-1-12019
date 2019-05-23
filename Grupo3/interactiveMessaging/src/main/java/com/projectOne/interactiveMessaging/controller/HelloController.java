@@ -2,6 +2,7 @@ package com.projectOne.interactiveMessaging.controller;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.projectOne.interactiveMessaging.bussines.EmailBussines;
 import com.projectOne.interactiveMessaging.bussines.GroupBusiness;
 import com.projectOne.interactiveMessaging.bussines.MessageBusiness;
-
+import com.projectOne.interactiveMessaging.bussines.UserBusiness;
 import com.projectOne.interactiveMessaging.data.UserData;
 
 import com.projectOne.interactiveMessaging.domain.Message;
+import com.projectOne.interactiveMessaging.domain.Metrics;
 import com.projectOne.interactiveMessaging.domain.Room;
+import com.projectOne.interactiveMessaging.domain.User;
 
 @Controller
 public class HelloController {
@@ -38,6 +41,9 @@ public class HelloController {
 	private UserData userData;
 	@Autowired
 	private GroupBusiness groupBusiness;
+	
+	@Autowired
+	private UserBusiness userBusiness;
 	
 	@RequestMapping("/")
     public String login() {
@@ -70,8 +76,10 @@ public class HelloController {
         return "chat";
     }
 	
-	@RequestMapping("/chatSetting")
-    public String chatSetting() {
+	@RequestMapping(value="/chatSetting", method=RequestMethod.GET)
+    public String chatSetting(Model model, @RequestParam("id") int id, @RequestParam("id_role") int id_role) {
+		Iterator<User> user = userBusiness.findUsersOwnerOrAdmin(id, id_role);
+		model.addAttribute("user", user);
         return "setting";
     }
 	
