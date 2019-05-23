@@ -85,37 +85,38 @@ public class MetricsData {
 		}
 	}
 	
-	public Iterator <Metrics> findMetrics (){
-		String mySqlSelect = "SELECT p.";
-		return jdbcTemplate.query(mySqlSelect, new MetricsExtractor());
+	@Transactional(readOnly=true)
+	public Iterator <Metrics> findMetrics (int idMetrics){
+		//TODO Falta el parametro de entrada para ver porque voy a buscar
+		String mySqlSelect = "SELECT idMetrics, numbersOfRooms, numbersOfUsers, averageOfUsersPerRoom,"
+				+ "dateLastMessage, dateFirstLogin, idBigUser, numbersMessagesBigUser, idLongestMessage,"
+				+ "idLastRoomCreated, idBiggestRoom, numberMessageBiggestRoom "
+				+ "FROM Metrics "
+				+ "WHERE idMetrics = "+ idMetrics;
 		
+		return jdbcTemplate.query(mySqlSelect, new MetricsExtractor());
 	}
-
 }
 
 class MetricsExtractor implements ResultSetExtractor<Iterator<Metrics>>{
 
 	@Override
-	public Iterator<Metrics> extractData(ResultSet rs) {
+	public Iterator<Metrics> extractData(ResultSet rs) throws SQLException {
 		Map<Integer, Metrics> map = new HashMap<Integer, Metrics>();
 		Metrics metrics = null;
-		try {
 			while (rs.next()) {
-				Integer id = rs.getInt("idMetrics");
-				metrics = map.get(id);
+				int idMetrics = rs.getInt("idMetrics");
+				metrics = map.get(idMetrics);
 				if(metrics == null) {
-					metrics = new Metrics(id,rs.getInt("numberOfUsers"),
+					metrics = new Metrics(idMetrics,rs.getInt("numberOfUsers"),
 							rs.getInt("numberOfRooms"),rs.getFloat("averageOfUsersPerRoom"),
 							rs.getDate("dateLastMessage"),rs.getDate("dateFirstLogin"),
 							rs.getInt("idBigUser"),rs.getInt("idLongestMessage"),
 							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"));
-					map.put(id, metrics);
+					//TODO faltan agregar dos valores que si estan en base, Cambiar metrics domain
+					map.put(idMetrics, metrics);
 				}
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		return new ArrayList<Metrics>(map.values()).iterator();
 	}

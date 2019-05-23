@@ -70,7 +70,6 @@
 
 
 <style>
-
 body {
 	padding-top: 4.2rem;
 	padding-bottom: 4.2rem;
@@ -122,7 +121,6 @@ select {
 form .error {
 	color: #ff0000;
 }
-
 </style>
 
 
@@ -151,17 +149,21 @@ form .error {
 							<div class="form-group">
 								<label th:text="#{email.text}"></label> <input type="email"
 									name="email" class="form-control" id="email"
-									th:placeholder="#{email.ph}">
+									placeholder="Enter email">
 							</div>
 							<div class="form-group">
 								<label th:text="#{password.text}"></label> <input
 									type="password" name="password" id="password"
-									class="form-control" th:placeholder="#{password.ph}">
+									class="form-control" placeholder="Enter Password">
+							</div>
+							<div class="form-group">
+								<p class="text-center" th:text="#{term.text}"></p>
+								<a class="text-center" th:text="#{termTwo.text}" href="#"></a>
 							</div>
 							<div class="col-md-12 text-center ">
 								<button type="submit"
 									class=" btn btn-block mybtn btn-primary tx-tfm"
-									th:text="#{signUp.text}" ></button>
+									th:text="#{next.text}"></button>
 							</div>
 
 						</form>
@@ -171,8 +173,6 @@ form .error {
 			</div>
 		</div>
 	</div>
-
-</body>
 
 </body>
 
