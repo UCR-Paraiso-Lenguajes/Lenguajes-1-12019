@@ -17,19 +17,9 @@ public class RoomController {
     @Autowired
     private RoomBussiness room;
 
-    @RequestMapping(value = "/insertRoom",method = RequestMethod.GET)
+    @RequestMapping(value = "/createRoom",method = RequestMethod.GET)
     public String insertRoom(){
-        try {
-            Room r = new Room("Pelusa",1);
-            if (!room.insertRoom(r)) {
-                System.out.println("funciono");
-            }else{
-                System.out.println("no funciono");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return "prueba";
+        return "createroom";
     }
 
 }

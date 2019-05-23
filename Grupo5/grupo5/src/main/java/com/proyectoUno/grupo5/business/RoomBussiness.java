@@ -10,11 +10,11 @@ import java.sql.SQLException;
 @Service
 public class RoomBussiness {
     @Autowired
-    private RoomDao room;
+    private RoomDao roomDao;
 
 
-    public Boolean insertRoom(Room r) throws SQLException {
-        return room.insertRoom(r);
+    public Boolean insertRoom(Room room) throws SQLException {
+        return roomDao.insertRoom(room);
     }
 
 
