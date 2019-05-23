@@ -34,17 +34,18 @@ public class ChatRomData {
 			PreparedStatement statementInsert = conexion.prepareStatement(sqlInsert);
 			statementInsert.setString(1, chatRoom.getName());
 			statementInsert.setInt(2, chatRoom.getVersion());
-			statementInsert.setInt(3, chatRoom.getUser_creator().getId());
+			//TODO CREADOR QUEMADO
+			statementInsert.setInt(3, 1);
 			// statementInsert.setObject(4, charRoom.getUserList());
 			statementInsert.executeUpdate();
-			String sqlmessages = "CREATE TABLE messages_" + chatRoom.getName() + " (" + "message_id INT "
-					+ "message_description NVARCHAR(50) " + "message_date NVARCHAR(50)" + "id_sending_user INT "
-					+ "receiver INT " + ")";
+			String sqlmessages = "CREATE TABLE messages_" + chatRoom.getName() + " (" + "message_id INT, "
+					+ "message_description NVARCHAR(50), " + "message_date NVARCHAR(50)," + "id_sending_user INT, "
+					+ "receiver INT " + ") ENGINE = ARCHIVE;";
 			PreparedStatement statementMessages = conexion.prepareStatement(sqlmessages);
 			statementMessages.executeUpdate(sqlmessages);
-			String alter = "ALTER TABLE message_" + chatRoom.getName() + " ENGINE = ARCHIVE ;" ;
+			/*String alter = "ALTER TABLE message_" + chatRoom.getName() + " ENGINE = ARCHIVE ;" ;
 			PreparedStatement alterStatement = conexion.prepareStatement(alter);
-			alterStatement.executeUpdate();
+			alterStatement.executeUpdate();*/
 			conexion.commit();
 		} catch (SQLException e) {
 			try {
