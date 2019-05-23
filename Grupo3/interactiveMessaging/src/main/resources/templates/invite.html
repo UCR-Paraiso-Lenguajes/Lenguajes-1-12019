@@ -42,12 +42,19 @@
 	$(function() {
 		$("#btnAgregar").click(
 				function() {
+					
 					var select = document.getElementById("emailsSel");
 					var email = document.getElementById("Text1");
-					///console.log(email);
-					select.options[select.options.length] = new Option(
-							email.value, email.value, false, false);
-					email.value = "";
+					var validation = ValidateEmail(email);
+					if(validation === true){
+						///console.log(email);
+						select.options[select.options.length] = new Option(
+								email.value, email.value, false, false);
+						email.value = "";
+					}else{
+						alert("You have entered an invalid email address!");
+					}
+					
 				});
 		$("#btnElimina").click(function() {
 			var select = document.getElementById("emailsSel");
@@ -67,7 +74,17 @@
 			}
 
 		});
+		
 	});
+	function ValidateEmail(email) 
+	{
+	 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))
+	  {
+	    return (true)
+	  }
+	    
+	    return (false)
+	}
 </script>
 
 </head>
@@ -100,7 +117,7 @@
 						</div>
 					</div>
 					<button id="btnSubmit" type="submit" class="btn btn-success">Insertar
-						libro</button>
+						correo</button>
 				</form>
 
 			</div>
