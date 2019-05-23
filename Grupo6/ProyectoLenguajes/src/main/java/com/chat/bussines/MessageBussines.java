@@ -13,6 +13,6 @@ public class MessageBussines {
 	MessageData messageData;
 	
 	public void save(Message message) {
-		//messageData.save(message);
+		messageData.save(message);
 	}
 }
