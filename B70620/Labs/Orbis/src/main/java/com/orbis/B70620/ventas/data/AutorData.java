@@ -1,11 +1,16 @@
 package com.orbis.B70620.ventas.data;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -22,6 +27,8 @@ public class AutorData {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	@Autowired 
+	private DataSource dataSource;
 	
 	@Transactional(readOnly=true)
 	public List<Autor> obtenerAutoresPorApellidos(String apellidos) {
@@ -41,10 +48,46 @@ public class AutorData {
 	}
 
 	public void eliminarAutor(Autor autor) {
-		String sqlSelect = "DELETE FROM Autor " + 
-				"WHERE id_autor = " + autor.getId();
+		Connection conexion = null;
+		try {
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
 
-	    jdbcTemplate.update(sqlSelect);
+			String deleteSQL = "DELETE FROM LIBRO_AUTOR WHERE ID_AUTOR = ?";
+			
+			PreparedStatement statementLibroAutor = conexion.prepareStatement(deleteSQL, Statement.RETURN_GENERATED_KEYS);
+
+			statementLibroAutor.setInt(1, autor.getId());
+
+			statementLibroAutor.executeUpdate();
+			
+			deleteSQL = "DELETE FROM AUTOR WHERE ID_AUTOR = ?";
+			
+			
+
+			PreparedStatement statementAutor = conexion.prepareStatement(deleteSQL);
+			statementAutor .setInt(1, autor.getId());
+			statementAutor.executeUpdate();
+
+			conexion.commit();	
+		} catch (SQLException e) {
+			try {
+				conexion.rollback();
+			} catch (SQLException e1) {
+
+				throw new RuntimeException(e1);
+			}
+			throw new RuntimeException(e);
+		} finally {
+			if (conexion != null) {
+				try {
+					conexion.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+
+			}
+		}
 		
 	}
 }

@@ -22,14 +22,14 @@ public class AutorController {
 	
 	
 	@RequestMapping(value="/mantenimientoautores", method=RequestMethod.GET)
-	public String buscarEditorial(Model model) {
+	public String buscarAutores(Model model) {
 		model.addAttribute("autor", new Autor());
 		model.addAttribute("autores", autorBusinness.obtenerAutoresPorApellidos(""));
 		return "mantenimientoAutores";
 	}
 	
 	@RequestMapping(value="/mantenimientoautores", method=RequestMethod.POST)
-	public String buscarEditorialPorApellidos(Model model, Autor autor) {
+	public String buscarAutoresPorApellidos(Model model, Autor autor) {
 		model.addAttribute("autor", autor);
 		model.addAttribute("autores", autorBusinness.obtenerAutoresPorApellidos(autor.getApellidos()));
 		return "mantenimientoAutores";
