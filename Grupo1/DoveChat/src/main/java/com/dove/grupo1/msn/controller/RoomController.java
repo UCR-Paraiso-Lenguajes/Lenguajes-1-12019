@@ -17,6 +17,7 @@ public class RoomController {
 	}
 	
 	
+	
 	@RequestMapping(value="/user/msn/userChatRoom", method=RequestMethod.GET)
 	public String userRoom(){
 		return "UserChatRoom";
