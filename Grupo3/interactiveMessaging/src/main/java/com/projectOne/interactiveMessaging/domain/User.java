@@ -24,6 +24,10 @@ public class User {
 		this.user_id = user_id;
 	}
 
+	public String getUser_email() {
+		return user_email;
+	}
+
 	public ArrayList<Role> getRoles() {
 		return roles;
 	}
