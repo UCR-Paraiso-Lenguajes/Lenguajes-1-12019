@@ -7,7 +7,7 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:300,200'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/cssDove.css}" />
@@ -27,23 +27,15 @@
 		<div id="header-row" class="row" style="height: 100%;">
 
 
-			<div id="user-logo-div" class="col-sm">
-				<img th:src="@{/assets/add_member.png}" alt="logo" class="logo"
-					style="border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231);">
-			</div>
-
 
 			<div id="chat-logo-div" class="col-sm">
 				<img th:src="@{/assets/batman.png}" alt="logo" class="logo"
-					style="margin-left: 10%; border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231)">
+					style="margin-left: 60%; border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231)">
 				<label id="label-chat-name" class="name" style="margin-left: 2%">
 					xGeneration </label>
 			</div>
-
-
 			<div id="user-logo-div" class="col-sm" align="right"
 				style="margin-right: 3%;">
-
 				<img th:src="@{/assets/cat.png}" alt="logo" class="logo"
 					style="border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231);">
 				<label id="label-user-name" class="name" style="margin-left: 2%">
@@ -53,12 +45,11 @@
 
 		</div>
 	</div>
-
 </header>
 
 <body class="body" align="center">
 
-	<div id="container" align="center" class="row">
+	<div id="container" class="row">
 
 		<div id="chat-column" class="col-sm">
 
@@ -66,51 +57,73 @@
 
 				<div class="chat-logs">
 
-					<div class="chat friend">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+					<div class="row" style="margin-bottom: 2%;margin-top: 2%; background-color: rgba(247, 243, 224, 0.664); color: rgb(80, 79, 79);border-radius: 8px;">
+
+						<div  class="col-sm">
+							<p class="text">Usuario</p>
 						</div>
-						<p class="chat-message">b</p>
+
+
+						<div  class="col-sm">
+							<p class="text">Rol</p>
+						</div>
+
+						<div  class="col-sm">
+							<p>Destitucion</p>
+						</div>
+
+						<div  class="col-sm">
+							<p>Promocion</p>
+						</div>
 					</div>
 
-					<div class="chat self">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+					<div class="row">
+
+						<div id="user" class="col-sm">
+							<p class="text">Josue</p>
 						</div>
-						<p class="chat-message">a</p>
-					</div>
-					<div class="chat self">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+
+						<div id="role" class="col-sm">
+							<p class="text">Admin</p>
 						</div>
-						<p class="chat-message">a</p>
-					</div>
-					<div class="chat friend">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+						<div id="remover" class="col-sm">
+							<button style="border-radius: 8px;">Remover</button>
 						</div>
-						<p class="chat-message">b</p>
-					</div>
-					<div class="chat self">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+						<div id="promover" class="col-sm">
+							<button style="border-radius: 8px;" >Promover</button>
 						</div>
-						<p class="chat-message">a</p>
 					</div>
-					<div class="chat self">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+
+					<div class="row">
+
+						<div id="user" class="col-sm">
+							<p class="text">Melissa</p>
 						</div>
-						<p class="chat-message">a</p>
-					</div>
-					<div class="chat friend">
-						<div class="img-user">
-							<img th:src="@{/assets/cat.png}" alt="">
+
+
+						<div id="role" class="col-sm">
+							<p class="text">User</p>
 						</div>
-						<p class="chat-message">b</p>
+
+						<div id="remover" class="col-sm">
+							<button style="border-radius: 8px;">Remover</button>
+						</div>
+
+						<div id="promover" class="col-sm">
+							<button style="border-radius: 8px;">Promover</button>
+						</div>
 					</div>
+
+
 
 				</div>
+
 
 			</div>
 		</div>
@@ -134,15 +147,8 @@
 					multiple="multiple" size="19"></select>
 			</div>
 
-			<div id="SearchRoom-input-div" class="row">
-				<button class="button-send">New</button>
-			</div>
+		</div>
 
-		</div>
-		<div id="send-group-row" class="row">
-			<input type="text" class="message"></input>
-			<button class="button-send">Enviar</button>
-		</div>
 	</div>
 
 
