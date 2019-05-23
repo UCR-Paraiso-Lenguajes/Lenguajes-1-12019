@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class PruebaDao {
+public class RoleDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -25,10 +25,11 @@ public class PruebaDao {
     @Autowired
     private DataSource dataSource;
 
-    @Transactional(readOnly = true)
-    public List<Role> getRole() {
-        String sqlSelect = "select * from role";
-        return jdbcTemplate.query(sqlSelect, new RoleWithExtractor());
+    @Transactional()
+    public List<Role> getRolePerId(int id) {
+        System.out.println(id);
+        String sqlSelect = "select r.idrole,r.role_type from role r where r.idrole=?";
+        return jdbcTemplate.query(sqlSelect,new Object[] {id}, new RoleWithExtractor());
     }
     class RoleWithExtractor implements ResultSetExtractor<List<Role>> {
 

@@ -1,6 +1,6 @@
 package com.proyectoUno.grupo5.business;
 
-import com.proyectoUno.grupo5.dao.PruebaDao;
+import com.proyectoUno.grupo5.dao.RoleDao;
 import com.proyectoUno.grupo5.domain.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PruebaBusiness {
+public class RoleBusiness {
     @Autowired
-    private PruebaDao prueba;
+    private RoleDao prueba;
 
-    public List<Role> gerRole () {
-        return prueba.getRole();
+    public List<Role> gerRolePerId (int id) {
+        return prueba.getRolePerId(id);
     }
 }
