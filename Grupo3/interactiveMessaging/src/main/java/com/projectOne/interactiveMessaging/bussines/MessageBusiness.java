@@ -1,6 +1,8 @@
 package com.projectOne.interactiveMessaging.bussines;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,8 @@ import com.projectOne.interactiveMessaging.domain.User;
 public class MessageBusiness {
 	@Autowired
 	private MessageData messageData;
-	
+	@Autowired
+	private GroupBusiness groupBusiness;
 	public ArrayList<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup, int idUserPage){
 		ArrayList<Message> listMessagesWithType = 
 		messageData.convertIteratorToArrayMessage(messageData.getMessagesByRange(inicio, fin, userList, nameMessageTableGroup));
@@ -28,6 +31,14 @@ public class MessageBusiness {
 			}
 		}
 		return listMessagesWithType;
+	}
+	public void sendMessage(int idGroup, String text, int idUser) {
+		Date date = new Date();
+		Timestamp timestamp = new Timestamp(date.getTime());
+		Timestamp temp = timestamp;
+		temp.setHours(timestamp.getHours()-1);
+		timestamp = temp;
+		messageData.sendMessage(groupBusiness.getNameGroupTableMessages(idGroup), text, idUser, timestamp,text.length());
 	}
 	
 }
