@@ -7,7 +7,7 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:300,200'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/cssDove.css}" />
@@ -25,17 +25,17 @@
 	<div id="header" class="header">
 
 		<div id="header-row" class="row" style="height: 100%;">
-		
-		<div id="chat-logo-div" class="col-sm">
+
+
+
+			<div id="chat-logo-div" class="col-sm">
 				<img th:src="@{/assets/batman.png}" alt="logo" class="logo"
 					style="margin-left: 60%; border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231)">
 				<label id="label-chat-name" class="name" style="margin-left: 2%">
 					xGeneration </label>
 			</div>
-
 			<div id="user-logo-div" class="col-sm" align="right"
 				style="margin-right: 3%;">
-
 				<img th:src="@{/assets/cat.png}" alt="logo" class="logo"
 					style="border-style: ridge; border-color: rgb(252, 244, 200); border-radius: 100%; background-color: rgb(241, 239, 231);">
 				<label id="label-user-name" class="name" style="margin-left: 2%">
@@ -45,36 +45,95 @@
 
 		</div>
 	</div>
-
 </header>
 
 <body class="body" align="center">
 
-	<div id="container" align="center" class="row">
+	<div id="container" class="row">
 
 		<div id="chat-column" class="col-sm">
 
 			<div class="chat-box">
 
-				<div class="chat-logs">
+				<div class="chat-logs" align="center">
 
 
-					
-					
-				    <p class="text" style=" margin-top: 10%;">Email</p>
-				
 
-				
-					<input class="text" style=" margin-top: 2%;"></input>
-				
+					<div class="row"
+						style="margin-bottom: 2%; margin-top: 2%;">
 
+						<div class="col-sm" >
+							<p class="text">Owner</p>
+						</div>
+
+
+					</div>
+
+					<div class="row">
+
+						<div id="user" class="col-sm" style="margin-bottom: 2%;  background-color: rgba(247, 243, 224, 0.664); color: rgb(80, 79, 79); border-radius: 8px;">
+							<p class="text">Mario@gmail.com</p>
+						</div>
+
+					</div>
+
+
+
+					<div class="row"
+						style="margin-bottom: 2%;">
+
+						<div class="col-sm">
+							<p class="text">Admin</p>
+						</div>
+
+
+					</div>
+
+
+					<div class="row">
+
+						<div id="user" class="col-sm" style="margin-bottom: 2%; background-color: rgba(247, 243, 224, 0.664); color: rgb(80, 79, 79); border-radius: 8px;">
+							<p class="text">Josue@gmail.com</p>
+						</div>
+
+					</div>
+
+
+					<div class="row"
+						style="margin-bottom: 2%; ">
+
+						<div class="col-sm">
+							<p class="text">Users</p>
+						</div>
+
+
+					</div>
+
+
+
+
+
+					<div class="row" style="margin-bottom: 2%; margin-top: 2%; background-color: rgba(247, 243, 224, 0.664); color: rgb(80, 79, 79); border-radius: 8px;">
+
+						<div id="user" class="col-sm">
+							<p class="text">Melissa@gmail.com</p>
+						</div>
+
+					</div>
 					
-						
-				   <button style="border-radius: 8px; margin-top: 2%;margin-left: 2%">Add</button>
 					
-				
+					<div class="row" style="margin-bottom: 2%; margin-top: 2%; background-color: rgba(247, 243, 224, 0.664); color: rgb(80, 79, 79); border-radius: 8px;">
+
+						<div id="user" class="col-sm">
+							<p class="text">Diego@gmail.com</p>
+						</div>
+
+					</div>
+
+
 
 				</div>
+
 
 			</div>
 		</div>
@@ -89,17 +148,13 @@
 						type="text" class="search-room">
 				</div>
 				<div id="search-button">
-					<button class="button-search">Search</button>
+					<button class="button-search">Buscar</button>
 				</div>
 			</div>
 
 			<div id="room-select-div" class="row">
 				<select name="chat-select" class="chat-select" id="chat-select"
 					multiple="multiple" size="19"></select>
-			</div>
-
-			<div id="SearchRoom-input-div" class="row">
-				<button class="button-send">New</button>
 			</div>
 
 		</div>

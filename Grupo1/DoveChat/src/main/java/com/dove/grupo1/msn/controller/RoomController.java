@@ -38,4 +38,14 @@ public class RoomController {
 	public String newRoom(){
 		return "NewRoom";
 	}
+	
+	@RequestMapping(value="/user/msn/addUser", method=RequestMethod.GET)
+	public String addUser(){
+		return "AddUser";
+	}
+	
+	@RequestMapping(value="/user/msn/roomInfo", method=RequestMethod.GET)
+	public String roomInfo(){
+		return "RoomInfo";
+	}
 }
