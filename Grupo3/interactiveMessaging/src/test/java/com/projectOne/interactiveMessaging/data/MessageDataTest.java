@@ -25,7 +25,7 @@ public class MessageDataTest {
 	
 	@Test
 	public void getMessagesByRangeTest() {
-		Iterator<Message>messages = messageData.getMessagesByRange(1, 3, userData.findUsersCertainRoom(2),"LosMagnificosMessages");
+		Iterator<Message>messages = messageData.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages");
 		
 		assertNotNull(messages);
 	}

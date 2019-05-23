@@ -12,6 +12,20 @@ public class Message {
 	private User userTransmitter;
 	private Timestamp dateMessage;
 	private int sizeOfMessage;
+	private String type;
+
+	public String getType() {
+
+		return type;
+	
+	}
+
+	
+	public void setType(String type) {
+
+		this.type = type;
+
+	}
 	public Message(int message_id, String message, User userTransmitter, Timestamp dateMessage) {
 		
 		if(message == null || message.trim().toLowerCase().equals("")) throw new RuntimeException("El mensaje es requerido");
