@@ -677,17 +677,18 @@ body {
 			</div>
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+				<input type="hidden" id="userRoom" th:value="${idUserRoom}"/>
 				<input type="text" placeholder="Search contacts..." />
 			</div>
 			<div id="contacts">
 				<ul>
 					<li class="contact">
-						<div onclick="location.href='signIn'" class="wrap">
+						<div class="wrap">
 							 <img
 								src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
 							<div onclick="location.href='signIn'" class="meta">
-								<p onclick="location.href='signIn'" class="name">Louis Litt</p>
-								<p onclick="location.href='signIn'" class="preview">You just
+								<p class="name">Louis Litt</p>
+								<p class="preview">You just
 									got LITT up, Mike.</p>
 							</div>
 						</div>
@@ -823,9 +824,9 @@ body {
 			</div>
 			<div class="message-input">
 				<div class="wrap">
-					<input type="text" placeholder="Write your message..." /> <i
+					<input type="text" id="text" placeholder="Write your message..." /> <i
 						class="fa fa-paperclip attachment" aria-hidden="true"></i>
-					<button class="submit">
+					<button class="submit" id="btnSendMessage">
 						<i class="fa fa-paper-plane" aria-hidden="true"></i>
 					</button>
 				</div>
@@ -838,10 +839,32 @@ body {
 	
 
 	<script>
+
 		$(".messages").animate({
 			scrollTop : $(document).height()
 		}, "fast");
+	
+		$("#btnSendMessage").click(function() {
+			var inputText = $("#text");
+			if(inputText.val() != ""){
+				console.log(inputText.val());
+				var userRoom = $("#userRoom");
+				var obj = {
 
+						"message": inputText.val()
+
+					};
+				
+				$.ajax({
+					method : "PUT",
+					data : JSON.stringify(obj),
+					contentType : "application/json",
+					url : "api/sendMessages/2/"+userRoom.val()
+				
+				});
+			}
+			
+		});
 		$(".expand-button").click(function() {
 			$("#profile").toggleClass("expanded");
 			$("#contacts").toggleClass("expanded");
@@ -873,6 +896,7 @@ body {
 				return false;
 			}
 		});
+	
 	</script>
 </body>
 </html>

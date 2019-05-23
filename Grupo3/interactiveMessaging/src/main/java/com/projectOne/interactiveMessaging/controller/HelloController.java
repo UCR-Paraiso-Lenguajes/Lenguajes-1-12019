@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
@@ -52,13 +53,14 @@ public class HelloController {
     }
 	
 	@RequestMapping(value="/chat", method=RequestMethod.GET)
-
     public String chat(Model model) {
 
 		ArrayList<Message> messages=
 
-		messageBusiness.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages",1);
+		messageBusiness.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages",1);///Aqui cambiar el usuario y grupo
 				model.addAttribute("messages",messages);
+				model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
+				
         return "chat";
     }
 	

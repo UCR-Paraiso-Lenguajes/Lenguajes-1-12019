@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import javax.jws.soap.SOAPBinding.Use;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,6 +26,8 @@ import com.projectOne.interactiveMessaging.domain.User;
 public class MessageData {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private DataSource dataSource;
 	//Este metodo me trae los mensajes por rango
 	@Transactional(readOnly = true)
 	public Iterator<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup) {
@@ -52,7 +58,40 @@ public class MessageData {
 
 		return messages.iterator();
 	}
-
+	@Transactional
+	public void sendMessage(String nameOfTable, String text, int idUser,Timestamp timeStamp, int sizeText) {
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			connection.setAutoCommit(false);
+			
+			String sqlInsert = "INSERT INTO `IF4100_Proyecto_JAJME`.`"+nameOfTable+"` (`messageM`,`idUser`, `dateM`, `size`)"
+					+ "VALUES (?,?,?,?);";
+			PreparedStatement stmt = connection.prepareStatement(sqlInsert);
+			stmt.setString(1, text);
+			stmt.setInt(2, idUser);
+			stmt.setTimestamp(3, timeStamp);
+			stmt.setInt(4, sizeText);
+			stmt.execute();
+			
+			connection.commit();
+		}catch(Exception e){
+			try {
+				connection.rollback();
+			}catch(SQLException e1) {
+				throw new RuntimeException(e1);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				}catch(SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
 	private User getUser(int idUser, ArrayList<User> userList) {
 		for (int i = 0; i < userList.size(); i++) {
 			User temp = userList.get(i);
