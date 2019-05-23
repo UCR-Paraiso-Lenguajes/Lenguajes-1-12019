@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -123,7 +124,7 @@ public class ChatRomData {
 		}
 	
 	@Transactional(readOnly = true)
-	public Iterator<ChatRoom> findChatRoomByUser(int idUser) {
+	public List<ChatRoom> findChatRoomByUser(int idUser) {
 		String sqlSelect = "Select id,name,url,version,idUser " + "From ChatRoom " + "Where idUser ="
 				+ idUser;
 
@@ -132,23 +133,24 @@ public class ChatRomData {
 	
 }
 
-class ChatRoomExtractor implements ResultSetExtractor<Iterator<ChatRoom>> {
+class ChatRoomExtractor implements ResultSetExtractor<List<ChatRoom>> {
 	@Override
-	public Iterator<ChatRoom> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		Map<Integer, ChatRoom> map = new HashMap<Integer, ChatRoom>();
+	public List<ChatRoom> extractData(ResultSet rs) throws SQLException, DataAccessException {
+		
+		List<ChatRoom> list= Collections.synchronizedList(new ArrayList<ChatRoom>());
 		ChatRoom chatRoom = null;
 		while (rs.next()) {
 			Integer id = rs.getInt("id");
-			chatRoom = map.get(id);
+			chatRoom = list.get(id);
 			if (chatRoom == null) {
 				chatRoom = new ChatRoom();
 				chatRoom.setId(id);;
 				chatRoom.setName(rs.getString("name"));
 				chatRoom.setUrl(rs.getString("url"));
 				chatRoom.setVersion(rs.getInt("version"));
-				map.put(id, chatRoom);
+				list.add(id, chatRoom);
 			}
 		}
-		return new ArrayList<ChatRoom>(map.values()).iterator();
+		return new ArrayList<ChatRoom>(list);
 	}
 }

@@ -1,6 +1,9 @@
 package com.chat.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 public class ChatRoom {
 
@@ -8,9 +11,10 @@ public class ChatRoom {
 	private String name;
 	private int version;
 	private String url;
-	private Iterator<User> userList;
+	private List<User> listUsers;
+	private List<Message> listMessage;
 
-	public ChatRoom(int id, String name, int version, String url, Iterator<User> userList) {
+	public ChatRoom(int id, String name, int version, String url, List<User> listUsers, List<Message> listMessage) {
 		super();
 		if (id < 0)
 			throw new RuntimeException("El id de la sala debe ser mayor  0.");
@@ -20,13 +24,12 @@ public class ChatRoom {
 			throw new RuntimeException("La version de la sala debe ser mayor  0.");
 		if (url == null || url.trim().equals(""))
 			throw new RuntimeException("La url es requerida");
-		if (userList.hasNext() == false)
-			throw new RuntimeException("La sala debe contener un usuario");
 		this.id = id;
 		this.name = name;
 		this.version = version;
 		this.url = url;
-		this.userList = userList;
+		this.listUsers = Collections.synchronizedList(new ArrayList<User>());
+		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
 	public ChatRoom() {
@@ -65,18 +68,26 @@ public class ChatRoom {
 		this.url = url;
 	}
 
-	public Iterator<User> getUserList() {
-		return userList;
+	public List<User> getListUsers() {
+		return listUsers;
 	}
 
-	public void setUserList(Iterator<User> userList) {
-		this.userList = userList;
+	public void setListUsers(List<User> listUsers) {
+		this.listUsers = listUsers;
+	}
+
+	public List<Message> getListMessage() {
+		return listMessage;
+	}
+
+	public void setListMessage(List<Message> listMessage) {
+		this.listMessage = listMessage;
 	}
 
 	@Override
 	public String toString() {
-		return "ChatRoom [id=" + id + ", name=" + name + ", version=" + version + ", url=" + url + ", userList="
-				+ userList + "]";
+		return "ChatRoom [id=" + id + ", name=" + name + ", version=" + version + ", url=" + url + ", listUsers="
+				+ listUsers + ", listMessage=" + listMessage + "]";
 	}
 
 }

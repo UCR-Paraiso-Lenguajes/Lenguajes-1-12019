@@ -1,6 +1,7 @@
 package com.chat.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 
 @Repository
@@ -22,7 +24,7 @@ public class MessageData {
 	
 	@Transactional(readOnly = true)
 	public List<Message> getMessages(int begin, int end) {
-		List<Message> messages = new ArrayList<Message>();
+		List<Message> messages= Collections.synchronizedList(new ArrayList<Message>());
 		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user " + "FROM Message g "
 				+ "WHERE message_id > ? AND message_id < ? order by message_id ASC";
 		jdbcTemplate
