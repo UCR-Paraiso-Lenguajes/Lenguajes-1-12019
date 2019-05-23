@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.projectOne.interactiveMessaging.data.MetricsData;
 import com.projectOne.interactiveMessaging.domain.Metrics;
 
-
 @Service
 public class MetricsBusiness {
 	
