@@ -10,5 +10,10 @@ public class InternationalizeController {
 	    public String getInternationalPage() {
 	        return "loginUser";
 	    }
+	    
+	    @GetMapping("/userChatRoom")
+	    public String getInternationalPage2() {
+	        return "userChatRoom";
+	    }
 	
 }
