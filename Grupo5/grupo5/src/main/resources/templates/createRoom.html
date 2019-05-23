@@ -23,7 +23,7 @@
                 <a class="navbar-brand" href="/templates/ingreso.html">Iron chat</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Crear Room</a></li>
+                <li class="active"><a href="#">Crear Grupo</a></li>
                 <li><a href="#">Salir</a></li>
             </ul>
         </div>
@@ -57,17 +57,19 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <h1 id="textChat">Crear Room</h1>
+                    <h1 id="textChat">Crear Grupo</h1>
                 </div>
                 <div class="col-sm-4"></div>
             </div>
             <br><br><br><br><br>
+             
+             <form th:action="@{/createRoom}" th:object="${room}" method="post" class="box">
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <h3 id="textChat"> Ingrese el nombre del Room</h3>
-                        <input type="text" id="nombreChat" class="form-control inputChat" placeholder="Escribe...."
+                        <h3 id="textChat"> Ingrese el nombre del Grupo</h3>
+                        <input type="text" th:field="*{roomName}" class="form-control inputChat" placeholder="Escribe...."
                             maxlength="25">
                     </div>
                 </div>
@@ -78,11 +80,14 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-3">
-                    <button class="btn btn-success btn-lg">Crear Room</button>
+                    <input class="btn btn-success btn-lg" type="submit"value="Crear Grupo"></input>
                 </div>
                 <div class="col-sm-3">
                     <button class="btn btn-danger btn-lg">Cancelar</button>
                 </div>
+                
+                 </form>
+                
                 <div class="col-sm-2"></div>
             </div>
         </div>

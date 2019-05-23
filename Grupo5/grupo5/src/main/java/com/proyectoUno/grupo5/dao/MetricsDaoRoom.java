@@ -13,14 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.proyectoUno.grupo5.dao.MetricsDao.MetricsWithExtractor;
 import com.proyectoUno.grupo5.domain.Metrics;
-import com.proyectoUno.grupo5.domain.Role;
 
-@Repository
-public class MetricsDao {
+public class MetricsDaoRoom {
+
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
@@ -59,5 +58,5 @@ public class MetricsDao {
 	        }
 
 	    }
-
+	
 }
