@@ -5,14 +5,14 @@ body{
 .vr {
     border-right: 1px solid #ccc !important;
  }
- .well{
+.well{
      color: black !important;
      background: #576574
  }
- .well:hover{
+.well:hover{
      background: #10ac84;
  }
- .inputChat{
+.inputChat{
      border: 0;
      background: none;
     display: block;
@@ -27,7 +27,7 @@ body{
     transition: 0.25s;
  }
 
- .inputChat:focus{
+.inputChat:focus{
     width: 480px;
     border-color: #2ecc71;
  }

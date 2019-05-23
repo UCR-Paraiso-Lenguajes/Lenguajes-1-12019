@@ -25,6 +25,11 @@ public class User {
 		this.rooms = rooms;
 		this.hash = hash;
 	}
+	
+	public User() {
+		
+	}
+
 
 	public int getIdUser() {
 		return idUser;
