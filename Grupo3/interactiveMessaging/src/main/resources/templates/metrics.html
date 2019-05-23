@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -84,13 +89,15 @@ body {
 
 #frame #sidepanel {
 	float: left;
-	min-width: 280px;
-	max-width: 340px;
+	min-width: 999px;
+	max-width: 440px;
 	width: 40%;
 	height: 100%;
 	background: #2c3e50;
 	color: #f5f5f5;
-	overflow: hidden;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
 	position: relative;
 }
 
@@ -665,19 +672,105 @@ body {
 </head>
 <body>
 
+<div id="frame">
+<div id="sidepanel">
+
 <div class="container">
 	
-	<label>Identificación:
-		</label><input type="text" id="id_autor" class="form-control"  disabled /> <br><br>
-	<label>Nombre:
-		</label><input type="text" id="nombre" class="form-control" /> <br><br>
-	<label>Apellidos:
-		</label><input type="text" id="apellidos_autor" class="form-control"  /> <br><br>
-	<button id="editar" onClick="location.href='mantenimientoAutores'">Editar</button><br><br>
-	<button onClick="location.href='mantenimientoAutores'">Cancelar</button><br> <br>
+	<label>Number of rooms:
+		</label><input type="text"  class="form-control" th:field="*{metrics.numberOfRooms}" disabled /> <br><br>
+	<label>Number of User:
+		</label><input type="text"  class="form-control" th:field="*{metrics.numberOfUsers}" disabled/> <br><br>
+	<label>Average of users per room:
+		</label><input type="text"  class="form-control" th:field="*{metrics.averageOfUsersPerRoom}" disabled/> <br><br>
 	
+	<label>Date last message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.dateLastMessage}" disabled/> <br><br>
+		
+	<label>Date first login:
+		</label><input type="text"  class="form-control" th:field="*{metrics.dateFirstLogin}" disabled/> <br><br>
+		
+	<label>User with more message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idBigUser}" disabled/> <br><br>
+		
+	<label>Quantity messages' user:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idBigUser}" disabled/> <br><br>
 	
+	<label>Longest Message:
+		</label><input type="text" class="form-control" th:field="*{metrics.idLongestMessage}" disabled/> <br><br>
+		
+	<label>Last room created:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idLastRoomCreated}" disabled/> <br><br>
+		
+	<label>Room with more message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idBiggestRoom}" disabled/> <br><br>
+	<label>Quantity of message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.numberMessagesBiggestRoom}" disabled/> <br><br>
+	</div>
 </div>
+</div>
+
+
+<script>
+
+		$(".messages").animate({
+			scrollTop : $(document).height()
+		}, "fast");
+	
+		$("#btnSendMessage").click(function() {
+			var inputText = $("#text");
+			if(inputText.val() != ""){
+				console.log(inputText.val());
+				var userRoom = $("#userRoom");
+				var obj = {
+
+						"message": inputText.val()
+
+					};
+				
+				$.ajax({
+					method : "PUT",
+					data : JSON.stringify(obj),
+					contentType : "application/json",
+					url : "api/sendMessages/2/"+userRoom.val()
+				
+				});
+			}
+			
+		});
+		$(".expand-button").click(function() {
+			$("#profile").toggleClass("expanded");
+			$("#contacts").toggleClass("expanded");
+		});
+
+		function newMessage() {
+			message = $(".message-input input").val();
+			if ($.trim(message) == '') {
+				return false;
+			}
+			$(
+					'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
+							+ message + '</p></li>')
+					.appendTo($('.messages ul'));
+			$('.message-input input').val(null);
+			$('.contact.active .preview').html('<span>You: </span>' + message);
+			$(".messages").animate({
+				scrollTop : $(document).height()
+			}, "fast");
+		};
+		
+		$('.submit').click(function() {
+			newMessage();
+		});
+
+		$(window).on('keydown', function(e) {
+			if (e.which == 13) {
+				newMessage();
+				return false;
+			}
+		});
+	
+	</script>
 
 </body>
 </html>

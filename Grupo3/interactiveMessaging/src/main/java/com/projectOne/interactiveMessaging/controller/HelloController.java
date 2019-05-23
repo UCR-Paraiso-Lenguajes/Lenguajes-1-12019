@@ -69,10 +69,7 @@ public class HelloController {
         return "setting";
     }
 	
-	@RequestMapping("/metrics")
-    public String metrics() {
-        return "metrics";
-    }
+	
 	
 	
 	//enviar correos a varias personas 
