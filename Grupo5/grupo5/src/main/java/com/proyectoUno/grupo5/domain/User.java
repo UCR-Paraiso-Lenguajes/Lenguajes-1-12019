@@ -25,11 +25,10 @@ public class User {
 		this.rooms = rooms;
 		this.hash = hash;
 	}
-	
+
 	public User() {
 		
 	}
-
 
 	public int getIdUser() {
 		return idUser;
@@ -85,6 +84,14 @@ public class User {
 
 	public void setRooms(ArrayList<Room> rooms) {
 		this.rooms = rooms;
+	}
+
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
 	}
 	
 	
