@@ -44,7 +44,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			frameOptions().sameOrigin()
 				.and()
 			.authorizeRequests() 
-				.antMatchers("/user/**").permitAll() //.antMatchers("/insertarPelicula").hasRole("ADMIN") ejemplo para admin
+				.antMatchers("/user/**").permitAll()
+				.antMatchers("/api/**").permitAll()//.antMatchers("/insertarPelicula").hasRole("ADMIN") ejemplo para admin
 				.anyRequest().permitAll()
 				.and().
 			formLogin().loginPage("/login")
