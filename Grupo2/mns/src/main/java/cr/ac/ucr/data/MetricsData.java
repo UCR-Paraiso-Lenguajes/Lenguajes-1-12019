@@ -53,6 +53,9 @@ public class MetricsData {
 	
 	public void setState(Metrics m)
 	{
+		
+		
+		
 		/*	metrics.setState( 	
 		
 					rs.getInt("id_metrics"),

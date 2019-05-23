@@ -28,6 +28,10 @@ public class Message {
 		this.content = content;
 	}
 
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -42,8 +46,14 @@ public class Message {
 		if(roomWhereThisMessageBelong == null  ) throw new ProjectExceptions("El grupo debe existir");		
 		this.roomWhereThisMessageBelong = roomWhereThisMessageBelong;
 	}
+	
+	
 
-	Date getDate() 
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getDate() 
 	{
 		return date;
 	}

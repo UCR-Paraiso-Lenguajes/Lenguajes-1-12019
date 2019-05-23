@@ -38,8 +38,8 @@ public class MessageData {
 	
 	@Transactional(readOnly=true)
 	public List<Message> ListMessages(int amount){
-		String sqlSelect = "SELECT TOP "+amount+" * "
-				+ " FROM Message m";
+		String sqlSelect = "SELECT * "
+						+ " FROM Message m LIMIT "+amount;
 		return jdbcTemplate.query(sqlSelect, new MessagesEstractor());
 	}
 
@@ -112,14 +112,15 @@ public class MessageData {
 			
 			while(rs.next()) {
 				
-				Integer id = rs.getInt("id_message");
+				Integer id = rs.getInt("idMensaje");
 				message = map.get(id);
 				
 				if(message == null) {
 					
 					message = new Message();
-					message.setId(rs.getInt("id_message"));
-                    /*los demas setters*/
+					message.setId(rs.getInt("idMensaje"));
+                    message.setContent(rs.getString("detalle"));
+                    message.setDate(rs.getDate("fecha"));
 					map.put(id, message);
 					
 				}//if

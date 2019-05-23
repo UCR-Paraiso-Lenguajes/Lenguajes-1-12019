@@ -115,7 +115,7 @@
 	            <br>
 	            <div class="container" >
 	            	<div class="col-12" >
-            			<button class="btn btn-success btn-lg"  onclick="myFunction()">Crear Grupo</button>
+            			<a th:href="@{createRoom}"><button class="btn btn-success btn-lg" >Crear Grupo</button></a>
             		</div>
             	</div>
             </div>
@@ -125,11 +125,20 @@
 						
 						
 						<div id="oldMessages" class="row-area" th:each="message: ${messages}">
-							<div class="column2 tariff-date" style="width: 15%; "><span th:text="${message.getContent()}">Dummy Data</span></div>
+						    
+							   <div class=" col-1" style="width: 10%;"><span th:text="${message.getDate()}"></span></div>
+						       
+						       
+						       <div class="talkbubble col-7" style="width: 70%; background-color: white; "><span th:text="${message.getContent()}"></span></div>
+	                       
+	                       
+	                           
+	                       
+	                       <br>
 						</div>
 						
+						<br>
 						
-						<div id="chat" class="col-sm-5"></div>
 						
 						
 					</div>
