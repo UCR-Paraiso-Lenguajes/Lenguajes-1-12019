@@ -7,13 +7,19 @@ import org.springframework.stereotype.Service;
 
 import com.projectOne.interactiveMessaging.data.MetricsData;
 import com.projectOne.interactiveMessaging.domain.Metrics;
+
+
 @Service
 public class MetricsBusiness {
+	
 	@Autowired
-	MetricsData metricsDao;
+	private MetricsData metricsData;
+	
+	public Iterator<Metrics> recoverMetricsData(){
+		return metricsData.recoverMetricsData();
+	}
 	
 	public Iterator<Metrics> findMetrics(int idMetrics) {
-		return metricsDao.findMetrics(idMetrics);
+		return metricsData.findMetrics(idMetrics);
 	}
-
 }

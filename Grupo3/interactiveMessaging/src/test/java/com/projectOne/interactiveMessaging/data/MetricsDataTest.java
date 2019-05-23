@@ -28,8 +28,8 @@ public class MetricsDataTest {
 		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
 		try {
 			java.util.Date date = dateformat.parse("2019/04/10");
-			java.util.Date date2 =  dateformat.parse("2019/03/10");
-			assertTrue(metricsData.saveMetrics(4, 20, 30, 10, date, date2, 12, 100, 22, 9, 100, 400));
+			java.util.Date date2 =  dateformat.parse("2019/03/14");
+			assertTrue(metricsData.saveMetrics(5, 20, 30, 10, date, date2, 12, 100, 22, 9, 100, 400));
 			//metricsData.saveMetrics(3, 20, 30, 10, date, date2, 12, 100, 22, 9, 100, 400);
 		} catch (ParseException e) {
 			throw new RuntimeException("Error al declarar fecha");

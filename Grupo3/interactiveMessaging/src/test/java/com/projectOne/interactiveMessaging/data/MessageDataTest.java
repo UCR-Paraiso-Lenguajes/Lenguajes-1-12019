@@ -3,8 +3,10 @@ package com.projectOne.interactiveMessaging.data;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.timeout;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.sql.Time;
+import java.sql.Timestamp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,8 +27,20 @@ public class MessageDataTest {
 	
 	@Test
 	public void getMessagesByRangeTest() {
-		Iterator<Message>messages = messageData.getMessagesByRange(1, 3, userData.findUsersCertainRoom(2),"LosMagnificosMessages");
+		Iterator<Message>messages = messageData.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages");
 		
 		assertNotNull(messages);
+	}
+	@Test
+	public void sendMessageTest() {
+		String text = "Sea necio con el good";
+		
+		Date date = new Date();
+		Timestamp timestamp = new Timestamp(date.getTime());
+		Timestamp temp = timestamp;
+		temp.setHours(timestamp.getHours()-1);
+		timestamp = temp;
+		
+		messageData.sendMessage("LosMagnificosMessages", text, 2,timestamp, text.length());
 	}
 }

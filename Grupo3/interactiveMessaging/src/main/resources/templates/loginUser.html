@@ -39,7 +39,7 @@
 	});
 
 	$(function() {
-		$("form[name='login']").validate({
+		$("form[name='loginUser']").validate({
 			rules : {
 
 				email : {
@@ -136,7 +136,7 @@ form .error {
 								<h1 th:text="#{login.text}"></h1>
 							</div>
 						</div>
-						<form action="" method="post" name="login">
+						<form method="POST" th:action="@{/signIn}" id="loginUser" name="loginUser">
 							<div class="form-group">
 								<label th:text="#{email.text}"></label> <input type="email"
 									name="email" class="form-control" id="email"

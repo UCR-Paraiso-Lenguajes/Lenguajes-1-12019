@@ -1,12 +1,16 @@
 package com.projectOne.interactiveMessaging.mask;
 
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 public class Mask {
 	
 	private ArrayList<String> userfakesList;
+	private ArrayList<ImageIcon> listOfAvatar;
 	
 	public Mask() {
 		this.userfakesList = new ArrayList<String>();
+		this.listOfAvatar = new ArrayList<ImageIcon>();
 	}
 	
 	public void assignNamesUserfakes() {
@@ -72,6 +76,17 @@ public class Mask {
 				i=userfakesList.size();
 		}
 		return userFake;
+	}
+	
+	public ArrayList<ImageIcon> assignAvatar(int numberOfMember){
+		ArrayList<ImageIcon> avatar = new ArrayList<ImageIcon>();
+		for(int i =0; i<listOfAvatar.size();i++) {
+			if(i<numberOfMember)
+				avatar.add(listOfAvatar.get(i));
+			else
+				i=listOfAvatar.size();
+		}
+		return avatar;
 	}
 	
 	

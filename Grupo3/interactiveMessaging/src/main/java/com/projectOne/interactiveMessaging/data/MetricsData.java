@@ -96,6 +96,16 @@ public class MetricsData {
 		
 		return jdbcTemplate.query(mySqlSelect, new MetricsExtractor());
 	}
+	
+	
+	@Transactional(readOnly=true)
+	public Iterator<Metrics> recoverMetricsData(){
+		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
+				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
+		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
+	}
+	
+	
 }
 
 class MetricsExtractor implements ResultSetExtractor<Iterator<Metrics>>{
@@ -110,9 +120,9 @@ class MetricsExtractor implements ResultSetExtractor<Iterator<Metrics>>{
 				if(metrics == null) {
 					metrics = new Metrics(idMetrics,rs.getInt("numberOfUsers"),
 							rs.getInt("numberOfRooms"),rs.getFloat("averageOfUsersPerRoom"),
-							rs.getTimestamp("dateLastMessage"),rs.getTimestamp("dateFirstLogin"),
-							rs.getInt("idBigUser"),rs.getInt("numberMessagesBigUser"),rs.getInt("idLongestMessage"),
-							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"),rs.getInt("numberMessagesBiggestRoom"));
+							rs.getDate("dateLastMessage"),rs.getDate("dateFirstLogin"),
+							rs.getInt("idBigUser"), rs.getInt("numberMessagesBigUser"),rs.getInt("idLongestMessage"),
+							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"), rs.getInt("numberMessagesBiggestRoom"));
 					//TODO faltan agregar dos valores que si estan en base, Cambiar metrics domain
 					map.put(idMetrics, metrics);
 				}
