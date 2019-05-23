@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Chat</title>
+  <meta charset="UTF-8">
+    <title>Correo exitoso</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -11,23 +10,12 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/ingreso.css">
-
 </head>
-<body>
-
-  <form th:action="@{/ingreso}" th:object="${user}" method="post" class="box">
-
-
-        <h1>Iron Chat</h1>
-      	<input type="text" th:field="*{email}">
-        <input type="submit" value="Ingresar" onclick=sucessfulMessage()>
-                
-    </form>
-    
-  
-  
+<body style="background-color:#34495e">
+ 
+ <div class="alert alert-success">
+    <strong>Gracias por registrarse!</strong> Se ha enviado un mensaje de confirmación a su correo electrónico.
+  </div>
   
 </body>
-
 </html>
