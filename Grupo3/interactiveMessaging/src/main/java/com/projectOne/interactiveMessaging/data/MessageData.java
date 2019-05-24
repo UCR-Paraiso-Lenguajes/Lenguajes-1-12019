@@ -41,7 +41,7 @@ public class MessageData {
 				.query(selectMysql, new Object[] { inicio, fin }, (rs, row) -> new Message(rs.getInt("id"),
 						rs.getString("messageM"), rs.getTimestamp("dateM"), rs.getInt("size")))
 				.forEach(entry -> messagesTemp.add(entry));
-		selectMysql = "SELECT idUser " + "FROM LosMagnificosMessages " + "WHERE id >= ? AND id <= ? " + "ORDER BY id";
+		selectMysql = "SELECT idUser " + "FROM "+nameMessageTableGroup+" WHERE id >= ? AND id <= ? " + "ORDER BY id";
 		jdbcTemplate.query(selectMysql, new Object[] { inicio, fin }, (rs, row) -> new Integer(rs.getInt("idUser")))
 				.forEach(entry -> messagesUserId.add(entry));
 		ArrayList<User>userArray = convertIteratorToArray(userList);

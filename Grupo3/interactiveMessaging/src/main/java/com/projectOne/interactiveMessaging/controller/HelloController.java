@@ -97,6 +97,9 @@ public class HelloController {
 		@RequestMapping(value="/invite", method=RequestMethod.GET )
 		public String inviteGet(EmailForm emailForm, Model model) {
 			model.addAttribute("emailForm", new EmailForm());
+			model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
+			List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
+			model.addAttribute("groups",groups);
 	        return "invite";
 	    }
 		@RequestMapping(value="/invite", method=RequestMethod.POST )
