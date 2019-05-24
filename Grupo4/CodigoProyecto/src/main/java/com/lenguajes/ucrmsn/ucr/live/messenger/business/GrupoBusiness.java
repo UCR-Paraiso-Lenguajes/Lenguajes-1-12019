@@ -2,8 +2,6 @@ package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -16,16 +14,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.data.GrupoData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Enlace;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.EnlacesEnviados;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.RolException;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 @Service
 public class GrupoBusiness {
 
-	public static List<Enlace> enlacesEnviados = new ArrayList<>();
+	
+	@Autowired 
+	private EnlacesEnviados enlacesEnviados;
 	
 	@Autowired
 	private JavaMailSender javaMailSender;
@@ -33,7 +36,7 @@ public class GrupoBusiness {
 	private GrupoData grupoData;
 
 	@Transactional
-	public String crear(Usuario usuario) throws GrupoException {
+	public String crear(Usuario usuario) throws GrupoException, RolException, UsuarioException {
 
 		String caracteres = "";
 		String hash = "";
@@ -45,11 +48,11 @@ public class GrupoBusiness {
 		hash = "/msn/"+DigestUtils.sha256Hex(caracteres);
 
 		if (usuario == null)
-			throw new RuntimeException("El usuario es requerido");
+			throw new UsuarioException("El usuario es requerido");
 		if (usuario.getNombreUsuario() == null)
-			throw new RuntimeException("El nombre de usuario es requerido");
+			throw new UsuarioException("El nombre de usuario es requerido");
 		if (usuario.getListaRoles().isEmpty())
-			throw new RuntimeException("El rol es requerido");
+			throw new RolException("El rol es requerido");
 		if (!usuario.getListaRoles().isEmpty()) {
 			for (int i = 0; i < usuario.getListaRoles().size(); i++) {
 				Rol rol = usuario.getListaRoles().get(i);
@@ -65,7 +68,7 @@ public class GrupoBusiness {
 	public void invitar(String to, String link) {
 		
 		Enlace enlace = new Enlace(link);
-		enlacesEnviados.add(enlace);
+		enlacesEnviados.agregar(enlace);
 		expirarEnlace(enlace);
 		
 		Calendar fecha = Calendar.getInstance();
@@ -92,7 +95,7 @@ public class GrupoBusiness {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        enlacesEnviados.remove(enlace);	}
+        enlacesEnviados.eliminar(enlace);	}
 	
 	@Transactional
 	public void unirse(Usuario usuario, Grupo grupo) {

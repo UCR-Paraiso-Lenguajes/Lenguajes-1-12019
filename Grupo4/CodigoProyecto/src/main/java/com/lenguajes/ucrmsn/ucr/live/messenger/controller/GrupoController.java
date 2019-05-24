@@ -16,7 +16,7 @@ public class GrupoController {
 
 	@RequestMapping(value = "/msn", method = RequestMethod.GET)
 	public String enviarCorreo() {
-		return "InterfazChat";
+		return "msn";
 	}
 
 	@RequestMapping(value = "/msn", method = RequestMethod.POST)
