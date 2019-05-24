@@ -1,5 +1,6 @@
 package com.projectOne.interactiveMessaging.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Iterator;
@@ -28,5 +29,12 @@ public class UserDataTest {
 	public void getIdGroupsOfUsrTest() {
 		Iterator<Integer>idGroupsOfUsr = userData.getIdGroupsOfUsr(1);
 		assertNotNull(idGroupsOfUsr);
+	}
+	
+	@Test 
+	public void getIdInvite() {
+		int id_user = userData.save("emmanuelsolano33@gmail.com");
+		
+		assertEquals(4, id_user);
 	}
 }

@@ -60,10 +60,12 @@ public class HelloController {
         return "loginUser";
     }
 
-    @PostMapping("/signIn")
+	
+	//@PostMapping("/signIn")
+	@RequestMapping(value="/signIn", method=RequestMethod.POST)
     public String sendMail( @RequestParam("email") String mail){
-
-       emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitacion","te invitamos por medio de este link:   ");
+    	String linkToParticipateInChat = "http://localhost:8080/msn/chat"; 
+    	emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitacion","Te invitamos por medio de este link:   "+linkToParticipateInChat);
 
         return "loginUser";
     }

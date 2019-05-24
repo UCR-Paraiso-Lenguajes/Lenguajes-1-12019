@@ -1,8 +1,13 @@
 package com.projectOne.interactiveMessaging.data;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +20,11 @@ import com.projectOne.interactiveMessaging.domain.User;
 
 @Repository
 public class UserData {
+	
+	
+	@Autowired
+	private DataSource dataSource;
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private List<User> userList = new ArrayList<>();
@@ -67,6 +77,64 @@ public class UserData {
 		jdbcTemplate.query(selectMySqlOwner, new Object[] {idRoom, idRole}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
 			.forEach(entry -> listOfUserOwnerOrAdmin.add(entry));
 		return listOfUserOwnerOrAdmin.iterator();
+	}
+	
+	@Transactional
+	public int save(String correoUser) {
+		ArrayList<User> userList = new ArrayList<User>();
+		
+		String selectMySql = "select id, correo, numberMessages from UserApp where correo= ?";
+		
+		jdbcTemplate.query(selectMySql, new Object[] {correoUser}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
+			.forEach(entry -> userList.add(entry));
+		
+		
+		
+		User userAdd = new User();
+		if(userList.isEmpty()) {
+			
+			int lastRegsOfUser =1;
+			String selectEndID = "select id, correo, numberMessages from UserApp order by id desc limit ?";
+			jdbcTemplate.query(selectEndID, new Object[] {lastRegsOfUser}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
+				.forEach(entry -> userAdd.setUser_id(entry.getUser_id()));
+			
+			Connection connection = null;
+			try {
+				connection = dataSource.getConnection();
+				connection.setAutoCommit(false);
+				
+				String sqlInsert = "insert into UserApp values (?, ?, ?)";
+				int idNew = userAdd.getUser_id() + 1;
+				PreparedStatement stmt = connection.prepareStatement(sqlInsert);
+				stmt.setInt(1, idNew);
+				stmt.setString(2, correoUser);
+				stmt.setInt(3, 0);
+				stmt.execute();
+				
+				connection.commit();
+				return idNew;
+			}catch(Exception e){
+				try {
+					connection.rollback();
+				}catch(SQLException e1) {
+					throw new RuntimeException(e1);
+				}
+				throw new RuntimeException(e);
+			}finally {
+				if(connection != null) {
+					try {
+						connection.close();
+					}catch(SQLException e) {
+						throw new RuntimeException(e);
+					}
+				}
+			}
+		}else {
+			User user = new User();
+			user = userList.iterator().next();
+			return user.getUser_id();
+		}
+		
 	}
 	
 
