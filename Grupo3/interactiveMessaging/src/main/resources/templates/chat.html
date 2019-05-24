@@ -29,6 +29,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
+
+
 <script>
 	try {
 		Typekit.load({
@@ -817,7 +820,8 @@ body {
 
 		<div class="content">
 			<div class="contact-profile">
-				<img id="imgActualContact" src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+				<img id="imgActualContact"
+					src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 				<p id="ActualGroupName"></p>
 				<div class="settings-media" id="settings">
 
@@ -831,7 +835,7 @@ body {
 			</div>
 			<div class="messages">
 				<ul>
-					
+
 				</ul>
 			</div>
 			<div class="message-input">
@@ -854,13 +858,12 @@ body {
 			<div class="setting">
 				<div class="contact-group" align="center">
 					<img src="http://emilcarlsson.se/assets/harveyspecter.png"
-						class="online" alt="" /> <br>
-					<br> <label>Last room created: </label><input type="text"
-						class="form-control" disabled /> <br>
-					<br> <b>Grupo:</b> <input type="text" class="form-control"
-						disabled /> <b>Propietario</b> <input type="text"
-						class="form-control" disabled /> <b>Administrador</b> <input
-						type="text" class="form-control" disabled />
+						class="online" alt="" /> <br> <br> <label>Last
+						room created: </label><input type="text" class="form-control" disabled />
+					<br> <br> <b>Grupo:</b> <input type="text"
+						class="form-control" disabled /> <b>Propietario</b> <input
+						type="text" class="form-control" disabled /> <b>Administrador</b>
+					<input type="text" class="form-control" disabled />
 				</div>
 
 				<ul>
@@ -894,6 +897,14 @@ body {
 
 
 	<script>
+		/*
+			Concurrent.Thread.create(function() {
+				var i = 0;
+				while (1) {
+					console.log("hola soy el hilo");
+					i++;
+				}
+			});*/
 		$(".messages").animate({
 			scrollTop : $(document).height()
 		}, "fast");
@@ -902,54 +913,61 @@ body {
 		var nameGroup;
 		var previousTag;
 		function print(i) {
-			if(previousTag != null){
-				if(previousTag.classList.contains('contact')&&previousTag.classList.contains('active')){
+			if (previousTag != null) {
+				if (previousTag.classList.contains('contact')
+						&& previousTag.classList.contains('active')) {
 					previousTag.classList.remove('active');
 					i.classList.add('active');
 				}
-			}else{
+			} else {
 				i.classList.add('active');
 			}
 			//console.log(i);
 			idGroup = i.children[0].children[1].children[1];
 			nameGroup = i.children[0].children[1].children[0].innerHTML;
-			
+
 			var pActual = document.getElementById("ActualGroupName");
 			pActual.innerHTML = nameGroup;
 			jQuery('.messages ul').empty();
-			
+
 			$
 					.getJSON(
-							"http://localhost:8080/msn/api/messages/?idGroup="+idGroup.value+"&idUserRoom="+idUserRoom.val(),
+							"http://localhost:8080/msn/api/messages/?idGroup="
+									+ idGroup.value + "&idUserRoom="
+									+ idUserRoom.val(),
 							{
 								name : 'messages'
-							}, function(data, textStatus, jqXHR) {
+							},
+							function(data, textStatus, jqXHR) {
 
 								var msclass;
 								var mstext;
-								
+
 								var size = 0;
 								for (key in data) {
 									if (data.hasOwnProperty(key))
 										msclass = data[size].type;
-										mstext = data[size].message;
-										$(
-												'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
-														+ mstext + '</p></li>')
-												.appendTo($('.messages ul'));
-										size++;
-								};
-								
+									mstext = data[size].message;
+									$(
+											'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
+													+ mstext + '</p></li>')
+											.appendTo($('.messages ul'));
+									size++;
+								}
+								;
+
 							});
 			previousTag = i;
 			//location.href = "chat";
 		};
-		$("#btnSendMessage").click(function() {
+
+		function sendToServer() {
 			var inputText = $("#text");
-			
+
 			if (inputText.val() != "") {
-				console.log(inputText.val() + " " + idUserRoom.val() +" "+idGroup.value);
-				
+				console.log(inputText.val() + " " + idUserRoom.val() + " "
+						+ idGroup.value);
+
 				var obj = {
 
 					"message" : inputText.val()
@@ -960,18 +978,20 @@ body {
 					method : "PUT",
 					data : JSON.stringify(obj),
 					contentType : "application/json",
-					url : "api/sendMessages/"+idGroup.value+"/" + idUserRoom.val()
+					url : "api/sendMessages/" + idGroup.value + "/"
+							+ idUserRoom.val()
 
 				});
 			}
 
-		});
+		};
 		$(".expand-button").click(function() {
 			$("#profile").toggleClass("expanded");
 			$("#contacts").toggleClass("expanded");
 		});
 
 		function newMessage() {
+			sendToServer();
 			message = $(".message-input input").val();
 			if ($.trim(message) == '') {
 				return false;
