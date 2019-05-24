@@ -22,9 +22,12 @@
 <script
 	src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <script>
 	try {
@@ -38,7 +41,6 @@
 
 
 <style class="cp-pen-styles">
-
 body {
 	display: flex;
 	align-items: center;
@@ -648,10 +650,9 @@ body {
 	outline: none;
 }
 
-
 /******************************************************POP-UP**************************************************************/
-	.overlay {
-	background: rgba(0,0,0,.3);
+.overlay {
+	background: rgba(0, 0, 0, .3);
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -661,41 +662,39 @@ body {
 	align-items: center;
 	justify-content: center;
 	visibility: hidden;
-	}
-	
-	.overlay.active {
+}
+
+.overlay.active {
 	visibility: visible;
-	}
-	
-	.popup {
+}
+
+.popup {
 	background: #F8F8F8;
-	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 	border-radius: 3px;
 	padding: 20px;
 	text-align: center;
 	width: 600px;
-	
-	}
-	
-	.popup .btn-cerrar-popup {
+}
+
+.popup .btn-cerrar-popup {
 	font-size: 16px;
 	line-height: 16px;
 	display: block;
 	text-align: right;
 	transition: .3s ease all;
 	color: #BBBBBB;
-	}
-	.popup .btn-cerrar-popup:hover {
+}
+
+.popup .btn-cerrar-popup:hover {
 	color: #000;
-	}
-	
+}
 
-	.popup form .btn-submit:hover {
-	background: rgba(94,125,227, .5);
-	}
-	
+.popup form .btn-submit:hover {
+	background: rgba(94, 125, 227, .5);
+}
 
-	.popup form .btn-submit {
+.popup form .btn-submit {
 	padding: 0 20px;
 	height: 40px;
 	line-height: 40px;
@@ -706,7 +705,7 @@ body {
 	font-size: 16px;
 	cursor: pointer;
 	/*transition: .3s ease all;*/
-	}
+}
 /****************************************************************/
 #popup .contact-group img {
 	width: 150px;
@@ -714,7 +713,6 @@ body {
 	float: center;
 	margin: 9px 12px 0 9px;
 }
-
 
 #popup .setting {
 	height: auto;
@@ -725,7 +723,7 @@ body {
 }
 
 @media screen and (max-width: 735px) {
-	#popup .setting{
+	#popup .setting {
 		max-height: calc(100% - 105px);
 	}
 }
@@ -734,6 +732,7 @@ body {
 	width: 8px;
 	background: transparent;
 }
+
 #popup .setting::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.3);
 }
@@ -759,15 +758,11 @@ body {
 	line-height: 130%;
 }
 
-
-
 #popup .setting ul li img {
 	width: 50px;
 	border-radius: 50%;
 	float: left;
 }
-
-
 </style>
 
 </head>
@@ -789,8 +784,8 @@ body {
 			</div>
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="hidden" id="userRoom" th:value="${idUserRoom}"/>
-				<input type="text" placeholder="Search contacts..." />
+				<input type="hidden" id="userRoom" th:value="${idUserRoom}" /> <input
+					type="text" placeholder="Search contacts..." />
 			</div>
 			<div id="contacts">
 				<ul>
@@ -803,17 +798,18 @@ body {
 							</div>
 						</div>
 					</li>
-					<li onclick="print(this)" th:each="group: ${groups}" class="contact">
+					<li onclick="print(this)" th:each="group: ${groups}"
+						class="contact">
 						<div class="wrap">
 							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
 							<div class="meta">
 								<p th:text="${group.name_Room}" class="name"></p>
-								<input type="hidden" th:value="${group.group_id}"/>
+								<input type="hidden" th:value="${group.group_id}" />
 								<p class="preview"></p>
 							</div>
 						</div>
 					</li>
-					
+
 				</ul>
 			</div>
 			<div id="bottom-bar">
@@ -824,35 +820,33 @@ body {
 
 			</div>
 		</div>
-		
-		
-		
-		
+
+
+
+
 		<div class="content">
 			<div class="contact-profile">
-				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-				<p>Harvey Specter</p>
+				<img id="imgActualContact" src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+				<p id="ActualGroupName"></p>
 				<div class="settings-media" id="settings">
-				
-					
+
+
 					<!-- boton para abrir los metrics data-toggle="modal" data-target="popup()"   onclick="location.href='metrics'" aria-hidden="true" -->
-						<i class="fa fa-cog fa-fw" id = "btn-abrir-popup" title="Informacion"></i>
-						<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
-						
-					
+					<i class="fa fa-cog fa-fw" id="btn-abrir-popup" title="Informacion"></i>
+					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
+
+
 				</div>
 			</div>
 			<div class="messages">
 				<ul>
-                    <li th:each="message: ${messages}" th:class="${message.type}"><img
-                        src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-                        <p th:text="${message.message}"></p></li>  
-                </ul>
+					
+				</ul>
 			</div>
 			<div class="message-input">
 				<div class="wrap">
-					<input type="text" id="text" placeholder="Write your message..." /> <i
-						class="fa fa-paperclip attachment" aria-hidden="true"></i>
+					<input type="text" id="text" placeholder="Write your message..." />
+					<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
 					<button class="submit" id="btnSendMessage">
 						<i class="fa fa-paper-plane" aria-hidden="true"></i>
 					</button>
@@ -860,94 +854,116 @@ body {
 			</div>
 		</div>
 	</div>
-	
-<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
-<div class="overlay" id="overlay">
-			<div class="popup" id="popup">
-				<a href="chat" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-					<div class="setting">
-					<div class="contact-group" align="center">
-						<img src="http://emilcarlsson.se/assets/harveyspecter.png" class="online" alt="" />
-						<br><br>
-						<label>Last room created:
-							</label><input type="text"  class="form-control" disabled/> <br><br>
-			
-						<b>Grupo:</b>
-						<input type="text" class="form-control" disabled/>
-						<b>Propietario</b>
-						<input type="text" class="form-control"  disabled/>
-						<b>Administrador</b>
-						<input type="text" class="form-control" disabled/>
-					</div>
-					
-					<ul>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-					</ul>
-					</div>
+
+	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
+	<div class="overlay" id="overlay">
+		<div class="popup" id="popup">
+			<a href="chat" id="btn-cerrar-popup" class="btn-cerrar-popup"><i
+				class="fas fa-times"></i></a>
+			<div class="setting">
+				<div class="contact-group" align="center">
+					<img src="http://emilcarlsson.se/assets/harveyspecter.png"
+						class="online" alt="" /> <br>
+					<br> <label>Last room created: </label><input type="text"
+						class="form-control" disabled /> <br>
+					<br> <b>Grupo:</b> <input type="text" class="form-control"
+						disabled /> <b>Propietario</b> <input type="text"
+						class="form-control" disabled /> <b>Administrador</b> <input
+						type="text" class="form-control" disabled />
+				</div>
+
+				<ul>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+				</ul>
 			</div>
 		</div>
-<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
-	
-	
-	
+	</div>
+	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
+
+
+
 
 	<script>
-
 		$(".messages").animate({
 			scrollTop : $(document).height()
 		}, "fast");
-		
+		var idUserRoom = $("#userRoom");
+		var idGroup;
+		var nameGroup;
 		function print(i) {
-			var idGroup = i.children[0].children[1].children[1];
-			console.log(idGroup.value);
+			idGroup = i.children[0].children[1].children[1];
+			nameGroup = i.children[0].children[1].children[0].innerHTML;
+			
+			var pActual = document.getElementById("ActualGroupName");
+			pActual.innerHTML = nameGroup;
+			jQuery('.messages ul').empty();
+			
+			$
+					.getJSON(
+							"http://localhost:8080/msn/api/messages/?idGroup="+idGroup.value+"&idUserRoom="+idUserRoom.val(),
+							{
+								name : 'messages'
+							}, function(data, textStatus, jqXHR) {
+
+								var msclass;
+								var mstext;
+								
+								var size = 0;
+								for (key in data) {
+									if (data.hasOwnProperty(key))
+										msclass = data[size].type;
+										mstext = data[size].message;
+										$(
+												'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
+														+ mstext + '</p></li>')
+												.appendTo($('.messages ul'));
+										size++;
+								};
+								
+							});
+
 			//location.href = "chat";
 		};
 		$("#btnSendMessage").click(function() {
 			var inputText = $("#text");
-			var idUserRoom = $("#userRoom");
-			if(inputText.val() != ""){
-				console.log(inputText.val()+" "+idUserRoom.val());
+			
+			if (inputText.val() != "") {
+				console.log(inputText.val() + " " + idUserRoom.val() +" "+idGroup.value);
 				
-				var userRoom = $("#userRoom");
 				var obj = {
 
-						"message": inputText.val()
+					"message" : inputText.val()
 
-					};
-				
+				};
+
 				$.ajax({
 					method : "PUT",
 					data : JSON.stringify(obj),
 					contentType : "application/json",
-					url : "api/sendMessages/2/"+userRoom.val()
-				
+					url : "api/sendMessages/"+idGroup.value+"/" + idUserRoom.val()
+
 				});
 			}
-			
+
 		});
 		$(".expand-button").click(function() {
 			$("#profile").toggleClass("expanded");
@@ -969,7 +985,7 @@ body {
 				scrollTop : $(document).height()
 			}, "fast");
 		};
-		
+
 		$('.submit').click(function() {
 			newMessage();
 		});
@@ -980,25 +996,24 @@ body {
 				return false;
 			}
 		});
-		
-		/*////////////////////////////////////////////////////////////Acciones para Pop Up ///////////////////////////////////////////////*/	
-		var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
-		overlay = document.getElementById('overlay'),
-		popup = document.getElementById('popup'),
-		btnCerrarPopup = document.getElementById('btn-cerrar-popup');
 
-	btnAbrirPopup.addEventListener('click', function(){
-		overlay.classList.add('active');
-		popup.classList.add('active');
-		
-	});
+		/*////////////////////////////////////////////////////////////Acciones para Pop Up ///////////////////////////////////////////////*/
+		var btnAbrirPopup = document.getElementById('btn-abrir-popup'), overlay = document
+				.getElementById('overlay'), popup = document
+				.getElementById('popup'), btnCerrarPopup = document
+				.getElementById('btn-cerrar-popup');
 
-	btnCerrarPopup.addEventListener('click', function(e){
-		e.preventDefault();
-		overlay.classList.remove('active');
-		popup.classList.remove('active');
-	});
-	
+		btnAbrirPopup.addEventListener('click', function() {
+			overlay.classList.add('active');
+			popup.classList.add('active');
+
+		});
+
+		btnCerrarPopup.addEventListener('click', function(e) {
+			e.preventDefault();
+			overlay.classList.remove('active');
+			popup.classList.remove('active');
+		});
 	</script>
 </body>
 </html>
