@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Borrado de Autores</title>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+
+		<form action="#" th:action="@{/borrarAutor}" method="GET">
+
+
+			Borrado de Autores:
+
+			<div class="form-inline">
+				<label for="id_autor" class="mr-sm-2">Identificación:</label>
+				 <label id="id_autor" th:text="${autor.id_autor}">:</label>
+			</div>
+
+
+
+			<div class="form-inline">
+				<label for="nombre_Autor" class="mr-sm-2">Nombre:</label> <label
+					th:text="${autor.nombre_Autor}">:</label>
+			</div>
+
+			<div class="form-inline">
+				<label for="apellidos_autor" class="mr-sm-2">Apellidos:</label> <label
+					th:text="${autor.apellidos_autor}">:</label>
+
+			</div>
+
+			<button type="submit" id="borrar">Borrar</button>
+			<input type="button" name="Cancelar" value="Cancelar"
+				onClick="location.href='/renting/mantenimientoAutores'">
+		</form>
+	</div>
+
+
+<!-- var id_autor = $("#id_autor");
+
+		$("#borrar").click(function() {
+			$.ajax({
+				method : "DELETE",
+				contentType : "application/json; charset=utf-8",
+				url : "api/borrar/" + id_autor.val()
+			}).done(function(data) {
+
+			});
+		}); -->
+</body>
+<script type="text/javascript">
+var id_autor = $("#id_autor");
+var borrar = $("#borrar");
+editar.click(function() {
+
+	obj.id_autor = id_autor.val();
+
+	$.ajax({
+		method : "DELETE",
+		contentType : "application/json; charset=utf-8",
+		url : "api/borrar/"+id_autor.val()
+	}).done(function() {
+		alert("Success.");
+		window.history.back();
+	}).fail(function() {
+		alert("Sorry. Error . ");
+		window.history.back();
+	});
+});
+	</script>
+</html>
+
+
+
+
+
+
+
+
+</html>
