@@ -2,7 +2,8 @@
 <html class=''>
 
 <head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 <meta name="robots" content="noindex">
 <link rel="shortcut icon" type="image/x-icon"
 	href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
@@ -671,9 +672,10 @@ body {
 }
 
 .popup {
-	background: #F8F8F8;/*da color al fondo*/
+	background: #F8F8F8; /*da color al fondo*/
 	/*background: red;*/
-	/*box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);*//*da color al margen*/
+	/*box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);*/
+	/*da color al margen*/
 	box-shadow: 0px 0px 5px 0px rgba(255, 125, 0, 0.5);
 	border-radius: 3px;
 	padding: 20px;
@@ -702,12 +704,13 @@ body {
 .popup .btn-cerrar-popup:hover {
 	color: #000;
 }
-.popup .encabezadoPopup{
+
+.popup .encabezadoPopup {
 	background: #2c3e50;
 	transition: .2s ease all;
 }
 
- .encabezadoPopup .h4 {
+.encabezadoPopup .h4 {
 	font-size: 10px;
 	text-align: center;
 	color: red;
@@ -764,8 +767,15 @@ body {
 <body>
 
 
-
 	<div id="frame">
+		<div align="right">
+			<select id="locales">
+				<option selected value="" th:text="#{change.language}"></option>
+				<option value="en" th:text="#{lang.eng}"></option>
+				<option value="de" th:text="#{lang.es}"></option>
+			</select>
+		</div>
+
 		<div id="sidepanel">
 			<div id="profile">
 				<div class="wrap">
@@ -779,7 +789,7 @@ body {
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 				<input type="hidden" id="userRoom" th:value="${idUserRoom}" /> <input
-					type="text" placeholder="Search contacts..." />
+					type="text" th:placeholder="#{searchChat.text}" />
 			</div>
 			<div id="contacts">
 				<ul>
@@ -799,8 +809,8 @@ body {
 			</div>
 			<div id="bottom-bar">
 				<button id="addcontact">
-					<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add
-						contact</span>
+					<i th:title="#{addgroup.text}" class="fa fa-user-plus fa-fw"
+						aria-hidden="true"></i> <span th:text="#{addgroup.text}"></span>
 				</button>
 
 			</div>
@@ -818,8 +828,9 @@ body {
 
 
 					<!-- boton para abrir los metrics data-toggle="modal" data-target="popup()"   onclick="location.href='metrics'" aria-hidden="true" -->
-					<i class="fa fa-cog fa-fw" id="btn-abrir-popup" title="Informacion"></i>
-					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
+					<i class="fa fa-cog fa-fw" id="btn-abrir-popup"
+						th:title="#{info.text}"></i> <i class="fa fa-user-plus fa-fw"
+						aria-hidden="true" th:title="#{invite.text}"></i>
 
 
 				</div>
@@ -831,9 +842,9 @@ body {
 			</div>
 			<div class="message-input">
 				<div class="wrap">
-					<input type="text" id="text" placeholder="Write your message..." />
+					<input type="text" id="text" th:placeholder="#{writeMessage.text}" />
 					<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-					<button class="submit" id="btnSendMessage">
+					<button  th:title="#{send.text}" class="submit" id="btnSendMessage">
 						<i class="fa fa-paper-plane" aria-hidden="true"></i>
 					</button>
 				</div>
@@ -844,55 +855,59 @@ body {
 	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
 	<div class="overlay" id="overlay">
 		<div class="popup" id="popup">
-			<div class = "encabezadoPopup" >
-			<a href="chat" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-			<h4>Información del Grupo</h4>	
+			<div class="encabezadoPopup">
+				<a href="chat" id="btn-cerrar-popup" class="btn-cerrar-popup"><i
+					class="fas fa-times"></i></a>
+				<h4>Información del Grupo</h4>
 			</div>
 			<div class="contenPopup">
-				
+
 				<div class="contact-group" align="center">
-					<img src="http://emilcarlsson.se/assets/harveyspecter.png" class="online" alt="" /> <br>
-					 <label>Group: name gorup </label>
-					 <hr style="color: #808080;" />
+					<img src="http://emilcarlsson.se/assets/harveyspecter.png"
+						class="online" alt="" /> <br> <label>Group: name
+						gorup </label>
+					<hr style="color: #808080;" />
 					<ul>
-						<b>Owner:</b> 
-						<li class=""><img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<b>Owner:</b>
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-					</ul>					
-					<ul>
-						<b>Admin:</b> 
-						<li class=""><img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
+							<p>Usuario</p></li>
 					</ul>
-					
 					<ul>
-						<b>Users</b> 
-						<li class=""><img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<b>Admin:</b>
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 							<p>Jeremy</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<p>Usuario</p></li>
+					</ul>
+
+					<ul>
+						<b>Users</b>
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<p>Jeremy</p>
+							<p>Usuario</p></li>
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 							<p>Manfred</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<p>Usuario</p></li>
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 							<p>Aaron</p>
-							<p>Usuario</p>
-						</li>
-						<li class=""><img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<p>Usuario</p></li>
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 							<p>Emma</p>
-							<p>Usuario</p>
-						</li>
+							<p>Usuario</p></li>
 					</ul>
-					
-						
-				</div>	
-			</div> <!-- cierre contenPopup -->
-		</div><!-- cierra contenPopup -->
+
+
+				</div>
+			</div>
+			<!-- cierre contenPopup -->
+		</div>
+		<!-- cierra contenPopup -->
 	</div>
 	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
 
@@ -1037,6 +1052,16 @@ body {
 			e.preventDefault();
 			overlay.classList.remove('active');
 			popup.classList.remove('active');
+		});
+
+		/* Lenguaje  */
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('?lang=' + selectedOption);
+				}
+			});
 		});
 	</script>
 </body>
