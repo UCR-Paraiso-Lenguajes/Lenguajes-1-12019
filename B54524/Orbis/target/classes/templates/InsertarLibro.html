@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Insertar Libro</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script>
+            function agregarAutores() {
+                let leftSelect = document.getElementById("leftSelect");
+                let text = leftSelect.options[leftSelect.selectedIndex].text;
+                let value = leftSelect.options[leftSelect.selectedIndex].value;
+                let rightSelect = document.getElementById("rightSelect");
+                rightSelect.options[rightSelect.options.length] = new Option(text, value, true, true);
+                leftSelect.remove(leftSelect.selectedIndex);
+            }
+            
+            function quitarAutores() {
+                let rightSelect = document.getElementById("rightSelect");
+                let text = rightSelect.options[rightSelect.selectedIndex].text;
+                let value = rightSelect.options[rightSelect.selectedIndex].value;
+                let leftSelect = document.getElementById("leftSelect");
+                leftSelect.options[leftSelect.options.length] = new Option(text, value, true, true);
+                rightSelect.remove(rightSelect.selectedIndex);
+            }
+    </script>
+</head>
+<body>
+	<div class="container" style="max-width: 70%; padding: 40px 20px;">
+		<h2>Insertar un nuevo libro</h2>
+
+		<form action="#" th:object="${libroForm}"
+			th:action="@{/insertarlibro}" method="POST">
+			<label>T&iacute;tulo:</label> <input type="text" th:field="*{titulo}">
+			<br>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('titulo')}" style="max-width: 60%;">El
+				titulo debe tener al menos una letra y maximo 30.</div>
+			<label>A&ntilde;o:</label> <input type="number" th:field="*{anio}">
+			<br>
+			<div class="alert alert-danger" th:if="${#fields.hasErrors('anio')}"
+				style="max-width: 20%;">Fecha incorrecta.</div>
+			<label>Editorial:</label> <select th:field="*{idEditorial}">
+				<option th:each="editorial: ${Editoriales}"
+					th:value="${editorial.id}" th:text="${editorial.nombre}"></option>
+			</select> <br> <label>Precio:</label> <input type="number"
+				th:field="*{precio}"> <br>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('precio')}" style="max-width: 30%;">Precio
+				no puede ser negativo.</div>
+			<div class="autores-container">
+				<label>Seleccione 1 o m&aacute;s autores: </label> <br> <select
+					id="leftSelect" multiple="multiple" style="width: 12.5%;">
+					<option th:each="autor: ${Autores}" th:value="${autor.id}"
+						th:text="${autor.apellidos+', '+autor.nombre}"></option>
+				</select>
+
+				<button type="button" onclick="agregarAutores()">>></button>
+				<button type="button" onclick="quitarAutores()"><<</button>
+
+				<select id="rightSelect" th:field="*{idAutores}" multiple="multiple"
+					style="width: 12.5%;"></select>
+			</div>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('idAutores')}" style="max-width: 30%;">Minimo
+				debe tener un autor.</div>
+			<button type="submit">Guardar Libro</button>
+		</form>
+	</div>
+</body>
+</html>
