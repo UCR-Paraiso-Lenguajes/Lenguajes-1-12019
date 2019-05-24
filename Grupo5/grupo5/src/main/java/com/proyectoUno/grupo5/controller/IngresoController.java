@@ -42,9 +42,7 @@ public class IngresoController {
     	user.setEmail(user.getEmail());
     	user.setHash("url");
     	user.setRoleUser(roles);
-    	System.out.print("Correo enviado");
     	userBusiness.insertUser(user);
-		System.out.print("resultado"+userBusiness.insertUser(user));
     	try {
     		notificationService.sendNotification(user);
     		
