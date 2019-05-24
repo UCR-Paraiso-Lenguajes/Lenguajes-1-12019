@@ -80,7 +80,7 @@ public class HelloController {
     }
 	
 	
-	//enviar correos a varias personas 
+	//enviar correos a varias personas!
 	@RequestMapping(value="/invite", method=RequestMethod.GET )
 	public String inviteGet(EmailForm emailForm, Model model) {
 		model.addAttribute("emailForm", new EmailForm());
