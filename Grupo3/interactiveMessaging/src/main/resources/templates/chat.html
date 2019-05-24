@@ -789,15 +789,6 @@ body {
 			</div>
 			<div id="contacts">
 				<ul>
-					<li class="contact active">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<div class="meta">
-								<p class="name">Harvey Specter</p>
-								<p class="preview"></p>
-							</div>
-						</div>
-					</li>
 					<li onclick="print(this)" th:each="group: ${groups}"
 						class="contact">
 						<div class="wrap">
@@ -909,7 +900,17 @@ body {
 		var idUserRoom = $("#userRoom");
 		var idGroup;
 		var nameGroup;
+		var previousTag;
 		function print(i) {
+			if(previousTag != null){
+				if(previousTag.classList.contains('contact')&&previousTag.classList.contains('active')){
+					previousTag.classList.remove('active');
+					i.classList.add('active');
+				}
+			}else{
+				i.classList.add('active');
+			}
+			//console.log(i);
 			idGroup = i.children[0].children[1].children[1];
 			nameGroup = i.children[0].children[1].children[0].innerHTML;
 			
@@ -940,7 +941,7 @@ body {
 								};
 								
 							});
-
+			previousTag = i;
 			//location.href = "chat";
 		};
 		$("#btnSendMessage").click(function() {
