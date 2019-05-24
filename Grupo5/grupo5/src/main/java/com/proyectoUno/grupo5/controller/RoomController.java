@@ -2,7 +2,7 @@ package com.proyectoUno.grupo5.controller;
 
 import com.proyectoUno.grupo5.business.RoomBussiness;
 import com.proyectoUno.grupo5.domain.Room;
-import com.proyectoUno.grupo5.domain.User;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;

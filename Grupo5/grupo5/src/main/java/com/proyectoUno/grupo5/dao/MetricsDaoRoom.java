@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.proyectoUno.grupo5.dao.MetricsDao.MetricsWithExtractor;
 import com.proyectoUno.grupo5.domain.Metrics;
+import com.proyectoUno.grupo5.domain.MetricsRooms;
 
 public class MetricsDaoRoom {
 
@@ -27,26 +28,26 @@ public class MetricsDaoRoom {
 	    private DataSource dataSource;
 
 	    @Transactional(readOnly = true)
-	    public List<Metrics> getMetrics() {
-	        String sqlSelect = "select * from metrics";
-	        return jdbcTemplate.query(sqlSelect, new MetricsWithExtractor());
+	    public List<MetricsRooms> getMetricsRoom() {
+	        String sqlSelect = "SELECT idMetricsRoom,userWithMoreMessage,longerMesssage,dateOfLastMessage,idRoom FROM metricsRoom";
+	        return jdbcTemplate.query(sqlSelect, new MetricsRoomWithExtractor());
 	    }
-	    class MetricsWithExtractor implements ResultSetExtractor<List<Metrics>> {
+	    class MetricsRoomWithExtractor implements ResultSetExtractor<List<MetricsRooms>> {
 
 	        @Override
-	        public List<Metrics> extractData(ResultSet rs) throws SQLException, DataAccessException {
-	            Map<Integer, Metrics> map = new HashMap<>();
-	            Metrics metrics = null;
+	        public List<MetricsRooms> extractData(ResultSet rs) throws SQLException, DataAccessException {
+	            Map<Integer, MetricsRooms> map = new HashMap<>();
+	            MetricsRooms metrics = null;
 	            while (rs.next()) {
-	                Integer id = rs.getInt("idmetrics");
+	                Integer id = rs.getInt("idMetricsRoom");
 	                metrics = map.get(id);
 	                if (metrics == null) {
-	                    metrics = new Metrics();
-	                    metrics.setIdmetrics(id);
-	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_room"));
-	                    metrics.setQuantityOfRooms(rs.getInt("quantity_rooms"));
-	                    metrics.setQuantityOfUsers(rs.getInt("quantity_user"));
-	                    metrics.setDateOfFirstLogin(rs.getDate("date_first_login"));
+	                    metrics = new MetricsRooms();
+	                    metrics.setIdMetricsRoom(id);
+	                    metrics.setUserWithMoreMessage(("userWithMoreMessage"));
+	                    metrics.setLongerMesssage(("longerMesssage"));
+	                    metrics.setDateOfLastMessage(rs.getDate("dateOfLastMessage"));
+	                    metrics.setRoom(rs.getInt("idRoom"));
 
 	                    
 	                    map.put(id, metrics);
@@ -54,7 +55,7 @@ public class MetricsDaoRoom {
 	                }
 
 	            }
-	            return new ArrayList<Metrics>(map.values());
+	            return new ArrayList<MetricsRooms>(map.values());
 	        }
 
 	    }
