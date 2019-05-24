@@ -20,7 +20,7 @@ body{
     text-align: center;
     border: 2px solid #3498db;
     padding: 14px 10px;
-    width: 400px;
+    width: 300px;
     outline: none;
     color: white;
     border-radius: 24px;
@@ -28,9 +28,23 @@ body{
  }
 
 .inputChat:focus{
-    width: 480px;
+    width: 380px;
     border-color: #2ecc71;
  }
  #textChat{
      text-align: center;
  }
+ .well{
+width: 100% !important;
+text-align: left !important;
+color: white;
+font-size: 8%;
+}
+.cen{
+    text-align: center;
+}
+.der{
+    text-align: right;
+}
+
+

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Chat</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -14,6 +13,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/chat.css">
+    <title>Chat</title>
 </head>
 
 <body>
@@ -115,44 +115,7 @@
             <div class="col-sm-1"></div>
         </div>
         <div class="col-sm-8">
-            <br><br><br><br><br>
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <h1 id="textChat">Crear Grupo</h1>
-                </div>
-                <div class="col-sm-4"></div>
-            </div>
-            <br><br><br><br><br>
-
-            <form th:action="@{/createRoom}" th:object="${room}" method="post" class="box">
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <h3 id="textChat"> Ingrese el nombre del Grupo</h3>
-                            <input type="text" th:field="*{roomName}" class="form-control inputChat"
-                                placeholder="Escribe...." maxlength="25">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                    </div>
-                </div>
-                <br><br><br><br><br>
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-3">
-                        <input class="btn btn-success btn-lg" type="submit" value="Crear Grupo"></input>
-                    </div>
-                    <div class="col-sm-3">
-                        <button class="btn btn-danger btn-lg">Cancelar</button>
-                    </div>
-
-            </form>
-
-            <div class="col-sm-2"></div>
         </div>
-    </div>
     </div>
 </body>
 
