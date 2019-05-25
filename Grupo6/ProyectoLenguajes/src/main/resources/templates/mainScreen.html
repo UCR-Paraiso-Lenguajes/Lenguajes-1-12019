@@ -144,7 +144,8 @@
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" id="invite" value="Invite">
+					<input type="submit" class="btn btn-primary" id="invite"
+						value="Invite">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 
@@ -171,7 +172,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<button id="create" type="submit" class="btn btn-primary" >Create</button>
+					<button id="create" type="submit" class="btn btn-primary">Create</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
@@ -221,23 +222,23 @@
 
 		document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
 				+ messageChat + '</div>';
-				
+
 		clean();
 	}
-	
-	function clean(){
+
+	function clean() {
 		document.getElementById("messageForm").value = "";
 	}
-	
+
 	var messageForm = document.getElementById("messageForm");
-	messageForm.addEventListener("keydown", function (e) {
-	    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
-	        
-	    	getValues();
-	    
-	    }
+	messageForm.addEventListener("keydown", function(e) {
+		if (e.keyCode === 13) { //checks whether the pressed key is "Enter"
+
+			getValues();
+
+		}
 	});
-	
+
 	var create = $("#create");
 	var newGroup = $("#newGroup");
 	var obj = {
@@ -248,67 +249,57 @@
 		"listUsers" : [],
 		"listMessage" : []
 	};
-	$("#create").click(function() {
+	$("#create")
+			.click(
+					function() {
 
-		obj.name = newGroup.val();
+						obj.name = newGroup.val();
+
+						$.ajax({
+							method : "POST",
+							data : JSON.stringify(obj),
+							contentType : "application/json; charset=utf-8",
+							dataType : "json",
+							url : "api/ChatRoom"
+						}).done(function(data) {
+
+						});
+
+						$('#ModalCreateGroup').modal('toggle');
+
+						document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
+								+ '<div class="col-md-4">'
+								+ '</div>'
+								+ '<div class="col-md-8">'
+								+ '<span>'
+								+ newGroup.val() + '</span>' + '</div>'
+						'</div>'
+					});
+
+	var invite = $("#invite");
+	var newGroupMember = $("#newGroupMember");
+	var obj = {
+		"avatar" : "",
+		"email" : newGroupMember,
+		"name" : "",
+		"Rol" : {
+			"name" : ""
+		}
+	};
+	$("#invite").click(function() {
+
+		obj.email = newGroupMember.val();
 
 		$.ajax({
 			method : "POST",
 			data : JSON.stringify(obj),
 			contentType : "application/json; charset=utf-8",
 			dataType : "json",
-			url : "api/ChatRoom"
+			url : "api/User"
 		}).done(function(data) {
-
-		});
-
-		$('#ModalCreateGroup').modal('toggle');
-
-		document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'+
-		'<div class="col-md-4">'+
-		'</div>'+
-		'<div class="col-md-8">'+
-		'<span>'+newGroup.val()+'</span>'+
-		'</div>'
-		'</div>'
-	});
-	
-	
-	
-	
-	
-	var invite = $("#invite");
-	var newGroupMember = $("#newGroupMember");
-	var obj =     {
-	        "password": "",
-	        "avatar": "",
-	        "email": newGroupMember,
-	        "name": "",
-	        "Rol":{
-	        	"name":""
-	        }
-	    };
-	$("#invite").click(function(){
-		
-		obj.email=newGroupMember.val();
-		
-		$.ajax(	{
-			method:"POST",
-			data:JSON.stringify( obj),
-			contentType:"application/json; charset=utf-8",
-			dataType:"json",
-			url: "api/User"
-		}).done(function( data ) {
 			alert("Exito");
 		});
 	});
-
-	
-	
-	
-	
-	
-	
 </script>
 <style>
 .my-custom-scrollbar {

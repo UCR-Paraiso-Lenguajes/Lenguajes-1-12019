@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chat.bussines.ChatRoomBussines;
 import com.chat.bussines.UserBussines;
 import com.chat.domain.ChatRoom;
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
+import com.chat.domain.UserClient;
 import com.ram.configuration.AppConfig;
 import com.ram.service.MailService;
 import com.ram.service.MailServiceImpl;
@@ -23,7 +24,7 @@ public class UserControllerRest {
 	private UserBussines userBussines;
 
 	@RequestMapping(value = "api/User", method = RequestMethod.POST)
-	public @ResponseBody void addChatRoom(@RequestBody User user) {
+	public @ResponseBody void addChatRoom(@RequestBody UserClient user) {
 		userBussines.sendEmail(user);
 
 	}

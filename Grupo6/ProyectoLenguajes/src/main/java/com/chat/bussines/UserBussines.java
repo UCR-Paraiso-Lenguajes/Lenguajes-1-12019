@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.chat.data.UserData;
 import com.chat.domain.UserClient;
+import com.ram.configuration.AppConfig;
+import com.ram.service.MailService;
+import com.ram.service.MailServiceImpl;
 
 @Service
 public class UserBussines {
@@ -64,8 +67,10 @@ Random r = new Random();
 		return user;
 	}
 	
-	public void sendEmail(User user) {
+	public void sendEmail(UserClient user) {
 		
+	
+
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(
 				AppConfig.class);
 
