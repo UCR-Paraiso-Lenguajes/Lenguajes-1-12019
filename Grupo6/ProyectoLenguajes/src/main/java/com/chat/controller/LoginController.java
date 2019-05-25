@@ -11,8 +11,13 @@ public class LoginController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
     public String login(Model model) 
 	{
-	
 		return "login";
+    }
+	
+	@RequestMapping(value="/loginAdmin", method=RequestMethod.GET)
+    public String loginAdmin(Model model) 
+	{
+		return "loginAdmin";
     }
 	
 }
