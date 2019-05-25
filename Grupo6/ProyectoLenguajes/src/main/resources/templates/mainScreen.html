@@ -25,7 +25,15 @@
 				<div id="panelGroups" class="panel panel-default">
 
 					<div class="panel panel-primary">
-						<div class="table-wrapper-scroll-y my-custom-scrollbar"></div>
+						<div class="table-wrapper-scroll-y my-custom-scrollbar" th:each="room: ${rooms}">
+							<div class="row">
+								<div class="col-md-4">
+								</div>
+								<div class="col-md-8">
+									<span th:text="${room.name}"></span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 

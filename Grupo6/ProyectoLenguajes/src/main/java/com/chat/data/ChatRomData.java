@@ -149,8 +149,8 @@ public class ChatRomData {
 	}
 
 	@Transactional(readOnly = true)
-	public List<ChatRoom> getRooms() {
-		List<ChatRoom> rooms = Collections.synchronizedList(new ArrayList<ChatRoom>());
+	public ArrayList<ChatRoom> getRooms() {
+		ArrayList<ChatRoom> rooms = (ArrayList<ChatRoom>) Collections.synchronizedList(new ArrayList<ChatRoom>());
 		String sql = "SELECT room_id, room_name, version, room_user_creator "
 				+ "FROM room";
 		Connection conexion = null;
