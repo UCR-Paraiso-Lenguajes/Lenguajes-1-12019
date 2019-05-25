@@ -1,6 +1,5 @@
 package com.videocartago.renting.data;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -15,15 +14,15 @@ import com.videocartago.renting.domain.Pelicula;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PeliculaDataTest {
+public class PeliculaBusiness {
+
 	@Autowired
-	private PeliculaData peliculaData;
+	private PeliculaBusiness peliculaBusiness;
 	
 	@Test
-	public void findMoviesByTitleAndGenre() {
-		List<Pelicula> peliculas = peliculaData.findMoviesByTitleAndGenre("time", "suspenso");
-		assertNotNull(peliculas);
-		assertTrue(!peliculas.isEmpty());
+	public List<Pelicula> findAllMovieByTitle(String title){
+		assertTrue(title != null);
+		return peliculaBusiness.findAllMovieByTitle(title);
 	}
 	
 }

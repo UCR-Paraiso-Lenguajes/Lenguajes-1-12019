@@ -11,19 +11,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.videocartago.renting.domain.Clip;
 import com.videocartago.renting.domain.Pelicula;
+import com.videocartago.renting.domain.Video;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PeliculaDataTest {
+public class VideoBusinessTest {
+
 	@Autowired
-	private PeliculaData peliculaData;
+	private VideoBusinessTest videoBusiness;
 	
 	@Test
-	public void findMoviesByTitleAndGenre() {
-		List<Pelicula> peliculas = peliculaData.findMoviesByTitleAndGenre("time", "suspenso");
-		assertNotNull(peliculas);
-		assertTrue(!peliculas.isEmpty());
+	public Video insertar(Video video) {
+		assertNotNull(video);
+		return videoBusiness.insertar(video);
 	}
-	
+
 }

@@ -15,15 +15,21 @@ import com.videocartago.renting.domain.Pelicula;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PeliculaDataTest {
+public class MovimientoDataTest {
 	@Autowired
-	private PeliculaData peliculaData;
+	private MovimientoData movimientoData;
 	
 	@Test
-	public void findMoviesByTitleAndGenre() {
-		List<Pelicula> peliculas = peliculaData.findMoviesByTitleAndGenre("time", "suspenso");
-		assertNotNull(peliculas);
-		assertTrue(!peliculas.isEmpty());
+	public void determinaEstado(int codPelicula) {
+		codPelicula=3;
+		
+		String estado = movimientoData.determinaEstado(codPelicula);
+		assertNotNull(estado);
 	}
 	
+	@Test
+	public void colocaEstado() {
+		String titulo="Lyka";	
+		movimientoData.colocarEstado(titulo, true);
+	}
 }

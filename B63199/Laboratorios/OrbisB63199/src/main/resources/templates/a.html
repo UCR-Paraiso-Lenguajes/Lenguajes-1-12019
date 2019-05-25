@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mantenimiento de peliculas</title>
+<title>Mantenimiento de editoriales</title>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
@@ -12,38 +12,24 @@
 
 </head>
 <body>
-<button>cris</button>
-<div id="div1">Test</div>
+
 <div class="container">
-<h1>Mantenimiento de películas</h1>
+<h1>Mantenimiento de editoriales</h1>
 	<table class="table table-striped">
 	  <tr>
-	    <th>Código</th>
-	    <th>Título</th>
-	    <th>Género</th>
-	    <th>Total Películas</th>
-	    <th>Índice</th>
+	    <th>id_editorial</th>
+	    <th>nombre</th>
+	    <th>direcion</th>
+	    <th>telefono</th>
 	  </tr>
-	   <tr th:each="pelicula : ${peliculas}">
-	    <td><span th:text="${pelicula.codPelicula}"></span></td>
-	    <td><span th:text="${pelicula.titulo}"></span></td>
-	    <td><span th:text="${pelicula.genero.nombreGenero}"></span></td>
-	    <td><span th:text="${pelicula.totalPeliculas}"></span></td>
-	    <td><span th:text="${peliculaStat.count}"></span></td>
+	   <tr th:each="editorial : ${editoriales}">
+	    <td><span th:text="${editorial.id_editorial}"></span></td>
+	    <td><span th:text="${editorial.nombre}"></span></td>
+	    <td><span th:text="${editorial.direcion}"></span></td>
+	    <td><span th:text="${editorial.telefono}"></span></td>
 	  </tr>
 	</table>
 </div>
 
-<script>
-	$("button").click(function(){
-		$.ajax({url: "http://localhost:8080/renting/peliculas", 
-			success: function(result)
-			{
-				var a = eval(result);
-				
-			$("#div1").html(a[0].codPelicula);
-		}});
-	});
-</script>
 </body>
 </html>
