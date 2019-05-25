@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.chat.domain.ChatRoom;
@@ -86,8 +85,8 @@ public class ChatRomData {
 	}
 	
 	@Transactional(readOnly = true)
-	public List<User> getUsers(ChatRoom room) {
-		List<User> users = Collections.synchronizedList(new ArrayList<User>());
+	public List<UserAdmin> getUsers(ChatRoom room) {
+		List<UserAdmin> users = Collections.synchronizedList(new ArrayList<UserAdmin>());
 		String selectSql = "SELECT u.user_id, u.user_name, u.user_email, u.user_password, "
 				+ "r.role_id, r.role_name "
 				+ "FROM user u JOIN room_user ru ON u.user_id = id_user "

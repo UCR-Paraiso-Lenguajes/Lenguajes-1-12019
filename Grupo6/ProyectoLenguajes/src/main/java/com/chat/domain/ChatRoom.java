@@ -13,7 +13,7 @@ public class ChatRoom {
 	private String url;
 	private List<UserAdmin> listUsers;
 	private List<Message> listMessage;
-	private User user_creator;
+	private UserAdmin user_creator;
 	private String avatar;
 
 	public ChatRoom(int id, String name, int version, String url, List<UserAdmin> listUsers, List<Message> listMessage, UserAdmin userCreator) {
