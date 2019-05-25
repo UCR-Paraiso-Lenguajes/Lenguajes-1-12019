@@ -16,7 +16,7 @@ public class Rooms {
 	private ChatRomData roomData;
 	@Autowired
 	private ArrayList<ChatRoom> rooms;
-	@Autowired
+
 	private static Rooms roomsInstance = null;
 	
 	private Rooms() {

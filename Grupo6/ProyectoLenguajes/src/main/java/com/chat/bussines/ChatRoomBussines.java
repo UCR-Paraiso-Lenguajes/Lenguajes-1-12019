@@ -1,5 +1,6 @@
 package com.chat.bussines;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -24,8 +25,16 @@ public class ChatRoomBussines {
 	
 	
 	public Iterator<ChatRoom> getRooms(){
-		Rooms rooms = Rooms.getInstance();
-		return rooms.getRooms();
-	}
-	
+		//Rooms rooms = new Rooms();
+		ArrayList<ChatRoom> rooms = chatRomData.getRooms();
+		for (ChatRoom chatRoom : rooms) {
+			Random r = new Random();
+			int min = 0;
+			int max = 49;
+			int valueAvatar = r.nextInt((max - min) + 1) + min;
+			String avatar = "\\src\\main\\resources\\img\\img" + valueAvatar;
+			chatRoom.setAvatar(avatar);
+		}
+		return rooms.iterator();
+	}	
 }

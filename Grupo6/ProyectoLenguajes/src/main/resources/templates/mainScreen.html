@@ -25,9 +25,10 @@
 				<div id="panelGroups" class="panel panel-default">
 
 					<div class="panel panel-primary">
-						<div class="table-wrapper-scroll-y my-custom-scrollbar" th:each="room: ${rooms}">
-							<div class="row">
+						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+							<div class="row" th:each="room: ${rooms}">
 								<div class="col-md-4">
+									<img src="C:\Users\LAB-15\Desktop\repo\Lenguajes-1-12019\Grupo6\ProyectoLenguajes\src\main\resources\templates\img1.png">
 								</div>
 								<div class="col-md-8">
 									<span th:text="${room.name}"></span>
