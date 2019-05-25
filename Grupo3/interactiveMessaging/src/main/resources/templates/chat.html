@@ -29,10 +29,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	
-	
+
+
 <script type="text/javascript" src="../static/js/myWorker.js"
-    th:src="@{/js/myWorker.js}"></script>
+	th:src="@{/js/myWorker.js}"></script>
 
 
 <script>
@@ -846,7 +846,7 @@ body {
 				<div class="wrap">
 					<input type="text" id="text" th:placeholder="#{writeMessage.text}" />
 					<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-					<button  th:title="#{send.text}" class="submit" id="btnSendMessage">
+					<button th:title="#{send.text}" class="submit" id="btnSendMessage">
 						<i class="fa fa-paper-plane" aria-hidden="true"></i>
 					</button>
 				</div>
@@ -915,16 +915,8 @@ body {
 
 
 
-
+	
 	<script>
-		/*
-			Concurrent.Thread.create(function() {
-				var i = 0;
-				while (1) {
-					console.log("hola soy el hilo");
-					i++;
-				}
-			});*/
 		$(".messages").animate({
 			scrollTop : $(document).height()
 		}, "fast");
@@ -932,7 +924,10 @@ body {
 		var idGroup;
 		var nameGroup;
 		var previousTag;
+		var ulM = jQuery('.messages ul');
+		var pActual = document.getElementById("ActualGroupName");
 		function print(i) {
+			
 			if (previousTag != null) {
 				if (previousTag.classList.contains('contact')
 						&& previousTag.classList.contains('active')) {
@@ -946,39 +941,15 @@ body {
 			idGroup = i.children[0].children[1].children[1];
 			nameGroup = i.children[0].children[1].children[0].innerHTML;
 
-			var pActual = document.getElementById("ActualGroupName");
+			
 			pActual.innerHTML = nameGroup;
-			jQuery('.messages ul').empty();
+			//jQuery('.messages ul').empty();
+			
 
-			$
-					.getJSON(
-							"http://localhost:8080/msn/api/messages/?idGroup="
-									+ idGroup.value + "&idUserRoom="
-									+ idUserRoom.val(),
-							{
-								name : 'messages'
-							},
-							function(data, textStatus, jqXHR) {
-
-								var msclass;
-								var mstext;
-
-								var size = 0;
-								for (key in data) {
-									if (data.hasOwnProperty(key))
-										msclass = data[size].type;
-									mstext = data[size].message;
-									$(
-											'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
-													+ mstext + '</p></li>')
-											.appendTo($('.messages ul'));
-									size++;
-								}
-								;
-
-							});
+			upDateMessagesFrame();
 			previousTag = i;
-			//location.href = "chat";
+			
+			//startTimer();///////////////////////hilo
 		};
 
 		function sendToServer() {
