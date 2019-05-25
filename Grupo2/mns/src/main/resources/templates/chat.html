@@ -37,7 +37,7 @@
 		</div>
 			
 		<div class="col-md-5" >
-		    <h3 style="color: white;text-align: center; font: bold; font: italic;">Lorem Ipsum</h3>
+		    <h3 id="roomTitle" style="color: white;text-align: center; font: bold; font: italic;"></h3>
 		</div> 
 
 		<div class="col-md-2" >
@@ -88,29 +88,16 @@
             <div class="col-md-3">
 	            <div class="col-12" style="height:350px;  widht:600px; overflow-y:scroll;">
 	            	
-	                <ul class="nav nav-pills brand-pills nav-stacked" role="tablist">
-	                    <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Lorem ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Zombie ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Gansta ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Corporate ipsum</a></li>
-	                    <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Lorem ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Zombie ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Gansta ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Corporate ipsum</a></li><li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Lorem ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Zombie ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Gansta ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Corporate ipsum</a></li><li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Lorem ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Zombie ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Gansta ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Corporate ipsum</a></li><li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Lorem ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Zombie ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Gansta ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Corporate ipsum</a></li><li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Lorem ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Zombie ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Gansta ipsum</a></li>
-	                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Corporate ipsum</a></li>
+	                <ul th:each="room: ${rooms}" class="nav nav-pills brand-pills nav-stacked" role="tablist">
 	                    
+	                    <li role="presentation" class="brand-nav active">
+	                    	<a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">
+	                    		<span id="roomName" th:text="${room.name}"></span>
+	                    	</a>
+	                    </li>
+
 	                </ul>
+	                
 	            </div>
 	            <br>
 	            <div class="container" >
@@ -144,15 +131,32 @@
 					</div>
 			
 					<br>
-					<button class="btn btn-info" onclick="myFunction()">Enviar</button>
-					<textarea maxlength="500" id="mensaje" placeholder="Ingresa tu mensaje" style="resize: none; margin: 0px; width: 499px; height: 70px;"></textarea>
-			
+					
+					<form  th:action="@{/chat}" method="post">
+						<button type="submit" class="btn btn-info" >Enviar</button>
+						<textarea name="messageBox" maxlength="500" id="mensaje" placeholder="Ingresa tu mensaje" style="resize: none; margin: 0px; width: 499px; height: 70px;"></textarea>
+					</form>
 			
  			</div >
  	</div>
 </div>	
  	
 <script type="text/javascript">
+
+var roomName = getElementById("roomName");
+var title = getElementById("roomTitle");
+
+title.innerText=""+roomName.value;
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,6 +177,7 @@ function myFunction() {
 
 
 }
+
 </script>
 
 </body>

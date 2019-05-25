@@ -10,7 +10,8 @@ import cr.ac.ucr.exceptions.ProjectExceptions;
 public final class Room extends RoomConvention{
 	
 	private int idRoom;
-	private static int version;
+	private String name;
+	private int version;
 	private User roomAdministrator;
 	private User roomOwner;
 	private HashSet<User> users = new HashSet<>();
@@ -92,12 +93,12 @@ public final class Room extends RoomConvention{
 		this.idRoom = idRoom;
 	}
 
-	public static int getVersion() {
+	public int getVersion() {
 		return version;
 	}
 
 	public void updateVersion() {
-		Room.version++;
+		this.version++;
 	}
 
 	public User getRoomAdministrator() {
@@ -119,6 +120,14 @@ public final class Room extends RoomConvention{
 
 	public Iterator<Message> getMessages() {
 		return messages.iterator();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

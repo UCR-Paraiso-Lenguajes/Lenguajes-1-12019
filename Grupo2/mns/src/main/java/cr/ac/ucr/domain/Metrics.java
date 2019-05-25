@@ -175,7 +175,8 @@ public class Metrics {
 	
 	
 	public void updateUsersPromedyByRoom() {
-		usersPromedyByRoom = usersQuantity / roomsQuantity;
+		if(roomsQuantity == 0 ) usersPromedyByRoom = 0;
+		else usersPromedyByRoom = usersQuantity / roomsQuantity;
 	}
 
 	public int getIdMetric() {

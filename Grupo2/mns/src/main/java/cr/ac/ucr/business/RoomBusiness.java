@@ -1,5 +1,6 @@
 package cr.ac.ucr.business;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.springframework.stereotype.Service;
@@ -15,5 +16,26 @@ public class RoomBusiness {
 		return room.getMessages();
 	}
 
+	
+	public Iterator<Message> processMessage(Message message){
+		
+		
+		room.process(message);
+		return room.getMessages();
+		
+	}
+	
+	
+	public ArrayList<Room> staticRooms = new ArrayList<Room>();
+
+	public void addRoom(Room room) {
+		
+		staticRooms.add(room);
+		
+	}
+	
+	
+	
+	
 	
 }
