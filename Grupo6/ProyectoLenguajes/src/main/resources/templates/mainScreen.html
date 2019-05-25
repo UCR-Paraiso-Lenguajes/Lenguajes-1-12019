@@ -135,7 +135,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value="Invite">
+					<input type="submit" class="btn btn-primary" id="invite" value="Invite">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 
@@ -242,6 +242,43 @@
 			alert("Exito");
 		});
 	});
+	
+	
+	
+	
+	
+	var invite = $("#invite");
+	var newGroupMember = $("#newGroupMember");
+	var obj =     {
+	        "password": "",
+	        "avatar": "",
+	        "email": newGroupMember,
+	        "name": "",
+	        "Rol":{
+	        	"name":""
+	        }
+	    };
+	$("#invite").click(function(){
+		
+		obj.email=newGroupMember.val();
+		
+		$.ajax(	{
+			method:"POST",
+			data:JSON.stringify( obj),
+			contentType:"application/json; charset=utf-8",
+			dataType:"json",
+			url: "api/User"
+		}).done(function( data ) {
+			alert("Exito");
+		});
+	});
+
+	
+	
+	
+	
+	
+	
 </script>
 <style>
 .my-custom-scrollbar {

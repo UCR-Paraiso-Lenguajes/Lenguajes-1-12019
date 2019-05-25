@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.chat.data.UserData;
 import com.chat.domain.User;
 import com.chat.domain.form.UserForm;
+import com.ram.configuration.AppConfig;
+import com.ram.service.MailService;
+import com.ram.service.MailServiceImpl;
 
 @Service
 public class UserBussines {
@@ -45,6 +50,23 @@ public class UserBussines {
 		userData.addUser(user);
 		} throw new RuntimeException("El user es requerido");
 				
+	}
+	
+	public void sendEmail(User user) {
+		
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(
+				AppConfig.class);
+
+		MailService mailService = context.getBean("mailService", MailServiceImpl.class);
+
+		String senderEmailId = "lenguajesaplicaciones@gmail.com";
+		String receiverEmailId = user.getEmail();
+		String subject = "Invitación";
+		String message = "http://localhost:8585/mainScreen";
+
+		mailService.sendEmail(senderEmailId, receiverEmailId, subject, message);
+		context.close();
+		
 	}
 	
 	
