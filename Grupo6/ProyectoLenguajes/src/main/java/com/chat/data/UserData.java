@@ -21,7 +21,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
+import com.chat.domain.UserClient;
 import com.chat.domain.form.UserForm;
 
 
@@ -34,11 +35,9 @@ public class UserData {
 	private DataSource dataSource;
 
 	@Transactional(readOnly = true)
-	public void addUser(UserForm user) {
+	public int addUserClient(UserClient user) {
 		
-		System.out.println(user.toString());
-		
-		String sqlInsertUser = "Insert into User(password) values (?)";	
+		String sqlInsertUser = "Insert into user_client(email) values (?)";	
 		
 		Connection conexion = null;
 		
@@ -49,7 +48,7 @@ public class UserData {
 			
 		PreparedStatement statementInsertUser = conexion.prepareStatement(sqlInsertUser, Statement.RETURN_GENERATED_KEYS);
 		
-		statementInsertUser.setString(1, user.getPassword());
+		statementInsertUser.setInt(1, user.getId());
 	    
 		int filas = statementInsertUser.executeUpdate();
 		
@@ -61,7 +60,7 @@ public class UserData {
 
         try (ResultSet generatedKeys = statementInsertUser.getGeneratedKeys()) {
             if (generatedKeys.next()) {
-            	user.setCodUser(generatedKeys.getInt(1));
+            	user.setId(generatedKeys.getInt(1));
             	
             }
             else {
@@ -83,11 +82,13 @@ public class UserData {
 				}
 			}
 		  }
+		
+		return user.getId();
 	    }
 	
-	public void update(int id, User user) 
+	public void update(int id, UserAdmin user) 
 	{
-		String sqlSelect = "UPDATE User SET password = '"+
+		String sqlSelect = "UPDATE user_client SET password = '"+
 	user.getPassword()
 		+"' where id = "+id;
 		jdbcTemplate.batchUpdate(sqlSelect);

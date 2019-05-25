@@ -12,7 +12,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body onload='document.form.text1.focus()'>
 
 	<div class="container">
 
@@ -22,44 +22,84 @@
 
 			<div id="colform" class="col-sm-4 text-center">
 
-				<form id="form" action="/action_page.php">
+				<form id="form" name="form" action="/mainScreen">
+
 					<div class="form-group">
+
 						<input type="email" class="form-control" id="email"
 							placeholder="Enter your email" name="email">
 					</div>
-					<button id="button" type="submit" class="btn btn-default" >Login</button>
+
+					<button id="startChat" type="submit" class="btn btn-default" onclick="ValidateEmail(document.form1.text1)">Start
+						Chatting</button>
+
 				</form>
+
 			</div>
+
 		</div>
 
 	</div>
 
 
 	<div id="footer"></div>
+
 </body>
+<script type="text/javascript">
+
+    var email = $("#email");
+    
+    var obj =     {
+	        "email": email
+	        };
+
+	function ValidateEmail(inputText) {
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if (inputText.value.match(mailformat)) {
+			document.form1.text1.focus();
+			
+			return true;
+		} else {
+			alert("You have entered an invalid email address!");
+			document.form1.text1.focus();
+			return false;
+		}
+	}
+	
+	$("#startChat").click(function(){
+		
+		obj.email = email.val();
+		
+		$.ajax(	{
+			method:"POST",
+			data:JSON.stringify( obj),
+			contentType:"application/json; charset=utf-8",
+			dataType:"json",
+			url: "api/LoginUser"
+		}).done(function( data ) {
+			alert("Exito");
+		});
+	});
+	
+</script>
 
 <style>
-
 body {
 	background-image:
 		url(https://oinkmygod.com/wp-content/uploads/2018/03/recurso-wall-paper-oinkmygod-1-600x600.jpg);
 }
 
-.container{
-margin-top: 125px;
+.container {
+	margin-top: 125px;
 }
 
-#colform{
-  opacity: 0.5;
-  border-radius: 25px;
-  border: 2px solid #3D6F99;
-  padding: 20px; 
-  width: 350px;
-  height: 150px;
-
+#colform {
+	border-radius: 25px;
+	border: 2px solid #3D6F99;
+	padding: 20px;
+	width: 350px;
+	height: 150px;
 }
-
-
 </style>
 
 </html>

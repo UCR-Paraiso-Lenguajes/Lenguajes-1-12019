@@ -10,13 +10,12 @@ import java.util.Collections;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rol;
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
 
 @Repository
 public class ChatRomData {
@@ -86,12 +85,12 @@ public class ChatRomData {
 	}
 	
 	@Transactional(readOnly = true)
-	public List<User> getUsers(ChatRoom room) {
-		List<User> users = Collections.synchronizedList(new ArrayList<User>());
-		String selectSql = "SELECT user_id, user_name, user_email, user_password, "
-				+ "role_id, role_name "
+	public List<UserAdmin> getUsers(ChatRoom room) {
+		List<UserAdmin> users = Collections.synchronizedList(new ArrayList<UserAdmin>());
+		String selectSql = "SELECT u.user_id, u.user_name, u.user_email, u.user_password, "
+				+ "r.role_id, r.role_name "
 				+ "FROM user u JOIN room_user ru ON u.user_id = id_user "
-				+ "JOIN role r ON r.role_id = ru.id_role"
+				+ "JOIN role r ON r.role_id = ru.id_role "
 				+ "WHERE ru.id_room = ? ";
 		Connection conexion = null;
 		ResultSet rs = null;
@@ -101,7 +100,7 @@ public class ChatRomData {
 			statement.setInt(1, room.getId());
 			rs = statement.executeQuery();
 			while(rs.next()) {
-				User user = new User();
+				UserAdmin user = new UserAdmin();
 				user.setId(rs.getInt("user_id"));
 				user.setName(rs.getString("user_name"));
 				user.setEmail(rs.getString("user_email"));
@@ -149,8 +148,8 @@ public class ChatRomData {
 	}
 
 	@Transactional(readOnly = true)
-	public List<ChatRoom> getRooms() {
-		List<ChatRoom> rooms = Collections.synchronizedList(new ArrayList<ChatRoom>());
+	public ArrayList<ChatRoom> getRooms() {
+		ArrayList<ChatRoom> rooms = new ArrayList<ChatRoom>();
 		String sql = "SELECT room_id, room_name, version, room_user_creator "
 				+ "FROM room";
 		Connection conexion = null;
@@ -164,7 +163,7 @@ public class ChatRomData {
 				room.setId(rs.getInt("room_id"));
 				room.setName(rs.getString("room_name"));
 				room.setVersion(rs.getInt("version"));
-				User user = new User();
+				UserAdmin user = new UserAdmin();
 				user.setId(rs.getInt("room_user_creator"));
 				room.setUser_creator(user);
 				rooms.add(room);
@@ -173,10 +172,10 @@ public class ChatRomData {
 			throw new RuntimeException(e);
 		}
 		
-		for (ChatRoom room : rooms) {
+		/*for (ChatRoom room : rooms) {
 			room.setListMessage(getMessages(0, 50, room));
 			room.setListUsers(getUsers(room));
-		}
+		}*/
 		return rooms;
 	}
 }
