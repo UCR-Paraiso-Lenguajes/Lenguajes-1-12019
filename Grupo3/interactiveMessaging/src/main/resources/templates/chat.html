@@ -926,6 +926,7 @@ body {
 		var previousTag;
 		var ulM = jQuery('.messages ul');
 		var pActual = document.getElementById("ActualGroupName");
+		var host = window.location.hostname;
 		function print(i) {
 			
 			if (previousTag != null) {
@@ -949,7 +950,7 @@ body {
 			upDateMessagesFrame();
 			previousTag = i;
 			
-			//startTimer();///////////////////////hilo
+			startTimer();///////////////////////hilo
 		};
 
 		function sendToServer() {

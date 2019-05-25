@@ -29,4 +29,9 @@ public class UserDataTest {
 		Iterator<Integer>idGroupsOfUsr = userData.getIdGroupsOfUsr(1);
 		assertNotNull(idGroupsOfUsr);
 	}
+	@Test
+	public void getSpecificUserById() {
+		User user = userData.getSpecificUserById(1);
+		assertNotNull(user);
+	}
 }

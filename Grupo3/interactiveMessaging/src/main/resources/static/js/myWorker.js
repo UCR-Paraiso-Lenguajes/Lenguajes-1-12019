@@ -17,7 +17,7 @@ function startTimer() {
         
         if(diff===0){
         	//console.log(0);
-        	upDateMessagesFrame();
+        	upDateNEWMessagesFrame();
         }
         if (diff <= 0) {
             // add one second so that the count down starts at the full duration
@@ -34,7 +34,7 @@ function upDateMessagesFrame(){
 	ulM.empty();
 	$
 	.getJSON(
-			"http://localhost:8080/msn/api/messages/?idGroup="
+			"http://"+host+":8080/msn/api/messages/?idGroup="
 					+ idGroup.value + "&idUserRoom="
 					+ idUserRoom.val(),
 			{
@@ -50,6 +50,35 @@ function upDateMessagesFrame(){
 					if (data.hasOwnProperty(key))
 						msclass = data[size].type;
 					mstext = data[size].message;
+					$(
+							'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
+									+ mstext + '</p></li>')
+							.appendTo($('.messages ul'));
+					size++;
+				}
+				;
+
+			});
+}
+function upDateNEWMessagesFrame(){
+	$
+	.getJSON(
+			"http://"+host+":8080/msn/api/newmessages/?idGroup="
+					+ idGroup.value + "&idUserRoom="
+					+ idUserRoom.val(),
+			{
+				name : 'messages'
+			},
+			function(data, textStatus, jqXHR) {
+
+				var msclass;
+				var mstext;
+
+				var size = 0;
+				for (key in data) {
+					if (data.hasOwnProperty(key))
+						msclass = data[size].type;
+					mstext = data[size].message.message;
 					$(
 							'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
 									+ mstext + '</p></li>')
