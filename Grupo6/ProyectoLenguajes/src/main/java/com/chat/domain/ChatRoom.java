@@ -11,11 +11,11 @@ public class ChatRoom {
 	private String name;
 	private int version;
 	private String url;
-	private List<User> listUsers;
+	private List<UserAdmin> listUsers;
 	private List<Message> listMessage;
-	private User user_creator;
+	private UserAdmin user_creator;
 
-	public ChatRoom(int id, String name, int version, String url, List<User> listUsers, List<Message> listMessage, User userCreator) {
+	public ChatRoom(int id, String name, int version, String url, List<UserAdmin> listUsers, List<Message> listMessage, UserAdmin userCreator) {
 		super();
 		if (id < 0)
 			throw new RuntimeException("El id de la sala debe ser mayor  0.");
@@ -32,13 +32,13 @@ public class ChatRoom {
 		this.version = version;
 		this.url = url;
 		this.setUser_creator(userCreator);
-		this.listUsers = Collections.synchronizedList(new ArrayList<User>());
+		this.listUsers = Collections.synchronizedList(new ArrayList<UserAdmin>());
 		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
 	public ChatRoom() {
 		super();
-		this.listUsers = Collections.synchronizedList(new ArrayList<User>());
+		this.listUsers = Collections.synchronizedList(new ArrayList<UserAdmin>());
 		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
@@ -74,11 +74,11 @@ public class ChatRoom {
 		this.url = url;
 	}
 
-	public List<User> getListUsers() {
+	public List<UserAdmin> getListUsers() {
 		return listUsers;
 	}
 
-	public void setListUsers(List<User> listUsers) {
+	public void setListUsers(List<UserAdmin> listUsers) {
 		this.listUsers = listUsers;
 	}
 
@@ -96,11 +96,11 @@ public class ChatRoom {
 				+ listUsers + ", listMessage=" + listMessage + "]";
 	}
 
-	public User getUser_creator() {
+	public UserAdmin getUser_creator() {
 		return user_creator;
 	}
 
-	public void setUser_creator(User user_creator) {
+	public void setUser_creator(UserAdmin user_creator) {
 		this.user_creator = user_creator;
 	}
 }

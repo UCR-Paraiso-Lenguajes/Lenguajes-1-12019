@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chat.domain.Rol;
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
 import com.chat.domain.form.ChatRoomForm;
 
 @Repository

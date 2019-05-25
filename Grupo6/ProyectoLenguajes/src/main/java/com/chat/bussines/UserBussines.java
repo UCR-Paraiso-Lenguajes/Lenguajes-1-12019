@@ -1,14 +1,13 @@
 package com.chat.bussines;
 
-import java.util.ArrayList;
+
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chat.data.UserData;
-import com.chat.domain.User;
-import com.chat.domain.form.UserForm;
+import com.chat.domain.UserClient;
 
 @Service
 public class UserBussines {
@@ -27,9 +26,25 @@ public class UserBussines {
 			"wild boar", "giraffe", "lion", "parrot", "fly", "mosquito", "bear", "sheep", " partridge", "dog",
 			"penguin", "chick", "grasshoppers", "snake", "tiger", "mole", "bull", "turtle", "cow", "fox" };
 	
-	public void createUser(UserForm user) {
+	public boolean createUserValidation(UserClient user) {	
 		
-		Random r = new Random();
+		boolean value=true;
+		
+		if(user == null) {
+	
+			value=false;
+			
+			throw new RuntimeException("El user es requerido");
+			
+		}
+				
+		return value;
+	}
+	
+	public UserClient SetParametters(UserClient user) {
+		
+		
+Random r = new Random();
 		
 		int min=0;
 		int max=49;
@@ -40,13 +55,12 @@ public class UserBussines {
 	
 		String userFake = names[valueNames]+" "+animals[valueAnimal];
 		String avatar= "/img/img"+valueAvatar;
-			
-		if(user != null) {
-		userData.addUser(user);
-		} throw new RuntimeException("El user es requerido");
-				
+		
+		user.setName(userFake);
+		user.setAvatar(avatar); 
+		
+		return user;
 	}
-	
 	
 
 }

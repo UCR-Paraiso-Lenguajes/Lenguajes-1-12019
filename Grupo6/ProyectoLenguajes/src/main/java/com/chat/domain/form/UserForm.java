@@ -6,7 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
 
 public class UserForm {
 

@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rol;
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
 
 @Repository
 public class ChatRomData {
@@ -86,8 +86,8 @@ public class ChatRomData {
 	}
 	
 	@Transactional(readOnly = true)
-	public List<User> getUsers(ChatRoom room) {
-		List<User> users = Collections.synchronizedList(new ArrayList<User>());
+	public List<UserAdmin> getUsers(ChatRoom room) {
+		List<UserAdmin> users = Collections.synchronizedList(new ArrayList<UserAdmin>());
 		String selectSql = "SELECT user_id, user_name, user_email, user_password, "
 				+ "role_id, role_name "
 				+ "FROM user u JOIN room_user ru ON u.user_id = id_user "
@@ -101,7 +101,7 @@ public class ChatRomData {
 			statement.setInt(1, room.getId());
 			rs = statement.executeQuery();
 			while(rs.next()) {
-				User user = new User();
+				UserAdmin user = new UserAdmin();
 				user.setId(rs.getInt("user_id"));
 				user.setName(rs.getString("user_name"));
 				user.setEmail(rs.getString("user_email"));
@@ -164,7 +164,7 @@ public class ChatRomData {
 				room.setId(rs.getInt("room_id"));
 				room.setName(rs.getString("room_name"));
 				room.setVersion(rs.getInt("version"));
-				User user = new User();
+				UserAdmin user = new UserAdmin();
 				user.setId(rs.getInt("room_user_creator"));
 				room.setUser_creator(user);
 				rooms.add(room);

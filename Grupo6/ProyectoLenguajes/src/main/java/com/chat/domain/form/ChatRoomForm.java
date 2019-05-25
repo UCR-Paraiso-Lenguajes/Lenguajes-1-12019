@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
 
 public class ChatRoomForm {
 	
@@ -21,7 +21,7 @@ public class ChatRoomForm {
 	private int version;
 	private String url;
 	@NotNull
-	private Iterator<User> userList;
+	private Iterator<UserAdmin> userList;
 	
 	private List listaChat;
 	
@@ -62,10 +62,10 @@ public class ChatRoomForm {
 		this.listaChat = listaChat;
 	}
 
-	public Iterator<User> getUserList() {
+	public Iterator<UserAdmin> getUserList() {
 		return userList;
 	}
-	public void setUserList(Iterator<User> userList) {
+	public void setUserList(Iterator<UserAdmin> userList) {
 		this.userList = userList;
 	}
 
