@@ -13,7 +13,8 @@ public class ChatRoom {
 	private String url;
 	private List<UserAdmin> listUsers;
 	private List<Message> listMessage;
-	private UserAdmin user_creator;
+	private User user_creator;
+	private String avatar;
 
 	public ChatRoom(int id, String name, int version, String url, List<UserAdmin> listUsers, List<Message> listMessage, UserAdmin userCreator) {
 		super();
@@ -102,5 +103,13 @@ public class ChatRoom {
 
 	public void setUser_creator(UserAdmin user_creator) {
 		this.user_creator = user_creator;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 }
