@@ -32,7 +32,7 @@ public class ChatRoomBussines {
 			int min = 0;
 			int max = 49;
 			int valueAvatar = r.nextInt((max - min) + 1) + min;
-			String avatar = "\\src\\main\\resources\\img\\img" + valueAvatar;
+			String avatar = "~/chat/src/main/resources/templates/img/img" + valueAvatar;
 			chatRoom.setAvatar(avatar);
 		}
 		return rooms.iterator();
