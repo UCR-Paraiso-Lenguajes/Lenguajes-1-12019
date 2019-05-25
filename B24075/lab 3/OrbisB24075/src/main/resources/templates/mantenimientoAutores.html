@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mantenimiento de Autores</title>
+</head>
+<body>
+	<h1>Mantenimiento de Autores</h1>
+	<div class="container" style="max-width: 600px; padding: 40px 20px;">
+		<form action="#" th:action="@{/mantenimientoAutores/buscar}"
+			method="post">
+			<p>
+				Ingrese el(los) apellido(s) <input type="text" name="apellidos" />
+			</p>
+			<p>
+				<input type="submit" value="Buscar" />
+			</p>
+		</form>
+
+
+		<div th:if="${autores}">
+			<div th:if="${autores.isEmpty()}">
+				<p>No se encontraron resultados.</p>
+			</div>
+			<div th:if="${!autores.isEmpty()}">
+				<p>Se encontraron los siguientes resultados</p>
+				<table class="table table-striped table-hover">
+					<tr>
+						<th>Código Autor</th>
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Acción</th>
+					</tr>
+					<tr th:each="entry,status : ${autores}">
+						<td><span th:text="${entry.idAutor}"></span></td>
+						<td><span th:text="${entry.nombre}"></span></td>
+						<td><span th:text="${entry.apellidos}"></span></td>
+						<td><a th:href="@{/actualizarAutor/{id}(id=${entry.idAutor})}"
+							class="btn btn-danger">Editar</a> <a
+							th:href="@{/eliminarAutor/{id}(id=${entry.idAutor})}"
+							class="btn btn-danger">Borrar</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

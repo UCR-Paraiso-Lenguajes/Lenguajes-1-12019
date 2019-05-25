@@ -24,8 +24,6 @@ public class EditorialController {
 	public String buscarEditorial(Model model, 
 			@RequestParam("numInicio") int numInicio)
 			 {
-		
-		if(true) throw new ArrayIndexOutOfBoundsException("Hola "+numInicio);
 		model.addAttribute("editoriales", editorialBusinness.obtenerEditorial());
 		return "Editoriales";
 	}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>Editar Autores</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Editar Autor</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombreAutor">Nombre</label>
+                <input id="nombreAutor" type="text" class="form-control" th:value="${autor.nombreAutor}"  placeholder="Id del Autor">
+            </div>
+            <div class="form-group">
+                <label for="apellidoAutor">Apellidos</label>
+                <input id="apellidoAutor" type="text" class="form-control" th:value="${autor.apellidosAutor}"  placeholder="Nombre del Autor">
+            </div>
+            <div class="form-group">
+                <label for="idAutor">Id Autor</label>
+                <input id="idAutor" type="text" class="form-control" th:value="${autor.idAutor}"  placeholder="Nombre del Autor"  disabled>
+            </div>
+            <button id="editAutor" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+
+<script>
+var nombreAutor = $("#nombreAutor");
+var apellidoAutor = $("#apellidoAutor");
+var idAutor = $("#idAutor");
+var editAutor = $("#editAutor");
+var obj =     {
+		"idAutor":idAutor,
+        "apellidosAutor": apellidoAutor,
+        "nombreAutor": nombreAutor
+    };
+editAutor.click(function(){
+	
+	obj.idAutor=idAutor.val();
+	obj.apellidosAutor=apellidoAutor.val();
+	obj.nombreAutor=nombreAutor.val();
+	
+	$.ajax(	{
+		method:"PUT",
+		data:JSON.stringify(obj),
+		contentType:"application/json; charset=utf-8",
+		url: "api/editarAutor"
+	}).done(function() {
+		alert("El autor se actualizó correctamente");
+		 window.history.back();
+	}).fail(function()  {
+	    alert("No se actualizó correctamente");
+	    window.history.back();
+	});
+});
+</script>
+</body>
+
+
+</html>

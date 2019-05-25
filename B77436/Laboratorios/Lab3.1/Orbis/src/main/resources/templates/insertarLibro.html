@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar un nuevo Libro</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+$(function() {
+	$("#butonLeft").click(function(){
+		var autoresD = document.getElementById("TotalAutores");
+		var autoresS = document.getElementById("autoresEscogidos");
+		 for (i = 0; i < autoresD .length; i++) {
+             currentOption = autoresD [i];
+             if (currentOption.selected == true) {
+                 autoresS .options[autoresS .options.length] =
+                     new Option(currentOption.text, currentOption.value, false, false);
+                 currentOption.parentNode.removeChild(currentOption);
+             } 
+		 }
+		});
+	$("#butonRight").click(function(){
+		var autoresEscogido = document.getElementById("autoresEscogidos");
+		var autoresTotal = document.getElementById("TotalAutores");
+		 for (i = 0; i < autoresEscogido .length; i++) {
+             currentOption = autoresEscogido [i];
+             if (currentOption.selected == true) {
+            	 autoresTotal .options[autoresTotal .options.length] =
+                     new Option(currentOption.text, currentOption.value, false, false);
+                 
+                 currentOption.parentNode.removeChild(currentOption);
+             } 
+		 }
+		
+	
+	});
+	$("#butonSubmit").click(function(){
+		var autores = document.getElementById("autoresEscogidos");
+		for (i = 0; i < autores .length; i++) {
+            currentOption = autores [i];
+            currentOption.selected = true
+		 }
+		
+	});
+	
+});
+</script>
+
+</head>
+<body>
+<div class="container" style="max-width: 600px; padding: 40px 20px;">
+<h2>Insertar un nuevo Libro</h2>
+	<form th:object="${libroForm}" action="#"
+			th:action="@{/insertarLibro}" method="Post" >
+		<label>Título:
+		</label><input type="text" th:field="*{titulo}"
+				class="form-control" placeholder="Titulo" /> 
+				<div th:if="${#fields.hasErrors('titulo')}">El título debe
+				contener al menos dos letras</div>
+			<div style="clear: both; display: block; height: 10px;"></div> <br> <br>
+		<label>Año</label><input type="number"
+				th:field="*{año}" class="form-control"
+				placeholder="Año" />
+		
+				<div th:if="${#fields.hasErrors('año')}">Debe ingresar al menos un año con 4 digitos</div>
+				<div style="clear: both; display: block; height: 10px;"></div> <br> <br>
+		<label>Precio</label><input type="number"
+				th:field="*{precio}" class="form-control"
+				placeholder="Precio" />
+		
+				<div th:if="${#fields.hasErrors('precio')}">Debe ingresar el precio del libro</div>
+				<div style="clear: both; display: block; height: 10px;"></div> <br> <br>
+		<label> Publicador:</label>
+				<select
+				th:field="*{publicador}">
+				<option th:each="publicador: ${publicador}" th:value="${publicador.id_editorial}"
+					th:text="${publicador.nombre}"></option>
+				</select> 
+		
+				<div style="clear: both; display: block; height: 10px;"></div><br> <br>
+		<label>ISBN:</label><input type="text" th:field="*{isbn}"
+				class="form-control" placeholder="ISBN" /> 
+				<div th:if="${#fields.hasErrors('isbn')}">El isbn no puede ser nulo</div>
+			<div style="clear: both; display: block; height: 10px;"></div> <br> <br>
+		<h3>Seleccione uno o más autores:</h3>
+		<select th:field="*{autores}" multiple id="TotalAutores">
+				<option th:each="autores: ${autores}" th:value="${autores.id_autor}"
+					th:text="${autores.nombre_autor}"></option>
+		</select>
+		<div id="butonRight"><i class="fa fa-angle-double-left"></i></div>
+		<div id="butonLeft"><i class="fa fa-angle-double-right"></i></div>
+		
+		<select id="autoresEscogidos" size="2" multiple th:field="*{autores}">
+		</select><br><br><br>
+		
+		
+		
+			
+		
+		<br><button id="butonSubmit" type="submit">Insertar libro</button>
+	</form>
+
+</div>
+</body>
+</html>

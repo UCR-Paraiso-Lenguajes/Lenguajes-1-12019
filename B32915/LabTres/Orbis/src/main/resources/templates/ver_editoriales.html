@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ver Editoriales</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Dark Striped Table</h2>
+  <p>Lista De Editoriales:</p>            
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>ID Editorial</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="entry,status : ${listaEditorial}">
+                        <td><a th:href="@{/mostrar_libros(id=${entry.idEditorial})}" th:text="${entry.idEditorial}"></a></td>
+						<td><span th:text="${entry.nombre}"></span></td>
+						<td><span th:text="${entry.direccion}"></span></td>
+						<td><span th:text="${entry.telefono}"></span></td>
+	 </tr>
+  
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

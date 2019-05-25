@@ -10,14 +10,20 @@ public class Autor {
 	private ArrayList<Libro> libros;
 	
 	
-	
+
 	public Autor(int id, String nombre, String apellidos, ArrayList<Libro> libros) {
 		setId(id);
 		setNombre(nombre);
 		setApellidos(apellidos);
 		setLibros(libros);
 	}
-	
+
+	public Autor(int id, String nombre, String apellidos) {
+		setId(id);
+		setNombre(nombre);
+		setApellidos(apellidos);
+	}
+
 	public Autor() {
 		id = 0;
 		nombre = "";
