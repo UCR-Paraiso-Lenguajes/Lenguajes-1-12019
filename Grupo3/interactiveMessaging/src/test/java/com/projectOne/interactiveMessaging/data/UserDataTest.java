@@ -75,4 +75,9 @@ public class UserDataTest {
 	public void getIdGroupsOfUsrTest() {
 		assertNotNull(idGroupsOfUsr);
 	}
+	@Test
+	public void getSpecificUserById() {
+		User user = userData.getSpecificUserById(1);
+		assertNotNull(user);
+	}
 }

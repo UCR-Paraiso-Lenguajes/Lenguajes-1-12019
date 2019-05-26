@@ -16,8 +16,10 @@ import com.projectOne.interactiveMessaging.bussines.GroupBusiness;
 import com.projectOne.interactiveMessaging.bussines.MessageBusiness;
 import com.projectOne.interactiveMessaging.data.GroupData;
 import com.projectOne.interactiveMessaging.data.UserData;
+import com.projectOne.interactiveMessaging.domain.ClassListNewMessages;
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.MessageToSend;
+import com.projectOne.interactiveMessaging.domain.SingleGroupMessage;
 
 @RestController
 public class MessageControllerRest {
@@ -28,7 +30,7 @@ public class MessageControllerRest {
 	@Autowired
 	private GroupBusiness groupBusiness;
 	@RequestMapping(value="/api/messages", method=RequestMethod.GET)
-	public @ResponseBody ArrayList<Message> listarAutores(@RequestParam(value="idGroup") int idGroup,
+	public @ResponseBody ArrayList<Message> listMessages(@RequestParam(value="idGroup") int idGroup,
 			@RequestParam(value="idUserRoom") int idUserRoom){
 		
 		
@@ -44,4 +46,21 @@ public class MessageControllerRest {
 		
 		messageBusiness.sendMessage(idGroup, message.getMessage(), idUserRoom);
 	}
+	@RequestMapping(value="/api/newmessages", method=RequestMethod.GET)
+	public @ResponseBody ArrayList<SingleGroupMessage> getNewMessages(@RequestParam(value="idGroup") int idGroup,
+			@RequestParam(value="idUserRoom") int idUserRoom){
+		ClassListNewMessages classListRest = new ClassListNewMessages();
+		ArrayList<SingleGroupMessage> messages = classListRest.extractLastMessages(idGroup,idUserRoom);
+		ArrayList<SingleGroupMessage> messagesOthers = new ArrayList<>();
+		for (int i = 0; i < messages.size(); i++) {
+			if(messages.get(i).getMessage().getUserTransmitter().getUser_id()==idUserRoom) {
+				messages.get(i).getMessage().setType("sent");
+			}else {
+				messages.get(i).getMessage().setType("replies");
+				messagesOthers.add(messages.get(i));
+			}
+		}
+		return messagesOthers;
+	}
+	
 }

@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html class=''>
+@charset "UTF-8";
 
-<head>
-
-<meta name="robots" content="noindex">
-<link rel="shortcut icon" type="image/x-icon"
-	href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-<link rel="mask-icon" type=""
-	href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
-	color="#111" />
-<link rel="canonical"
-	href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
-<link
-	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300'
-	rel='stylesheet' type='text/css'>
-<script src="https://use.typekit.net/hoy3lrg.js"></script>
-<link rel='stylesheet prefetch'
-	href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
-<link rel='stylesheet prefetch'
-	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
-<script
-	src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-<script>
-	try {
-		Typekit.load({
-			async : true
-		});
-	} catch (e) {
-	}
-</script>
-
-
-
-<style class="cp-pen-styles">
 body {
 	display: flex;
 	align-items: center;
@@ -389,7 +348,7 @@ body {
 #frame #sidepanel #bottom-bar button {
 	float: left;
 	border: none;
-	width: 50%;
+	width: 100%;
 	padding: 10px 0;
 	background: #32465a;
 	color: #f5f5f5;
@@ -650,7 +609,6 @@ body {
 	outline: none;
 }
 
-/******************************************************POP-UP**************************************************************/
 .overlay {
 	background: rgba(0, 0, 0, .3);
 	position: fixed;
@@ -669,12 +627,25 @@ body {
 }
 
 .popup {
-	background: #F8F8F8;
-	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+	background: #F8F8F8; /*da color al fondo*/
+	/*background: red;*/
+	/*box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);*/
+	/*da color al margen*/
+	box-shadow: 0px 0px 5px 0px rgba(255, 125, 0, 0.5);
 	border-radius: 3px;
 	padding: 20px;
-	text-align: center;
-	width: 600px;
+	width: 500px;
+	height: 400px;
+}
+
+.contenPopup {
+	background: #F8F8F8;
+	overflow: auto;
+	width: 470px;
+	height: 450px;
+	min-height: calc(100% - 93px);
+	max-height: calc(100% - 93px);
+	left: 0;
 }
 
 .popup .btn-cerrar-popup {
@@ -682,7 +653,6 @@ body {
 	line-height: 16px;
 	display: block;
 	text-align: right;
-	transition: .3s ease all;
 	color: #BBBBBB;
 }
 
@@ -690,407 +660,58 @@ body {
 	color: #000;
 }
 
-.popup form .btn-submit:hover {
-	background: rgba(94, 125, 227, .5);
+.popup .encabezadoPopup {
+	background: #2c3e50;
+	transition: .2s ease all;
 }
 
-.popup form .btn-submit {
-	padding: 0 20px;
-	height: 40px;
-	line-height: 40px;
-	border: none;
-	color: #fff;
-	background: #5E7DE3;
-	border-radius: 3px;
-	font-size: 16px;
-	cursor: pointer;
-	/*transition: .3s ease all;*/
+.encabezadoPopup .h4 {
+	font-size: 10px;
+	text-align: center;
+	color: red;
 }
+
 /****************************************************************/
-#popup .contact-group img {
+.contenPopup .contact-group img {
 	width: 150px;
 	border-radius: 50%;
 	float: center;
 	margin: 9px 12px 0 9px;
 }
 
-#popup .setting {
-	height: auto;
-	min-height: calc(100% - 93px);
-	max-height: calc(100% - 93px);
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
-
-@media screen and (max-width: 735px) {
-	#popup .setting {
-		max-height: calc(100% - 105px);
-	}
-}
-
-#popup .setting::-webkit-scrollbar {
+#popup .contenPopup::-webkit-scrollbar {
 	width: 8px;
 	background: transparent;
 }
 
-#popup .setting::-webkit-scrollbar-thumb {
+#popup .contenPopup::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-#popup .setting ul li {
+.contenPopup .contact-group ul li {
 	display: inline-block;
 	clear: both;
 	float: left;
 	margin: 15px 15px 5px 15px;
 	width: calc(100% - 25px);
 	font-size: 0.9em;
+	background: #E8E8E8;
 }
 
-#popup .setting ul li:nth-last-child(1) {
+.contenPopup .contact-group ul li:nth-last-child(1) {
 	margin-bottom: 20px;
 }
 
-#popup .setting ul li p {
+.contenPopup .contact-group ul li p {
 	display: inline-block;
-	padding: 10px 15px;
+	padding: 30px 15px;
 	border-radius: 20px;
 	max-width: 205px;
 	line-height: 130%;
 }
 
-#popup .setting ul li img {
+.contenPopup .contact-group ul li img {
 	width: 50px;
 	border-radius: 50%;
 	float: left;
 }
-
-/* centrar cajas de insertar correos*/
-.centrarCaja {
-	position: relative;
-	left: 40%;
-}
-</style>
-
-</head>
-
-<body>
-
-
-
-	<div id="frame">
-		<div id="sidepanel">
-			<div id="profile">
-				<div class="wrap">
-					<img id="profile-img"
-						src="http://emilcarlsson.se/assets/mikeross.png" class="online"
-						alt="" />
-					<p>Mike Ross</p>
-
-				</div>
-			</div>
-			<div id="search">
-				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="hidden" id="userRoom" th:value="${idUserRoom}" /> <input
-					type="text" placeholder="Search contacts..." />
-			</div>
-			<div id="contacts">
-				<ul>
-					<li class="contact active">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<div class="meta">
-								<p class="name">Harvey Specter</p>
-								<p class="preview"></p>
-							</div>
-						</div>
-					</li>
-					<li onclick="print(this)" th:each="group: ${groups}"
-						class="contact">
-						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
-								<p th:text="${group.name_Room}" class="name"></p>
-								<input type="hidden" th:value="${group.group_id}" />
-								<p class="preview"></p>
-							</div>
-						</div>
-					</li>
-
-				</ul>
-			</div>
-			<div id="bottom-bar">
-				<button id="addcontact">
-					<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add
-						contact</span>
-				</button>
-
-			</div>
-		</div>
-
-
-
-
-		<div class="content">
-			<div class="contact-profile">
-				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-				<p>Harvey Specter</p>
-				<div class="settings-media" id="settings">
-
-
-					<!-- boton para abrir los metrics data-toggle="modal" data-target="popup()"   onclick="location.href='metrics'" aria-hidden="true" -->
-					<i class="fa fa-cog fa-fw" id="btn-abrir-popup" title="Informacion"></i>
-					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
-
-
-				</div>
-			</div>
-
-
-			<!-- Aqui las cajitas de invitar - -->
-
-
-
-
-			<div class="panel-body">
-
-				<div class="centrarCaja">
-
-					<div class="form-group">
-
-						<label>Name The Group</label>
-
-						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-							<input id="nameGroup" type="nameGroup" placeholder="Name" />
-
-						</div>
-						<br> <br> <label>emails to invite</label>
-
-						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-							<div class="input-group-addon">@</div>
-							<input id="Text1" type="email" placeholder="Email" />
-
-						</div>
-						<br> <br>
-
-
-						<div>
-
-							<button type="button" id="btnAgregar" class="btn btn-warning">Agregar</button>
-							<button type="button" id="btnElimina" class="btn btn-danger">Eliminar</button>
-
-						</div>
-						<br> <br>
-					</div>
-				</div>
-
-				<form th:action="@{/invite}" th:object="${emailForm}" method="post"
-					onsubmit="">
-					<div>
-						<label>Mails Guest</label>
-						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-							<div class="input-group-addon">@</div>
-
-							<select id="emailsSel" multiple class="form-control"
-								th:field="*{emailsSel}"></select>
-						</div>
-						<br> <br>
-					</div>
-					<div class="centrarCaja">
-						<button id="btnSubmit" type="submit" class="btn btn-success">Insert
-							Email</button>
-					</div>
-				</form>
-
-			</div>
-
-
-
-			<!-- Aqui las cajitas de invitar - -->
-		</div>
-	</div>
-
-	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
-	<div class="overlay" id="overlay">
-		<div class="popup" id="popup">
-			<a href="chat" id="btn-cerrar-popup" class="btn-cerrar-popup"><i
-				class="fas fa-times"></i></a>
-			<div class="setting">
-				<div class="contact-group" align="center">
-					<img src="http://emilcarlsson.se/assets/harveyspecter.png"
-						class="online" alt="" /> <br> <br> <label>Last
-						room created: </label><input type="text" class="form-control" disabled />
-					<br> <br> <b>Grupo:</b> <input type="text"
-						class="form-control" disabled /> <b>Propietario</b> <input
-						type="text" class="form-control" disabled /> <b>Administrador</b>
-					<input type="text" class="form-control" disabled />
-				</div>
-
-				<ul>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p></li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p></li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p></li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p></li>
-					<li class=""><img
-						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<p>Jeremy</p>
-						<p>Usuario</p></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
-
-
-
-
-	<script>
-		$(".messages").animate({
-			scrollTop : $(document).height()
-		}, "fast");
-
-		function print(i) {
-			var idGroup = i.children[0].children[1].children[1];
-			console.log(idGroup.value);
-			//location.href = "chat";
-		};
-		$("#btnSendMessage").click(function() {
-			var inputText = $("#text");
-			var idUserRoom = $("#userRoom");
-			if (inputText.val() != "") {
-				console.log(inputText.val() + " " + idUserRoom.val());
-
-				var userRoom = $("#userRoom");
-				var obj = {
-
-					"message" : inputText.val()
-
-				};
-
-				$.ajax({
-					method : "PUT",
-					data : JSON.stringify(obj),
-					contentType : "application/json",
-					url : "api/sendMessages/2/" + userRoom.val()
-
-				});
-			}
-
-		});
-		$(".expand-button").click(function() {
-			$("#profile").toggleClass("expanded");
-			$("#contacts").toggleClass("expanded");
-		});
-
-		function newMessage() {
-			message = $(".message-input input").val();
-			if ($.trim(message) == '') {
-				return false;
-			}
-			$(
-					'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
-							+ message + '</p></li>')
-					.appendTo($('.messages ul'));
-			$('.message-input input').val(null);
-			$('.contact.active .preview').html('<span>You: </span>' + message);
-			$(".messages").animate({
-				scrollTop : $(document).height()
-			}, "fast");
-		};
-
-		$('.submit').click(function() {
-			newMessage();
-		});
-
-		$(window).on('keydown', function(e) {
-			if (e.which == 13) {
-				newMessage();
-				return false;
-			}
-		});
-
-		/*////////////////////////////////////////////////////////////Acciones para Pop Up ///////////////////////////////////////////////*/
-		var btnAbrirPopup = document.getElementById('btn-abrir-popup'), overlay = document
-				.getElementById('overlay'), popup = document
-				.getElementById('popup'), btnCerrarPopup = document
-				.getElementById('btn-cerrar-popup');
-
-		btnAbrirPopup.addEventListener('click', function() {
-			overlay.classList.add('active');
-			popup.classList.add('active');
-
-		});
-
-		btnCerrarPopup.addEventListener('click', function(e) {
-			e.preventDefault();
-			overlay.classList.remove('active');
-			popup.classList.remove('active');
-		});
-
-		/*correos multiples*/
-
-		$(function() {
-			$("#btnAgregar").click(
-					function() {
-
-						var select = document.getElementById("emailsSel");
-						var email = document.getElementById("Text1");
-						var validation = ValidateEmail(email);
-						if (validation === true) {
-							///console.log(email);
-							select.options[select.options.length] = new Option(
-									email.value, email.value, false, false);
-							email.value = "";
-						} else {
-
-						}
-
-					});
-			$("#btnElimina").click(function() {
-				var select = document.getElementById("emailsSel");
-				for (i = 0; i < select.length; i++) {
-					currentOption = select[i];
-					if (currentOption.selected == true) {
-						currentOption.parentNode.removeChild(currentOption);
-					}
-				}
-
-			});
-			$("#btnSubmit").click(function() {
-				var autoresS = document.getElementById("emailsSel");
-				for (i = 0; i < autoresS.length; i++) {
-					currentOption = autoresS[i];
-					currentOption.selected = true
-				}
-
-			});
-
-		});
-		function ValidateEmail(email) {
-			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-					.test(email.value)) {
-				return (true)
-			}
-
-			return (false)
-		}
-
-		/*correos multiples*/
-
-		function enviar_formulario() {
-			document.formulario1.submit()
-		}
-	</script>
-</body>
-</html>
