@@ -18,12 +18,13 @@
 		<div class="row">
 			<div id="panelTop" class="panel panel-default">
 
+
+
 				<div class="dropdown">
 
-					<div class="pull-right">
 
-						class="form-control">
-						<button id="x">X</button>
+
+					<div class="pull-right">
 						<span id="glyphUser" class="glyphicon glyphicon-user"
 							data-toggle="dropdown"></span>
 
@@ -32,13 +33,22 @@
 							<li><a href="/mainScreen" onclick="">About Us</a></li>
 							<li><a href="/login" onclick="">Log Out</a></li>
 						</ul>
-						
 					</div>
+
 				</div>
+
+
 			</div>
+
+
+
 		</div>
 
+
+
 		<div class="row">
+
+
 
 			<div id="colformGrups" class="col-md-7 text-center">
 				<div class="row">
@@ -52,12 +62,17 @@
 
 									<div class="pull-lelf">
 										<span id="glyphUser" class="glyphicon glyphicon-user"></span>
+										Cabezas
 
 									</div>
 							
 							</div>
 
 						</div>
+
+
+
+
 
 					</div>
 
@@ -68,6 +83,7 @@
 				<div class="row">
 					<div id="panelTittle" class="panel-group">
 						<div class="panel panel-default">Metrics</div>
+
 
 						<div id="panelGroups" class="panel panel-default">
 
@@ -83,40 +99,35 @@
 									<li class="list-group-item">Quantity room:</li>
 									<li class="list-group-item">Quantity user:</li>
 									<li class="list-group-item">User per room Prom:</li>
+
 								</div>
 							</ul>
+
+
+
+
 						</div>
 					</div>
+
+
 				</div>
+
+
 			</div>
+
+
+
+
 		</div>
+
+
+
+
+	</div>
+
+
 	</div>
 </body>
-
-<script>
-
-
-	var x = $("#x");
-	var obj = {
-	        "x": x
-	    };
-	$("#x").click(function(){
-		
-		obj.x=x.val();
-		
-		$.ajax(	{
-			method:"POST",
-			data:JSON.stringify(obj),
-			contentType:"application/json; charset=utf-8",
-			dataType:"json",
-			url: "api/Metric"
-		}).done(function( data ) {
-			alert("Exito");
-		});
-		
-		
-	});
-</script>
 
 <style>
 body {
