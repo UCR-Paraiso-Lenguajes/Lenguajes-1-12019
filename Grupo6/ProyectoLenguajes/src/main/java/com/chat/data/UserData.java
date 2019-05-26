@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +23,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chat.domain.ChatRoom;
 import com.chat.domain.User;
 import com.chat.domain.form.UserForm;
 
@@ -93,5 +96,27 @@ public class UserData {
 		jdbcTemplate.batchUpdate(sqlSelect);
 	}	
 
+	@Transactional(readOnly = true)
+	public List<User> getUser() {
+		List<User> users = Collections.synchronizedList(new ArrayList<User>());
+		
+		String sql = "SELECT id, email FROM user_client";
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(sql);
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setEmail(rs.getString("email"));
+				users.add(user);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
 
+		return users;
+	}
 }
