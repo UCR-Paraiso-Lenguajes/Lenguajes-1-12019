@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Editar Autor</title>
+<head>
+</head>
+<body>
+
+	<div class="container">
+
+		<div id="rowTable" class="row">
+
+			<div class="col-lg-2"></div>
+
+			<div class="col-lg-8">
+
+				<form action="#" th:action="@{/editarAutor}" method="GET">
+
+					<div class="form-group">
+						<label for="id"></label> <input type="number"
+							class="form-control" id="id" th:value="${autor.idAutor}">
+							
+					</div>
+
+					<div class="form-group">
+						<label for="name">Name:</label> <input type="text"
+							class="form-control" th:value="${autor.nombreAutor}" id="nameAutor">
+					</div>
+
+					<div class="form-group">
+						<label for="lastName">Last Name:</label> <input type="text"
+							class="form-control" th:value="${autor.apellidosAutor}" id="lastName">
+					</div>
+
+					<div id="buttons">
+						<button type="submit" class="btn btn-primary" id="update">Edit</button>
+
+						<button type="submit" class="btn btn-danger">Cancel</button>
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+<script type="text/javascript">
+
+var id = $("#id");
+var nameAutor = $("#nameAutor");
+var lastName = $("#lastName");
+
+$("#update").click(function(){
+	
+	var obj =     {
+	        "id": id.val(),
+	        "nameAutor": nameAutor.val(),
+	        "lastName": lastName.val()
+	    };
+	
+	$.ajax(	{
+		method:"PUT",
+		data:JSON.stringify(obj),
+		contentType:"application/json; charset=utf-8",
+		url: "api/autores/"+id.val()
+	}).done(function( data ) {
+		console.log(data);
+	});
+});
+
+</script>
+
+<style>
+
+#buttons {
+	margin-left: 300px;
+}
+
+#rowTable {
+	margin-top: 50px;
+}
+</style>
+
+</html>

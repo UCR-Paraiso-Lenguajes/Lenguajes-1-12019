@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous">
+	
+</script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous">
+	
+</script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous">
+	
+</script>
+
+</head>
+<body>
+
+		<br>
+		<br>
+		<h1>Mantenimiento Autores</h1>
+		<br>
+		<br>
+		<div class="container">
+		
+		<form action="#" th:action="@{/verAutores}" method="post">
+		
+			Apellido: <input type="text" name="apellidos_autor" [(ngModel)]="apellidos_autor"
+				#apellidos_Autor="ngModel" placeholder="Apellido" required=true /> 
+				<br> 
+				<br> 
+				<input type="submit" value="Buscar Autor" /> <br> <br>
+		</form>
+
+		<br>
+		<table class="table table-striped">
+			<tr>
+				<th>Identificaci&oacute;n</th>
+				<th>Nombre</th>
+				<th>Acci&oacute;n</th>
+			</tr>
+			<tr th:each="autor : ${autor}">
+				<td><span th:text="${autor.id_autor}"></span></td>
+				<td><span th:text="${autor.nombre_autor}"></span>
+				<span th:text="${autor.apellidos_autor}"></span></td>
+				<td>
+				<a th:href="@{editarAutor(id_autor=${autor.id_autor})}">Editar</a>
+				<a th:href="@{borrarAutor(id_autor=${autor.id_autor})}">Borrar</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
