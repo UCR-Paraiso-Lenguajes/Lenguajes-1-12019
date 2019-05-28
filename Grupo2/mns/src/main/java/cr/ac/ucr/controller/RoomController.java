@@ -28,12 +28,18 @@ public class RoomController {
 	
 	@RequestMapping(value = "/createRoom", method = RequestMethod.GET)
 	public String showForm(Model model)  {
-			return "createRoom";
+			
+		model.addAttribute("rooms", roomBusiness.staticRooms);
+		
+		return "createRoom";
 	}
 	
 	
 	@RequestMapping(value = "/createRoom", method = RequestMethod.POST)
 	public String createRoom(Model model,RoomForm roomForm)  {
+		
+		model.addAttribute("rooms", roomBusiness.staticRooms);
+		
 		
 		
 		Room room = new Room(new User());

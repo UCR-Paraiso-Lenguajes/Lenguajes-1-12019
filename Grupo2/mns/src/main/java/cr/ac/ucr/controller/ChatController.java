@@ -50,4 +50,21 @@ public class ChatController {
 	}
 	
 	
+	@RequestMapping(value = "/chat/{idRoom}", method = RequestMethod.GET)
+	public String showMessagesByRoom(Model model)  {
+		
+		
+			model.addAttribute("rooms", roomBusiness.staticRooms);
+			
+		
+			List<Message> messages = rsb.retrieveState(50);
+			model.addAttribute("messages", messages);
+		
+		
+		
+		return "chat";
+	}
+	
+	
+	
 }

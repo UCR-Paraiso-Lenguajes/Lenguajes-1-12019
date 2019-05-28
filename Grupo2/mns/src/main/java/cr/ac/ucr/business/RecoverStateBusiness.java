@@ -9,6 +9,7 @@ import cr.ac.ucr.data.MessageData;
 import cr.ac.ucr.data.MetricsData;
 import cr.ac.ucr.domain.Message;
 import cr.ac.ucr.domain.Metrics;
+import cr.ac.ucr.domain.Room;
 
 @Service
 public class RecoverStateBusiness {

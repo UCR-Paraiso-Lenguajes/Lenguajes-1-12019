@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cr.ac.ucr.domain.Message;
+import cr.ac.ucr.domain.Room;
 
 
 @Repository
@@ -38,6 +39,13 @@ public class MessageData {
 	
 	@Transactional(readOnly=true)
 	public List<Message> ListMessages(int amount){
+		String sqlSelect = "SELECT * "
+						+ " FROM Message m LIMIT "+amount;
+		return jdbcTemplate.query(sqlSelect, new MessagesEstractor());
+	}
+	
+	@Transactional(readOnly=true)
+	public List<Message> ListMessages(int amount,Room room){
 		String sqlSelect = "SELECT * "
 						+ " FROM Message m LIMIT "+amount;
 		return jdbcTemplate.query(sqlSelect, new MessagesEstractor());
