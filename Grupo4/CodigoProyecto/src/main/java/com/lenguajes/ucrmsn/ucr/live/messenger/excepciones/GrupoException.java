@@ -1,6 +1,6 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.excepciones;
 
-public class GrupoException extends Exception{
+public class GrupoException extends RuntimeException{
 	private String mensaje="";
 
 	public GrupoException(String mensaje) {

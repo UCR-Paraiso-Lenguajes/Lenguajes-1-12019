@@ -1,6 +1,6 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.excepciones;
 
-public class MensajeException extends Exception{
+public class MensajeException extends RuntimeException{
 	private String mensaje="";
 
 	public MensajeException(String mensaje) {
