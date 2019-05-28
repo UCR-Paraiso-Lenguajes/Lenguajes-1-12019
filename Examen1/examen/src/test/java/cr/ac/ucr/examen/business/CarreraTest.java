@@ -25,7 +25,7 @@ public class CarreraTest {
 		
 		Carrera innovacion = new Carrera();
 		
-		Curso teoria_o = new Curso("Teoría Organizacional","IF0001",3,1);
+		Curso teoria_o = new Curso("Teoría Organizacional","IF0001",3);
 		
 		Ciclo c = new Ciclo();
 		
@@ -43,10 +43,10 @@ public class CarreraTest {
 		
 		Carrera innovacion = new Carrera();
 		
-		Curso teoria_o = new Curso("Teoría Organizacional","IF0001",3,1);
-		Curso ges_pu = new Curso("Gestión Pública","IF0101",3,1);
-		Curso ges_soc = new Curso("Gestión Social","IF0102",3,1);
-		Curso ges_pro = new Curso("Gestión de Proyectos","IF0103",4,1);
+		Curso teoria_o = new Curso("Teoría Organizacional","IF0001",3);
+		Curso ges_pu = new Curso("Gestión Pública","IF0101",3);
+		Curso ges_soc = new Curso("Gestión Social","IF0102",3);
+		Curso ges_pro = new Curso("Gestión de Proyectos","IF0103",4);
 		
 		
 		Ciclo c1 = new Ciclo();
@@ -63,8 +63,8 @@ public class CarreraTest {
 		
 		
 		
-		assertEquals(13, innovacion.getTotalCreditos());
-		assertEquals(4, innovacion.getTotalCursos());
+		assertEquals(13, innovacion.getTotalCreditos()); //acá prueba el total de creditos por carrera
+		assertEquals(4, innovacion.getTotalCursos());    //acá prueba la cantidad de cursos 
 	
 		
 		
@@ -73,10 +73,11 @@ public class CarreraTest {
 			assertEquals(teoria_o, it.next());
 		}
 		
-		
-	
 	
 	}
+	
+	
+	
 	
 	
 	

@@ -1,17 +1,16 @@
 package cr.ac.ucr.examen.domain;
 
+
 public class Curso {
 	private String nombre;
 	private String siglas;
 	private int creditos;
-	private int idModalidad;
 	
 	
-	public Curso(String nombre, String siglas, int creditos,int idModalidad) {
+	public Curso(String nombre, String siglas, int creditos) {
 		setNombre(nombre);
 		setSiglas(siglas);
 		setCreditos(creditos);
-		setIdModalidad(idModalidad);
 	}
 	
 	public String getNombre() {
@@ -35,14 +34,6 @@ public class Curso {
 		if(creditos < 0) throw new RuntimeException("Los créditos deben ser mayores a 0");
 		this.creditos = creditos;
 	}
-
-	public int getIdModalidad() {
-		return idModalidad;
-	}
-
-	public void setIdModalidad(int idModalidad) {
-		if(idModalidad < 0) throw new RuntimeException("El id de la modalidad no debe ser menor a 0");
-		this.idModalidad = idModalidad;
-	}
+	
 	
 }

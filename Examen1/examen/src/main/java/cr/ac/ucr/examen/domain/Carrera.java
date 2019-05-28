@@ -1,15 +1,16 @@
 package cr.ac.ucr.examen.domain;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.TreeSet;
 
 public class Carrera {
 	
 	private String nombre;
-	private TreeSet<Ciclo> cursos = new TreeSet<Ciclo>();
+	private ArrayList<Ciclo> cursos = new ArrayList<Ciclo>();
 	private int totalCursos;
 	private int totalCreditos;
+	private ArrayList<Area> areas = new ArrayList<>();
 		
 	public String getNombre() {
 		return nombre;
@@ -27,11 +28,11 @@ public class Carrera {
 		this.totalCursos++;
 	}
 
-	public void setCursos(TreeSet<Ciclo> cursos) {
+	public void setCursos(ArrayList<Ciclo> cursos) {
 		this.cursos = cursos;
 	}
 
-	public TreeSet<Ciclo> getCursos() {
+	public ArrayList<Ciclo> getCursos() {
 		return cursos;
 	}
 
@@ -48,11 +49,25 @@ public class Carrera {
 	
 	
 	//DADO UN CURSO ESPECÍFICO PUEDE CALCULAR CUÁLES CURSOS SON NECESARIOS PARA LLEVARLO 
-	public Iterator<Ciclo> cursosRequisitos(Curso curso){
-		while(cursos.iterator().hasNext()) {
-			if(cursos.iterator().next().getCursosPorCiclo().contains(curso))
-				return cursos.descendingIterator();
-		}	
+	public ArrayList<Curso> cursosRequisitos(Curso curso){
+		
+		ArrayList<Curso> cursosRequisitos;
+		boolean change= false;
+		Iterator<Area> it = this.areas.iterator();
+		
+		while(it.hasNext()) {
+			while(it.next().getAreas().iterator().hasNext()) {
+				while(it.next().getAreas().iterator().next().iterator().hasNext()) {
+					if(it.next().getAreas().iterator().next().iterator().next() == curso) 
+					{
+						change = true;
+					}
+					
+				}
+				
+			}
+		}
+		change=false;
 		throw new RuntimeException("El curso no pertenece al plan de estudios"); 
 	}
 	

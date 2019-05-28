@@ -6,7 +6,7 @@ public class Ciclo{
 	
 	private int numCiclo;
 	private ArrayList<Curso> cursosPorCiclo = new ArrayList<>();
-	private int totalCreditosPorCiclo;
+	
 	
 	public Ciclo() {
 		numCiclo++;
@@ -20,10 +20,6 @@ public class Ciclo{
 		this.numCiclo = numCiclo;
 	}
 
-	public void setTotalCreditosPorCiclo(int totalCreditosPorCiclo) {
-		this.totalCreditosPorCiclo = totalCreditosPorCiclo;
-	}
-
 	public ArrayList<Curso> getCursosPorCiclo() {
 		return cursosPorCiclo;
 	}
@@ -32,17 +28,5 @@ public class Ciclo{
 		this.cursosPorCiclo = cursosPorCiclo;
 	}
 
-
-	public int getTotalCreditosPorCiclo() {
-		return totalCreditosPorCiclo;
-	}
-	
-	//trae total de creds por ciclo
-	public int updateTotalCreditosPorCiclo() {
-		while(cursosPorCiclo.iterator().hasNext()) {
-			totalCreditosPorCiclo += cursosPorCiclo.iterator().next().getCreditos();
-		}	
-		return totalCreditosPorCiclo;
-	}
 	
 }
