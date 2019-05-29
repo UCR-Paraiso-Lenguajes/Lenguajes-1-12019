@@ -1,4 +1,4 @@
-package com.ucr.ac.cr.Examen1.data;
+﻿package com.ucr.ac.cr.Examen1.data;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,10 @@ public class cursoRequerimientos {
 	PlanEstudiosData planDao = new PlanEstudiosData();
 	Logger logger = Logger.getLogger("MyLog");
 	
-	/*CREACIÓN DE UN CURSO CON REQUISITOS.*/
+	/*CREACIÓN DE UN CURSO CON REQUISITOS.
+
+	 EL CURSO FINAL NO PUEDE SER REQUISITO DE NINGÚN OTRO CURSO.*/
+
 	@Test
 	public void crearCursoRequerimientos() {
 	
