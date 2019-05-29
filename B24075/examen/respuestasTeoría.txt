@@ -1,0 +1,22 @@
+1 Asserts
+r/ siempre debe tener un caso de prueba porque son hechos para eso y además son de Junit,  el código del programa no los toma en cuenta y no afecta a los casos de arriba porque trata a todos los métodos por separado
+
+
+2 transacciones
+r /  esto hace que un bloque de código se ejecute como una unidad por eso si ocurre un fallo se revierte al estado inicial para no 
+
+3-diferencia entre autenticaci[on y autorizaci[on
+
+r/  por ejemplo en el caso de usuarios la autenticación verifica un usuario y lo identifica como válido para poder pasar al sistema y la autorización permite al usuario a acceder o a denegarle ciertos recursos
+
+4 autowire
+
+se le pone autowired para no crear una instancia nueva del objeto cada vez que se necesite la funcionalidad de determinada clase, se puede poner encima del atributo que se quiere por ejemplo
+
+5 @RequestMapping 
+
+r/esto permite mapear estas peticiones y generar una respuesta específica en el programa, esta respuesta específica es  programada en un método por ello usamos estas anotaciones para los métodos
+
+
+
+
