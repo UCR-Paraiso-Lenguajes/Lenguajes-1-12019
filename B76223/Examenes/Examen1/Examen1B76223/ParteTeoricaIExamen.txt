@@ -1,6 +1,7 @@
 1. SEGÚN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
 CÓMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA? 5PTS.
-
+Se debe realizar un assert por cada bifurcación de codigo, eso genera que entre más bifurcaciones
+haya, más assert deban hacerse en los casos de prueba
 
 2. QUÉ SON Y CUÁNDO SE USA EL “MANEJO DE TRANSACCIONES”? 5PTS
 Las transacciones son utilizadas para los casos en los cuales se presente 
