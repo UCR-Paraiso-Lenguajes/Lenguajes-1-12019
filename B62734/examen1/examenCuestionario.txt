@@ -1,17 +1,17 @@
-1-SEG⁄N LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
-C”MO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA?
+1-SEG√öN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
+C√ìMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA?
 R/Segun lo visto en clase un caso de prueba debe tener todos los asserts necesarios para verificar que el metodo cumpla correctamente su funcion.
 Estos afecta con los casos de arriba para verificar que el dominio cumpla con todos los metodos requeridos
 
-2. QU… SON Y CU¡NDO SE USA EL ìMANEJO DE TRANSACCIONESî? 
+2. QU√â SON Y CU√ÅNDO SE USA EL ‚ÄúMANEJO DE TRANSACCIONES‚Äù? 
 R/Es utilizar las consultas que le hacemos a la base de datos como si fuera una transaccion, la cual si se realizar mal puede devolver los cambios que realizo con rollback
-o aceptarlos con commit.Se utiliza cuando se tiene mucha concurrencia en nuestra aplicaciÛn y necesitamos asegurar los datos despues de que cada usuario los modifique.
+o aceptarlos con commit.Se utiliza cuando se tiene mucha concurrencia en nuestra aplicaci√≥n y necesitamos asegurar los datos despues de que cada usuario los modifique.
 
-3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACI”N Y AUTORIZACI”N? 
+3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACI√ìN Y AUTORIZACI√ìN? 
 R/La autenficacion es verificar que el usuario este en el sistema y la autorizacion es que el contenido que el usuario desea ver sus permisos le permitan verlo .
 
-4. QU… HACE LA ANOTACI”N @AUTOWIRE? 5PTS
+4. QU√â HACE LA ANOTACI√ìN @AUTOWIRE? 5PTS
 R/Inyecta las dependecias para que se puede inicializar los objetos con mas facilidad.
 
-5. QU… HACE LA ANOTACI”N @REQUESTMAPPING?
-R/Muestra la ruta  por donde se puede utilizar un metodo del controller rest y el metodo que utiliza para ya sea crear,obtener,actualizar o eliminar.
+5. QU√â HACE LA ANOTACI√ìN @REQUESTMAPPING?
+R/Muestra la ruta  por donde se puede acceder a un recurso del sistema con un url y el metodo http que utiliza para ya sea crear,obtener,actualizar o eliminar.
