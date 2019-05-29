@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Editar Autor</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombreAutor">Nombre</label>
+               	<label id="nombreAutor" th:text="${autor.nombreAutor}"></label>
+            </div>
+            <div class="form-group">
+                <label for="apellidoAutor">Apellidos</label>
+                <label id="apellidoAutor" th:text="${autor.apellidosAutor}"></label>
+            </div>
+            <div class="form-group">
+                <label for="idAutor">Id Autor</label>
+                <label id="id" th:value="${autor.idAutor}" th:text="${autor.idAutor}"></label>
+            </div>
+            <button id="eliminar" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+  <script>
+
+var id = $("#id");
+var eliminar = $("#eliminar");
+
+eliminar.click(function(){	
+	$.ajax(	{
+		method:"PUT",
+		contentType:"application/json; charset=utf-8",
+		url: "api/eliminarAutor/"+id.val()
+	}).done(function() {
+		alert("El autor se elimino correctamente");
+		 window.history.back();
+	}).fail(function()  {
+	    alert("No se elimino correctamente");
+	    window.history.back();
+	});
+});
+</script>  
+    
+</body>
+
+</html>

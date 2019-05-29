@@ -30,11 +30,7 @@ public final class Room extends RoomConvention{
 	@Override
 	protected void serialize(Message message)
 	{
-<<<<<<< HEAD
 
-=======
->>>>>>> 3c777b705f05436d6b59724e3aad47dbe6a956f7
-		
 		
 	}
 

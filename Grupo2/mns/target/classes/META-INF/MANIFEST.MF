@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: mns
 Implementation-Version: 0.0.1
-Built-By: daniela
-Implementation-Vendor-Id: cr.ac.ucr
-Build-Jdk: 1.8.0_121
+
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/mns
 Created-By: Maven Integration for Eclipse
