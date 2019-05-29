@@ -1,5 +1,6 @@
 package com.examen1b53953.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.examen1b53953.data.CursoData;
@@ -14,10 +15,11 @@ public class CursoBusiness {
 		return cursoData.listarCursos();
 	}
 
-	public void guardarCurso(Curso curso) {
+	public Curso guardarCurso(Curso curso) {
 		
 		
 		cursoData.guardarCurso(curso);
+		return curso;
 	}
 
 	public void ActualizarCurso(Curso curso, Curso cursoActualizado) {
@@ -32,5 +34,8 @@ public class CursoBusiness {
 	}
 
 	
-	
+	 public Curso agregarRequisitoAlCurso(Curso curso, ArrayList<Curso> cursosR) {
+		return cursoData.agregarRequisitoAlCurso(curso, cursosR);
+		
+	 }
 }

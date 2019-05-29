@@ -9,6 +9,7 @@ public class CursoData {
 
 	
 	private ArrayList<Curso> cursos;
+	private Curso curso;
 	
 	public List<Curso> listarCursos() {
 		
@@ -48,6 +49,11 @@ public class CursoData {
 	    }
 	
 
+	 public Curso agregarRequisitoAlCurso(Curso curso, ArrayList<Curso> cursosR) {
+		curso.getRequisitos().addAll(cursosR);
+		return curso;
+	 }
+	 
 	 public void eliminarCurso(int id) {
 	       
 	        for (int i = 0; i < cursos.size(); i++) {

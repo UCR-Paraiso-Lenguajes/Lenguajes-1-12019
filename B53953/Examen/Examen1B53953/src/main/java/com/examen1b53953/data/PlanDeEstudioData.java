@@ -3,11 +3,12 @@ package com.examen1b53953.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.examen1b53953.domain.Curso;
 import com.examen1b53953.domain.PlanDeEstudio;
 
 public class PlanDeEstudioData {
 	
-	
+	private PlanDeEstudio plan;
 private ArrayList<PlanDeEstudio> planesDeEstudio;
 	
 	public List<PlanDeEstudio> listarPlanes() {
@@ -21,6 +22,10 @@ private ArrayList<PlanDeEstudio> planesDeEstudio;
 			planesDeEstudio.add(plan);
         }
 		
+	}
+	
+	public void agregarCurso(Curso curso) {
+		plan.getCursos().add(curso);
 	}
 
 	

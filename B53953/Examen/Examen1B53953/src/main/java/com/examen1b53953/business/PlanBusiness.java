@@ -15,12 +15,13 @@ public class PlanBusiness {
 		return planDeEstudiosData.listarPlanes();
 	}
 
-	public void guardarPlan(PlanDeEstudio plan) {
+	public PlanDeEstudio guardarPlan(PlanDeEstudio plan) {
 		
 		planDeEstudiosData.guardarPlan(plan);
+		return plan;
 	}
 
-	public void ActualizarPlan(PlanDeEstudio plan, PlanDeEstudio planActualizado) {
+	public void actualizarPlan(PlanDeEstudio plan, PlanDeEstudio planActualizado) {
 		 planDeEstudiosData.actualizarPlan(plan, planActualizado);
 		
 	}
@@ -31,4 +32,7 @@ public class PlanBusiness {
 		
 	}
 
+	public void agregarCurso(Curso curso) {
+		planDeEstudiosData.agregarCurso(curso);;
+	}
 }

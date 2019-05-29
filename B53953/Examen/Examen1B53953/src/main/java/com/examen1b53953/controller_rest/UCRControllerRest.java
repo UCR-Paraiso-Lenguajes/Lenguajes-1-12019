@@ -32,23 +32,22 @@ public class UCRControllerRest {
 		@RequestMapping(value="/ucr/api/GuardarCurso", method=RequestMethod.POST )
 		public @ResponseBody Curso insertarCurso(@RequestBody Curso curso)
 		{
-			curso = cursoBusiness.guardar(curso);
+			return curso = cursoBusiness.guardarCurso(curso);
 			
-			return curso;
 		}	
 
 		@RequestMapping(value="/ucr/api/editarCurso", method=RequestMethod.PUT )
 		public @ResponseBody void actualizarCurso(
-				@RequestBody Curso curso)
+				@RequestBody Curso curso, Curso cursoActualizado)
 		{
-			cursoBusiness.editar(curso.getSigla() , curso);
+			cursoBusiness.ActualizarCurso(curso, cursoActualizado);
 		}
 
 		@RequestMapping(value="/ucr/api/eliminarCurso/{id}", method=RequestMethod.PUT )
 		public @ResponseBody void eliminarCurso(
 				@PathVariable int id )
 		{
-			cursoBusiness.eliminar(id);
+			cursoBusiness.eliminarCurso(id);
 		}
 		
 		@RequestMapping(value="/ucr/api/planesDeEstudio", method=RequestMethod.GET )
@@ -57,18 +56,17 @@ public class UCRControllerRest {
 		}
 
 		@RequestMapping(value="/ucr/api/GuardarCurso", method=RequestMethod.POST )
-		public @ResponseBody Curso insertarPlan(@RequestBody Curso curso)
+		public @ResponseBody PlanDeEstudio insertarPlan(@RequestBody PlanDeEstudio plan)
 		{
-			curso = planBusiness.guardarPlan(curso);
 			
-			return curso;
+			return plan = planBusiness.guardarPlan(plan);
 		}	
 
 		@RequestMapping(value="/ucr/api/editarCurso", method=RequestMethod.PUT )
 		public @ResponseBody void actualizarPlan(
-				@RequestBody Curso curso)
+				@RequestBody PlanDeEstudio plan, PlanDeEstudio planActualizado)
 		{
-			planBusiness.editarPlan(curso.getSigla() , curso);
+			planBusiness.actualizarPlan(plan , planActualizado);
 		}
 
 		@RequestMapping(value="/ucr/api/eliminarCurso/{id}", method=RequestMethod.PUT )
