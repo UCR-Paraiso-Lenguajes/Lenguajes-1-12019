@@ -1,0 +1,16 @@
+1 Se necesita una doble validacion puesto que eso involucra a un valor
+lo cual lleva a que se necesita el cumplimiento de una accion y el rechazo de una accion de ser necesario
+
+2 Las transacciones son codigo que interactua con una base de datos la cual ante posibilidades de errores o fallas no debera aplicar ningun tipo de cambio o bien si todo
+es correcto debe aplicar los cambios pertinentes
+
+Su uso debe ser utilizado cuando se maneja datos sensibles como lo son transacciones bancarias
+
+3 AUTENTICACIÓN
+	Es la verificacion de la existencia de algun objeto almacenado en el sistema 
+ 
+  AUTORIZACIÓN
+	Son los permisos concedidos para actuar en el sistema
+
+4 Es una anotacion que se utiliza sobre un constructor u objetos que queremos utilizen los servicios de inyección de dependencias
+5 Es una anotacion que realiza el ruteo de la aplicacion para lograr resolver donde se encuentran los metodos que necesitamos para resolver las peticiones de HTTP
