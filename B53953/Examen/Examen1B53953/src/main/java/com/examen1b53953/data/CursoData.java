@@ -15,22 +15,48 @@ public class CursoData {
 		return cursos;
 	}
 
-	public Curso guardarCurso(Curso curso) {
+	public void guardarCurso(Curso curso) {
 		
-		cursos.add(curso);
-		return curso;
-	}
-
-	public void actualizarCurso() {
-		
+		if (!existeCurso(curso)) {
+			cursos.add(curso);
+        }
 		
 	}
 
-	public void eliminarCurso(int id) {
-		cursos.remove(id);
-		
-	}
+	
+	public boolean existeCurso(Curso curso) {
+        boolean existe = false;
+        for (int i = 0; i < cursos.size(); i++) {
+            Curso cursoTemp = cursos.get(i);
+            if (cursoTemp.getId() == (curso.getId())) {
+                existe = true;
+            }
 
+        }
+        return existe;
+    }
+	
+	 public void actualizarCurso(Curso curso, Curso cursoAtualizado){
+	        for (int i = 0; i < cursos.size(); i++) {
+	            Curso temp = cursos.get(i);
+	           
+	            if(temp.getId() == curso.getId()){
+	                cursos.set(i, cursoAtualizado);
+	               
+	            }
+	        }
+	    }
+	
+
+	 public void eliminarCurso(int id) {
+	       
+	        for (int i = 0; i < cursos.size(); i++) {
+	            Curso cursoTemp = cursos.get(i);
+	            if(cursoTemp.getId()==id){
+	                cursos.remove(i);
+	            }
+	        }
+	 }
 
 
 }

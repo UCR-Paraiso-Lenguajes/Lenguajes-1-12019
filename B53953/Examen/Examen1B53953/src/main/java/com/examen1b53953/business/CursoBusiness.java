@@ -14,18 +14,18 @@ public class CursoBusiness {
 		return cursoData.listarCursos();
 	}
 
-	public Curso guardar(Curso curso) {
+	public void guardarCurso(Curso curso) {
 		
 		
-		return cursoData.guardarCurso(curso);
+		cursoData.guardarCurso(curso);
 	}
 
-	public void editar(String sigla, Curso curso) {
+	public void ActualizarCurso(Curso curso, Curso cursoActualizado) {
 	
-		cursoData.actualizarCurso();
+		cursoData.actualizarCurso(curso, cursoActualizado);
 	}
 
-	public void eliminar(int id) {
+	public void eliminarCurso(int id) {
 	    
 		cursoData.eliminarCurso(id);
 		

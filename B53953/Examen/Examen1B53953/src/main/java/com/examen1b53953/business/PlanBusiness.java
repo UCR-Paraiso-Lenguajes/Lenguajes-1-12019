@@ -12,21 +12,22 @@ public class PlanBusiness {
 
 	public List<PlanDeEstudio> listarPlanes() {
 		
-		return null;
+		return planDeEstudiosData.listarPlanes();
 	}
 
-	public Curso guardarPlan(Curso curso) {
+	public void guardarPlan(PlanDeEstudio plan) {
 		
-		return null;
+		planDeEstudiosData.guardarPlan(plan);
 	}
 
-	public void editarPlan(String sigla, Curso curso) {
-		
+	public void ActualizarPlan(PlanDeEstudio plan, PlanDeEstudio planActualizado) {
+		 planDeEstudiosData.actualizarPlan(plan, planActualizado);
 		
 	}
 
 	public void eliminarPlan(int id) {
-	
+	 
+		planDeEstudiosData.eliminarPlan(id);
 		
 	}
 
