@@ -2,9 +2,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <title>Plan de Estudios</title>
 </head>
 <body>
+
+<div class="container">        
+  <table class="table table-striped">
+      <tr>
+        <th>Ciclo V</th>
+        <td th:each="ciclo : ${ciclo}"><span th:text="${ciclo.nombre}"></span>  Créditos:<span th:text="${ciclo.creditos}"></span></td>
+        </tr>
+        <tr>
+        <th>Ciclo VI</th>
+        <td th:each="ciclo2 : ${ciclo2}"><span th:text="${ciclo2.nombre}"></span>  Créditos:<span th:text="${ciclo2.creditos}"></span></td>
+        </tr>
+        <tr>
+        <th>Ciclo VII</th>
+        <td th:each="ciclo3 : ${ciclo3}"><span th:text="${ciclo3.nombre}"></span> Créditos:<span th:text="${ciclo3.creditos}"></span></td>
+        </tr>
+        <tr>
+        <th>Ciclo VIII</th>
+        <td th:each="ciclo4 : ${ciclo4}"><span th:text="${ciclo4.nombre}"></span> Créditos:<span th:text="${ciclo4.creditos}"></span></td>
+        </tr>
+        <tr>
+        <th>Ciclo IX</th>
+        <td th:each="ciclo5 : ${ciclo5}"><span th:text="${ciclo5.nombre}"></span> Créditos:<span th:text="${ciclo5.creditos}"></span></td>
+        </tr>
+        <tr>
+        <th>Ciclo X</th>
+        <td th:each="ciclo6 : ${ciclo6}"><span th:text="${ciclo6.nombre}"></span> Créditos:<span th:text="${ciclo6.creditos}"></span></td>
+        </tr>
+      
+    
+    
+    <!--   
+    
+    <td  
+        
+        
+        
+        <td th:each="ciclo6 : ${ciclo6}"><span th:text="${ciclo6.cursos.nombre}"></span><span th:text="${ciclo6.cursos.creditos}"></span></td>-->
+      
+  </table>
+</div>
 
 </body>
 </html>

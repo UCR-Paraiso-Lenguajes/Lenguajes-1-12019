@@ -32,11 +32,11 @@ public class Carrera {
 		this.nombre = nombre;
 	}
 
-	public String getPlanEstudio() {
+	public PlandeEstudios getPlanEstudio() {
 		return planEstudio;
 	}
 
-	public void setPlanEstudio(String planEstudio) {
+	public void setPlanEstudio(PlandeEstudios planEstudio) {
 		if(planEstudio.equals(""))throw new RuntimeException("Dato vacio");
 		this.planEstudio = planEstudio;
 	}

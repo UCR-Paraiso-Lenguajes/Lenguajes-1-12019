@@ -6,6 +6,7 @@ public class PlandeEstudios {
 	
 	private String nombre;
 	private ArrayList<Curso> cursos;
+	private ArrayList<Ciclo> ciclos;
 	
 	public PlandeEstudios(String nombre, ArrayList<Curso> cursos) {
 		if(nombre.equals(""))throw new RuntimeException("Dato invalido");
@@ -13,6 +14,26 @@ public class PlandeEstudios {
 		this.nombre=nombre;
 		this.cursos=cursos;
 	}
+	
+	public PlandeEstudios(String nombre, ArrayList<Curso> cursos, ArrayList<Ciclo> ciclos) {
+		if(nombre.equals(""))throw new RuntimeException("Dato invalido");
+		if(cursos.size()<0)throw new RuntimeException("Dato invalido");
+		this.nombre=nombre;
+		this.cursos=cursos;
+		this.ciclos=ciclos;
+	}
+
+	public ArrayList<Ciclo> getCiclos() {
+		return ciclos;
+	}
+
+
+
+	public void setCiclos(ArrayList<Ciclo> ciclos) {
+		this.ciclos = ciclos;
+	}
+
+
 
 	public String getNombre() {
 		return nombre;
