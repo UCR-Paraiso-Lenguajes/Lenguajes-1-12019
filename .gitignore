@@ -2,3 +2,8 @@
 *bin/
 *target/
 *.project
+.classpath
+*.settings/
+*mvnw
+*.cmd
+*.mvn/
