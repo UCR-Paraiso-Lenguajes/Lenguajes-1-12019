@@ -1,6 +1,7 @@
 package com.examen1.plan.estudios.domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Curso{
 	private String siglas;
@@ -49,5 +50,16 @@ public class Curso{
 		if (creditos < 0)
 			throw new RuntimeException("Los creditos no pueden ser negativos!");
 		this.creditos = creditos;
+	}
+
+	public int obtenerCantidadRequisitos() {
+		return requisitos.size();
+	}
+	
+	public boolean esRequisito(Curso curso) {
+		for (int i = 0; i < requisitos.size(); i++)
+			if(requisitos.get(i).equalsIgnoreCase(curso.getSiglas()))
+				return true;
+		return false;
 	}
 }

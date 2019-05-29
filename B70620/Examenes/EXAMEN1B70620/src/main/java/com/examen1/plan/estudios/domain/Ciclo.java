@@ -40,6 +40,13 @@ public class Ciclo {
 		return false;
 	}
 	
+	public Curso obtenerCursoPorSigla(String siglaCurso) {
+		for (int i = 0; i < cursos.size(); i++)
+			if (cursos.get(i).getSiglas().equalsIgnoreCase(siglaCurso))
+				return cursos.get(i);
+		throw new RuntimeException("El ciclo no contiene este curso");
+	}
+	
 	protected int obtenerTotalCreditosDelCiclo() {
 		int total = 0;
 		for (int i = 0; i < cursos.size(); i++)

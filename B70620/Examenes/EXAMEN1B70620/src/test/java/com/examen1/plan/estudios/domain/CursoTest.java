@@ -31,5 +31,9 @@ public class CursoTest {
 			info.agregarRequisitoCurso(2, "EG-1003", "EG-1003");
 		});
 		
+		assertThatExceptionOfType(RuntimeException.class).isThrownBy(()->{
+			info.agregarRequisitoCurso(2, "EG-1003", "EG-1000");
+		});
+		
 	}
 }
