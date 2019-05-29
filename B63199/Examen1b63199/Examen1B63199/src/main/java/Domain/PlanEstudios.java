@@ -5,7 +5,6 @@ import java.util.List;
 public class PlanEstudios {
 
 	private String nombre;
-	//private int cantidadCreditos;
 	private List<Curso> cursosDelPlan;
 	
 	public PlanEstudios(String nombre, List<Curso> cursosDelPlan) {

@@ -7,15 +7,9 @@ public class Curso {
 	private String sigla;
 	private String nombre;
 	private int creditos;
-	//para validar si el curso es de primer o último nivel
-	
 	private boolean bloqueInicial;
 	private boolean bloqueFinal;
 	private List<Curso> cursosRequisito;
-	
-	/*		if(sigla.length()<=0) {
-			this.sigla = sigla;	
-		} throw new RuntimeException("La sigla no contiene suficientes valores.");*/
 	
 	public Curso() {
 		super();

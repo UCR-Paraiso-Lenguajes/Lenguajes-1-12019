@@ -24,6 +24,10 @@ public class Carrera {
 	public void setPlan(PlanEstudios plan) {
 		this.plan = plan;
 	}
+	@Override
+	public String toString() {
+		return "Carrera [sigla=" + sigla + ", nombre=" + nombre + ", plan=" + plan + "]";
+	}
 	
 
 	

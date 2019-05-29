@@ -14,17 +14,9 @@ public class CursoBusiness {
 	private List<Curso> cursos = new ArrayList<Curso>();
 
 	public void insertarCurso(Curso curso) {
-		Curso cursoNuevo=new Curso();
 		
-		cursoNuevo.setSigla(curso.getSigla());
-		cursoNuevo.setNombre(curso.getNombre());
-		cursoNuevo.setCreditos(curso.getCreditos());
-		cursoNuevo.setBloqueInicial(curso.isBloqueInicial());
-		cursoNuevo.setBloqueFinal(curso.isBloqueFinal());
-		cursoNuevo.setCursosRequisito(curso.getCursosRequisito());
-		
-		if(cursoNuevo!=null) {
-		cursos.add(cursoNuevo);
+		if(curso!=null) {
+		cursos.add(curso);
 		} throw new RuntimeException("El curso que se pretende insertar, no es válido.");
 	}
 	
