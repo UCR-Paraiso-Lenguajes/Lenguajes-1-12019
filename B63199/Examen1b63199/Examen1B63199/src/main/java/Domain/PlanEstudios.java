@@ -8,9 +8,7 @@ public class PlanEstudios {
 	private List<Curso> cursosDelPlan;
 	
 	public PlanEstudios(String nombre, List<Curso> cursosDelPlan) {
-		super();
 		
-		//TODO: VALIDAR
 		this.nombre = nombre;
 		this.cursosDelPlan = cursosDelPlan;
 	}
