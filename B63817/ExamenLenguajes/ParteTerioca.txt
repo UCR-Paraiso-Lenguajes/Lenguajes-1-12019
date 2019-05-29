@@ -1,0 +1,18 @@
+SEGÚN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
+CÓMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA? 5PTS.
+Uno por cada metodo o cuando se cambia el flujo como en el caso de los ifs.
+
+
+2. QUÉ SON Y CUÁNDO SE USA EL “MANEJO DE TRANSACCIONES”? 5PTS
+El manejo de transacciones son una o varias consultas que se realizan conjuntamente en la base de datos. P
+ara esto se utilizan procediemientos almacenados.
+
+3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACIÓN Y AUTORIZACIÓN? 5PTS
+Autenticación es cuando se necesitan los credenciales del usuario
+Autorización es cuando se ve cuales acciones tiene permisos.
+
+4. QUÉ HACE LA ANOTACIÓN @AUTOWIRE? 5PTS
+Se utiliza en una declaración en lugar del new.
+
+5. QUÉ HACE LA ANOTACIÓN @REQUESTMAPPING? 5PTS
+Información de ruteo le dice cuál solicitud HTTP  con la ruta indicada debe mapearse.
