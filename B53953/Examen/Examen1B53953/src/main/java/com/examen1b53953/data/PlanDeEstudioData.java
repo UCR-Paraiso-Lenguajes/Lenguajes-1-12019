@@ -62,5 +62,11 @@ private ArrayList<PlanDeEstudio> planesDeEstudio;
 	            }
 	        }
 	 }
+	 
+	 public int calcularCursosPlan(PlanDeEstudio plan) {
+			
+				return plan.getCursos().size();
+			
+		}
 
 }

@@ -38,4 +38,9 @@ public class CursoBusiness {
 		return cursoData.agregarRequisitoAlCurso(curso, cursosR);
 		
 	 }
+	 
+	 public boolean agregarRequisito(Curso curso, Curso cursoR) {
+		return cursoData.agregarRequisito(curso, cursoR);
+		
+	 }
 }

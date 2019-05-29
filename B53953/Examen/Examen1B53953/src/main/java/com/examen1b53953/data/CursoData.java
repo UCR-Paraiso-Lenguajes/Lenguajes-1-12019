@@ -54,6 +54,18 @@ public class CursoData {
 		return curso;
 	 }
 	 
+	 public boolean agregarRequisito(Curso curso, Curso cursoReq) {
+		 boolean exito = false;
+		if(curso.getId()== cursoReq.getId()) {
+			throw new RuntimeException("El requisito no puede ser el mismo que el curso a ingresar");
+		}else {
+		curso.getRequisitos().add(cursoReq);
+		exito = true;
+		}
+		
+		return exito;
+	 }
+	 
 	 public void eliminarCurso(int id) {
 	       
 	        for (int i = 0; i < cursos.size(); i++) {

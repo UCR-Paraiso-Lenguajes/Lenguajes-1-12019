@@ -35,4 +35,10 @@ public class PlanBusiness {
 	public void agregarCurso(Curso curso) {
 		planDeEstudiosData.agregarCurso(curso);;
 	}
+	
+	 public int calcularCursosPlan(PlanDeEstudio plan) {
+			
+			return planDeEstudiosData.calcularCursosPlan(plan);
+		
+	}
 }
