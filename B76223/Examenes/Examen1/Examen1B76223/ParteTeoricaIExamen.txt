@@ -1,0 +1,24 @@
+1. SEGÚN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
+CÓMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA? 5PTS.
+
+
+2. QUÉ SON Y CUÁNDO SE USA EL “MANEJO DE TRANSACCIONES”? 5PTS
+Las transacciones son utilizadas para los casos en los cuales se presente 
+cualquier falla que haga que la operación completa deba regresar a su estado anterior 
+y provoque una excepción.
+
+
+3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACIÓN Y AUTORIZACIÓN? 5PTS
+Autenticación: Verifica y valida la identidad del usuario
+Autorización: Verifica los accesos o permisos que se asocian a ese usuario en específico
+
+4. QUÉ HACE LA ANOTACIÓN @AUTOWIRE? 5PTS
+@Autowired: Esta anotación permite crear nuevos 
+beans en el proyecto adicionales a los bean que trae Spring por defecto,
+esta anotación se puede usar sobre propiedades, instaladores y constructores.
+
+5. QUÉ HACE LA ANOTACIÓN @REQUESTMAPPING? 5PTS
+@RequestMapping: esta anotación puede ser utilizada junto con la definición de clase 
+para crear el URI base, también puede utilizarse con un método en específico 
+para proporcionar el URI para el cual se asocia a un método del controlador, asi mismo 
+cuando se utiliza cuando se desea realizar diferentes operaciones según el método HTTP.
