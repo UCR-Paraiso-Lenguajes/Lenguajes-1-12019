@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.controller;
 
+import com.proyectoUno.grupo5.business.MessageBussiness;
 import com.proyectoUno.grupo5.business.RoomBussiness;
 import com.proyectoUno.grupo5.domain.Room;
 
@@ -20,6 +21,9 @@ import java.sql.SQLOutput;
 public class RoomController {
     @Autowired
     private RoomBussiness roomBusiness;
+    
+    @Autowired
+    private MessageBussiness messageBusiness;
 
    
     @RequestMapping(value = "/createRoom", method = RequestMethod.GET)
@@ -38,6 +42,7 @@ public class RoomController {
     	
     	try {
     		roomBusiness.insertRoom(room);
+    		messageBusiness.createTableMessage(room.getRoomName());
     	}
     	catch (SQLException e) {
 			// TODO Auto-generated catch block

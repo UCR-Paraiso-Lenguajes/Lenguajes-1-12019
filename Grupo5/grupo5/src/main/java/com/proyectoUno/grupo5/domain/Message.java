@@ -19,6 +19,9 @@ public class Message {
 		this.userSendThatMessage = userSendThatMessage;
 	}
 
+	public Message() {
+		
+	}
 
 	public int getIdMessage() {
 		return idMessage;
