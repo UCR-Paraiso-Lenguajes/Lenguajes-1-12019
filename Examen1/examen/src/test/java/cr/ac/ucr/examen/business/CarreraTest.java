@@ -2,6 +2,7 @@ package cr.ac.ucr.examen.business;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.junit.Test;
@@ -50,7 +51,6 @@ public class CarreraTest {
 		
 		
 		Ciclo c1 = new Ciclo();
-		Ciclo c2 = new Ciclo();
 		Ciclo c3 = new Ciclo();
 		
 		
@@ -68,9 +68,9 @@ public class CarreraTest {
 	
 		
 		
-		Iterator<Ciclo> it = innovacion.cursosRequisitos(ges_soc);
-		while(it.hasNext()) {
-			assertEquals(teoria_o, it.next());
+		ArrayList<Curso> it = innovacion.cursosRequisitos(ges_soc);
+		while(it.iterator().hasNext()) {
+			assertEquals(teoria_o, it.iterator().next());
 		}
 		
 	

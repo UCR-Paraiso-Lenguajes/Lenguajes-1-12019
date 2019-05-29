@@ -3,6 +3,7 @@ package cr.ac.ucr.examen.domain;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Stack;
 
 public class Carrera {
 	
@@ -50,24 +51,33 @@ public class Carrera {
 	
 	//DADO UN CURSO ESPECÍFICO PUEDE CALCULAR CUÁLES CURSOS SON NECESARIOS PARA LLEVARLO 
 	public ArrayList<Curso> cursosRequisitos(Curso curso){
-		
-		ArrayList<Curso> cursosRequisitos;
-		boolean change= false;
+		boolean si =false;
+		ArrayList<ArrayList<Curso>> cursosRequisitos = new ArrayList<ArrayList<Curso>>();
+		Stack<ArrayList<Curso>> temporal = new Stack<>();
 		Iterator<Area> it = this.areas.iterator();
+		ArrayList<Curso> listaCursosPorAreas =  it.next().getAreas().peek();
+		
 		
 		while(it.hasNext()) {
-			while(it.next().getAreas().iterator().hasNext()) {
-				while(it.next().getAreas().iterator().next().iterator().hasNext()) {
-					if(it.next().getAreas().iterator().next().iterator().next() == curso) 
-					{
-						change = true;
-					}
-					
+			while(listaCursosPorAreas != null) {
+				
+				if(si) {
+					cursosRequisitos.add(listaCursosPorAreas);
 				}
 				
+				else {
+				while(listaCursosPorAreas.iterator().hasNext()) {
+					if(listaCursosPorAreas.iterator().next() == curso) 
+					{
+						si=true;
+					}
+				}
+				}
+				
+				temporal.push(it.next().getAreas().pop());
 			}
 		}
-		change=false;
+
 		throw new RuntimeException("El curso no pertenece al plan de estudios"); 
 	}
 	
