@@ -3,12 +3,15 @@ package com.lenguajes.ucrmsn.ucr.live.messenger.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnlacesEnviados {
+import org.springframework.beans.factory.annotation.Autowired;
 
-	private List<Enlace> enlaces = new ArrayList<>();
+public class EnlacesEnviados {
+	
+	private List<Enlace> enlaces ;
 	private static EnlacesEnviados enlacesEnviados;
 
 	private EnlacesEnviados() {
+	enlaces=new ArrayList<Enlace>();
 	}
 
 	public static EnlacesEnviados getInstancia() {

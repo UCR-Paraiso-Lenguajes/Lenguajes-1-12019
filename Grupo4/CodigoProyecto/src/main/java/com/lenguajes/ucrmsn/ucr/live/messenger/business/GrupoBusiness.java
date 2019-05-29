@@ -27,9 +27,7 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 public class GrupoBusiness {
 
 	
-	@Autowired 
-	private EnlacesEnviados enlacesEnviados;
-	
+	private EnlacesEnviados enlacesEnviados=EnlacesEnviados.getInstancia();	
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
@@ -84,7 +82,8 @@ public class GrupoBusiness {
 				+ "Expira en 3 minutos."
 				+ "\n"
 				+ "Hora del servidor: "
-				+ fecha.getTime());
+				+ fecha.getTime()
+				+"localhost:8080/ucrmsn/interfazchat");
 
 		javaMailSender.send(mail);	
 	}

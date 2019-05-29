@@ -19,10 +19,9 @@ public class UsuarioBusinessTest {
 	@Test
 	public void test() throws GrupoException, UsuarioException {
 		UsuarioBusiness business = new UsuarioBusiness();
-		Usuario usuario = new Usuario(0, null, null, 0, null);
+		Usuario usuario = new Usuario(0, null);
 		Grupo grupo = new Grupo(0, "Grupo", 0, 0, usuario, usuario);
-		business.llenarLista();
-		business.asignarNombreYAvatar(usuario, grupo);
+		business.asignarNombreYAvatarUsuarioGrupo(usuario, grupo);
 		assertNotNull(usuario);
 	}
 

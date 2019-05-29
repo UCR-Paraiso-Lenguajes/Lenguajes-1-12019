@@ -6,7 +6,7 @@ public class UsuarioAdmin extends Usuario{
 
 	public UsuarioAdmin(int id, String avatar, String nombreUsuario, int cantidadMensajes, String hash)
 			throws UsuarioException {
-		super(id, avatar, nombreUsuario, cantidadMensajes, hash);
+		super(id, avatar);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -15,19 +15,27 @@ public class Usuario {
 	private ArrayList<Grupo> listaGrupos;
 	
 	
-	public Usuario(int id, String avatar, String nombreUsuario, int cantidadMensajes,String hash) throws UsuarioException {
+	public Usuario(int id,String hash) throws UsuarioException {
 		super();
-		if (avatar==null && nombreUsuario==null && hash==null) {
-			throw new UsuarioException("el usuario esta vacio");
-		}
 		this.id = id;
-		this.avatar = avatar;
-		this.nombreUsuario = nombreUsuario;
-		this.cantidadMensajes = cantidadMensajes;
+		this.cantidadMensajes = 0;
 		listaRoles=new ArrayList<Rol>();
 		listaGrupos=new ArrayList<Grupo>();
 		this.hash=hash;
 	}
+	
+	public Usuario(int id, String hash, String avatar, String nombreUsuario, ArrayList<Rol> listaRoles,
+			int cantidadMensajes, ArrayList<Grupo> listaGrupos) {
+		super();
+		this.id = id;
+		this.hash = hash;
+		this.avatar = avatar;
+		this.nombreUsuario = nombreUsuario;
+		this.listaRoles = listaRoles;
+		this.cantidadMensajes = cantidadMensajes;
+		this.listaGrupos = listaGrupos;
+	}
+
 	public void nuevoRol(Rol rol) {
 		if (!listaRoles.contains(rol)) {
 			listaRoles.add(rol);

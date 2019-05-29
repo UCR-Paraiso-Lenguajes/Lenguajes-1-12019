@@ -1,23 +1,38 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Enlace;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.EnlacesEnviados;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.RolException;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 @Service
 public class UsuarioBusiness {
 	
-	List<String> listaNombres;
-	List<String> listaAvatar;
+	List<String> listaNombres=new ArrayList<String>();
+	List<String> listaAvatar=new ArrayList<String>();
 	
-	@Transactional
-	public void llenarLista() {
+	private EnlacesEnviados enlacesEnviados=EnlacesEnviados.getInstancia();
+	
+	@Autowired
+	private JavaMailSender javaMailSender;
+	
+	
+	public UsuarioBusiness() {
 		listaNombres = new ArrayList<>();
 		listaAvatar = new ArrayList<>();
 
@@ -133,12 +148,12 @@ public class UsuarioBusiness {
 	}
 
 	@Transactional
-	public void asignarNombreYAvatar(Usuario usuario, Grupo grupo) {
-		Random nombreRandom = new Random();
-		String nombreAleatorio = listaNombres.get(nombreRandom.nextInt(listaNombres.size()));
+	public Usuario asignarNombreYAvatarUsuarioGrupo(Usuario usuario, Grupo grupo) {
+		int nombreRandom =  (int) (Math.random()*49+0);
+		String nombreAleatorio = listaNombres.get(nombreRandom);
 		
-		Random avatarRandom = new Random();
-		String avatarAleatorio = listaAvatar.get(avatarRandom.nextInt(listaAvatar.size()));
+		int avatarRandom =(int) (Math.random()*49+0);
+		String avatarAleatorio = listaAvatar.get(avatarRandom);
 		
 		for (int numUsuario = 0; numUsuario < grupo.getListaUsuarios().size(); numUsuario++) {
 			Usuario us = grupo.getListaUsuarios().get(numUsuario);
@@ -150,5 +165,64 @@ public class UsuarioBusiness {
 				usuario.setAvatar(avatarAleatorio);
 			}
 		}
+		return usuario;
+	}
+	@Transactional
+	public Usuario asignarNombreYAvatar(Usuario usuario) {//un nuevo usuario sin grupo
+		int nombreRandom =  (int) (Math.random()*49+0);
+		String nombreAleatorio = listaNombres.get(nombreRandom);		
+		
+		int avatarRandom =(int) (Math.random()*49+0);
+		String avatarAleatorio = listaAvatar.get(avatarRandom);
+			
+		usuario.setAvatar(avatarAleatorio);
+		usuario.setNombreUsuario(nombreAleatorio);
+	
+		
+		return usuario;
+	}
+	@Transactional
+	public void invitar(String to) {
+		String link="localhost:8080/ucrmsn/interfazchat?hash="+crearHash(to);
+		
+		Enlace enlace = new Enlace(link);
+		enlacesEnviados.agregar(enlace);
+		/*
+		 * expirarEnlace(enlace);
+		 */		
+		Calendar fecha = Calendar.getInstance();
+		SimpleMailMessage mail = new SimpleMailMessage();
+
+		mail.setFrom("ucrlivemessenger@gmail.com");
+		mail.setTo(to);
+		mail.setSubject("Invitación UCR Live Messenger");
+		mail.setText("Bienvenido a UCR Live Messenger" 
+				+ " \n" 
+				+ "Utilice el link adjunto para comenzar a chatear."
+				+ "\n" 
+				+ "Expira en 3 minutos."
+				+ "\n"
+				+ "Hora del servidor: "
+				+ fecha.getTime()
+				+ "\n"
+				+link);
+
+		javaMailSender.send(mail);	
+	}
+	public void expirarEnlace(Enlace enlace) {
+        try {
+			Thread.sleep(180000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        enlacesEnviados.eliminar(enlace);	
+        }
+	public String crearHash(String correo) {
+		String hash = DigestUtils.sha256Hex(correo);
+
+
+		
+		return hash;
 	}
 }

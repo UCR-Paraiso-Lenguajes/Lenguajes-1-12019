@@ -11,19 +11,17 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.business.GrupoBusiness;
 @Controller
 public class GrupoController {
 
-	@Autowired
-	private GrupoBusiness grupoBusiness;
-
-	@RequestMapping(value = "/msn", method = RequestMethod.GET)
-	public String enviarCorreo() {
-		return "msn";
-	}
-
-	@RequestMapping(value = "/msn", method = RequestMethod.POST)
-	public String sendMail(@RequestParam("CorreoElectronico") String mail) {
-
-		grupoBusiness.invitar(mail, "dsad");
-
-		return "msn";
-	}
+	/*
+	 * @Autowired private GrupoBusiness grupoBusiness;
+	 * 
+	 * @RequestMapping(value = "/msn", method = RequestMethod.GET) public String
+	 * enviarCorreo() { return "msn"; }
+	 * 
+	 * @RequestMapping(value = "/msn", method = RequestMethod.POST) public String
+	 * sendMail(@RequestParam("CorreoElectronico") String mail) {
+	 * 
+	 * grupoBusiness.invitar(mail, "dsad");
+	 * 
+	 * return "msn"; }
+	 */
 }
