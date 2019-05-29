@@ -1,0 +1,17 @@
+1-SEGÚN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
+CÓMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA?
+R/Segun lo visto en clase un caso de prueba debe tener todos los asserts necesarios para verificar que el metodo cumpla correctamente su funcion.
+Estos afecta con los casos de arriba para verificar que el dominio cumpla con todos los metodos requeridos
+
+2. QUÉ SON Y CUÁNDO SE USA EL “MANEJO DE TRANSACCIONES”? 
+R/Es utilizar las consultas que le hacemos a la base de datos como si fuera una transaccion, la cual si se realizar mal puede devolver los cambios que realizo con rollback
+o aceptarlos con commit.Se utiliza cuando se tiene mucha concurrencia en nuestra aplicación y necesitamos asegurar los datos despues de que cada usuario los modifique.
+
+3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACIÓN Y AUTORIZACIÓN? 
+R/La autenficacion es verificar que el usuario este en el sistema y la autorizacion es que el contenido que el usuario desea ver sus permisos le permitan verlo .
+
+4. QUÉ HACE LA ANOTACIÓN @AUTOWIRE? 5PTS
+R/Inyecta las dependecias para que se puede inicializar los objetos con mas facilidad.
+
+5. QUÉ HACE LA ANOTACIÓN @REQUESTMAPPING?
+R/Muestra la ruta  por donde se puede utilizar un metodo del controller rest y el metodo que utiliza para ya sea crear,obtener,actualizar o eliminar.
