@@ -1,5 +1,8 @@
 package com.ucr.ac.cr.planDeEstudios.business;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ucr.ac.cr.planDeEstudios.data.CursoData;
@@ -25,5 +28,7 @@ public class CursoBusiness {
 
 		cursoDao.delete(idCurso);
 	}
+	
+	
 
 }

@@ -10,15 +10,12 @@ public class PlanDeEstudiosData {
 
 	private List<Curso> cursosRequisitos;
 	private List<PlanDeEstudios> planesDeEstudio;
-	
+
 	public PlanDeEstudiosData() {
 		planesDeEstudio = new ArrayList<PlanDeEstudios>();
 		cursosRequisitos = new ArrayList<Curso>();
 	}
 
-	
-	
-	
 	public List<Curso> calculaPrerequisitos(Curso curso) {
 
 		// mientrasCurso no sea inicial ni final que lo siga agregando
@@ -36,8 +33,7 @@ public class PlanDeEstudiosData {
 		return cursosRequisitos;
 
 	}
-	
-	
+
 	public boolean insertarPlanEstudio(PlanDeEstudios planDeEstudio) {
 
 		boolean planInsertado = false;
@@ -51,33 +47,47 @@ public class PlanDeEstudiosData {
 
 	}
 
-	
-	
-	//faltan validaciones o excepciones
-		public void editarPlan(PlanDeEstudios planDeEstudios) {
-				
-			for (PlanDeEstudios planActual : planesDeEstudio) {
-				
-				if(planActual.getIdPlan()==planDeEstudios.getIdPlan()) {
-					
-					planActual=planDeEstudios;
-					
-				}
+	// faltan validaciones o excepciones
+	public void editarPlan(PlanDeEstudios planDeEstudios) {
+
+		for (PlanDeEstudios planActual : planesDeEstudio) {
+
+			if (planActual.getIdPlan() == planDeEstudios.getIdPlan()) {
+
+				planActual = planDeEstudios;
+
 			}
-				
 		}
-		
-		public void delete(int idPlan) {
-			
-			
-			for (int i = 0; i < planesDeEstudio.size(); i++) {
-				
-				if(planesDeEstudio.get(i).getIdPlan()==idPlan) {
-					
-					planesDeEstudio.remove(i);
-				}
+
+	}
+
+	public void delete(int idPlan) {
+
+		for (int i = 0; i < planesDeEstudio.size(); i++) {
+
+			if (planesDeEstudio.get(i).getIdPlan() == idPlan) {
+
+				planesDeEstudio.remove(i);
 			}
-						
-			}
-		
+		}
+
+	}
+
+	public int cantidadCreditos(ArrayList<Curso> cursos) {
+
+		int creditos = 0;
+
+		for (Curso cursoActual : cursos) {
+			creditos += cursoActual.getCreditos();
+		}
+		return creditos;
+
+	}
+
+	public int cantidadCursos(ArrayList<Curso> cursos) {
+
+		return cursos.size();
+	}
+
+
 }

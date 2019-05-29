@@ -16,6 +16,10 @@ public class Carrera {
 	}
 
 
+	public Carrera() {
+	}
+
+
 	public String getNombreCarrera() {
 		return nombreCarrera;
 	}

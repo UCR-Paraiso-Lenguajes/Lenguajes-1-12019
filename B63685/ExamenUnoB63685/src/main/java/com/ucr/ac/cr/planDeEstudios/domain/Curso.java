@@ -14,12 +14,17 @@ public class Curso {
     //se utiliza cuando el curso tiene requisito
 	public Curso(int idCurso, String nombre, String siglas, int creditos, Curso requisito, boolean isFinalOrInicial) {
 		super();
+		
+		if(idCurso == requisito.getIdCurso()) throw new RuntimeException("No se permite la creación de un curso y el mismo como requisito.");
+        if(siglas.trim().equals("")) new RuntimeException("Las siglas no pueden venir vacio");
+        if(creditos<0) new RuntimeException("la cantidad de creditos no puede ser menor a 0");
+        if(isFinalOrInicial) new RuntimeException("EL CURSO FINAL NO PUEDE SER REQUISITO DE NINGÚN OTRO CURSO.");
+        
 		this.nombre = nombre; if(nombre == null || nombre.trim().toLowerCase().equals("")) throw new RuntimeException("El nombre es requerido.");
 		this.siglas = siglas;
 		this.creditos = creditos;
-		this.requisito = requisito;	if(idCurso == requisito.getIdCurso()) throw new RuntimeException("No se permite la creación de un curso y el mismo como requisito.");
-
-		this.isFinalOrInicial = isFinalOrInicial;if(isFinalOrInicial) throw new RuntimeException("El curso final no puede ser requisito de ningún otro curso.");
+		this.requisito = requisito;	
+		this.isFinalOrInicial = isFinalOrInicial;
 		this.idCurso = idCurso;
 		
 		
@@ -30,6 +35,10 @@ public class Curso {
 	//se utiliza cuando el curso no tiene requisitos
 	public Curso(int idCurso, String nombre, String siglas, int creditos,boolean isFinalOrInicial) {
 		super();
+		
+        if(siglas.trim().equals("")) new RuntimeException("Las siglas no pueden venir vacio");
+        if(creditos<0) new RuntimeException("la cantidad de creditos no puede ser menor a 0");
+        
 		this.nombre = nombre;
 		this.siglas = siglas;
 		this.creditos = creditos;
