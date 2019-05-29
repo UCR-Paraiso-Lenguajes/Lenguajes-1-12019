@@ -30,8 +30,6 @@ public class LoginUserControllerRest {
 		String idUser="user";
 		HttpSession sesion = servlet.getSession();
 		
-		System.out.println(userClient.toString());
-		
 		if(userBussines.createUserValidation(userClient) == true) {
 			
 			idUserClient =	userData.addUserClient(userClient);
@@ -41,9 +39,8 @@ public class LoginUserControllerRest {
 		
 		userClient.setId(idUserClient);
 		userClient.setRol(rolDomain);
-		
-		
-		
+			
+		System.out.println(userClient.toString());
 		sesion.setAttribute(idUser, userClient);
 		
 	}

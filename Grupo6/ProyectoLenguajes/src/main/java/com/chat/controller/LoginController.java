@@ -13,10 +13,10 @@ public class LoginController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
     public String login(Model model) 
 	{
-		MetricData metricData = new MetricData();
+		/*MetricData metricData = new MetricData();
 		int cantidad=0;
 		cantidad = metricData.getQuantityRooms();
-		System.out.println(cantidad);
+		System.out.println(cantidad);*/
 		
 		return "login";
     }
