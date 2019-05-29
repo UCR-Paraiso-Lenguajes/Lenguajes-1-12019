@@ -14,6 +14,10 @@ public class PlanEstudiosBusiness {
 		planes.add(plan);
 	}
 	
+	public void insertarCursoEnPlan(Curso curso, PlanEstudios plan) {
+		getPlan(plan).getCursosDelPlan().add(curso);
+	}
+	
 	public void eliminarPlan(PlanEstudios plan) {
 		for (int i = 0; i < planes.size() ; i++) {
 			if(planes.get(i).getNombre().equals(plan.getNombre())) {
@@ -27,6 +31,7 @@ public class PlanEstudiosBusiness {
 			if(planes.get(i).getNombre().equals(plan.getNombre())) {
 				planes.get(i).setNombre(plan.getNombre());
 				planes.get(i).setCursosDelPlan(plan.getCursosDelPlan());
+				
 			}throw new RuntimeException("El plan no se encuentra en el sistema.");
 		}
 	}
