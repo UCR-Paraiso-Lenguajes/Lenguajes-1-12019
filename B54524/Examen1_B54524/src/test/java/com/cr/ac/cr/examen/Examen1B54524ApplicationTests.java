@@ -1,4 +1,4 @@
-package com.examen;
+package com.cr.ac.cr.examen;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

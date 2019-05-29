@@ -1,4 +1,4 @@
-package com.cr.ac.ucr.examen;
+package com.cr.ac.cr.examen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

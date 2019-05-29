@@ -5,15 +5,17 @@ import java.util.List;
 
 public class PlanDeEstudio {
 	
+	private int id;
 	private String nombre;
 	private ArrayList<Curso> cursos;
-	private String carrera;
 	
-	public PlanDeEstudio(String nombre, ArrayList<Curso> cursos, String carrera) {
+	public PlanDeEstudio(int id, String nombre) {
 		super();
+		if(id < 0) throw new RuntimeException("id inválido");
+		if(nombre == null || nombre.trim().equals("")) throw new RuntimeException("El nombre no es válido");
+		this.id = id;
 		this.nombre = nombre;
-		this.cursos = cursos;
-		this.carrera = carrera;
+		cursos = new ArrayList<>();
 	}
 
 	public String getNombre() {
@@ -32,17 +34,6 @@ public class PlanDeEstudio {
 		this.cursos = cursos;
 	}
 	
-	public List<Curso> obtenerPrerequisitos(Curso curso, ArrayList<Curso> requisitos)
-	{
-		if(curso.getRequisitos() != null) {
-			for (Curso requisito : curso.getRequisitos()) {
-				obtenerPrerequisitos(requisito, requisitos);
-			}
-		}
-		requisitos.add(curso);
-		return requisitos;
-	}
-	
 	public int obtenerCantidadTotalDeCreditos() {
 		int result = 0;
 		for (Curso curso : cursos) {
@@ -51,11 +42,31 @@ public class PlanDeEstudio {
 		return result;
 	}
 
-	public String getCarrera() {
-		return carrera;
+	public int getId() {
+		return id;
 	}
 
-	public void setCarrera(String carrera) {
-		this.carrera = carrera;
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public void agregarCurso(Curso curso) {
+		cursos.add(curso);
+	}
+
+	public void modificarCurso(int id, Curso curso) {
+		for (Curso cursoGuardado : cursos) {
+			if(cursoGuardado.getId() == id) {
+				cursoGuardado = curso;
+			}
+		}
+	}
+	
+	public void eliminarCurso(int id) {
+		for (Curso cursoGuardado : cursos) {
+			if(cursoGuardado.getId() == id) {
+				cursos.remove(cursoGuardado);
+			}
+		}
 	}
 }
