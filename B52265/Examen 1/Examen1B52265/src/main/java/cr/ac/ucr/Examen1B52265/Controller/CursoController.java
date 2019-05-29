@@ -19,6 +19,8 @@ public class CursoController {
     CursoPlanBusiness cursoPlan;
     @Autowired
     PlanesBusiness planes;
+
+    ArrayList<CursosPlan> cursosPlans = new ArrayList<>();
     @GetMapping("/{carrera}/{curso}")
     public ResponseEntity<ArrayList<Curso>> buscarPlanPorNombre(@PathVariable("curso") final String nombreCurso, @PathVariable("carrera")final String carrera){
         ArrayList<Curso> cursoBuscado = buscarCursoPorPlan(nombreCurso);
@@ -40,9 +42,15 @@ public class CursoController {
     public ResponseEntity<Curso> crearPlan(@RequestBody final Curso cursoNuevo, @PathVariable("carrera")final String carrera){
         Curso curso = null;
         ArrayList<Plan> allPlan = planes.getPlanes();
-        for(Plan planAInsertarCurso: allPlan){
-            if(planAInsertarCurso.getNombre().equals(carrera)){
-                planAInsertarCurso.getCursosPlan().getCursosDelPlan().add(cursoNuevo);
+        ArrayList<Curso> cursoNew = cursoPlan.getCursos();
+        if(cursoNew.contains(cursoNuevo)){
+            new RuntimeException("Curso ya existe");
+        }else{
+        cursoNew.add(cursoNuevo);
+        }
+        for(Plan plan: allPlan){
+            if(plan.getNombre().equals(carrera)){
+                cursoPlan.insertaCurso(plan,cursoNew);
             }
         }
         return new ResponseEntity<Curso>(curso,HttpStatus.CREATED);
@@ -51,12 +59,10 @@ public class CursoController {
     @PutMapping(value="/{carrera}/{idCurso}/actualizarCurso")
     public ResponseEntity<Curso> actualizarPlan(@RequestBody  final Curso actualizaCurso,@PathVariable("carrera")final String carrera,@PathVariable("idCurso")final int idCurso){
         Curso cursoAAcutalizar=null;
-        ArrayList<Curso> cursosPlan = new ArrayList<Curso>();
         ArrayList<Plan> allPlan = planes.getPlanes();
         for(Plan plan: allPlan){
             if(plan.getNombre().equals(carrera)){
-               cursosPlan = plan.getCursosPlan().getCursosDelPlan();
-                for(Curso curso: cursosPlan){
+                for(Curso curso: cursoPlan.getCursos()){
                     if(curso.getId()==idCurso){
                         curso.setNombre(actualizaCurso.getNombre());
                         curso.setCreditos(actualizaCurso.getCreditos());

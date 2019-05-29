@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class Plan {
     private int id;
     private String nombre;
-    private CursosPlan cursosPlan;
 
 
-    public Plan(String nombre, CursosPlan cursosPlan) {
+    public Plan(int id,String nombre) {
+        this.id = id;
         this.nombre = nombre;
-        this.cursosPlan = cursosPlan;
     }
 
     public int cantidadCreditos(ArrayList<Curso> cursos){
@@ -33,14 +32,6 @@ public class Plan {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public CursosPlan getCursosPlan() {
-        return cursosPlan;
-    }
-
-    public void setCursosPlan(CursosPlan cursosPlan) {
-        this.cursosPlan = cursosPlan;
     }
 
     public int getId() {

@@ -9,12 +9,13 @@ public class Curso {
     private boolean isCursoInicial;
     private boolean isCursoFinal;
 
-    public Curso(String nombre, String siglas, int creditos, String requisitoSigla, boolean isCursoInicial, boolean isCursoFinal) {
+    public Curso(int id,String nombre, String siglas, int creditos, String requisitoSigla, boolean isCursoInicial, boolean isCursoFinal) {
         if(isSiglasIguales(siglas,requisitoSigla)) new RuntimeException("Un curso no puede ser requisito de si mismo");
         if(isCursoInicial) new RuntimeException("Un curso inicial no puede tener requisitos");
         if(nombre.trim().equals("")) new RuntimeException("El nombre no puede venir vacio");
         if(siglas.trim().equals("")) new RuntimeException("Las siglas no pueden venir vacio");
         if(creditos<0) new RuntimeException("la cantidad de creditos no puede ser menor a 0");
+        this.id = id;
         this.nombre = nombre;
         this.siglas = siglas;
         this.creditos = creditos;

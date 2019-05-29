@@ -45,7 +45,6 @@ public class PlanEstudiosController {
         for(Plan plan: allPlan) {
             if (plan.getId() == idPlan) {
                 plan.setNombre(actualizaPlan.getNombre());
-                plan.setCursosPlan(actualizaPlan.getCursosPlan());
                 planes.setPlanes(allPlan);
             }
         }

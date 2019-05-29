@@ -9,9 +9,12 @@ import java.util.ArrayList;
 
 @Service
 public class CursoPlanBusiness {
-    CursosPlan cursosPlan;
+  private CursosPlan cursosPlan;
 
     public ArrayList<Curso> getCursos(){
         return cursosPlan.getCursosDelPlan();
+    }
+    public void insertaCurso(Plan plan, ArrayList<Curso> cursos){
+        cursosPlan.validaRequisitos(plan, cursos);
     }
 }
