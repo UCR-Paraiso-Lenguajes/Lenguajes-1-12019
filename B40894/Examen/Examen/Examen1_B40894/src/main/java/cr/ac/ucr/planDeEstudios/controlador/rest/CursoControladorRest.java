@@ -23,14 +23,14 @@ public class CursoControladorRest {
 	private CursoNegocios cursoNegocios;
 	
 	
-	@RequestMapping(value="/api/carreras/cursos", method=RequestMethod.GET )
+	@RequestMapping(value="/api/carreras/planEstudios/cursos", method=RequestMethod.GET )
 	public @ResponseBody List<Curso> listarCursos()
 	{
 		return cursoNegocios.listarCursos();
 		
 	}
 
-	@RequestMapping(value="/api/carrera/cursoInsertar", method=RequestMethod.POST )
+	@RequestMapping(value="/api/carreras/planEstudios/cursoInsertar", method=RequestMethod.POST )
 	public @ResponseBody Curso insertarCurso(@RequestBody Curso curso)
 	{
 	curso = cursoNegocios.guardar(curso);
@@ -38,7 +38,7 @@ public class CursoControladorRest {
 		return curso;
 	}	
 
-	@RequestMapping(value="/api/carrera/cursoActualizar/{sigla}", method=RequestMethod.PUT )
+	@RequestMapping(value="/api/carreras/planEstudios/cursoActualizar/{sigla}", method=RequestMethod.PUT )
 	public @ResponseBody void actualizarCurso(
 			@PathVariable String sigla , 
 			@RequestBody Curso curso)
@@ -46,7 +46,7 @@ public class CursoControladorRest {
 		cursoNegocios.actualizar(curso,sigla);
 	}	
 	
-	@RequestMapping(value="/api/carrera/cursoEliminar/{sigla}", method=RequestMethod.DELETE )
+	@RequestMapping(value="/api/carreras/planEstudios/cursoEliminar/{sigla}", method=RequestMethod.DELETE )
 	public @ResponseBody void eliminarCurso(
 			@PathVariable String sigla , 
 			@RequestBody Curso curso)
