@@ -1,0 +1,7 @@
+1.Mínimo 2 y depende de la cantidad de if's es un caso de pueba por cada if
+2.El manejo de transacciones se utiliza para controlar las inserciones o modificaciones en las tablas de la base de datos,
+pues 
+3.Autenticación: 
+  Autorización:  
+4.Realiza una auto instancia de una clase bien conocida por el Spring, Spring reconoce secciones de código.
+5.La anotación @REQUESTMAPPING recibe el método http utilizado, ademas de la especificación de la url
