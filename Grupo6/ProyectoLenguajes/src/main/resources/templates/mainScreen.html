@@ -27,10 +27,10 @@
 					<div class="panel panel-primary">
 						<div class="table-wrapper-scroll-y my-custom-scrollbar">
 							<div id="roomsList" class="row" th:each="room: ${rooms}">
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<!--  <img th:src="@{${room.avatar}}"/>-->
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-9">
 									<span th:text="${room.name}"></span>
 								</div>
 							</div>
@@ -262,18 +262,21 @@
 							dataType : "json",
 							url : "api/ChatRoom"
 						}).done(function(data) {
-
-						});
+							window.location.reload();
+						}).fail(function()  {
+						    window.location.reload();
+						});;
 
 						$('#ModalCreateGroup').modal('toggle');
+						
 
-						document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
+						/*document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
 								+ '<div class="col-md-4">'
 								+ '</div>'
 								+ '<div class="col-md-8">'
 								+ '<span>'
 								+ newGroup.val() + '</span>' + '</div>'
-						'</div>'
+						'</div>'*/
 					});
 
 	var invite = $("#invite");
