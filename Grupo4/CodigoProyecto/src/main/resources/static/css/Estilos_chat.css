@@ -15,14 +15,12 @@ i {
   cursor: pointer;
 }
 
-/*button{
-
-  top: 50%;
+ /*button{
+   top: 50%;
   left: 50%;
+ } */
 
-} */
-
-/*button{
+ /*button{
   background: none;
   color: #467FD7;
   width: 170px;
@@ -34,14 +32,12 @@ i {
   /*overflow: hidden;*/
 /*}*/
 
-/*button{
-
-  top: 50%;
+ /*button{
+   top: 50%;
   left: 50%;
+ } */
 
-} */
-
-/*button{
+ /*button{
   background: none;
   color: #467FD7;
   width: 170px;
@@ -53,7 +49,7 @@ i {
   /*overflow: hidden;*/
 /*}*/ 
 
-.chat-index {
+ .chat-index {
   display: grid;
   margin: 0px;
   grid-template-columns: 1fr 3fr;
