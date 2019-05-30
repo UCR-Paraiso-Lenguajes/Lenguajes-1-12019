@@ -1,0 +1,19 @@
+1)Son necesarios tantos assert como metodos que ejecutan una accion en la aplicacion, debido a esto se decide cuantos assert son necesarios para probar que la aplicacion va a correr de la mejor manera y poder serguir sdelante con la seguridad que lo que ya esta echo no llegue a fallar.
+
+
+2)Transacción un conjunto de una o más sentencias SQL que están lógicamente agrupadas y que deben ser aplicadas a la base de datos de forma completa o de lo contrario ninguna de ellas debería ser aplicada
+
+3)
+    Autenticación: se refiere al proceso de verificar la persona usuaria mediante la solicitud de credenciales
+    Autorización: proceso de verificar si a una persona usuaria le es permitido o no acceder a ciertos recursos
+
+4)
+   @Autowired: Esta anotación le permite a Spring resolver e inyectar beans de colaboración en su bean, se puede usar en propiedades, instaladores y   constructores.
+
+
+5)
+   @RequestMapping con Class: podemos usarlo con la definición de clase para crear el URI base
+   @RequestMapping con Method: podemos usarlo con un método para proporcionar el patrón URI para el cual se usará el método del controlador.
+   @RequestMapping con múltiples URI: podemos usar un solo método para manejar múltiples URIs
+   @RequestMapping con método HTTP: a veces queremos realizar diferentes operaciones según el método HTTP utilizado, aunque el URI de solicitud sigue siendo el    mismo
+
