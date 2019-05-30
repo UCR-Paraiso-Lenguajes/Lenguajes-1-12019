@@ -34,12 +34,15 @@ public class UsuarioController {
 	  
 	  @RequestMapping(value = "/interfazchat", method = RequestMethod.GET) 
 	  public String chatsUsuario(Model model,@RequestParam("hash") String hash) { 
-		  Usuario usuario=new Usuario(0,hash);
+		  Usuario usuario=new Usuario(hash);
 		  ArrayList<Rol> listaRoles=usuario.getListaRoles();
 		  listaRoles.add(new RolUsuario(0,"usuario"));
 		  usuario.setListaRoles(listaRoles);
+		  usuario=usuarioBusiness.asignarNombreYAvatar(usuario);
 		  
-		  model.addAttribute("usuario", usuarioBusiness.asignarNombreYAvatar(usuario) );
+		  model.addAttribute("usuario", usuario );
+		  model.addAttribute("grupos", usuario.getListaGrupos() );
+
 		  return "interfazchat"; 
 	  }
 	 

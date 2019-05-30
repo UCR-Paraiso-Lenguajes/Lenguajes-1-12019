@@ -55,7 +55,7 @@ public class GrupoBusiness {
 			for (int i = 0; i < usuario.getListaRoles().size(); i++) {
 				Rol rol = usuario.getListaRoles().get(i);
 				if (rol.getNombre().equals("admin")) {
-					grupoData.save(new Grupo(0, null, 0, 0, usuario, usuario));
+					grupoData.save(new Grupo(null, 0, 0, usuario, usuario));
 				}
 			}
 		}

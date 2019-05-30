@@ -4,6 +4,8 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.MensajeException;
 
 public class Mensaje {
 	private int id;
+	private static int cont=0;
+
 	private Usuario usuario;
 	private String contenido;
 	private int version;
@@ -17,7 +19,8 @@ public class Mensaje {
 		if (usuario==null && contenido.equals(null)) {
 			throw new MensajeException("mensaje vacio");
 		}
-		this.id = id;
+		cont=cont+1;
+		this.id = cont;
 		this.usuario = usuario;
 		this.contenido = contenido;
 		this.version = version;

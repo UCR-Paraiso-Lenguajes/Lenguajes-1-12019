@@ -1,7 +1,13 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-   <link rel="stylesheet" type="text/css" href="static/css/Estilos_chat.css" th:href="@{/css/Estilos_chat.css}">
+<meta charset="UTF-8">
+<title>Interfaz Chat</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ -->
+ <link rel="stylesheet" type="text/css" href="static/css/EstilosChat.css" th:href="@{/css/EstilosChat.css}">
 </head>
 
 <body>
@@ -24,7 +30,7 @@
                 <div class="chat-list_rooms">
                     <div class="chat-list_content">
                         <div class="avatar">
-                            <img src="IMG/avatar13.png">
+                            <img src="${usuario.avatar}">
                         </div>
                         <div class="chat-list_content_description">
                             <div class="chat-list_content_description_header">
@@ -65,18 +71,23 @@
         <div class="chat-column-right">
             <div class="chat-info">
                 <div class="chat-info_user">
-                       <div class="chat-info_user_fullname">Conversación usuario actual</div>
+                       <div class="chat-info_user_fullname">ConversaciÃ³n usuario actual</div>
+						
+						<tr th:each="grupo : ${grupos}">
 
                          <label for="Name">th:text="${grupo.nombre}"</label>
                       <!--   <td><span th:text="${grupo.nombre}"></span></td> -->
-                     <div class="chat-info_user_fullname">Conversación usuario actual</div>
-                   <div class="chat-info_user_last_visit">Última vez conectado: hace 5 minutos.</div>
+                      	</tr>
+                      
+                      
+                     <div class="chat-info_user_fullname">ConversaciÃ³n usuario actual</div>
                 </div>
                 <div class="chat-info_search">
                     <div class="chat-info_search_icon">
                     </div>
                 </div>
             </div>
+            
             <div class="chat-message">
                 <div class="chat-message_content interlocutor-message">
                     <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
@@ -87,13 +98,15 @@
                 </div>
        
                 </div>
+             
                 <div class="chat-message_content own-message">
                     <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
                         unde laboriosam facilis esse a rem pariatur sequi doloribus corporis doloremque?</div>
                     <div class="chat-message_content_date">
                          <!--10.12.2019 -->
                     </div>
-  
+  												</tr>
+  						
                        <!--10.12.2019 -->
                     </div>
                 </div>

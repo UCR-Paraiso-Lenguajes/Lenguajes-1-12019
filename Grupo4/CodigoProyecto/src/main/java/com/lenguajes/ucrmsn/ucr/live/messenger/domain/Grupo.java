@@ -10,6 +10,8 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class Grupo {
 	private int id;
+	private static int cont=0;
+
 	private String nombre;
 	private int numeroParticipantes;
 	private int cantidadMensajes;
@@ -18,13 +20,15 @@ public class Grupo {
 	private Usuario administrador;
 	private Usuario dueno;
 	
-	public Grupo(int id, String nombre, int numeroParticipantes, int cantidadMensajes, Usuario administrador,
+	public Grupo( String nombre, int numeroParticipantes, int cantidadMensajes, Usuario administrador,
 			Usuario dueno)throws GrupoException {
 		super();
 		if (nombre==null && administrador==null && dueno==null) {
 			throw new GrupoException("El Grupo esta vacio");
 		}
-		this.id = id;
+		cont=cont+1;
+
+		this.id = cont;
 		this.nombre = nombre;
 		this.numeroParticipantes = numeroParticipantes;
 		this.cantidadMensajes = cantidadMensajes;
