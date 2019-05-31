@@ -31,7 +31,8 @@
 									<!--  <img th:src="@{${room.avatar}}"/>-->
 								</div>
 								<div class="col-md-9">
-									<span th:text="${room.name}"></span>
+									<button th:id="${room.name}" th:text="${room.name}" class="btn btn-primary"></button>
+									<!--  <span th:text="${room.name}"></span>-->
 								</div>
 							</div>
 						</div>
@@ -43,7 +44,7 @@
 					Group</button>
 			</div>
 
-			<div id="colformChat" class="col-sm-8 text-center">
+			<div id="colformChat" class="col-sm-8 text-center" style="display: none;">
 
 				<div id="panelTop" class="panel panel-default">
 
@@ -51,7 +52,7 @@
 
 						<div class="pull-left">
 
-							<h3 class="panel-title">Chat Name</h3>
+							<h3 class="panel-title" id = "roomName">Chat Name</h3>
 
 						</div>
 
@@ -238,7 +239,7 @@
 
 		}
 	});
-
+	var seleccionarGrupo = $("#btnSeleccionargropo");
 	var create = $("#create");
 	var newGroup = $("#newGroup");
 	var obj = {
@@ -278,6 +279,24 @@
 								+ newGroup.val() + '</span>' + '</div>'
 						'</div>'*/
 					});
+	
+	var idRoom;
+	//Boton para cuando se escoge un grupo
+	
+	$("button").click(function() {
+		//alert(this.id); // or alert($(this).attr('id'));
+		document.getElementById('roomName').innerHTML = this.id;
+		document.getElementById('colformChat').style.display = 'block';
+		idRoom = this.id;
+	});
+	
+	
+	
+	/*function seleccionarGrupo(elem) {
+		console.log(elem);
+		var txt = elem.textContent || elem.innerText;
+		document.getElementById('roomName').innerHTML = txt;
+	}*/
 
 	var invite = $("#invite");
 	var newGroupMember = $("#newGroupMember");

@@ -34,6 +34,7 @@ public class ChatRoomBussines {
 			int valueAvatar = r.nextInt((max - min) + 1) + min;
 			String avatar = "~/chat/src/main/resources/templates/img/img" + valueAvatar;
 			chatRoom.setAvatar(avatar);
+			System.out.println(chatRoom.toString());
 		}
 		return rooms.iterator();
 	}	

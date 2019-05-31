@@ -10,7 +10,7 @@ public class ChatRoom {
 	private String name;
 	private int version;
 	private String url;
-	private List<UserAdmin> listUsers;
+	private List<UserClient> listUsers;
 	private List<Message> listMessage;
 	private UserAdmin user_creator;
 	private String avatar;
@@ -32,13 +32,13 @@ public class ChatRoom {
 		this.version = version;
 		this.url = url;
 		this.setUser_creator(userCreator);
-		this.listUsers = Collections.synchronizedList(new ArrayList<UserAdmin>());
+		this.listUsers = Collections.synchronizedList(new ArrayList<UserClient>());
 		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
 	public ChatRoom() {
 		super();
-		this.listUsers = Collections.synchronizedList(new ArrayList<UserAdmin>());
+		this.listUsers = Collections.synchronizedList(new ArrayList<UserClient>());
 		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
@@ -74,11 +74,11 @@ public class ChatRoom {
 		this.url = url;
 	}
 
-	public List<UserAdmin> getListUsers() {
+	public List<UserClient> getListUsers() {
 		return listUsers;
 	}
 
-	public void setListUsers(List<UserAdmin> listUsers) {
+	public void setListUsers(List<UserClient> listUsers) {
 		this.listUsers = listUsers;
 	}
 
