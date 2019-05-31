@@ -9,12 +9,19 @@ public class User {
 	private String hash;
 	private int numberMessages;
 	
+	
+	public User() {
+		
+	}
+	
 	public User(int user_id, String user_email, ArrayList<Role> roles, String hash) {
 		this.user_id = user_id;
 		this.user_email = user_email;
 		this.roles = roles;
 		this.hash = hash;
 	}
+	
+	
 	
 	public int getUser_id() {
 		return user_id;

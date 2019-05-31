@@ -75,6 +75,14 @@ public class UserDataTest {
 	public void getIdGroupsOfUsrTest() {
 		assertNotNull(idGroupsOfUsr);
 	}
+	
+	@Test 
+	public void getIdInvite() {
+		int id_user = userData.save("emmanuelsolano33@gmail.com");
+		
+		assertEquals(4, id_user);
+	}
+	
 	@Test
 	public void getSpecificUserById() {
 		User user = userData.getSpecificUserById(1);
