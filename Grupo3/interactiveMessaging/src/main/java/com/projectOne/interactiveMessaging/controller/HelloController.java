@@ -103,14 +103,15 @@ public class HelloController {
 	        return "invite";
 	    }
 		@RequestMapping(value="/invite", method=RequestMethod.POST )
-		public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model) {
+		public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup) {
 			if(bindingResult.hasErrors()) {
 				model.addAttribute("emailForm", new EmailForm());
 		        return "invite";
 			}else {
+				String linkChat = "";
 				String[] emails = emailForm.getEmailsSel();
 				for (int i = 0; i < emails.length; i++) {
-		    		emailBussines.sendMail("soporte.soft.inc@gmail.com",emails[i],"hola","sirvio");
+		    		emailBussines.sendMail("soporte.soft.inc@gmail.com",emails[i],"Invitación a Chat",linkChat);
 		    	}
 				return "invite";
 			}

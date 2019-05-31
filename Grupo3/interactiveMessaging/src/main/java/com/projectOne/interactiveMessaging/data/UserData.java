@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projectOne.interactiveMessaging.domain.Role;
+import com.projectOne.interactiveMessaging.domain.Room;
 import com.projectOne.interactiveMessaging.domain.User;
 
 @Repository
@@ -136,6 +137,16 @@ public class UserData {
 		}
 		
 	}
-	
+
+	@Transactional(readOnly = true)
+	public User getSpecificUserById(int idUser) {
+		List<User> listOfUser = new ArrayList<>();
+		String selectMysql = "SELECT id,correo, numberMessages " + "FROM UserApp "
+				+ "WHERE id = ?";
+		jdbcTemplate.query(selectMysql, new Object[] { idUser },
+				(rs, row) -> new User(rs.getInt("id"),rs.getString("correo"),rs.getInt("numberMessages")))
+		.forEach(entry -> listOfUser.add(entry));
+		return listOfUser.get(0);
+	}
 
 }
