@@ -25,46 +25,30 @@
 
             <div class="chat-list">
                 <div class="chat-list_search">
-                    <input type="text" placeholder="Conversaciones" id="search">
+                    <label type="text" placeholder="Grupos" id="search">
+                    
                 </div>
-                <div class="chat-list_rooms">
-                    <div class="chat-list_content">
+                <div class="chat-list_rooms" >  
+                    <div class="chat-list_content" th:each="grupo : ${grupos}" >
                         <div class="avatar">
-                            <img src="IMG/ico.jpg">
                         </div>
-                        <div class="chat-list_content_description">
-                            <div class="chat-list_content_description_header">
-                                <span>Alfred Pennyworth</span>
+                        <div class="chat-list_content_description" >
+                            <div class="chat-list_content_description_header" >
+                                <span th:text="${grupo.nombre}">NombreGrupo</span>
+								
                             </div>
                             <div class="chat-list_content_description_body">
                                 <div class="chat-list_content_description_body_message">
                                     <span>Lorem ipsum dolor sit amet.</span>
                                 </div>
-                                <div class="chat-list_content_description_body_time">
-                                    <span>10.12.2019</span>
-                                </div>
+                              
                             </div>
                         </div>
                     </div>
-                    <div class="chat-list_content">
-                        <div class="avatar">
-                            <img src="IMG/batman.png">
-                        </div>
-                        <div class="chat-list_content_description">
-                            <div class="chat-list_content_description_header">
-                                <span>Dick Grayson</span>
-                            </div>
-                            <div class="chat-list_content_description_body">
-                                <div class="chat-list_content_description_body_message">
-                                    <span>Lorem ipsum dolor sit amet.</span>
-                                </div>
-                                <div class="chat-list_content_description_body_time">
-                                    <span>10.12.2019</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 </tr>
+                   
                 </div>
+                
             </div>
         </div>
         <div class="chat-column-right">
@@ -76,14 +60,9 @@
 me">th:text="${grupo.nombre}"</label> -->
                     
                 </div>
-                <div class = "formulario"> </div>
-    
-                <div class="chat-info_search">
-                    <div class="chat-info_search_icon">
-                    </div>
-                </div>
+              
             </div>
-            <div class="chat-message">
+            <div class="chat-message" th:each="mensaje : ${mensajes}">
               
                 <div class="chat-message_content interlocutor-message">
                     <div class="chat-message_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.MensajeException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.RolException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
@@ -16,7 +17,7 @@ public class Grupo {
 	private int numeroParticipantes;
 	private int cantidadMensajes;
 	private ArrayList<Usuario> listaMiembros;
-	private SynchronousQueue listaMensajes;
+	private SynchronousQueue<Mensaje> listaMensajes;
 	private Usuario administrador;
 	private Usuario dueno;
 	
@@ -66,7 +67,12 @@ public class Grupo {
 		if (mensaje.getContenido().equals(null)) {
 			throw new RuntimeException("Mensaje Vacio");		
 		}else {
-		listaMensajes.add(mensaje);
+		try {
+		
+			listaMensajes.put(mensaje);
+		} catch (InterruptedException e) {
+			throw new MensajeException("Error al mandar mensaje");
+		}
 		}
 		return true;
 	}

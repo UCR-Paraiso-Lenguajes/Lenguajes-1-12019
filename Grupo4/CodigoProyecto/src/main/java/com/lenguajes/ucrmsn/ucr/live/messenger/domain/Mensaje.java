@@ -11,10 +11,8 @@ public class Mensaje {
 	private int version;
 	private Grupo grupo;
 	
-	public Mensaje() {
-		super();
-	}
-	public Mensaje(int id, Usuario usuario, String contenido, int version,Grupo grupo) throws MensajeException {
+
+	public Mensaje( Usuario usuario, String contenido, int version,Grupo grupo) throws MensajeException {
 		super();
 		if (usuario==null && contenido.equals(null)) {
 			throw new MensajeException("mensaje vacio");
@@ -26,6 +24,10 @@ public class Mensaje {
 		this.version = version;
 		this.grupo=grupo;
 		
+	}
+	public Mensaje() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
