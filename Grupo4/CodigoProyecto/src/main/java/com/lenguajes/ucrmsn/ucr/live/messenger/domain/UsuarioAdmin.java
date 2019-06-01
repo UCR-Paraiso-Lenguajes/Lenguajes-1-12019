@@ -6,11 +6,6 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class UsuarioAdmin extends Usuario{
 
-	public UsuarioAdmin(String hash) throws UsuarioException {
-		super(hash);
-		// TODO Auto-generated constructor stub
-	}
-
 	public UsuarioAdmin(String hash, String avatar, String nombreUsuario, ArrayList<Rol> listaRoles,
 			int cantidadMensajes, ArrayList<Grupo> listaGrupos) {
 		super(hash, avatar, nombreUsuario, listaRoles, cantidadMensajes, listaGrupos);
