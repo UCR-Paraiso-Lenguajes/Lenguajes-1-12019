@@ -11,6 +11,7 @@ public class Movimientos implements Iterator<Pelicula>{
 	private int pos;
 	
 	public Movimientos(Pelicula peli) {
+		if(peli == null) throw new RuntimeException("La pelicula no puede ser vacía");
 		this.date = new Date();
 		this.estado = peli.getEstado();
 		this.pelicula = peli;
