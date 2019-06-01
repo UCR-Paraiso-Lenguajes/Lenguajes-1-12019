@@ -32,6 +32,16 @@ public class GrupoBusiness {
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private GrupoData grupoData;
+	
+	public ArrayList<Grupo> listarGrupos(){
+		
+		return grupoData.listarGrupos();
+	}
+	
+	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo){
+		return grupoData.buscarUsuariosPorGrupo(idGrupo);
+		
+	}
 
 	@Transactional
 	public String crear(Usuario usuario) throws GrupoException, RolException, UsuarioException {
@@ -55,9 +65,8 @@ public class GrupoBusiness {
 			for (int i = 0; i < usuario.getListaRoles().size(); i++) {
 				Rol rol = usuario.getListaRoles().get(i);
 				if (rol.getNombre().equals("admin")) {
-					/*
-					 * grupoData.save(new Grupo(null, 0, 0, usuario, usuario));
-					 */				}
+					grupoData.save(new Grupo(null, 0, 0, usuario, usuario));
+				}
 			}
 		}
 		return hash;
