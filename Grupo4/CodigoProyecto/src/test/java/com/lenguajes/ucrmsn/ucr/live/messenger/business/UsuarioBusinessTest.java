@@ -17,12 +17,18 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 public class UsuarioBusinessTest {
 
 	@Test
-	public void test() throws GrupoException, UsuarioException {
+	public void asignarNombreYAvatarTest() throws GrupoException, UsuarioException {
 		UsuarioBusiness business = new UsuarioBusiness();
 		Usuario usuario = new Usuario( null);
 		Grupo grupo = new Grupo( "Grupo", 0, 0, usuario, usuario);
 		business.asignarNombreYAvatarUsuarioGrupo(usuario, grupo);
 		assertNotNull(usuario);
+	}
+	
+	@Test
+	public void invitarTest() {
+		UsuarioBusiness business = new UsuarioBusiness();
+		business.invitar("sergioss1997@gmail.com");
 	}
 
 }
