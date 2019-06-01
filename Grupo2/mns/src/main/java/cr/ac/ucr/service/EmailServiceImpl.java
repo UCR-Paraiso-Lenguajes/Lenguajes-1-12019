@@ -6,6 +6,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import cr.ac.ucr.domain.User;
+
 @Service
 public class EmailServiceImpl {
 	
@@ -18,13 +20,13 @@ public class EmailServiceImpl {
     }
     
  
-    public void sendMail(String to) throws MailException {
+    public void sendMail(User user) throws MailException {
        
         SimpleMailMessage message = new SimpleMailMessage(); 
-        message.setTo(to); 
+        message.setTo(user.getEmail()); 
         message.setFrom("priscipo@gmail.com");
-        message.setSubject("Hola"); 
-        message.setText("Se ha enviado el correo");
+        message.setSubject("Proyecto 1 Lenguajes Link de entrada"); 
+        message.setText("localhost:8080/chat/"+user.getHash());
         javaMailSender.send(message);
    
     }
