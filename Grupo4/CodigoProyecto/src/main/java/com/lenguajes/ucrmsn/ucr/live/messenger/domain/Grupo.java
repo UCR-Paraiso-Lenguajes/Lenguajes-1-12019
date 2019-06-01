@@ -21,12 +21,6 @@ public class Grupo {
 	private Usuario administrador;
 	private Usuario dueno;
 	
-	
-	
-	public Grupo() {
-		
-	}
-
 	public Grupo( String nombre, int numeroParticipantes, int cantidadMensajes, Usuario administrador,
 			Usuario dueno)throws GrupoException {
 		super();

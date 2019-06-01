@@ -16,11 +16,6 @@ public class Usuario {
 	private ArrayList<Grupo> listaGrupos;
 	
 	
-	
-	public Usuario() {
-		
-	}
-
 	public Usuario(String hash) throws UsuarioException {
 		super();
 		cont=cont+1;

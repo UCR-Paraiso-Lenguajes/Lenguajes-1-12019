@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
 
 
 
@@ -146,54 +145,8 @@ public class GrupoData {
 		String sqlSelect="select id,version,contenido from MENSAJE" ;
 		return (ArrayList<Mensaje>) jdbcTemplate.query(sqlSelect, new MensajeWithGrupoExtractor());
 	}
-	@Transactional(readOnly=true)
-	public ArrayList<Grupo> listarGrupos(){
-		
-		String sqlSelect="select id,name from GRUPO" ;
-		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
-	}
 	
-	@Transactional(readOnly=true)
-	public ArrayList<Usuario> buscarUsuariosPorGrupo(String idGrupo){
-		
-		String sqlSelect="select usuarioId, from USUARIO_GRUPO where grupoId= "+idGrupo ;
-		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
-	}
 	
-}
-
-class getAllUsersByRoomIDExtractor implements ResultSetExtractor<List<Usuario>>{
-
-	@Override
-	public List<Usuario> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Usuario> list = new LinkedList<>();
-		Usuario usuario = null;
-		while(rs.next()) {
-			Integer idUsuarioActual = rs.getInt("id");
-				usuario = new Usuario();
-				usuario.setId(rs.getInt("id"));
-				list.add(usuario);
-			}
-		
-		return list;
-	}
-}
-class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>>{
-
-	@Override
-	public List<Grupo> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Grupo> list = new LinkedList<>();
-		Grupo grupo = null;
-		while(rs.next()) {
-			Integer idGrupoActual = rs.getInt("id");
-				grupo = new Grupo();
-				grupo.setId(idGrupoActual);	
-				grupo.setNombre(rs.getString("nombre"));
-				list.add(grupo);
-			}
-		
-		return list;
-	}
 }
 
 class MensajeWithGrupoExtractor implements ResultSetExtractor<List<Mensaje>>{

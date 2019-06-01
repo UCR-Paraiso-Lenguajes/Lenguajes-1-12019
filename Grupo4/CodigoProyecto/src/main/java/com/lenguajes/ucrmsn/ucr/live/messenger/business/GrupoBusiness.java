@@ -32,16 +32,6 @@ public class GrupoBusiness {
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private GrupoData grupoData;
-	
-	public ArrayList<Grupo> listarGrupos(){
-		
-		return grupoData.listarGrupos();
-	}
-	
-	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo){
-		return grupoData.buscarUsuariosPorGrupo(idGrupo);
-		
-	}
 
 	@Transactional
 	public String crear(Usuario usuario) throws GrupoException, RolException, UsuarioException {
