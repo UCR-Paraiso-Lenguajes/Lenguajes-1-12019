@@ -18,17 +18,11 @@ public class Grupo {
 	private int cantidadMensajes;
 	private ArrayList<Usuario> listaMiembros;
 	private SynchronousQueue<Mensaje> listaMensajes;
-	private Usuario administrador;
-	private Usuario dueno;
+	private UsuarioAdmin administrador;
+	private UsuarioOwner dueno;
 	
-	
-	
-	public Grupo() {
-		
-	}
-
-	public Grupo( String nombre, int numeroParticipantes, int cantidadMensajes, Usuario administrador,
-			Usuario dueno)throws GrupoException {
+	public Grupo( String nombre, int numeroParticipantes, int cantidadMensajes, UsuarioAdmin administrador,
+			UsuarioOwner dueno)throws GrupoException {
 		super();
 		if (nombre==null && administrador==null && dueno==null) {
 			throw new GrupoException("El Grupo esta vacio");
@@ -118,17 +112,22 @@ public class Grupo {
 	public void setListaMensajes(SynchronousQueue listaMensajes) {
 		this.listaMensajes = listaMensajes;
 	}
-	public Usuario getAdministrador() {
+
+	public UsuarioAdmin getAdministrador() {
 		return administrador;
 	}
-	public void setAdministrador(Usuario administrador) {
+
+	public void setAdministrador(UsuarioAdmin administrador) {
 		this.administrador = administrador;
 	}
-	public Usuario getDueno() {
+
+	public UsuarioOwner getDueno() {
 		return dueno;
 	}
-	public void setDueno(Usuario dueno) {
+
+	public void setDueno(UsuarioOwner dueno) {
 		this.dueno = dueno;
 	}
+
 	
 }

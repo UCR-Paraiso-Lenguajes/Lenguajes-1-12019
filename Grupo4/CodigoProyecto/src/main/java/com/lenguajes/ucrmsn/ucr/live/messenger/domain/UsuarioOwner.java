@@ -12,6 +12,11 @@ public class UsuarioOwner extends Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
+	public UsuarioOwner(String hash) throws UsuarioException {
+		super(hash);
+		// TODO Auto-generated constructor stub
+	}
+
 	
 
 }
