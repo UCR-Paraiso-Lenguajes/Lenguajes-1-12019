@@ -1,6 +1,7 @@
 package com.proyectoUno.grupo5.domain;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Message {
 	
@@ -9,7 +10,6 @@ public class Message {
 	private Date fecha;
 	private String contenido;
 	private User userSendThatMessage;
-	
 	
 	public Message(int idMessage, Date fecha, String contenido, User userSendThatMessage) {
 		super();

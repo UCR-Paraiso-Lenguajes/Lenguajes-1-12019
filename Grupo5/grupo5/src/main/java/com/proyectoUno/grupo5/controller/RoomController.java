@@ -24,7 +24,7 @@ public class RoomController {
     
     @Autowired
     private MessageBussiness messageBusiness;
-
+    
    
     @RequestMapping(value = "/createRoom", method = RequestMethod.GET)
     public String insertRoom(Model model,@ModelAttribute(name="room") Room room){
@@ -45,7 +45,6 @@ public class RoomController {
     		messageBusiness.createTableMessage(room.getRoomName());
     	}
     	catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	

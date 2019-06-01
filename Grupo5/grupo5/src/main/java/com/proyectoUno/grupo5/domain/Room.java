@@ -2,16 +2,17 @@ package com.proyectoUno.grupo5.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Room {
 	
 	private int idRoom;
 	private String roomName;
 	private int version;	
-	private HashMap<Integer, Message> messages;
+	private Map<Integer, Message> messages;
 	private ArrayList<User> users;
 	
-	public Room(int idRoom, String roomName, int version, HashMap<Integer, Message> messages, ArrayList<User> users) {
+	public Room(int idRoom, String roomName, int version, Map<Integer, Message> messages, ArrayList<User> users) {
 		super();
 		this.idRoom = idRoom;
 		this.roomName = roomName;
@@ -52,7 +53,7 @@ public class Room {
 		this.version = version;
 	}
 
-	public HashMap<Integer, Message> getMessages() {
+	public Map<Integer, Message> getMessages() {
 		return messages;
 	}
 
