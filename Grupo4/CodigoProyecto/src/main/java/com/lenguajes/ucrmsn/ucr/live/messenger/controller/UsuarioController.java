@@ -17,6 +17,8 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.RolUsuario;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.UsuarioAdmin;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.UsuarioOwner;
 
 @Controller
 public class UsuarioController {
@@ -38,8 +40,8 @@ public class UsuarioController {
 	  @RequestMapping(value = "/interfazchat", method = RequestMethod.GET) 
 	  public String chatsUsuario(Model model,@RequestParam("hash") String hash) { 
 		  Usuario usuario=new Usuario(hash);
-		  Grupo grupo1=new Grupo("los amigos", 0, 0, new Usuario("dssdjds"), new Usuario("dsjsds"));
-		  Grupo grupo2= new Grupo("bebasos", 0, 0, new Usuario("dssdjds"), new Usuario("dsjsds"));
+		  Grupo grupo1=new Grupo("los amigos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
+		  Grupo grupo2= new Grupo("bebasos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
 		  Mensaje mensaje=new Mensaje(usuario, "hola juan",1, grupo1);
 		/*
 		 * grupo1.mandarMensaje(mensaje);
