@@ -12,10 +12,11 @@ public class Productora {
 		if(instancia == null) {
 			instancia = new Productora();
 		}
-		return instancia;
+		return instancia; 
 	}
 	
 	public void crearContenido(Object obj) {
+		if(obj == null) throw new RuntimeException("El objeto no puede ser nulo");
 		if(obj instanceof Pelicula) {
 			peliculaFactory.crearPelicula((Pelicula)obj);
 		}
