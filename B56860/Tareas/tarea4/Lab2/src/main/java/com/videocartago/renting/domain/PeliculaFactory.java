@@ -2,18 +2,22 @@ package com.videocartago.renting.domain;
 
 public class PeliculaFactory {
 	
-	public void crearPelicula(Pelicula peli) {
+	public Pelicula crearPelicula(Pelicula peli) {
+		
+		Pelicula pelicula = new Pelicula(peli.getGenero(), peli.getCodPelicula(), peli.getTotalPeliculas(),peli.getTitulo, peli.getEstreno(),
+			peli.isSubtitulada());
 		
 		switch (peli.getGenero().getNombreGenero()) {
 			case "terror":
-				peli.setClasificacion("Mayores de 18");
+				pelicula.setClasificacion("Mayores de 18");
 				break;
 			case "suspenso":
-				peli.setClasificacion("Mayores de 12");
+				pelicula.setClasificacion("Mayores de 12");
 				break;
 			default:
-				peli.setClasificacion("TP");
+				pelicula.setClasificacion("TP");
 		}
-	
+		
+		return pelicula;
 	}
 }
