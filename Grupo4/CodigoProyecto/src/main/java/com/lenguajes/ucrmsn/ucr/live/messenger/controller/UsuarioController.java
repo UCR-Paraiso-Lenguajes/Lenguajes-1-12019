@@ -43,9 +43,9 @@ public class UsuarioController {
 		  Grupo grupo1=new Grupo("los amigos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
 		  Grupo grupo2= new Grupo("bebasos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
 		  Mensaje mensaje=new Mensaje(usuario, "hola juan",1, grupo1);
-		/*
-		 * grupo1.mandarMensaje(mensaje);
-		 */		  
+		
+		  grupo1.mandarMensaje(mensaje);
+		 		  
 		  
 		  ArrayList<Rol> listaRoles=usuario.getListaRoles();
 		  listaRoles.add(new RolUsuario(0,"usuario"));
