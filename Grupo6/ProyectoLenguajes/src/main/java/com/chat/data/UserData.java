@@ -99,8 +99,8 @@ public class UserData {
 	}
 
 	@Transactional(readOnly = true)
-	public List<User> getUser() {
-		List<User> users = Collections.synchronizedList(new ArrayList<User>());
+	public List<UserClient> getUser() {
+		List<UserClient> users = Collections.synchronizedList(new ArrayList<UserClient>());
 
 		String sql = "SELECT id, email FROM user_client";
 		Connection conexion = null;
@@ -110,7 +110,7 @@ public class UserData {
 			PreparedStatement statement = conexion.prepareStatement(sql);
 			rs = statement.executeQuery();
 			while(rs.next()) {
-				User user = new User();
+				UserClient user = new UserClient();
 				user.setId(rs.getInt("id"));
 				user.setEmail(rs.getString("email"));
 				users.add(user);

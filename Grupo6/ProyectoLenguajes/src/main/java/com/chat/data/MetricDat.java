@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Metric;
-import com.chat.domain.User;
+import com.chat.domain.UserClient;
 
 
 @Repository
@@ -120,9 +120,9 @@ public class MetricDat {
 		ChatRomData chatData = new ChatRomData();
 		chatRooms = (ArrayList<ChatRoom>) chatData.getRooms();
 		
-		ArrayList<User> users = new ArrayList<>();
+		ArrayList<UserClient> users = new ArrayList<>();
 		UserData userData = new UserData();
-		users = (ArrayList<User>) userData.getUser();
+		users = (ArrayList<UserClient>) userData.getUser();
 		
 		ArrayList<Integer> cantidadUsuariosPorChat = new ArrayList<>();
 		
