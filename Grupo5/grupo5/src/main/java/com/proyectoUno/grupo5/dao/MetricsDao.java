@@ -29,7 +29,7 @@ public class MetricsDao {
 
 	    @Transactional(readOnly = true)
 	    public List<Metrics> getMetrics() {
-	        String sqlSelect = "select idmetrics,average_user_room,quantity_rooms,quantity_user,date_first_login from metrics";
+	        String sqlSelect = "select id_metrics,average_user_per_group,cantity_groups,cantity_users,date_first_login from metrics";
 	        return jdbcTemplate.query(sqlSelect, new MetricsWithExtractor());
 	    }
 	    class MetricsWithExtractor implements ResultSetExtractor<List<Metrics>> {
