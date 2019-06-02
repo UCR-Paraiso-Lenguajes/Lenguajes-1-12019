@@ -1,0 +1,21 @@
+package cr.ac.ucr.ie.app.controllers;
+
+import java.util.ArrayList;
+
+public class Empleados {
+	private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+	
+	public Empleados() {
+		
+		empleados.add(new Empleado(1, "Esteban"));
+		empleados.add(new Empleado(2, "Daniel"));
+		empleados.add(new Empleado(3, "Leo"));
+		empleados.add(new Empleado(4, "Karen"));
+		
+		
+	}
+
+	public void Agregar(Empleado empleado) {
+		empleados.add(new Empleado(1, "Esteban"));
+	}
+}

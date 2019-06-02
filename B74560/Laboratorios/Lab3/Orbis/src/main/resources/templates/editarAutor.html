@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+</script>
+
+<style>
+label {
+	display: inline-block;
+	width: 80px;
+}
+</style>
+
+<title>Actualizar</title>
+</head>
+<body>
+
+	<div class="container" align="center">
+		<br> <br>
+		<h1>Edici&oacute;n de la Informaci&oacute;n del Autor</h1>
+		<br> <br>
+	</div>
+	
+	<div class="container" align="left">
+
+		<div class="form-group">
+			<label>Id:</label><input type="number" id= "id_autor" name="id_autor"
+				th:field="*{autor.id_autor}" disabled="disabled" />
+		</div>
+		<br>
+		<div class="form-group">
+			<label>Nombre:</label><input type="text" id="nombre_autor" name="nombre_autor"
+				th:field="*{autor.nombre_autor}" required=true />
+		</div>
+		<br>
+		<div class="form-group">
+			<label>Apellido:</label><input type="text" id="apellidos_autor" name="apellidos_autor"
+				th:field="*{autor.apellidos_autor}" required=true />
+		</div>
+		<br> <input type="button" id="editar" value="Actualizar" /> <input
+			type="button" onclick="history.back()" name="Cancelar"
+			value="Cancelar">
+
+
+	</div>
+	
+	
+	
+	<script>
+            var id_autor = $("#id_autor");
+            var nombre = $("#nombre_autor");
+            var apellidos = $("#apellidos_autor");
+            
+            var obj = {
+                "nombre_autor" : nombre.val(),
+                "apellidos_autor" : apellidos.val()
+            };
+            $("#editar").click(function(){
+                obj.nombre_autor = nombre.val();
+                obj.apellidos_autor = apellidos.val();
+                $.ajax({
+                 type : "PUT",
+                    data : JSON.stringify(obj),
+              contentType:"application/json;",
+              dataType:"json",
+                    url : "api/autor/"+id_autor.val()
+                }).done(function(data) {
+                    alert("Se edito el autor con ID: " + id_autor.val());
+
+                });
+            });
+        </script>
+	
+</body>
+
+</html>

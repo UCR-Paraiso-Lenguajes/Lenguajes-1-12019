@@ -1,0 +1,23 @@
+package cr.ac.ucr.ie.app.controllers;
+
+public class Empleado {
+	private int id;
+	private String nombre;
+	private String apellidos;
+	
+	public Empleado(int id, String nombre) {
+		if(id <=0) throw new RuntimeException("El id debe ser mayor a 0");
+		if(nombre !=null && nombre.trim().equals("")) throw new RuntimeException("El id debe ser mayor a 0");
+		this.id = id;
+		this.nombre = nombre;
+		}
+
+	public Empleado(int id, String nombre, String apellidos) {
+		this(id, nombre);
+		if(apellidos !=null && apellidos.trim().equals("")) throw new RuntimeException("El apellidos debe ser mayor a 0");
+		this.apellidos = apellidos;
+	}
+	
+	
+	
+}

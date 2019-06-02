@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Eliminar Autor</title>
+</head>
+<body>
+<h1>Eliminar Autor</h1>
+<p>Información del autor a eliminar<p>
+
+<div class="container"> 
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" type="text" class="form-control" readonly="readonly" th:value="${autor.nombre}">
+  </div>
+  <div class="form-group">
+    <label  for="apellidos">Apellidos:</label>
+    <input  type="text" class="form-control" id="apellidos" readonly="readonly" th:value="${autor.apellidos}">
+  </div>
+  <button id="eliminar" >Eliminar</button>
+</div>
+
+
+<script>
+var eliminarbtn = $("#eliminar");
+var identificacion = $("#identificacion");
+var nombre = $("#nombre");
+var apellidos = $("#apellidos");
+
+
+$("#eliminar").click(function(){
+	
+	var obj =     {
+			"id": identificacion.val(),
+	        "nombre": nombre.val(),
+	        "apellidos": apellidos.val(),
+	    };
+	
+	$.ajax(	{
+		method:"POST",
+		data:JSON.stringify(obj),
+		contentType:"application/json; charset=utf-8",
+		dataType:"json",
+		url: "api/eliminarAutor/"+identificacion.val()
+	}).done(function( data ) {
+		alert("Exito");
+	});
+});
+
+</script>
+
+</body>
+</html>

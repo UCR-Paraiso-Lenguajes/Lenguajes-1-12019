@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<title>Mantenimiento Autores</title>
+</head>
+<body>
+
+ <div class="container">
+<h3>Edición de la información del Autor</h3>
+
+ 	<div class="form-group">
+		<label for="id">Identificacion:</label>
+		<input id="id" type="text" th:value="${autor.idAutor}" readonly="readonly" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="nombre">Nombre:</label>
+		<input id="nombre" type="text" th:value="${autor.nombreAutor}" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="apellidos">Apellidos:</label>
+		<input id="apellidos" type="text" th:value="${autor.apellidosAutor}" class="form-control">
+	</div>
+	<button id="editar" class="btn btn-primary">Editar</button>
+</div>
+
+ <script>
+var id = $("#id");
+var nombre = $("#nombre");
+var apellidos = $("#apellidos");
+var editar = $("#editar");
+var obj =     {
+		"id": id,
+        "nombre": nombre,
+        "apellidos": apellidos,
+    };
+editar.click(function(){
+	
+	obj.idAutor=id.val();
+	obj.nombreAutor=nombre.val();
+	obj.apellidosAutor=apellidos.val();
+	
+	$.ajax(	{
+		method:"PUT",
+		data:JSON.stringify(obj),
+		contentType:"application/json; charset=utf-8",
+		url: "api/editarAutor"
+	}).done(function()  {
+	    alert("Success.");
+	    window.history.back();
+	    window.history.back().reload();
+	}).fail(function()  {
+	    alert("Sorry. Error . ");
+	    window.history.back();
+	});
+});
+</script>
+
+ </body>
+</html>

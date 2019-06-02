@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+
+<script type="text/javascript" charset="utf8"
+	src="/DataTables/datatables.js"></script>
+
+<head>
+<meta charset="UTF-8">
+<title>Mantenimiento Autores</title>
+<head>
+</head>
+<body>
+
+	<div class="container">
+
+		<div id="rowTable" class="row">
+
+			<div class="col-lg-2"></div>
+
+			<div class="col-lg-8">
+
+				<table id="table_autores" class="display">
+
+					<thead>
+
+						<tr>
+
+							<th>Identificacion </th>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+							<th>Accion</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<tr th:each="entry,status : ${listaAutor}">
+							<td><span th:text="${entry.id_autor}" id="id"></span></td>
+							<td><span th:text="${entry.nombre_Autor}" id="nombre"></span></td>
+							<td><span th:text="${entry.apellidos_autor}" id="apellidos"></span></td>
+
+							<td><a th:text="Editar"
+								th:href="@{editarAutor?(id_autor=${entry.id_autor})}"></a>
+							<a th:text="Borrar"
+								th:href="@{borrarAutor?(id_autor=${entry.id_autor})}"></a>
+                          </td>
+
+
+						</tr>
+
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+<script type="text/javascript">
+	
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#table_autores').DataTable();
+	});
+</script>
+
+<style>
+#rowTable {
+	margin-top: 50px;
+}
+</style>

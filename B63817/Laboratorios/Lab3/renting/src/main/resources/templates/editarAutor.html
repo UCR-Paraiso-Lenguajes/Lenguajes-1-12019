@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edición de la información del autor</title>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+
+		<form action="#" th:action="@{/editarAutor}" method="GET">
+
+
+			Editar información del autor:
+
+			<div class="form-inline">
+				<label for="id_autor" class="mr-sm-2">Identificación:</label>
+				<div></div>
+				<input type="text" th:value="${autor.id_autor}"
+					class="form-control mb-2 mr-sm-2" id="id_autor" disabled>
+			</div>
+
+
+
+			<div class="form-inline">
+				<label for="nombre_Autor" class="mr-sm-2">Nombre:</label> <input
+					type="text" th:value="${autor.nombre_Autor}"
+					class="form-control mb-2 mr-sm-2" id="nombre_Autor">
+			</div>
+
+			<div class="form-inline">
+				<label for="apellidos_autor" class="mr-sm-2">Apellidos:</label> <input
+					type="text" th:value="${autor.apellidos_autor}"
+					class="form-control mb-2 mr-sm-2" id="apellidos_autor">
+			</div>
+
+			<button type="submit" id="editar">Editar</button>
+			<input type="button" name="Cancelar" value="Cancelar"
+				onClick="location.href='/renting/mantenimientoAutores'">
+		</form>
+	</div>
+
+
+</body>
+
+<script>
+	//var id_autor = $("#id_autor");
+	//var nombre_Autor = $("#nombre_Autor");
+	//var apellidos_autor = $("#apellidos_autor");
+
+	//$("#editar").click(function() {
+	//var obj = {
+	//"id_autor" : id_autor.val(),
+	//"nombre_Autor" : nombre_Autor.val(),
+	//"apellidos_autor" : apellidos_autor.val()
+	//};
+
+	//$.ajax({
+	//method : "PUT",
+	//data : JSON.stringify(obj),
+	//contentType : "application/json; charset=utf-8",
+	//url : "api/editarAutor/"+id_autor.val()
+	//}).done(function(data) {
+	//	alert("Exito");
+	//	console.log(data);
+	//});
+	//});
+
+	var id_autor = $("#id_autor");
+	var nombre_Autor = $("#nombre_Autor");
+	var apellidos_autor = $("#apellidos_autor");
+	var editar = $("#editar");
+	var obj = {
+		"id_autor" : id_autor,
+		"nombre_Autor" : nombre_Autor,
+		"apellidos_autor" : apellidos_autor
+	};
+	editar.click(function() {
+
+		obj.id_autor = id_autor.val();
+		obj.nombre_Autor = nombre_Autor.val();
+		obj.apellidos_autor = apellidos_autor.val();
+
+		$.ajax({
+			method : "PUT",
+			data : JSON.stringify(obj),
+			contentType : "application/json; charset=utf-8",
+			url : "api/editar/"+id_autor.val()
+		}).done(function() {
+			alert("Success.");
+			window.history.back();
+		}).fail(function() {
+			alert("Sorry. Error . ");
+			window.history.back();
+		});
+	});
+</script>	
+
+</html>
+
+
+
+
+
+
+

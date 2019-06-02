@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Libros </title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+		crossorigin="anonymous"></script>
+		
+<script 
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+		crossorigin="anonymous"></script>
+		
+<link rel="stylesheet" 
+	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+	  crossorigin="anonymous">
+	  
+<link rel="stylesheet" 
+	  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+		crossorigin="anonymous"></script>
+<script>
+
+$(function() {
+	$("#btnSubmitPasar").click(function(){
+		var autoresBD = document.getElementById("autoresDB");
+		var autoresSelect = document.getElementById("autoresSelect");
+		 for (i = 0; i < autoresBD.length; i++) {
+             currentOption = autoresBD [i];
+             if (currentOption.selected == true) {
+            	 autoresSelect.options[autoresSelect.options.length] =
+                     new Option(currentOption.text, currentOption.value, false, false);
+                 currentOption.parentNode.removeChild(currentOption);
+             } 
+		 }
+		});
+	$("#btnSubmitDevolver").click(function(){
+		var autoresBD = document.getElementById("autoresSelect");
+		var autoresSelect = document.getElementById("autoresDB");
+		 for (i = 0; i < autoresBD.length; i++) {
+             currentOption = autoresBD [i];
+             if (currentOption.selected == true) {
+            	 autoresSelect.options[autoresSelect.options.length] =
+                     new Option(currentOption.text, currentOption.value, false, false);
+                 
+                 currentOption.parentNode.removeChild(currentOption);
+             } 
+		 }
+		
+	
+	});
+	$("#btnSubmit").click(function(){
+		var autoresSelect = document.getElementById("autoresSelect");
+		for (i = 0; i < autoresSelect.length; i++) {
+            currentOption = autoresSelect[i];
+            currentOption.selected = true
+		 }
+		
+	});
+    
+	
+});
+</script>
+		
+</head>
+<body>
+<div class="container">
+
+<h1>Insertar un nuevo libro</h1>
+
+<form th:action="@{/insertarLibro}" th:object="${libroForm}" method="post" >
+
+
+	<br><br> 
+	Titulo: <input type="text" name="titulo" id="titulo" th:field="*{titulo}"/> <br> <br>
+	Año: <input type="number" name="ano" id="ano" th:field="*{ano}"/> <br> <br>
+	Precio: <input type="number" name="precio" id="precio" th:field="*{precio}"/> <br> <br>
+
+	
+	Editoriales:    
+	<select th:field="*{id_editorial}">
+	    <option th:each="editorial: ${editoriales}" th:value="${editorial.id_editorial}" th:text="${editorial.nombre}"></option>
+	  
+	</select><br><br>
+	
+	ISBN: <input type="number" name= "id_libro" id="id_libro" th:field="*{id_libro}"/> <br><br>
+	
+	Seleccione uno o mas autores: <br><br>
+	
+	<select id="autoresDB" size="2" multiple>
+	
+	<option th:each="autor: ${autores}" th:value="${autor.id_autor}" th:text="${autor.nombre_autor}"></option>
+	</select><br><br>
+	
+	<div id="btnSubmitDevolver"><i class="fa fa-angle-double-up"></i></div>
+	<div id="btnSubmitPasar"><i class="fa fa-angle-double-down"></i></div>
+	
+	<select id="autoresSelect" size="2" multiple th:field="*{autores}"></select><br><br><br>
+	
+	
+	
+	<button id="btnSubmit" type="submit">Insertar</button>
+	<input type="Reset" value="Limpiar campos">
+
+</form>
+
+</body>
+</html>
+
