@@ -64,26 +64,24 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Id Metrics</th>
+                        <th>Quantity Of Rooms</th>
+                        <th>Quantity Of Users</th>
+                        <th>AverageUsers For Rooms</th>
+                        <th>Last Group Created</th>
+                        <th>Room With More Message</th>
+                        <th>Date Of First Login</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr v-for="metric in metrics">
+                        <td>{{metric.idmetrics}}</td>
+                        <td>{{metric.quantityOfRooms}}</td>
+                        <td>{{metric.quantityOfUsers}}</td>
+                        <td>{{metric.averageUsersForRooms}}</td>
+                        <td>{{metric.lastGroupCreate}}</td>
+                        <td>{{metric.roomWithMoreMessage}}</td>
+                        <td>{{metric.dateOfFirstLogin}}</td>
                     </tr>
                 </tbody>
             </table>
