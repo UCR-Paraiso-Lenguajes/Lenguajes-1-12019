@@ -26,11 +26,12 @@
 					<div class="panel panel-primary">
 						<div class="table-wrapper-scroll-y my-custom-scrollbar">
 							<div id="roomsList" class="row" th:each="room: ${rooms}">
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<!--  <img th:src="@{${room.avatar}}"/>-->
 								</div>
-								<div class="col-md-8">
-									<span th:text="${room.name}"></span>
+								<div class="col-md-9">
+									<button th:id="${room.name}" th:text="${room.name}" class="btn btn-primary"></button>
+									<!--  <span th:text="${room.name}"></span>-->
 								</div>
 							</div>
 						</div>
@@ -42,7 +43,7 @@
 					Group</button>
 			</div>
 
-			<div id="colformChat" class="col-sm-8 text-center">
+			<div id="colformChat" class="col-sm-8 text-center" style="display: none;">
 
 				<div id="panelTop" class="panel panel-default">
 
@@ -50,7 +51,7 @@
 
 						<div class="pull-left">
 
-							<h3 class="panel-title">Chat Name</h3>
+							<h3 class="panel-title" id = "roomName">Chat Name</h3>
 
 						</div>
 
@@ -75,7 +76,7 @@
 									<li><a href="/login" onclick="">Log Out</a></li>
 								</ul>
 							</div>
-							
+
 
 
 						</div>
@@ -110,7 +111,7 @@
 					</div>
 
 
-					
+
 
 
 				</div>
@@ -236,7 +237,7 @@
 
 		}
 	});
-
+	var seleccionarGrupo = $("#btnSeleccionargropo");
 	var create = $("#create");
 	var newGroup = $("#newGroup");
 	var obj = {
@@ -260,19 +261,40 @@
 							dataType : "json",
 							url : "api/ChatRoom"
 						}).done(function(data) {
-
-						});
+							window.location.reload();
+						}).fail(function()  {
+						    window.location.reload();
+						});;
 
 						$('#ModalCreateGroup').modal('toggle');
 
-						document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
+
+						/*document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
 								+ '<div class="col-md-4">'
 								+ '</div>'
 								+ '<div class="col-md-8">'
 								+ '<span>'
 								+ newGroup.val() + '</span>' + '</div>'
-						'</div>'
+						'</div>'*/
 					});
+
+	var idRoom;
+	//Boton para cuando se escoge un grupo
+
+	$("button").click(function() {
+		//alert(this.id); // or alert($(this).attr('id'));
+		document.getElementById('roomName').innerHTML = this.id;
+		document.getElementById('colformChat').style.display = 'block';
+		idRoom = this.id;
+	});
+
+
+
+	/*function seleccionarGrupo(elem) {
+		console.log(elem);
+		var txt = elem.textContent || elem.innerText;
+		document.getElementById('roomName').innerHTML = txt;
+	}*/
 
 	var invite = $("#invite");
 	var newGroupMember = $("#newGroupMember");

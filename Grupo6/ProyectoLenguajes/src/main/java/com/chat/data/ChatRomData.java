@@ -7,21 +7,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rol;
 import com.chat.domain.UserAdmin;
+import com.chat.domain.UserClient;
 
 @Repository
 public class ChatRomData {
 
 	@Autowired
 	private DataSource dataSource;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 
 	@Transactional
 	public void add(ChatRoom chatRoom) {
@@ -149,33 +159,41 @@ public class ChatRomData {
 
 	@Transactional(readOnly = true)
 	public ArrayList<ChatRoom> getRooms() {
-		ArrayList<ChatRoom> rooms = new ArrayList<ChatRoom>();
-		String sql = "SELECT room_id, room_name, version, room_user_creator "
-				+ "FROM room";
-		Connection conexion = null;
-		ResultSet rs = null;
-		try{
-			conexion = dataSource.getConnection();
-			PreparedStatement statement = conexion.prepareStatement(sql);
-			rs = statement.executeQuery();
-			while(rs.next()) {
-				ChatRoom room = new ChatRoom();
+		String sql = "SELECT r.room_id, r.room_name, r.version, r.room_user_creator, "
+				+ "ua.user_id, ua.user_name, ua.user_id "
+				+ "FROM room r left join room_user ru on r.room_id = ru.id_room left join user_admin ua ON ru.id_user = ua.user_id;";
+		return jdbcTemplate.query(sql, new RoomsWithMessagesAndUsersExtractor());
+	}
+}
+
+class RoomsWithMessagesAndUsersExtractor implements ResultSetExtractor<ArrayList<ChatRoom>> {
+
+	@Override
+	public ArrayList<ChatRoom> extractData(ResultSet rs) throws SQLException, DataAccessException {
+
+		Map<Integer, ChatRoom> map = new HashMap<Integer, ChatRoom>();
+		ChatRoom room = null;
+		while(rs.next()) {
+			Integer id = rs.getInt("room_id");
+			room = map.get(id);
+			if(room == null) { //new record
+				room = new ChatRoom();
 				room.setId(rs.getInt("room_id"));
 				room.setName(rs.getString("room_name"));
 				room.setVersion(rs.getInt("version"));
 				UserAdmin user = new UserAdmin();
 				user.setId(rs.getInt("room_user_creator"));
 				room.setUser_creator(user);
-				rooms.add(room);
+				map.put(id, room);
 			}
-		}catch (Exception e){
-			throw new RuntimeException(e);
+			int userId = rs.getInt("user_id");
+			if(userId > 0) {
+				UserClient user = new UserClient();
+				user.setId(userId);
+				user.setName(rs.getString("user_name"));
+				room.getListUsers().add(user);
+			}
 		}
-
-		/*for (ChatRoom room : rooms) {
-			room.setListMessage(getMessages(0, 50, room));
-			room.setListUsers(getUsers(room));
-		}*/
-		return rooms;
+		return new ArrayList<ChatRoom>(map.values());
 	}
 }

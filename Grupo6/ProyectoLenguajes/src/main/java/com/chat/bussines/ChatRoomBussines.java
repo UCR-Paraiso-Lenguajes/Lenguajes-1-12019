@@ -16,14 +16,14 @@ import com.chat.domain.Rooms;
 @Service
 public class ChatRoomBussines {
 
-	@Autowired 
+	@Autowired
 	private ChatRomData chatRomData;
 
 	public void addRom(ChatRoom chatRoom) {
 		chatRomData.add(chatRoom);
 	}
-	
-	
+
+
 	public Iterator<ChatRoom> getRooms(){
 		//Rooms rooms = new Rooms();
 		ArrayList<ChatRoom> rooms = chatRomData.getRooms();
@@ -34,7 +34,8 @@ public class ChatRoomBussines {
 			int valueAvatar = r.nextInt((max - min) + 1) + min;
 			String avatar = "~/chat/src/main/resources/templates/img/img" + valueAvatar;
 			chatRoom.setAvatar(avatar);
+			System.out.println(chatRoom.toString());
 		}
 		return rooms.iterator();
-	}	
+	}
 }
