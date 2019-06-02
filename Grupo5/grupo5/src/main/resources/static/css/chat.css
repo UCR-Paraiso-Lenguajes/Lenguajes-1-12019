@@ -9,7 +9,7 @@ body{
     width: 100% !important;
     text-align: left !important;
     font-size: 8%;
-     color: black !important;
+     color: white !important;
      background: #576574
  }
 .well:hover{
@@ -101,3 +101,11 @@ a {
 .logout { float:right; }
   
 .msgln { margin:0 0 2px 0; }
+
+.table{
+    background: #303952;
+    color: white;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #596275;
+ }
