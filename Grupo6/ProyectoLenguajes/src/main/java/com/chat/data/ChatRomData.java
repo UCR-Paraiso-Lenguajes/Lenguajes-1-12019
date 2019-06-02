@@ -151,6 +151,13 @@ public class ChatRomData {
 			}
 		}catch (Exception e){
 			throw new RuntimeException(e);
+		}finally {
+			try {
+				conexion.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return messages;
 	}
