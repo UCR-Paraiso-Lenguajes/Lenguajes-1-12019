@@ -23,8 +23,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chat.domain.ChatRoom;
-import com.chat.domain.User;
+import com.chat.domain.UserAdmin;
+import com.chat.domain.UserClient;
 import com.chat.domain.form.UserForm;
 
 
@@ -37,35 +37,33 @@ public class UserData {
 	private DataSource dataSource;
 
 	@Transactional(readOnly = true)
-	public void addUser(UserForm user) {
-		
-		System.out.println(user.toString());
-		
-		String sqlInsertUser = "Insert into User(password) values (?)";	
-		
+	public int addUserClient(UserClient user) {
+
+		String sqlInsertUser = "Insert into user_client(email) values (?)";
+
 		Connection conexion = null;
-		
+
 		try {
-		
+
 		conexion = dataSource.getConnection();
 		conexion.setAutoCommit(false);
-			
+
 		PreparedStatement statementInsertUser = conexion.prepareStatement(sqlInsertUser, Statement.RETURN_GENERATED_KEYS);
-		
-		statementInsertUser.setString(1, user.getPassword());
-	    
+
+		statementInsertUser.setInt(1, user.getId());
+
 		int filas = statementInsertUser.executeUpdate();
-		
+
 		conexion.commit();
-		
+
 		if (filas == 0) {
             throw new SQLException("Inserción de Usuario fallida.");
         }
 
         try (ResultSet generatedKeys = statementInsertUser.getGeneratedKeys()) {
             if (generatedKeys.next()) {
-            	user.setCodUser(generatedKeys.getInt(1));
-            	
+            	user.setId(generatedKeys.getInt(1));
+
             }
             else {
                 throw new SQLException("No se tienen PK generadas.");
@@ -86,20 +84,22 @@ public class UserData {
 				}
 			}
 		  }
+
+		return user.getId();
 	    }
-	
-	public void update(int id, User user) 
+
+	public void update(int id, UserAdmin user)
 	{
-		String sqlSelect = "UPDATE User SET password = '"+
+		String sqlSelect = "UPDATE user_client SET password = '"+
 	user.getPassword()
 		+"' where id = "+id;
 		jdbcTemplate.batchUpdate(sqlSelect);
-	}	
+	}
 
 	@Transactional(readOnly = true)
 	public List<User> getUser() {
 		List<User> users = Collections.synchronizedList(new ArrayList<User>());
-		
+
 		String sql = "SELECT id, email FROM user_client";
 		Connection conexion = null;
 		ResultSet rs = null;

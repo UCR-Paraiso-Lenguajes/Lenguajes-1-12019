@@ -10,7 +10,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 
@@ -25,7 +24,16 @@
 				<div id="panelGroups" class="panel panel-default">
 
 					<div class="panel panel-primary">
-						<div class="table-wrapper-scroll-y my-custom-scrollbar"></div>
+						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+							<div id="roomsList" class="row" th:each="room: ${rooms}">
+								<div class="col-md-4">
+									<!--  <img th:src="@{${room.avatar}}"/>-->
+								</div>
+								<div class="col-md-8">
+									<span th:text="${room.name}"></span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -67,6 +75,8 @@
 									<li><a href="/login" onclick="">Log Out</a></li>
 								</ul>
 							</div>
+							
+
 
 						</div>
 
@@ -99,14 +109,9 @@
 						</div>
 					</div>
 
-					<div class="col-sm-4 text-center">
 
-						<div id="btnSendMessage">
-							<a href="#" class="btn btn-primary btn-circle"> <span
-								class="glyphicon glyphicon-play" onclick="getValues()"></span>
-							</a>
-						</div>
-					</div>
+					
+
 
 				</div>
 
@@ -135,7 +140,8 @@
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value="Invite">
+					<input type="submit" class="btn btn-primary" id="invite"
+						value="Invite">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 
@@ -162,7 +168,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" id="create" value="Create">
+					<button id="create" type="submit" class="btn btn-primary">Create</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
@@ -205,40 +211,90 @@
 
 </body>
 
+
+
 <script type="text/javascript">
 	function getValues() {
 
 		var messageChat = document.getElementById("messageForm").value;
 
-		document.getElementById("item").innerHTML += '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZtZg49eqkFchNquirB_L84ouEJk3G3-e3b6bw0QfWrl0rm6A7zw" '
-				+ 'alt="Smiley face" height="20" width="20"> <div id="item" class="text">'
+		document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
 				+ messageChat + '</div>';
 
-		document.getElementById("messageForm").value('');
-
+		clean();
 	}
-	
+
+	function clean() {
+		document.getElementById("messageForm").value = "";
+	}
+
+	var messageForm = document.getElementById("messageForm");
+	messageForm.addEventListener("keydown", function(e) {
+		if (e.keyCode === 13) { //checks whether the pressed key is "Enter"
+
+			getValues();
+
+		}
+	});
+
 	var create = $("#create");
 	var newGroup = $("#newGroup");
-	var obj =     {
-	        "name": newGroup,
-	        "version": 0,
-	        "url": "",
-	        "avatar": null,
-	        "listUsers": [],
-			"listMessage": []
-	    };
-	$("#create").click(function(){
-		
-		obj.name=newGroup.val();
-		
-		$.ajax(	{
-			method:"POST",
-			data:JSON.stringify( obj),
-			contentType:"application/json; charset=utf-8",
-			dataType:"json",
-			url: "api/ChatRoom"
-		}).done(function( data ) {
+	var obj = {
+		"name" : newGroup,
+		"version" : 0,
+		"url" : "",
+		"avatar" : null,
+		"listUsers" : [],
+		"listMessage" : []
+	};
+	$("#create")
+			.click(
+					function() {
+
+						obj.name = newGroup.val();
+
+						$.ajax({
+							method : "POST",
+							data : JSON.stringify(obj),
+							contentType : "application/json; charset=utf-8",
+							dataType : "json",
+							url : "api/ChatRoom"
+						}).done(function(data) {
+
+						});
+
+						$('#ModalCreateGroup').modal('toggle');
+
+						document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
+								+ '<div class="col-md-4">'
+								+ '</div>'
+								+ '<div class="col-md-8">'
+								+ '<span>'
+								+ newGroup.val() + '</span>' + '</div>'
+						'</div>'
+					});
+
+	var invite = $("#invite");
+	var newGroupMember = $("#newGroupMember");
+	var obj = {
+		"avatar" : "",
+		"email" : newGroupMember,
+		"name" : "",
+		"Rol" : {
+			"name" : ""
+		}
+	};
+	$("#invite").click(function() {
+
+		obj.email = newGroupMember.val();
+
+		$.ajax({
+			method : "POST",
+			data : JSON.stringify(obj),
+			contentType : "application/json; charset=utf-8",
+			dataType : "json",
+			url : "api/User"
+		}).done(function(data) {
 			alert("Exito");
 		});
 	});
@@ -258,6 +314,7 @@ body {
 	background-image:
 		url(https://oinkmygod.com/wp-content/uploads/2018/03/recurso-wall-paper-oinkmygod-1-600x600.jpg);
 }
+
 
 .container {
 	margin-top: 75px;
