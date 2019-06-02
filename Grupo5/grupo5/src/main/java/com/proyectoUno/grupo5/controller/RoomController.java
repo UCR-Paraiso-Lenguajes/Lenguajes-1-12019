@@ -42,7 +42,6 @@ public class RoomController {
     	
     	try {
     		roomBusiness.insertRoom(room);
-    		messageBusiness.createTableMessage(room.getRoomName());
     	}
     	catch (SQLException e) {
 			e.printStackTrace();

@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <form th:action="@{/ingreso}" th:object="${user}" method="post" class="box">
+    <form th:action="@{/admin}" th:object="${admin}" method="post" class="box">
         <h1>Login Admin</h1>
-        <input type="text" placeholder="User Name" th:field="*{email}">
-        <input type="password" placeholder="Password" th:field="*{email}">
+        <input type="text" placeholder="User Name" th:field="*{username}">
+        <input type="password" placeholder="Password" th:field="*{password}">
         <input type="submit" value="Ingresar" onclick=sucessfulMessage()>
     </form>
 </body>

@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.dao;
 
+import com.proyectoUno.grupo5.domain.Message;
 import com.proyectoUno.grupo5.domain.Role;
 import com.proyectoUno.grupo5.domain.Room;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ public class RoomDao {
 
     @Autowired
     private DataSource dataSource;
+    
+    private List<Message> listMessages;
 
     public Boolean insertRoom(Room r){
         String query="insert into room(room_name,version) values(?,?)";
@@ -66,4 +69,7 @@ public class RoomDao {
         }
 
     }
+    
+    
+   
 }
