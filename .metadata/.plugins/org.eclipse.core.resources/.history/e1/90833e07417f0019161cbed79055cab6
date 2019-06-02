@@ -1,0 +1,126 @@
+package com.chat.data;
+
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.chat.domain.ChatRoom;
+import com.chat.domain.Metric;
+import com.chat.domain.User;
+
+
+@Repository
+public class MetricDat {
+	
+	@Autowired
+	private DataSource dataSource;
+
+	@Transactional
+	public void addQuantityRoom() {
+
+		Connection conexion = null;
+		try {
+			String sqlInsertQuantityRoom = "Insert into Metric(quantity_room) values (?)";
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			PreparedStatement statementQuantityRoom = conexion.prepareStatement(sqlInsertQuantityRoom);
+			//debe de ser el metric actualizado
+			statementQuantityRoom.setInt(1, 8);
+
+			statementQuantityRoom.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	@Transactional
+	public int getQuantityRooms() {
+
+		Connection conexion = null;
+		ResultSet rs = null;
+		int quantityRooms=0;
+		try{
+
+			String selectSql = "SELECT room_id FROM Room";
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			
+			rs = statement.executeQuery();
+			if (rs.last()) {
+				quantityRooms = rs.getRow();
+				 rs.beforeFirst();
+			}
+			
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		//System.out.println(quantityRooms);
+		return quantityRooms;
+	}
+	
+
+	@Transactional
+	public int getQuantityUser() {
+
+		Connection conexion = null;
+		ResultSet rs = null;
+		int quantityUsers=0;
+		try{
+			String selectSql = "SELECT id FROM user_client";
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			
+			rs = statement.executeQuery();
+			if (rs.last()) {
+				quantityUsers = rs.getRow();
+				 rs.beforeFirst();
+			}
+			
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		//System.out.println(quantityUsers);
+		return quantityUsers;
+	}
+	
+	@Transactional
+	public int getAvgUserPerGroup() {
+
+		//Traigo la lista de chatRoom, para comparar con el room user
+		ArrayList<ChatRoom> chatRooms = new ArrayList<>();
+		ChatRomData chatData = new ChatRomData();
+		chatRooms = (ArrayList<ChatRoom>) chatData.getRooms();
+		
+		Connection conexion = null;
+		ResultSet rs = null;
+		int quantity=0;
+		
+		try{
+			String selectSql = "SELECT count(1) FROM room_user";
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			
+			rs = statement.executeQuery();
+			if (rs.last()) {
+				quantityUsers = rs.getRow();
+				 rs.beforeFirst();
+			}
+			
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		//System.out.println(quantityUsers);
+		return quantityUsers;
+	}
+	
+}

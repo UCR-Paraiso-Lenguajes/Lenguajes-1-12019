@@ -1,0 +1,67 @@
+package com.chat.data;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.chat.domain.Metric;
+
+
+@Repository
+public class MetricDat {
+	
+	@Autowired
+	private DataSource dataSource;
+
+	@Transactional
+	public int getQuantityRooms() {
+
+		Connection conexion = null;
+		ResultSet rs = null;
+		int cantidad=0;
+		try{
+		
+			System.out.println(cantidad);
+			String selectSql = "SELECT count(1) quantityRooms FROM chat_db.room";
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+
+			rs = statement.executeQuery();
+			cantidad=rs.getInt(0);
+			
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		System.out.println(cantidad);
+		return cantidad;
+	}
+	
+	@Transactional
+	public void addQuantityRoom() {
+
+		Connection conexion = null;
+		try {
+			String sqlInsertQuantityRoom = "Insert into Metric(quantity_room) values (?)";
+			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+			PreparedStatement statementQuantityRoom = conexion.prepareStatement(sqlInsertQuantityRoom);
+			//debe de ser el metric.q
+			statementQuantityRoom.setInt(1, 8);
+
+			statementQuantityRoom.executeUpdate();
+			conexion.commit();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
+	
+}
