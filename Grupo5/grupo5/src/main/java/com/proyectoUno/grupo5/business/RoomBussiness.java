@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 public class RoomBussiness {
@@ -16,7 +17,13 @@ public class RoomBussiness {
     public Boolean insertRoom(Room room) throws SQLException {
         return roomDao.insertRoom(room);
     }
+
+
+	public List<Room> getRooms() {
+		// TODO Auto-generated method stub
+		return null;
+	}
  
-    pubic 
+    
 
 }
