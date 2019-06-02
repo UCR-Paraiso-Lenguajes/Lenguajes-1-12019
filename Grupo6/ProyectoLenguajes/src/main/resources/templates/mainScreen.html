@@ -289,6 +289,26 @@
 		document.getElementById('roomName').innerHTML = this.id;
 		document.getElementById('rowMensajes').style.display = 'block';
 		idRoom = this.id;
+		$.ajax({
+			method : "GET",
+			data : JSON.stringify(idRoom),
+			contentType : "application/json; charset=utf-8",
+			dataType : "json",
+			url : "api/ChatRoom"
+		}).done(function(data) {
+
+
+			
+		}).fail(function()  {
+			document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
+			+ '<div class="col-md-4">'
+			+ '</div>'
+			+ '<div class="col-md-8">'
+			+ '<span>'
+			+ newGroup.val() + '</span>' + '</div>'
+	'</div>'
+		});;
+
 	});
 
 

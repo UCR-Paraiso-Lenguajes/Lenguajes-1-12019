@@ -1,5 +1,6 @@
 package com.chat.controller.rest;
 
+import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chat.bussines.ChatRoomBussines;
 import com.chat.domain.ChatRoom;
+import com.chat.domain.Message;
 
 @RestController
 public class ChatRoomControllerRest {
@@ -23,11 +25,13 @@ public class ChatRoomControllerRest {
 	public @ResponseBody void addChatRoom(@RequestBody ChatRoom chatRoom, HttpServletRequest servlet){
 		System.out.println(chatRoom.toString());
 		
-		HttpSession sesion = servlet.getSession();
-		
-	
-		
-		
+		HttpSession sesion = servlet.getSession();	
 		chatRoomBussines.addRom(chatRoom);		
+	}
+	
+	@RequestMapping(value="api/ChatRoom", method=RequestMethod.GET )
+	public @ResponseBody Iterator<Message> loadMessages(@RequestBody ChatRoom chatRoom, HttpServletRequest servlet){
+		HttpSession sesion = servlet.getSession();
+		return chatRoomBussines.loadMessages(chatRoom);
 	}
 }

@@ -47,9 +47,9 @@ public class ChatRomData {
 			statementInsert.setInt(3, 1);
 			// statementInsert.setObject(4, charRoom.getUserList());
 			statementInsert.executeUpdate();
-			String sqlmessages = "CREATE TABLE messages_" + chatRoom.getName() + " (" + "message_id INT, "
+			String sqlmessages = "CREATE TABLE chat_db.messages_" + chatRoom.getName() + " (message_id INT NOT NULL AUTO_INCREMENT, "
 					+ "message_description NVARCHAR(50), " + "message_date NVARCHAR(50)," + "id_sending_user INT, "
-					+ "receiver INT " + ") ENGINE = ARCHIVE;";
+					+ "receiver INT, KEY (message_id)) ENGINE = ARCHIVE;";
 			PreparedStatement statementMessages = conexion.prepareStatement(sqlmessages);
 			statementMessages.executeUpdate(sqlmessages);
 			/*String alter = "ALTER TABLE message_" + chatRoom.getName() + " ENGINE = ARCHIVE ;" ;
@@ -131,17 +131,15 @@ public class ChatRomData {
 	public List<Message> getMessages(int begin, int end, ChatRoom room) {
 		List<Message> messages = Collections.synchronizedList(new ArrayList<Message>());
 		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user "
-				+ "FROM messages_"+room.getName()+" g "
-				+ "WHERE message_id > ? AND message_id < ? "
-				+ "ORDER BY message_id ASC";
+				+ "FROM messages_"+room.getName()+" ORDER BY message_id desc LIMIT 50";
 
 		Connection conexion = null;
 		ResultSet rs = null;
 		try{
 			conexion = dataSource.getConnection();
 			PreparedStatement statement = conexion.prepareStatement(selectSql);
-			statement.setInt(1, begin);
-			statement.setInt(2, end);
+			//statement.setInt(1, begin);
+			//statement.setInt(2, end);
 			rs = statement.executeQuery();
 			while(rs.next()) {
 				Message message = new Message(
