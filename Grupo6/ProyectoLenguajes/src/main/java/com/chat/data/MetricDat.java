@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chat.domain.ChatRoom;
-import com.chat.domain.Metric;
+import com.chat.domain.*;
+import com.chat.data.*;
 import com.chat.domain.UserClient;
 
 
@@ -149,6 +150,28 @@ public class MetricDat {
 		
 		return promedioUsuarios;*/
 		return 1;
+	}
+
+	public String getFechaUltimoMensaje(int inicio, int fin, ChatRoom chatRoom) {
+		String mensaje = "";
+		
+		ArrayList<Message> mensajes = new ArrayList<Message>();
+		ChatRomData chatData = new ChatRomData();
+		
+		mensajes = (ArrayList<Message>) chatData.getMessages(inicio, fin, chatRoom);
+		mensaje = mensajes.get(1).getDate();
+		
+		return mensaje;
+	}
+	
+	public String getFechaPrimerLogueo() {
+		HistorialLogueoData historialLogueoData = new HistorialLogueoData();
+		String fecha="";
+		ArrayList<HistorialLogueo> logueos = historialLogueoData.getLogin();
+		
+		fecha = logueos.get(logueos.size()).getFecha();
+		
+		return fecha;
 	}
 	
 }

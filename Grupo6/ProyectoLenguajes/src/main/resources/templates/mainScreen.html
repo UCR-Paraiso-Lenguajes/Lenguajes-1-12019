@@ -26,11 +26,12 @@
 					<div class="panel panel-primary">
 						<div class="table-wrapper-scroll-y my-custom-scrollbar">
 							<div id="roomsList" class="row" th:each="room: ${rooms}">
-								<div class="col-md-3">
-									<!--  <img th:src="@{${room.avatar}}"/>-->
+								<div id="idImage"class="col-md-2">
+								<img th:src="@{${room.avatar}}" height="25" width="25">
 								</div>
-								<div class="col-md-9">
-									<button th:id="${room.name}" th:text="${room.name}" class="btn btn-primary"></button>
+													
+								<div id="roomList" class="col-md-8">
+									<button th:id="${room.name}" th:text="${room.name}" class="btn btn-primary" id="groupButton"></button>
 									<!--  <span th:text="${room.name}"></span>-->
 								</div>
 							</div>
@@ -77,8 +78,6 @@
 								</ul>
 							</div>
 
-
-
 						</div>
 
 					</div>
@@ -89,10 +88,11 @@
 
 					<div id="internalPanel" class="panel panel-primary">
 
-						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						<div id="containerMessages" class="table-wrapper-scroll-y my-custom-scrollbar">
 
-							<div id="item" class="text"></div>
-
+							<div id="item" class="text">
+							
+							</div>
 
 						</div>
 
@@ -116,7 +116,9 @@
 							<a href="#" class="btn btn-primary btn-circle"> <span
 								class="glyphicon glyphicon-play" onclick="getValues()"></span>
 							</a>
+							
 						</div>
+						
 					</div>
 
 				</div>
@@ -212,7 +214,7 @@
 
 		</div>
 	</div>
-
+</div>
 </body>
 
 
@@ -222,9 +224,13 @@
 
 		var messageChat = document.getElementById("messageForm").value;
 
-		document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
+		 document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
 				+ messageChat + '</div>';
 
+				var DivPannelMsg =document.getElementById("containerMessages");
+				
+				DivPannelMsg.scrollTop = DivPannelMsg.scrollHeight;
+				
 		clean();
 	}
 
@@ -280,7 +286,7 @@
 								+ newGroup.val() + '</span>' + '</div>'
 						'</div>'*/
 					});
-
+	
 	var idRoom;
 	//Boton para cuando se escoge un grupo
 
@@ -368,6 +374,19 @@ body {
 
 .text {
 	color: black;
+}
+
+.btn{
+width:100%;
+}
+
+#idImage{
+margin-top: 25px;
+margin-left: 25px;
+}
+
+#roomList{
+margin-top: 20px;
 }
 
 #item {
