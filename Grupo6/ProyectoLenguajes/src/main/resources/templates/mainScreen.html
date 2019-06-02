@@ -44,7 +44,7 @@
 					Group</button>
 			</div>
 
-			<div id="colformChat" class="col-sm-8 text-center" style="display: none;">
+			<div id="colformChat" class="col-sm-8 text-center" >
 
 				<div id="panelTop" class="panel panel-default">
 
@@ -52,7 +52,7 @@
 
 						<div class="pull-left">
 
-							<h3 class="panel-title" id = "roomName">Chat Name</h3>
+							<h3 class="panel-title" id = "roomName"></h3>
 
 						</div>
 
@@ -99,9 +99,9 @@
 
 				</div>
 
-				<div class="row">
+				<div class="row" style="display: none;" id="rowMensajes">
 
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-10 text-center">
 
 						<div id="messageInput" class="form-group">
 							<label for="message"></label> <input id="messageForm" type="text"
@@ -109,7 +109,7 @@
 						</div>
 					</div>
 
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-2 text-center">
 
 						<div id="btnSendMessage">
 							<a href="#" class="btn btn-primary btn-circle"> <span
@@ -202,7 +202,7 @@
 					<br>
 					<p>Programmers</p>
 					<p>JeanCarlo Monge Mendez</p>
-					<p>JeanCarlo Leiva Quiros</p>
+					<p>Valeria Leiva Quiros</p>
 					<p>Karen Guillen Arguello</p>
 					<p>Leonardo Gomez Rodriguez</p>
 				</div>
@@ -286,7 +286,7 @@
 	$("button").click(function() {
 		//alert(this.id); // or alert($(this).attr('id'));
 		document.getElementById('roomName').innerHTML = this.id;
-		document.getElementById('colformChat').style.display = 'block';
+		document.getElementById('rowMensajes').style.display = 'block';
 		idRoom = this.id;
 	});
 	
@@ -382,7 +382,6 @@ body {
 
 #btnSendMessage {
 	margin-top: 130px;
-	margin-left: 425px;
 }
 
 #colformChat {
