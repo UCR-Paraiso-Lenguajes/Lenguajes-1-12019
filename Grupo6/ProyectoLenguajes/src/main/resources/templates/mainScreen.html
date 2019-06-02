@@ -89,10 +89,11 @@
 
 					<div id="internalPanel" class="panel panel-primary">
 
-						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						<div id="containerMessages" class="table-wrapper-scroll-y my-custom-scrollbar">
 
-							<div id="item" class="text"></div>
-
+							<div id="item" class="text">
+							
+							</div>
 
 						</div>
 
@@ -222,9 +223,13 @@
 
 		var messageChat = document.getElementById("messageForm").value;
 
-		document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
+		 document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
 				+ messageChat + '</div>';
 
+				var objDiv =document.getElementById("containerMessages");
+				
+				objDiv.scrollTop = objDiv.scrollHeight;
+				
 		clean();
 	}
 
