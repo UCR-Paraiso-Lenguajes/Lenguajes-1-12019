@@ -31,7 +31,7 @@
 								</div>
 													
 								<div id="roomList" class="col-md-8">
-									<button th:id="${room.name}" th:text="${room.name}" class="btn btn-primary" id="groupButton"></button>
+									<button th:id="${room.id}" th:text="${room.name}" class="btn btn-primary" id="groupButton" th:value="${room.name}"></button>
 									<!--  <span th:text="${room.name}"></span>-->
 								</div>
 							</div>
@@ -270,13 +270,14 @@
 							dataType : "json",
 							url : "api/ChatRoom"
 						}).done(function(data) {
+							console.log('DONE')
 							window.location.reload();
 						}).fail(function()  {
+							console.log('FAIL')
 						    window.location.reload();
 						});;
 
 						$('#ModalCreateGroup').modal('toggle');
-
 
 						/*document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
 								+ '<div class="col-md-4">'
@@ -287,25 +288,35 @@
 						'</div>'*/
 					});
 	
-	var idRoom;
 	//Boton para cuando se escoge un grupo
 
 	$("button").click(function() {
+		var text = this.value;
+		var grup = {
+				"id" : this.id,
+				"name" : text,
+				"version" : 0,
+				"url" : "",
+				"avatar" : null,
+				"listUsers" : [],
+				"listMessage" : []
+			};
 		//alert(this.id); // or alert($(this).attr('id'));
-		document.getElementById('roomName').innerHTML = this.id;
+		document.getElementById('roomName').innerHTML = this.value;
 		document.getElementById('rowMensajes').style.display = 'block';
-		idRoom = this.id;
+		console.log(grup);
 		$.ajax({
 			method : "GET",
-			data : JSON.stringify(idRoom),
+			data : JSON.stringify(grup),
 			contentType : "application/json; charset=utf-8",
 			dataType : "json",
 			url : "api/ChatRoom"
 		}).done(function(data) {
 
-
+		}).fail(function(data)  {
+			console.log(data);
 			
-		}).fail(function()  {
+			
 			document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
 			+ '<div class="col-md-4">'
 			+ '</div>'
