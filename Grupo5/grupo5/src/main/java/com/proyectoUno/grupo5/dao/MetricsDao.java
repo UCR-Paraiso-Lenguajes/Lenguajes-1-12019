@@ -29,7 +29,7 @@ public class MetricsDao {
 
 	    @Transactional(readOnly = true)
 	    public List<Metrics> getMetrics() {
-	        String sqlSelect = "select id_metrics,average_user_per_group,cantity_groups,cantity_users,date_first_login from metrics";
+	        String sqlSelect = "select id_metrics,average_user_per_group,quantity_rooms,quantity_users,date_first_login from metrics";
 	        return jdbcTemplate.query(sqlSelect, new MetricsWithExtractor());
 	    }
 	    class MetricsWithExtractor implements ResultSetExtractor<List<Metrics>> {
@@ -39,15 +39,15 @@ public class MetricsDao {
 	            Map<Integer, Metrics> map = new HashMap<>();
 	            Metrics metrics = null;
 	            while (rs.next()) {
-	                Integer id = rs.getInt("idmetrics");
+	                Integer id = rs.getInt("id_metrics");
 	                metrics = map.get(id);
 	                if (metrics == null) {
 	                    metrics = new Metrics();
 	                    metrics.setIdmetrics(id);
-	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_room"));
+	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_per_group"));
 	                    metrics.setQuantityOfRooms(rs.getInt("quantity_rooms"));
-	                    metrics.setQuantityOfUsers(rs.getInt("quantity_user"));
-	                    metrics.setDateOfFirstLogin(rs.getDate("date_first_login"));
+	                    metrics.setQuantityOfUsers(rs.getInt("quantity_users"));
+	                
 
 	                    
 	                    map.put(id, metrics);

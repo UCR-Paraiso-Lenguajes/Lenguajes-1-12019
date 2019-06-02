@@ -24,7 +24,7 @@ public class AdminControllerRest {
 	
 	
 
-	@RequestMapping(value="/admin/{admin_user}", method=RequestMethod.GET )
+	@RequestMapping(value="/admin/metrics", method=RequestMethod.GET )
 	public @ResponseBody List<Metrics> listMetrics()
 
 	{
@@ -33,7 +33,7 @@ public class AdminControllerRest {
 	}
 
 	
-	@RequestMapping(value="/admin/{admin_user}/principal", method=RequestMethod.GET )
+	@RequestMapping(value="/admin/room", method=RequestMethod.GET )
 	public @ResponseBody List<Room> listRooms()
 
 	{
