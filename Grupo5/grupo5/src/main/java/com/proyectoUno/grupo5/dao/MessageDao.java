@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +24,15 @@ import com.proyectoUno.grupo5.domain.Message;
 public class MessageDao {
 	
 	
-	 @Autowired
+		@Autowired
 	    private JdbcTemplate jdbcTemplate;
 
 	    @Autowired
 	    private DataSource dataSource;
 
+	    
+	    private Map<Integer, Message> messages;
+	    
 	    public Boolean insertMessage(Message message){
 	    	
 	    	
@@ -83,7 +87,11 @@ public class MessageDao {
 	    	 
 	    }
 	    
-	    public Map<Integer, Message> insertMessage(){
-	    	return null;
+	    public Map<Integer, Message> insertMessageSincro(Message message){
+	    	
+	    	messages.put(message.getIdMessage(), message);
+	        Map<Integer,Message> synchonizedMessage = Collections.synchronizedMap(messages);
+
+	    	return synchonizedMessage;
 	    }
 }
