@@ -12,6 +12,8 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/chat.js"></script>
     <link rel="stylesheet" href="css/chat.css">
     <title>Chat</title>
 </head>
@@ -51,59 +53,9 @@
                                 <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
                             </div>
                             <div class="col-sm-8">
-                                <h4 class="cen">Nombre Del grupo</h4>
-                            </div>
-                            <div class="col-sm-2">
-                                <h5 class="der">></h3>
-                            </div>
-                        </div>
-                    </button>
-                    <button class="btn btn-default well">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
-                            </div>
-                            <div class="col-sm-8">
-                                <h4 class="cen">Nombre Del grupo</h4>
-                            </div>
-                            <div class="col-sm-2">
-                                <h5 class="der">></h3>
-                            </div>
-                        </div>
-                    </button>
-                    <button class="btn btn-default well">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
-                            </div>
-                            <div class="col-sm-8">
-                                <h4 class="cen">Nombre Del grupo</h4>
-                            </div>
-                            <div class="col-sm-2">
-                                <h5 class="der">></h3>
-                            </div>
-                        </div>
-                    </button>
-                    <button class="btn btn-default well">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
-                            </div>
-                            <div class="col-sm-8">
-                                <h4 class="cen">Nombre Del grupo</h4>
-                            </div>
-                            <div class="col-sm-2">
-                                <h5 class="der">></h3>
-                            </div>
-                        </div>
-                    </button>
-                    <button class="btn btn-default well">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
-                            </div>
-                            <div class="col-sm-8">
-                                <h4 class="cen">Nombre Del grupo</h4>
+                                <h4 class="cen">
+                                    <p>{{ message }}</p>
+                                </h4>
                             </div>
                             <div class="col-sm-2">
                                 <h5 class="der">></h3>

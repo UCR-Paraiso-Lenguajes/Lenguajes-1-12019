@@ -20,8 +20,11 @@ public class AdminControllerRest {
 	
 	@Autowired
 	private RoomBussiness roomBusiness;
+	
+	
+	
 
-	@RequestMapping(value="/admin/{admin_user}/principal", method=RequestMethod.GET )
+	@RequestMapping(value="/admin/{admin_user}", method=RequestMethod.GET )
 	public @ResponseBody List<Metrics> listMetrics()
 
 	{
