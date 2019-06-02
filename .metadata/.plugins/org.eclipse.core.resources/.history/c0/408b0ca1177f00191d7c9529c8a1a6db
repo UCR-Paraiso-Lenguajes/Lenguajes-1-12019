@@ -1,0 +1,91 @@
+package com.chat.data;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import com.chat.domain.ChatRoom;
+import com.chat.domain.Message;
+import com.chat.domain.Rol;
+import com.chat.domain.User;
+
+@Repository
+public class MetricData {
+
+	@Autowired
+	private DataSource dataSource;
+	
+	@Transactional(readOnly = true)
+	public List<User> getUsers(ChatRoom room) {
+		List<User> users = Collections.synchronizedList(new ArrayList<User>());
+		String selectSql = "SELECT user_id, user_name, user_email, user_password, "
+				+ "role_id, role_name "
+				+ "FROM user u JOIN room_user ru ON u.user_id = id_user "
+				+ "JOIN role r ON r.role_id = ru.id_role"
+				+ "WHERE ru.id_room = ? ";
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			statement.setInt(1, room.getId());
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("user_id"));
+				user.setName(rs.getString("user_name"));
+				user.setEmail(rs.getString("user_email"));
+				user.setPassword(rs.getString("user_password"));
+				Rol rol = new Rol();
+				rol.setId(rs.getInt("role_id"));
+				rol.setName(rs.getString("role_name"));
+				user.setRol(rol);
+				users.add(user);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		return users;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Message> getMessages(int begin, int end, ChatRoom room) {
+		List<Message> messages = Collections.synchronizedList(new ArrayList<Message>());
+		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user "
+				+ "FROM messages_"+room.getName()+" g "
+				+ "WHERE message_id > ? AND message_id < ? "
+				+ "ORDER BY message_id ASC";
+		
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(selectSql);
+			statement.setInt(1, begin);
+			statement.setInt(2, end);
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				Message message = new Message(
+						rs.getInt("message_id"), 
+						rs.getString("message_description"),
+						rs.getString("message_date"), 
+						rs.getInt("id_sending_user"));
+				messages.add(message);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		return messages;
+	}
+
+
+}

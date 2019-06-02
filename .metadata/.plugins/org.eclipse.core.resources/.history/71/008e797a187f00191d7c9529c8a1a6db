@@ -1,0 +1,21 @@
+package com.chat;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.chat.data.MetricData;
+
+public class pruebaQuantityMetric {
+
+	private MetricData metricData;
+	
+	@Test
+	public void test() {
+		metricData.getQuantityRooms();
+		fail("Not yet implemented");
+		
+		
+	}
+
+}

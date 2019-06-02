@@ -1,0 +1,21 @@
+package com.chat;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.chat.data.MetricData;
+
+public class pruebaQuantityMetric {
+
+
+	@Test
+	public void test() {
+		MetricData metricData = new MetricData();
+		int cantidad=0;
+		cantidad = metricData.getQuantityRooms();
+		assertTrue(cantidad>1);
+	}
+
+}

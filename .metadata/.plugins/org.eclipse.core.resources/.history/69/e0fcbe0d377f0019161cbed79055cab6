@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Metrics</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<div id="panelTop" class="panel panel-default">
+
+				<div class="dropdown">
+
+					<div class="pull-right">
+
+						class="form-control">
+						<button id="x">X</button>
+						<span id="glyphUser" class="glyphicon glyphicon-user"
+							data-toggle="dropdown"></span>
+
+						<ul class="dropdown-menu dropdown-menu-center"
+							aria-labelledby="dropdownMenu">
+							<li><a href="/mainScreen" onclick="">About Us</a></li>
+							<li><a href="/login" onclick="">Log Out</a></li>
+						</ul>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div id="colformGrups" class="col-md-7 text-center">
+				<div class="row">
+					<div id="panelTittle" class="panel-group">
+						<div class="panel panel-default">Grupos</div>
+
+						<div id="panelGroups" class="panel panel-default">
+							<div class="table-wrapper-scroll-y my-custom-scrollbar">
+							
+					<div id="panelUser" class="panel panel-default">
+
+									<div class="pull-lelf">
+										<span id="glyphUser" class="glyphicon glyphicon-user"></span>
+
+									</div>
+							
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			</div>
+			<div id="colformMetric" class="col-md-7 text-center">
+				<div class="row">
+					<div id="panelTittle" class="panel-group">
+						<div class="panel panel-default">Metrics</div>
+
+						<div id="panelGroups" class="panel panel-default">
+
+							<ul id="listMetrics" class="list-group list-group-flush">
+								<div class="table-wrapper-scroll-y my-custom-scrollbar">
+									<li class="list-group-item">Average of Users Per Groups:</li>
+									<li class="list-group-item">Date of the first login:</li>
+									<li class="list-group-item">Date of the last message:</li>
+									<li class="list-group-item">Last group created:</li>
+									<li class="list-group-item">Longer message:</li>
+									<li class="list-group-item">More messages per group:</li>
+									<li class="list-group-item">More message per user:</li>
+									<li class="list-group-item">Quantity room:</li>
+									<li class="list-group-item">Quantity user:</li>
+									<li class="list-group-item">User per room Prom:</li>
+								</div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+
+
+	var x = $("#x");
+	var obj = {
+	        "quantity_room": x
+	    };
+	$("#x").click(function(){
+		
+		obj.x=x.val();
+		
+		$.ajax(	{
+			method:"POST",
+			data:JSON.stringify(obj),
+			contentType:"application/json; charset=utf-8",
+			dataType:"json",
+			url: "api/Metric"
+		}).done(function( data ) {
+			alert("Exito");
+		});
+		
+		
+	});
+</script>
+
+<style>
+body {
+	background-image:
+		url(https://oinkmygod.com/wp-content/uploads/2018/03/recurso-wall-paper-oinkmygod-1-600x600.jpg);
+}
+
+.container {
+	margin-top: 125px;
+}
+
+.my-custom-scrollbar {
+	position: relative;
+	height: 370px;
+	overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+	display: block;
+}
+
+#colformGrups {
+	margin-left: 100px;
+	opacity: 0.5;
+	border-radius: 25px;
+	border: 2px solid #3D6F99;
+	padding: 20px;
+	width: 500px;
+	height: 500px;
+}
+
+#listMetrics {
+	border: 1px solid #3D6F99;
+	padding: 12px; /* Add some padding */
+	border-radius: 25px;
+	margin-bottom: 130px;
+	width: 100%;
+	height: 385px;
+	font-size: 15px;
+	font-style: oblique;
+	color: #0A0201;
+	list-style: none;
+	background-color: #DBEBF6;
+}
+
+#colformMetric {
+	opacity: 0.5;
+	border-radius: 25px;
+	border: 2px solid #3D6F99;
+	padding: 20px;
+	width: 500px;
+	height: 500px;
+}
+
+#panelGroups {
+	margin-bottom: 130px;
+	width: 100%;
+	height: 385px;
+	font-size: 20px;
+}
+
+#panelTittle {
+	margin-top: 10px;
+	width: 100%;
+	height: 100px;
+	font-size: 40px;
+	opacity: 0.7;
+}
+
+#glyphUser {
+	font-size: 25px;
+}
+
+#panelTop {
+	height: 100px;
+	margin-left: 100px;
+	opacity: 0.5;
+	border-radius: 25px;
+	border: 2px solid #3D6F99;
+	padding: 20px;
+	margin-top: 10px;
+	width: 1000px;
+	border-style: ridge;
+}
+
+#panelUser {
+	border-radius: 25px;
+	border: 2px solid #3D6F99;
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+}
+
+</style>
+
+</html>
