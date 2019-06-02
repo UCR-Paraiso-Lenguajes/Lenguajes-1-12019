@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,29 +24,33 @@ import com.proyectoUno.grupo5.domain.Message;
 public class MessageDao {
 	
 	
-	 @Autowired
+		@Autowired
 	    private JdbcTemplate jdbcTemplate;
 
 	    @Autowired
 	    private DataSource dataSource;
 
-	    public Boolean createTableMessage(String tableNameMessage){
+	    
+	    private Map<Integer, Message> messages;
+	    
+	    public Boolean insertMessage(Message message){
 	    	
 	    	
-	        String query="CREATE TABLE"+ tableNameMessage 
-	        		+"id_message INT(50) NOT NULL AUTO_INCREMENT,"
-	        		+ "content VARCHAR(30) NOT NULL,"
-	        		+"dateMessage DATETIME,"
-	        		+ "id_user INT(50) NOT NULL";
+	    	  String query="insert into message(contenido,id_user,id_room) values(?,?,?)";
 
-	        return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
-	            @Override
-	            public Boolean doInPreparedStatement(PreparedStatement ps)
-	                    throws SQLException, DataAccessException {
-	                return ps.execute();
+	          return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
+	              @Override
+	              public Boolean doInPreparedStatement(PreparedStatement ps)
+	                      throws SQLException, DataAccessException {
+	                  ps.setString(1,message.getContenido());
+	                  ps.setInt(2,message.getUserSendThatMessage().getIdUser());
+	                  ps.setInt(3,message.getIdRoom());
 
-	            }
-	        });
+	                  
+	                  return ps.execute();
+
+	              }
+	          });
 	    }
 
 	    class MessageWithExtractor implements ResultSetExtractor<List<Message>> {
@@ -71,5 +76,22 @@ public class MessageDao {
 	            return new ArrayList<Message>(map.values());
 	        }
 
+	    }
+	    
+	    public List<Message> getMessagesByIdRoom(int idRoom){
+	    	
+	    	
+	    	String sqlSelect = "SELECT id_message,date_fecha,contenido,id_user,id_room from message WHERE id_room="+idRoom;
+			
+			return jdbcTemplate.query(sqlSelect, new MessageWithExtractor());
+	    	 
+	    }
+	    
+	    public Map<Integer, Message> insertMessageSincro(Message message){
+	    	
+	    	messages.put(message.getIdMessage(), message);
+	        Map<Integer,Message> synchonizedMessage = Collections.synchronizedMap(messages);
+
+	    	return synchonizedMessage;
 	    }
 }
