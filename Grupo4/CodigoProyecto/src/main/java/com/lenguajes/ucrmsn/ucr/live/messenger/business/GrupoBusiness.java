@@ -1,6 +1,7 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
@@ -13,8 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.data.GrupoData;
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Enlace;
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.EnlacesEnviados;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.HashEnviados;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
@@ -27,7 +27,7 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 public class GrupoBusiness {
 
 	
-	private EnlacesEnviados enlacesEnviados=EnlacesEnviados.getInstancia();	
+	private HashEnviados enlacesEnviados=HashEnviados.getInstancia();	
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
@@ -76,9 +76,10 @@ public class GrupoBusiness {
 	@Transactional
 	public void invitar(String to, String link) {
 		
-		Enlace enlace = new Enlace(link);
-		enlacesEnviados.agregar(enlace);
-		expirarEnlace(enlace);
+		/*
+		 * Enlace enlace = new Enlace(link); enlacesEnviados.agregar(enlace);
+		 * expirarEnlace(enlace);
+		 */
 		
 		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
@@ -98,15 +99,12 @@ public class GrupoBusiness {
 
 		javaMailSender.send(mail);	
 	}
-	public void expirarEnlace(Enlace enlace) {
-        try {
-			Thread.sleep(180000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        enlacesEnviados.eliminar(enlace);	}
-	
+
+	/*
+	 * public void expirarEnlace(Enlace enlace) { try { Thread.sleep(180000); }
+	 * catch (InterruptedException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } enlacesEnviados.eliminar(enlace); }
+	 */
 	@Transactional
 	public void unirse(Usuario usuario, Grupo grupo) {
 		grupo.getListaUsuarios().add(usuario);

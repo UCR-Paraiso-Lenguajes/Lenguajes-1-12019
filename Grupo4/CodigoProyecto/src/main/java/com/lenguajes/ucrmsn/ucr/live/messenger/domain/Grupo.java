@@ -21,10 +21,12 @@ public class Grupo {
 	private ConcurrentLinkedQueue<Mensaje> listaMensajes;	
 	private UsuarioAdmin administrador;
 	private UsuarioOwner dueno;
-	
+	private String avatar;
 	
 	
 	public Grupo() {
+		listaMiembros=new ArrayList<Usuario>();
+		listaMensajes=new ConcurrentLinkedQueue<Mensaje>();
 		
 	}
 

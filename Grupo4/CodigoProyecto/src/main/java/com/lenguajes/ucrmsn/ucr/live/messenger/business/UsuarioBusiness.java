@@ -1,6 +1,7 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
@@ -12,8 +13,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Enlace;
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.EnlacesEnviados;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.HashEnviados;
+import com.lenguajes.ucrmsn.ucr.live.messenger.data.UsuarioData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
@@ -26,11 +27,12 @@ public class UsuarioBusiness {
 	List<String> listaNombres=new ArrayList<String>();
 	List<String> listaAvatar=new ArrayList<String>();
 	
-	private EnlacesEnviados enlacesEnviados=EnlacesEnviados.getInstancia();
+	private HashEnviados enlacesEnviados=HashEnviados.getInstancia();
 	
 	@Autowired
 	private JavaMailSender javaMailSender;
-	
+	@Autowired
+	private UsuarioData usuariodata;
 	
 	public UsuarioBusiness() {
 		listaNombres = new ArrayList<>();
@@ -183,13 +185,13 @@ public class UsuarioBusiness {
 	}
 	@Transactional
 	public void invitar(String to) {
-		String link="localhost:8080/ucrmsn/interfazchat?hash="+crearHash(to);
+		String hash=crearHash(to);
+		String link="localhost:8080/ucrmsn/interfazchat?hash="+hash;
 		
-		Enlace enlace = new Enlace(link);
-		enlacesEnviados.agregar(enlace);
-		/*
-		 * expirarEnlace(enlace);
-		 */		
+		enlacesEnviados.agregar(hash);
+		
+		  expirarEnlace(hash);
+		 		
 		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
 
@@ -209,17 +211,33 @@ public class UsuarioBusiness {
 
 		javaMailSender.send(mail);	
 	}
-	public void expirarEnlace(Enlace enlace) {
-        try {
-			Thread.sleep(180000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        enlacesEnviados.eliminar(enlace);	
+	public void expirarEnlace(String hash) {
+
+        	   Runnable task = new Runnable() {
+                   public void run() {
+                	   try {
+						Thread.sleep(180000);
+						enlacesEnviados.eliminar(hash);
+					} catch (InterruptedException e) {
+						throw new UsuarioException("no se pudo eliminar el hash");
+					}
+           	      ;}
+                };
+        	new Thread(task).start();
+        	
+		
         }
 	public String crearHash(String correo) {
 		String hash = DigestUtils.sha256Hex(correo);
 		return hash;
+	}
+	@Transactional
+	public void save(Usuario usuario) {
+		if (usuario==null ) {
+			throw new UsuarioException("el usuario esta vacio");
+		}else if (usuario.getHash()==null ) {
+			throw new UsuarioException("el hash no puede estar vacio");
+		}
+		usuariodata.save(usuario);
 	}
 }

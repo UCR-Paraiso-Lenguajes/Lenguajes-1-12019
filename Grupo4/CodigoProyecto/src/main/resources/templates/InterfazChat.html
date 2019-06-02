@@ -116,16 +116,35 @@ me">th:text="${grupo.nombre}"</label> -->
 						
 						<script th:inline="javascript">
 						var usuario = $("#id");
-						var contenido= $("#nombre");
+						var contenido= $("#Enviar");
 						var grupo = $("#apellidos");
 						
 						var botonEnviar = $("#botonEnviar");
 						
 						var obj =     {
-								"id": id,
-						        "nombre": nombre,
-						        "apellidos": apellidos,
+								"usuario": usuario,
+						        "contenido": contenido,
+						        "grupo": grupo,
 						    };
+						botonEnviar.click(function(){
+							
+							obj.usuario=usuario.val();
+							obj.contenido=contenido.val();
+							obj.grupo=grupo.val();
+							
+							$.ajax(	{
+								method:"PUT",
+								data:JSON.stringify(obj),
+								contentType:"application/json; charset=utf-8",
+								url: "/api/mandarMensaje/"
+							}).done(function()  {
+							    alert("Success.");
+							    window.history.back();
+							}).fail(function()  {
+							    alert("Sorry. Error . ");
+							    window.history.back();
+							});
+						});
 					
 						</script>
 

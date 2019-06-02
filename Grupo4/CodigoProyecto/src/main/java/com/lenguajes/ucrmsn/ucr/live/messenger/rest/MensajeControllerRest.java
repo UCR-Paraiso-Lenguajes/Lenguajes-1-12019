@@ -16,7 +16,7 @@ public class MensajeControllerRest {
 	@Autowired
 	private GrupoBusiness grupoBusiness;	
 	
-	@RequestMapping(value="/api/mandarMensaje/{Mensaje}", method=RequestMethod.PUT )
+	@RequestMapping(value="/api/mandarMensaje", method=RequestMethod.PUT )
 	public @ResponseBody void mandarMensaje(
 			@PathVariable Mensaje mensaje )
 	{
