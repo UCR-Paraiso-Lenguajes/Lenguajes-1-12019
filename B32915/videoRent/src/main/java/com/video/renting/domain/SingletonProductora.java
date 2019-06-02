@@ -7,19 +7,10 @@ public class SingletonProductora {
 	private Clip clip;
 	private static SingletonProductora singleton;
 	
-	private SingletonProductora(Pelicula peli, Video video, Clip clip) {
-		this.peli = peli;
-		this.video = video;
-		this.clip = clip;
-	}
-	
 	public static SingletonProductora getSingletonInstace(Pelicula peli, Video video, Clip clip) {
 		if(singleton == null) {
 			singleton = new SingletonProductora(peli,video,clip);
-		}else {
-			System.out.println("Ya se encuentran creados los objetos bajo esos atributos");
 		}
-	
 		return singleton;
 	}
 
@@ -47,14 +38,5 @@ public class SingletonProductora {
 		this.clip = clip;
 	}
 
-	public static SingletonProductora getSingleton() {
-		return singleton;
-	}
-
-	public static void setSingleton(SingletonProductora singleton) {
-		SingletonProductora.singleton = singleton;
-	}
-	
-	
 
 }
