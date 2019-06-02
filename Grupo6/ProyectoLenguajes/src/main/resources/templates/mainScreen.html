@@ -10,7 +10,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 
@@ -78,6 +77,8 @@
 								</ul>
 							</div>
 
+
+
 						</div>
 
 					</div>
@@ -111,12 +112,8 @@
 
 					<div class="col-sm-2 text-center">
 
-						<div id="btnSendMessage">
-							<a href="#" class="btn btn-primary btn-circle"> <span
-								class="glyphicon glyphicon-play" onclick="getValues()"></span>
-							</a>
-						</div>
-					</div>
+
+
 
 				</div>
 
@@ -216,6 +213,8 @@
 
 </body>
 
+
+
 <script type="text/javascript">
 	function getValues() {
 
@@ -269,7 +268,7 @@
 						});;
 
 						$('#ModalCreateGroup').modal('toggle');
-						
+
 
 						/*document.getElementById("roomsList").innerHTML += '<div id="roomsList" class="row">'
 								+ '<div class="col-md-4">'
@@ -279,19 +278,19 @@
 								+ newGroup.val() + '</span>' + '</div>'
 						'</div>'*/
 					});
-	
+
 	var idRoom;
 	//Boton para cuando se escoge un grupo
-	
+
 	$("button").click(function() {
 		//alert(this.id); // or alert($(this).attr('id'));
 		document.getElementById('roomName').innerHTML = this.id;
 		document.getElementById('rowMensajes').style.display = 'block';
 		idRoom = this.id;
 	});
-	
-	
-	
+
+
+
 	/*function seleccionarGrupo(elem) {
 		console.log(elem);
 		var txt = elem.textContent || elem.innerText;
@@ -338,6 +337,7 @@ body {
 	background-image:
 		url(https://oinkmygod.com/wp-content/uploads/2018/03/recurso-wall-paper-oinkmygod-1-600x600.jpg);
 }
+
 
 .container {
 	margin-top: 75px;

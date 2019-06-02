@@ -32,7 +32,7 @@ public class ChatRomData {
 	private DataSource dataSource;
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+
 	@Transactional
 	public void add(ChatRoom chatRoom) {
 		Connection conexion = null;
@@ -93,7 +93,7 @@ public class ChatRomData {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	@Transactional(readOnly = true)
 	public List<UserAdmin> getUsers(ChatRoom room) {
 		List<UserAdmin> users = Collections.synchronizedList(new ArrayList<UserAdmin>());
@@ -126,7 +126,7 @@ public class ChatRomData {
 		}
 		return users;
 	}
-	
+
 	@Transactional(readOnly = true)
 	public List<Message> getMessages(int begin, int end, ChatRoom room) {
 		List<Message> messages = Collections.synchronizedList(new ArrayList<Message>());
@@ -134,7 +134,7 @@ public class ChatRomData {
 				+ "FROM messages_"+room.getName()+" g "
 				+ "WHERE message_id > ? AND message_id < ? "
 				+ "ORDER BY message_id ASC";
-		
+
 		Connection conexion = null;
 		ResultSet rs = null;
 		try{
@@ -145,9 +145,9 @@ public class ChatRomData {
 			rs = statement.executeQuery();
 			while(rs.next()) {
 				Message message = new Message(
-						rs.getInt("message_id"), 
+						rs.getInt("message_id"),
 						rs.getString("message_description"),
-						rs.getString("message_date"), 
+						rs.getString("message_date"),
 						rs.getInt("id_sending_user"));
 				messages.add(message);
 			}
@@ -170,7 +170,7 @@ class RoomsWithMessagesAndUsersExtractor implements ResultSetExtractor<ArrayList
 
 	@Override
 	public ArrayList<ChatRoom> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		
+
 		Map<Integer, ChatRoom> map = new HashMap<Integer, ChatRoom>();
 		ChatRoom room = null;
 		while(rs.next()) {

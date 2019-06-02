@@ -17,10 +17,10 @@ import com.chat.domain.UserClient;
 
 @RestController
 public class LoginUserControllerRest {
-	
+
 	@Autowired
 	UserBussines userBussines;
-	
+
 	@Autowired
 	UserData userData;
 
@@ -29,20 +29,22 @@ public class LoginUserControllerRest {
 		int idUserClient = 0;
 		String idUser="user";
 		HttpSession sesion = servlet.getSession();
-		
+
+		System.out.println(userClient.toString());
+
 		if(userBussines.createUserValidation(userClient) == true) {
-			
+
 			idUserClient =	userData.addUserClient(userClient);
 		}
-		
+
 		Rol rolDomain = new Rol(1,"Client");
-		
+
 		userClient.setId(idUserClient);
 		userClient.setRol(rolDomain);
-			
+
 		System.out.println(userClient.toString());
 		sesion.setAttribute(idUser, userClient);
-		
+
 	}
-		
+
 }

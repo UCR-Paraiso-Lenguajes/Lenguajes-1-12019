@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -31,31 +33,31 @@ public class UserData {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+
 	@Autowired
 	private DataSource dataSource;
 
 	@Transactional(readOnly = true)
 	public int addUserClient(UserClient user) {
-		
-		String sqlInsertUser = "Insert into user_client(email) values (?)";	
-		
+
+		String sqlInsertUser = "Insert into user_client(email) values (?)";
+
 		Connection conexion = null;
-		
+
 		try {
-		
+
 		conexion = dataSource.getConnection();
 		conexion.setAutoCommit(false);
-			
+
 		PreparedStatement statementInsertUser = conexion.prepareStatement(sqlInsertUser, Statement.RETURN_GENERATED_KEYS);
-		
+
 		statementInsertUser.setInt(1, user.getId());
 		statementInsertUser.setString(2, user.getEmail());
-	    
+
 		int filas = statementInsertUser.executeUpdate();
-		
+
 		conexion.commit();
-		
+
 		if (filas == 0) {
             throw new SQLException("Inserción de Usuario fallida.");
         }
@@ -63,7 +65,7 @@ public class UserData {
         try (ResultSet generatedKeys = statementInsertUser.getGeneratedKeys()) {
             if (generatedKeys.next()) {
             	user.setId(generatedKeys.getInt(1));
-            	
+
             }
             else {
                 throw new SQLException("No se tienen PK generadas.");
@@ -84,17 +86,39 @@ public class UserData {
 				}
 			}
 		  }
-		
+
 		return user.getId();
 	    }
-	
-	public void update(int id, UserAdmin user) 
+
+	public void update(int id, UserAdmin user)
 	{
 		String sqlSelect = "UPDATE user_client SET password = '"+
 	user.getPassword()
 		+"' where id = "+id;
 		jdbcTemplate.batchUpdate(sqlSelect);
-	}	
+	}
 
+	@Transactional(readOnly = true)
+	public List<User> getUser() {
+		List<User> users = Collections.synchronizedList(new ArrayList<User>());
 
+		String sql = "SELECT id, email FROM user_client";
+		Connection conexion = null;
+		ResultSet rs = null;
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(sql);
+			rs = statement.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setEmail(rs.getString("email"));
+				users.add(user);
+			}
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+
+		return users;
+	}
 }

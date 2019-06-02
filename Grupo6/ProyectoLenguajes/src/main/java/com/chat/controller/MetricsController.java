@@ -18,7 +18,6 @@ public class MetricsController {
 	@RequestMapping(value="/metric2", method=RequestMethod.GET)
     public String metric2(Model model) 
 	{
-	
 		return "metric2";
     }
 	
