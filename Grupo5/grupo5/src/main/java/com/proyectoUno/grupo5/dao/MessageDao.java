@@ -72,4 +72,14 @@ public class MessageDao {
 	        }
 
 	    }
+	    
+	    public List<Message> getMessagesByIdRoom(int idRoom){
+	    	
+	    	
+	    	String sqlSelect = "SELECT id_message,date_fecha,contenido,id_user,id_room from message WHERE id_room="+idRoom;
+			
+			return jdbcTemplate.query(sqlSelect, new MessageWithExtractor());
+	    	
+	    	 
+	    }
 }
