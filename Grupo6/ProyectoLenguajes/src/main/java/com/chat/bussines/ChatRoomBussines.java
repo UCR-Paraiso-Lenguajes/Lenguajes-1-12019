@@ -8,7 +8,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chat.data.ChatRomData;
+import com.chat.data.*;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rooms;
@@ -18,7 +18,10 @@ import com.chat.domain.Rooms;
 public class ChatRoomBussines {
 
 	@Autowired
-	private ChatRomData chatRomData;
+	private ChatRoomData chatRomData;
+	
+	@Autowired
+	private MessageData messageData;
 
 	public void addRom(ChatRoom chatRoom) {
 		chatRomData.add(chatRoom);
@@ -61,13 +64,13 @@ public class ChatRoomBussines {
 			int valueAvatar = r.nextInt((max - min) + 1) + min;
 			String avatar = img[valueAvatar];
 			chatRoom.setAvatar(avatar);
-			chatRoom.setListMessage(chatRomData.getMessages(-1, 50, chatRoom));
+			chatRoom.setListMessage(messageData.getMessages(chatRoom));
 			System.out.println(chatRoom.toString());
 		}
 		return rooms.iterator();
 	}
 	
 	public Iterator<Message> loadMessages(ChatRoom room){
-		return chatRomData.getMessages(0, 50, room).iterator();
+		return messageData.getMessages(room).iterator();
 	}
 }

@@ -1,12 +1,14 @@
 package com.chat.domain;
 
+import java.sql.Date;
+
 public class Message {
 	private int id;
 	private String message;
-	private String date;
+	private Date date;
 	private int idSendingUser;
 	
-	public Message(int id, String message, String date, int idSendingUser) {
+	public Message(int id, String message, Date date, int idSendingUser) {
 		super();
 		if (id < 0)
 			throw new RuntimeException("El id del mensaje debe ser mayor  0.");
@@ -29,10 +31,10 @@ public class Message {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public int getIdSendingUser() {
