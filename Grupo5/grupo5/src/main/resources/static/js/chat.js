@@ -1,6 +1,6 @@
-var app = new Vue({
-    el: '#app',
+var room = new Vue({
+    el: '#room',
     data: {
-        message: 'Hello Vue!'
+        message: 'Algun room cualquiera'
     }
 })
