@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,11 +22,10 @@ public class MessageControllerRest {
 		private MessageBussiness messageBusiness;
 		
 		 @RequestMapping(value = "/msn/room/{id}/messages", method = RequestMethod.GET)
-		 public ResponseEntity<Object> getMessagesForRoom() {
+		 public ResponseEntity<Object> getMessagesForRoom(@PathVariable("idRoom") int id) {
 
 			 	
-			 
-			 
+
 			 
 			 return null;
 		 }

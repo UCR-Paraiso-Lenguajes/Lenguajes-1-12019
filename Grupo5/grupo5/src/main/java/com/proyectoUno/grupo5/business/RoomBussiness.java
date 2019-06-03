@@ -20,8 +20,7 @@ public class RoomBussiness {
 
 
 	public List<Room> getRooms() {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDao.listRooms();
 	}
  
     

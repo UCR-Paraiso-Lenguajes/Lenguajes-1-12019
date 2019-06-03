@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.dao;
 
+import com.proyectoUno.grupo5.dao.MessageDao.MessageWithExtractor;
 import com.proyectoUno.grupo5.domain.Message;
 import com.proyectoUno.grupo5.domain.Role;
 import com.proyectoUno.grupo5.domain.Room;
@@ -28,6 +29,7 @@ public class RoomDao {
     private DataSource dataSource;
     
     private List<Message> listMessages;
+    private List<List> rooms;
 
     public Boolean insertRoom(Room r){
         String query="insert into room(room_name,version) values(?,?)";
@@ -43,7 +45,20 @@ public class RoomDao {
 
             }
         });
+        
+       
+        
     }
+    
+    public List<Room> listRooms(){
+    	
+    	
+    	String sqlSelect = "SELECT id_room, room_name, version from room";
+		
+		return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
+    	
+    }
+}
 
     class RoomWithExtractor implements ResultSetExtractor<List<Room>> {
 
@@ -52,7 +67,7 @@ public class RoomDao {
             Map<Integer, Room> map = new HashMap<>();
             Room room = null;
             while (rs.next()) {
-                Integer id = rs.getInt("idroom");
+                Integer id = rs.getInt("id_room");
                 room = map.get(id);
                 if (room == null) {
                     room = new Room();
@@ -71,5 +86,6 @@ public class RoomDao {
     }
     
     
+    
    
-}
+
