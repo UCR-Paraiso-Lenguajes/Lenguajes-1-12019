@@ -40,7 +40,7 @@ public class IngresoController {
     	
     	roles.add(roleUser);
     	user.setEmail(user.getEmail());
-    	user.setHash("/msn/hashUsuario"+user.getIdUser());
+    	user.setHash("localhost:8080/msn/?idUser="+user.getIdUser());
     	user.setRoleUser(roles);
     	userBusiness.insertUser(user);
     	try {
