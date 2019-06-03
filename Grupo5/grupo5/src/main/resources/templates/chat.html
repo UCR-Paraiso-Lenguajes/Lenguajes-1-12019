@@ -15,35 +15,36 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/templates/ingreso.html">Iron chat</a>
+                    <a class="navbar-brand" th:href="@{/ingreso}">Iron chat</a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Salir</a></li>
-                </ul>
+                <div class=" navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a th:href="@{/ingreso}">Salir</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="row">
             <div class="col-sm-4 vr">
-                <form action="">
-                    <div class="row">
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-4"><button class="btn btn-default" v-on:click="createRoom">Create
-                                Room</button></div>
-                        <div class="col-sm-4"></div>
+                <div class="row">
+                    <div class="col-sm-2">
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Buscar..">
-                            </div>
-                        </div>
-                        <div class="col-sm-4"> <button type="submit" class="btn btn-default">Buscar</button></div>
+                    <div class="col-sm-4">
+                        <button @click="isRoom" class="btn btn-default">Ver Room</button>
                     </div>
-                </form>
+                    <div class="col-sm-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Buscar..">
+                        </div>
+                    </div>
+                    <div class="col-sm-4"> <button type="submit" class="btn btn-default">Buscar</button></div>
+                </div>
                 <br><br>
                 <div class="row">
                     <div class="col-sm-2">
@@ -74,6 +75,8 @@
                     <div id="wrapper">
                         <div id="menu">
                             <div style="clear:both">
+                                <button class="btn btn-default">Info</button>
+                                <button class="btn btn-default">Agregar Usuarios</button>
                             </div>
                         </div>
                         <div id="chatbox">
@@ -103,44 +106,44 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div v-if="isRoom">
-                <br><br><br><br><br>
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4">
-                        <h1 id="textChat">Crear Grupo</h1>
-                    </div>
-                    <div class="col-sm-4"></div>
-                </div>
-                <br><br><br><br><br>
-                <form method="post" class="box">
-                    <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <h3 id="textChat"> Ingrese el nombre del Grupo</h3>
-                                <input type="text" class="form-control inputChat" placeholder="Escribe...."
-                                    maxlength="25">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                        </div>
-                    </div>
+                <div v-if="isRoom">
                     <br><br><br><br><br>
                     <div class="row">
                         <div class="col-sm-4"></div>
-                        <div class="col-sm-3">
-                            <input class="btn btn-success btn-lg" type="submit" value="Crear Grupo"></input>
+                        <div class="col-sm-4">
+                            <h1 id="textChat">Crear Grupo</h1>
                         </div>
-                        <div class="col-sm-3">
-                            <button class="btn btn-danger btn-lg">Cancelar</button>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <br><br><br><br><br>
+                    <div class="box">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <h3 id="textChat"> Ingrese el nombre del Grupo</h3>
+                                    <input type="text" class="form-control inputChat" placeholder="Escribe...."
+                                        maxlength="25">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
                         </div>
-                </form>
-                <div class="col-sm-2"></div>
+                        <br><br><br><br><br>
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3">
+                                <input class="btn btn-success btn-lg" value="Crear Grupo"></input>
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-danger btn-lg">Cancelar</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

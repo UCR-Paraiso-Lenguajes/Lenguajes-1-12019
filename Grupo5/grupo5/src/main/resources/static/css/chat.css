@@ -119,4 +119,14 @@ a {
  .msj{
      background: #10ac84;
 }
-.estilotextarea {width:400px;height:100px;border: 2px solid #990000;}
+.estilotextarea {
+    width:400px;height:100px;border: 2px solid #990000;
+}
+/*.navbar-brand
+{
+    position:absolute;
+    width:100%;
+    left:0;
+    text-align:center;
+    margin:auto;
+}*/
