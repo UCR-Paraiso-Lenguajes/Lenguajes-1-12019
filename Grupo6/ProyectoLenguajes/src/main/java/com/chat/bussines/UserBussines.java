@@ -86,7 +86,7 @@ Random r = new Random();
 		return user;
 	}
 	
-	public void sendEmail(UserClient user) {
+	public void sendEmail(UserClient user, int idRoom) {
 		
 	
 
@@ -98,7 +98,7 @@ Random r = new Random();
 		String senderEmailId = "lenguajesaplicaciones@gmail.com";
 		String receiverEmailId = user.getEmail();
 		String subject = "Invitación";
-		String message = "http://localhost:8585/mainScreen";
+		String message = "http://localhost:8585/mainScreen/"+user.getEmail()+"/"+idRoom;
 
 		mailService.sendEmail(senderEmailId, receiverEmailId, subject, message);
 		context.close();

@@ -36,6 +36,11 @@ public class ChatRoom {
 		this.listMessage = Collections.synchronizedList(new ArrayList<Message>());
 	}
 
+	public ChatRoom(String name) {
+		super();
+		this.name = name;
+	}
+
 	public ChatRoom() {
 		super();
 		this.listUsers = Collections.synchronizedList(new ArrayList<UserClient>());

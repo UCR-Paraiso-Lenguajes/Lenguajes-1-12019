@@ -22,17 +22,17 @@
 
 					<div class="pull-right">
 
-						class="form-control">
-						<button id="x">X</button>
+
+
 						<span id="glyphUser" class="glyphicon glyphicon-user"
 							data-toggle="dropdown"></span>
 
 						<ul class="dropdown-menu dropdown-menu-center"
 							aria-labelledby="dropdownMenu">
 							<li><a href="/mainScreen" onclick="">About Us</a></li>
-							<li><a href="/login" onclick="">Log Out</a></li>
+							<li><a href="/loginAdmin" onclick="">Log Out</a></li>
 						</ul>
-						
+
 					</div>
 				</div>
 			</div>
@@ -45,24 +45,29 @@
 					<div id="panelTittle" class="panel-group">
 						<div class="panel panel-default">Grupos</div>
 
+
 						<div id="panelGroups" class="panel panel-default">
-							<div class="table-wrapper-scroll-y my-custom-scrollbar">
-							
-					<div id="panelUser" class="panel panel-default">
 
-									<div class="pull-lelf">
-										<span id="glyphUser" class="glyphicon glyphicon-user"></span>
+							<div class="panel panel-primary">
+								<div class="table-wrapper-scroll-y my-custom-scrollbar">
+									<div id="roomsList" class="row" th:each="room: ${rooms}">
+										<div id="idImage" class="col-md-2">
+											<img th:src="@{${room.avatar}}" height="25" width="25">
+										</div>
 
+										<div id="roomList" class="col-md-8">
+											<button th:id="${room.id}" th:text="${room.name}"
+												class="btn btn-primary" id="groupButton"
+												th:value="${room.name}"></button>
+											<!--  <span th:text="${room.name}"></span>-->
+										</div>
 									</div>
-							
+								</div>
 							</div>
-
 						</div>
 
 					</div>
-
 				</div>
-			</div>
 			</div>
 			<div id="colformMetric" class="col-md-7 text-center">
 				<div class="row">
@@ -93,31 +98,60 @@
 	</div>
 </body>
 
-<script>
 
 
-	var x = $("#x");
-	var obj = {
-	        "x": x
-	    };
-	$("#x").click(function(){
-		
-		obj.x=x.val();
-		
-		$.ajax(	{
-			method:"POST",
-			data:JSON.stringify(obj),
-			contentType:"application/json; charset=utf-8",
-			dataType:"json",
-			url: "api/Metric"
-		}).done(function( data ) {
-			alert("Exito");
-		});
-		
-		
-	});
+<script type="text/javascript">
+	$("button")
+			.click(
+					function() {
+						var text = this.value;
+						var grup = {
+							"id" : this.id,
+							"name" : text,
+							"version" : 0,
+							"url" : "",
+							"avatar" : null,
+							"listUsers" : [],
+							"listMessage" : []
+						};
+						//alert(this.id); // or alert($(this).attr('id'));
+						document.getElementById('roomName').innerHTML = this.value;
+						console.log(grup);
+						$
+								.ajax(
+										{
+											method : "GET",
+											data : JSON.stringify(grup),
+											contentType : "application/json; charset=utf-8",
+											dataType : "json",
+											url : "api/MectricUser"
+										})
+								.done(function(data) {
+
+								})
+								.fail(
+										function(data) {
+											console.log(data);
+
+											document.getElementById("roomList").innerHTML += '<div id="roomsList" class="row">'
+													+ '<div class="col-md-4">'
+													+ '</div>'
+													+ '<div class="col-md-8">'
+													+ '<span>'
+													+ newGroup.val()
+													+ '</span>'
+													+ '<div class="col-md-2"></div>'
+													+ '<div class="col-md-4">'
+													+ '<button id="buttonCreate" type="button" class="btn">Promote</button>'
+													+ '</div>'
+													+ '<div class="col-md-4">'
+													+ '<button id="buttonCreate" type="button" class="btn">Remove</button>'
+													+ '</div>'
+													+ '</div> </div>'
+										});
+
+					});
 </script>
-
 <style>
 body {
 	background-image:
@@ -140,10 +174,9 @@ body {
 
 #colformGrups {
 	margin-left: 100px;
-	opacity: 0.5;
+	border-style: ridge;
+	border: 2px ridge #3D6F99;
 	border-radius: 25px;
-	border: 2px solid #3D6F99;
-	padding: 20px;
 	width: 500px;
 	height: 500px;
 }
@@ -160,6 +193,23 @@ body {
 	color: #0A0201;
 	list-style: none;
 	background-color: #DBEBF6;
+}
+
+#idImage {
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+#roomList {
+	margin-top: 20px;
+}
+
+#item {
+	margin-top: 10px;
+	margin-left: 10px;
+	height: auto;
+	width: auto;
+	text-align: left;
 }
 
 #colformMetric {
@@ -209,7 +259,6 @@ body {
 	height: 50px;
 	font-size: 20px;
 }
-
 </style>
 
 </html>

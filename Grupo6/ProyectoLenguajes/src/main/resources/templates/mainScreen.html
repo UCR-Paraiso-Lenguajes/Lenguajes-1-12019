@@ -289,9 +289,10 @@
 					});
 	
 	//Boton para cuando se escoge un grupo
-
+	var idRoom;
 	$("button").click(function() {
 		var text = this.value;
+		idRoom = this.id;
 		var grup = {
 				"id" : this.id,
 				"name" : text,
@@ -338,7 +339,7 @@
 
 	var invite = $("#invite");
 	var newGroupMember = $("#newGroupMember");
-	var obj = {
+	var objMember = {
 		"avatar" : "",
 		"email" : newGroupMember,
 		"name" : "",
@@ -348,11 +349,11 @@
 	};
 	$("#invite").click(function() {
 
-		obj.email = newGroupMember.val();
+		objMember.email = newGroupMember.val();
 
 		$.ajax({
 			method : "POST",
-			data : JSON.stringify(obj),
+			data : JSON.stringify(objMember),
 			contentType : "application/json; charset=utf-8",
 			dataType : "json",
 			url : "api/User"
