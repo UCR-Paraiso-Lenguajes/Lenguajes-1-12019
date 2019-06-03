@@ -7,6 +7,11 @@ var room = new Vue({
         messages: [],
         rooms: []
     },
+    mounted() {
+        axios
+            .get('http://localhost:8080/api/rooms')
+            .then(response => (this.rooms = response.data))
+    },
     methods: {
         createRoom: function () {
             this.isRoom = !this.isRoom;
@@ -19,11 +24,6 @@ var room = new Vue({
                 message: this.message
             }),
                 this.message = '';
-        },
-        cargarRooms: function () {
-            axios
-            .get('http://localhost:8080/api/rooms')
-            .then(response => (this.rooms = response.data))
         }
     }
 })
