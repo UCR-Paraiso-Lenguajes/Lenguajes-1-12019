@@ -33,11 +33,5 @@ public class AdminControllerRest {
 	}
 
 	
-	@RequestMapping(value="/admin/room", method=RequestMethod.GET )
-	public @ResponseBody List<Room> listRooms()
-
-	{
-	return roomBusiness.getRooms();
-		
-	}
+	
 }

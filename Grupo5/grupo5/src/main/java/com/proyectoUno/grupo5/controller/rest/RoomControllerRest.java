@@ -16,9 +16,9 @@ public class RoomControllerRest {
 	RoomBussiness roomBusiness;
 
 	@RequestMapping(value="/api/rooms", method=RequestMethod.GET)
-	public ResponseEntity<Object> getDataAutor() {
+	public ResponseEntity<Object> getRooms() {
 		
-		return new ResponseEntity<>(roomBusiness.getRooms(), HttpStatus.OK);
+		return new ResponseEntity<>(roomBusiness.getRooms(1), HttpStatus.OK);
  
 		
 	}
