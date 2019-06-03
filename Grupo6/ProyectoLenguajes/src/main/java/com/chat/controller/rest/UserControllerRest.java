@@ -1,8 +1,11 @@
 package com.chat.controller.rest;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +26,8 @@ public class UserControllerRest {
 	@Autowired
 	private UserBussines userBussines;
 
-	@RequestMapping(value = "api/User", method = RequestMethod.POST)
-	public @ResponseBody void addChatRoom(@RequestBody UserClient user, @RequestBody int room) {
+	@RequestMapping(value = "api/User/{room}", method = RequestMethod.POST)
+	public @ResponseBody void addChatRoom(@RequestBody UserClient user, @PathVariable int room) {
 		userBussines.sendEmail(user, room);
 	}
 }
