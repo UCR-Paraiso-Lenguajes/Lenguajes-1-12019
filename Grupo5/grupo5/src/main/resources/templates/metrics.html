@@ -23,23 +23,23 @@
         </div>
     </nav>
     <div class="row">
-        <div id="room">
-            <div class="col-sm-4 vr">
-                <form action="">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Buscar..">
-                            </div>
-                        </div>
-                        <div class="col-sm-4"> <button type="submit" class="btn btn-default">Buscar</button></div>
-                    </div>
-                </form>
-                <br><br>
+        <div class="col-sm-4 vr">
+            <form action="">
                 <div class="row">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Buscar..">
+                        </div>
+                    </div>
+                    <div class="col-sm-4"> <button type="submit" class="btn btn-default">Buscar</button></div>
+                </div>
+            </form>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div id="rooms" class="col-sm-10">
+                    <div v-for="room in rooms">
                         <button class="btn btn-default well">
                             <div class="row">
                                 <div class="col-sm-2">
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <h4 class="cen">
-                                        <p>{{ message }}</p>
+                                        <span> {{room.roomName}} </span>
                                     </h4>
                                 </div>
                                 <div class="col-sm-2">
@@ -57,8 +57,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-sm-1"></div>
             </div>
+            <div class="col-sm-1"></div>
         </div>
         <div id="metrics" class="col-sm-8">
             <table class="table table-striped">
@@ -69,6 +69,7 @@
                         <th>AverageUsers For Rooms</th>
                         <th>Last Messages</th>
                         <th>First Login</th>
+                        <th>Date First Login</th>
                         <th>User With more messages</th>
                         <th>Last Group Created</th>
                         <th>Group with More Messages</th>
@@ -79,8 +80,8 @@
                         <td>{{metric.quantityOfRooms}}</td>
                         <td>{{metric.quantityOfUsers}}</td>
                         <td>{{metric.averageUsersForRooms}}</td>
-                        <td>{{metric.last_messages}}</td>
-                        <td>{{metric.firts_login}}</td>
+                        <td>{{metric.last_message}}</td>
+                        <td>{{metric.first_login}}</td>
                         <td>{{metric.date_first_login}}</td>
                         <td>{{metric.user_with_more_message}}</td>
                         <td>{{metric.last_group_created}}</td>
