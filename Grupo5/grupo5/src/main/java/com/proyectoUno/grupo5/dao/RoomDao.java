@@ -67,7 +67,7 @@ public class RoomDao {
             Map<Integer, Room> map = new HashMap<>();
             Room room = null;
             while (rs.next()) {
-                Integer id = rs.getInt("idroom");
+                Integer id = rs.getInt("id_room");
                 room = map.get(id);
                 if (room == null) {
                     room = new Room();
