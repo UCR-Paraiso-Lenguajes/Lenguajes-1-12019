@@ -8,17 +8,14 @@ import java.util.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import cr.ac.ucr.business.UserBusiness;
-import cr.ac.ucr.domain.Room;
 import cr.ac.ucr.domain.User;
 import cr.ac.ucr.exceptions.ProjectExceptions;
-import cr.ac.ucr.form.RoomForm;
 import cr.ac.ucr.form.UserForm;
 import cr.ac.ucr.service.EmailServiceImpl;
 
@@ -28,8 +25,6 @@ public class MailController {
 
 	@Autowired
 	private UserBusiness userBusiness;
-	
-	private Logger logger = LoggerFactory.getLogger(MailController.class);
 	
 	@Autowired
 	private EmailServiceImpl emailServiceImpl;
