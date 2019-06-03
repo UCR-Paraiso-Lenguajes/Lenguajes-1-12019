@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.chat.data.ChatRomData;
+import com.chat.data.ChatRoomData;
 import com.chat.domain.ChatRoom;
 
 @RunWith(SpringRunner.class)
@@ -18,7 +18,7 @@ import com.chat.domain.ChatRoom;
 public class ProyectoLenguajesApplicationTests {
 
 	@Autowired
-	private ChatRomData roomData;
+	private ChatRoomData roomData;
 	
 	@Test
 	public void contextLoads() {

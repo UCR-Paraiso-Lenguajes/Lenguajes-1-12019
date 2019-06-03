@@ -2,9 +2,12 @@ package com.chat.data;
 
 import java.awt.List;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -118,7 +121,7 @@ public class MetricDat {
 	public int getAvgUserPerGroup() {
 
 		ArrayList<ChatRoom> chatRooms = new ArrayList<>();
-		ChatRomData chatData = new ChatRomData();
+		ChatRoomData chatData = new ChatRoomData();
 		chatRooms = (ArrayList<ChatRoom>) chatData.getRooms();
 		
 		ArrayList<UserClient> users = new ArrayList<>();
@@ -152,14 +155,32 @@ public class MetricDat {
 		return 1;
 	}
 
-	public String getFechaUltimoMensaje(int inicio, int fin, ChatRoom chatRoom) {
+	public String getFechaUltimoMensaje(ChatRoom chatRoom) {
+		
+		ChatRoomData chatData = new ChatRoomData();
+		MessageData messagesData = new MessageData();
+		
 		String mensaje = "";
 		
-		ArrayList<Message> mensajes = new ArrayList<Message>();
-		ChatRomData chatData = new ChatRomData();
+		ArrayList<ChatRoom> rooms = chatData.getAllNameRooms();
+		ArrayList<Message> ultimosMensajes = new ArrayList<Message>();
 		
-		mensajes = (ArrayList<Message>) chatData.getMessages(inicio, fin, chatRoom);
-		mensaje = mensajes.get(1).getDate();
+		for (int i = 0; i < rooms.size(); i++) {
+			messagesData = (MessageData) messagesData.getUltimosMessages(rooms.get(i));
+		}
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date fechaActual;
+		try {
+			fechaActual = (Date) format.parse("2000-01-01 00:00:00");
+		} catch (ParseException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		for (int i = 0; i < ultimosMensajes.size(); i++) {
+			if(fechaActual.compareTo(ultimosMensajes.get(i).getDate()) > 0) {
+				fechaActual=ultimosMensajes.get(i).getDate();
+			}	
+		}
+		mensaje = fechaActual.toString();
 		
 		return mensaje;
 	}
@@ -172,6 +193,26 @@ public class MetricDat {
 		fecha = logueos.get(logueos.size()).getFecha();
 		
 		return fecha;
+	}
+	
+	public String getUsuarioMasMensajes() {
+		String usuario="";
+		int cantidadMensajes=0;
+		
+		ChatRoomData chatData = new ChatRoomData();
+		MessageData messagesData = new MessageData();
+		
+		ArrayList<ChatRoom> rooms = chatData.getAllNameRooms();
+		ArrayList<UserClient> usuarioMensajes = new ArrayList<UserClient>();
+		
+		for (int i = 0; i < rooms.size(); i++) {
+			if(cantidadMensajes < rooms.get(i).getListMessage().size()) {
+				cantidadMensajes = rooms.get(i).getListMessage().size();
+				usuarioMensajes = (ArrayList<UserClient>) rooms.get(i).getListUsers();
+			}
+		}
+		usuario= usuarioMensajes.toString();
+	return usuario;
 	}
 	
 }

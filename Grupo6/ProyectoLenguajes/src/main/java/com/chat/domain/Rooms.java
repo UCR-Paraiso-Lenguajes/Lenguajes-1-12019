@@ -8,12 +8,12 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.chat.data.ChatRomData;
+import com.chat.data.ChatRoomData;
 
 public class Rooms {
 	
 	@Autowired
-	private ChatRomData roomData;
+	private ChatRoomData roomData;
 	@Autowired
 	private ArrayList<ChatRoom> rooms;
 
