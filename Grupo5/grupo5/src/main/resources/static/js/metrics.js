@@ -1,7 +1,7 @@
 var metrics = new Vue({
     el: '#metrics',
     data: {
-            metrics: null
+            metrics: []
     },
     mounted() {
         axios

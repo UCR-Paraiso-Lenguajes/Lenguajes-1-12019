@@ -49,21 +49,23 @@
                     <div class="col-sm-2">
                     </div>
                     <div class="col-sm-10">
-                        <button v-on:click="verChatPerRoom" class="btn btn-default well">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
+                        <div v-for="room in rooms">
+                            <button v-on:click="verChatPerRoom" class="btn btn-default well">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h4 class="cen">
+                                            <span> {{room.roomName}} </span>
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <h5 class="der">></h3>
+                                    </div>
                                 </div>
-                                <div class="col-sm-8">
-                                    <h4 class="cen">
-                                        <span> {{message}} </span>
-                                    </h4>
-                                </div>
-                                <div class="col-sm-2">
-                                    <h5 class="der">></h3>
-                                </div>
-                            </div>
-                        </button>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
