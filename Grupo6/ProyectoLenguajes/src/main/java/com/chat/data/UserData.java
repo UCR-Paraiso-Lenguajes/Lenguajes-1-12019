@@ -51,8 +51,7 @@ public class UserData {
 
 		PreparedStatement statementInsertUser = conexion.prepareStatement(sqlInsertUser, Statement.RETURN_GENERATED_KEYS);
 
-		statementInsertUser.setInt(1, user.getId());
-		statementInsertUser.setString(2, user.getEmail());
+		statementInsertUser.setString(1, user.getEmail());
 
 		int filas = statementInsertUser.executeUpdate();
 

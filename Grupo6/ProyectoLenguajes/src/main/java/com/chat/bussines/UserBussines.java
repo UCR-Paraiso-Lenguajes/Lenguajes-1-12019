@@ -1,6 +1,7 @@
 package com.chat.bussines;
 
 
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,24 @@ public class UserBussines {
 			
 		}
 				
+		return value;
+	}
+	
+	public boolean existUser(UserClient user){
+		
+    	boolean value = false;
+    	
+		List<UserClient> users = userData.getUser();
+		
+		for (int i = 0; i < users.size(); i++) {
+
+		UserClient auxUser =  users.get(i);
+		
+		if(auxUser.getEmail().equalsIgnoreCase(user.getEmail())){
+			value = true;
+		}
+		}
+		
 		return value;
 	}
 	

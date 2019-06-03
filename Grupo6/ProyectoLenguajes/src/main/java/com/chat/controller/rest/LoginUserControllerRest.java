@@ -26,24 +26,7 @@ public class LoginUserControllerRest {
 
 	@RequestMapping(value="api/LoginUser", method=RequestMethod.POST )
 	public @ResponseBody void addChatRoom(@RequestBody UserClient userClient , HttpServletRequest servlet){
-		int idUserClient = 0;
-		String idUser="user";
-		HttpSession sesion = servlet.getSession();
-
-		System.out.println(userClient.toString());
-
-		if(userBussines.createUserValidation(userClient) == true) {
-
-			idUserClient =	userData.addUserClient(userClient);
-		}
-
-		Rol rolDomain = new Rol(1,"Client");
-
-		userClient.setId(idUserClient);
-		userClient.setRol(rolDomain);
-
-		System.out.println(userClient.toString());
-		sesion.setAttribute(idUser, userClient);
+		
 
 	}
 
