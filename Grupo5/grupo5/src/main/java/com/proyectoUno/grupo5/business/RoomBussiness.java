@@ -23,6 +23,9 @@ public class RoomBussiness {
 		return roomDao.listRoomsForIdUser(idUser);
 	}
  
+	public List<Room> getRooms() {
+		return roomDao.listRooms();
+	}
     
 
 }
