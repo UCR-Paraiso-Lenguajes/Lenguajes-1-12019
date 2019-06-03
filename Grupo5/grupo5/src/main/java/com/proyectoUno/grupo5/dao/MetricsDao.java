@@ -29,7 +29,7 @@ public class MetricsDao {
 
 	    @Transactional(readOnly = true)
 	    public List<Metrics> getMetrics() {
-	        String sqlSelect = "select id_metrics,average_user_per_group,quantity_rooms,quantity_users,date_first_login from metrics";
+	        String sqlSelect = "Select id_metrics, quantity_rooms,quantity_users,average_user_per_group,last_message,first_login,date_first_login,user_with_more_message,last_group_created,group_with_more_message From metrics";
 	        return jdbcTemplate.query(sqlSelect, new MetricsWithExtractor());
 	    }
 	    class MetricsWithExtractor implements ResultSetExtractor<List<Metrics>> {
@@ -44,9 +44,17 @@ public class MetricsDao {
 	                if (metrics == null) {
 	                    metrics = new Metrics();
 	                    metrics.setIdmetrics(id);
-	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_per_group"));
 	                    metrics.setQuantityOfRooms(rs.getInt("quantity_rooms"));
 	                    metrics.setQuantityOfUsers(rs.getInt("quantity_users"));
+	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_per_group"));
+	                    metrics.setLast_message(rs.getString("last_message"));
+	                    metrics.setFirst_login(rs.getDate("first_login"));
+	                    metrics.setDate_first_login(rs.getDate("date_first_login"));
+	                    metrics.setUser_with_more_message(rs.getInt("user_with_more_message"));
+	                    metrics.setLast_group_created(rs.getString("last_group_created"));
+	                    metrics.setGroup_with_more_message(rs.getString("group_with_more_message"));
+	                    
+	                     
 	                
 
 	                    
