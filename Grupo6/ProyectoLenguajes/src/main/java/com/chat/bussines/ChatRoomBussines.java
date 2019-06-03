@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chat.data.ChatRomData;
+import com.chat.data.UserData;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rooms;
+import com.chat.domain.UserClient;
 
 
 @Service
@@ -19,9 +21,26 @@ public class ChatRoomBussines {
 
 	@Autowired
 	private ChatRomData chatRomData;
+	@Autowired
+	private UserData userData;
 
 	public void addRom(ChatRoom chatRoom) {
 		chatRomData.add(chatRoom);
+	}
+	
+	public ArrayList<ChatRoom> getRoomsByGuess(String email, int room){
+		
+		ArrayList<ChatRoom> rooms = chatRomData.getRoomsByUserEmail(email, room);
+		if(rooms.isEmpty()) {
+			UserClient user = userData.getUserByEmail(email);
+			if(user.getId() < 0) {
+				userData.addUserClient(user);
+			}else {
+				user = userData.getUserByEmail(email);
+			}
+			chatRomData.addUserByChatRoom(room, user.getId(), 1);
+		}
+		return rooms;
 	}
 
 

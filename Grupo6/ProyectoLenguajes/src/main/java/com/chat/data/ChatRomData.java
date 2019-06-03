@@ -48,7 +48,7 @@ public class ChatRomData {
 			// statementInsert.setObject(4, charRoom.getUserList());
 			statementInsert.executeUpdate();
 			String sqlmessages = "CREATE TABLE chat_db.messages_" + chatRoom.getName() + " (message_id INT NOT NULL AUTO_INCREMENT, "
-					+ "message_description NVARCHAR(50), " + "message_date NVARCHAR(50)," + "id_sending_user INT, "
+					+ "message_description NVARCHAR(50), " + "message_date DATETIME," + "id_sending_user INT, "
 					+ "receiver INT, KEY (message_id)) ENGINE = ARCHIVE;";
 			PreparedStatement statementMessages = conexion.prepareStatement(sqlmessages);
 			statementMessages.executeUpdate(sqlmessages);
@@ -73,10 +73,19 @@ public class ChatRomData {
 			}
 		}
 	}
+	
+	public ArrayList<ChatRoom> getRoomsByUserEmail(String email, int room){
+		String sql = "SELECT r.room_id, r.room_name, r.version, r.room_user_creator, "
+				+ "ua.id, ua.email "
+				+ "FROM room r left join room_user ru on r.room_id = ru.id_room left join user_client ua ON ru.id_user = ua.id "
+				+ "WHERE ua.email = '"+email+"' AND r.room_id = "+room+";";
+		
+		return jdbcTemplate.query(sql, new RoomsWithMessagesAndUsersExtractor());
+	}
 
 	//@Autowired(required = false)
 	@Transactional
-	public void addUserByChatRoom(int idChatRoom, int idUser, int idRol) throws SQLException {
+	public void addUserByChatRoom(int idChatRoom, int idUser, int idRol) {
 
 		Connection conexion = null;
 		try {

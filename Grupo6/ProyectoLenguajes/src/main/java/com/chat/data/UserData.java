@@ -121,4 +121,24 @@ public class UserData {
 
 		return users;
 	}
+	
+	@Transactional(readOnly = true)
+	public UserClient getUserByEmail(String email) {
+		
+		String sql = "SELECT id, email FROM user_client WHERE email = '"+email+"';";
+		Connection conexion = null;
+		ResultSet rs = null;
+		UserClient user = new UserClient();
+		try{
+			conexion = dataSource.getConnection();
+			PreparedStatement statement = conexion.prepareStatement(sql);
+			rs = statement.executeQuery();
+			user = new UserClient();
+			user.setId(rs.getInt("id"));
+			user.setEmail(rs.getString("email"));
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+		return user;
+	}
 }
