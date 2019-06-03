@@ -4,7 +4,13 @@ var room = new Vue({
         isChat: false,
         isRoom: false,
         message: '',
-        messages:[]
+        messages: [],
+        rooms: []
+    },
+    mounted() {
+        axios
+            .get('http://localhost:8080/api/rooms')
+            .then(response => (this.rooms = response.data))
     },
     methods: {
         createRoom: function () {
@@ -17,7 +23,7 @@ var room = new Vue({
             this.messages.push({
                 message: this.message
             }),
-            this.message = '';
+                this.message = '';
         }
     }
 })
