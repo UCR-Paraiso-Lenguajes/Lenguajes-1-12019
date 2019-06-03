@@ -35,7 +35,7 @@ public class AdminController {
 		 boolean validacion=adminBusiness.validacion(admin.getUsername(),admin.getPassword());
 		 
 		 if(validacion) {
-		 return "correoExitoso";
+		 return "metrics.html";
 		}else {
 			 
 			 return "loginAdmin";
