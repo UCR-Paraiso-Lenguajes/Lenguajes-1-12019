@@ -29,7 +29,7 @@ public class UserDao {
 	    private DataSource dataSource;
 	    
 	public Boolean insertUser(User user){
-        String query="insert into user(email, hash, id_role ) values(?,?,?)";
+        String query="insert into user(email, hash) values(?,?)";
 
         return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
             @Override
@@ -37,7 +37,7 @@ public class UserDao {
                     throws SQLException, DataAccessException {
                 ps.setString(1,user.getEmail());
                 ps.setString(2,user.getHash());
-                ps.setInt(3,user.getRoleUser().get(0).getIdRole());
+               // ps.setInt(3,user.getRoleUser().get(0).getIdRole());
 
                 return ps.execute();
 
