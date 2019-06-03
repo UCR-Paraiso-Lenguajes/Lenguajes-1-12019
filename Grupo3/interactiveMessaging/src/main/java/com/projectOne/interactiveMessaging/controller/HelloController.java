@@ -65,7 +65,7 @@ public class HelloController {
 	@RequestMapping(value="/signIn", method=RequestMethod.POST)
     public String sendMail( @RequestParam("email") String mail){
     	String linkToParticipateInChat = "http://localhost:8080/msn/chat"; 
-    	emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitacion","Te invitamos por medio de este link:   "+linkToParticipateInChat);
+    	emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitación\n","Te invitamos por medio de este link:   \n"+linkToParticipateInChat);
 
         return "loginUser";
     }

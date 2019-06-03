@@ -11,9 +11,7 @@ public class EmailBussines {
 	private EmailData emailData;
 	
 	public void sendMail(String from, String to, String subject, String body) {
-		
 		emailData.sendMail(from, to, subject, body);
-		
 	}
 
 }
