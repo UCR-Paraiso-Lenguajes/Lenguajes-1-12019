@@ -60,7 +60,8 @@ public class RoomDao {
  WHERE condition
     	 */
     	
-    	String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room WHERE id_user=" +idUser+" group by id_room";
+    	String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room WHERE id_user=" 
+    	+idUser+" group by id_room";
     			 
     			
     	

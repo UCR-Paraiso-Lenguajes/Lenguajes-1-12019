@@ -19,12 +19,12 @@ import com.proyectoUno.grupo5.domain.User;
 public class IngresoController {
 
 	
-	 @Autowired
-	 private NotificationService notificationService;
-	 @Autowired
+	@Autowired
+	private NotificationService notificationService;
+	@Autowired
 	private UserBusiness userBusiness;
 	
-	 ArrayList<Role> roles = new ArrayList<Role>(); 
+	ArrayList<Role> roles = new ArrayList<Role>(); 
  	Role roleUser = new Role(3, "room_user");
 	 
     @RequestMapping(value = "/ingreso", method = RequestMethod.GET)
@@ -40,14 +40,14 @@ public class IngresoController {
     	
     	roles.add(roleUser);
     	user.setEmail(user.getEmail());
-    	user.setHash("url");
+    	user.setHash("/msn/hashUsuario"+user.getIdUser());
     	user.setRoleUser(roles);
     	userBusiness.insertUser(user);
     	try {
-    		notificationService.sendNotification(user);
+    		notificationService.sendNotification(user, user.getHash());
     		
     	}catch(MailException e) {
-    		//catch error
+    		throw e;
     	}
     	
     	return "correoExitoso";
