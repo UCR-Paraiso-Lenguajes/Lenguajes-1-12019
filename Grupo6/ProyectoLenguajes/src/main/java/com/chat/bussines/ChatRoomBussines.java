@@ -23,6 +23,9 @@ public class ChatRoomBussines {
 
 	@Autowired
 	private MessageData messageData;
+	
+	@Autowired
+	private UserData userData;
 
 	public void addRom(ChatRoom chatRoom) {
 		chatRomData.add(chatRoom);
