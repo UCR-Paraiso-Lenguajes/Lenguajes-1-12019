@@ -50,14 +50,53 @@ public class RoomDao {
         
     }
     
-    public List<Room> listRooms(){
+    public List<Room> listRoomsForIdUser(int idUser){
     	
     	
-    	String sqlSelect = "SELECT id_room, room_name, version from room";
+    	/*
+    	 *SELECT column-names
+  FROM table-name1 JOIN table-name2 
+    ON column-name1 = column-name2
+ WHERE condition
+    	 */
+    	
+    	String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room WHERE id_user=" 
+    	+idUser+" group by id_room";
+    			 
+    			
+    	
+    			
+    			
+    	
+    			;
 		
 		return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
     	
     }
+
+
+public List<Room> listRooms(){
+	
+	
+	/*
+	 *SELECT column-names
+FROM table-name1 JOIN table-name2 
+ON column-name1 = column-name2
+WHERE condition
+	 */
+	
+	String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room ";
+			 
+			
+	
+			
+			
+	
+			;
+	
+	return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
+	
+}
 }
 
     class RoomWithExtractor implements ResultSetExtractor<List<Room>> {
@@ -81,6 +120,8 @@ public class RoomDao {
 
             }
             return new ArrayList<Room>(map.values());
+            
+            
         }
 
     }

@@ -19,10 +19,13 @@ public class RoomBussiness {
     }
 
 
+	public List<Room> getRooms(int idUser) {
+		return roomDao.listRoomsForIdUser(idUser);
+	}
+ 
 	public List<Room> getRooms() {
 		return roomDao.listRooms();
 	}
- 
     
 
 }

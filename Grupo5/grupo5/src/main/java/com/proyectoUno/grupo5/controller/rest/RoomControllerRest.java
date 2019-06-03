@@ -23,5 +23,13 @@ public class RoomControllerRest {
 		
 	}
 	
+	@RequestMapping(value="/api/createRoom/{id_user}", method=RequestMethod.GET)
+	public void createRoom() {
+		
+		new ResponseEntity<>(roomBusiness.getRooms(), HttpStatus.OK);
+ 
+		
+	}
+	
 	
 }
