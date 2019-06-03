@@ -1,10 +1,15 @@
 package com.projectOne.interactiveMessaging.data;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,6 +25,14 @@ public class GroupData {
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
 	private UserData userData;
+	
+	@Autowired
+	private DataSource dataSource;
+	
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource=dataSource;
+	}
 
 	@Transactional(readOnly = true)
 	public String getNameGroupTableMessages(int idGroup) {
@@ -57,4 +70,48 @@ public class GroupData {
 		listOfRooms.get(0).setDateCreate(temp);
 		return listOfRooms.get(0);
 	}
+	
+	@Transactional(readOnly=true)
+	public void saveGroup(String nameGroup) {
+		//select id from RoomApp order by id desc limit 1
+		//insert into RoomApp values(5,'Los Patitos',now(),'LosPatitosMessages')
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			connection.setAutoCommit(false);
+			
+			Date date = new Date();
+			Timestamp timestamp = new Timestamp(date.getTime());
+			
+			int latestIdRoom = jdbcTemplate.update(sql);
+			String sqlSelectId = "select id from RoomApp order by id desc limit 1";
+		
+			
+			String sqlSaveGroup = "insert into RoomApp values(?,?,now(),'LosPatitosMessages')";
+			String sqlInsert = "insert into UserApp values (?, ?, ?)";
+			PreparedStatement stmt = connection.prepareStatement(sqlInsert);
+			//stmt.setInt(1, idNew);
+			//stmt.setString(2, correoUser);
+			stmt.setInt(3, 0);
+			stmt.execute();
+			
+			connection.commit();
+		}catch(Exception e){
+			try {
+				connection.rollback();
+			}catch(SQLException e1) {
+				throw new RuntimeException(e1);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				}catch(SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
+	
 }

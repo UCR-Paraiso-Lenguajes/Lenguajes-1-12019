@@ -84,7 +84,7 @@ public class UserData {
 	public int save(String correoUser) {
 		ArrayList<User> userList = new ArrayList<User>();
 		
-		String selectMySql = "select id, correo, numberMessages from UserApp where correo= ?";
+		String selectMySql = "select id, correo, numberMessages from UserApp where correo = ?";
 		
 		jdbcTemplate.query(selectMySql, new Object[] {correoUser}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
 			.forEach(entry -> userList.add(entry));
