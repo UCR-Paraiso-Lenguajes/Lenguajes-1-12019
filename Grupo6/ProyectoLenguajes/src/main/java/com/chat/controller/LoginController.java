@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.chat.data.ChatRomData;
+import com.chat.data.ChatRoomData;
 import com.chat.data.MetricDat;
 import com.chat.domain.ChatRoom;
 

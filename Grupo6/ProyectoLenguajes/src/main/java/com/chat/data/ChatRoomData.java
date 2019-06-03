@@ -26,7 +26,7 @@ import com.chat.domain.UserAdmin;
 import com.chat.domain.UserClient;
 
 @Repository
-public class ChatRomData {
+public class ChatRoomData {
 
 	@Autowired
 	private DataSource dataSource;
@@ -48,7 +48,7 @@ public class ChatRomData {
 			// statementInsert.setObject(4, charRoom.getUserList());
 			statementInsert.executeUpdate();
 			String sqlmessages = "CREATE TABLE chat_db.messages_" + chatRoom.getName() + " (message_id INT NOT NULL AUTO_INCREMENT, "
-					+ "message_description NVARCHAR(50), " + "message_date NVARCHAR(50)," + "id_sending_user INT, "
+					+ "message_description NVARCHAR(50), " + "message_date DATETIME," + "id_sending_user INT, "
 					+ "receiver INT, KEY (message_id)) ENGINE = ARCHIVE;";
 			PreparedStatement statementMessages = conexion.prepareStatement(sqlmessages);
 			statementMessages.executeUpdate(sqlmessages);
@@ -73,10 +73,18 @@ public class ChatRomData {
 			}
 		}
 	}
+	
+	public ArrayList<ChatRoom> getRoomsByUserEmail(String email, int room){
+		String sql = "SELECT r.room_id, r.room_name, r.version, r.room_user_creator, "
+				+ "ua.id, ua.email "
+				+ "FROM room r left join room_user ru on r.room_id = ru.id_room left join user_client ua ON ru.id_user = ua.id "
+				+ "WHERE ua.email = '"+email+"' AND r.room_id = "+room+";";
+		
+		return jdbcTemplate.query(sql, new RoomsWithMessagesAndUsersExtractor());
+	}
 
-	//@Autowired(required = false)
 	@Transactional
-	public void addUserByChatRoom(int idChatRoom, int idUser, int idRol) throws SQLException {
+	public void addUserByChatRoom(int idChatRoom, int idUser, int idRol) {
 
 		Connection conexion = null;
 		try {
@@ -97,9 +105,9 @@ public class ChatRomData {
 	@Transactional(readOnly = true)
 	public List<UserAdmin> getUsers(ChatRoom room) {
 		List<UserAdmin> users = Collections.synchronizedList(new ArrayList<UserAdmin>());
-		String selectSql = "SELECT u.user_id, u.user_name, u.user_email, u.user_password, "
+		String selectSql = "SELECT u.id, u.user_email, "
 				+ "r.role_id, r.role_name "
-				+ "FROM user u JOIN room_user ru ON u.user_id = id_user "
+				+ "FROM user_client u JOIN room_user ru ON u.user_id = id_user "
 				+ "JOIN role r ON r.role_id = ru.id_role "
 				+ "WHERE ru.id_room = ? ";
 		Connection conexion = null;
@@ -128,26 +136,30 @@ public class ChatRomData {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Message> getMessages(int begin, int end, ChatRoom room) {
-		List<Message> messages = Collections.synchronizedList(new ArrayList<Message>());
-		String selectSql = "SELECT message_id, message_description, message_date, id_sending_user "
-				+ "FROM messages_"+room.getName()+" ORDER BY message_id desc LIMIT 50";
+	public ArrayList<ChatRoom> getRooms() {
+		String sql = "SELECT r.room_id, r.room_name, r.version, r.room_user_creator, "
+				+ "ua.user_id, ua.user_name, ua.user_id "
+				+ "FROM room r left join room_user ru on r.room_id = ru.id_room left join user_admin ua ON ru.id_user = ua.user_id;";
+		return jdbcTemplate.query(sql, new RoomsWithMessagesAndUsersExtractor());
+	}
 
+	@Transactional(readOnly = true)
+	public ArrayList<ChatRoom> getAllNameRooms() {
+		ArrayList<ChatRoom> rooms = new ArrayList<ChatRoom>();
+		
+		String sql = "SELECT room_name FROM room";
+		
 		Connection conexion = null;
 		ResultSet rs = null;
 		try{
 			conexion = dataSource.getConnection();
-			PreparedStatement statement = conexion.prepareStatement(selectSql);
-			//statement.setInt(1, begin);
-			//statement.setInt(2, end);
+			PreparedStatement statement = conexion.prepareStatement(sql);
+			
 			rs = statement.executeQuery();
 			while(rs.next()) {
-				Message message = new Message(
-						rs.getInt("message_id"),
-						rs.getString("message_description"),
-						rs.getString("message_date"),
-						rs.getInt("id_sending_user"));
-				messages.add(message);
+				ChatRoom chatRoom = new ChatRoom(
+					rs.getString("room_name"));
+				rooms.add(chatRoom);
 			}
 		}catch (Exception e){
 			throw new RuntimeException(e);
@@ -155,22 +167,13 @@ public class ChatRomData {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return messages;
+		return rooms;
 	}
 
-	@Transactional(readOnly = true)
-	public ArrayList<ChatRoom> getRooms() {
-		String sql = "SELECT r.room_id, r.room_name, r.version, r.room_user_creator, "
-				+ "ua.user_id, ua.user_name, ua.user_id "
-				+ "FROM room r left join room_user ru on r.room_id = ru.id_room left join user_admin ua ON ru.id_user = ua.user_id;";
-		return jdbcTemplate.query(sql, new RoomsWithMessagesAndUsersExtractor());
-	}
 }
-
 class RoomsWithMessagesAndUsersExtractor implements ResultSetExtractor<ArrayList<ChatRoom>> {
 
 	@Override
