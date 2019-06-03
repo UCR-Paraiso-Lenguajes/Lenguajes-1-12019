@@ -24,8 +24,7 @@ public class UserControllerRest {
 	private UserBussines userBussines;
 
 	@RequestMapping(value = "api/User", method = RequestMethod.POST)
-	public @ResponseBody void addChatRoom(@RequestBody UserClient user) {
-		userBussines.sendEmail(user);
-
+	public @ResponseBody void addChatRoom(@RequestBody UserClient user, @RequestBody int room) {
+		userBussines.sendEmail(user, room);
 	}
 }
