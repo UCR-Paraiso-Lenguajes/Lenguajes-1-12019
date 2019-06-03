@@ -1,13 +1,23 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.domain;
 
+import java.util.ArrayList;
+
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class UsuarioAdmin extends Usuario{
 
-	public UsuarioAdmin(int id, String avatar, String nombreUsuario, int cantidadMensajes, String hash)
-			throws UsuarioException {
-		super(id, avatar);
+	public UsuarioAdmin(String hash, String avatar, String nombreUsuario, ArrayList<Rol> listaRoles,
+			int cantidadMensajes, ArrayList<Grupo> listaGrupos) {
+		super(hash, avatar, nombreUsuario, listaRoles, cantidadMensajes, listaGrupos);
 		// TODO Auto-generated constructor stub
 	}
+
+	public UsuarioAdmin(String hash) throws UsuarioException {
+		super(hash);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
 
 }

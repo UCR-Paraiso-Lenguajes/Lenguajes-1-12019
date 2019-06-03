@@ -2,36 +2,50 @@ package com.lenguajes.ucrmsn.ucr.live.messenger.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.SynchronousQueue;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.MensajeException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.RolException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class Grupo {
 	private int id;
+	private static int cont=0;
+
 	private String nombre;
 	private int numeroParticipantes;
 	private int cantidadMensajes;
 	private ArrayList<Usuario> listaMiembros;
-	private SynchronousQueue listaMensajes;
-	private Usuario administrador;
-	private Usuario dueno;
+	private ConcurrentLinkedQueue<Mensaje> listaMensajes;	
+	private UsuarioAdmin administrador;
+	private UsuarioOwner dueno;
+	private String avatar;
 	
-	public Grupo(int id, String nombre, int numeroParticipantes, int cantidadMensajes, Usuario administrador,
-			Usuario dueno)throws GrupoException {
+	
+	public Grupo() {
+		listaMiembros=new ArrayList<Usuario>();
+		listaMensajes=new ConcurrentLinkedQueue<Mensaje>();
+		
+	}
+
+	public Grupo( String nombre, int numeroParticipantes, int cantidadMensajes, UsuarioAdmin administrador,
+			UsuarioOwner dueno)throws GrupoException {
 		super();
 		if (nombre==null && administrador==null && dueno==null) {
 			throw new GrupoException("El Grupo esta vacio");
 		}
-		this.id = id;
+		cont=cont+1;
+
+		this.id = cont;
 		this.nombre = nombre;
 		this.numeroParticipantes = numeroParticipantes;
 		this.cantidadMensajes = cantidadMensajes;
 		this.administrador = administrador;
 		this.dueno = dueno;
 		listaMiembros=new ArrayList<Usuario>();
-		listaMensajes=new SynchronousQueue<Mensaje>();
+		listaMensajes=new ConcurrentLinkedQueue<Mensaje>();
 	}
 	
 	public boolean nuevoMiembro(Usuario usuario) throws UsuarioException {
@@ -59,10 +73,14 @@ public class Grupo {
 		return true;
 	}
 	public boolean mandarMensaje(Mensaje mensaje) {
-		if (mensaje.getContenido().equals(null)) {
+		
+		 if (mensaje.getContenido().equals(null)) {
 			throw new RuntimeException("Mensaje Vacio");		
 		}else {
-		listaMensajes.add(mensaje);
+				 listaMensajes.add(mensaje);
+				
+
+		
 		}
 		return true;
 	}
@@ -96,23 +114,31 @@ public class Grupo {
 	public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
 		this.listaMiembros = listaUsuarios;
 	}
-	public SynchronousQueue getListaMensajes() {
+	
+	public ConcurrentLinkedQueue<Mensaje> getListaMensajes() {
 		return listaMensajes;
 	}
-	public void setListaMensajes(SynchronousQueue listaMensajes) {
+
+	public void setListaMensajes(ConcurrentLinkedQueue<Mensaje> listaMensajes) {
 		this.listaMensajes = listaMensajes;
 	}
-	public Usuario getAdministrador() {
+
+	public UsuarioAdmin getAdministrador() {
 		return administrador;
 	}
-	public void setAdministrador(Usuario administrador) {
+
+	public void setAdministrador(UsuarioAdmin administrador) {
 		this.administrador = administrador;
 	}
-	public Usuario getDueno() {
+
+	public UsuarioOwner getDueno() {
 		return dueno;
 	}
-	public void setDueno(Usuario dueno) {
+
+	public void setDueno(UsuarioOwner dueno) {
 		this.dueno = dueno;
 	}
+
+
 	
 }

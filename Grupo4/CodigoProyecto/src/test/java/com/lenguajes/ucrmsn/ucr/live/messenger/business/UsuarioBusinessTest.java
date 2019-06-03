@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.UsuarioAdmin;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.UsuarioOwner;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.GrupoException;
 import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
@@ -17,12 +19,35 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 public class UsuarioBusinessTest {
 
 	@Test
-	public void test() throws GrupoException, UsuarioException {
+	public void asignarNombreYAvatarTestGrupo() throws GrupoException, UsuarioException {
 		UsuarioBusiness business = new UsuarioBusiness();
-		Usuario usuario = new Usuario(0, null);
-		Grupo grupo = new Grupo(0, "Grupo", 0, 0, usuario, usuario);
+		UsuarioAdmin usuarioAdmin = new UsuarioAdmin(null);
+		UsuarioOwner usuarioOwner = new UsuarioOwner(null);
+		Usuario usuario=new Usuario(null);
+		Grupo grupo = new Grupo("Grupo", 0, 0, usuarioAdmin, usuarioOwner);
 		business.asignarNombreYAvatarUsuarioGrupo(usuario, grupo);
 		assertNotNull(usuario);
+	}
+	
+	@Test
+	public void asignarNombreYAvatarTest() throws GrupoException, UsuarioException {
+		UsuarioBusiness business = new UsuarioBusiness();
+		Usuario usuario=new Usuario(null);;
+		business.asignarNombreYAvatar(usuario);
+		assertNotNull(usuario);
+	}
+	
+	@Test
+	public void invitarTest() {
+		UsuarioBusiness business = new UsuarioBusiness();
+		business.invitar("sergioss1997@gmail.com");
+	}
+	
+	@Test
+	public void crearHahTest() {
+		UsuarioBusiness business = new UsuarioBusiness();
+		String correo = "nicolefonsecam@gamil.com";
+		assertNotNull(business.crearHash(correo));
 	}
 
 }

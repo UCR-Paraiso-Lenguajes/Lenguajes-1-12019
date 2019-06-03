@@ -1,6 +1,7 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
@@ -12,8 +13,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Enlace;
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.EnlacesEnviados;
+import com.lenguajes.ucrmsn.ucr.live.messenger.domain.HashEnviados;
+import com.lenguajes.ucrmsn.ucr.live.messenger.data.UsuarioData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Usuario;
@@ -26,11 +27,12 @@ public class UsuarioBusiness {
 	List<String> listaNombres=new ArrayList<String>();
 	List<String> listaAvatar=new ArrayList<String>();
 	
-	private EnlacesEnviados enlacesEnviados=EnlacesEnviados.getInstancia();
+	private HashEnviados enlacesEnviados=HashEnviados.getInstancia();
 	
 	@Autowired
 	private JavaMailSender javaMailSender;
-	
+	@Autowired
+	private UsuarioData usuariodata;
 	
 	public UsuarioBusiness() {
 		listaNombres = new ArrayList<>();
@@ -91,60 +93,60 @@ public class UsuarioBusiness {
 		listaNombres.add("dayoving");
 		listaNombres.add("poiselis");
 	
-		listaAvatar.add("/img/avatar1.png");
-		listaAvatar.add("/img/avatar2.png");
-		listaAvatar.add("/img/avatar3.png");
-		listaAvatar.add("/img/avatar4.png");
-		listaAvatar.add("/img/avatar5.png");
-		listaAvatar.add("/img/avatar6.png");
-		listaAvatar.add("/img/avatar7.png");
-		listaAvatar.add("/img/avatar8.png");
-		listaAvatar.add("/img/avatar9.png");
-		listaAvatar.add("/img/avatar10.png");
+		listaAvatar.add("IMG/avatar1.png");
+		listaAvatar.add("IMG/avatar2.png");
+		listaAvatar.add("IMG/avatar3.png");
+		listaAvatar.add("IMG/avatar4.png");
+		listaAvatar.add("IMG/avatar5.png");
+		listaAvatar.add("IMG/avatar6.png");
+		listaAvatar.add("IMG/avatar7.png");
+		listaAvatar.add("IMG/avatar8.png");
+		listaAvatar.add("IMG/avatar9.png");
+		listaAvatar.add("IMG/avatar10.png");
 		 
-		listaAvatar.add("/img/avatar11.png");
-		listaAvatar.add("/img/avatar12.png");
-		listaAvatar.add("/img/avatar13.png");
-		listaAvatar.add("/img/avatar14.png");
-		listaAvatar.add("/img/avatar15.png");
-		listaAvatar.add("/img/avatar16.png");
-		listaAvatar.add("/img/avatar17.png");
-		listaAvatar.add("/img/avatar18.png");
-		listaAvatar.add("/img/avatar19.png");
-		listaAvatar.add("/img/avatar20.png");
+		listaAvatar.add("IMG/avatar11.png");
+		listaAvatar.add("IMG/avatar12.png");
+		listaAvatar.add("IMG/avatar13.png");
+		listaAvatar.add("IMG/avatar14.png");
+		listaAvatar.add("IMG/avatar15.png");
+		listaAvatar.add("IMG/avatar16.png");
+		listaAvatar.add("IMG/avatar17.png");
+		listaAvatar.add("IMG/avatar18.png");
+		listaAvatar.add("IMG/avatar19.png");
+		listaAvatar.add("IMG/avatar20.png");
 		
-		listaAvatar.add("/img/avatar21.png");
-		listaAvatar.add("/img/avatar22.png");
-		listaAvatar.add("/img/avatar23.png");
-		listaAvatar.add("/img/avatar24.png");
-		listaAvatar.add("/img/avatar25.png");
-		listaAvatar.add("/img/avatar26.png");
-		listaAvatar.add("/img/avatar27.png");
-		listaAvatar.add("/img/avatar28.png");
-		listaAvatar.add("/img/avatar29.png");
-		listaAvatar.add("/img/avatar30.png");
+		listaAvatar.add("IMG/avatar21.png");
+		listaAvatar.add("IMG/avatar22.png");
+		listaAvatar.add("IMG/avatar23.png");
+		listaAvatar.add("IMG/avatar24.png");
+		listaAvatar.add("IMG/avatar25.png");
+		listaAvatar.add("IMG/avatar26.png");
+		listaAvatar.add("IMG/avatar27.png");
+		listaAvatar.add("IMG/avatar28.png");
+		listaAvatar.add("IMG/avatar29.png");
+		listaAvatar.add("IMG/avatar30.png");
 		
-		listaAvatar.add("/img/avatar31.png");
-		listaAvatar.add("/img/avatar32.png");
-		listaAvatar.add("/img/avatar33.png");
-		listaAvatar.add("/img/avatar34.png");
-		listaAvatar.add("/img/avatar35.png");
-		listaAvatar.add("/img/avatar36.png");
-		listaAvatar.add("/img/avatar37.png");
-		listaAvatar.add("/img/avatar38.png");
-		listaAvatar.add("/img/avatar39.png");
-		listaAvatar.add("/img/avatar40.png");
+		listaAvatar.add("IMG/avatar31.png");
+		listaAvatar.add("IMG/avatar32.png");
+		listaAvatar.add("IMG/avatar33.png");
+		listaAvatar.add("IMG/avatar34.png");
+		listaAvatar.add("IMG/avatar35.png");
+		listaAvatar.add("IMG/avatar36.png");
+		listaAvatar.add("IMG/avatar37.png");
+		listaAvatar.add("IMG/avatar38.png");
+		listaAvatar.add("IMG/avatar39.png");
+		listaAvatar.add("IMG/avatar40.png");
 		
-		listaAvatar.add("/img/avatar41.png");
-		listaAvatar.add("/img/avatar42.png");
-		listaAvatar.add("/img/avatar43.png");
-		listaAvatar.add("/img/avatar44.png");
-		listaAvatar.add("/img/avatar45.png");
-		listaAvatar.add("/img/avatar46.png");
-		listaAvatar.add("/img/avatar47.png");
-		listaAvatar.add("/img/avatar48.png");
-		listaAvatar.add("/img/avatar49.png");
-		listaAvatar.add("/img/avatar50.png");
+		listaAvatar.add("IMG/avatar41.png");
+		listaAvatar.add("IMG/avatar42.png");
+		listaAvatar.add("IMG/avatar43.png");
+		listaAvatar.add("IMG/avatar44.png");
+		listaAvatar.add("IMG/avatar45.png");
+		listaAvatar.add("IMG/avatar46.png");
+		listaAvatar.add("IMG/avatar47.png");
+		listaAvatar.add("IMG/avatar48.png");
+		listaAvatar.add("IMG/avatar49.png");
+		listaAvatar.add("IMG/avatar50.png");
 	}
 
 	@Transactional
@@ -183,13 +185,13 @@ public class UsuarioBusiness {
 	}
 	@Transactional
 	public void invitar(String to) {
-		String link="localhost:8080/ucrmsn/interfazchat?hash="+crearHash(to);
+		String hash=crearHash(to);
+		String link="localhost:8080/ucrmsn/interfazchat?hash="+hash;
 		
-		Enlace enlace = new Enlace(link);
-		enlacesEnviados.agregar(enlace);
-		/*
-		 * expirarEnlace(enlace);
-		 */		
+		enlacesEnviados.agregar(hash);
+		
+		  expirarEnlace(hash);
+		 		
 		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
 
@@ -209,20 +211,33 @@ public class UsuarioBusiness {
 
 		javaMailSender.send(mail);	
 	}
-	public void expirarEnlace(Enlace enlace) {
-        try {
-			Thread.sleep(180000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        enlacesEnviados.eliminar(enlace);	
+	public void expirarEnlace(String hash) {
+
+        	   Runnable task = new Runnable() {
+                   public void run() {
+                	   try {
+						Thread.sleep(180000);
+						enlacesEnviados.eliminar(hash);
+					} catch (InterruptedException e) {
+						throw new UsuarioException("no se pudo eliminar el hash");
+					}
+           	      ;}
+                };
+        	new Thread(task).start();
+        	
+		
         }
 	public String crearHash(String correo) {
 		String hash = DigestUtils.sha256Hex(correo);
-
-
-		
 		return hash;
+	}
+	@Transactional
+	public void save(Usuario usuario) {
+		if (usuario==null ) {
+			throw new UsuarioException("el usuario esta vacio");
+		}else if (usuario.getHash()==null ) {
+			throw new UsuarioException("el hash no puede estar vacio");
+		}
+		usuariodata.save(usuario);
 	}
 }

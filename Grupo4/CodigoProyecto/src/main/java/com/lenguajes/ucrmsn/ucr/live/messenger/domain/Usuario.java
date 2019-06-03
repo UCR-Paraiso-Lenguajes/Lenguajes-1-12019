@@ -7,6 +7,7 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 public class Usuario {
 	private int id;
+	private static int cont=0;
 	private String hash;
 	private String avatar;
 	private String nombreUsuario;
@@ -15,19 +16,26 @@ public class Usuario {
 	private ArrayList<Grupo> listaGrupos;
 	
 	
-	public Usuario(int id,String hash) throws UsuarioException {
+	
+	public Usuario() {
+		
+	}
+
+	public Usuario(String hash) throws UsuarioException {
 		super();
-		this.id = id;
+		cont=cont+1;
+		this.id = cont;
 		this.cantidadMensajes = 0;
 		listaRoles=new ArrayList<Rol>();
 		listaGrupos=new ArrayList<Grupo>();
 		this.hash=hash;
 	}
 	
-	public Usuario(int id, String hash, String avatar, String nombreUsuario, ArrayList<Rol> listaRoles,
+	public Usuario( String hash, String avatar, String nombreUsuario, ArrayList<Rol> listaRoles,
 			int cantidadMensajes, ArrayList<Grupo> listaGrupos) {
 		super();
-		this.id = id;
+		cont=cont+1;
+		this.id = cont;
 		this.hash = hash;
 		this.avatar = avatar;
 		this.nombreUsuario = nombreUsuario;
