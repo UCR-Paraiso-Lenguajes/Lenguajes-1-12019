@@ -29,5 +29,19 @@ public class LoginController {
 	{
 		return "loginAdmin";
     }
+	
+	@RequestMapping(value = "/admin/metrics", method = RequestMethod.POST)
+	public String loginAdmin(String username, String password, Model model) {
+
+	model.addAttribute("username", username);
+	model.addAttribute("password", password);
+	System.out.println(username + password);
+	if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("123456")) {
+
+	return "metric";
+	}
+
+	return "loginAdmin";
+	}
 
 }
