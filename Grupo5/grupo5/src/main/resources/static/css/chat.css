@@ -84,11 +84,15 @@ a {
     height:270px;
     width:80%;
     border:1px solid #ACD8F0;
-    overflow:auto; }
+    overflow:auto;
+    color: black;
+ }
+    
   
 #usermsg {
     width:80%;
-    border:1px solid #ACD8F0; }
+    color: black;
+    border:4% solid #ACD8F0; }
   
 #submit { width: 60px; }
   
@@ -109,3 +113,10 @@ a {
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
     background-color: #596275;
  }
+ .p{
+     font-size: 1vw;
+ }
+ .msj{
+     background: #10ac84;
+}
+.estilotextarea {width:400px;height:100px;border: 2px solid #990000;}
