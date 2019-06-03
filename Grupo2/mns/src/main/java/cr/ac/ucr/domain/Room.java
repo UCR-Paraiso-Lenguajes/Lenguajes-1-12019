@@ -20,6 +20,12 @@ public final class Room extends RoomConvention{
 	private	BlockingQueue<Message> messages = new ArrayBlockingQueue<Message>(MAX_QUEUE);
 	
 	
+	
+	public Room() {
+		super();
+		
+	}
+
 	public Room(User roomOwner) {
 		this.setRoomOwner(this.setRoomAdministrator(roomOwner)); 
 		join(roomOwner); 
