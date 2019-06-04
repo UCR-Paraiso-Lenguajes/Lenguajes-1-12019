@@ -13,13 +13,16 @@
 </head>
 <body>
 
+<div id="internalization">
+		<button data-tr="Spanish" id="btn-es" class="btn btn-default"></button>
+		<button data-tr="English" id="btn-en" class="btn btn-default"></button>
+	</div>
+
 	<div class="container">
 
 		<div class="row">
 
 			<div id="colformGroups" class="col-sm-4 text-center">
-
-				<input id="searchBar" type="text" placeholder="   Search..">
 
 				<div id="panelGroups" class="panel panel-default">
 
@@ -40,8 +43,7 @@
 				</div>
 
 				<button id="buttonCreate" type="button" class="btn"
-					data-toggle="modal" data-target="#ModalCreateGroup">Create
-					Group</button>
+					data-toggle="modal" data-target="#ModalCreateGroup" data-tr="Create	Group"></button>
 			</div>
 
 			<div id="colformChat" class="col-sm-8 text-center" >
@@ -63,7 +65,7 @@
 							<ul id="dropDown" class="dropdown-menu dropdown-menu-right"
 								aria-labelledby="dropdownMenu1">
 								<li><a href="#" onclick="" data-toggle="modal"
-									data-target="#ModalNewMember">New Member</a></li>
+									data-target="#ModalNewMember" data-tr="New Member"></a></li>
 							</ul>
 
 							<div class="pull-right">
@@ -73,8 +75,8 @@
 								<ul class="dropdown-menu dropdown-menu-center"
 									aria-labelledby="dropdownMenu2">
 									<li><a href="#" onclick="" data-toggle="modal"
-										data-target="#ModalAboutUs">About Us</a></li>
-									<li><a href="/login" onclick="">Log Out</a></li>
+										data-target="#ModalAboutUs" data-tr="About Us"></a></li>
+									<li><a href="/login" data-tr="Log Out"></a></li>
 								</ul>
 							</div>
 
@@ -137,18 +139,17 @@
 
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Invite new Members</h4>
+					<h4 class="modal-title" data-tr="Invite New Members"></h4>
 				</div>
 
 				<div id="inputGroup" class="form-group">
-					<label for="usr">Members emails</label> <input type="text"
+					<label for="usr" data-tr="Members Emails"></label> <input type="text"
 						class="form-control" id="newGroupMember">
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" id="invite"
-						value="Invite">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<input type="submit" class="btn btn-primary" id="invite" data-tr="Invite">
+					<button type="button" class="btn btn-default" data-dismiss="modal" data-tr="Close"></button>
 				</div>
 
 			</div>
@@ -166,16 +167,16 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">New Chat Room</h4>
+					<h4 class="modal-title" data-tr="New Chat Room"></h4>
 				</div>
 				<div id="inputGroup" class="form-group">
-					<label for="usr">Group Name</label> <input type="text"
+					<label for="usr" data-tr="Group Name"></label> <input type="text"
 						class="form-control" id="newGroup">
 				</div>
 
 				<div class="modal-footer">
-					<button id="create" type="submit" class="btn btn-primary">Create</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button id="create" type="submit" class="btn btn-primary" data-tr="Create"></button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" data-tr="Close"></button>
 				</div>
 			</div>
 
@@ -192,23 +193,23 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Chat App Project</h4>
+					<h4 class="modal-title" data-tr="Chat App Project"></h4>
 				</div>
 				<div id="AboutUs" class="modal-body">
-					<p>University of Costa Rica</p>
-					<p>Atlantic Headquarters</p>
-					<p>Enclosure Paraiso</p>
+					<p data-tr="University of Costa Rica"></p>
+					<p data-tr="Atlantic Headquarters"></p>
+					<p data-tr="Enclosure Paraiso"></p>
 					<br>
-					<p>Programming Languages</p>
+					<p data-tr="Programming Languages"></p>
 					<br>
-					<p>Programmers</p>
+					<p data-tr="Programmers"></p>
 					<p>JeanCarlo Monge Mendez</p>
 					<p>Valeria Leiva Quiros</p>
 					<p>Karen Guillen Arguello</p>
 					<p>Leonardo Gomez Rodriguez</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" data-tr="Close"></button>
 				</div>
 			</div>
 
@@ -220,6 +221,58 @@
 
 
 <script type="text/javascript">
+
+frases = {
+		"es" : {
+			"University of Costa Rica" : "Universidad de Costa Rica",
+			"Programmers" : "Programadores",
+			"Atlantic Headquarters" : "Sede del Atlántico",
+			"Programming Languages" : "Lenguajes de Programación",
+			"Enclosure Paraiso" : "Recinto de Paraíso",
+			"Create	Group" : "Crear Grupo",
+			"New Member" : "Nuevos Miembros",
+			"About Us" : "Acerca De Nosotros",
+			"Log Out" : "Cerrar Sesión",
+			"Invite New Members" : "Invitar Nuevos Miembros",
+			"Members Emails" : "Correos Nuevos Miembros",
+			"Invite" : "Invitar",
+			"New Chat Room" : "Nueva Sala",
+			"Group Name" : "Nombre Del Grupo",
+			"Chat App Project" : "Proyecto De Mensajeria Web",
+			"Create" : "Crear",
+			"Close" : "Cerrar",
+			"Close" : "Cerrar",
+			"Spanish" : "Español",
+			"English" : "Ingles"
+		}
+	};
+
+	/**
+	 * Función que cambia todos los elementos al nuevo idioma.
+	 *
+	 * @param {string} lang
+	 */
+	function cambiarIdioma(lang) {
+		var elems = document.querySelectorAll('[data-tr]');
+		for (var x = 0; x < elems.length; x++) {
+			elems[x].innerHTML = frases.hasOwnProperty(lang) ? frases[lang][elems[x].dataset.tr]
+					: elems[x].dataset.tr;
+		}
+
+	}
+
+	window.onload = function() {
+		cambiarIdioma();
+
+		document.getElementById('btn-es').addEventListener('click',
+				cambiarIdioma.bind(null, 'es'));
+
+		document.getElementById('btn-en').addEventListener('click',
+				cambiarIdioma.bind(null, 'en'));
+
+	}
+
+
 	function getValues() {
 
 		var messageChat = document.getElementById("messageForm").value;
@@ -363,6 +416,12 @@
 	});
 </script>
 <style>
+
+#internalization {
+	margin-top: 25px;
+	margin-left: 75%;
+}
+
 .my-custom-scrollbar {
 	position: relative;
 	height: 415px;

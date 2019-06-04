@@ -14,7 +14,24 @@
 </head>
 <body onload='document.form.text1.focus()'>
 
+	<div id="internalization">
+		<button data-tr="Spanish" id="btn-es" class="btn btn-default"></button>
+		<button data-tr="English" id="btn-en" class="btn btn-default"></button>
+	</div>
+
 	<div class="container">
+
+		<div class="row">
+
+			<div class="col-ms-4"></div>
+
+			<div id="col" class="col-ms-4 text-center">
+
+				<span data-tr="Enter your email"></span>
+
+			</div>
+
+		</div>
 
 		<div class="row">
 
@@ -27,11 +44,12 @@
 					<div class="form-group">
 
 						<input type="text" class="form-control" id="email"
-							placeholder="Enter your email" name="email">
+							placeholder="Email" name="email">
 					</div>
 
-					<button type="submit" class="btn btn-default" onclick="ValidateEmail(document.form1.text1)">Start
-						Chatting</button>
+					<button type="submit" data-tr="Start Chatting"
+						class="btn btn-default"
+						onclick="ValidateEmail(document.form1.text1)"></button>
 
 				</form>
 
@@ -46,27 +64,59 @@
 
 </body>
 <script type="text/javascript">
+	var email = $("#email");
 
-    var email = $("#email");
-    
-    var obj =     {
-	        "email": email
-	        };
+	var obj = {
+		"email" : email
+	};
 
 	function ValidateEmail(inputText) {
 		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		if (inputText.value.match(mailformat)) {
 			document.form1.text1.focus();
-			
+
 			return true;
 		} else {
 			alert("You have entered an invalid email address!");
 			document.form1.text1.focus();
 			return false;
 		}
+
 	}
 
-	
+	frases = {
+		"es" : {
+			"Enter your email" : "Ingresa tu correo",
+			"Start Chatting" : "Empieza a Chatear",
+			"Spanish" : "Español",
+			"English" : "Ingles"
+		}
+	};
+
+	/**
+	 * Función que cambia todos los elementos al nuevo idioma.
+	 *
+	 * @param {string} lang
+	 */
+	function cambiarIdioma(lang) {
+		var elems = document.querySelectorAll('[data-tr]');
+		for (var x = 0; x < elems.length; x++) {
+			elems[x].innerHTML = frases.hasOwnProperty(lang) ? frases[lang][elems[x].dataset.tr]
+					: elems[x].dataset.tr;
+		}
+
+	}
+
+	window.onload = function() {
+		cambiarIdioma();
+
+		document.getElementById('btn-es').addEventListener('click',
+				cambiarIdioma.bind(null, 'es'));
+
+		document.getElementById('btn-en').addEventListener('click',
+				cambiarIdioma.bind(null, 'en'));
+
+	}
 </script>
 
 <style>
@@ -85,6 +135,12 @@ body {
 	padding: 20px;
 	width: 350px;
 	height: 150px;
+	margin-left: 25px;
+}
+
+#internalization {
+	margin-top: 25px;
+	margin-left: 75%;
 }
 </style>
 

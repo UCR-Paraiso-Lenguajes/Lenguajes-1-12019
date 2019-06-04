@@ -13,6 +13,12 @@
 
 </head>
 <body>
+
+<div id="internalization">
+		<button data-tr="Spanish" id="btn-es" class="btn btn-default"></button>
+		<button data-tr="English" id="btn-en" class="btn btn-default"></button>
+	</div>
+
 	<div class="container">
 
 		<div class="row">
@@ -22,15 +28,13 @@
 
 					<div class="pull-right">
 
-
-
 						<span id="glyphUser" class="glyphicon glyphicon-user"
 							data-toggle="dropdown"></span>
 
 						<ul class="dropdown-menu dropdown-menu-center"
 							aria-labelledby="dropdownMenu">
-							<li><a href="/mainScreen" onclick="">About Us</a></li>
-							<li><a href="/loginAdmin" onclick="">Log Out</a></li>
+							<li><a href="/mainScreen" data-tr="About Us"></a></li>
+							<li><a href="/loginAdmin" data-tr="Log Out"></a></li>
 						</ul>
 
 					</div>
@@ -43,7 +47,7 @@
 			<div id="colformGrups" class="col-md-7 text-center">
 				<div class="row">
 					<div id="panelTittle" class="panel-group">
-						<div class="panel panel-default">Grupos</div>
+						<div class="panel panel-default" data-tr="Groups"></div>
 
 
 						<div id="panelGroups" class="panel panel-default">
@@ -72,22 +76,22 @@
 			<div id="colformMetric" class="col-md-7 text-center">
 				<div class="row">
 					<div id="panelTittle" class="panel-group">
-						<div class="panel panel-default">Metrics</div>
+						<div class="panel panel-default" data-tr="Metrics"></div>
 
 						<div id="panelGroups" class="panel panel-default">
 
 							<ul id="listMetrics" class="list-group list-group-flush">
 								<div class="table-wrapper-scroll-y my-custom-scrollbar">
-									<li class="list-group-item">Average of Users Per Groups:</li>
-									<li class="list-group-item">Date of the first login:</li>
-									<li class="list-group-item">Date of the last message:</li>
-									<li class="list-group-item">Last group created:</li>
-									<li class="list-group-item">Longer message:</li>
-									<li class="list-group-item">More messages per group:</li>
-									<li class="list-group-item">More message per user:</li>
-									<li class="list-group-item">Quantity room:</li>
-									<li class="list-group-item">Quantity user:</li>
-									<li class="list-group-item">User per room Prom:</li>
+									<li class="list-group-item" data-tr="Average of Users Per Groups:"></li>
+									<li class="list-group-item" data-tr="Date of the first login:"></li>
+									<li class="list-group-item" data-tr="Date of the last message:"></li>
+									<li class="list-group-item" data-tr="Last group created:"></li>
+									<li class="list-group-item" data-tr="Longer message:"></li>
+									<li class="list-group-item" data-tr="More messages per group:"></li>
+									<li class="list-group-item" data-tr="More message per user:"></li>
+									<li class="list-group-item" data-tr="Quantity room:"></li>
+									<li class="list-group-item" data-tr="Quantity user:"></li>
+									<li class="list-group-item" data-tr="User per room Prom:"></li>
 								</div>
 							</ul>
 						</div>
@@ -101,56 +105,79 @@
 
 
 <script type="text/javascript">
-	$("button")
-			.click(
-					function() {
-						var text = this.value;
-						var grup = {
-							"id" : this.id,
-							"name" : text,
-							"version" : 0,
-							"url" : "",
-							"avatar" : null,
-							"listUsers" : [],
-							"listMessage" : []
-						};
-						//alert(this.id); // or alert($(this).attr('id'));
-						document.getElementById('roomName').innerHTML = this.value;
-						console.log(grup);
-						$
-								.ajax(
-										{
-											method : "GET",
-											data : JSON.stringify(grup),
-											contentType : "application/json; charset=utf-8",
-											dataType : "json",
-											url : "api/MectricUser"
-										})
-								.done(function(data) {
+	$("button").click(function() {
+		var text = this.value;
+		var grup = {
+			"id" : this.id,
+			"name" : text,
+			"version" : 0,
+			"url" : "",
+			"avatar" : null,
+			"listUsers" : [],
+			"listMessage" : []
+		};
+		document.getElementById('panelGroups').innerHTML = '';
+		
+		console.log(grup);
+		$.ajax({
+			method : "GET",
+			data : JSON.stringify(grup),
+			contentType : "application/json; charset=utf-8",
+			dataType : "json",
+			url : "api/MectricUser"
+		}).done(function(data) {
 
-								})
-								.fail(
-										function(data) {
-											console.log(data);
+		}).fail(function(data) {
+			console.log(data);
 
-											document.getElementById("roomList").innerHTML += '<div id="roomsList" class="row">'
-													+ '<div class="col-md-4">'
-													+ '</div>'
-													+ '<div class="col-md-8">'
-													+ '<span>'
-													+ newGroup.val()
-													+ '</span>'
-													+ '<div class="col-md-2"></div>'
-													+ '<div class="col-md-4">'
-													+ '<button id="buttonCreate" type="button" class="btn">Promote</button>'
-													+ '</div>'
-													+ '<div class="col-md-4">'
-													+ '<button id="buttonCreate" type="button" class="btn">Remove</button>'
-													+ '</div>'
-													+ '</div> </div>'
-										});
+		});
+	});
+	
+	frases = {
+			"es" : {
+				"Spanish" : "Español",
+				"English" : "Ingles",
+				"About Us" : "Acerca De Nosotros",
+				"Log Out" : "Cerrar Sesión",
+				"Groups" : "Grupos",
+				"Metrics" : "Metricas",
+				"Average of Users Per Groups:" : "Promedio de usuarios por grupos",
+				"Date of the first login:" : "Fecha del primer Login",
+				"Date of the last message:" : "Fecha del último mensaje",
+				"Last group created:" : "Último grupo creado",
+				"Longer message:" : "Mensaje más largo",
+				"More messages per group:" : "Más mensajes por Grupo",
+				"More message per user:" : "Más mensajes por Usuario",
+				"Quantity room:":"Cantidad de Salas",
+				"Quantity user:":"Cantidad de Usuarios",
+				"User per room Prom:":"Promedio Usuarios por Sala",
+			}
+		};
 
-					});
+		/**
+		 * Función que cambia todos los elementos al nuevo idioma.
+		 *
+		 * @param {string} lang
+		 */
+		function cambiarIdioma(lang) {
+			var elems = document.querySelectorAll('[data-tr]');
+			for (var x = 0; x < elems.length; x++) {
+				elems[x].innerHTML = frases.hasOwnProperty(lang) ? frases[lang][elems[x].dataset.tr]
+						: elems[x].dataset.tr;
+			}
+
+		}
+
+		window.onload = function() {
+			cambiarIdioma();
+
+			document.getElementById('btn-es').addEventListener('click',
+					cambiarIdioma.bind(null, 'es'));
+
+			document.getElementById('btn-en').addEventListener('click',
+					cambiarIdioma.bind(null, 'en'));
+
+		}
 </script>
 <style>
 body {
@@ -158,8 +185,12 @@ body {
 		url(https://oinkmygod.com/wp-content/uploads/2018/03/recurso-wall-paper-oinkmygod-1-600x600.jpg);
 }
 
+.btn {
+	width: 100%;
+}
+
 .container {
-	margin-top: 125px;
+	margin-top: 75px;
 }
 
 .my-custom-scrollbar {
@@ -213,7 +244,6 @@ body {
 }
 
 #colformMetric {
-	opacity: 0.5;
 	border-radius: 25px;
 	border: 2px solid #3D6F99;
 	padding: 20px;
@@ -233,7 +263,6 @@ body {
 	width: 100%;
 	height: 100px;
 	font-size: 40px;
-	opacity: 0.7;
 }
 
 #glyphUser {
@@ -243,13 +272,17 @@ body {
 #panelTop {
 	height: 100px;
 	margin-left: 100px;
-	opacity: 0.5;
 	border-radius: 25px;
 	border: 2px solid #3D6F99;
 	padding: 20px;
 	margin-top: 10px;
 	width: 1000px;
 	border-style: ridge;
+}
+
+#internalization {
+	margin-top: 25px;
+	margin-left: 75%;
 }
 
 #panelUser {

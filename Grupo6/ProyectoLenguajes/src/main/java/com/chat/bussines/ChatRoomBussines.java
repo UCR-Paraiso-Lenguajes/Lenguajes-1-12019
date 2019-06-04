@@ -73,7 +73,6 @@ public class ChatRoomBussines {
 					"https://i.ibb.co/rvCVfQm/tornado-1.png","https://i.ibb.co/jLfj7xT/ultra-ball.png",
 					"https://i.ibb.co/wgV0BXn/up-arrow.png","https://i.ibb.co/RhM2tPy/valor-1.png"};
 
-
 		ArrayList<ChatRoom> rooms = chatRomData.getRooms();
 		for (ChatRoom chatRoom : rooms) {
 			Random r = new Random();
@@ -95,7 +94,6 @@ public class ChatRoomBussines {
 	public List<UserClient> listUser(ChatRoom room) {
 		ArrayList<ChatRoom> rooms = chatRomData.getRooms();
 		List<UserClient> users = new ArrayList<>();
-		
 
 		for (int i = 0; i < rooms.size(); i++) {
 

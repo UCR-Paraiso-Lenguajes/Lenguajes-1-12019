@@ -1,6 +1,5 @@
 package com.chat.controller.rest;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chat.bussines.ChatRoomBussines;
 import com.chat.data.MetricDat;
 import com.chat.domain.ChatRoom;
-import com.chat.domain.Message;
-import com.chat.domain.Metric;
 import com.chat.domain.UserClient;
 
 @RestController
@@ -37,6 +34,7 @@ public class MetricControllerRest {
 	@RequestMapping(value="api/MectricUser", method=RequestMethod.GET )
 	public @ResponseBody Iterator<UserClient> listUser(@RequestBody ChatRoom chatRoom, HttpServletRequest servlet){
 		HttpSession sesion = servlet.getSession();
+		
 		return chatRoomBussines.listUser(chatRoom).iterator();
 	}
 	
