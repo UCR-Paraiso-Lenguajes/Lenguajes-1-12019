@@ -27,12 +27,12 @@ public class MessageBussiness {
 	    
 	   
 	    
-	   // public Map<Integer, Message> getMessagesSincro(List<Message> message){
+	    public Map<Integer, Message> getMessagesSincro(List<Message> message){
 	    	
 	    	
-	   //	return messageDao.getMessagesSincro(messageDao.getMessagesByIdRoom(idRoom));
+	   	return messageDao.getMessagesSincro(message);
 	    	
 	    	
-	 //   }
+	    }
 
 }
