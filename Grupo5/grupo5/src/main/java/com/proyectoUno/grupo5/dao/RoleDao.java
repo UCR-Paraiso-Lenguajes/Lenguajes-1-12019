@@ -4,11 +4,14 @@ import com.proyectoUno.grupo5.domain.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,6 +34,9 @@ public class RoleDao {
         String sqlSelect = "select r.idrole,r.role_type from role r where r.idrole=?";
         return jdbcTemplate.query(sqlSelect,new Object[] {id}, new RoleWithExtractor());
     }
+    
+    
+  
     class RoleWithExtractor implements ResultSetExtractor<List<Role>> {
 
         @Override
