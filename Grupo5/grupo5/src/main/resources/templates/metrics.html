@@ -23,77 +23,97 @@
             </div>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-sm-4 vr">
-            <form action="">
+    <div id="admin">
+        <div class="row">
+            <div class="col-sm-4 vr">
+                <form action="">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Buscar..">
+                            </div>
+                        </div>
+                        <div class="col-sm-4"> <button type="submit" class="btn btn-default">Buscar</button></div>
+                    </div>
+                </form>
+                <br><br>
                 <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Buscar..">
+                    <div class="col-sm-1"></div>
+                    <div id="rooms" class="col-sm-10">
+                        <div v-for="room in rooms">
+                            <button @click="userPerRoom(room.idRoom)" class="btn btn-default well">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h4 class="cen">
+                                            <span> {{room.roomName}} </span>
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <h5 class="der">></h3>
+                                    </div>
+                                </div>
+                            </button>
                         </div>
                     </div>
-                    <div class="col-sm-4"> <button type="submit" class="btn btn-default">Buscar</button></div>
                 </div>
-            </form>
-            <br><br>
-            <div class="row">
                 <div class="col-sm-1"></div>
-                <div id="rooms" class="col-sm-10">
-                    <div v-for="room in rooms">
-                        <button class="btn btn-default well">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 class="cen">
-                                        <span> {{room.roomName}} </span>
-                                    </h4>
-                                </div>
-                                <div class="col-sm-2">
-                                    <h5 class="der">></h3>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                </div>
             </div>
-            <div class="col-sm-1"></div>
-        </div>
-        <div id="metrics" class="col-sm-8">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Quantity Of Rooms</th>
-                        <th>Quantity Of Users</th>
-                        <th>AverageUsers For Rooms</th>
-                        <th>Message</th>
-                        <th>Date First Login</th>
-                        <th>Date Last Message</th>
-                        <th>User With more messages</th>
-                        <th>Quantity of Messages for User With more messages</th>
-                        <th>Last Group Created</th>
-                        <th>Group with More Messages</th>
-                        <th>Quantity of Messages for Group With more messages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="metric in metrics">
-                        <td>{{metric.quantityOfRooms}}</td>
-                        <td>{{metric.quantityOfUsers}}</td>
-                        <td>{{metric.averageUsersForRooms}}</td>
-                        <td>{{metric.message}}</td>
-                        <td>{{metric.date_first_login}}</td>
-                        <td>{{metric.date_last_message}}</td>
-                        <td>{{metric.user_with_more_message}}</td>
-                        <td>{{metric.quantityOfMessageUser}}</td>
-                        <td>{{metric.last_group_created}}</td>
-                        <td>{{metric.group_with_more_message}}</td>
-                        <td>{{metric.quantityOfMessageRoom}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div v-if="userDetails" class="col-sm-8">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>id User</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in users">
+                            <td>{{user.idUser}}</td>
+                            <td>{{user.email}}</td>
+                            <td><button class="btn btn-success">No se</button></td>
+                            <td><button class="btn btn-danger">Delete User</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-if="!userDetails" class="col-sm-8">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Quantity Of Rooms</th>
+                            <th>Quantity Of Users</th>
+                            <th>AverageUsers For Rooms</th>
+                            <th>Message</th>
+                            <th>Date First Login</th>
+                            <th>Date Last Message</th>
+                            <th>User With more messages</th>
+                            <th>Quantity of Messages for User With more messages</th>
+                            <th>Last Group Created</th>
+                            <th>Group with More Messages</th>
+                            <th>Quantity of Messages for Group With more messages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="metric in metrics">
+                            <td>{{metric.quantityOfRooms}}</td>
+                            <td>{{metric.quantityOfUsers}}</td>
+                            <td>{{metric.averageUsersForRooms}}</td>
+                            <td>{{metric.message}}</td>
+                            <td>{{metric.date_first_login}}</td>
+                            <td>{{metric.date_last_message}}</td>
+                            <td>{{metric.user_with_more_message}}</td>
+                            <td>{{metric.quantityOfMessageUser}}</td>
+                            <td>{{metric.last_group_created}}</td>
+                            <td>{{metric.group_with_more_message}}</td>
+                            <td>{{metric.quantityOfMessageRoom}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
