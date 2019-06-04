@@ -40,6 +40,10 @@ var admin = new Vue({
                 .catch(e => {
                     //this.errors.push(e)
                 })
+            this.alert = true;
+            setTimeout(() => {
+                this.alert = false;
+            }, 3000);
             this.getUsers();
         },
         banUser: function (idUser) {
