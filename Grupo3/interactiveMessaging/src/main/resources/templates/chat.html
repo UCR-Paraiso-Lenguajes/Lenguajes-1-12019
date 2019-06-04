@@ -135,34 +135,19 @@
 						class="online" alt="" /> <br> <label id="nameGroup">Group: name
 						gorup </label>
 					<hr style="color: #808080;" />
-					<ul id="owner">
-						<b >Owner</b>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p>
+					<b>Owner</b>
+					<ul id="Owner">
+						
 					</ul>
-					<ul id="admin">
-						<b>Admin</b>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p></li>
+					<b>Admin</b>
+					<ul id="Admin">
+						
 					</ul>
-
-					<ul id="usersInfo" >
-						<b>Users</b>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Jeremy</p></li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Manfred</p></li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Aaron</p></li>
-						<li class=""><img
-							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-							<p>Emma</p></li>
+					<b>User</b>
+					<ul id="User">
+						
 					</ul>
+					
 
 
 				</div>
@@ -184,8 +169,9 @@
 		var ulM = jQuery('.messages ul');
 		var pActual = document.getElementById("ActualGroupName");
 		var host = window.location.hostname;
+		var selected = false;
 		function print(i) {
-
+			
 			if (previousTag != null) {
 				if (previousTag.classList.contains('contact')
 						&& previousTag.classList.contains('active')) {
@@ -196,6 +182,7 @@
 				i.classList.add('active');
 			}
 			// console.log(i);
+			selected = true;
 			idGroup = i.children[0].children[1].children[1];
 			nameGroup = i.children[0].children[1].children[0].innerHTML;
 
@@ -273,9 +260,69 @@
 				.getElementById('btn-cerrar-popup');
 
 		btnAbrirPopup.addEventListener('click', function() {
-			overlay.classList.add('active');
-			popup.classList.add('active');
+			if(!selected){
+				alert("Debe seleccionar un grupo primero");
+			}else{
+				overlay.classList.add('active');
+				popup.classList.add('active');
+				$
+				.getJSON(
+						"http://"+host+":8080/msn/api/groupInfo/?idGroup="
+								+ idGroup.value,
+						{
+							name : 'users'
+						},
+						function(data, textStatus, jqXHR) {
+							
+							var emailUser;
+							var role;
+							var size = 0;
+							for (key in data) {
+								if (data.hasOwnProperty(key))
+									emailUser = data[size].user_email;
+									
+									
+									data[size].roles.forEach(myFunction);
 
+									function myFunction(value, index, array) {
+										role = value;
+										if(role.name_Role === "Admin"){
+											$(
+													
+													'<li class=""><img'+
+														'src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />'+
+														'<p>'+emailUser+'</p>')
+													.appendTo($('#Admin'));
+										}else if(role.name_Role === "Owner"){
+											$(
+													
+													'<li class=""><img'+
+														'src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />'+
+														'<p>'+emailUser+'</p>')
+													.appendTo($('#Owner'));
+										}else{
+											$(
+													
+													'<li class=""><img'+
+														'src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />'+
+														'<p>'+emailUser+'</p>')
+													.appendTo($('#User'));
+										}
+										
+										//console.log(emailUser+" :  "+role.name_Role);
+									}
+								/*
+						<li class=""><img
+							src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<p>Jeremy</p>*/
+								
+								size++;
+							}
+							;
+							
+						});
+			}
+			
 		});
 
 		btnCerrarPopup.addEventListener('click', function(e) {
