@@ -33,7 +33,7 @@ public class GrupoBusiness {
 	@Autowired
 	private GrupoData grupoData;
 
-	public ArrayList<Grupo> listarGrupos() {
+	
 	@Autowired
 	private MensajeData mensajeData;
 	
@@ -43,9 +43,11 @@ public class GrupoBusiness {
 		return (ArrayList<Grupo>)grupoData.listarGrupos();
 	}
 	@Transactional
-	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo) {		return grupoData.buscarUsuariosPorGrupo(idGrupo);
-
+	public ArrayList<Usuario> usuariosPorGrupo(int idGrupo){
+		return grupoData.buscarUsuariosPorGrupo(idGrupo);
+		
 	}
+
 
 	@Transactional
 	public String crear(Usuario usuario) throws GrupoException, RolException, UsuarioException {

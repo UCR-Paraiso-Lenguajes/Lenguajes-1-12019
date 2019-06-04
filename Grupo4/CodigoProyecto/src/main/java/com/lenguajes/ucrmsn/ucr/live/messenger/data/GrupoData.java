@@ -147,13 +147,13 @@ public class GrupoData {
 
 	@Transactional(readOnly = true)
 	public ArrayList<Grupo> listarGrupos() {
-		String sqlSelect = "select id,name from GRUPO";
+		String sqlSelect = "select id,nombre from GRUPO";
 		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
 	}
 
 	@Transactional(readOnly = true)
 	public ArrayList<Grupo> buscarGrupoPorId(int id) {
-		String sqlSelect = "select id,name from GRUPO where grupoId= " + id;
+		String sqlSelect = "select id,nombre from GRUPO where grupoId= " + id;
 		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
 	}
 
@@ -162,6 +162,14 @@ public class GrupoData {
 		String sqlSelect = "select usuarioId from USUARIO_GRUPO where grupoId= " + idGrupo;
 		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
 	}
+	
+	@Transactional(readOnly=true)
+	public ArrayList<Usuario> buscarUsuariosPorGrupo(int idGrupo){
+		
+		String sqlSelect="select usuarioId from USUARIO_GRUPO where grupoId= "+idGrupo ;
+		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
+	}
+
 }
 
 class getAllUsersByRoomIDExtractor implements ResultSetExtractor<List<Usuario>> {
@@ -194,7 +202,7 @@ class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>> {
 				grupo.setNombre(rs.getString("nombre"));
 				list.add(grupo);
 			}
-				}
+				
 		return list;
 	}
 }
