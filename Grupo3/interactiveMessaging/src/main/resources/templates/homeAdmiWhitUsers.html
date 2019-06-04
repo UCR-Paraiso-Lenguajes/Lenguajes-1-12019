@@ -51,81 +51,83 @@
 
 			<div id="contacts">
 				<ul>
-					<li th:each="user: ${users}"
+					<li id="usersList" th:each="user: ${users}"
 						class="contact">
 						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
-								<p th:text="${users.user_email}" class="name"></p>
-								<input type="hidden" th:value="${group.group_id}" />
-								<p class="preview"></p>
-								<br><br>
-							</div>
+							<ul>
+								<li><img src="http://emilcarlsson.se/assets/rachelzane.png"
+									alt="" />
+									<div class="meta">
+										<p th:text="${user.user_email}" class="name"></p>
+										<p class="preview"></p>
+										<button type="button" class="btn btn-secondary btn-lg">Delete</button>
+									</div>
+									</li>
+							</ul>
+
 						</div>
-					</li>
-
-				</ul>
 			</div>
+			</li>
 
+			</ul>
 		</div>
 
 
 
 
-		<div class="content">
+		<div class="content"
+			style="color: black !important;">
 			<div class="contact-profile">
 
-				<p>Informacion</p>
-				<div class="settings-media" id="settings">
+				<p style="color: black !important;" th:text="#{infoAdmi.text}"></p>
 
-					<i class="" id="return" title="Informacion">return</i>
-
-				</div>
 			</div>
+			
 
 			<div class="setting">
 
+
 				<ul>
 					<br>
-					<li><p>Number of rooms: </p><input type="text"
+					<li><p th:text="#{numberRooms.text}"> </p><input type="text"
 						class="form-control" th:field="*{metrics.numberOfRooms}" disabled />
 					</li>
 					<br>
-					<li><p>Number of User: </p><input type="text"
+					<li><p th:text="#{numberUser.text}"></p><input type="text"
 						class="form-control" th:field="*{metrics.numberOfUsers}" disabled />
 					</li>
 					<br>
-					<li><p>Average of users per room: </p><input
+					<li><p th:text="#{averageUsers.text}"></p><input
 						type="text" class="form-control"
 						th:field="*{metrics.averageOfUsersPerRoom}" disabled /></li>
 					<br>
-					<li><p>Date last message: </p><input type="text"
+					<li><p th:text="#{datelastMesage.text}"></p><input type="text"
 						class="form-control" th:field="*{metrics.dateLastMessage}"
 						disabled /></li>
 					<br>
-					<li><p>Date first login: </p> <input type="text"
+					<li><p th:text="#{dateFirstLogin.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.dateFirstLogin}" disabled />
 					</li>
 					<br>
-					<li><p>User with more message: </p><input type="text"
+					<li><p th:text="#{userMessage.text}"> </p><input type="text"
 						class="form-control" th:field="*{metrics.BigUser}" disabled /></li>
 					<br>
-					<li><p>Quantity messages' user: </p> <input
+					<li><p th:text="#{quantityMessagesUser.text}"> </p> <input
 						type="text" class="form-control" th:field="*{metrics.numberMessagesBigUser}"
 						disabled /></li>
 					<br>
-					<li><p>Longest Message: </p> <input type="text"
+					<li><p th:text="#{longestMessage.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.LongestMessage}"
 						disabled /></li>
 					<br>
-					<li><p>Last room created: </p> <input type="text"
+					<li><p th:text="#{lastRoom.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.LastRoomCreated}"
 						disabled /></li>
 					<br>
-					<li><p>Room with more message: </p> <input type="text"
+					<li><p th:text="#{roomMoreMessage.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.BiggestRoom}" disabled /></li>
 					<br>
-					<li><p>Quantity of message: </p> <input type="text"
+					<li><p th:text="#{quantityMessage.text}"> </p> <input type="text"
 						class="form-control"
 						th:field="*{metrics.numberMessagesBiggestRoom}" disabled /></li>
 				</ul>
@@ -134,7 +136,7 @@
 
 		</div>
 	</div>
-
+	
 
 	<script>
 		/* Lenguaje */
@@ -146,6 +148,18 @@
 				}
 			});
 		});
+		
+		var ulM = jQuery("#usersList");
+		function upDateListUser(){
+			ulM.empty();
+		};
+		
+		$(document).ready(function() {
+		    alert( "ready!" );
+		    upDateListUser();
+		    
+		});
+		
 	</script>
 </body>
 </html>

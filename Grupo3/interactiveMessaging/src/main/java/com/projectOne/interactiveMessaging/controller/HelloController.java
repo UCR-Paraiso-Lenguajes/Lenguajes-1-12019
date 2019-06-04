@@ -84,15 +84,15 @@ public class HelloController {
     }
 	
 	@RequestMapping(value="/chat", method=RequestMethod.GET)
-    public String chat(Model model) {
+    public String chat(Model model, @RequestParam("idUser") int idUser) {
 
 		ArrayList<Message> messages=
 
 		messageBusiness.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages",1);///Aqui cambiar el usuario y grupo
-				model.addAttribute("messages",messages);
-				model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
-				List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
-				model.addAttribute("groups",groups);
+		model.addAttribute("messages",messages);
+		model.addAttribute("idUserRoom",idUser);///Aqui cambiar el usuario
+		List<Room> groups = groupBusiness.getGroupsOfUser(idUser);///Aqui cambiar el id usuario
+		model.addAttribute("groups",groups);
         return "chat";
     }
 	
@@ -126,7 +126,7 @@ public class HelloController {
 	
 	//enviar correos a varias personas!
 		@RequestMapping(value="/invite", method=RequestMethod.GET )
-		public String inviteGet(EmailForm emailForm, Model model) {
+		public String inviteGet(EmailForm emailForm, Model model, @RequestParam("user_id") int idUser) {
 			model.addAttribute("emailForm", new EmailForm());
 			model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
 			List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario

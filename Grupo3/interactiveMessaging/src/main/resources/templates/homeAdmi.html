@@ -44,23 +44,28 @@
 			</select>
 		</div>
 
-		<div id="sidepanel">
+<div id="sidepanel">
 			<div id="profile">
 				<p th:text="#{groupsAdmi.text}"></p>
-				<br><br>
+				<br> <br>
 			</div>
 
 			<div id="contacts">
 				<ul>
-					<li onclick="print(this)" th:each="group: ${groups}"
-						class="contact">
+					<li th:each="group: ${groups}" class="contact">
 						<div class="wrap">
 							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
 							<div class="meta">
-								<p th:text="${group.name_Room}" class="name"></p>
-								<input type="hidden" th:value="${group.group_id}" />
-								<p class="preview"></p>
-								<br><br>
+								<ul>
+									<br>
+									<li><a th:href="@{metricsUser(group=${group.group_id})}"
+										style='text-decoration: none; color: #f2efef;'>
+											<p th:text="${group.name_Room}" class="name"></p> <input
+											type="hidden" th:value="${group.group_id}" />
+											<p class="preview"></p>
+											<li>
+								</ul>
+
 							</div>
 						</div>
 					</li>
@@ -73,12 +78,14 @@
 
 
 
-		<div class="content">
+		<div class="content"
+			style="color: black !important;">
 			<div class="contact-profile">
 
-				<p th:text="#{infoAdmi.text}"></p>
+				<p style="color: black !important;" th:text="#{infoAdmi.text}"></p>
 
 			</div>
+			
 
 			<div class="setting">
 
@@ -143,6 +150,10 @@
 				}
 			});
 		});
+		
+		
+		
+		
 	</script>
 </body>
 </html>

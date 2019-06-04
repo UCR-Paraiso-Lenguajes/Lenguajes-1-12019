@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import com.projectOne.interactiveMessaging.bussines.GroupBusiness;
 import com.projectOne.interactiveMessaging.bussines.MetricsBusiness;
 import com.projectOne.interactiveMessaging.bussines.UserBusiness;
+import com.projectOne.interactiveMessaging.data.GroupData;
 import com.projectOne.interactiveMessaging.domain.Metrics;
 import com.projectOne.interactiveMessaging.domain.Room;
 import com.projectOne.interactiveMessaging.domain.User;
@@ -30,6 +31,9 @@ public class MetricsController {
 	@Autowired
 	private UserBusiness userBusiness;
 	
+	@Autowired
+	private GroupData groupData;
+	
 	@RequestMapping(value="/metrics", method=RequestMethod.GET)
     public String metrics(Model model) {
 
@@ -39,11 +43,11 @@ public class MetricsController {
 		Metrics metrics = metricsBusiness.recoverMetricsData();
 
 						model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
-						List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
+						//List<Room> groups = groupBusiness.getGroupsOfUser(4);///Aqui cambiar el id usuario
+						Iterator<Room> groups = groupData.getGroups();
 						model.addAttribute("groups",groups);
-
+						
 		//model.addAttribute("metrics", metrics.next());
-
 		model.addAttribute("metrics", metrics);
 
 		return "homeAdmi";
@@ -51,16 +55,15 @@ public class MetricsController {
 	
 	
 	@RequestMapping(value="/metricsUser", method=RequestMethod.GET)
-    public String metricsWhitUsers(Model model,  @RequestParam("group_id") int roomID) {
+    public String metricsWhitUsers(Model model,  @RequestParam("group") int roomID) {
 
 		Metrics metrics = metricsBusiness.recoverMetricsData();
 
-						model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
-						List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
-						model.addAttribute("groups",groups);
+						//model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
+						//List<Room> groups = groupBusiness.getGroupsOfUser(4);///Aqui cambiar el id usuario
+						//model.addAttribute("groups",groups);
 						Iterator<User> users = userBusiness.findUsersCertainRoom(roomID);
-
-
+						
 		model.addAttribute("metrics", metrics);
 		model.addAttribute("users", users);
 
