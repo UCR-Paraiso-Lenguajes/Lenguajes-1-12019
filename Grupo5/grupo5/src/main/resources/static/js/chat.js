@@ -15,7 +15,7 @@ var room = new Vue({
         let user = url.split('=');
         this.idUser = user[1];
         axios
-            .get('http://localhost:8080/getRoomPerUser?idUser=' + this.idUser)
+            .get('http://localhost:8080/msn/getRoomPerUser?idUser=' + this.idUser)
             .then(response => (this.rooms = response.data))
     },
     methods: {

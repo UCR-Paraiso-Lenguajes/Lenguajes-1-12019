@@ -28,7 +28,7 @@ public class MessageControllerRest {
 		
 		 private Map<Integer, Message> messagesSincro;
 		
-		@RequestMapping(value = "/msn/insertMessage", method = RequestMethod.POST)
+		@RequestMapping(value = "/insertMessage", method = RequestMethod.POST)
 		public ResponseEntity<Object> postInsertMessages(@RequestBody Message message) {
 				
 			return null;
@@ -40,7 +40,7 @@ public class MessageControllerRest {
 			return new ResponseEntity<>(messageBusiness.insertMessage(message), HttpStatus.OK);
 }
 		
-		@RequestMapping(value = "/msn/getMessageSincro", method = RequestMethod.GET)
+		@RequestMapping(value = "/getMessageSincro", method = RequestMethod.GET)
 		//public ResponseEntity<Object> getMessages(@RequestBody int IdRoom){
 		public Map<Integer, Message> getMessages(){
 			
