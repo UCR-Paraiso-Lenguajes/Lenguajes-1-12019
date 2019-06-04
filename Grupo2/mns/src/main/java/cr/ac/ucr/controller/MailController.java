@@ -5,14 +5,11 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Base64;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import cr.ac.ucr.business.UserBusiness;
 import cr.ac.ucr.domain.User;
@@ -43,17 +40,20 @@ public class MailController {
 	public String createRoom(Model model,UserForm userForm)  {
 		
 		model.addAttribute("userForm",userForm);
+		
+		
 		User user = new User();
 		user.setEmail(userForm.getEmail());
 		try {
 			user.setHash(Base64.getEncoder().encodeToString(user.getEmail().getBytes("UTF-8")));
+			emailServiceImpl.sendMail(user);
 			userBusiness.addUser(user);
 		} catch (SQLException | UnsupportedEncodingException e) {
 			throw new ProjectExceptions(e);
 		} 
 		
 		
-		emailServiceImpl.sendMail(user);
+		
 		
 		
 		return "success";

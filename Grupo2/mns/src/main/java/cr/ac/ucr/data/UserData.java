@@ -60,19 +60,7 @@ public class UserData {
 		prest.setString(2, user.getEmail());
 		prest.executeUpdate();
 		
-		ResultSet rs = prest.getGeneratedKeys();
-        if(rs.next())
-        {
-            int last_inserted_id = rs.getInt(1);
-        }
-		
-		
-		
-		
-		
-		
-		
-		
+		prest.execute();
 		
 		conexion.close();
 		return user;
