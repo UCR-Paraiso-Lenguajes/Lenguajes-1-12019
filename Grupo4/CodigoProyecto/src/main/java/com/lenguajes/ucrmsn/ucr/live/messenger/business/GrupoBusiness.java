@@ -26,21 +26,20 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 @Service
 public class GrupoBusiness {
 
-	
-	private HashEnviados enlacesEnviados=HashEnviados.getInstancia();	
+	private HashEnviados enlacesEnviados = HashEnviados.getInstancia();
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private GrupoData grupoData;
-	
-	public ArrayList<Grupo> listarGrupos(){
-		
+
+	public ArrayList<Grupo> listarGrupos() {
+
 		return grupoData.listarGrupos();
 	}
-	
-	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo){
+
+	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo) {
 		return grupoData.buscarUsuariosPorGrupo(idGrupo);
-		
+
 	}
 
 	@Transactional
@@ -52,8 +51,8 @@ public class GrupoBusiness {
 		for (int i = 0; i < 10; i++) {
 			caracteres += (char) (random.nextInt(91) + 65);
 		}
-		
-		hash = "/msn/"+DigestUtils.sha256Hex(caracteres);
+
+		hash = "/msn/" + DigestUtils.sha256Hex(caracteres);
 
 		if (usuario == null)
 			throw new UsuarioException("El usuario es requerido");
@@ -67,7 +66,7 @@ public class GrupoBusiness {
 				if (rol.getNombre().equals("admin")) {
 					/*
 					 * grupoData.save(new Grupo(null, 0, 0, usuario, usuario));
-					 */				}
+					 */ }
 			}
 		}
 		return hash;
@@ -75,29 +74,23 @@ public class GrupoBusiness {
 
 	@Transactional
 	public void invitar(String to, String link) {
-		
+
 		/*
 		 * Enlace enlace = new Enlace(link); enlacesEnviados.agregar(enlace);
 		 * expirarEnlace(enlace);
 		 */
-		
+
 		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
 
 		mail.setFrom("ucrlivemessenger@gmail.com");
 		mail.setTo(to);
 		mail.setSubject("Invitación UCR Live Messenger");
-		mail.setText("Bienvenido a UCR Live Messenger" 
-				+ " \n" 
-				+ "Utilice el link adjunto para comenzar a chatear."
-				+ "\n" 
-				+ "Expira en 3 minutos."
-				+ "\n"
-				+ "Hora del servidor: "
-				+ fecha.getTime()
-				+"localhost:8080/ucrmsn/interfazchat");
+		mail.setText("Bienvenido a UCR Live Messenger" + " \n" + "Utilice el link adjunto para comenzar a chatear."
+				+ "\n" + "Expira en 3 minutos." + "\n" + "Hora del servidor: " + fecha.getTime()
+				+ "localhost:8080/ucrmsn/interfazchat");
 
-		javaMailSender.send(mail);	
+		javaMailSender.send(mail);
 	}
 
 	/*
@@ -113,7 +106,7 @@ public class GrupoBusiness {
 
 	@Transactional
 	public void actualizarMensajes(Usuario usuario) {
-		
+
 	}
 
 	@Transactional
@@ -122,11 +115,11 @@ public class GrupoBusiness {
 	}
 
 	@Transactional
-	public void guardarMensajes(Grupo grupo,Usuario usuario, Mensaje mensaje) {
+	public void guardarMensajes(Grupo grupo, Usuario usuario, Mensaje mensaje) {
 		mensaje.setUsuario(usuario);
 		mensaje.setGrupo(grupo);
 		grupo.mandarMensaje(mensaje);
-		grupo.setCantidadMensajes(grupo.getCantidadMensajes()+1);
+		grupo.setCantidadMensajes(grupo.getCantidadMensajes() + 1);
 		grupoData.update(grupo);
 
 	}
@@ -144,5 +137,30 @@ public class GrupoBusiness {
 	public ArrayList<Mensaje> getMessagesFrom(int index) {
 		return grupoData.buscarMensajes();
 	}
-	
+
+	public boolean existeGrupo(int id) {
+		ArrayList<Grupo> grupos = grupoData.listarGrupos();
+		boolean contiene = false;
+		for (int i = 0; i < grupos.size(); i++) {
+			if (grupos.get(i).getId() == id) {
+				contiene = true;
+			}
+		}
+		return contiene;
+	}
+
+	public Grupo getGrupo(int id) {
+		if (!existeGrupo(id)) {
+			throw new GrupoException("El grupo no existe");
+		} else {
+			ArrayList<Grupo> grupos = grupoData.buscarGrupoPorId(id);
+			Grupo grupo = new Grupo();
+			for (int i = 0; i < grupos.size(); i++) {
+				if (grupos.get(i).getId() == id) {
+					grupo = grupos.get(i);
+				}
+			}
+			return grupo;
+		}
+	}
 }

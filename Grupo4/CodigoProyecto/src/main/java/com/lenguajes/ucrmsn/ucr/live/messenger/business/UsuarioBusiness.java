@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.HashEnviados;
+import com.lenguajes.ucrmsn.ucr.live.messenger.data.GrupoData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.data.UsuarioData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
@@ -23,17 +24,17 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 
 @Service
 public class UsuarioBusiness {
-	
-	List<String> listaNombres=new ArrayList<String>();
-	List<String> listaAvatar=new ArrayList<String>();
-	
-	private HashEnviados enlacesEnviados=HashEnviados.getInstancia();
-	
+
+	List<String> listaNombres = new ArrayList<String>();
+	List<String> listaAvatar = new ArrayList<String>();
+
+	private HashEnviados enlacesEnviados = HashEnviados.getInstancia();
+
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private UsuarioData usuarioData;
-	
+
 	public UsuarioBusiness() {
 		listaNombres = new ArrayList<>();
 		listaAvatar = new ArrayList<>();
@@ -48,7 +49,7 @@ public class UsuarioBusiness {
 		listaNombres.add("papholot");
 		listaNombres.add("lesmudom");
 		listaNombres.add("antemest");
-		
+
 		listaNombres.add("tioniuma");
 		listaNombres.add("cisiande");
 		listaNombres.add("monvefte");
@@ -59,7 +60,7 @@ public class UsuarioBusiness {
 		listaNombres.add("lingtort");
 		listaNombres.add("idaverag");
 		listaNombres.add("phtepoli");
-		
+
 		listaNombres.add("pasanctu");
 		listaNombres.add("airiandr");
 		listaNombres.add("phlovery");
@@ -70,7 +71,7 @@ public class UsuarioBusiness {
 		listaNombres.add("ndsoldia");
 		listaNombres.add("lentheim");
 		listaNombres.add("oxforthe");
-		
+
 		listaNombres.add("zoadozov");
 		listaNombres.add("trineand");
 		listaNombres.add("oreditch");
@@ -81,7 +82,7 @@ public class UsuarioBusiness {
 		listaNombres.add("abrackla");
 		listaNombres.add("jacrepid");
 		listaNombres.add("huleastr");
-		
+
 		listaNombres.add("ombletri");
 		listaNombres.add("posystri");
 		listaNombres.add("ioneratr");
@@ -92,7 +93,7 @@ public class UsuarioBusiness {
 		listaNombres.add("utsuchei");
 		listaNombres.add("dayoving");
 		listaNombres.add("poiselis");
-	
+
 		listaAvatar.add("IMG/avatar1.png");
 		listaAvatar.add("IMG/avatar2.png");
 		listaAvatar.add("IMG/avatar3.png");
@@ -103,7 +104,7 @@ public class UsuarioBusiness {
 		listaAvatar.add("IMG/avatar8.png");
 		listaAvatar.add("IMG/avatar9.png");
 		listaAvatar.add("IMG/avatar10.png");
-		 
+
 		listaAvatar.add("IMG/avatar11.png");
 		listaAvatar.add("IMG/avatar12.png");
 		listaAvatar.add("IMG/avatar13.png");
@@ -114,7 +115,7 @@ public class UsuarioBusiness {
 		listaAvatar.add("IMG/avatar18.png");
 		listaAvatar.add("IMG/avatar19.png");
 		listaAvatar.add("IMG/avatar20.png");
-		
+
 		listaAvatar.add("IMG/avatar21.png");
 		listaAvatar.add("IMG/avatar22.png");
 		listaAvatar.add("IMG/avatar23.png");
@@ -125,7 +126,7 @@ public class UsuarioBusiness {
 		listaAvatar.add("IMG/avatar28.png");
 		listaAvatar.add("IMG/avatar29.png");
 		listaAvatar.add("IMG/avatar30.png");
-		
+
 		listaAvatar.add("IMG/avatar31.png");
 		listaAvatar.add("IMG/avatar32.png");
 		listaAvatar.add("IMG/avatar33.png");
@@ -136,7 +137,7 @@ public class UsuarioBusiness {
 		listaAvatar.add("IMG/avatar38.png");
 		listaAvatar.add("IMG/avatar39.png");
 		listaAvatar.add("IMG/avatar40.png");
-		
+
 		listaAvatar.add("IMG/avatar41.png");
 		listaAvatar.add("IMG/avatar42.png");
 		listaAvatar.add("IMG/avatar43.png");
@@ -151,118 +152,115 @@ public class UsuarioBusiness {
 
 	@Transactional
 	public Usuario asignarNombreYAvatarUsuarioGrupo(Usuario usuario, Grupo grupo) {
-		int nombreRandom =  (int) (Math.random()*49+0);
+		int nombreRandom = (int) (Math.random() * 49 + 0);
 		String nombreAleatorio = listaNombres.get(nombreRandom);
-		
-		int avatarRandom =(int) (Math.random()*49+0);
+
+		int avatarRandom = (int) (Math.random() * 49 + 0);
 		String avatarAleatorio = listaAvatar.get(avatarRandom);
-		
+
 		for (int numUsuario = 0; numUsuario < grupo.getListaUsuarios().size(); numUsuario++) {
 			Usuario us = grupo.getListaUsuarios().get(numUsuario);
 			if (!nombreAleatorio.equals(us.getNombreUsuario())) {
 				usuario.setNombreUsuario(nombreAleatorio);
 			}
-			
+
 			if (!avatarAleatorio.equals(us.getAvatar())) {
 				usuario.setAvatar(avatarAleatorio);
 			}
 		}
 		return usuario;
 	}
+
 	@Transactional
-	public Usuario asignarNombreYAvatar(Usuario usuario) {//un nuevo usuario sin grupo
-		int nombreRandom =  (int) (Math.random()*49+0);
-		String nombreAleatorio = listaNombres.get(nombreRandom);		
-		
-		int avatarRandom =(int) (Math.random()*49+0);
+	public Usuario asignarNombreYAvatar(Usuario usuario) {// un nuevo usuario sin grupo
+		int nombreRandom = (int) (Math.random() * 49 + 0);
+		String nombreAleatorio = listaNombres.get(nombreRandom);
+
+		int avatarRandom = (int) (Math.random() * 49 + 0);
 		String avatarAleatorio = listaAvatar.get(avatarRandom);
-			
+
 		usuario.setAvatar(avatarAleatorio);
 		usuario.setNombreUsuario(nombreAleatorio);
-	
-		
+
 		return usuario;
 	}
+
 	@Transactional
 	public void invitar(String to) {
-		String hash=crearHash(to);
-		String link="localhost:8080/ucrmsn/interfazchat?hash="+hash;
-		
+		String hash = crearHash(to);
+		String link = "localhost:8080/ucrmsn/interfazchat?hash=" + hash + "&idGrupo=-1";
+
 		enlacesEnviados.agregar(hash);
-		
-		  expirarEnlace(hash);
-		 		
+
+		expirarEnlace(hash);
+
 		Calendar fecha = Calendar.getInstance();
 		SimpleMailMessage mail = new SimpleMailMessage();
 
 		mail.setFrom("ucrlivemessenger@gmail.com");
 		mail.setTo(to);
 		mail.setSubject("Invitación UCR Live Messenger");
-		mail.setText("Bienvenido a UCR Live Messenger" 
-				+ " \n" 
-				+ "Utilice el link adjunto para comenzar a chatear."
-				+ "\n" 
-				+ "Expira en 3 minutos."
-				+ "\n"
-				+ "Hora del servidor: "
-				+ fecha.getTime()
-				+ "\n"
-				+link);
+		mail.setText("Bienvenido a UCR Live Messenger" + " \n" + "Utilice el link adjunto para comenzar a chatear."
+				+ "\n" + "Expira en 3 minutos." + "\n" + "Hora del servidor: " + fecha.getTime() + "\n" + link);
 
-		javaMailSender.send(mail);	
+		javaMailSender.send(mail);
 	}
+
 	public void expirarEnlace(String hash) {
 
-        	   Runnable task = new Runnable() {
-                   public void run() {
-                	   try {
-						Thread.sleep(180000);
-						enlacesEnviados.eliminar(hash);
-					} catch (InterruptedException e) {
-						throw new UsuarioException("no se pudo eliminar el hash");
-					}
-           	      ;}
-                };
-        	new Thread(task).start();
-        	
-		
-        }
+		Runnable task = new Runnable() {
+			public void run() {
+				try {
+					Thread.sleep(180000);
+					enlacesEnviados.eliminar(hash);
+				} catch (InterruptedException e) {
+					throw new UsuarioException("no se pudo eliminar el hash");
+				}
+				;
+			}
+		};
+		new Thread(task).start();
+
+	}
+
 	public String crearHash(String correo) {
 		String hash = DigestUtils.sha256Hex(correo);
 		return hash;
 	}
+
 	@Transactional
 	public void save(Usuario usuario) {
-		if (usuario==null ) {
+		if (usuario == null) {
 			throw new UsuarioException("el usuario esta vacio");
-		}else if (usuario.getHash()==null ) {
+		} else if (usuario.getHash() == null) {
 			throw new UsuarioException("el hash no puede estar vacio");
 		}
 		usuarioData.save(usuario);
 	}
-	
-		public boolean existeHash(String hash){
-		
-		 ArrayList<Usuario>usuarios=usuarioData.listarUsuarios();
-		 ArrayList<String> hashs=new ArrayList<String>();
-		 for (int i = 0; i < usuarios.size(); i++) {
+
+	public boolean existeHash(String hash) {
+
+		ArrayList<Usuario> usuarios = usuarioData.listarUsuarios();
+		ArrayList<String> hashs = new ArrayList<String>();
+		for (int i = 0; i < usuarios.size(); i++) {
 			hashs.add(usuarios.get(i).getHash());
 		}
-		 return hashs.contains(hash);
-		}
-		public	Usuario getUsuarioHash(String hash){
-			if (!existeHash(hash)) {
-				throw new UsuarioException("usuario no existe");
-			}else {
-				 ArrayList<Usuario>usuarios=usuarioData.listarUsuarios();
-				 Usuario usuario=new Usuario();
-				 for (int i = 0; i < usuarios.size(); i++) {
-					 if (usuarios.get(i).getHash().equals(hash)) {
-						usuario=usuarios.get(i);
-					}
+		return hashs.contains(hash);
+	}
+
+	public Usuario getUsuarioHash(String hash) {
+		if (!existeHash(hash)) {
+			throw new UsuarioException("usuario no existe");
+		} else {
+			ArrayList<Usuario> usuarios = usuarioData.listarUsuarios();
+			Usuario usuario = new Usuario();
+			for (int i = 0; i < usuarios.size(); i++) {
+				if (usuarios.get(i).getHash().equals(hash)) {
+					usuario = usuarios.get(i);
 				}
-				return usuario; 
 			}
-			
-			}
+			return usuario;
+		}
+
+	}
 }
