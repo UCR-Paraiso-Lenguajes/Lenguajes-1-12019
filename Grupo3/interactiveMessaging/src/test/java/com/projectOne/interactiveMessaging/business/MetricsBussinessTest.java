@@ -32,59 +32,17 @@ public class MetricsBussinessTest {
 	@Before
     public void setUp() {
     //Inicialización de variables antes de cada Test
-		metrics = metricsData.findMetrics(1);
-		System.out.println(metrics.toString());
+//		metrics = metricsData.findMetrics(1);
 	}
 	
 	@Test
-	public void updateMessageMetrics_LongestMessage_Test() {
-		metricsBusiness.updateMessageMetrics("111");
-		String messages = metrics.getLongestMessage();
-		assertEquals("111",messages);
+	public void loadMetrics_Test() {
+		metricsBusiness.loadDataMetrics();
+		assertEquals("22", metrics.getLongestMessage());
+		assertEquals(30, metrics.getNumberOfUsers());
+		assertEquals("12", metrics.getBigUser());
 	}
 	
-	@Test
-	public void updateDateLastMessage_Test() {
-		java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf("2019-09-23 10:10:10.0");		
-		metricsBusiness.updateDateLastMessage(timestamp);
-		Timestamp date = metrics.getDateLastMessage();
-		assertEquals(timestamp,date);
-	}
-	
-	@Test
-	public void updateNumbersOfRooms_Test() {
-		metricsBusiness.updateNumbersOfRooms();
-		int counterGroups = metrics.getNumberOfRooms();
-		assertEquals(10,counterGroups);
-	}
-	
-	@Test
-	public void updateNumbersOfUsers_Test() {
-		metricsBusiness.updateNumbersOfUsers();
-		int counterUsers = metrics.getNumberOfUsers();
-		assertEquals(7,counterUsers);
-	}
-	
-	@Test
-	public void updateAverageOfUsersPerRoom_Test() {
-		metricsBusiness.updateAverageOfUsersPerRoom(3);
-		float average = metrics.getAverageOfUsersPerRoom();
-		assertEquals(3.4,average,0.5);
-	}
-	
-	
-	@Test
-	public void updateDateFirstLogin_Test() {
-		metricsBusiness.updateDateFirstLogin();
-		Timestamp date = metrics.getDateFirstLogin();
-		assertEquals("2019-05-10 22:59:53.0",date+"");
-	}
-	
-	@Test
-	public void updateLastGroupCreate_Test() {
-		metricsBusiness.updateLastGroupCreate();
-		String name_Group = metrics.getLastRoomCreated();
-		assertEquals("Elios",name_Group);
-	}
+
 
 }
