@@ -38,7 +38,8 @@ public class RoomController {
     	
     	room.setRoomName(room.getRoomName());
     	room.setVersion(0);
-          	
+      
+    	
     	try {
     		roomBusiness.insertRoom(room);
     	}
