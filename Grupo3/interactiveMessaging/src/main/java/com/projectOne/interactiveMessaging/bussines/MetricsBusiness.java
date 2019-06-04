@@ -33,6 +33,11 @@ public class MetricsBusiness {
 	public Metrics findMetrics(int idMetrics) {
 		return metricsData.findMetrics(idMetrics);
 	}
+	
+	public Metrics recoverMetricsData() {
+		// TODO Auto-generated method stub
+		return metricsData.recoverMetricsData();
+	}
 	/**
 	 * Este metodo se debe de llamar cada vez que se envie y guarde en nuevo mensaje a la base
 	 * compara el mensaje nuevo que se envia con el que esta en base de datos paraver si es el mas
@@ -108,5 +113,6 @@ public class MetricsBusiness {
 		groupData.getGroups().forEachRemaining(rooms::add);
 		metrics.setLastRoomCreated(rooms.get(rooms.size()-1).getName_Room());
 	}
+	
 	
 }
