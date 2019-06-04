@@ -1,8 +1,13 @@
 package com.lenguajes.ucrmsn.ucr.live.messenger.domain;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Metricas {
+	
+	private static Metricas metricas;
+	
+	
 	private int cantidadRooms;
 	private int cantidadUsuarios;
 	private int promedioUsuariosGrupo;
@@ -12,7 +17,16 @@ public class Metricas {
 	private Mensaje mensajeLargo;
 	private Grupo ultimoGrupo;
 	private Grupo grupoMasMensajes;
+	
+	private Metricas() {
+		
+	}
 
+	public static Metricas getInstancia() {
+		metricas = new Metricas();
+		return metricas;
+	}
+	
 	public Metricas(int cantidadRooms, int cantidadUsuarios, int promedioUsuariosGrupo, Date fechaUltimoMensaje,
 			Date fechaPrimerLogin, Usuario usuarioMasMensajes, Mensaje mensajeLargo, Grupo ultimoGrupo,
 			Grupo grupoMasMensajes) {
