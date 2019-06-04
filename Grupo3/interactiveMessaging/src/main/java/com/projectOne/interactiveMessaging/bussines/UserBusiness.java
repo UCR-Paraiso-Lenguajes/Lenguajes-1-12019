@@ -20,5 +20,9 @@ public class UserBusiness {
 	public User getSpecificUserById(int idUser) {
 		return userData.getSpecificUserById(idUser);
 	}
+	
+	public int save(String correoUser) { 
+		return userData.save(correoUser);
+	}
 
 }

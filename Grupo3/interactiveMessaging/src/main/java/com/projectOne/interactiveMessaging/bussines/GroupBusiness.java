@@ -22,4 +22,12 @@ public class GroupBusiness {
 	public List<Room> getGroupsOfUser(int idUserRoom) {
 		return groupData.getGroupsOfUser(idUserRoom);
 	}
+	
+	public int saveGroup(String nameGroup) {
+		return groupData.saveGroup(nameGroup);
+	}
+	
+	public void saveUserRoleRoom(int idUser, int idRole, int idRoom) {
+		groupData.saveUserRoleRoom(idUser, idRole, idRoom);
+	}
 }
