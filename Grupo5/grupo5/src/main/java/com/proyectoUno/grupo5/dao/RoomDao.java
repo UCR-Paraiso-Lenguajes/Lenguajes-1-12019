@@ -66,6 +66,32 @@ public class RoomDao {
 		return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
 
 	}
+	
+	public Integer idRoom() {
+
+		String sqlSelect = "select MAX(id_room) as id_room from room";
+
+		return jdbcTemplate.query(sqlSelect, new RoomIDExtractor());
+
+	}
+
+	public void assignRoom(int id_user) {
+		int id_room=idRoom();
+		
+		String query = "insert into user_room(id_user,id_room) values(?,"+id_room+")";
+
+		 jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
+			@Override
+			public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
+				
+
+				return ps.execute();
+
+			}
+		});
+		
+	}
+	
 
 }
 
@@ -92,5 +118,26 @@ class RoomWithExtractor implements ResultSetExtractor<List<Room>> {
 		return new ArrayList<Room>(map.values());
 
 	}
+	
+	
+
+
+}
+
+class RoomIDExtractor implements ResultSetExtractor<Integer> {
+
+	@Override
+	public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
+		
+		
+			Integer id = rs.getInt("id_room");
+			
+		
+		return id;
+
+	}
+	
+	
+
 
 }

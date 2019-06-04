@@ -32,7 +32,7 @@ public class RoomController {
         return "createRoom";
     }
     
-    @RequestMapping(value="/createRoom", method=RequestMethod.POST)
+  /*  @RequestMapping(value="/createRoom", method=RequestMethod.POST)
     public String ingreso(@ModelAttribute(name="room")  Room room, Model model) {
     	
     	
@@ -46,9 +46,9 @@ public class RoomController {
     	catch (SQLException e) {
 			e.printStackTrace();
 		}
-    	
+   
     	return "createRoomSucessfull";
-    }
+    }*/
     }
     
     

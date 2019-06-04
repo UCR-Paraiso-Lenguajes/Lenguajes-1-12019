@@ -28,6 +28,14 @@ public class RoomBussiness {
 	public List<Room> getRooms() {
 		return roomDao.listRooms();
 	}
+
+
+	public void assignRoom(int id_user) {
+		roomDao.assignRoom(id_user);
+	}
+
+
+
 	
 
     
