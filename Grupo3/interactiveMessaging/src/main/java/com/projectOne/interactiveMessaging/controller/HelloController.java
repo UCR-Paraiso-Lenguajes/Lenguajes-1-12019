@@ -106,12 +106,6 @@ public class HelloController {
         return "chat";
     }
 	
-	@RequestMapping(value="/chatSetting", method=RequestMethod.GET)
-    public String chatSetting(Model model, @RequestParam("id") int id, @RequestParam("id_role") int id_role) {
-		Iterator<User> user = userBusiness.findUsersOwnerOrAdmin(id, id_role);
-		model.addAttribute("user", user);
-        return "setting";
-    }
 	
 	@RequestMapping(value="/invite", method=RequestMethod.POST )
 	public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup)  {
@@ -119,6 +113,8 @@ public class HelloController {
 			model.addAttribute("emailForm", new EmailForm());
 	        return "invite";
 		}else {
+			
+
 			String ip = "192.168.1.120";
 			String[] emails = emailForm.getEmailsSel();
 			int idGroup = groupBusiness.saveGroup(nameGroup);
