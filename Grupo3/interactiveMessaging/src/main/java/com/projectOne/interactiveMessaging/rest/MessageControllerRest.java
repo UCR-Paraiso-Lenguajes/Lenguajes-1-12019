@@ -21,6 +21,7 @@ import com.projectOne.interactiveMessaging.domain.ClassListNewMessages;
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.MessageToSend;
 import com.projectOne.interactiveMessaging.domain.SingleGroupMessage;
+import com.projectOne.interactiveMessaging.domain.TableMessagesGroups;
 
 @RestController
 public class MessageControllerRest {
@@ -53,6 +54,8 @@ public class MessageControllerRest {
 		ClassListNewMessages classListRest = new ClassListNewMessages();
 		ArrayList<SingleGroupMessage> messages = classListRest.extractLastMessages(idGroup,idUserRoom);
 		ArrayList<SingleGroupMessage> messagesOthers = new ArrayList<>();
+		TableMessagesGroups tableGroups = new TableMessagesGroups();
+		boolean existGroup = tableGroups.existGroup(idGroup);
 		for (int i = 0; i < messages.size(); i++) {
 			if(messages.get(i).getMessage().getUserTransmitter().getUser_id()==idUserRoom) {
 				messages.get(i).getMessage().setType("sent");

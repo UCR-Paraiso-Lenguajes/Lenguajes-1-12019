@@ -70,6 +70,9 @@ public class MessageBusiness {
 			}
 			
 		}
+		boolean existGroup = tableGroups.existGroup(idGroup);
+		boolean existUser = tableGroups.existUserOnGroup(idGroup, idUser);
+		boolean existUserOfAnyGroup = tableGroups.existUserFromAnyGroup(idUser);
 		//Cuarto insertarlo
 		ClassListNewMessages classList = new ClassListNewMessages();
 		classList.storeNewMessage(singleGroupMessage);
