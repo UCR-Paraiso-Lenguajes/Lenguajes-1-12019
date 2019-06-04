@@ -1,5 +1,7 @@
 package com.chat.domain;
 
+import com.chat.exeption.chatException;
+
 public class UserClient {
 
 	private int id;
@@ -7,23 +9,23 @@ public class UserClient {
 	private String email;
 	private String name;
 	private Rol rol;
-	
+
 	public UserClient() {
-		
+
 	}
-	
+
 	public UserClient(int id, String avatar, String email, String name, Rol rol) {
 		super();
 		if (id < 0)
-			throw new RuntimeException("El id del usuario debe ser mayor  0.");
+			throw new chatException("El id del usuario debe ser mayor  0.");
 		if (avatar == null || avatar.trim().equals(""))
-			throw new RuntimeException("El avatar requerido");
+			throw new chatException("El avatar requerido");
 		if (email == null || email.trim().equals(""))
-			throw new RuntimeException("El email requerido");
+			throw new chatException("El email requerido");
 		if (name == null || name.trim().equals(""))
-			throw new RuntimeException("El nombre requerido");
+			throw new chatException("El nombre requerido");
 		if (rol == null)
-			throw new RuntimeException("El rol requerido");
+			throw new chatException("El rol requerido");
 
 		this.id = id;
 		this.avatar = avatar;
@@ -31,7 +33,7 @@ public class UserClient {
 		this.setName(name);
 		this.setRol(rol);
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -77,5 +79,5 @@ public class UserClient {
 		return "UserClient [id=" + id + ", avatar=" + avatar + ", email=" + email + ", name=" + name + ", rol=" + rol
 				+ "]";
 	}
-	
+
 }
