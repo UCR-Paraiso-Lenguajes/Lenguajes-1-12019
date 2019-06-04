@@ -23,7 +23,7 @@ public class RoomControllerRest {
 	RoomBussiness roomBusiness;
 
 	@RequestMapping(value="/getRoomPerUser", method=RequestMethod.GET)
-	public ResponseEntity<Object> getDataAutor(@RequestParam("idUser") int idUser) {
+	public ResponseEntity<Object> getRoomForUser(@RequestParam("idUser") int idUser) {
 		
 		return new ResponseEntity<>(roomBusiness.getRooms(idUser), HttpStatus.OK);
  

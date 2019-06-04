@@ -28,15 +28,19 @@ public class MessageControllerRest {
 	private Map<Integer, Message> messagesSincro;
 
 
+
 		@RequestMapping(value = "/insertMessage", method = RequestMethod.POST)
 	public ResponseEntity<Object> postInsertMessages(@RequestBody Message message) {
 
 		return new ResponseEntity<>(messageBusiness.insertMessage(message), HttpStatus.OK);
 	}
 
-		@RequestMapping(value = "/getMessages", method = RequestMethod.GET)
-	public ResponseEntity<Object> getMessages(){
-		return new ResponseEntity<>(messageBusiness.getMessagesByIdRoom(2),  HttpStatus.OK);
+	@RequestMapping(value = "/getMessages", method = RequestMethod.GET)
+	public ResponseEntity<Object> getMessages(@RequestBody int idRoom){
+		
+		
+		return new ResponseEntity<>(messageBusiness.getMessagesSincro(messageBusiness.getMessagesByIdRoom(idRoom)),  HttpStatus.OK);
+		
 	}
 
 }
