@@ -26,7 +26,7 @@ public class MessageControllerRest {
 		
 		@RequestMapping(value = "/msn/insertMessage", method = RequestMethod.POST)
 		public ResponseEntity<Object> getFoosBySimplePathWithPathVariable (@RequestBody Message message) {
-			
+
 			//Message message = new Message(containt, idUser, idRoom);
 			return new ResponseEntity<>(messageBusiness.insertMessage(message), HttpStatus.OK);
 }
