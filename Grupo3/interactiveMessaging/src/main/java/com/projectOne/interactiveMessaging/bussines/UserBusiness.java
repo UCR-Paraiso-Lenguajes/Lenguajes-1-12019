@@ -17,5 +17,8 @@ public class UserBusiness {
 	public Iterator<User> findUsersOwnerOrAdmin(int idRoom, int idRole){
 		return userData.findUsersOwnerOrAdmin(idRoom, idRole);
 	}
+	public User getSpecificUserById(int idUser) {
+		return userData.getSpecificUserById(idUser);
+	}
 
 }

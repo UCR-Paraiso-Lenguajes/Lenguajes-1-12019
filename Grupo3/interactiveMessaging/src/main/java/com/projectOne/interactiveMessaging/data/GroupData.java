@@ -83,7 +83,7 @@ public class GroupData {
 			Date date = new Date();
 			Timestamp timestamp = new Timestamp(date.getTime());
 			
-			int latestIdRoom = jdbcTemplate.update(sql);
+			
 			String sqlSelectId = "select id from RoomApp order by id desc limit 1";
 		
 			
