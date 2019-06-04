@@ -21,9 +21,8 @@ public class UserBusiness {
 		return userData.getSpecificUserById(idUser);
 	}
 	
-	public Iterator<User> findUsersCertainRoom(int roomID) {
-		return findUsersCertainRoom(roomID);
-		
+	public int save(String correoUser) { 
+		return userData.save(correoUser);
 	}
 
 }
