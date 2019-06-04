@@ -147,7 +147,7 @@ public class GrupoData {
 	@Transactional(readOnly=true)
 	public ArrayList<Grupo> listarGrupos(){
 		
-		String sqlSelect="select id,name from GRUPO" ;
+		String sqlSelect="select id,nombre from GRUPO" ;
 		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
 	}
 	
