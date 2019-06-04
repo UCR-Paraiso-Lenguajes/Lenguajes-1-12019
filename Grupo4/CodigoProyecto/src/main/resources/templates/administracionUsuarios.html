@@ -23,14 +23,14 @@
   <tbody>
     <tr>
       <td width="500"  style="vertical-align: top;">
-      	<p><span style="color: rgb(101, 180, 206);">Usuarios de la sala #</span></p><br>
-      	<table width="490" border="0" class="table table-striped>
+      	<p><span style="color: rgb(101, 180, 206);" type="Usuarios de la sala: " th:text=${idGrupo}" > </span></p><br>
+      	<table width="490" border="0" class="table table-striped">
       	  <tbody>
       	   <tr th:each="usuario : ${usuarios}">
-      	      <td <span width="49">foto </span></td>
-      	      <td <span width="203" th:text="${usuario.NombreUsuario}" /span></td>
-      	      <td <span width="73"><input type="button" name="button" id="button" value="Promover" class="btn btn-success"> </span></td>
-      	      <td <span width="82"><input type="button" name="button2" id="button2" value="Castigar" class="btn btn-danger"> </span></td>
+      	      <td> <span width="49">foto </span></td>
+      	      <td> <span width="203" th:text="${usuario.NombreUsuario}" /span></td>
+      	      <td> <span width="73"><input type="button" name="button" id="button" value="Promover" class="btn btn-success"> </span></td>
+      	      <td> <span width="82"><input type="button" name="button2" id="button2" value="Castigar" class="btn btn-danger"> </span></td>
     	      </tr>
     	    </tbody>
   	  </table>
@@ -42,14 +42,14 @@
           <p><span style="color: rgb(101, 180, 206);">Metricas</span></p><br>
           
             <table width="436" border="0">
-              <tbody>
+        	 <tbody>
                 <tr>
                   <td width="231"><label>Cantidad de salas: </label></td>
-                   <td><span th:text="${metricas.cantidadSalas}"></span></td>
+                   <td><span th:text="${metricas.cantidadRooms}"></span></td>
                 </tr>
                 <tr>
                   <td><label>Cantidad de usuarios:</label></td>
-                   <td><span th:text="${metricas.cantidadUsuarios}"></span></td>
+                   <td><span th:text="${metricas.cantidadUsuariosGrupos}"></span></td>
                 </tr>
                 <tr>
                   <td><label>Promedio de usuarios por grupo:</label></td>
@@ -64,24 +64,24 @@
                    <td><span th:text="${metricas.fechaPrimerLogin}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Usuario con m�s mensajes:</label></td>
-                   <td><span th:text="${metricas.usuarioMasMensajes}"></span></td>
+                  <td><label>Usuario con mas mensajes:</label></td>
+                   <td><span th:text="${metricas.usuarioMasMensajes.nombre}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Mensaje m�s largo:</label></td>
-                   <td><span th:text="${metricas.mensajeLargo}"></span></td>
+                  <td><label>Mensaje mas largo:</label></td>
+                   <td><span th:text="${metricas.mensajeLargo.contenido}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>�ltimo grupo creado:</label></td>
-                   <td><span th:text="${metricas.ultimoGrupo}"></span></td>
+                  <td><label>Ultimo grupo creado:</label></td>
+                   <td><span th:text="${metricas.ultimoGrupo.nombre}"></span></td>
                 </tr>
                 <tr>
                   <td><label>Grupo con mas mensajes:</label></td>
                   <td><span th:text="${metricas.grupoMasMensajes}"></span></td>
                 </tr>
               </tbody>
-            </table>            <br>
-
+            </table>            
+            <br>
       </td>
     </tr>
   </tbody>

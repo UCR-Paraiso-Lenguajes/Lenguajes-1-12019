@@ -36,13 +36,13 @@ public class GrupoBusiness {
 	@Autowired
 	private MensajeData mensajeData;
 	
-	
+	@Transactional
 	public ArrayList<Grupo> listarGrupos(){
 		
-		return grupoData.listarGrupos();
+		return (ArrayList<Grupo>)grupoData.listarGrupos();
 	}
-	
-	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo){
+	@Transactional
+	public ArrayList<Usuario> usuariosPorGrupo(int idGrupo){
 		return grupoData.buscarUsuariosPorGrupo(idGrupo);
 		
 	}

@@ -152,9 +152,9 @@ public class GrupoData {
 	}
 	
 	@Transactional(readOnly=true)
-	public ArrayList<Usuario> buscarUsuariosPorGrupo(String idGrupo){
+	public ArrayList<Usuario> buscarUsuariosPorGrupo(int idGrupo){
 		
-		String sqlSelect="select usuarioId, from USUARIO_GRUPO where grupoId= "+idGrupo ;
+		String sqlSelect="select usuarioId from USUARIO_GRUPO where grupoId= "+idGrupo ;
 		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
 	}
 	
@@ -187,6 +187,7 @@ class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>>{
 				grupo = new Grupo();
 				grupo.setId(idGrupoActual);	
 				grupo.setNombre(rs.getString("nombre"));
+				System.out.print(grupo.getNombre().toString());
 				list.add(grupo);
 			}
 		
