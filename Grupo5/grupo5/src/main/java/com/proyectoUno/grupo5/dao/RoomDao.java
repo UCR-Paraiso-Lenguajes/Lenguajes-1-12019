@@ -52,7 +52,7 @@ public class RoomDao {
 
 		String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room as ur WHERE ur.id_user="+idUser+"&& ur.id_room=room.id_room";
 
-		;
+		
 
 		return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
 
