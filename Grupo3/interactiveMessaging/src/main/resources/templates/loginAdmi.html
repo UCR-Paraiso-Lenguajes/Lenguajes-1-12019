@@ -24,14 +24,106 @@
 	rel="stylesheet"
 	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
 	crossorigin="anonymous">
-	
-<script type="text/javascript" src="../static/js/functionLoginAdmi.js"
-	th:src="@{/js/functionLoginAdmi.js}"></script>	
-	
-<link href="../static/css/loginAdmi.css" type="text/css" rel="stylesheet"
-	th:href="@{/css/loginAdmi.css}" media="screen,projection">	
 
 </head>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#locales").change(function() {
+			var selectedOption = $('#locales').val();
+			if (selectedOption != '') {
+				window.location.replace('?lang=' + selectedOption);
+			}
+		});
+	});
+
+	$(function() {
+		$("form[name='login']").validate({
+			rules : {
+
+				email : {
+					required : true,
+					email : true
+				},
+				password : {
+					required : true,
+
+				}
+			},
+			messages : {
+				email : "Please enter a valid email address",
+
+				password : {
+					required : "Please enter password",
+
+				}
+
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+
+
+<style>
+
+body {
+	padding-top: 4.2rem;
+	padding-bottom: 4.2rem;
+	background: rgba(0, 0, 0, 0.76);
+}
+
+a {
+	text-decoration: none !important;
+}
+
+h1, h2, h3 {
+	font-family: 'Kaushan Script', cursive;
+}
+
+select {
+	font-family: serif, cursive;
+	font-size: medium;
+	border-color: #474747;
+	background: #474747;
+	color: #fff;
+	background-origin: transparent;
+}
+
+.myform {
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 1.1rem;
+	outline: 0;
+	max-width: 500px;
+}
+
+.tx-tfm {
+	text-transform: uppercase;
+}
+
+.mybtn {
+	border-radius: 50px;
+}
+
+form .error {
+	color: #ff0000;
+}
+
+</style>
 
 
 <body>
@@ -55,7 +147,7 @@
 								<h1 th:text="#{login.text}"></h1>
 							</div>
 						</div>
-						<form action="" method="post" name="login">
+						<form th:action="@{/}" method="post" name="login">
 							<div class="form-group">
 								<label th:text="#{email.text}"></label> <input type="email"
 									name="email" class="form-control" id="email"

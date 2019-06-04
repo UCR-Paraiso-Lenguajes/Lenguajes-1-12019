@@ -135,11 +135,14 @@ public class GroupData {
 			Room group = new Room(0, "", null);
 			int latestIdRoom=0;
 			
+
 			String sqlId = "select id from RoomApp order by id desc limit 1";
 		    Statement st = connection.createStatement();
 		    ResultSet rs = st.executeQuery(sqlId);
 		    while(rs.next())
 		    	latestIdRoom = rs.getInt("id");
+
+
 		
 			int idNewGroup=latestIdRoom+1;
 			String sqlSaveGroup = "insert into RoomApp values(?,?,?,?)";
