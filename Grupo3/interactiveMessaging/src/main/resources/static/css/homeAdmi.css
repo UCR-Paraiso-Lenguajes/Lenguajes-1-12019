@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 body {
 	display: flex;
 	align-items: center;
@@ -403,7 +401,7 @@ body {
 
 #frame .content {
 	float: right;
-	width: 60%;
+	width: 70%;
 	height: 100%;
 	overflow: hidden;
 	position: relative;
@@ -411,8 +409,8 @@ body {
 
 @media screen and (max-width: 735px) {
 	#frame .content {
-		width: calc(100% - 58px);
-		min-width: 300px !important;
+		width: calc(100% - 50px);
+		min-width: 250px !important;
 	}
 }
 
@@ -424,24 +422,18 @@ body {
 
 #frame .content .contact-profile {
 	width: 100%;
-	height: 60px;
-	line-height: 60px;
+	height: 70px;
+	line-height: 70px;
 	background: #f5f5f5;
 }
 
-#frame .content .contact-profile img {
-	width: 40px;
-	border-radius: 50%;
-	float: left;
-	margin: 9px 12px 0 9px;
-}
-
 #frame .content .contact-profile p {
-	float: left;
+	margin-right: 280px;
+	float: right;
 }
 
 #frame .content .contact-profile .settings-media {
-	float: right;
+	float: left;
 }
 
 #frame .content .contact-profile .settings-media i {
@@ -457,7 +449,7 @@ body {
 	color: #435f7a;
 }
 
-#frame .content .messages {
+#frame .content .setting {
 	height: auto;
 	min-height: calc(100% - 93px);
 	max-height: calc(100% - 93px);
@@ -466,21 +458,21 @@ body {
 }
 
 @media screen and (max-width: 735px) {
-	#frame .content .messages {
+	#frame .content .setting {
 		max-height: calc(100% - 105px);
 	}
 }
 
-#frame .content .messages::-webkit-scrollbar {
+#frame .content .setting::-webkit-scrollbar {
 	width: 8px;
 	background: transparent;
 }
 
-#frame .content .messages::-webkit-scrollbar-thumb {
+#frame .content .setting::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-#frame .content .messages ul li {
+#frame .content .setting ul li {
 	display: inline-block;
 	clear: both;
 	float: left;
@@ -489,36 +481,17 @@ body {
 	font-size: 0.9em;
 }
 
-#frame .content .messages ul li:nth-last-child(1) {
+#frame .content .setting ul li:nth-last-child(1) {
 	margin-bottom: 20px;
 }
 
-#frame .content .messages ul li.sent img {
-	margin: 6px 8px 0 0;
-}
-
-#frame .content .messages ul li.sent p {
-	background: #435f7a;
-	color: #f5f5f5;
-}
-
-#frame .content .messages ul li.replies img {
-	float: right;
-	margin: 6px 0 0 8px;
-}
-
-#frame .content .messages ul li.replies p {
-	background: #f5f5f5;
-	float: right;
-}
-
-#frame .content .messages ul li img {
-	width: 22px;
+#frame .content .setting ul li img {
+	width: 50px;
 	border-radius: 50%;
 	float: left;
 }
 
-#frame .content .messages ul li p {
+#frame .content .setting ul li p {
 	display: inline-block;
 	padding: 10px 15px;
 	border-radius: 20px;
@@ -527,194 +500,31 @@ body {
 }
 
 @media screen and (min-width: 735px) {
-	#frame .content .messages ul li p {
+	#frame .content .setting ul li p {
 		max-width: 300px;
 	}
 }
 
-#frame .content .message-input {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	z-index: 99;
-}
-
-#frame .content .message-input .wrap {
-	position: relative;
-}
-
-#frame .content .message-input .wrap input {
-	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
-	float: left;
-	border: none;
-	width: calc(100% - 90px);
-	padding: 11px 32px 10px 8px;
-	font-size: 0.8em;
-	color: #32465a;
-}
-
-@media screen and (max-width: 735px) {
-	#frame .content .message-input .wrap input {
-		padding: 15px 32px 16px 8px;
-	}
-}
-
-#frame .content .message-input .wrap input:focus {
-	outline: none;
-}
-
-#frame .content .message-input .wrap .attachment {
-	position: absolute;
-	right: 60px;
-	z-index: 4;
-	margin-top: 10px;
-	font-size: 1.1em;
-	color: #435f7a;
-	opacity: .5;
-	cursor: pointer;
-}
-
-@media screen and (max-width: 735px) {
-	#frame .content .message-input .wrap .attachment {
-		margin-top: 17px;
-		right: 65px;
-	}
-}
-
-#frame .content .message-input .wrap .attachment:hover {
-	opacity: 1;
-}
-
-#frame .content .message-input .wrap button {
-	float: right;
-	border: none;
-	width: 50px;
-	padding: 12px 0;
-	cursor: pointer;
-	background: #32465a;
-	color: #f5f5f5;
-}
-
-@media screen and (max-width: 735px) {
-	#frame .content .message-input .wrap button {
-		padding: 16px 0;
-	}
-}
-
-#frame .content .message-input .wrap button:hover {
-	background: #435f7a;
-}
-
-#frame .content .message-input .wrap button:focus {
-	outline: none;
-}
-
-.overlay {
-	background: rgba(0, 0, 0, .3);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	visibility: hidden;
-}
-
-.overlay.active {
-	visibility: visible;
-}
-
-.popup {
-	background: #F8F8F8; /*da color al fondo*/
-	box-shadow: 0px 0px 5px 0px rgba(255, 125, 0, 0.5);
-	border-radius: 3px;
-	padding: 20px;
-	width: 500px;
-	height: 400px;
-}
-
- #headingPopUp { 
- 
- color: white; 
- text-align: center;
- }
-
-.contenPopup {
-	background: #F8F8F8;
-	overflow: auto;
-	width: 470px;
-	height: 450px;
-	min-height: calc(100% - 93px);
-	max-height: calc(100% - 93px);
-	left: 0;
-}
-
-.popup .btn-cerrar-popup {
-	font-size: 16px;
-	line-height: 16px;
-	display: block;
-	text-align: right;
-	color: #BBBBBB;
-}
-
-.popup .btn-cerrar-popup:hover {
-	color: #000;
-}
-
-.popup .encabezadoPopup {
-	background: #2c3e50;
-	transition: .2s ease all;
-}
-
-.encabezadoPopup .h4 {
-	font-size: 10px;
-	text-align: center;
-	color: red;
-}
-
-/****************************************************************/
-.contenPopup .contact-group img {
+#frame .content .contact-group img {
 	width: 150px;
 	border-radius: 50%;
 	float: center;
 	margin: 9px 12px 0 9px;
 }
 
-#popup .contenPopup::-webkit-scrollbar {
-	width: 8px;
-	background: transparent;
+#frame .content .contact-group p {
+	float: center;
+}
+#frame .content .contact-group b{
+	float: center;
+  	font-weight: bold;
 }
 
-#popup .contenPopup::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, 0.3);
-}
+#frame .content .contact-group input {
+   font-family : inherit;
+   font-size   : 100%;
+   border-radius: 15px;
+   border: 1px solid #39c;
+   background-color: #def;
+ }
 
-.contenPopup .contact-group ul li {
-	display: inline-block;
-	clear: both;
-	float: left;
-	margin: 15px 15px 5px 15px;
-	width: calc(100% - 25px);
-	font-size: 0.9em;
-	background: #E8E8E8;
-}
-
-.contenPopup .contact-group ul li:nth-last-child(1) {
-	margin-bottom: 20px;
-}
-
-.contenPopup .contact-group ul li p {
-	display: inline-block;
-	padding: 30px 15px;
-	border-radius: 20px;
-	max-width: 205px;
-	line-height: 130%;
-}
-
-.contenPopup .contact-group ul li img {
-	width: 50px;
-	border-radius: 50%;
-	float: left;
-}

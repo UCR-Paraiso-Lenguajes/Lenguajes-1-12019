@@ -99,12 +99,12 @@ public class MetricsData {
 	}
 	
 	
-//	@Transactional(readOnly=true)
-//	public Iterator<Metrics> recoverMetricsData(){
-//		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
-//				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
-//		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
-//	}
+	@Transactional(readOnly=true)
+	public Metrics recoverMetricsData(){
+		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
+				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
+		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
+	}
 	
 	
 }
