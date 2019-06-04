@@ -31,4 +31,9 @@ public class MetricsBusiness{
 		
 		metrics.delete(id_room, id_user);
 	}
+
+	public void promoteUser(int id_room, int id_user) {
+		metrics.promoteUser(id_room, id_user);
+		
+	}
 }

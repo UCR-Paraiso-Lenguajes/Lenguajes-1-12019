@@ -63,5 +63,14 @@ public class AdminControllerRest {
 			@PathVariable int id_user)
 	{
 		metricBusiness.delete(id_room,id_user);
-	}	
+	}
+	
+	
+	@RequestMapping(value="/admin/room/{id_room}/{id_user}", method=RequestMethod.PUT )
+	public @ResponseBody void promoteUser(
+			@PathVariable int id_room ,
+			@PathVariable int id_user)
+	{
+		metricBusiness.promoteUser(id_room,id_user);
+	}
 }

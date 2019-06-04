@@ -301,4 +301,11 @@ public class MetricsDao {
 			
 		}
 
+
+		public void promoteUser(int id_room, int id_user) {
+			String sqlSelect = "UPDATE user_role_room SET id_roleUser = 1 where id_user = "+id_user+" && id_room="+id_room;
+						jdbcTemplate.batchUpdate(sqlSelect);
+			
+		}
+
 }
