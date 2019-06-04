@@ -60,10 +60,9 @@
 		<div class="chat-column-right">
 			<div class="chat-info">
 				<div class="chat-info_user">
-					<!--     <div class="chat-info_user_fullname">ConversaciÃƒÂ³n usuario actual</div> -->
-					<!--    <div class="chat-info_user_last_visit">ÃƒÅ¡ltima vez conectado: hace 5 minutos.</div>-->
-					<!--                     <label for="Na
-me">th:text="${grupo.nombre}"</label> -->
+					    <div class="chat-info_user_fullname">ConversaciÃƒÂ³n usuario actual</div>
+					   <div class="chat-info_user_last_visit">ÃƒÅ¡ltima vez conectado: hace 5 minutos.</div>
+					                    <label for="Name">th:text="${grupo.nombre}"</label>
 
 				</div>
 
@@ -90,7 +89,7 @@ me">th:text="${grupo.nombre}"</label> -->
 
 			</div>
 			<div class="chat-form">
-				<form action="#" class="chat-form_form">
+				<form action="msn" class="chat-form_form">
 					<div class="chat-form_form_attach"></div>
 					<div class="chat-form_form_message">
 						<textarea maxlength="500" id="Enviar"
@@ -115,9 +114,9 @@ me">th:text="${grupo.nombre}"</label> -->
 						</button>
 						
 						<script th:inline="javascript">
-						var usuario = $("#id");
+						var usuario = $(" /*[[${usuario}]]*/");
 						var contenido= $("#Enviar");
-						var grupo = $("#apellidos");
+						var grupo = $(" /*[[${grupo}]]*/");
 						
 						var botonEnviar = $("#botonEnviar");
 						

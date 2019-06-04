@@ -18,7 +18,7 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 public class MensajeData {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private  SimpleJdbcCall simpleJdbcCall;
+	@Autowired
 	private DataSource dataSource;
 	@Transactional(readOnly=true)
 	public void nuevoMensaje(Mensaje mensaje) {

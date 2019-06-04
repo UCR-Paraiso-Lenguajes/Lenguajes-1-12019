@@ -32,7 +32,7 @@ public class UsuarioBusiness {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
-	private UsuarioData usuariodata;
+	private UsuarioData usuarioData;
 	
 	public UsuarioBusiness() {
 		listaNombres = new ArrayList<>();
@@ -238,6 +238,31 @@ public class UsuarioBusiness {
 		}else if (usuario.getHash()==null ) {
 			throw new UsuarioException("el hash no puede estar vacio");
 		}
-		usuariodata.save(usuario);
+		usuarioData.save(usuario);
 	}
+	
+		public boolean existeHash(String hash){
+		
+		 ArrayList<Usuario>usuarios=usuarioData.listarUsuarios();
+		 ArrayList<String> hashs=new ArrayList<String>();
+		 for (int i = 0; i < usuarios.size(); i++) {
+			hashs.add(usuarios.get(i).getHash());
+		}
+		 return hashs.contains(hash);
+		}
+		public	Usuario getUsuarioHash(String hash){
+			if (!existeHash(hash)) {
+				throw new UsuarioException("usuario no existe");
+			}else {
+				 ArrayList<Usuario>usuarios=usuarioData.listarUsuarios();
+				 Usuario usuario=new Usuario();
+				 for (int i = 0; i < usuarios.size(); i++) {
+					 if (usuarios.get(i).getHash().equals(hash)) {
+						usuario=usuarios.get(i);
+					}
+				}
+				return usuario; 
+			}
+			
+			}
 }

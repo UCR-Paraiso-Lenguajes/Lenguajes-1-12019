@@ -31,12 +31,10 @@ public class GrupoData {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private  SimpleJdbcCall simpleJdbcCall;
-	private DataSource dataSource;
+	
 	@Autowired
-	public  void setDataSource(DataSource dataSource) {
-		this.dataSource=dataSource;
-		this.simpleJdbcCall=new	SimpleJdbcCall( dataSource);
-	}
+	private DataSource dataSource;
+	
 	@Transactional(readOnly=true)
 	public void save(Grupo grupo) {
 		Connection conexion = null; 

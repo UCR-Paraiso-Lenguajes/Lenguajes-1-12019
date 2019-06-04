@@ -15,10 +15,11 @@ public class Usuario {
 	private int cantidadMensajes;
 	private ArrayList<Grupo> listaGrupos;
 	
-	
+    
 	
 	public Usuario() {
-		
+		listaRoles=new ArrayList<Rol>();
+		listaGrupos= new ArrayList<Grupo>();
 	}
 
 	public Usuario(String hash) throws UsuarioException {
