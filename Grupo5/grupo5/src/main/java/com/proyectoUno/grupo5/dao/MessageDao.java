@@ -159,10 +159,20 @@ public class MessageDao {
 	    
 	       private void updateVersion(int idRoom) {
 			int version=versionFinal();
-			
+			version=version+1;
+			updateVersionAct(idRoom,version);
 			
 		}
-	    public void updateMetricMesage(String message) {
+	       
+	       @Transactional
+	    private void updateVersionAct(int idRoom, int version) {
+	    		String sqlSelect = "UPDATE room SET version="+version+"WHERE id_room="+idRoom+"";
+				jdbcTemplate.batchUpdate(sqlSelect);
+			
+		}
+
+
+		public void updateMetricMesage(String message) {
 	    	String messageInMetrics = updateMetricMessage();
 	    	
 	    	if(message.length()>messageInMetrics.length()) {
