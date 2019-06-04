@@ -22,16 +22,17 @@ var admin = new Vue({
         }, 3000);
     },
     methods: {
-        getRooms: function () {
+        getUsers: function () {
             axios
-                .get('http://localhost:8080/msn/admin/rooms/' + this.idRoom)
+                .get('http://localhost:8080/msn/admin/rooms/userRole/' + this.idRoom)
                 .then(response => (this.users = response.data));
         },
         userPerRoom: function (idRoom) {
             this.userDetails = true;
             this.metricDetails = false;
             this.idRoom = idRoom;
-            this.getRooms();
+            this.getUsers();
+
         },
         promoveAdmin: function (idUser) {
             axios.put(('http://localhost:8080/msn/admin/room/' + this.idRoom + '/' + idUser))
@@ -55,7 +56,7 @@ var admin = new Vue({
         },
         refreshUser: function () {
             axios
-                .get('http://localhost:8080/msn/admin/rooms/' + this.idRoom)
+                .get('http://localhost:8080/msn/admin/rooms/userRole/' + this.idRoom)
                 .then(response => (this.users = response.data));
         },
         metricsRefresh: function () {
