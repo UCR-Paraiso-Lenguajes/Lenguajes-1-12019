@@ -8,7 +8,10 @@ var room = new Vue({
         rooms: [],
         idUser: '',
         idRoom: 0,
-        sendMessage: {}
+        sendMessage: {},
+        nombreRoom: '',
+        createdRoom: {},
+        createdUser: {}
     },
     mounted() {
         let url = 'url' + window.location;
@@ -22,6 +25,18 @@ var room = new Vue({
         createRoom: function () {
             this.isRoom = !this.isRoom;
             this.isChat = false;
+            this.createdRoom = {
+                roomName: this.nombreRoom,
+            }
+            this.createUser = {
+                idUser: this.idUser
+            }
+            axios.post(`http://localhost:8080/msn/createRoom`, this.createdRoom, this.createUser)
+                .then(response => { })
+                .catch(e => {
+                    //this.errors.push(e)
+                });
+            this.nombreRoom = '';
         },
         verChatPerRoom: function (idRoom) {
             this.idRoom = idRoom;
@@ -34,8 +49,8 @@ var room = new Vue({
                 contenido: this.message,
                 userSendThatMessage: this.idUser,
                 idRoom: this.idRoom
-            },
-                this.message = '';
+            }
+            this.message = '';
             this.insertMessage();
             setInterval(() => {
                 this.getMessagePerRoom();

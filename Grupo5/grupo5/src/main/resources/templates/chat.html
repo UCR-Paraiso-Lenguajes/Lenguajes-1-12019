@@ -76,7 +76,7 @@
                         <div id="menu">
                             <div style="clear:both">
                                 <button class="btn btn-default">Info</button>
-                                <button class="btn btn-default">Agregar Usuarios</button>
+                                <button class="btn btn-default">Invitar</button>
                             </div>
                         </div>
                         <div id="chatbox">
@@ -124,7 +124,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <h3 id="textChat"> Ingrese el nombre del Grupo</h3>
-                                    <input type="text" class="form-control inputChat" placeholder="Escribe...."
+                                    <input type="text" v-model="nombreRoom" class="form-control inputChat" placeholder="Escribe...."
                                         maxlength="25">
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                         <div class="row">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-3">
-                                <input class="btn btn-success btn-lg" value="Crear Grupo"></input>
+                                <button @click="createRoom" class="btn btn-success btn-lg">Crear Grupo</button>
                             </div>
                             <div class="col-sm-3">
                                 <button class="btn btn-danger btn-lg">Cancelar</button>
