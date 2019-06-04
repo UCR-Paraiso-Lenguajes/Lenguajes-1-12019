@@ -37,7 +37,10 @@ public class MetricsController {
 	
 	@RequestMapping(value="/metrics", method=RequestMethod.GET)
     public String metrics(Model model) {
-		Iterator<Metrics> metrics = metricsBusiness.recoverMetricsData();
+//		Iterator<Metrics> metrics = metricsBusiness.recoverMetricsData();
+//		model.addAttribute("metrics", metrics.next());
+//		return "metrics";
+		Metrics metrics = metricsBusiness.recoverMetricsData();
 		
 		ArrayList<Message> messages=
 
@@ -47,7 +50,7 @@ public class MetricsController {
 						List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
 						model.addAttribute("groups",groups);
 		
-		model.addAttribute("metrics", metrics.next());
+		model.addAttribute("metrics", metrics);
 		return "homeAdmi";
     }
 }
