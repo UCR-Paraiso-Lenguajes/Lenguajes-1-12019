@@ -30,7 +30,7 @@
                     <div class="col-sm-2">
                     </div>
                     <div class="col-sm-4">
-                        <button @click="createRoom" class="btn btn-default">Ver Room</button>
+                        <button @click="createRoom" class="btn btn-default">Crear Room</button>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-sm-10">
                         <div v-for="room in rooms">
-                            <button v-on:click="verChatPerRoom" class="btn btn-default well">
+                            <button v-on:click="verChatPerRoom(room.idRoom)" class="btn btn-default well">
                                 <div class="row">
                                     <div class="col-sm-2">
                                         <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
@@ -83,15 +83,17 @@
                             <div class="msj" v-for="msj in messages">
                                 <div class="row">
                                     <div class="col-sm-1"></div>
-                                    <div class="col-sm-1">
+                                    <div class="col-sm-1"><br>
                                         <img src="https://img.icons8.com/color/40/000000/user.png" alt="">
-                                        <h6>Andres Coto</h6>
+                                        <h6>{{msj.idUser}}</h6>
                                     </div>
                                     <div class="col-sm-8">
+                                        <br>
                                         <p>{{msj.message}}</p>
                                     </div>
                                     <div class="col-sm-1">
-                                        <h5 class="der">fecha</h5>
+                                        <br>
+                                        <h5 class="der">{{msj.idRoom}}</h5>
                                     </div>
                                     <div class="col-sm-1"></div>
                                 </div>
@@ -100,7 +102,7 @@
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" v-model="message" placeholder="Escribe...." type="text"
-                                cols="20" rows="5" maxlength="255">Escribe aquí tus mensajes</textarea>
+                                cols="20" rows="5" maxlength="500">Escribe aquí tus mensajes</textarea>
                             <button @click="enviarMensaje" type="submit"
                                 class="btn btn-success form-control">Send</button>
                         </div>
