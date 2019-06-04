@@ -46,7 +46,8 @@
 
 		<div id="sidepanel">
 			<div id="profile">
-				<p>Mike Ross</p>
+				<p th:text="#{groupsAdmi.text}"></p>
+				<br><br>
 			</div>
 
 			<div id="contacts">
@@ -75,57 +76,53 @@
 		<div class="content">
 			<div class="contact-profile">
 
-				<p>Informacion</p>
-				<div class="settings-media" id="settings">
+				<p th:text="#{infoAdmi.text}"></p>
 
-					<i class="" id="return" title="Informacion">return</i>
-
-				</div>
 			</div>
 
 			<div class="setting">
 
 				<ul>
 					<br>
-					<li><p>Number of rooms: </p><input type="text"
+					<li><p th:text="#{numberRooms.text}"> </p><input type="text"
 						class="form-control" th:field="*{metrics.numberOfRooms}" disabled />
 					</li>
 					<br>
-					<li><p>Number of User: </p><input type="text"
+					<li><p th:text="#{numberUser.text}"></p><input type="text"
 						class="form-control" th:field="*{metrics.numberOfUsers}" disabled />
 					</li>
 					<br>
-					<li><p>Average of users per room: </p><input
+					<li><p th:text="#{averageUsers.text}"></p><input
 						type="text" class="form-control"
 						th:field="*{metrics.averageOfUsersPerRoom}" disabled /></li>
 					<br>
-					<li><p>Date last message: </p><input type="text"
+					<li><p th:text="#{datelastMesage.text}"></p><input type="text"
 						class="form-control" th:field="*{metrics.dateLastMessage}"
 						disabled /></li>
 					<br>
-					<li><p>Date first login: </p> <input type="text"
+					<li><p th:text="#{dateFirstLogin.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.dateFirstLogin}" disabled />
 					</li>
 					<br>
-					<li><p>User with more message: </p><input type="text"
+					<li><p th:text="#{userMessage.text}"> </p><input type="text"
 						class="form-control" th:field="*{metrics.BigUser}" disabled /></li>
 					<br>
-					<li><p>Quantity messages' user: </p> <input
+					<li><p th:text="#{quantityMessagesUser.text}"> </p> <input
 						type="text" class="form-control" th:field="*{metrics.numberMessagesBigUser}"
 						disabled /></li>
 					<br>
-					<li><p>Longest Message: </p> <input type="text"
+					<li><p th:text="#{longestMessage.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.LongestMessage}"
 						disabled /></li>
 					<br>
-					<li><p>Last room created: </p> <input type="text"
+					<li><p th:text="#{lastRoom.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.LastRoomCreated}"
 						disabled /></li>
 					<br>
-					<li><p>Room with more message: </p> <input type="text"
+					<li><p th:text="#{roomMoreMessage.text}"> </p> <input type="text"
 						class="form-control" th:field="*{metrics.BiggestRoom}" disabled /></li>
 					<br>
-					<li><p>Quantity of message: </p> <input type="text"
+					<li><p th:text="#{quantityMessage.text}"> </p> <input type="text"
 						class="form-control"
 						th:field="*{metrics.numberMessagesBiggestRoom}" disabled /></li>
 				</ul>
