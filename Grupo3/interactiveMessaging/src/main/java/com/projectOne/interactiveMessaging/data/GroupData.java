@@ -182,7 +182,7 @@ public class GroupData {
 		}
 	}
 	
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public Iterator<Room> getGroups() {
 		String nameTable = "";
 		String selectMysql;
