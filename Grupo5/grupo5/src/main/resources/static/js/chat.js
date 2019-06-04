@@ -15,9 +15,11 @@ var room = new Vue({
     methods: {
         createRoom: function () {
             this.isRoom = !this.isRoom;
+            this.isChat = false;
         },
         verChatPerRoom: function () {
             this.isChat = !this.isChat;
+            this.isRoom = false;
         },
         enviarMensaje: function () {
             this.messages.push({
