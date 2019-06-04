@@ -35,7 +35,6 @@ public class MessageDao {
 
 	    
 	    private Map<Integer, Message> messages;
-	    private Map<Integer,Message> filterHash;
 
 	    
 	    private Room room;
@@ -73,8 +72,8 @@ public class MessageDao {
 	                if (message == null) {
 	                	message = new Message();
 	                	message.setIdMessage(id);;
-	                	message.setContenido(rs.getString("content"));
-	                    message.setFecha(rs.getDate("dateMessage"));
+	                	message.setContenido(rs.getString("containt"));
+	                    message.setFecha(rs.getDate("date"));
 
 	                    map.put(id, message);
 
@@ -95,18 +94,24 @@ public class MessageDao {
 	    	 
 	    }
 	    
-	    public Map<Integer, Message> insertMessageSincro(Message message){
-	    	
-	    	messages.put(message.getIdMessage(), message);
-	        Map<Integer,Message> synchonizedMessage = Collections.synchronizedMap(messages);
-
-	    	return synchonizedMessage;
-	    }
 	    
-	    public Map<Integer, Message> getMessagesSincro(int idRoom){
+	    public Map<Integer, Message> getMessagesSincro(List<Message> message){
 			
+	    	Map<Integer, Message> messagesMap = new HashMap<>();
 	    	
-	    	for (Map.Entry<Integer, Message> entry : messages.entrySet()) {
+	    	for (Message messageList : message) {
+				
+	    		messagesMap.put(messageList.getIdMessage(), messageList );
+	    		
+			}
+	    	
+	        Map<Integer,Message> synchonizedMessage = Collections.synchronizedMap(messagesMap);
+
+	    	
+	    	return synchonizedMessage;
+	    	
+	    	
+	    	/*for (Map.Entry<Integer, Message> entry : messages.entrySet()) {
 	    		
 	    		if(entry.getValue().getIdRoom()==idRoom) {
 	    			
@@ -118,7 +123,7 @@ public class MessageDao {
 	    	}
 	    	
 	    	return filterHash;
-	    	
+	    	*/
 	    }
 	    
 

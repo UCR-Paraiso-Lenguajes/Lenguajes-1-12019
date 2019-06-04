@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.controller.rest;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,11 @@ import com.proyectoUno.grupo5.business.MessageBussiness;
 import com.proyectoUno.grupo5.domain.Admin;
 import com.proyectoUno.grupo5.domain.Message;
 
-
 @RestController
 public class MessageControllerRest {
+
+	@Autowired
+	private MessageBussiness messageBusiness;
 
 	
 		@Autowired
@@ -48,8 +51,16 @@ public class MessageControllerRest {
 			//return new ResponseEntity<>(messageBusiness.getMessagesSincro(1), HttpStatus.OK);
 			return messagesSincro;
 		}
-		
-		 
-		
-}
 
+	@RequestMapping(value = "/msn/insertMessage", method = RequestMethod.POST)
+	public ResponseEntity<Object> postInsertMessages(@RequestBody Message message) {
+
+		return new ResponseEntity<>(messageBusiness.insertMessage(message), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/msn/getMessages", method = RequestMethod.GET)
+	public ResponseEntity<Object> getMessages(){
+		return new ResponseEntity<>(messageBusiness.getMessagesByIdRoom(2),  HttpStatus.OK);
+	}
+
+}

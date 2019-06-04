@@ -27,14 +27,14 @@ public class MessageBussiness {
 	    
 	    public Map<Integer, Message> insertMessageSincro(Message message){
 
-	    	return messageDao.insertMessageSincro(message);
+	    ////	return messageDao.insertMessageSincro(message);
 
 	    }
 	    
 	    public Map<Integer, Message> getMessagesSincro(int idRoom){
 	    	
 	    	
-	    	return messageDao.getMessagesSincro(idRoom);
+	    	return messageDao.getMessagesSincro(messageDao.getMessagesByIdRoom(idRoom));
 	    	
 	    	
 	    }
