@@ -57,6 +57,15 @@ public class AdminControllerRest {
 		
 	}
 	
+	@RequestMapping(value="/admin/rooms/userRole/{id_room}", method=RequestMethod.GET)
+	public ResponseEntity<Object> getUsersWithRole(@PathVariable int id_room ) {
+		
+		return new ResponseEntity<>(userBusiness.getUsersWithRole(id_room), HttpStatus.OK);
+ 
+		
+	}
+	
+	
 	@RequestMapping(value="/admin/room/{id_room}/{id_user}", method=RequestMethod.DELETE )
 	public @ResponseBody void deleteUser(
 			@PathVariable int id_room ,

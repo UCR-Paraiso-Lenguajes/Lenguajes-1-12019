@@ -12,7 +12,16 @@ public class User {
 	private ArrayList<Message> messages;
 	private ArrayList<Room> rooms;
 	private String hash;
+	private int idRole;
 	
+	public int getIdRole() {
+		return idRole;
+	}
+
+	public void setIdRole(int idRole) {
+		this.idRole = idRole;
+	}
+
 	public User(int idUser, String email, String username, String avatar, ArrayList<Role> roleUser,
                 ArrayList<Message> messages, ArrayList<Room> rooms, String hash) {
 		super();

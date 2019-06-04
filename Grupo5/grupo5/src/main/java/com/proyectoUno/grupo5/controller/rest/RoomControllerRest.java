@@ -40,7 +40,7 @@ public class RoomControllerRest {
 	}
 	
 	   @RequestMapping(value="/createRoom/{id_user}", method=RequestMethod.POST)
-	    public String ingreso(@ModelAttribute(name="room")  Room room, Model model,@PathVariable int id_user) {
+	    public String ingreso(@PathVariable Room room,@PathVariable int id_user) {
 	    	
 	    	
 	    	room.setRoomName(room.getRoomName());
