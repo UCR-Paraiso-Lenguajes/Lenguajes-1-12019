@@ -22,6 +22,9 @@ public class ClassListNewMessages {
 		ArrayList<SingleGroupMessage> subListOfSingleGroupMessages = new ArrayList<>();
 		int position = 0;
 		SingleGroupMessage singleGroupMessage;
+		if( listOfSingleGroupMessages.size()!=0) {
+			boolean cae = true;
+		}
 		for (int i = 0; i < listOfSingleGroupMessages.size(); i++) {
 			singleGroupMessage = listOfSingleGroupMessages.get(i);
 			if(singleGroupMessage.getIdGroup()==idGroup&&singleGroupMessage.getMessage().getUserTransmitter().getUser_id()!=idUser) {

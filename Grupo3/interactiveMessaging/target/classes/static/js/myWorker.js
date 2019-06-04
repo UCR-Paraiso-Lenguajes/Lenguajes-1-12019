@@ -32,6 +32,7 @@ function startTimer() {
 }
 function upDateMessagesFrame(){
 	ulM.empty();
+	$.post('http://'+host+':8080/msn/api/usersGroup/'+ idGroup.value +'/'+ idUserRoom.val(), {category:'client', type:'premium'});
 	$
 	.getJSON(
 			"http://"+host+":8080/msn/api/messages/?idGroup="

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon"
+	href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+<link rel="mask-icon" type=""
+	href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+	color="#111" />
+<link rel="canonical"
+	href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+<link
+	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300'
+	rel='stylesheet' type='text/css'>
+<script src="https://use.typekit.net/hoy3lrg.js"></script>
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<script
+	src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script>
+	try {
+		Typekit.load({
+			async : true
+		});
+	} catch (e) {
+	}
+</script>
+
+
+
+<style class="cp-pen-styles">
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: #505050;
+	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+	font-size: 1em;
+	letter-spacing: 0.1px;
+	color: #32465a;
+	text-rendering: optimizeLegibility;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+	-webkit-font-smoothing: antialiased;
+}
+
+#frame {
+	width: 95%;
+	min-width: 360px;
+	max-width: 1000px;
+	height: 92vh;
+	min-height: 300px;
+	max-height: 720px;
+	background: #E6EAEA;
+}
+
+@media screen and (max-width: 360px) {
+	#frame {
+		width: 100%;
+		height: 100vh;
+	}
+}
+
+#frame #sidepanel {
+	float: left;
+	min-width: 280px;
+	max-width: 340px;
+	width: 40%;
+	height: 100%;
+	background: #2c3e50;
+	color: #f5f5f5;
+	overflow: hidden;
+	position: relative;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel {
+		width: 58px;
+		min-width: 58px;
+	}
+}
+
+#frame #sidepanel #profile {
+	width: 80%;
+	margin: 25px auto;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #profile {
+		width: 100%;
+		margin: 0 auto;
+		padding: 5px 0 0 0;
+		background: #32465a;
+	}
+}
+
+#frame #sidepanel #profile.expanded .wrap {
+	height: 210px;
+	line-height: initial;
+}
+
+#frame #sidepanel #profile.expanded .wrap p {
+	margin-top: 20px;
+}
+
+#frame #sidepanel #profile.expanded .wrap i.expand-button {
+	-moz-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+#frame #sidepanel #profile .wrap {
+	height: 60px;
+	line-height: 60px;
+	overflow: hidden;
+	-moz-transition: 0.3s height ease;
+	-o-transition: 0.3s height ease;
+	-webkit-transition: 0.3s height ease;
+	transition: 0.3s height ease;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #profile .wrap {
+		height: 55px;
+	}
+}
+
+#frame #sidepanel #profile .wrap img {
+	width: 50px;
+	border-radius: 50%;
+	padding: 3px;
+	height: auto;
+	float: left;
+	cursor: pointer;
+	-moz-transition: 0.3s border ease;
+	-o-transition: 0.3s border ease;
+	-webkit-transition: 0.3s border ease;
+	transition: 0.3s border ease;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #profile .wrap img {
+		width: 40px;
+		margin-left: 4px;
+	}
+}
+
+#frame #sidepanel #profile .wrap p {
+	float: left;
+	margin-left: 15px;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #profile .wrap p {
+		display: none;
+	}
+}
+
+#frame #sidepanel #profile .wrap i.expand-button {
+	float: right;
+	margin-top: 23px;
+	font-size: 0.8em;
+	cursor: pointer;
+	color: #435f7a;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #profile .wrap i.expand-button {
+		display: none;
+	}
+}
+
+#frame #sidepanel #profile .wrap #expanded {
+	padding: 100px 0 0 0;
+	display: block;
+	line-height: initial !important;
+}
+
+#frame #sidepanel #profile .wrap #expanded label {
+	float: left;
+	clear: both;
+	margin: 0 8px 5px 0;
+	padding: 5px 0;
+}
+
+#frame #sidepanel #profile .wrap #expanded input {
+	border: none;
+	margin-bottom: 6px;
+	background: #32465a;
+	border-radius: 3px;
+	color: #f5f5f5;
+	padding: 7px;
+	width: calc(100% - 43px);
+}
+
+#frame #sidepanel #profile .wrap #expanded input:focus {
+	outline: none;
+	background: #435f7a;
+}
+
+#frame #sidepanel #search {
+	border-top: 1px solid #32465a;
+	border-bottom: 1px solid #32465a;
+	font-weight: 300;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #search {
+		display: none;
+	}
+}
+
+#frame #sidepanel #search label {
+	position: absolute;
+	margin: 10px 0 0 20px;
+}
+
+#frame #sidepanel #search input {
+	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+	padding: 10px 0 10px 46px;
+	width: calc(100% - 25px);
+	border: none;
+	background: #32465a;
+	color: #f5f5f5;
+}
+
+#frame #sidepanel #search input:focus {
+	outline: none;
+	background: #435f7a;
+}
+
+#frame #sidepanel #search input::-webkit-input-placeholder {
+	color: #f5f5f5;
+}
+
+#frame #sidepanel #search input::-moz-placeholder {
+	color: #f5f5f5;
+}
+
+#frame #sidepanel #search input:-ms-input-placeholder {
+	color: #f5f5f5;
+}
+
+#frame #sidepanel #search input:-moz-placeholder {
+	color: #f5f5f5;
+}
+
+#frame #sidepanel #contacts {
+	height: calc(100% - 177px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #contacts {
+		height: calc(100% - 149px);
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+	#frame #sidepanel #contacts::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+#frame #sidepanel #contacts.expanded {
+	height: calc(100% - 334px);
+}
+
+#frame #sidepanel #contacts::-webkit-scrollbar {
+	width: 8px;
+	background: #2c3e50;
+}
+
+#frame #sidepanel #contacts::-webkit-scrollbar-thumb {
+	background-color: #243140;
+}
+
+#frame #sidepanel #contacts ul li.contact {
+	position: relative;
+	padding: 10px 0 15px 0;
+	font-size: 0.9em;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #contacts ul li.contact {
+		padding: 6px 0 46px 8px;
+	}
+}
+
+#frame #sidepanel #contacts ul li.contact:hover {
+	background: #32465a;
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap {
+	width: 88%;
+	margin: 0 auto;
+	position: relative;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #contacts ul li.contact .wrap {
+		width: 100%;
+	}
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap span {
+	position: absolute;
+	left: 0;
+	margin: -2px 0 0 -2px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 2px solid #2c3e50;
+	background: #95a5a6;
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap img {
+	width: 40px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 10px;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #contacts ul li.contact .wrap img {
+		margin-right: 0px;
+	}
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap .meta {
+	padding: 5px 0 0 0;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #contacts ul li.contact .wrap .meta {
+		display: none;
+	}
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap .meta .name {
+	font-weight: 600;
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap .meta .preview {
+	margin: 5px 0 0 0;
+	padding: 0 0 1px;
+	font-weight: 400;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-moz-transition: 1s all ease;
+	-o-transition: 1s all ease;
+	-webkit-transition: 1s all ease;
+	transition: 1s all ease;
+}
+
+#frame #sidepanel #contacts ul li.contact .wrap .meta .preview span {
+	position: initial;
+	border-radius: initial;
+	background: none;
+	border: none;
+	padding: 0 2px 0 0;
+	margin: 0 0 0 1px;
+	opacity: .5;
+}
+
+#frame #sidepanel #bottom-bar {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+#frame #sidepanel #bottom-bar button {
+	float: left;
+	border: none;
+	width: 50%;
+	padding: 10px 0;
+	background: #32465a;
+	color: #f5f5f5;
+	cursor: pointer;
+	font-size: 0.85em;
+	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #bottom-bar button {
+		float: none;
+		width: 100%;
+		padding: 15px 0;
+	}
+}
+
+#frame #sidepanel #bottom-bar button:focus {
+	outline: none;
+}
+
+#frame #sidepanel #bottom-bar button:nth-child(1) {
+	border-right: 2px solid #2c3e50;
+}
+
+@media screen and (max-width: 15000px) {
+	#frame #sidepanel #bottom-bar button:nth-child(1) {
+		border-right: none;
+		border-bottom: 2px solid #2c3e50;
+	}
+}
+
+#frame #sidepanel #bottom-bar button:hover {
+	background: #435f7a;
+}
+
+#frame #sidepanel #bottom-bar button i {
+	margin-right: 3px;
+	font-size: 1em;
+}
+
+@media screen and (max-width: 15000px) {
+	#frame #sidepanel #bottom-bar button i {
+		font-size: 1.3em;
+	}
+}
+
+@media screen and (max-width: 735px) {
+	#frame #sidepanel #bottom-bar button span {
+		display: none;
+	}
+}
+
+#frame .content {
+	float: right;
+	width: 60%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content {
+		width: calc(100% - 58px);
+		min-width: 300px !important;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	#frame .content {
+		width: calc(100% - 340px);
+	}
+}
+
+#frame .content .contact-profile {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	background: #f5f5f5;
+}
+
+#frame .content .contact-profile img {
+	width: 40px;
+	border-radius: 50%;
+	float: left;
+	margin: 9px 12px 0 9px;
+}
+
+#frame .content .contact-profile p {
+	float: left;
+}
+
+#frame .content .contact-profile .settings-media {
+	float: right;
+}
+
+#frame .content .contact-profile .settings-media i {
+	margin-left: 14px;
+	cursor: pointer;
+}
+
+#frame .content .contact-profile .settings-media i:nth-last-child(1) {
+	margin-right: 20px;
+}
+
+#frame .content .contact-profile .settings-media i:hover {
+	color: #435f7a;
+}
+
+#frame .content .messages {
+	height: auto;
+	min-height: calc(100% - 93px);
+	max-height: calc(100% - 93px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content .messages {
+		max-height: calc(100% - 105px);
+	}
+}
+
+#frame .content .messages::-webkit-scrollbar {
+	width: 8px;
+	background: transparent;
+}
+
+#frame .content .messages::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#frame .content .messages ul li {
+	display: inline-block;
+	clear: both;
+	float: left;
+	margin: 15px 15px 5px 15px;
+	width: calc(100% - 25px);
+	font-size: 0.9em;
+}
+
+#frame .content .messages ul li:nth-last-child(1) {
+	margin-bottom: 20px;
+}
+
+#frame .content .messages ul li.sent img {
+	margin: 6px 8px 0 0;
+}
+
+#frame .content .messages ul li.sent p {
+	background: #435f7a;
+	color: #f5f5f5;
+}
+
+#frame .content .messages ul li.replies img {
+	float: right;
+	margin: 6px 0 0 8px;
+}
+
+#frame .content .messages ul li.replies p {
+	background: #f5f5f5;
+	float: right;
+}
+
+#frame .content .messages ul li img {
+	width: 22px;
+	border-radius: 50%;
+	float: left;
+}
+
+#frame .content .messages ul li p {
+	display: inline-block;
+	padding: 10px 15px;
+	border-radius: 20px;
+	max-width: 205px;
+	line-height: 130%;
+}
+
+@media screen and (min-width: 735px) {
+	#frame .content .messages ul li p {
+		max-width: 300px;
+	}
+}
+
+#frame .content .message-input {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
+}
+
+#frame .content .message-input .wrap {
+	position: relative;
+}
+
+#frame .content .message-input .wrap input {
+	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+	float: left;
+	border: none;
+	width: calc(100% - 90px);
+	padding: 11px 32px 10px 8px;
+	font-size: 0.8em;
+	color: #32465a;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content .message-input .wrap input {
+		padding: 15px 32px 16px 8px;
+	}
+}
+
+#frame .content .message-input .wrap input:focus {
+	outline: none;
+}
+
+#frame .content .message-input .wrap .attachment {
+	position: absolute;
+	right: 60px;
+	z-index: 4;
+	margin-top: 10px;
+	font-size: 1.1em;
+	color: #435f7a;
+	opacity: .5;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content .message-input .wrap .attachment {
+		margin-top: 17px;
+		right: 65px;
+	}
+}
+
+#frame .content .message-input .wrap .attachment:hover {
+	opacity: 1;
+}
+
+#frame .content .message-input .wrap button {
+	float: right;
+	border: none;
+	width: 50px;
+	padding: 12px 0;
+	cursor: pointer;
+	background: #32465a;
+	color: #f5f5f5;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content .message-input .wrap button {
+		padding: 16px 0;
+	}
+}
+
+#frame .content .message-input .wrap button:hover {
+	background: #435f7a;
+}
+
+#frame .content .message-input .wrap button:focus {
+	outline: none;
+}
+
+/******************************************************POP-UP**************************************************************/
+.overlay {
+	background: rgba(0, 0, 0, .3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+}
+
+.overlay.active {
+	visibility: visible;
+}
+
+.popup {
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 3px;
+	padding: 20px;
+	text-align: center;
+	width: 600px;
+}
+
+.popup .btn-cerrar-popup {
+	font-size: 16px;
+	line-height: 16px;
+	display: block;
+	text-align: right;
+	transition: .3s ease all;
+	color: #BBBBBB;
+}
+
+.popup .btn-cerrar-popup:hover {
+	color: #000;
+}
+
+.popup form .btn-submit:hover {
+	background: rgba(94, 125, 227, .5);
+}
+
+.popup form .btn-submit {
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-size: 16px;
+	cursor: pointer;
+	/*transition: .3s ease all;*/
+}
+/****************************************************************/
+#popup .contact-group img {
+	width: 150px;
+	border-radius: 50%;
+	float: center;
+	margin: 9px 12px 0 9px;
+}
+
+#popup .setting {
+	height: auto;
+	min-height: calc(100% - 93px);
+	max-height: calc(100% - 93px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+@media screen and (max-width: 735px) {
+	#popup .setting {
+		max-height: calc(100% - 105px);
+	}
+}
+
+#popup .setting::-webkit-scrollbar {
+	width: 8px;
+	background: transparent;
+}
+
+#popup .setting::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#popup .setting ul li {
+	display: inline-block;
+	clear: both;
+	float: left;
+	margin: 15px 15px 5px 15px;
+	width: calc(100% - 25px);
+	font-size: 0.9em;
+}
+
+#popup .setting ul li:nth-last-child(1) {
+	margin-bottom: 20px;
+}
+
+#popup .setting ul li p {
+	display: inline-block;
+	padding: 10px 15px;
+	border-radius: 20px;
+	max-width: 205px;
+	line-height: 130%;
+}
+
+#popup .setting ul li img {
+	width: 50px;
+	border-radius: 50%;
+	float: left;
+}
+
+/* centrar cajas de insertar correos*/
+.centrarCaja {
+	position: relative;
+	left: 40%;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div id="frame">
+		<div align="right">
+			<select id="locales">
+				<option selected value="" th:text="#{change.language}"></option>
+				<option value="en" th:text="#{lang.eng}"></option>
+				<option value="de" th:text="#{lang.es}"></option>
+			</select>
+		</div>
+
+	
+		<div id="sidepanel">
+			<div id="profile">
+				<div class="wrap">
+					<img id="profile-img"
+						src="http://emilcarlsson.se/assets/mikeross.png" class="online"
+						alt="" />
+					<p>Mike Ross</p>
+
+				</div>
+			</div>
+			<div id="search">
+				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+				<input type="hidden" id="userRoom" th:value="${idUserRoom}" /> <input
+					type="text" placeholder="Search contacts..." />
+			</div>
+			<div id="contacts">
+				<ul>
+					<li class="contact active">
+						<div class="wrap">
+							<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+							<div class="meta">
+								<p class="name">Harvey Specter</p>
+								<p class="preview"></p>
+							</div>
+						</div>
+					</li>
+					<li onclick="print(this)" th:each="group: ${groups}"
+						class="contact">
+						<div class="wrap">
+							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
+							<div class="meta">
+								<p th:text="${group.name_Room}" class="name"></p>
+								<input type="hidden" th:value="${group.group_id}" />
+								<p class="preview"></p>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<div id="bottom-bar">
+				<button id="addcontact">
+					<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add
+						contact</span>
+				</button>
+
+			</div>
+		</div>
+
+
+
+
+		<div class="content">
+			<div class="contact-profile">
+				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+				<p>Harvey Specter</p>
+				<div class="settings-media" id="settings">
+
+
+					<!-- boton para abrir los metrics data-toggle="modal" data-target="popup()"   onclick="location.href='metrics'" aria-hidden="true" -->
+					<i class="fa fa-cog fa-fw" id="btn-abrir-popup" title="Informacion"></i>
+					<i class="fa fa-user-plus fa-fw" aria-hidden="true" title="Invitar"></i>
+
+
+				</div>
+			</div>
+
+
+			<!-- Aqui las cajitas de invitar - -->
+
+
+
+
+			<div class="panel-body">
+			
+				<form th:action="@{/invite}" th:object="${emailForm}" method="POST"
+					onsubmit="">
+				<div class="centrarCaja">
+
+					<div class="form-group">
+
+						<label th:text = "#{lbl.nameGrup}"></label>
+
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<input name="nameGroup" type="text" placeholder="Name" >
+
+						</div>
+						<br> <br> <label th:text = "#{lbl.correosInvitar}"></label>
+
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon">@</div>
+							<input id="Text1" type="email" th:placeholder="#{pl.email}" />
+
+						</div>
+						<br> <br>
+
+
+						<div>
+
+							<button th:text = "#{btn.agregar}" type="button" id="btnAgregar" class="btn btn-warning"></button>
+							<button th:text = "#{btn.eliminar}" type="button" id="btnElimina" class="btn btn-danger"></button>
+
+						</div>
+						<br> <br>
+					</div>
+				</div>
+					
+				
+					<div>
+						<label th:text = "#{lbl.correosInvitados}"></label>
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon">@</div>
+
+							<select id="emailsSel" multiple class="form-control"
+								th:field="*{emailsSel}"></select>
+						</div>
+						<br> <br>
+					</div>
+					<div class="centrarCaja">
+						<button th:text = "#{btn.insertarEmail}" id="btnSubmit" type="submit" class="btn btn-success"></button>
+					</div>
+				</form>
+
+			</div>
+
+
+
+			<!-- Aqui las cajitas de invitar - -->
+		</div>
+	</div>
+
+	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
+	<div class="overlay" id="overlay">
+		<div class="popup" id="popup">
+			<a href="chat" id="btn-cerrar-popup" class="btn-cerrar-popup"><i
+				class="fas fa-times"></i></a>
+			<div class="setting">
+				<div class="contact-group" align="center">
+					<img src="http://emilcarlsson.se/assets/harveyspecter.png"
+						class="online" alt="" /> <br> <br> <label>Last
+						room created: </label><input type="text" class="form-control" disabled />
+					<br> <br> <b>Grupo:</b> <input type="text"
+						class="form-control" disabled /> <b>Propietario</b> <input
+						type="text" class="form-control" disabled /> <b>Administrador</b>
+					<input type="text" class="form-control" disabled />
+				</div>
+
+				<ul>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+					<li class=""><img
+						src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+						<p>Jeremy</p>
+						<p>Usuario</p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ///////////////////////////////////////////////////////////Bloque PopUp///////////////////////////////////////////////////// -->
+
+
+
+
+	<script>
+		$(".messages").animate({
+			scrollTop : $(document).height()
+		}, "fast");
+
+		function print(i) {
+			var idGroup = i.children[0].children[1].children[1];
+			console.log(idGroup.value);
+			//location.href = "chat";
+		};
+		$("#btnSendMessage").click(function() {
+			var inputText = $("#text");
+			var idUserRoom = $("#userRoom");
+			if (inputText.val() != "") {
+				console.log(inputText.val() + " " + idUserRoom.val());
+
+				var userRoom = $("#userRoom");
+				var obj = {
+
+					"message" : inputText.val()
+
+				};
+
+				$.ajax({
+					method : "PUT",
+					data : JSON.stringify(obj),
+					contentType : "application/json",
+					url : "api/sendMessages/2/" + userRoom.val()
+
+				});
+			}
+
+		});
+		$(".expand-button").click(function() {
+			$("#profile").toggleClass("expanded");
+			$("#contacts").toggleClass("expanded");
+		});
+
+		function newMessage() {
+			message = $(".message-input input").val();
+			if ($.trim(message) == '') {
+				return false;
+			}
+			$(
+					'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
+							+ message + '</p></li>')
+					.appendTo($('.messages ul'));
+			$('.message-input input').val(null);
+			$('.contact.active .preview').html('<span>You: </span>' + message);
+			$(".messages").animate({
+				scrollTop : $(document).height()
+			}, "fast");
+		};
+
+		$('.submit').click(function() {
+			newMessage();
+		});
+
+		$(window).on('keydown', function(e) {
+			if (e.which == 13) {
+				newMessage();
+				return false;
+			}
+		});
+
+		/*////////////////////////////////////////////////////////////Acciones para Pop Up ///////////////////////////////////////////////*/
+		var btnAbrirPopup = document.getElementById('btn-abrir-popup'), overlay = document
+				.getElementById('overlay'), popup = document
+				.getElementById('popup'), btnCerrarPopup = document
+				.getElementById('btn-cerrar-popup');
+
+		btnAbrirPopup.addEventListener('click', function() {
+			overlay.classList.add('active');
+			popup.classList.add('active');
+
+		});
+
+		btnCerrarPopup.addEventListener('click', function(e) {
+			e.preventDefault();
+			overlay.classList.remove('active');
+			popup.classList.remove('active');
+		});
+
+		/*correos multiples*/
+
+		$(function() {
+			$("#btnAgregar").click(
+					function() {
+
+						var select = document.getElementById("emailsSel");
+						var email = document.getElementById("Text1");
+						var validation = ValidateEmail(email);
+						if (validation === true) {
+							///console.log(email);
+							select.options[select.options.length] = new Option(
+									email.value, email.value, false, false);
+							email.value = "";
+						} else {
+
+						}
+
+					});
+			$("#btnElimina").click(function() {
+				var select = document.getElementById("emailsSel");
+				for (i = 0; i < select.length; i++) {
+					currentOption = select[i];
+					if (currentOption.selected == true) {
+						currentOption.parentNode.removeChild(currentOption);
+					}
+				}
+
+			});
+			$("#btnSubmit").click(function() {
+				var autoresS = document.getElementById("emailsSel");
+				for (i = 0; i < autoresS.length; i++) {
+					currentOption = autoresS[i];
+					currentOption.selected = true
+				}
+
+			});
+
+		});
+		function ValidateEmail(email) {
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+					.test(email.value)) {
+				return (true)
+			}
+
+			return (false)
+		}
+
+		/*correos multiples*/
+
+		function enviar_formulario() {
+			document.formulario1.submit()
+		}
+		
+		/* Lenguaje  */
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('?lang=' + selectedOption);
+				}
+			});
+		});
+		
+	</script>
+</body>
+</html>

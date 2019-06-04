@@ -69,10 +69,19 @@
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
 			<version>3.0.3.RELEASE</version>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		-->
+		<!-- Email-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<!-- Email-->
+		
 	</dependencies>
 
 	<build>

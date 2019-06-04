@@ -48,6 +48,12 @@ public class MessageControllerRest {
 		
 		messageBusiness.sendMessage(idGroup, message.getMessage(), idUserRoom);
 	}
+	@RequestMapping(value="/api/usersGroup/{idGroup}/{idUserRoom}", method=RequestMethod.POST)
+	public @ResponseBody void addUserGroup(@PathVariable int idGroup,
+			@PathVariable int idUserRoom){
+		
+		messageBusiness.addUserGroupRT(idGroup,idUserRoom);
+	}
 	@RequestMapping(value="/api/newmessages", method=RequestMethod.GET)
 	public @ResponseBody ArrayList<SingleGroupMessage> getNewMessages(@RequestParam(value="idGroup") int idGroup,
 			@RequestParam(value="idUserRoom") int idUserRoom){
@@ -64,6 +70,7 @@ public class MessageControllerRest {
 				messagesOthers.add(messages.get(i));
 			}
 		}
+		
 		return messagesOthers;
 	}
 	

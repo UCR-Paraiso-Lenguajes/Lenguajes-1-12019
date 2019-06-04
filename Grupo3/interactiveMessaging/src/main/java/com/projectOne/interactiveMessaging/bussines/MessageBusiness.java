@@ -24,6 +24,8 @@ public class MessageBusiness {
 	private UserBusiness userBusiness;
 	@Autowired
 	private GroupBusiness groupBusiness;
+	
+	private TableMessagesGroups tableGroups = new TableMessagesGroups();
 	public ArrayList<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup, int idUserPage){
 		ArrayList<Message> listMessagesWithType = 
 		messageData.convertIteratorToArrayMessage(messageData.getMessagesByRange(inicio, fin, userList, nameMessageTableGroup));
@@ -56,7 +58,7 @@ public class MessageBusiness {
 		SingleGroupMessage singleGroupMessage = new SingleGroupMessage(idGroup,message);
 		
 		//Insertar el grupo a la tabla si no existe y si ya existe agregar ese idUser a la lista
-		TableMessagesGroups tableGroups = new TableMessagesGroups();
+		
 		
 		if(tableGroups.existUserFromAnyGroup(idUser)) {
 			tableGroups.deleteUserFromAnyGroup(idUser);
@@ -75,8 +77,22 @@ public class MessageBusiness {
 		boolean existUserOfAnyGroup = tableGroups.existUserFromAnyGroup(idUser);
 		//Cuarto insertarlo
 		ClassListNewMessages classList = new ClassListNewMessages();
-		classList.storeNewMessage(singleGroupMessage);
 		singleGroupMessage.setUsersIDs(tableGroups.getGroup(idGroup).getIds());
+		classList.storeNewMessage(singleGroupMessage);
+	}
+	public void addUserGroupRT(int idGroup, int idUser) {
+		if(tableGroups.existUserFromAnyGroup(idUser)) {
+			tableGroups.deleteUserFromAnyGroup(idUser);
+			tableGroups.changeGroup(idGroup,idUser, true);
+		}else {
+			if(tableGroups.existGroup(idGroup)) {
+				tableGroups.changeGroup(idGroup,idUser, true); 
+			}else {
+				tableGroups.storeNewGroup(new GroupUser(idGroup));
+				tableGroups.changeGroup(idGroup,idUser, true); 
+			}
+			
+		}
 	}
 	
 }

@@ -1,3 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Metrics</title>
+
+<script
+	src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
+<script
+	src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
+<script
+	src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+<meta charset='UTF-8'>
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon"
+	href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+<link rel="mask-icon" type=""
+	href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+	color="#111" />
+<link rel="canonical"
+	href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+<link
+	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300'
+	rel='stylesheet' type='text/css'>
+<script src="https://use.typekit.net/hoy3lrg.js"></script>
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<script
+	src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script>
+	try {
+		Typekit.load({
+			async : true
+		});
+	} catch (e) {
+	}
+</script>
+
+
+
+<style class="cp-pen-styles">
+
 body {
 	display: flex;
 	align-items: center;
@@ -32,13 +89,15 @@ body {
 
 #frame #sidepanel {
 	float: left;
-	min-width: 280px;
-	max-width: 340px;
+	min-width: 999px;
+	max-width: 440px;
 	width: 40%;
 	height: 100%;
 	background: #2c3e50;
 	color: #f5f5f5;
-	overflow: hidden;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
 	position: relative;
 }
 
@@ -346,7 +405,7 @@ body {
 #frame #sidepanel #bottom-bar button {
 	float: left;
 	border: none;
-	width: 100%;
+	width: 50%;
 	padding: 10px 0;
 	background: #32465a;
 	color: #f5f5f5;
@@ -401,7 +460,7 @@ body {
 
 #frame .content {
 	float: right;
-	width: 70%;
+	width: 60%;
 	height: 100%;
 	overflow: hidden;
 	position: relative;
@@ -409,8 +468,8 @@ body {
 
 @media screen and (max-width: 735px) {
 	#frame .content {
-		width: calc(100% - 50px);
-		min-width: 250px !important;
+		width: calc(100% - 58px);
+		min-width: 300px !important;
 	}
 }
 
@@ -422,18 +481,24 @@ body {
 
 #frame .content .contact-profile {
 	width: 100%;
-	height: 70px;
-	line-height: 70px;
+	height: 60px;
+	line-height: 60px;
 	background: #f5f5f5;
 }
 
+#frame .content .contact-profile img {
+	width: 40px;
+	border-radius: 50%;
+	float: left;
+	margin: 9px 12px 0 9px;
+}
+
 #frame .content .contact-profile p {
-	margin-right: 280px;
-	float: right;
+	float: left;
 }
 
 #frame .content .contact-profile .settings-media {
-	float: left;
+	float: right;
 }
 
 #frame .content .contact-profile .settings-media i {
@@ -449,7 +514,7 @@ body {
 	color: #435f7a;
 }
 
-#frame .content .setting {
+#frame .content .messages {
 	height: auto;
 	min-height: calc(100% - 93px);
 	max-height: calc(100% - 93px);
@@ -458,21 +523,21 @@ body {
 }
 
 @media screen and (max-width: 735px) {
-	#frame .content .setting {
+	#frame .content .messages {
 		max-height: calc(100% - 105px);
 	}
 }
 
-#frame .content .setting::-webkit-scrollbar {
+#frame .content .messages::-webkit-scrollbar {
 	width: 8px;
 	background: transparent;
 }
 
-#frame .content .setting::-webkit-scrollbar-thumb {
+#frame .content .messages::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-#frame .content .setting ul li {
+#frame .content .messages ul li {
 	display: inline-block;
 	clear: both;
 	float: left;
@@ -481,17 +546,36 @@ body {
 	font-size: 0.9em;
 }
 
-#frame .content .setting ul li:nth-last-child(1) {
+#frame .content .messages ul li:nth-last-child(1) {
 	margin-bottom: 20px;
 }
 
-#frame .content .setting ul li img {
-	width: 50px;
+#frame .content .messages ul li.sent img {
+	margin: 6px 8px 0 0;
+}
+
+#frame .content .messages ul li.sent p {
+	background: #435f7a;
+	color: #f5f5f5;
+}
+
+#frame .content .messages ul li.replies img {
+	float: right;
+	margin: 6px 0 0 8px;
+}
+
+#frame .content .messages ul li.replies p {
+	background: #f5f5f5;
+	float: right;
+}
+
+#frame .content .messages ul li img {
+	width: 22px;
 	border-radius: 50%;
 	float: left;
 }
 
-#frame .content .setting ul li p {
+#frame .content .messages ul li p {
 	display: inline-block;
 	padding: 10px 15px;
 	border-radius: 20px;
@@ -500,32 +584,193 @@ body {
 }
 
 @media screen and (min-width: 735px) {
-	#frame .content .setting ul li p {
+	#frame .content .messages ul li p {
 		max-width: 300px;
 	}
 }
 
-#frame .content .contact-group img {
-	width: 150px;
-	border-radius: 50%;
-	float: center;
-	margin: 9px 12px 0 9px;
+#frame .content .message-input {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
 }
 
-#frame .content .contact-group p {
-	float: center;
-}
-#frame .content .contact-group b{
-	float: center;
-  	font-weight: bold;
+#frame .content .message-input .wrap {
+	position: relative;
 }
 
-#frame .content .contact-group input {
-   font-family : inherit;
-   font-size   : 100%;
-   border-radius: 15px;
-   border: 1px solid #39c;
-   background-color: #def;
+#frame .content .message-input .wrap input {
+	font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+	float: left;
+	border: none;
+	width: calc(100% - 90px);
+	padding: 11px 32px 10px 8px;
+	font-size: 0.8em;
+	color: #32465a;
+}
 
- }
+@media screen and (max-width: 735px) {
+	#frame .content .message-input .wrap input {
+		padding: 15px 32px 16px 8px;
+	}
+}
 
+#frame .content .message-input .wrap input:focus {
+	outline: none;
+}
+
+#frame .content .message-input .wrap .attachment {
+	position: absolute;
+	right: 60px;
+	z-index: 4;
+	margin-top: 10px;
+	font-size: 1.1em;
+	color: #435f7a;
+	opacity: .5;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content .message-input .wrap .attachment {
+		margin-top: 17px;
+		right: 65px;
+	}
+}
+
+#frame .content .message-input .wrap .attachment:hover {
+	opacity: 1;
+}
+
+#frame .content .message-input .wrap button {
+	float: right;
+	border: none;
+	width: 50px;
+	padding: 12px 0;
+	cursor: pointer;
+	background: #32465a;
+	color: #f5f5f5;
+}
+
+@media screen and (max-width: 735px) {
+	#frame .content .message-input .wrap button {
+		padding: 16px 0;
+	}
+}
+
+#frame .content .message-input .wrap button:hover {
+	background: #435f7a;
+}
+
+#frame .content .message-input .wrap button:focus {
+	outline: none;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div id="frame">
+<div id="sidepanel">
+
+<div class="container">
+	
+	<label>Number of rooms:
+		</label><input type="text"  class="form-control" th:field="*{metrics.numberOfRooms}" disabled /> <br><br>
+	<label>Number of User:
+		</label><input type="text"  class="form-control" th:field="*{metrics.numberOfUsers}" disabled/> <br><br>
+	<label>Average of users per room:
+		</label><input type="text"  class="form-control" th:field="*{metrics.averageOfUsersPerRoom}" disabled/> <br><br>
+	
+	<label>Date last message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.dateLastMessage}" disabled/> <br><br>
+		
+	<label>Date first login:
+		</label><input type="text"  class="form-control" th:field="*{metrics.dateFirstLogin}" disabled/> <br><br>
+		
+	<label>User with more message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idBigUser}" disabled/> <br><br>
+		
+	<label>Quantity messages' user:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idBigUser}" disabled/> <br><br>
+	
+	<label>Longest Message:
+		</label><input type="text" class="form-control" th:field="*{metrics.idLongestMessage}" disabled/> <br><br>
+		
+	<label>Last room created:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idLastRoomCreated}" disabled/> <br><br>
+		
+	<label>Room with more message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.idBiggestRoom}" disabled/> <br><br>
+	<label>Quantity of message:
+		</label><input type="text"  class="form-control" th:field="*{metrics.numberMessagesBiggestRoom}" disabled/> <br><br>
+	</div>
+</div>
+</div>
+
+
+<script>
+
+		$(".messages").animate({
+			scrollTop : $(document).height()
+		}, "fast");
+	
+		$("#btnSendMessage").click(function() {
+			var inputText = $("#text");
+			if(inputText.val() != ""){
+				console.log(inputText.val());
+				var userRoom = $("#userRoom");
+				var obj = {
+
+						"message": inputText.val()
+
+					};
+				
+				$.ajax({
+					method : "PUT",
+					data : JSON.stringify(obj),
+					contentType : "application/json",
+					url : "api/sendMessages/2/"+userRoom.val()
+				
+				});
+			}
+			
+		});
+		$(".expand-button").click(function() {
+			$("#profile").toggleClass("expanded");
+			$("#contacts").toggleClass("expanded");
+		});
+
+		function newMessage() {
+			message = $(".message-input input").val();
+			if ($.trim(message) == '') {
+				return false;
+			}
+			$(
+					'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
+							+ message + '</p></li>')
+					.appendTo($('.messages ul'));
+			$('.message-input input').val(null);
+			$('.contact.active .preview').html('<span>You: </span>' + message);
+			$(".messages").animate({
+				scrollTop : $(document).height()
+			}, "fast");
+		};
+		
+		$('.submit').click(function() {
+			newMessage();
+		});
+
+		$(window).on('keydown', function(e) {
+			if (e.which == 13) {
+				newMessage();
+				return false;
+			}
+		});
+	
+	</script>
+
+</body>
+</html>
