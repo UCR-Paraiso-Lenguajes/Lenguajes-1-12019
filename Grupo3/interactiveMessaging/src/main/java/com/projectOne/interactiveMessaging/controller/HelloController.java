@@ -51,19 +51,22 @@ public class HelloController {
 	@Autowired
 	private UserBusiness userBusiness;
 	
+	@Autowired
+	private MetricsController metricsController;
+	
 	@RequestMapping("/")
     public String login() {
         return "loginAdmi";
     }
 	
 	@PostMapping("/")
-	public String loginAdmin(@RequestParam("email") String mail,@RequestParam("password") String password) {
+	public String loginAdmin(@RequestParam("email") String mail,@RequestParam("password") String password,Model model) {
 		
 		if(mail.equalsIgnoreCase("soporte.soft.inc@gmail.com") && password.equalsIgnoreCase("grupo3info")) {
-			return "chat";
+			return metricsController.metrics(model);
 		}else
 		
-		return "loginAdmi";
+		return "errorPage";
 	}
 	
 	
