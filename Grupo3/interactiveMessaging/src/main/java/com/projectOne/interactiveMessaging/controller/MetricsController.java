@@ -51,7 +51,7 @@ public class MetricsController {
 	
 	
 	@RequestMapping(value="/metricsUser", method=RequestMethod.GET)
-    public String metricsWhitUsers(Model model,  @RequestParam("group_id") int roomID) {
+    public String metricsWhitUsers(Model model,  @RequestParam("group") int roomID) {
 
 		Metrics metrics = metricsBusiness.recoverMetricsData();
 

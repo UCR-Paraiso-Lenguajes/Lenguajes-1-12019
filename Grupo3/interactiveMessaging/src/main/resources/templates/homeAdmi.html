@@ -52,13 +52,13 @@
 
 			<div id="contacts">
 				<ul>
-					<li onclick="print(this)" th:each="group: ${groups}"
+					<li th:each="group: ${groups}" 
 						class="contact">
 						<div class="wrap">
 							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
+							<div class="meta"  >
 								<p th:text="${group.name_Room}" class="name"></p>
-								<input type="hidden" th:value="${group.group_id}" />
+								<input  type="hidden" th:value="${group.group_id}" /><a th:href="@{metricsUser(group=${group.group_id})}"  style='text-decoration:none;color:black;(otros)'>
 								<p class="preview"></p>
 								<br><br>
 							</div>
@@ -143,6 +143,14 @@
 				}
 			});
 		});
+		
+		function enviar(){
+			    '<a th:href=@{metricsUser(group=${group.group_id})}</a>'
+			    };
+		
+		
+		"
+		
 	</script>
 </body>
 </html>
