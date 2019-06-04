@@ -1,20 +1,33 @@
 package com.projectOne.interactiveMessaging.domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class TableMessagesGroups {
-	public static ArrayList<GroupUser> listOfGroupUsers = new ArrayList<>();
+import org.springframework.beans.factory.annotation.Autowired;
 
-	public ArrayList<GroupUser> getListOfSingleGroupMessages() {
+import com.projectOne.interactiveMessaging.data.GroupData;
+
+public class TableMessagesGroups {
+	@Autowired
+	private GroupData groupData;
+	public static ArrayList<GroupUser> listOfGroupUsers = new ArrayList<>();
+	 
+	public ArrayList<GroupUser> getListOfSingleGroups() {
 		return listOfGroupUsers;
 	}
-
-	public void setListOfSingleGroupMessages(ArrayList<GroupUser> listOfGroupUsers) {
+	public void chargeEmptyTable() {
+		Iterator<Room> groups = groupData.getGroups();
+		
+		while(groups.hasNext()) {
+			listOfGroupUsers.add(new GroupUser(groups.next().getGroup_id()));
+		}
+	}
+	public void setListOfGroupUsers(ArrayList<GroupUser> listOfGroupUsers) {
 		TableMessagesGroups.listOfGroupUsers = listOfGroupUsers;
 	}
 	
-	public void storeNewMessage(GroupUser groupUsr) {
+	public void storeNewGroup(GroupUser groupUsr) {
 		listOfGroupUsers.add(groupUsr);
 	}
 	

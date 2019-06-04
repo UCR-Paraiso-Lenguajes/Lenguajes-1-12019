@@ -6,6 +6,10 @@ public class GroupUser {
 	private int idGroup;
 	private ArrayList<Integer>ids;
 	
+	public GroupUser(int idGroup) {
+		this.idGroup = idGroup;
+		this.ids = new ArrayList<>();
+	}
 	public GroupUser(int idGroup, ArrayList<Integer> ids) {
 		this.idGroup = idGroup;
 		this.ids = ids;
