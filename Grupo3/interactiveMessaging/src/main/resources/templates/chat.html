@@ -80,8 +80,7 @@
 			<div id="bottom-bar">
 				<button id="addcontact">
 					<i th:title="#{addgroup.text}" class="fa fa-user-plus fa-fw"
-						aria-hidden="true" ></i><a th:href="@{invite(idUserRoom=${idUserRoom})}" style='text-decoration: none; color: #f2efef;'> <span th:text="#{addgroup.text}"></span>
-				</button>
+						aria-hidden="true" ></i></button>
 
 			</div>
 		</div>
@@ -289,8 +288,9 @@
 		$(document).ready(function() {
 			$("#locales").change(function() {
 				var selectedOption = $('#locales').val();
+				var id = $(idUserRoom).val();
 				if (selectedOption != '') {
-					window.location.replace('?lang=' + selectedOption);
+					window.location.replace('?lang=' + selectedOption + '&idUser='+id);
 				}
 			});
 		});
