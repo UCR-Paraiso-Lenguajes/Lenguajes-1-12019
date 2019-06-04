@@ -12,9 +12,13 @@ public class RoomForm {
 	private String name;
 
 	
-	public int getIdRoom() { return id; }
+	public int getIdRoom() { 
+		return id; 
+		}
  
-	public void setIdRoom(int idRoom) { this.id = idRoom; }
+	public void setIdRoom(int idRoom) { 
+		this.id = idRoom;
+		}
 	 
 
 	public String getName() {
@@ -23,6 +27,11 @@ public class RoomForm {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "RoomForm [id=" + id + ", name=" + name + "]";
 	}
 	
 	

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Inicio</title>
+<title>CrearGrupo</title>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -26,10 +26,16 @@
   	<div class="container" style="max-width: 600px; padding: 40px 20px;">
 	<h1>Crear Grupo</h1>
 			<label>Ingrese el nombre del grupo:</label>
-            <input type="text"
-				class="form-control" placeholder="Correo" /> 
+            
+            
+            <form th:object="${roomForm}" th:action="@{/createEmptyRoom}" method="post">
+            
+            	<input type="text"class="form-control" placeholder="Nombre" th:field="*{name}" /> 
 				<br></br>
-				<button type="button" class="btn btn-info">Crear Grupo</button>
+				<button type="submit" class="btn btn-info">Crear Grupo</button>
 
+			
+			</form>
+			
 </body>
 </html>

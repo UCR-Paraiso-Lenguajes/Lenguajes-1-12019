@@ -42,7 +42,7 @@ public class RoomData {
 		.withCatalogName("dbo")
 		.withProcedureName("Create_Romm")
 		.withoutProcedureColumnMetaDataAccess()
-		.declareParameters(new SqlOutParameter("@idRomm", Types.INTEGER))
+		.declareParameters(new SqlOutParameter("@idRoom", Types.INTEGER))
 		.declareParameters(new SqlParameter("@name", Types.VARCHAR))
 		.declareParameters(new SqlParameter("@version", Types.INTEGER))
 		.declareParameters(new SqlParameter("@idRoomAdministrator", Types.INTEGER))
@@ -52,14 +52,16 @@ public class RoomData {
 	
 	@Transactional
 	
-	public void save(String name, int idRoom, int idRoomAdministrator, int idRoomOwner, int version ) throws SQLException{
-		String sqlSelect = "CREATE TABLE"+name+"("+"id_room int,"+"id_room_administrator int,"+"id_room_owner int,"+"version int,"
+	public Room save(Room room) throws SQLException{
+		String sqlSelect = "CREATE TABLE"+room.getName()+"("+"id_room int,"+"id_room_administrator int,"+"id_room_owner int,"+"version int,"
 	    +"PRIMARY KEY id_room,"+"FOREIGN KEY(id_room_administrator) REFERENCES User(user_id),"
 		+"FOREIGN KEY(id_room_owner) REFERENCES User(user_id),";
 		
-		String sqlSelect1 = "INSERT INTO"+name+"(id_room,id_room_administrator,id_room_owner,version) values("
-		+idRoom+","+idRoomAdministrator+","+idRoomOwner+","+version+")";
+		String sqlSelect1 = "INSERT INTO"+room.getName()+"(id_room,id_room_administrator,id_room_owner,version) values("
+		+room.getIdRoom()+","+room.getRoomAdministrator().getIdUser()+","+room.getRoomOwner().getIdUser()+","+room.getVersion()+")";
+	
 		
+		return room;
 		
 	}
 	

@@ -22,7 +22,9 @@ public final class Room extends RoomConvention{
 	
 	
 	public Room() {
+		
 		super();
+		this.version = 0;
 		
 	}
 
@@ -134,6 +136,13 @@ public final class Room extends RoomConvention{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Room [idRoom=" + idRoom + ", name=" + name + ", version=" + version + ", roomAdministrator="
+				+ roomAdministrator + ", roomOwner=" + roomOwner + ", users=" + users + ", MAX_QUEUE=" + MAX_QUEUE
+				+ ", MAX_USERS=" + MAX_USERS + ", messages=" + messages + "]";
 	}
 
 	
