@@ -81,8 +81,16 @@ public class Message {
 	public void setUserSendThatMessage(int userSendThatMessage) {
 		this.userSendThatMessage = userSendThatMessage;
 	}
-	
-	
-	
 
+
+	@Override
+	public String toString() {
+		return "Message{" +
+				"idMessage=" + idMessage +
+				", fecha=" + fecha +
+				", contenido='" + contenido + '\'' +
+				", userSendThatMessage=" + userSendThatMessage +
+				", idRoom=" + idRoom +
+				'}';
+	}
 }
