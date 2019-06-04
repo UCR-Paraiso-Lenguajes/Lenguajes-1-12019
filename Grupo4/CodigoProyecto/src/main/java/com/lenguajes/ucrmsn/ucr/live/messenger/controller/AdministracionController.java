@@ -25,7 +25,6 @@ public class AdministracionController {
 	 public String listarSalas(Model model) {
 		 
 		  model.addAttribute("grupos",grupoBusiness.listarGrupos());
-		  
 		  model.addAttribute("metricas",metricas);
 		  return "administracionSalas";
 	 }
@@ -35,6 +34,8 @@ public class AdministracionController {
 		 
 		  model.addAttribute("usuarios",grupoBusiness.usuariosPorGrupo(idGrupo));
 		  model.addAttribute("idGrupo",idGrupo);
+		  model.addAttribute("metricas",metricas);
+		  
 		  return "administracionUsuarios";
 	 }
 	 
