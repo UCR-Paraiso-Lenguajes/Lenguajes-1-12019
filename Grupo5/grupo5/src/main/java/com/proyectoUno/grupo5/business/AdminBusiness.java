@@ -15,10 +15,5 @@ public class AdminBusiness {
 		}else {
 			return false;
 		}
-		
-	
-		
-		
 	}
-	
 }

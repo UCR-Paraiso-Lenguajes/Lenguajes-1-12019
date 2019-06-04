@@ -28,8 +28,7 @@ public class MessageBussiness {
 	    public Map<Integer, Message> insertMessageSincro(Message message){
 
 	    	return messageDao.insertMessageSincro(message);
-	    	
-	    	
+
 	    }
 
 }

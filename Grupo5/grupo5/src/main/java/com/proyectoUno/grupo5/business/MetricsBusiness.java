@@ -16,20 +16,13 @@ public class MetricsBusiness{
 	 @Autowired
 	    private MetricsDao metrics;	
 
-	 
-	   
 	 public List<Metrics> getMetrics () throws SQLException {
 	       return metrics.getMetrics();
-	    	
 	    }
-
-
 
 	 public void update() 
 		{
 							
 		 metrics.updateMetrics();
 		}
-	    
-
 }
