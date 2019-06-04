@@ -775,9 +775,16 @@ body {
 
 <body>
 
-
-
 	<div id="frame">
+		<div align="right">
+			<select id="locales">
+				<option selected value="" th:text="#{change.language}"></option>
+				<option value="en" th:text="#{lang.eng}"></option>
+				<option value="de" th:text="#{lang.es}"></option>
+			</select>
+		</div>
+
+	
 		<div id="sidepanel">
 			<div id="profile">
 				<div class="wrap">
@@ -857,17 +864,17 @@ body {
 
 					<div class="form-group">
 
-						<label>Name The Group</label>
+						<label th:text = "#{lbl.nameGrup}"></label>
 
 						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-							<input id="nameGroup" type="nameGroup" placeholder="Name" />
+							<input id="nameGroup" type="nameGroup" th:placeholder="#{pl.name}" />
 
 						</div>
-						<br> <br> <label>emails to invite</label>
+						<br> <br> <label th:text = "#{lbl.correosInvitar}"></label>
 
 						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 							<div class="input-group-addon">@</div>
-							<input id="Text1" type="email" placeholder="Email" />
+							<input id="Text1" type="email" th:placeholder="#{pl.email}" />
 
 						</div>
 						<br> <br>
@@ -875,8 +882,8 @@ body {
 
 						<div>
 
-							<button type="button" id="btnAgregar" class="btn btn-warning">Agregar</button>
-							<button type="button" id="btnElimina" class="btn btn-danger">Eliminar</button>
+							<button th:text = "#{btn.agregar}" type="button" id="btnAgregar" class="btn btn-warning"></button>
+							<button th:text = "#{btn.eliminar}" type="button" id="btnElimina" class="btn btn-danger"></button>
 
 						</div>
 						<br> <br>
@@ -886,7 +893,7 @@ body {
 				<form th:action="@{/invite}" th:object="${emailForm}" method="post"
 					onsubmit="">
 					<div>
-						<label>Mails Guest</label>
+						<label th:text = "#{lbl.correosInvitados}"></label>
 						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 							<div class="input-group-addon">@</div>
 
@@ -896,8 +903,7 @@ body {
 						<br> <br>
 					</div>
 					<div class="centrarCaja">
-						<button id="btnSubmit" type="submit" class="btn btn-success">Insert
-							Email</button>
+						<button th:text = "#{btn.insertarEmail}" id="btnSubmit" type="submit" class="btn btn-success"></button>
 					</div>
 				</form>
 
@@ -1091,6 +1097,17 @@ body {
 		function enviar_formulario() {
 			document.formulario1.submit()
 		}
+		
+		/* Lenguaje  */
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('?lang=' + selectedOption);
+				}
+			});
+		});
+		
 	</script>
 </body>
 </html>

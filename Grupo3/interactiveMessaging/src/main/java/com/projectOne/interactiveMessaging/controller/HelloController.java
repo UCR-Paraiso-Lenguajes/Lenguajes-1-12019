@@ -55,17 +55,26 @@ public class HelloController {
         return "loginAdmi";
     }
 	
+	@PostMapping("/")
+	public String loginAdmin(@RequestParam("email") String mail,@RequestParam("password") String password) {
+		
+		if(mail.equalsIgnoreCase("soporte.soft.inc@gmail.com") && password.equalsIgnoreCase("grupo3info")) {
+			return "chat";
+		}else
+		
+		return "loginAdmi";
+	}
+	
+	
 	@RequestMapping("/signIn")
     public String signIn() {
         return "loginUser";
     }
 
-	
-	//@PostMapping("/signIn")
-	@RequestMapping(value="/signIn", method=RequestMethod.POST)
+    @PostMapping("/signIn")
     public String sendMail( @RequestParam("email") String mail){
-    	String linkToParticipateInChat = "http://localhost:8080/msn/chat"; 
-    	emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitación\n","Te invitamos por medio de este link:   \n"+linkToParticipateInChat);
+
+       emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitacion","te invitamos por medio de este link:   ");
 
         return "loginUser";
     }
@@ -103,15 +112,14 @@ public class HelloController {
 	        return "invite";
 	    }
 		@RequestMapping(value="/invite", method=RequestMethod.POST )
-		public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup) {
+		public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model) {
 			if(bindingResult.hasErrors()) {
 				model.addAttribute("emailForm", new EmailForm());
 		        return "invite";
 			}else {
-				String linkChat = "";
 				String[] emails = emailForm.getEmailsSel();
 				for (int i = 0; i < emails.length; i++) {
-		    		emailBussines.sendMail("soporte.soft.inc@gmail.com",emails[i],"Invitación a Chat",linkChat);
+		    		emailBussines.sendMail("soporte.soft.inc@gmail.com",emails[i],"hola","sirvio");
 		    	}
 				return "invite";
 			}
