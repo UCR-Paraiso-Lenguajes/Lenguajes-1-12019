@@ -173,4 +173,19 @@ public class GroupData {
 		}
 	}
 	
+	@Transactional(readOnly = true)
+	public Iterator<Room> getGroups() {
+		String nameTable = "";
+		String selectMysql;
+		List<Room> listOfRooms = new ArrayList<>();
+		selectMysql = "SELECT `RoomApp`.`id`, " + "`RoomApp`.`descripcion`, " + "`RoomApp`.`dateCreated`, "
+				+ "`RoomApp`.`nameMessageTable` " + "FROM `IF4100_Proyecto_JAJME`.`RoomApp`;" ;
+		jdbcTemplate.query(selectMysql, new Object[] { },
+				(rs, row) -> new Room(rs.getInt("id"),rs.getString("descripcion"),rs.getTimestamp("dateCreated"))).forEach(entry -> listOfRooms.add(entry));
+		Timestamp temp = listOfRooms.get(0).getDateCreate();
+		temp.setHours(listOfRooms.get(0).getDateCreate().getHours()+1);
+		listOfRooms.get(0).setDateCreate(temp);
+		return listOfRooms.iterator();
+	}
+	
 }

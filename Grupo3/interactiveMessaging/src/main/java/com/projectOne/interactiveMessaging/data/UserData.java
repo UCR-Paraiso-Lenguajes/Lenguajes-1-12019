@@ -88,6 +88,7 @@ public class UserData {
 		return listOfUser.get(0);
 	}
 	
+
 	@Transactional
 	public int save(String correoUser) {
 		ArrayList<User> userList = new ArrayList<User>();
@@ -144,6 +145,17 @@ public class UserData {
 			return user.getUser_id();
 		}
 		
+	}
+	@Transactional(readOnly = true)
+	public Iterator<User> findAllTheUsers() {
+
+		String selectMysql;
+		List<User> userListTemp = new ArrayList<>();
+		selectMysql = "SELECT u.id, u.correo, u.numberMessages " + "FROM UserApp u ";
+		return jdbcTemplate
+				.query(selectMysql, new Object[] {  },
+						(rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages"))).iterator();
+
 	}
 
 }
