@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projectOne.interactiveMessaging.data.GroupData;
+import com.projectOne.interactiveMessaging.data.MessageData;
 import com.projectOne.interactiveMessaging.data.MetricsData;
 import com.projectOne.interactiveMessaging.data.UserData;
+import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.Metrics;
 import com.projectOne.interactiveMessaging.domain.Room;
 import com.projectOne.interactiveMessaging.domain.User;
@@ -24,6 +26,8 @@ public class MetricsBusiness {
 	private GroupData groupData;
 	@Autowired
 	private UserData userData;
+	@Autowired
+	private MessageData messageData;
 	Metrics metrics = Metrics.getInstance();
 	
 //	public Metrics recoverMetricsData(){
@@ -50,6 +54,21 @@ public class MetricsBusiness {
 			//TODO falta que vuleva a guardar en la base, ya actualiza ahora guarde
 		}
 	}
+	
+	
+	/**
+	 * Actualiza cantidad de usuarios y nombre
+	 * Se debe de actualizar cada que se envie un nuevo mensaje
+	 * @param user
+	 */
+	public void updateUserMoreMessage(User user) {
+		if(metrics.compareUserMoreMessage(user.getNumberMessages())) {
+			metrics.setBigUser(user.getUser_email());
+			metrics.setQuantityMessageBigUser(user.getNumberMessages());
+		}
+		
+	}
+	
 	/**
 	 * Metodo que actualiza la cantidad de usuarios de la aplicacion
 	 */
@@ -106,6 +125,7 @@ public class MetricsBusiness {
 	}
 	
 	/**
+	 * Metodo que actualiza el ultimo grupo creado
 	 * Metodo debe de ser llamado cuando se accione el boton de ver metricas
 	 */
 	public void updateLastGroupCreate() {
@@ -114,5 +134,22 @@ public class MetricsBusiness {
 		metrics.setLastRoomCreated(rooms.get(rooms.size()-1).getName_Room());
 	}
 	
+	/**
+	 * 
+	 */
+	public void updateGroupMoreMessages() {
+		int cantidadMayor = 0;
+		Iterator <Room> grupos = groupData.getGroups();
+		while(grupos.hasNext()) {
+			
+			List<Message> mensajes = new ArrayList<>(); 
+			messageData.getMessagesByRange(0, 9999, userData.findAllTheUsers(), grupos.next().getName_Room()).forEachRemaining(mensajes::add);
+			
+			if(cantidadMayor > mensajes.size()) {
+				cantidadMayor = mensajes.size();
+			}
+			
+		}
+	}
 	
 }

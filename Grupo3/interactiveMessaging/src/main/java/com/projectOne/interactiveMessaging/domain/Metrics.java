@@ -18,7 +18,9 @@ public class Metrics {
 	private String LastRoomCreated;
 	private String BiggestRoom;
 	private int numberMessagesBiggestRoom;
+	
 	private int sumOfUsersPerGroup; //Esta variable no se debe de mostrar en el html
+	private int quantityMessageBigUser;
 	private static Metrics instance = new Metrics();//genera el Singlenton
 	
 	
@@ -56,6 +58,7 @@ public class Metrics {
 		return instance;
 	}
 
+	
 	
 	public boolean compareLongerMessage( String messageNew) {
 		if(messageNew.length()> LongestMessage.length()) {
@@ -167,6 +170,20 @@ public class Metrics {
 	public void setSumOfUsersPerGroup(int sumOfUsersPerGroup) {
 		this.sumOfUsersPerGroup = sumOfUsersPerGroup;
 	}
+	
+	
+
+	public int getQuantityMessageBigUser() {
+		return quantityMessageBigUser;
+	}
+
+
+
+	public void setQuantityMessageBigUser(int quantityMessageBigUser) {
+		this.quantityMessageBigUser = quantityMessageBigUser;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -177,6 +194,15 @@ public class Metrics {
 				+ ", LastRoomCreated=" + LastRoomCreated + ", BiggestRoom=" + BiggestRoom
 				+ ", numberMessagesBiggestRoom=" + numberMessagesBiggestRoom + ", sumOfUsersPerGroup="
 				+ sumOfUsersPerGroup + "]";
+	}
+
+
+
+	public boolean compareUserMoreMessage(int numberMessages) {
+		if(quantityMessageBigUser > numberMessages) {
+			return true;
+		}
+		return false;
 	}
 
 	

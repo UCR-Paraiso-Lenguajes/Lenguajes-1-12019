@@ -89,9 +89,9 @@ public class MetricsData {
 	@Transactional(readOnly=true)
 	public Metrics findMetrics (int idMetrics){
 		//TODO Falta el parametro de entrada para ver porque voy a buscar
-		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom,"
-				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, idLongestMessage,"
-				+ "idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom " //sumOfUsersPerGroup
+		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, "
+				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, LongestMessage, "
+				+ "LastRoomCreated, BiggestRoom, numberMessagesBiggestRoom, sumOfUsersPerGroup, quantityMessageBigUser " 
 				+ "FROM Metrics "
 				+ "WHERE idMetrics = "+ idMetrics;
 		
@@ -102,7 +102,7 @@ public class MetricsData {
 	@Transactional(readOnly=true)
 	public Metrics recoverMetricsData(){
 		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
-				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
+				" LongestMessage, LastRoomCreated, BiggestRoom, numberMessagesBiggestRoom,sumOfUsersPerGroup,quantityMessageBigUser from Metrics";
 		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
 	}
 	
@@ -135,11 +135,12 @@ class MetricsExtractor implements ResultSetExtractor<Metrics>{
 					metrics.setDateFirstLogin(rs.getTimestamp("dateFirstLogin"));
 					metrics.setBigUser(rs.getInt("idBigUser")+"");
 					metrics.setNumberMessagesBigUser(rs.getInt("numberMessagesBigUser"));
-					metrics.setLongestMessage(rs.getInt("idLongestMessage")+"");
-					metrics.setLastRoomCreated(rs.getInt("idLastRoomCreated")+"");
-					metrics.setBiggestRoom(rs.getInt("idBiggestRoom")+"");
+					metrics.setLongestMessage(rs.getString("LongestMessage"));
+					metrics.setLastRoomCreated(rs.getString("LastRoomCreated"));
+					metrics.setBiggestRoom(rs.getInt("BiggestRoom")+"");
 					metrics.setNumberMessagesBiggestRoom(rs.getInt("numberMessagesBiggestRoom"));
-//					metrics.setSumOfUsersPerGroup(rs.getInt("sumOfUsersPerGroup")); //DEscomentar cuando se actualica base datos
+					metrics.setSumOfUsersPerGroup(rs.getInt("sumOfUsersPerGroup")); 
+					metrics.setQuantityMessageBigUser(rs.getInt("quantityMessageBigUser"));
 			}
 			return metrics;
 	}
