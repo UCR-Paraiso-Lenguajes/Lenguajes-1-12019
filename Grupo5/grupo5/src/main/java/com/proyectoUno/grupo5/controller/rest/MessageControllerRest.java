@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectoUno.grupo5.business.MessageBussiness;
@@ -21,14 +22,21 @@ public class MessageControllerRest {
 		@Autowired
 		private MessageBussiness messageBusiness;
 		
-		 @RequestMapping(value = "/msn/room/{id}/messages", method = RequestMethod.GET)
-		 public ResponseEntity<Object> getMessagesForRoom(@PathVariable("idRoom") int id) {
+		@RequestMapping(value = "/msn/insertMessage/{containt}/{id_user}/{id_room}", method = RequestMethod.GET)
+		@ResponseBody
+		public String getFoosBySimplePathWithPathVariable (@PathVariable("containt") String containt,
+				@PathVariable("id_user") int idUser, @PathVariable("id_room") int idRoom) {
 
-			 	
-
-			 
-			 return null;
-		 }
-	
+			
+			Message message = new Message(containt, idUser, idRoom);
+			
+			messageBusiness.insertMessage(message);
+			return "registro exitoso";
+}
+		
+		
+		
+		 
 		
 }
+

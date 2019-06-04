@@ -20,7 +20,6 @@ import org.springframework.stereotype.Repository;
 
 import com.proyectoUno.grupo5.domain.Message;
 @Repository
-
 public class MessageDao {
 	
 	
@@ -36,14 +35,14 @@ public class MessageDao {
 	    public Boolean insertMessage(Message message){
 	    	
 	    	
-	    	  String query="insert into message(contenido,id_user,id_room) values(?,?,?)";
+	    	  String query="insert into message(containt,id_user,id_room) values(?,?,?)";
 
 	          return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
 	              @Override
 	              public Boolean doInPreparedStatement(PreparedStatement ps)
 	                      throws SQLException, DataAccessException {
 	                  ps.setString(1,message.getContenido());
-	                  ps.setInt(2,message.getUserSendThatMessage().getIdUser());
+	                  ps.setInt(2,message.getUserSendThatMessage());
 	                  ps.setInt(3,message.getIdRoom());
 
 	                  

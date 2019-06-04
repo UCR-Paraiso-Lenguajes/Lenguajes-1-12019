@@ -16,7 +16,7 @@ public class MessageBussiness {
 	    @Autowired
 	    private MessageDao messageDao;
 	    
-	    public Boolean insertMessage(Message message) throws SQLException {
+	    public Boolean insertMessage(Message message){
 	        return messageDao.insertMessage(message);
 	    }
 	    

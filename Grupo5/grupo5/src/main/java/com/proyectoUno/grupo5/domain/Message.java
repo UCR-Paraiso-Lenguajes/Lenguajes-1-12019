@@ -9,10 +9,10 @@ public class Message {
 	private int idMessage;
 	private Date fecha;
 	private String contenido;
-	private User userSendThatMessage;
+	private int userSendThatMessage;
 	private int idRoom;
 	
-	public Message(int idMessage, Date fecha, String contenido, User userSendThatMessage, int idRoom) {
+	public Message(int idMessage, Date fecha, String contenido, int userSendThatMessage, int idRoom) {
 		super();
 		this.idMessage = idMessage;
 		this.fecha = fecha;
@@ -20,6 +20,16 @@ public class Message {
 		this.userSendThatMessage = userSendThatMessage;
 		this.idRoom = idRoom;
 	}
+
+	
+	public Message(String contenido, int userSendThatMessage, int idRoom) {
+		super();
+		this.contenido = contenido;
+		this.userSendThatMessage = userSendThatMessage;
+		this.idRoom = idRoom;
+	}
+
+
 
 	public int getIdRoom() {
 		return idRoom;
@@ -63,12 +73,12 @@ public class Message {
 	}
 
 
-	public User getUserSendThatMessage() {
+	public int getUserSendThatMessage() {
 		return userSendThatMessage;
 	}
 
 
-	public void setUserSendThatMessage(User userSendThatMessage) {
+	public void setUserSendThatMessage(int userSendThatMessage) {
 		this.userSendThatMessage = userSendThatMessage;
 	}
 	
