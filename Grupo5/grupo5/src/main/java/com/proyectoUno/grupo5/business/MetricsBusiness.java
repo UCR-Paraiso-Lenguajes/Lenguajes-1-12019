@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyectoUno.grupo5.dao.MetricsDao;
 import com.proyectoUno.grupo5.domain.Metrics;
+import com.proyectoUno.grupo5.domain.User;
 
 
 @Service
@@ -25,4 +26,9 @@ public class MetricsBusiness{
 							
 		 metrics.updateMetrics();
 		}
+
+	public void delete(int id_room, int id_user) {
+		
+		metrics.delete(id_room, id_user);
+	}
 }

@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.proyectoUno.grupo5.domain.Metrics;
 import com.proyectoUno.grupo5.domain.Role;
 import com.proyectoUno.grupo5.domain.Room;
+import com.proyectoUno.grupo5.domain.User;
 
 @Repository
 public class MetricsDao {
@@ -291,6 +292,13 @@ public class MetricsDao {
 		{
 			String sqlSelect = "UPDATE metrics SET quantity_rooms="+quantity_rooms+",quantity_users="+quantity_users+",average_user_per_group="+average_user_per_group+",date_last_message=\""+date_last_message+"\",user_with_more_message=\""+user_with_more_message+"\",quantity_meesage_user="+quantity_meesage_user+",last_group_created=\""+last_group_created+"\",group_with_more_message=\""+group_with_more_message+"\",quantity_meessage_room="+quantity_meessage_room+" WHERE id_metrics=1";
 			jdbcTemplate.batchUpdate(sqlSelect);
+		}
+
+
+		public void delete(int id_room, int id_user) {
+			String sqlSelect = "DELETE FROM user_room where id_user="+id_user+" && id_room="+id_room;
+			jdbcTemplate.batchUpdate(sqlSelect);
+			
 		}
 
 }

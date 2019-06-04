@@ -5,7 +5,7 @@ var metrics = new Vue({
     },
     mounted() {
         axios
-            .get('http://localhost:8080/admin/metrics')
+            .get('http://localhost:8080/msn/admin/metrics')
             .then(response => (this.metrics = response.data))
     }
 });
@@ -16,7 +16,7 @@ var rooms = new Vue({
     },
     mounted() {
         axios
-            .get('http://localhost:8080/api/rooms')
+            .get('http://localhost:8080/msn/admin/rooms')
             .then(response => (this.rooms = response.data))
     }
 })

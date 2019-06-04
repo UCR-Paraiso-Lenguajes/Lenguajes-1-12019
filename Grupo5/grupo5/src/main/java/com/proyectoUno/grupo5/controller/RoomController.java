@@ -38,8 +38,7 @@ public class RoomController {
     	
     	room.setRoomName(room.getRoomName());
     	room.setVersion(0);
-      	System.out.print("Grupo creado");
-    	
+          	
     	try {
     		roomBusiness.insertRoom(room);
     	}

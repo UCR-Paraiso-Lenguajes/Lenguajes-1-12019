@@ -23,4 +23,8 @@ public class UserBusiness {
 		
 		return userDao.getIdUser();
 	}
+
+	public Object getUsers(int id_room) {
+		return userDao.getUsers(id_room);
+	}
 }
