@@ -29,7 +29,7 @@ public class MessageData {
 	@Autowired
 	private DataSource dataSource;
 	//Este metodo me trae los mensajes por rango
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public Iterator<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup) {
 		List<Message> messagesTemp = new ArrayList<>();
 		List<Message> messages = new ArrayList<>();
