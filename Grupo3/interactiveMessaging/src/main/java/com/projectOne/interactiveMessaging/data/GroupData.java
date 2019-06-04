@@ -37,7 +37,7 @@ public class GroupData {
 		this.dataSource=dataSource;
 	}
 
-	//@Transactional(readOnly = true)
+	@Transactional(readOnly = true)
 	public String getNameGroupTableMessages(int idGroup) {
 		String nameTable = "";
 		String selectMysql;
@@ -59,7 +59,7 @@ public class GroupData {
 		return listOfRooms;
 	}
 
-	//@Transactional(readOnly = true)
+	@Transactional(readOnly = true)
 	public Room getSpecificGroup(int idGroup) {
 		String nameTable = "";
 		String selectMysql;
@@ -73,6 +73,8 @@ public class GroupData {
 		listOfRooms.get(0).setDateCreate(temp);
 		return listOfRooms.get(0);
 	}
+	
+	
 	@Transactional
 	public void saveUserRoleRoom(int idUser, int idRole, int idRoom) {
 		Connection connection = null;
@@ -118,8 +120,9 @@ public class GroupData {
 			}
 		}
 	}
+	
 	@Transactional
-	public void saveGroup(String nameGroup) {
+	public int saveGroup(String nameGroup) {
 		//select id from RoomApp order by id desc limit 1
 		//insert into RoomApp values(5,'Los Patitos',now(),'LosPatitosMessages')
 		Connection connection = null;
@@ -170,7 +173,7 @@ public class GroupData {
 		}
 	}
 	
-	//@Transactional(readOnly = true)
+	@Transactional(readOnly = true)
 	public Iterator<Room> getGroups() {
 		String nameTable = "";
 		String selectMysql;
