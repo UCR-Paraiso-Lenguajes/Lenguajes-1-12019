@@ -47,21 +47,25 @@
 		<div id="sidepanel">
 			<div id="profile">
 				<p th:text="#{groupsAdmi.text}"></p>
-				<br><br>
+				<br> <br>
 			</div>
 
 			<div id="contacts">
 				<ul>
-					<li th:each="group: ${groups}" 
-						class="contact">
+					<li th:each="group: ${groups}" class="contact">
 						<div class="wrap">
 							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta"  >
-								<p th:text="${group.name_Room}" class="name"></p>
-								<input  type="hidden" th:value="${group.group_id}" /><a th:href="@{metricsUser(group=${group.group_id})}"  style='text-decoration:none;color:black;(otros)'>
-								
-								<p class="preview"></p>
-								<br><br>
+							<div class="meta">
+								<ul>
+									<br>
+									<li><a th:href="@{metricsUser(group=${group.group_id})}"
+										style='text-decoration: none; color: #f2efef;'>
+											<p th:text="${group.name_Room}" class="name"></p> <input
+											type="hidden" th:value="${group.group_id}" />
+											<p class="preview"></p>
+											<li>
+								</ul>
+
 							</div>
 						</div>
 					</li>
@@ -71,60 +75,60 @@
 
 		</div>
 
-
-
-
-		<div class="content">
+		<div class="content"
+			style="pointer-events: none !important; color: black !important;">
 			<div class="contact-profile">
 
-				<p th:text="#{infoAdmi.text}"></p>
+				<p style="color: black !important;" th:text="#{infoAdmi.text}"></p>
 
 			</div>
 
 			<div class="setting">
 
+
 				<ul>
 					<br>
-					<li><p th:text="#{numberRooms.text}"> </p><input type="text"
-						class="form-control" th:field="*{metrics.numberOfRooms}" disabled />
-					</li>
+					<li><b th:text="#{numberRooms.text}">
+							</b>
+							<input type="text" class="form-control"
+								th:field="*{metrics.numberOfRooms}" disabled /></li>
 					<br>
-					<li><p th:text="#{numberUser.text}"></p><input type="text"
-						class="form-control" th:field="*{metrics.numberOfUsers}" disabled />
-					</li>
+					<li><b th:text="#{numberUser.text}"></b> <input type="text"
+						class="form-control" th:field="*{metrics.numberOfUsers}" disabled /></li>
 					<br>
-					<li><p th:text="#{averageUsers.text}"></p><input
+					<li><p th:text="#{averageUsers.text}">
+							</b> <input type="text" class="form-control"
+								th:field="*{metrics.averageOfUsersPerRoom}" disabled /></li>
+					<br>
+					<li><b th:text="#{datelastMesage.text}"></b> <input
 						type="text" class="form-control"
-						th:field="*{metrics.averageOfUsersPerRoom}" disabled /></li>
+						th:field="*{metrics.dateLastMessage}" disabled /></li>
 					<br>
-					<li><p th:text="#{datelastMesage.text}"></p><input type="text"
-						class="form-control" th:field="*{metrics.dateLastMessage}"
-						disabled /></li>
+					<li><b th:text="#{dateFirstLogin.text}"></b> <input
+						type="text" class="form-control"
+						th:field="*{metrics.dateFirstLogin}" disabled /></li>
 					<br>
-					<li><p th:text="#{dateFirstLogin.text}"> </p> <input type="text"
-						class="form-control" th:field="*{metrics.dateFirstLogin}" disabled />
-					</li>
-					<br>
-					<li><p th:text="#{userMessage.text}"> </p><input type="text"
+					<li><b th:text="#{userMessage.text}"></b> <input type="text"
 						class="form-control" th:field="*{metrics.BigUser}" disabled /></li>
 					<br>
-					<li><p th:text="#{quantityMessagesUser.text}"> </p> <input
-						type="text" class="form-control" th:field="*{metrics.numberMessagesBigUser}"
-						disabled /></li>
+					<li><b th:text="#{quantityMessagesUser.text}"></b> <input
+						type="text" class="form-control"
+						th:field="*{metrics.numberMessagesBigUser}" disabled /></li>
 					<br>
-					<li><p th:text="#{longestMessage.text}"> </p> <input type="text"
-						class="form-control" th:field="*{metrics.LongestMessage}"
-						disabled /></li>
+					<li><b th:text="#{longestMessage.text}"></b> <input
+						type="text" class="form-control"
+						th:field="*{metrics.LongestMessage}" disabled /></li>
 					<br>
-					<li><p th:text="#{lastRoom.text}"> </p> <input type="text"
+					<li><b th:text="#{lastRoom.text}"></b> <input type="text"
 						class="form-control" th:field="*{metrics.LastRoomCreated}"
 						disabled /></li>
 					<br>
-					<li><p th:text="#{roomMoreMessage.text}"> </p> <input type="text"
-						class="form-control" th:field="*{metrics.BiggestRoom}" disabled /></li>
+					<li><b th:text="#{roomMoreMessage.text}"></b> <input
+						type="text" class="form-control" th:field="*{metrics.BiggestRoom}"
+						disabled /></li>
 					<br>
-					<li><p th:text="#{quantityMessage.text}"> </p> <input type="text"
-						class="form-control"
+					<li><b th:text="#{quantityMessage.text}"></b> <input
+						type="text" class="form-control"
 						th:field="*{metrics.numberMessagesBiggestRoom}" disabled /></li>
 				</ul>
 
@@ -132,6 +136,7 @@
 
 		</div>
 	</div>
+
 
 
 	<script>
