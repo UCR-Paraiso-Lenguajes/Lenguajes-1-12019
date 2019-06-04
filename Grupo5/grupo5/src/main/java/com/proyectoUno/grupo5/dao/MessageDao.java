@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.proyectoUno.grupo5.dao.MetricsDao.UserMoreMessageExtractor;
 import com.proyectoUno.grupo5.domain.Message;
 import com.proyectoUno.grupo5.domain.Room;
 @Repository
@@ -39,7 +42,8 @@ public class MessageDao {
 	    
 	    public Boolean insertMessage(Message message){
 	    	
-	    	
+	    	updateMetricMesage(message.getContenido());
+	    	  
 	    	  String query="insert into message(containt,id_user,id_room) values(?,?,?)";
 
 	          return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
@@ -117,6 +121,48 @@ public class MessageDao {
 	    	
 	    }
 	    
+
+	    /*Metric Message*/
+	    
+	    @Transactional(readOnly = true)
+	    public String updateMetricMessage() {
+	        String sqlSelect = "select message from metrics";
+	        return jdbcTemplate.query(sqlSelect, new MessageExtractor());
+	    }
+	    class MessageExtractor implements ResultSetExtractor<String> {
+
+	        @Override
+	        public String extractData(ResultSet rs) throws SQLException, DataAccessException {
+	        	String resultado = "";
+	        	while (rs.next()) {
+	               resultado= rs.getString("message");
+	                   
+
+	                }
+
+	         
+	            return resultado;
+	        }
+
+	    }
+	    
+	    
+	    public void updateMetricMesage(String message) {
+	    	String messageInMetrics = updateMetricMessage();
+	    	
+	    	if(message.length()>messageInMetrics.length()) {
+	    		update(message);
+	    	}
+	    	
+	    	
+	    }
+	    
+	    @Transactional
+	    public void update(String message) 
+		{
+			String sqlSelect = "UPDATE metrics SET message=\""+message+"\"WHERE id_metrics=1";
+			jdbcTemplate.batchUpdate(sqlSelect);
+		}
 	    
 	    
 }

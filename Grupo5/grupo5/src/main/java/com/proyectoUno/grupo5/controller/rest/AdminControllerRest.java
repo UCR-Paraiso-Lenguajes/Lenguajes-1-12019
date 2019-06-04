@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.controller.rest;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class AdminControllerRest {
 	
 
 	@RequestMapping(value="/admin/metrics", method=RequestMethod.GET )
-	public @ResponseBody List<Metrics> listMetrics()
+	public @ResponseBody List<Metrics> listMetrics() throws SQLException
 
 	{
 		return metricBusiness.getMetrics();
@@ -33,5 +34,9 @@ public class AdminControllerRest {
 	}
 
 	
-	
+	@RequestMapping(value="/api/metrics", method=RequestMethod.PUT )
+	public @ResponseBody void updateMetrics()
+	{
+		metricBusiness.update();
+	}	
 }
