@@ -20,6 +20,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.proyectoUno.grupo5.business.UserBusiness;
+import com.proyectoUno.grupo5.domain.Role;
 import com.proyectoUno.grupo5.domain.Room;
 import com.proyectoUno.grupo5.domain.User;
 
@@ -49,7 +50,7 @@ public class UserDao {
 		});
 	}
 
-	public Boolean invitar(String emails) throws SQLException {
+	public Boolean invitar(String emails, int idRoom) throws SQLException {
 
 		String[] invitados = emails.split(",");
 		List<User> users = getIdUser();
@@ -67,8 +68,22 @@ public class UserDao {
 			statement.setString(1, invitados[i]);
 			statement.setString(2, "localhost:8080/msn/?idUser=" + idUser);
     		notificationService.sendNotification(invitados[i], "localhost:8080/msn/?idUser=" + idUser);
-
+    		
+			String sqlInsert2 = "insert into user_room(id_user, id_room) values(?,?)";
+			CallableStatement statement2 = connection.prepareCall(sqlInsert2);
+			statement2.setInt(1, idUser);
+			statement2.setInt(2, idRoom);
+			
+			
+			String sqlInsert3 = "insert into user_role_room(id_roleUser, id_userRole,id_room) values(?,?,?)";
+			CallableStatement statement3 = connection.prepareCall(sqlInsert3);
+			statement3.setInt(1, 2);
+			statement3.setInt(2, idUser);
+			statement3.setInt(3, idRoom);
+    		
 			statement.execute();
+			statement2.execute();
+			statement3.execute();
 			
 		}
 		
@@ -151,6 +166,40 @@ public class UserDao {
 					user = new User();
 					user.setIdUser(id);
 					user.setEmail(rs.getString("email"));
+					map.put(id, user);
+
+				}
+
+			}
+			return new ArrayList<User>(map.values());
+		}
+
+	}
+	
+	
+	public List<User> getUsersWithRoom(int id_room) {
+		String queryGetId = "select ur.id_user,user.email, urr.id_roleUser from user_room as ur join user join(Select id_roleUser, id_userRole from user_role_room where id_room="+id_room+") as urr where ur.id_room="+id_room+" && ur.id_user=user.id_user && ur.id_user= urr.id_userRole";
+		return jdbcTemplate.query(queryGetId, new UserRoomRoleExtractor());
+	}
+
+	class UserRoomRoleExtractor implements ResultSetExtractor<List<User>> {
+
+		@Override
+		public List<User> extractData(ResultSet rs) throws SQLException, DataAccessException {
+
+			Map<Integer, User> map = new HashMap<>();
+			User user = null;
+		
+			while (rs.next()) {
+				Integer id = rs.getInt("id_user");
+				user = map.get(id);
+				if (user == null) {
+					
+									
+					user = new User();
+					user.setIdUser(id);
+					user.setEmail(rs.getString("email"));
+					user.setIdRole(rs.getInt("id_roleUser"));
 					map.put(id, user);
 
 				}

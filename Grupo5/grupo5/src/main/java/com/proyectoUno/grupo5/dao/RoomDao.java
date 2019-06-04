@@ -50,8 +50,7 @@ public class RoomDao {
 
 	public List<Room> listRoomsForIdUser(int idUser) {
 
-		String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room WHERE id_user="
-				+ idUser + " group by id_room";
+		String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room as ur WHERE ur.id_user="+idUser+"&& ur.id_room=room.id_room";
 
 		
 
@@ -83,30 +82,25 @@ public class RoomDao {
 		 jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
 			@Override
 			public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
-				
-
+				ps.setInt(1, id_user);
 				return ps.execute();
 
 			}
 		});
 		
 	}
-
 	private void assignRol(int id_user, int id_room) {
 		String query = "insert into user_role_room(id_roleUser,id_userRole,id_room) values(1,"+id_user+","+id_room+")";
 
 		 jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
 			@Override
 			public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
-				
 
 				return ps.execute();
-
 			}
 		});
 		
 	}
-	
 
 }
 
@@ -133,9 +127,6 @@ class RoomWithExtractor implements ResultSetExtractor<List<Room>> {
 		return new ArrayList<Room>(map.values());
 
 	}
-	
-	
-
 
 }
 
@@ -143,16 +134,12 @@ class RoomIDExtractor implements ResultSetExtractor<Integer> {
 
 	@Override
 	public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
-		
-		
-			Integer id = rs.getInt("id_room");
-			
-		
+		Integer id=-1;
+		if(rs.next()) {
+			id = rs.getInt("id_room");
+		}
 		return id;
 
 	}
-	
-	
-
 
 }

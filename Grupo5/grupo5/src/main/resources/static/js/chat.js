@@ -8,25 +8,40 @@ var room = new Vue({
         rooms: [],
         idUser: '',
         idRoom: 0,
-        sendMessage: {}
+        sendMessage: {},
+        roomName: '',
     },
     mounted() {
         let url = 'url' + window.location;
         let user = url.split('=');
         this.idUser = user[1];
+        console.log(this.idUser);
         axios
             .get('http://localhost:8080/msn/getRoomPerUser?idUser=' + this.idUser)
             .then(response => (this.rooms = response.data));
+        setInterval(() => {
+            this.getRoomsPerUser(), 1000
+        })
     },
     methods: {
         createRoom: function () {
-            this.isRoom = !this.isRoom;
+            this.isRoom = true;
             this.isChat = false;
+            this.createUser = {
+                idUser: this.idUser
+            }
+            axios.post('http://localhost:8080/msn/createRoom/' + this.roomName + '/' + this.idUser)
+                .then(response => { })
+                .catch(e => {
+                    //this.errors.push(e)
+                });
+            this.roomName = '';
         },
         verChatPerRoom: function (idRoom) {
-            this.idRoom = idRoom;
-            this.isChat = !this.isChat;
             this.isRoom = false;
+            this.isChat = true;
+            this.idRoom = idRoom;
+            alert(this.idRoom);
             this.getMessagePerRoom();
         },
         enviarMensaje: function () {
@@ -34,8 +49,8 @@ var room = new Vue({
                 contenido: this.message,
                 userSendThatMessage: this.idUser,
                 idRoom: this.idRoom
-            },
-                this.message = '';
+            }
+            this.message = '';
             this.insertMessage();
             setInterval(() => {
                 this.getMessagePerRoom();
@@ -54,6 +69,11 @@ var room = new Vue({
                 .catch(e => {
                     this.errors.push(e)
                 });
+        },
+        getRoomsPerUser: function () {
+            axios
+                .get('http://localhost:8080/msn/getRoomPerUser?idUser=' + this.idUser)
+                .then(response => (this.rooms = response.data));
         }
     }
 })

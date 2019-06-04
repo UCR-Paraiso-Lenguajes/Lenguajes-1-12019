@@ -39,11 +39,13 @@ public class RoomControllerRest {
 		
 	}
 	
-	   @RequestMapping(value="/createRoom/{id_user}", method=RequestMethod.POST)
-	    public String ingreso(@ModelAttribute(name="room")  Room room, Model model,@PathVariable int id_user) {
-	    	
-	    	
-	    	room.setRoomName(room.getRoomName());
+	   @RequestMapping(value="/createRoom/{roomName}/{idUser}", method=RequestMethod.POST)
+	    public void ingreso(@PathVariable String roomName,@PathVariable int idUser) {
+		   System.out.println(roomName
+		   );
+		   System.out.println(idUser);
+	    	Room room = new Room();
+	    	room.setRoomName(roomName);
 	    	room.setVersion(0);
 	      
 	    	
@@ -53,8 +55,8 @@ public class RoomControllerRest {
 	    	catch (SQLException e) {
 				e.printStackTrace();
 			}
-	    	roomBusiness.assignRoom(id_user);
-	    	return "createRoomSucessfull";
+	    	roomBusiness.assignRoom(idUser);
+	    	//return "createRoomSucessfull";
 	    }
 	
 }
