@@ -30,7 +30,6 @@
 					<div class="user-fullname" th:text="${usuario.nombreUsuario}"></div>
 				</div>
 			</div>
-
 			<div class="chat-list">
 				<div class="chat-list_search">
 					<label type="text" placeholder="Grupos" id="search">
@@ -40,8 +39,8 @@
 						<div class="avatar"></div>
 						<div class="chat-list_content_description">
 							<div class="chat-list_content_description_header">
-								<span th:text="${grupo.nombre}">NombreGrupo</span>
-
+								<a th:href="@{'/interfazchat?hash='+${usuario.hash}+'&idGrupo='+${grupo.id}}">
+	    						<span th:text="${grupo.nombre}"></span></a>
 							</div>
 							<div class="chat-list_content_description_body">
 								<div class="chat-list_content_description_body_message">
@@ -116,7 +115,7 @@
 						<script th:inline="javascript">
 						/*<![CDATA[*/ 
 							
-						var usuario =  /*[[${usuario.getHash()}]]*/, null;
+						var usuario =  /*[[${usuario}]]*/, null;
 						var contenido= $("#botonEnviar");
 						var grupo =  /*[[${grupo}]]*/, null;
 						var botonEnviar = $("#botonEnviar");
@@ -135,7 +134,7 @@
 							
 
 							$.ajax(	{
-								method:"PUT",
+								method:"POSTT",
 								data:JSON.stringify(obj),
 								contentType:"application/json; charset=utf-8",
 								url: "/api/mandarMensaje"
