@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
+import com.proyectoUno.grupo5.domain.Room;
 import com.proyectoUno.grupo5.domain.User;
 
 @Repository
@@ -30,22 +31,34 @@ public class UserDao {
 	    
 	public Boolean insertUser(User user){
         String query="insert into user(email, hash) values(?,?)";
-
+        		
         return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
             @Override
             public Boolean doInPreparedStatement(PreparedStatement ps)
                     throws SQLException, DataAccessException {
                 ps.setString(1,user.getEmail());
                 ps.setString(2,user.getHash());
+               
                // ps.setInt(3,user.getRoleUser().get(0).getIdRole());
 
+                
+             
                 return ps.execute();
+                
 
             }
         });
     }
-
+	
+	
+	public List<User> getIdUser() {
+		
+        String queryGetId = "SELECT MAX(id_user) as id_user, email FROM user;";
+        return    jdbcTemplate.query(queryGetId, new UserWithExtractorMax());
         
+	}
+
+
     class UserWithExtractor implements ResultSetExtractor<List<User>> {
 
         @Override
@@ -55,7 +68,7 @@ public class UserDao {
         	Map<Integer, User> map = new HashMap<>();
             User user = null;
             while (rs.next()) {
-                Integer id = rs.getInt("iduser");
+                Integer id = rs.getInt("id_user");
                 user = map.get(id);
                 if (user == null) {
                     user = new User();
@@ -69,10 +82,33 @@ public class UserDao {
             }
             return new ArrayList<User>(map.values());
         }
-
-		
     }
-}
+
+        class UserWithExtractorMax implements ResultSetExtractor<List<User>> {
+
+            @Override
+            public List<User> extractData(ResultSet rs) throws SQLException, DataAccessException {
+            	
+            
+            	Map<Integer, User> map = new HashMap<>();
+                User user = null;
+                while (rs.next()) {
+                    Integer id = rs.getInt("id_user");
+                    user = map.get(id);
+                    if (user == null) {
+                        user = new User();
+                        user.setIdUser(id);
+                        map.put(id, user);
+
+                    }
+
+                }
+                return new ArrayList<User>(map.values());
+            }
+
+    		
+    }
+        }
 
         
 

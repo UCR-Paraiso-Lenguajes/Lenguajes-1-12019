@@ -1,5 +1,7 @@
 package com.proyectoUno.grupo5.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,10 @@ public class UserBusiness {
 		
 		
 		return userDao.insertUser(user);
+	}
+	
+	public List<User> getIdUser() {
+		
+		return userDao.getIdUser();
 	}
 }

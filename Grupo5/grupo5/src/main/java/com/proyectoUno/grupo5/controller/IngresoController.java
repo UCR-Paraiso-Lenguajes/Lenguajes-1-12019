@@ -1,6 +1,7 @@
 package com.proyectoUno.grupo5.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -37,13 +38,15 @@ public class IngresoController {
     @RequestMapping(value="/ingreso", method=RequestMethod.POST)
     public String ingreso(@ModelAttribute(name="user") User user, Model model) {
     	
-    	
+    	List<User> users = userBusiness.getIdUser();
+    	int idUser = users.get(0).getIdUser() +1;
     	roles.add(roleUser);
     	user.setEmail(user.getEmail());
-    	user.setHash("localhost:8080/msn/?idUser="+user.getIdUser());
+    	user.setHash("localhost:8080/msn/?idUser="+idUser);
     	user.setRoleUser(roles);
     	userBusiness.insertUser(user);
     	try {
+    		
     		notificationService.sendNotification(user, user.getHash());
     		
     	}catch(MailException e) {
