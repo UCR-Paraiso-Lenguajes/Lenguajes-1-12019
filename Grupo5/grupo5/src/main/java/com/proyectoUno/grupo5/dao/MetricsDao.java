@@ -37,7 +37,7 @@ public class MetricsDao {
 	    @Transactional
 	    public List<Metrics> getMetrics() throws SQLException {
 	    	updateMetrics();
-	        String sqlSelect = "Select id_metrics, quantity_rooms,quantity_users,average_user_per_group,date_last_message,date_first_login,user_with_more_message,quantity_meesage_user,message,last_group_created,group_with_more_message,quantity_meessage_room From metrics";
+	        String sqlSelect = "Select id_metrics, quantity_rooms,quantity_users,message,average_user_per_group,date_last_message,date_first_login,user_with_more_message,quantity_meesage_user,message,last_group_created,group_with_more_message,quantity_meessage_room From metrics";
 	        return jdbcTemplate.query(sqlSelect, new MetricsWithExtractor());
 	    }
 	    class MetricsWithExtractor implements ResultSetExtractor<List<Metrics>> {
@@ -54,6 +54,7 @@ public class MetricsDao {
 	                    metrics.setIdmetrics(id);
 	                    metrics.setQuantityOfRooms(rs.getInt("quantity_rooms"));
 	                    metrics.setQuantityOfUsers(rs.getInt("quantity_users"));
+	                    metrics.setMessage(rs.getString("message"));
 	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_per_group"));
 	                    metrics.setDate_last_message(rs.getDate("date_last_message"));
 	                    metrics.setDate_first_login(rs.getDate("date_first_login"));
