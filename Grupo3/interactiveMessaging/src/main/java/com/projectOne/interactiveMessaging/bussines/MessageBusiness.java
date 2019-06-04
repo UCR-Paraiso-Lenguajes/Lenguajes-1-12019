@@ -12,6 +12,7 @@ import com.projectOne.interactiveMessaging.data.MessageData;
 import com.projectOne.interactiveMessaging.domain.ClassListNewMessages;
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.SingleGroupMessage;
+import com.projectOne.interactiveMessaging.domain.TableMessagesGroups;
 import com.projectOne.interactiveMessaging.domain.User;
 
 @Service
@@ -55,6 +56,15 @@ public class MessageBusiness {
 		//Cuarto insertarlo
 		ClassListNewMessages classList = new ClassListNewMessages();
 		classList.storeNewMessage(singleGroupMessage);
+		//Insertar el grupo a la tabla si no existe y si ya existe agregar ese idUser a la lista
+		TableMessagesGroups tableGroups = new TableMessagesGroups();
+		
+		if(tableGroups.existUserFromAnyGroup(idUser)) {
+			tableGroups.deleteUserFromAnyGroup(idUser);
+			tableGroups.changeGroup(idGroup,idUser, true);
+		}else {
+			tableGroups.changeGroup(idGroup,idUser, true);
+		}
 	}
 	
 }
