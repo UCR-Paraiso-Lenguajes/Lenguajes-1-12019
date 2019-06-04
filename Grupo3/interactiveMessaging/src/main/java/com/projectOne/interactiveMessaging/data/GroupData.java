@@ -73,7 +73,51 @@ public class GroupData {
 		listOfRooms.get(0).setDateCreate(temp);
 		return listOfRooms.get(0);
 	}
-	
+	@Transactional
+	public void saveUserRoleRoom(int idUser, int idRole, int idRoom) {
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			connection.setAutoCommit(false);
+			
+			int idUserAux = 0,idRoleAux=0,idRoomAux=0;
+			
+			String sqlExistRegs = "select idUser,idRole,idRoomUR from UserRoleRoom where idUser="+idUser+" and idRole="+idRole+" and idRoomUR="+idRoom;
+		    Statement st = connection.createStatement();
+		    ResultSet rs = st.executeQuery(sqlExistRegs);
+		    while(rs.next()) {
+		    	idUserAux = rs.getInt("idUser");
+		    	idRoleAux = rs.getInt("idRole");
+		    	idRoomAux = rs.getInt("idRoomUR");
+		    }
+		    if(idUser!=idUserAux && idRole!=idRoleAux && idRoom!=idRoomAux) {
+			
+				String sqlSaveGroup = "insert into UserRoleRoom values(?,?,?)";
+				PreparedStatement stmt = connection.prepareStatement(sqlSaveGroup);
+				stmt.setInt(1, idUser);
+				stmt.setInt(2, idRole);
+				stmt.setInt(3, idRoom);
+				stmt.execute();
+				
+				connection.commit();
+		    }
+		}catch(Exception e){
+			try {
+				connection.rollback();
+			}catch(SQLException e1) {
+				throw new RuntimeException(e1);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				}catch(SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
 	@Transactional
 	public void saveGroup(String nameGroup) {
 		//select id from RoomApp order by id desc limit 1
