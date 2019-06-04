@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,6 +39,22 @@ public class RoomControllerRest {
 		
 	}
 	
-  
+	   @RequestMapping(value="/createRoom/{id_user}", method=RequestMethod.POST)
+	    public String ingreso(@ModelAttribute(name="room")  Room room, Model model,@PathVariable int id_user) {
+	    	
+	    	
+	    	room.setRoomName(room.getRoomName());
+	    	room.setVersion(0);
+	      
+	    	
+	    	try {
+	    		roomBusiness.insertRoom(room);
+	    	}
+	    	catch (SQLException e) {
+				e.printStackTrace();
+			}
+	    	roomBusiness.assignRoom(id_user);
+	    	return "createRoomSucessfull";
+	    }
 	
 }
