@@ -52,21 +52,14 @@ public class RoomData {
 	
 	@Transactional
 	
-	public Room save(Room room) throws SQLException{
+	public void createTableRoom(String name, int idRoom, int idRoomAdministrator, int idRoomOwner, int version ) throws SQLException{
+		String sqlSelect = "CREATE TABLE"+name+"("+"id_room int,"+"id_room_administrator int,"+"id_room_owner int,"+"version int,"
+	    +"PRIMARY KEY id_room,"+"FOREIGN KEY(id_room_administrator) REFERENCES User(user_id),"
+		+"FOREIGN KEY(id_room_owner) REFERENCES User(user_id),";
 		
-		SqlParameterSource parameterSource = new MapSqlParameterSource()
-		.addValue("@name", room.getName())
-		.addValue("@version", room.getVersion())
-		.addValue("@idRoomAdministrator", room.getRoomAdministrator().getIdUser())
-		.addValue("@idRoomOwner", room.getRoomOwner().getIdUser());
+		String sqlSelect1 = "INSERT INTO"+name+"(id_room,id_room_administrator,id_room_owner,version) values("
+		+idRoom+","+idRoomAdministrator+","+idRoomOwner+","+version+")";
 		
-		Map<String, Object> outParameters = simpleJdbcCall.execute(parameterSource);
-		room.setIdRoom(Integer.parseInt(outParameters.get("@idRoom").toString()));
-		
-		return room;
-		
-		
-				
 		
 	}
 	
