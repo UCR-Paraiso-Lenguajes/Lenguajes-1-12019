@@ -99,6 +99,7 @@ public class Metrics {
 	
 	/**
 	 * Metodo que actualiza la cantidad de usuarios de la aplicacion
+	 * se llama cada que se crea un nuevo user
 	 * Pasar por parametro userData.findAllTheUsers()
 	 */
 	public void updateNumbersOfUsers(Iterator<User> users) {
@@ -129,8 +130,7 @@ public class Metrics {
 	 * Metodo debe ser llamado cuando se cree un nuevo grupoo se elimine algun usuario de del grupo
 	 * @param sumOfUsers
 	 */
-	public void updateAverageOfUsersPerRoom(int sumOfUsers) {
-		this.sumOfUsersPerGroup += sumOfUsers;
+	public void updateAverageOfUsersPerRoom() {
 		this.averageOfUsersPerRoom =  this.sumOfUsersPerGroup / this.numberOfRooms; 
 	}
 	
@@ -155,16 +155,17 @@ public class Metrics {
 		List<Room> roomsArray = new ArrayList<>(); 
 		rooms.forEachRemaining(roomsArray::add);
 		this.dateFirstLogin= roomsArray.get(0).getDateCreate();
+		this.LastRoomCreated = roomsArray.get(roomsArray.size()-1).getName_Room();
 	}
 	
 	/**
 	 * Metodo que actualiza el ultimo grupo creado
 	 * Metodo debe de ser llamado cuando se accione el boton de ver metricas
 	 */
-	public void updateLastGroupCreate(Iterator<Room> rooms) {
-		List<Room> roomsArray = new ArrayList<>(); 
-		rooms.forEachRemaining(roomsArray::add);
-		this.LastRoomCreated = roomsArray.get(roomsArray.size()-1).getName_Room();
+	public void updateLastGroupCreate(ArrayList<Room> rooms) {
+//		List<Room> roomsArray = new ArrayList<>(); 
+//		rooms.forEachRemaining(roomsArray::add);
+		this.LastRoomCreated = rooms.get(rooms.size()-1).getName_Room();
 	}
 	
 	/**
@@ -317,8 +318,8 @@ public class Metrics {
 
 
 
-	public boolean compareUserMoreMessage(int numberMessages) {
-		if(quantityMessageBigUser > numberMessages) {
+	private boolean compareUserMoreMessage(int numberMessages) {
+		if(quantityMessageBigUser < numberMessages) {
 			return true;
 		}
 		return false;

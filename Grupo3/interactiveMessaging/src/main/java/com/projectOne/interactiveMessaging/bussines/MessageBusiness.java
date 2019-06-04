@@ -53,10 +53,12 @@ public class MessageBusiness {
 		messageData.sendMessage(groupBusiness.getNameGroupTableMessages(idGroup), text, idUser, timestamp,text.length());
 		//Primero Traer el usuario
 		User userTransmitter = userBusiness.getSpecificUserById(idUser);
+		metrics.updateUserMoreMessage(userTransmitter);
 		//Segundo Construir el mensaje con
 		//int message_id, String message, User userTransmitter, Timestamp dateMessage
 		Message message = new Message(1,text,userTransmitter,timestamp);
 		metrics.updateMessageMetrics(text);
+		metrics.updateDateLastMessage(timestamp); 
 		
 		//Tercero construir SingleGroupMessage
 		SingleGroupMessage singleGroupMessage = new SingleGroupMessage(idGroup,message);

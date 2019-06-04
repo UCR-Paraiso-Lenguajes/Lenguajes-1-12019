@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projectOne.interactiveMessaging.data.UserData;
+import com.projectOne.interactiveMessaging.domain.Metrics;
+import com.projectOne.interactiveMessaging.domain.Room;
 import com.projectOne.interactiveMessaging.domain.User;
 
 @Service
@@ -26,11 +28,13 @@ public class UserBusiness {
 	}
 	
 	public Iterator<User> findUsersCertainRoom(int roomID){
-		
-		
 		return userData.findUsersCertainRoom(roomID);
 		
 		
+	}
+	
+	public Iterator<User> findAllTheUsers(){
+		return userData.findAllTheUsers();
 	}
 
 }

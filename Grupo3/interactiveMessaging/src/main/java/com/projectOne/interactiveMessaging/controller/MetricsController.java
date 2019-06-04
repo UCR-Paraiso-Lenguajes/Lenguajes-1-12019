@@ -33,6 +33,7 @@ public class MetricsController {
 	
 	@Autowired
 	private GroupData groupData;
+	Metrics metrics = Metrics.getInstance();
 	
 	@RequestMapping(value="/metrics", method=RequestMethod.GET)
     public String metrics(Model model) {
@@ -46,8 +47,9 @@ public class MetricsController {
 						//List<Room> groups = groupBusiness.getGroupsOfUser(4);///Aqui cambiar el id usuario
 						Iterator<Room> groups = groupData.getGroups();
 						model.addAttribute("groups",groups);
-						
-		//model.addAttribute("metrics", metrics.next());
+
+		metrics.updateNumbersOfUsers(userBusiness.findAllTheUsers()); 
+		metrics.updateAverageOfUsersPerRoom();
 		model.addAttribute("metrics", metrics);
 
 		return "homeAdmi";
