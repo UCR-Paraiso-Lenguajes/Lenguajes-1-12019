@@ -28,7 +28,7 @@ public class MessageControllerRest {
 
 		return new ResponseEntity<>(messageBusiness.insertMessage(message), HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/getMessages", method = RequestMethod.GET)
 	public ResponseEntity<Object> getMessages(@RequestParam("idRoom") int idRoom){
 

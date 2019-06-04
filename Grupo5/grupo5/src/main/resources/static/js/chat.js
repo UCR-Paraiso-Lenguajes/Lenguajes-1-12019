@@ -7,7 +7,7 @@ var room = new Vue({
         messages: [],
         rooms: [],
         idUser: '',
-        idRoom: '',
+        idRoom: 0,
         sendMessage: {}
     },
     mounted() {
@@ -27,9 +27,7 @@ var room = new Vue({
             this.idRoom = idRoom;
             this.isChat = !this.isChat;
             this.isRoom = false;
-            axios
-                .get('http://localhost:8080/msn/getMessages?idRoom=' + this.idRoom)
-                .then(response => (this.messages = response.data));
+            this.getMessagePerRoom();
         },
         enviarMensaje: function () {
             this.sendMessage = {
@@ -38,11 +36,24 @@ var room = new Vue({
                 idRoom: this.idRoom
             },
                 this.message = '';
+            this.insertMessage();
+            setInterval(() => {
+                this.getMessagePerRoom();
+            }, 3000);
+
+
+        },
+        getMessagePerRoom: function () {
+            axios
+                .get('http://localhost:8080/msn/getMessages?idRoom=' + this.idRoom)
+                .then(response => (this.messages = response.data));
+        },
+        insertMessage: function () {
             axios.post(`http://localhost:8080/msn/insertMessage`, this.sendMessage)
                 .then(response => { })
                 .catch(e => {
                     this.errors.push(e)
-                })
+                });
         }
     }
 })
