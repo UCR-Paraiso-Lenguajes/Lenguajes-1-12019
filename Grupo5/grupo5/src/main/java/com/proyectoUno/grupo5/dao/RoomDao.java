@@ -77,8 +77,23 @@ public class RoomDao {
 
 	public void assignRoom(int id_user) {
 		int id_room=idRoom();
-		
+		assignRol(id_user,id_room);
 		String query = "insert into user_room(id_user,id_room) values(?,"+id_room+")";
+
+		 jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
+			@Override
+			public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
+				
+
+				return ps.execute();
+
+			}
+		});
+		
+	}
+
+	private void assignRol(int id_user, int id_room) {
+		String query = "insert into user_role_room(id_roleUser,id_userRole,id_room) values(1,"+id_user+","+id_room+")";
 
 		 jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
 			@Override
