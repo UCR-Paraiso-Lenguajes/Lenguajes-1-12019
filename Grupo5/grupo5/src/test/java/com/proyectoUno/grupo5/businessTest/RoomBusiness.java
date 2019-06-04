@@ -83,7 +83,7 @@ public class RoomBusiness {
 	}
 	
 	@Test
-	public void roles() {
+	public void roles() throws SQLException {
 		
 		
 		User user = new User();
@@ -98,6 +98,7 @@ public class RoomBusiness {
 			room.setVersion(1);
 			
 			room.setUsers(users);
+			roomBusiness.assignRoom(1);//////////////////importante diferencia
 			
 			try {
 				roomBusiness.insertRoom(room);
@@ -115,8 +116,26 @@ public class RoomBusiness {
 		}
 	}
 	
+	@Test
+	public void infoRoom() throws SQLException {
 	
+		User user = new User();
+		ArrayList<User> users = new ArrayList<>();
+		users.add(user);
+
 		
+		Room room = new Room();
+		room.setIdRoom(1);
+		room.setRoomName("Los teletubies");
+		room.setVersion(1);
+		
+		room.setUsers(users);
+		assertTrue( false);
+
+
 	}
 	
+	
+	
+}
 
