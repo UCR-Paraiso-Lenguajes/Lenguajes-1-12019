@@ -3,6 +3,10 @@ package com.projectOne.interactiveMessaging.data;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +20,15 @@ import com.projectOne.interactiveMessaging.domain.User;
 
 @Repository
 public class UserData {
+	
+	@Autowired
+	private DataSource dataSource;
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private List<User> userList = new ArrayList<>();
 	private ArrayList<Role> rolesUser = new ArrayList<>();
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public Iterator<User> findUsersCertainRoom(int roomID) {// Trae los usuarios de un grupo en especifico con sus
 															// debidos roles en el grupo
 
@@ -60,7 +68,7 @@ public class UserData {
 		return idGroupsOfUsr.iterator();
 	}
 	
-	@Transactional
+	//@Transactional
 	public Iterator<User> findUsersOwnerOrAdmin(int idRoom, int idRole){
 		ArrayList<User> listOfUserOwnerOrAdmin = new ArrayList<User>();
 		String selectMySqlOwner = "select u.correo from UserApp u inner join UserRoleRoom usr on u.id=usr.idUser inner join RoomApp ro on usr.idRoomUR=ro.id inner " + 
@@ -69,7 +77,7 @@ public class UserData {
 			.forEach(entry -> listOfUserOwnerOrAdmin.add(entry));
 		return listOfUserOwnerOrAdmin.iterator();
 	}
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public User getSpecificUserById(int idUser) {
 		List<User> listOfUser = new ArrayList<>();
 		String selectMysql = "SELECT id,correo, numberMessages " + "FROM UserApp "
@@ -80,6 +88,64 @@ public class UserData {
 		return listOfUser.get(0);
 	}
 	
+
+	@Transactional
+	public int save(String correoUser) {
+		ArrayList<User> userList = new ArrayList<User>();
+		
+		String selectMySql = "select id, correo, numberMessages from UserApp where correo = ?";
+		
+		jdbcTemplate.query(selectMySql, new Object[] {correoUser}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
+			.forEach(entry -> userList.add(entry));
+		
+		
+		
+		User userAdd = new User();
+		if(userList.isEmpty()) {
+			
+			int lastRegsOfUser =1;
+			String selectEndID = "select id, correo, numberMessages from UserApp order by id desc limit ?";
+			jdbcTemplate.query(selectEndID, new Object[] {lastRegsOfUser}, (rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages")))
+				.forEach(entry -> userAdd.setUser_id(entry.getUser_id()));
+			
+			Connection connection = null;
+			try {
+				connection = dataSource.getConnection();
+				connection.setAutoCommit(false);
+				
+				String sqlInsert = "insert into UserApp values (?, ?, ?)";
+				int idNew = userAdd.getUser_id() + 1;
+				PreparedStatement stmt = connection.prepareStatement(sqlInsert);
+				stmt.setInt(1, idNew);
+				stmt.setString(2, correoUser);
+				stmt.setInt(3, 0);
+				stmt.execute();
+				
+				connection.commit();
+				return idNew;
+			}catch(Exception e){
+				try {
+					connection.rollback();
+				}catch(SQLException e1) {
+					throw new RuntimeException(e1);
+				}
+				throw new RuntimeException(e);
+			}finally {
+				if(connection != null) {
+					try {
+						connection.close();
+					}catch(SQLException e) {
+						throw new RuntimeException(e);
+					}
+				}
+			}
+		}else {
+			User user = new User();
+			user = userList.iterator().next();
+			return user.getUser_id();
+		}
+		
+	}
 	@Transactional(readOnly = true)
 	public Iterator<User> findAllTheUsers() {
 
@@ -89,6 +155,7 @@ public class UserData {
 		return jdbcTemplate
 				.query(selectMysql, new Object[] {  },
 						(rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages"))).iterator();
+
 	}
 
 }

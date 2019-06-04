@@ -20,5 +20,17 @@ public class UserBusiness {
 	public User getSpecificUserById(int idUser) {
 		return userData.getSpecificUserById(idUser);
 	}
+	
+	public int save(String correoUser) { 
+		return userData.save(correoUser);
+	}
+	
+	public Iterator<User> findUsersCertainRoom(int roomID){
+		
+		
+		return userData.findUsersCertainRoom(roomID);
+		
+		
+	}
 
 }
