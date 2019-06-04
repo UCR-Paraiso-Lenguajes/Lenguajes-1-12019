@@ -25,7 +25,7 @@ public class MessageControllerRest {
 	@Autowired
 	private MessageBussiness messageBusiness;
 
-	
+
 		@Autowired
 		private MessageBussiness messageBusiness;
 		
