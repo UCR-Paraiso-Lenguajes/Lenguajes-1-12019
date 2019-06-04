@@ -74,6 +74,10 @@ public class MessageDao {
 	                	message.setIdMessage(id);;
 	                	message.setContenido(rs.getString("containt"));
 	                    message.setFecha(rs.getDate("date"));
+	                    message.setIdRoom(rs.getInt("id_room"));
+	                    message.setUserSendThatMessage(rs.getInt("id_user"));
+
+	                    
 
 	                    map.put(id, message);
 
