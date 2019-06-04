@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.projectOne.interactiveMessaging.bussines.EmailBussines;
 import com.projectOne.interactiveMessaging.bussines.GroupBusiness;
 import com.projectOne.interactiveMessaging.bussines.MessageBusiness;
+import com.projectOne.interactiveMessaging.bussines.MetricsBusiness;
 import com.projectOne.interactiveMessaging.bussines.UserBusiness;
 import com.projectOne.interactiveMessaging.data.UserData;
 
@@ -53,6 +54,8 @@ public class HelloController {
 	
 	@Autowired
 	private MetricsController metricsController;
+	@Autowired
+	private MetricsBusiness metricsBusiness;
 	
 	@RequestMapping("/")
     public String login() {
@@ -63,6 +66,7 @@ public class HelloController {
 	public String loginAdmin(@RequestParam("email") String mail,@RequestParam("password") String password,Model model) {
 		
 		if(mail.equalsIgnoreCase("soporte.soft.inc@gmail.com") && password.equalsIgnoreCase("grupo3info")) {
+			metricsBusiness.loadDataMetrics();
 			return metricsController.metrics(model);
 		}else
 		
