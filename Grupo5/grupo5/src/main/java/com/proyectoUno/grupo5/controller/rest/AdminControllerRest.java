@@ -39,12 +39,6 @@ public class AdminControllerRest {
 	}
 
 	
-	@RequestMapping(value="/api/metrics", method=RequestMethod.PUT )
-	public @ResponseBody void updateMetrics()
-	{
-		metricBusiness.update();
-	}	
-	
 	@RequestMapping(value="/admin/getRooms", method=RequestMethod.GET)
 	public ResponseEntity<Object> getRooms() {
 		
