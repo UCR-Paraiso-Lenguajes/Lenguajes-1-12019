@@ -111,5 +111,28 @@ public class TableMessagesGroups {
 		return false;
 
 	}
+	public GroupUser getGroup(int idGroup) {
+		for (int i = 0; i < listOfGroupUsers.size(); i++) {
 
+			if (listOfGroupUsers.get(i).getIdGroup() == idGroup) {
+				return listOfGroupUsers.get(i);
+
+
+			}
+
+		}
+		return new GroupUser();
+	}
+	public boolean existGroup(int idGroup) {
+		for (int i = 0; i < listOfGroupUsers.size(); i++) {
+
+			if (listOfGroupUsers.get(i).getIdGroup() == idGroup) {
+				return true;
+
+
+			}
+
+		}
+		return false;
+	}
 }

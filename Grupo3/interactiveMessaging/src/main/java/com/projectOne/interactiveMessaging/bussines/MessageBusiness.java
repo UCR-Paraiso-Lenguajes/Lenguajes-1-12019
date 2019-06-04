@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.projectOne.interactiveMessaging.data.MessageData;
 import com.projectOne.interactiveMessaging.domain.ClassListNewMessages;
+import com.projectOne.interactiveMessaging.domain.GroupUser;
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.SingleGroupMessage;
 import com.projectOne.interactiveMessaging.domain.TableMessagesGroups;
@@ -53,9 +54,7 @@ public class MessageBusiness {
 		Message message = new Message(1,text,userTransmitter,timestamp);
 		//Tercero construir SingleGroupMessage
 		SingleGroupMessage singleGroupMessage = new SingleGroupMessage(idGroup,message);
-		//Cuarto insertarlo
-		ClassListNewMessages classList = new ClassListNewMessages();
-		classList.storeNewMessage(singleGroupMessage);
+		
 		//Insertar el grupo a la tabla si no existe y si ya existe agregar ese idUser a la lista
 		TableMessagesGroups tableGroups = new TableMessagesGroups();
 		
@@ -63,8 +62,18 @@ public class MessageBusiness {
 			tableGroups.deleteUserFromAnyGroup(idUser);
 			tableGroups.changeGroup(idGroup,idUser, true);
 		}else {
-			tableGroups.changeGroup(idGroup,idUser, true);
+			if(tableGroups.existGroup(idGroup)) {
+				tableGroups.changeGroup(idGroup,idUser, true); 
+			}else {
+				tableGroups.storeNewGroup(new GroupUser(idGroup));
+				tableGroups.changeGroup(idGroup,idUser, true); 
+			}
+			
 		}
+		//Cuarto insertarlo
+		ClassListNewMessages classList = new ClassListNewMessages();
+		classList.storeNewMessage(singleGroupMessage);
+		singleGroupMessage.setUsersIDs(tableGroups.getGroup(idGroup).getIds());
 	}
 	
 }

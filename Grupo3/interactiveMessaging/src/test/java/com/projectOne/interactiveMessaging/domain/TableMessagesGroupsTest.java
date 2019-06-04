@@ -50,6 +50,7 @@ public class TableMessagesGroupsTest {
 		existsUser = tableGroups2.existUserOnGroup(2,3);
 		existsUser = tableGroups2.existUserFromAnyGroup(3);
 		existsUser = tableGroups2.existUserFromAnyGroup(4);
+		GroupUser gp = tableGroups2.getGroup(2);
 		assertNotNull(table);
 	}
 }

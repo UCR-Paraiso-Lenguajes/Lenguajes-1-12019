@@ -25,8 +25,20 @@ public class ClassListNewMessages {
 		for (int i = 0; i < listOfSingleGroupMessages.size(); i++) {
 			singleGroupMessage = listOfSingleGroupMessages.get(i);
 			if(singleGroupMessage.getIdGroup()==idGroup&&singleGroupMessage.getMessage().getUserTransmitter().getUser_id()!=idUser) {
-				subListOfSingleGroupMessages.add(singleGroupMessage);
-				listOfSingleGroupMessages.remove(position);
+				int sizeUsrsIds = singleGroupMessage.getUsersIDs().size();
+				for (int j = 0; j < sizeUsrsIds; j++) {
+					if(singleGroupMessage.getUsersIDs().get(j)==idUser) {
+						subListOfSingleGroupMessages.add(singleGroupMessage);
+						singleGroupMessage.getUsersIDs().remove(j);
+						j = sizeUsrsIds;
+					}
+				}
+				
+				
+				if(singleGroupMessage.getUsersIDs().size()==0) {
+					listOfSingleGroupMessages.remove(position);
+				}
+				
 			}
 			
 		}

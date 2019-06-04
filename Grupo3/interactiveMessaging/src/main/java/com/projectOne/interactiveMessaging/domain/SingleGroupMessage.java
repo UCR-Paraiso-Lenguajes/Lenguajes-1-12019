@@ -1,9 +1,20 @@
 package com.projectOne.interactiveMessaging.domain;
 
+import java.util.ArrayList;
+
 public class SingleGroupMessage {
 	private int idGroup;
 	private Message message;
+	private ArrayList<Integer> usersIDs;
 	
+	public ArrayList<Integer> getUsersIDs() {
+		return usersIDs;
+	}
+
+	public void setUsersIDs(ArrayList<Integer> usersIDs) {
+		this.usersIDs = usersIDs;
+	}
+
 	public SingleGroupMessage(int idGroup, Message message) {
 		setIdGroup(idGroup);
 		setMessage(message);
