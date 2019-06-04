@@ -30,5 +30,13 @@ public class MessageBussiness {
 	    	return messageDao.insertMessageSincro(message);
 
 	    }
+	    
+	    public Map<Integer, Message> getMessagesSincro(int idRoom){
+	    	
+	    	
+	    	return messageDao.getMessagesSincro(idRoom);
+	    	
+	    	
+	    }
 
 }

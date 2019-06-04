@@ -26,6 +26,8 @@ public class RoomBussiness {
 	public List<Room> getRooms() {
 		return roomDao.listRooms();
 	}
+	
+
     
 
 }

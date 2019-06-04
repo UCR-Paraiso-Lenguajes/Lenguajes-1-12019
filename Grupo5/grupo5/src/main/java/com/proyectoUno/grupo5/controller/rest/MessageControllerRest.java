@@ -1,5 +1,7 @@
 package com.proyectoUno.grupo5.controller.rest;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,14 +26,28 @@ public class MessageControllerRest {
 		@Autowired
 		private MessageBussiness messageBusiness;
 		
+		 private Map<Integer, Message> messagesSincro;
+		
 		@RequestMapping(value = "/msn/insertMessage", method = RequestMethod.POST)
+		public ResponseEntity<Object> postInsertMessages(@RequestBody Message message) {
+				
+			return null;
+			//messagesSincro = messageBusiness.insertMessageSincro(message);
+		}
 		public ResponseEntity<Object> getFoosBySimplePathWithPathVariable (@RequestBody Message message) {
 
 			//Message message = new Message(containt, idUser, idRoom);
 			return new ResponseEntity<>(messageBusiness.insertMessage(message), HttpStatus.OK);
 }
 		
-		
+		@RequestMapping(value = "/msn/getMessageSincro", method = RequestMethod.GET)
+		//public ResponseEntity<Object> getMessages(@RequestBody int IdRoom){
+		public Map<Integer, Message> getMessages(){
+			
+			
+			//return new ResponseEntity<>(messageBusiness.getMessagesSincro(1), HttpStatus.OK);
+			return messagesSincro;
+		}
 		
 		 
 		

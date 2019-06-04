@@ -22,111 +22,74 @@ import java.util.Map;
 @Repository
 public class RoomDao {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    private DataSource dataSource;
-    
-    private List<Message> listMessages;
-    private List<List> rooms;
+	@Autowired
+	private DataSource dataSource;
 
-    public Boolean insertRoom(Room r){
-        String query="insert into room(room_name,version) values(?,?)";
+	private List<Message> listMessages;
+	private List<List> rooms;
 
-        return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
-            @Override
-            public Boolean doInPreparedStatement(PreparedStatement ps)
-                    throws SQLException, DataAccessException {
-                ps.setString(1,r.getRoomName());
-                ps.setInt(2,r.getVersion());
+	public Boolean insertRoom(Room r) {
+		String query = "insert into room(room_name,version) values(?,?)";
 
-                return ps.execute();
+		return jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
+			@Override
+			public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
+				ps.setString(1, r.getRoomName());
+				ps.setInt(2, r.getVersion());
 
-            }
-        });
-        
-       
-        
-    }
-    
-    public List<Room> listRoomsForIdUser(int idUser){
-    	
-    	
-    	/*
-    	 *SELECT column-names
-  FROM table-name1 JOIN table-name2 
-    ON column-name1 = column-name2
- WHERE condition
-    	 */
-    	
-    	String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room WHERE id_user=" 
-    	+idUser+" group by id_room";
-    			 
-    			
-    	
-    			
-    			
-    	
-    			;
-		
+				return ps.execute();
+
+			}
+		});
+
+	}
+
+	public List<Room> listRoomsForIdUser(int idUser) {
+
+		String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room JOIN user_room WHERE id_user="
+				+ idUser + " group by id_room";
+
+		;
+
 		return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
-    	
-    }
 
+	}
 
-public List<Room> listRooms(){
-	
-	
-	/*
-	 *SELECT column-names
-FROM table-name1 JOIN table-name2 
-ON column-name1 = column-name2
-WHERE condition
-	 */
-	
-	String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room ";
-			 
-			
-	
-			
-			
-	
-			;
-	
-	return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
-	
-}
+	public List<Room> listRooms() {
+
+		String sqlSelect = "SELECT room.id_room, room.room_name, room.version from room ";
+
+		return jdbcTemplate.query(sqlSelect, new RoomWithExtractor());
+
+	}
+
 }
 
-    class RoomWithExtractor implements ResultSetExtractor<List<Room>> {
+class RoomWithExtractor implements ResultSetExtractor<List<Room>> {
 
-        @Override
-        public List<Room> extractData(ResultSet rs) throws SQLException, DataAccessException {
-            Map<Integer, Room> map = new HashMap<>();
-            Room room = null;
-            while (rs.next()) {
-                Integer id = rs.getInt("id_room");
-                room = map.get(id);
-                if (room == null) {
-                    room = new Room();
-                    room.setIdRoom(id);
-                    room.setRoomName(rs.getString("room_name"));
-                    room.setVersion(rs.getInt("version"));
+	@Override
+	public List<Room> extractData(ResultSet rs) throws SQLException, DataAccessException {
+		Map<Integer, Room> map = new HashMap<>();
+		Room room = null;
+		while (rs.next()) {
+			Integer id = rs.getInt("id_room");
+			room = map.get(id);
+			if (room == null) {
+				room = new Room();
+				room.setIdRoom(id);
+				room.setRoomName(rs.getString("room_name"));
+				room.setVersion(rs.getInt("version"));
 
-                    map.put(id, room);
+				map.put(id, room);
 
-                }
+			}
 
-            }
-            return new ArrayList<Room>(map.values());
-            
-            
-        }
+		}
+		return new ArrayList<Room>(map.values());
 
-    }
-    
-    
-    
-   
+	}
 
+}
