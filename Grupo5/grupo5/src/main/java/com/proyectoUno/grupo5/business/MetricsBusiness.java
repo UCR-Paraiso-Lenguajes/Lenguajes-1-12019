@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.business;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,18 @@ public class MetricsBusiness{
 
 	 
 	   
-	 public List<Metrics> getMetrics () {
+	 public List<Metrics> getMetrics () throws SQLException {
 	       return metrics.getMetrics();
 	    	
 	    }
+
+
+
+	 public void update() 
+		{
+							
+		 metrics.updateMetrics();
+		}
 	    
 
 }
