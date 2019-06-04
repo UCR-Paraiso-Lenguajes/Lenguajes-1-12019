@@ -35,8 +35,7 @@ var room = new Vue({
                 userSendThatMessage: this.idUser,
                 idRoom: this.idRoom
             },
-                alert(this.sendMessage);
-            this.message = '';
+                this.message = '';
             axios.post(`http://localhost:8080/msn/insertMessage`, this.sendMessage)
                 .then(response => { })
                 .catch(e => {
