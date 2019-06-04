@@ -16,7 +16,7 @@ var room = new Vue({
         this.idUser = user[1];
         axios
             .get('http://localhost:8080/msn/getRoomPerUser?idUser=' + this.idUser)
-            .then(response => (this.rooms = response.data))
+            .then(response => (this.rooms = response.data));
     },
     methods: {
         createRoom: function () {
@@ -27,7 +27,9 @@ var room = new Vue({
             this.idRoom = idRoom;
             this.isChat = !this.isChat;
             this.isRoom = false;
-
+            axios
+                .get('http://localhost:8080/msn/getMessages?idRoom=' + this.idRoom)
+                .then(response => (this.messages = response.data));
         },
         enviarMensaje: function () {
             this.sendMessage = {
