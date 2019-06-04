@@ -128,7 +128,7 @@ public class UserDao {
                     if (user == null) {
                         user = new User();
                         user.setIdUser(id);
-                        user.setEmail(rs.getString("user.email"));
+                        user.setEmail(rs.getString("email"));
                         map.put(id, user);
 
                     }
