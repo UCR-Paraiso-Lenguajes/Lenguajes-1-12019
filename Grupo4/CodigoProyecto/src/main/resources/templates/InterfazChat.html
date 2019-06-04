@@ -88,7 +88,7 @@
 
 			</div>
 			<div class="chat-form">
-				<form action="msn" class="chat-form_form">
+				<form action="javascript:location.reload()"  class="chat-form_form">
 					<div class="chat-form_form_attach"></div>
 					<div class="chat-form_form_message">
 						<textarea maxlength="500" id="Enviar"
@@ -114,27 +114,30 @@
 						
 						<script th:inline="javascript">
 						/*<![CDATA[*/ 
-						var usuario =  /*[[${usuario}]]*/ null;
-						var contenido= $("#Enviar");
-/* 						var grupo = $(" /*[[${grupo}]]");*/
+							
+						var usuario =  /*[[${usuario}]]*/, null;
+						var contenido= $("#botonEnviar");
+						var grupo =  /*[[${grupo}]]*/, null;
 						var botonEnviar = $("#botonEnviar");
 						
 						var obj =     {
 								"usuario": usuario,
 						        "contenido": contenido,
-/* 						        "grupo": grupo,
- */						    };
+ 						        "grupo": grupo,
+ 						    };
 						botonEnviar.click(function(){
+							
 							
 							obj.usuario=usuario.val();
 							obj.contenido=contenido.val();
-/* 							obj.grupo=grupo.val();
- */							
+							obj.grupo=grupo.val();
+							
+
 							$.ajax(	{
-								method:"PUT",
+								method:"POSTT",
 								data:JSON.stringify(obj),
 								contentType:"application/json; charset=utf-8",
-								url: "/api/mandarMensaje/"
+								url: "/api/mandarMensaje"
 							}).done(function()  {
 							    alert("Success.");
 							    window.history.back();

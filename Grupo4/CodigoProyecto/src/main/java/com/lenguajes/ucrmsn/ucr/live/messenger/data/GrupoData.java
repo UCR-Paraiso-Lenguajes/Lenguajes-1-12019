@@ -147,32 +147,28 @@ public class GrupoData {
 
 	@Transactional(readOnly = true)
 	public ArrayList<Grupo> listarGrupos() {
-
 		String sqlSelect = "select id,name from GRUPO";
 		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
 	}
 
 	@Transactional(readOnly = true)
 	public ArrayList<Grupo> buscarGrupoPorId(int id) {
-
 		String sqlSelect = "select id,name from GRUPO where grupoId= " + id;
 		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
 	}
 
 	@Transactional(readOnly = true)
 	public ArrayList<Usuario> buscarUsuariosPorGrupo(String idGrupo) {
-
 		String sqlSelect = "select usuarioId, from USUARIO_GRUPO where grupoId= " + idGrupo;
 		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
 	}
-
 }
 
 class getAllUsersByRoomIDExtractor implements ResultSetExtractor<List<Usuario>> {
 
 	@Override
 	public List<Usuario> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Usuario> list = new LinkedList<>();
+		List<Usuario> list = new ArrayList<>();
 		Usuario usuario = null;
 		while (rs.next()) {
 			Integer idUsuarioActual = rs.getInt("id");
@@ -189,7 +185,7 @@ class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>> {
 
 	@Override
 	public List<Grupo> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Grupo> list = new LinkedList<>();
+		List<Grupo> list = new ArrayList<>();
 		Grupo grupo = null;
 		while (rs.next()) {
 			Integer idGrupoActual = rs.getInt("id");
@@ -207,7 +203,7 @@ class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>> {
 class MensajeWithGrupoExtractor implements ResultSetExtractor<List<Mensaje>> {
 	@Override
 	public List<Mensaje> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Mensaje> list = new LinkedList<>();
+		List<Mensaje> list = new ArrayList<>();
 		Mensaje mensaje = null;
 		while (rs.next()) {
 			Integer idMensajeActual = rs.getInt("id");
