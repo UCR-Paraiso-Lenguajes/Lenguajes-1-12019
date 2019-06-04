@@ -22,7 +22,7 @@ var admin = new Vue({
         }, 3000);
     },
     methods: {
-        getUsers: function {
+        getRooms: function () {
             axios
                 .get('http://localhost:8080/msn/admin/rooms/' + this.idRoom)
                 .then(response => (this.users = response.data));
@@ -31,13 +31,13 @@ var admin = new Vue({
             this.userDetails = true;
             this.metricDetails = false;
             this.idRoom = idRoom;
-            this.getUsers();
+            this.getRooms();
         },
         promoveAdmin: function (idUser) {
             axios.put(('http://localhost:8080/msn/admin/room/' + this.idRoom + '/' + idUser))
                 .then(response => { })
                 .catch(e => {
-                    this.errors.push(e)
+                    //this.errors.push(e)
                 })
             this.getUsers();
         },
