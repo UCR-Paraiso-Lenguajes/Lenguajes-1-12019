@@ -34,4 +34,8 @@ public class UserBusiness {
 		return userDao.invitar(emails);
 	}
 
+	public Object getUsersWithRole(int id_room) {
+		return userDao.getUsersWithRoom(id_room);
+	}
+
 }
