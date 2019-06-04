@@ -276,9 +276,15 @@ frases = {
 	function getValues() {
 
 		var messageChat = document.getElementById("messageForm").value;
-
+		var currentdate = new Date(); 
+		var datetime =  + currentdate.getHours() + ":"  
+		                + currentdate.getMinutes();
+		                
+		                console.log(datetime);
+		                
 		 document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
-				+ messageChat + '</div>';
+				+ messageChat + '</div>' 
+				+'<span style="color:black;font-weight:bold">'+datetime+'</span>';
 
 				var DivPannelMsg =document.getElementById("containerMessages");
 				
@@ -381,8 +387,6 @@ frases = {
 		});
 
 	});
-
-
 
 	/*function seleccionarGrupo(elem) {
 		console.log(elem);
