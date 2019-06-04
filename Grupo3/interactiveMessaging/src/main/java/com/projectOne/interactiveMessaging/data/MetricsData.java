@@ -28,6 +28,7 @@ public class MetricsData {
 	private JdbcTemplate jdbcTemplate;
 	private DataSource dataSource;
 	
+	
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource=dataSource;
@@ -86,11 +87,11 @@ public class MetricsData {
 	}
 	
 	@Transactional(readOnly=true)
-	public Iterator <Metrics> findMetrics (int idMetrics){
+	public Metrics findMetrics (int idMetrics){
 		//TODO Falta el parametro de entrada para ver porque voy a buscar
 		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom,"
 				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, idLongestMessage,"
-				+ "idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom "
+				+ "idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom " //sumOfUsersPerGroup
 				+ "FROM Metrics "
 				+ "WHERE idMetrics = "+ idMetrics;
 		
@@ -98,37 +99,49 @@ public class MetricsData {
 	}
 	
 	
-	@Transactional(readOnly=true)
-	public Iterator<Metrics> recoverMetricsData(){
-		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
-				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
-		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
-	}
+//	@Transactional(readOnly=true)
+//	public Iterator<Metrics> recoverMetricsData(){
+//		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
+//				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
+//		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
+//	}
 	
 	
 }
 
-class MetricsExtractor implements ResultSetExtractor<Iterator<Metrics>>{
+class MetricsExtractor implements ResultSetExtractor<Metrics>{
+	
+	Metrics metrics = Metrics.getInstance();
 
 	@Override
-	public Iterator<Metrics> extractData(ResultSet rs) throws SQLException {
-		Map<Integer, Metrics> map = new HashMap<Integer, Metrics>();
-		Metrics metrics = null;
+	public Metrics extractData(ResultSet rs) throws SQLException {
+//		Map<Integer, Metrics> map = new HashMap<Integer, Metrics>();
+//		Metrics metrics = null;
+		
 			while (rs.next()) {
 				int idMetrics = rs.getInt("idMetrics");
-				metrics = map.get(idMetrics);
-				if(metrics == null) {
-					metrics = new Metrics(idMetrics,rs.getInt("numberOfUsers"),
-							rs.getInt("numberOfRooms"),rs.getFloat("averageOfUsersPerRoom"),
-							rs.getDate("dateLastMessage"),rs.getDate("dateFirstLogin"),
-							rs.getInt("idBigUser"), rs.getInt("numberMessagesBigUser"),rs.getInt("idLongestMessage"),
-							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"), rs.getInt("numberMessagesBiggestRoom"));
-					//TODO faltan agregar dos valores que si estan en base, Cambiar metrics domain
-					map.put(idMetrics, metrics);
-				}
+//				metrics = map.get(idMetrics);
+//				if(metrics == null) {
+//					metrics = new Metrics(/*idMetrics,rs.getInt("numberOfUsers"),
+//							rs.getInt("numberOfRooms"),rs.getFloat("averageOfUsersPerRoom"),
+//							rs.getDate("dateLastMessage"),rs.getDate("dateFirstLogin"),
+//							rs.getInt("idBigUser"), rs.getInt("numberMessagesBigUser"),rs.getInt("idLongestMessage"),
+//							rs.getInt("idLastRoomCreated"), rs.getInt("idBiggestRoom"), rs.getInt("numberMessagesBiggestRoom")*/);
+					metrics.setId_Metrics(idMetrics);
+					metrics.setNumberOfUsers(rs.getInt("numberOfUsers"));
+					metrics.setNumberOfRooms(rs.getInt("numberOfRooms"));
+					metrics.setAverageOfUsersPerRoom(rs.getFloat("averageOfUsersPerRoom"));
+					metrics.setDateLastMessage(rs.getTimestamp("dateLastMessage"));
+					metrics.setDateFirstLogin(rs.getTimestamp("dateFirstLogin"));
+					metrics.setBigUser(rs.getInt("idBigUser")+"");
+					metrics.setNumberMessagesBigUser(rs.getInt("numberMessagesBigUser"));
+					metrics.setLongestMessage(rs.getInt("idLongestMessage")+"");
+					metrics.setLastRoomCreated(rs.getInt("idLastRoomCreated")+"");
+					metrics.setBiggestRoom(rs.getInt("idBiggestRoom")+"");
+					metrics.setNumberMessagesBiggestRoom(rs.getInt("numberMessagesBiggestRoom"));
+//					metrics.setSumOfUsersPerGroup(rs.getInt("sumOfUsersPerGroup")); //DEscomentar cuando se actualica base datos
 			}
-		
-		return new ArrayList<Metrics>(map.values()).iterator();
+			return metrics;
 	}
 	
 }

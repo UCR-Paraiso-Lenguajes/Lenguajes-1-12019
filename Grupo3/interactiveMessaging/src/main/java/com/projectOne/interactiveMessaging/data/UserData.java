@@ -79,5 +79,16 @@ public class UserData {
 		.forEach(entry -> listOfUser.add(entry));
 		return listOfUser.get(0);
 	}
+	
+	@Transactional(readOnly = true)
+	public Iterator<User> findAllTheUsers() {
+
+		String selectMysql;
+		List<User> userListTemp = new ArrayList<>();
+		selectMysql = "SELECT u.id, u.correo, u.numberMessages " + "FROM UserApp u ";
+		return jdbcTemplate
+				.query(selectMysql, new Object[] {  },
+						(rs, row) -> new User(rs.getInt("id"), rs.getString("correo"), rs.getInt("numberMessages"))).iterator();
+	}
 
 }

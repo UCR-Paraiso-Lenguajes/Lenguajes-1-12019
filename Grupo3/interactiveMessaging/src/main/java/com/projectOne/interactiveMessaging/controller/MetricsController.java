@@ -21,10 +21,8 @@ public class MetricsController {
 	
 	@RequestMapping(value="/metrics", method=RequestMethod.GET)
     public String metrics(Model model) {
-		Iterator<Metrics> metrics = metricsBusiness.recoverMetricsData();
-		
-		
-		model.addAttribute("metrics", metrics.next());
+//		Iterator<Metrics> metrics = metricsBusiness.recoverMetricsData();
+//		model.addAttribute("metrics", metrics.next());
 		return "metrics";
     }
 }
