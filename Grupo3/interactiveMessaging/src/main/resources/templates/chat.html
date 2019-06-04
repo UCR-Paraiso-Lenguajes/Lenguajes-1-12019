@@ -287,8 +287,9 @@
 		$(document).ready(function() {
 			$("#locales").change(function() {
 				var selectedOption = $('#locales').val();
+				var id = $(idUserRoom).val();
 				if (selectedOption != '') {
-					window.location.replace('?lang=' + selectedOption);
+					window.location.replace('?lang=' + selectedOption + '&idUser='+id);
 				}
 			});
 		});
