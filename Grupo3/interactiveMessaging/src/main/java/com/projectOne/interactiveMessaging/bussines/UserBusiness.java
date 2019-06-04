@@ -20,5 +20,10 @@ public class UserBusiness {
 	public User getSpecificUserById(int idUser) {
 		return userData.getSpecificUserById(idUser);
 	}
+	
+	public Iterator<User> findUsersCertainRoom(int roomID) {
+		return findUsersCertainRoom(roomID);
+		
+	}
 
 }

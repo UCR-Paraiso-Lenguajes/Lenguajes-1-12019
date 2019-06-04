@@ -38,31 +38,35 @@ public class HelloController {
 	@Autowired
     private EmailBussines emailBussines;
 	@Autowired
-
 	private MessageBusiness messageBusiness;
-
 	@Autowired
-
 	private UserData userData;
 	@Autowired
 	private GroupBusiness groupBusiness;
-	
 	@Autowired
 	private UserBusiness userBusiness;
+	@Autowired
+    private MetricsController metricsController;
+	
 	
 	@RequestMapping("/")
     public String login() {
         return "loginAdmi";
     }
 	
+	@RequestMapping(value="/errorPage", method=RequestMethod.GET)
+    public String errorPage() {
+		return "errorPage";
+	}
+	
 	@PostMapping("/")
-	public String loginAdmin(@RequestParam("email") String mail,@RequestParam("password") String password) {
+	public String loginAdmin(Model model,@RequestParam("email") String mail,@RequestParam("password") String password) {
+		
 		
 		if(mail.equalsIgnoreCase("soporte.soft.inc@gmail.com") && password.equalsIgnoreCase("grupo3info")) {
-			return "chat";
+			return metricsController.metrics(model);
 		}else
-		
-		return "loginAdmi";
+		return "errorPage";
 	}
 	
 	

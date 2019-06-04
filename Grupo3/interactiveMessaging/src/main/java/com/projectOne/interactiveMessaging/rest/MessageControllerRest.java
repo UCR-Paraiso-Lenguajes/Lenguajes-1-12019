@@ -21,6 +21,7 @@ import com.projectOne.interactiveMessaging.domain.ClassListNewMessages;
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.MessageToSend;
 import com.projectOne.interactiveMessaging.domain.SingleGroupMessage;
+import com.projectOne.interactiveMessaging.domain.User;
 
 @RestController
 public class MessageControllerRest {
@@ -30,6 +31,7 @@ public class MessageControllerRest {
 	private UserData userData;
 	@Autowired
 	private GroupBusiness groupBusiness;
+	
 	@RequestMapping(value="/api/messages", method=RequestMethod.GET)
 	public @ResponseBody ArrayList<Message> listMessages(@RequestParam(value="idGroup") int idGroup,
 			@RequestParam(value="idUserRoom") int idUserRoom){
@@ -62,6 +64,15 @@ public class MessageControllerRest {
 			}
 		}
 		return messagesOthers;
+	}
+	
+	
+	@RequestMapping(value="/api/listUser", method=RequestMethod.GET)
+	public @ResponseBody Iterator<User> listUser(@RequestParam(value="idGroup") int idGroup){
+		
+		
+		Iterator<User> users=userData.findUsersCertainRoom(idGroup);
+		return users;
 	}
 	
 }
