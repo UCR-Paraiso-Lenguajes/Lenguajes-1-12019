@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chat.bussines.ChatRoomBussines;
-import com.chat.data.MetricDat;
+import com.chat.data.MetricData;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Metric;
@@ -23,7 +23,7 @@ import com.chat.domain.UserClient;
 @RestController
 public class MetricControllerRest {
 	@Autowired
-	private MetricDat metricData;
+	private MetricData metricData;
 	
 	@Autowired
 	private ChatRoomBussines chatRoomBussines;
@@ -34,11 +34,11 @@ public class MetricControllerRest {
 		metricData.getQuantityRooms();
 		//metricData.addQuantityRoom();
 	}
-	@RequestMapping(value="api/MectricUser", method=RequestMethod.GET )
+	/*@RequestMapping(value="api/MectricUser", method=RequestMethod.GET )
 	public @ResponseBody Iterator<UserClient> listUser(@RequestBody ChatRoom chatRoom, HttpServletRequest servlet){
 		HttpSession sesion = servlet.getSession();
 		return chatRoomBussines.listUser(chatRoom).iterator();
-	}
+	}*/
 	
 	/*
 	@RequestMapping(value="api/Metric", method=RequestMethod.GET )
