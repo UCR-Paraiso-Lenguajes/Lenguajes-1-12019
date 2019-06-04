@@ -111,7 +111,7 @@ public class MessageDao {
 	        public String extractData(ResultSet rs) throws SQLException, DataAccessException {
 	        	String resultado = "";
 	        	while (rs.next()) {
-	               resultado= rs.getString("email");
+	               resultado= rs.getString("message");
 	                   
 
 	                }
