@@ -31,7 +31,8 @@ public class UserData {
 	//@Transactional(readOnly = true)
 	public Iterator<User> findUsersCertainRoom(int roomID) {// Trae los usuarios de un grupo en especifico con sus
 															// debidos roles en el grupo
-
+ 	    userList = new ArrayList<>();
+ 	   rolesUser = new ArrayList<>();
 		String selectMysql;
 		List<User> userListTemp = new ArrayList<>();
 		selectMysql = "SELECT u.id, u.correo, u.numberMessages " + "FROM UserApp u " + "inner join UserRoleRoom urr "
