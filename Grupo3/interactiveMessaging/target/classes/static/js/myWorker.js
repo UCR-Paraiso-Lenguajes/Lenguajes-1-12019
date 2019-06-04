@@ -1,3 +1,5 @@
+/*import { hello } from 'actionAjax'; // or './module'
+let val = hello();  // val is "Hello";*/
 function startTimer() {
     var start = Date.now(),
         diff,
@@ -17,6 +19,7 @@ function startTimer() {
         
         if(diff===0){
         	//console.log(0);
+        	//upDateMessagesFrame();
         	upDateNEWMessagesFrame();
         }
         if (diff <= 0) {
