@@ -40,8 +40,8 @@ public class RoomBusiness {
 		
 	}
 	
-	public Room save(Room room) throws SQLException{
-	       return roomData.save(room);
+	public void save(String name, int idRoom, int idRoomAdministrator, int idRoomOwner, int version ) throws SQLException{
+	      roomData.save(name, idRoom, idRoomAdministrator, idRoomOwner, version);
 	        
 	}
 	

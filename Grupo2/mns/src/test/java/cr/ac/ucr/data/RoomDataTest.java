@@ -7,16 +7,22 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import cr.ac.ucr.business.RoomBusiness;
+import cr.ac.ucr.domain.Room;
+
 
 public class RoomDataTest {
 	
 	@Autowired
 	private RoomData roomData;
+	private RoomBusiness roomBusiness;
 	
 	@Test
 	public void crearInsertarGrupo() {
 		
-		assertEquals("Administrador",roles.get(1).getDetail() );
+		
+		
+		roomBusiness.save("Los marcianos", 2, 3, 3, 8);
 	}
 
 }

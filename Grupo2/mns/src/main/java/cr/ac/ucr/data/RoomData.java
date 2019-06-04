@@ -52,7 +52,7 @@ public class RoomData {
 	
 	@Transactional
 	
-	public void createTableRoom(String name, int idRoom, int idRoomAdministrator, int idRoomOwner, int version ) throws SQLException{
+	public void save(String name, int idRoom, int idRoomAdministrator, int idRoomOwner, int version ) throws SQLException{
 		String sqlSelect = "CREATE TABLE"+name+"("+"id_room int,"+"id_room_administrator int,"+"id_room_owner int,"+"version int,"
 	    +"PRIMARY KEY id_room,"+"FOREIGN KEY(id_room_administrator) REFERENCES User(user_id),"
 		+"FOREIGN KEY(id_room_owner) REFERENCES User(user_id),";
@@ -65,7 +65,7 @@ public class RoomData {
 	
 @Transactional(readOnly=true)
 	
-	public List<Room> encontrarEditoriales() {
+	public List<Room> encontrarRooms() {
 		String sqlSelect = "SELECT r.nombre"
 				+ " FROM Room r";
 		return jdbcTemplate.query(sqlSelect, new ListaRooms());
