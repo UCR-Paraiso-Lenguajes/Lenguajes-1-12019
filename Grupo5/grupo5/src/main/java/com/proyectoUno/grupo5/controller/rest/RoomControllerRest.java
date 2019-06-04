@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectoUno.grupo5.business.RoomBussiness;
@@ -15,21 +16,14 @@ public class RoomControllerRest {
 	@Autowired
 	RoomBussiness roomBusiness;
 
-	@RequestMapping(value="/api/rooms", method=RequestMethod.GET)
-	public ResponseEntity<Object> getDataAutor() {
+	@RequestMapping(value="/getRoomPerUser", method=RequestMethod.GET)
+	public ResponseEntity<Object> getDataAutor(@RequestParam("idUser") int idUser) {
 		
-		return new ResponseEntity<>(roomBusiness.getRooms(), HttpStatus.OK);
+		return new ResponseEntity<>(roomBusiness.getRooms(idUser), HttpStatus.OK);
  
 		
 	}
 	
-	@RequestMapping(value="/api/createRoom/{id_user}", method=RequestMethod.GET)
-	public void createRoom() {
-		
-		new ResponseEntity<>(roomBusiness.getRooms(), HttpStatus.OK);
- 
-		
-	}
 	
 	
 }

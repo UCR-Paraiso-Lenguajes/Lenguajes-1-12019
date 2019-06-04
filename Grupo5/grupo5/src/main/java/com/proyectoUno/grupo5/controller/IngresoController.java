@@ -31,8 +31,6 @@ public class IngresoController {
     @RequestMapping(value = "/ingreso", method = RequestMethod.GET)
     public String ingreso(Model model,@ModelAttribute(name="user") User user){
     	
-    	
-    	
         return "ingreso";
     }
     @RequestMapping(value="/ingreso", method=RequestMethod.POST)
