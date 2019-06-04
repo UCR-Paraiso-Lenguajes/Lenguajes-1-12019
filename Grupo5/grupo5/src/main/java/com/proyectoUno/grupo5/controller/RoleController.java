@@ -15,7 +15,7 @@ public class RoleController {
 
     @Autowired
     private RoleBusiness prueba;
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/role", method = RequestMethod.GET)
     public String insertarLibro(Model model) {
         int id =1;
         List<Role> list = prueba.gerRolePerId(id);

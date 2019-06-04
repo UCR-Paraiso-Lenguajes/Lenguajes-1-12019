@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ChatController {
 
-        @RequestMapping(value = "/msn", method = RequestMethod.GET)
+        @RequestMapping(value = "/", method = RequestMethod.GET)
         public String chatPerUser(@RequestParam("idUser") int idUser){
                 return "chat";
         }
