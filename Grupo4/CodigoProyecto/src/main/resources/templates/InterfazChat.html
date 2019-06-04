@@ -114,23 +114,24 @@
 						</button>
 						
 						<script th:inline="javascript">
+						/*<![CDATA[*/ 
 						var usuario = $(" /*[[${usuario}]]*/");
 						var contenido= $("#Enviar");
-						var grupo = $(" /*[[${grupo}]]*/");
-						
+/* 						var grupo = $(" /*[[${grupo}]]*/");
+ */						
 						var botonEnviar = $("#botonEnviar");
 						
 						var obj =     {
 								"usuario": usuario,
 						        "contenido": contenido,
-						        "grupo": grupo,
-						    };
+/* 						        "grupo": grupo,
+ */						    };
 						botonEnviar.click(function(){
 							
 							obj.usuario=usuario.val();
 							obj.contenido=contenido.val();
-							obj.grupo=grupo.val();
-							
+/* 							obj.grupo=grupo.val();
+ */							
 							$.ajax(	{
 								method:"PUT",
 								data:JSON.stringify(obj),

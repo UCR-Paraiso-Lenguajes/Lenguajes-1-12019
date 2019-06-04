@@ -37,7 +37,7 @@ public class UsuarioData {
 			
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
-			String sqlInsertrol = "INSERT INTO USUARIO(codigoHash,cantidadUsuarios) VALUES(?,?)";
+			String sqlInsertrol = "INSERT INTO USUARIO(codigoHash,cantidadMensajes) VALUES(?,?)";
 			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
 			statementrol.setString(1,usuario.getHash());
 			statementrol.setInt(2,usuario.getCantidadMensajes());
