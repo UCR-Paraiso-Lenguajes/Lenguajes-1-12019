@@ -108,6 +108,38 @@ public class UserDao {
 
     		
     }
+
+		public  List<User> getUsers(int id_room) {
+			 String queryGetId = "select ur.id_user,user.email from user_room as ur join user where ur.id_room="+id_room+" && ur.id_user=user.id_user";
+		        return    jdbcTemplate.query(queryGetId, new UserRoomExtractor());
+		}
+		
+		class UserRoomExtractor implements ResultSetExtractor<List<User>> {
+
+            @Override
+            public List<User> extractData(ResultSet rs) throws SQLException, DataAccessException {
+            	
+            
+            	Map<Integer, User> map = new HashMap<>();
+                User user = null;
+                while (rs.next()) {
+                    Integer id = rs.getInt("id_user");
+                    user = map.get(id);
+                    if (user == null) {
+                        user = new User();
+                        user.setIdUser(id);
+                        user.setEmail(rs.getString("user.email"));
+                        map.put(id, user);
+
+                    }
+
+                }
+                return new ArrayList<User>(map.values());
+            }
+
+    		
+    }
+		
         }
 
         

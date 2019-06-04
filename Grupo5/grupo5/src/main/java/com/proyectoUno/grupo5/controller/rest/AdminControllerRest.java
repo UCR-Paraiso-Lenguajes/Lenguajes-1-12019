@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectoUno.grupo5.business.MetricsBusiness;
 import com.proyectoUno.grupo5.business.RoomBussiness;
+import com.proyectoUno.grupo5.business.UserBusiness;
 import com.proyectoUno.grupo5.domain.Metrics;
 import com.proyectoUno.grupo5.domain.Room;
 import com.proyectoUno.grupo5.domain.User;
@@ -27,7 +28,8 @@ public class AdminControllerRest {
 	@Autowired
 	private RoomBussiness roomBusiness;
 	
-	
+	@Autowired
+	private UserBusiness userBusiness;
 	
 
 	@RequestMapping(value="/admin/metrics", method=RequestMethod.GET )
@@ -39,10 +41,18 @@ public class AdminControllerRest {
 	}
 
 	
-	@RequestMapping(value="/admin/getRooms", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/rooms", method=RequestMethod.GET)
 	public ResponseEntity<Object> getRooms() {
 		
 		return new ResponseEntity<>(roomBusiness.getRooms(), HttpStatus.OK);
+ 
+		
+	}
+	
+	@RequestMapping(value="/admin/rooms/{id_room}", method=RequestMethod.GET)
+	public ResponseEntity<Object> getUsers(@PathVariable int id_room ) {
+		
+		return new ResponseEntity<>(userBusiness.getUsers(id_room), HttpStatus.OK);
  
 		
 	}
