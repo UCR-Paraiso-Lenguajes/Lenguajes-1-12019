@@ -2,7 +2,9 @@ package com.projectOne.interactiveMessaging.data;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.projectOne.interactiveMessaging.domain.Message;
 import com.projectOne.interactiveMessaging.domain.Room;
+import com.projectOne.interactiveMessaging.domain.User;
 
 @Repository
 public class GroupData {
@@ -71,8 +74,55 @@ public class GroupData {
 		return listOfRooms.get(0);
 	}
 	
-	@Transactional(readOnly=true)
-	public void saveGroup(String nameGroup) {
+	
+	@Transactional
+	public void saveUserRoleRoom(int idUser, int idRole, int idRoom) {
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			connection.setAutoCommit(false);
+			
+			int idUserAux = 0,idRoleAux=0,idRoomAux=0;
+			
+			String sqlExistRegs = "select idUser,idRole,idRoomUR from UserRoleRoom where idUser="+idUser+" and idRole="+idRole+" and idRoomUR="+idRoom;
+		    Statement st = connection.createStatement();
+		    ResultSet rs = st.executeQuery(sqlExistRegs);
+		    while(rs.next()) {
+		    	idUserAux = rs.getInt("idUser");
+		    	idRoleAux = rs.getInt("idRole");
+		    	idRoomAux = rs.getInt("idRoomUR");
+		    }
+		    if(idUser!=idUserAux && idRole!=idRoleAux && idRoom!=idRoomAux) {
+			
+				String sqlSaveGroup = "insert into UserRoleRoom values(?,?,?)";
+				PreparedStatement stmt = connection.prepareStatement(sqlSaveGroup);
+				stmt.setInt(1, idUser);
+				stmt.setInt(2, idRole);
+				stmt.setInt(3, idRoom);
+				stmt.execute();
+				
+				connection.commit();
+		    }
+		}catch(Exception e){
+			try {
+				connection.rollback();
+			}catch(SQLException e1) {
+				throw new RuntimeException(e1);
+			}
+			throw new RuntimeException(e);
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				}catch(SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
+	
+	@Transactional
+	public int saveGroup(String nameGroup) {
 		//select id from RoomApp order by id desc limit 1
 		//insert into RoomApp values(5,'Los Patitos',now(),'LosPatitosMessages')
 		Connection connection = null;
@@ -82,20 +132,26 @@ public class GroupData {
 			
 			Date date = new Date();
 			Timestamp timestamp = new Timestamp(date.getTime());
+			Room group = new Room(0, "", null);
+			int latestIdRoom=0;
 			
-			int latestIdRoom = jdbcTemplate.update(sql);
-			String sqlSelectId = "select id from RoomApp order by id desc limit 1";
+			String sqlId = "select id from RoomApp order by id desc limit 1";
+		    Statement st = connection.createStatement();
+		    ResultSet rs = st.executeQuery(sqlId);
+		    while(rs.next())
+		    	latestIdRoom = rs.getInt("id");
 		
-			
-			String sqlSaveGroup = "insert into RoomApp values(?,?,now(),'LosPatitosMessages')";
-			String sqlInsert = "insert into UserApp values (?, ?, ?)";
-			PreparedStatement stmt = connection.prepareStatement(sqlInsert);
-			//stmt.setInt(1, idNew);
-			//stmt.setString(2, correoUser);
-			stmt.setInt(3, 0);
+			int idNewGroup=latestIdRoom+1;
+			String sqlSaveGroup = "insert into RoomApp values(?,?,?,?)";
+			PreparedStatement stmt = connection.prepareStatement(sqlSaveGroup);
+			stmt.setInt(1, idNewGroup);
+			stmt.setString(2, nameGroup);
+			stmt.setTimestamp(3, timestamp);
+			stmt.setString(4, nameGroup+"Messages");
 			stmt.execute();
 			
 			connection.commit();
+			return idNewGroup;
 		}catch(Exception e){
 			try {
 				connection.rollback();

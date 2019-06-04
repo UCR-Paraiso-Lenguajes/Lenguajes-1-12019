@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
+import java.net.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -90,7 +91,25 @@ public class HelloController {
         return "setting";
     }
 	
-	
+	@RequestMapping(value="/invite", method=RequestMethod.POST )
+	public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup) throws UnknownHostException {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("emailForm", new EmailForm());
+	        return "invite";
+		}else {
+			String ip = "192.168.1.120";
+			String[] emails = emailForm.getEmailsSel();
+			int idGroup = groupBusiness.saveGroup(nameGroup);
+			int idUser;
+			for (int i = 0; i < emails.length; i++) {
+				idUser = userBusiness.save(emails[i]);
+				groupBusiness.saveUserRoleRoom(idUser,3,idGroup);
+				String linkChat = "http://"+ip+":8080/msn/chat?idUser="+idUser;
+	    		emailBussines.sendMail("soporte.soft.inc@gmail.com",emails[i],"Invitación a Chat\n",linkChat);
+	    	}
+			return "invite";
+		}
+	}
 	
 	
 	//enviar correos a varias personas!
@@ -102,20 +121,7 @@ public class HelloController {
 			model.addAttribute("groups",groups);
 	        return "invite";
 	    }
-		@RequestMapping(value="/invite", method=RequestMethod.POST )
-		public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup) {
-			if(bindingResult.hasErrors()) {
-				model.addAttribute("emailForm", new EmailForm());
-		        return "invite";
-			}else {
-				String linkChat = "";
-				String[] emails = emailForm.getEmailsSel();
-				for (int i = 0; i < emails.length; i++) {
-		    		emailBussines.sendMail("soporte.soft.inc@gmail.com",emails[i],"Invitación a Chat",linkChat);
-		    	}
-				return "invite";
-			}
-		}
+		
 	  //fin enviar correos a varias personas 
 	
 }

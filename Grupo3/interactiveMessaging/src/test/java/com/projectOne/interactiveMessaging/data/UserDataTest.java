@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Iterator;
 
 import org.junit.Before;
@@ -88,4 +90,6 @@ public class UserDataTest {
 		User user = userData.getSpecificUserById(1);
 		assertNotNull(user);
 	}
+	
+	
 }

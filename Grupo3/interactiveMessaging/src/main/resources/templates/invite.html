@@ -852,7 +852,9 @@ body {
 
 
 			<div class="panel-body">
-
+			
+				<form th:action="@{/invite}" th:object="${emailForm}" method="POST"
+					onsubmit="">
 				<div class="centrarCaja">
 
 					<div class="form-group">
@@ -860,7 +862,7 @@ body {
 						<label>Name The Group</label>
 
 						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-							<input id="nameGroup" type="nameGroup" placeholder="Name" />
+							<input name="nameGroup" type="text" placeholder="Name" >
 
 						</div>
 						<br> <br> <label>emails to invite</label>
@@ -882,9 +884,8 @@ body {
 						<br> <br>
 					</div>
 				</div>
-
-				<form th:action="@{/invite}" th:object="${emailForm}" method="post"
-					onsubmit="">
+					
+				
 					<div>
 						<label>Mails Guest</label>
 						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
