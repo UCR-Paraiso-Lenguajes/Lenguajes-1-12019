@@ -16,7 +16,7 @@ public class RoomControllerRest {
 	@Autowired
 	RoomBussiness roomBusiness;
 
-	@RequestMapping(value="/msn", method=RequestMethod.GET)
+	@RequestMapping(value="/getRoomPerUser", method=RequestMethod.GET)
 	public ResponseEntity<Object> getDataAutor(@RequestParam("idUser") int idUser) {
 		
 		return new ResponseEntity<>(roomBusiness.getRooms(idUser), HttpStatus.OK);
