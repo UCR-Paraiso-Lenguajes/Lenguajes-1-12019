@@ -93,9 +93,5 @@ public class User {
 	public void setHash(String hash) {
 		this.hash = hash;
 	}
-	
-	
-	
-	
-	
+
 }
