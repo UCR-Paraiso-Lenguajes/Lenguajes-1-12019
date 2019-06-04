@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 
+import com.projectOne.interactiveMessaging.bussines.EmailBussines;
 import com.projectOne.interactiveMessaging.bussines.GroupBusiness;
 import com.projectOne.interactiveMessaging.bussines.MessageBusiness;
 import com.projectOne.interactiveMessaging.bussines.MetricsBusiness;
@@ -23,23 +24,14 @@ import com.projectOne.interactiveMessaging.domain.Room;
 @Controller
 public class MetricsController {
 
-	@Autowired
-	private UserData userData;
-
-	@Autowired
-	private GroupBusiness groupBusiness;
 
 	@Autowired
 	private MessageBusiness messageBusiness;
 
 	@Autowired
 	private UserData userData;
-	
 	@Autowired
 	private GroupBusiness groupBusiness;
-	
-	@Autowired
-	private MessageBusiness messageBusiness;
 	
 	@Autowired
 	private MetricsBusiness metricsBusiness;
@@ -51,8 +43,7 @@ public class MetricsController {
 //		model.addAttribute("metrics", metrics.next());
 //		return "metrics";
 		Metrics metrics = metricsBusiness.recoverMetricsData();
-		
-25
+
 		ArrayList<Message> messages=
 
 				messageBusiness.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages",1);///Aqui cambiar el usuario y grupo
