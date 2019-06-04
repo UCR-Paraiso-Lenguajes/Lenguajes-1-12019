@@ -28,7 +28,7 @@ public class UserData {
 	private JdbcTemplate jdbcTemplate;
 	private List<User> userList = new ArrayList<>();
 	private ArrayList<Role> rolesUser = new ArrayList<>();
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public Iterator<User> findUsersCertainRoom(int roomID) {// Trae los usuarios de un grupo en especifico con sus
 															// debidos roles en el grupo
 
@@ -68,7 +68,7 @@ public class UserData {
 		return idGroupsOfUsr.iterator();
 	}
 	
-	@Transactional
+	//@Transactional
 	public Iterator<User> findUsersOwnerOrAdmin(int idRoom, int idRole){
 		ArrayList<User> listOfUserOwnerOrAdmin = new ArrayList<User>();
 		String selectMySqlOwner = "select u.correo from UserApp u inner join UserRoleRoom usr on u.id=usr.idUser inner join RoomApp ro on usr.idRoomUR=ro.id inner " + 
@@ -77,7 +77,7 @@ public class UserData {
 			.forEach(entry -> listOfUserOwnerOrAdmin.add(entry));
 		return listOfUserOwnerOrAdmin.iterator();
 	}
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public User getSpecificUserById(int idUser) {
 		List<User> listOfUser = new ArrayList<>();
 		String selectMysql = "SELECT id,correo, numberMessages " + "FROM UserApp "
