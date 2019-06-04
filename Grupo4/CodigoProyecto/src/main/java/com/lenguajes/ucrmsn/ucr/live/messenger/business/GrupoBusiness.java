@@ -2,20 +2,15 @@ package com.lenguajes.ucrmsn.ucr.live.messenger.business;
 
 import java.util.ArrayList;
 
-import java.util.Calendar;
-import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.data.GrupoData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.data.MensajeData;
-import com.lenguajes.ucrmsn.ucr.live.messenger.domain.HashEnviados;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Rol;
@@ -27,24 +22,17 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
 @Service
 public class GrupoBusiness {
 
-	private HashEnviados enlacesEnviados = HashEnviados.getInstancia();
-	@Autowired
-	private JavaMailSender javaMailSender;
 	@Autowired
 	private GrupoData grupoData;
-
-	public ArrayList<Grupo> listarGrupos() {
 	@Autowired
 	private MensajeData mensajeData;
-	
-	@Transactional
-	public ArrayList<Grupo> listarGrupos(){
-		
-		return (ArrayList<Grupo>)grupoData.listarGrupos();
-	}
-	@Transactional
-	public ArrayList<Usuario> usuariosPorGrupo(String idGrupo) {		return grupoData.buscarUsuariosPorGrupo(idGrupo);
 
+	public ArrayList<Grupo> listarGrupos() {
+		return grupoData.listarGrupos();
+	}
+
+	public ArrayList<Usuario> usuariosPorGrupo(int idGrupo) {
+		return grupoData.buscarUsuariosPorGrupo(idGrupo);
 	}
 
 	@Transactional
@@ -69,9 +57,8 @@ public class GrupoBusiness {
 			for (int i = 0; i < usuario.getListaRoles().size(); i++) {
 				Rol rol = usuario.getListaRoles().get(i);
 				if (rol.getNombre().equals("admin")) {
-					/*
-					 * grupoData.save(new Grupo(null, 0, 0, usuario, usuario));
-					 */ }
+					grupoData.save(new Grupo(null, 0, 0, null, null));
+				}
 			}
 		}
 		return hash;
@@ -79,30 +66,24 @@ public class GrupoBusiness {
 
 	@Transactional
 	public void invitar(String to, String link) {
-
 		/*
 		 * Enlace enlace = new Enlace(link); enlacesEnviados.agregar(enlace);
 		 * expirarEnlace(enlace);
+		 * 
+		 * Calendar fecha = Calendar.getInstance(); SimpleMailMessage mail = new
+		 * SimpleMailMessage();
+		 * 
+		 * mail.setFrom("ucrlivemessenger@gmail.com"); mail.setTo(to);
+		 * mail.setSubject("Invitación UCR Live Messenger");
+		 * mail.setText("Bienvenido a UCR Live Messenger" + " \n" +
+		 * "Utilice el link adjunto para comenzar a chatear." + "\n" +
+		 * "Expira en 3 minutos." + "\n" + "Hora del servidor: " + fecha.getTime() +
+		 * "localhost:8080/ucrmsn/interfazchat");
+		 * 
+		 * javaMailSender.send(mail);
 		 */
-
-		Calendar fecha = Calendar.getInstance();
-		SimpleMailMessage mail = new SimpleMailMessage();
-
-		mail.setFrom("ucrlivemessenger@gmail.com");
-		mail.setTo(to);
-		mail.setSubject("Invitación UCR Live Messenger");
-		mail.setText("Bienvenido a UCR Live Messenger" + " \n" + "Utilice el link adjunto para comenzar a chatear."
-				+ "\n" + "Expira en 3 minutos." + "\n" + "Hora del servidor: " + fecha.getTime()
-				+ "localhost:8080/ucrmsn/interfazchat");
-
-		javaMailSender.send(mail);
 	}
 
-	/*
-	 * public void expirarEnlace(Enlace enlace) { try { Thread.sleep(180000); }
-	 * catch (InterruptedException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); } enlacesEnviados.eliminar(enlace); }
-	 */
 	@Transactional
 	public void unirse(Usuario usuario, Grupo grupo) {
 		grupo.getListaUsuarios().add(usuario);
@@ -126,10 +107,8 @@ public class GrupoBusiness {
 		grupo.mandarMensaje(mensaje);
 		grupo.setCantidadMensajes(grupo.getCantidadMensajes() + 1);
 		grupoData.update(grupo);
-		grupo.setCantidadMensajes(grupo.getCantidadMensajes()+1);
-		/*
-		 * grupoData.update(grupo);
-		 */
+		grupo.setCantidadMensajes(grupo.getCantidadMensajes() + 1);
+		grupoData.update(grupo);
 		mensajeData.nuevoMensaje(mensaje);
 	}
 

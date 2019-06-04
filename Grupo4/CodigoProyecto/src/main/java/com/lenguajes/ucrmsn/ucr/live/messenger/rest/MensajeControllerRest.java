@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.business.GrupoBusiness;
+import com.lenguajes.ucrmsn.ucr.live.messenger.business.UsuarioBusiness;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 
 
@@ -15,11 +16,18 @@ import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
 public class MensajeControllerRest {
 	@Autowired
 	private GrupoBusiness grupoBusiness;	
+	@Autowired
+	private UsuarioBusiness usuarioBusiness;
 	
 	@RequestMapping(value="/api/mandarMensaje", method=RequestMethod.POST )
 	public @ResponseBody void mandarMensaje(
-			@PathVariable Mensaje mensaje )
+			@PathVariable String contenido,@PathVariable String hashUsuario)
 	{
+		Mensaje mensaje=new Mensaje();
+		mensaje.setContenido(contenido);
+		mensaje.setUsuario(usuarioBusiness.getUsuarioHash(hashUsuario));
+		
 		grupoBusiness.guardarMensajes(mensaje.getGrupo(), mensaje.getUsuario(), mensaje);
 	}
 }
+

@@ -112,29 +112,29 @@
 							<i class="material-icons">Enviar</i>
 						</button>
 						
-						<script th:inline="javascript">
+					
+					<script th:inline="javascript">
 						/*<![CDATA[*/ 
 							
-						var usuario =  /*[[${usuario}]]*/, null;
+						var usuario =  /*[[${usuario.hash}]]*/, null;
 						var contenido= $("#botonEnviar");
-						var grupo =  /*[[${grupo}]]*/, null;
-						var botonEnviar = $("#botonEnviar");
+			var botonEnviar = $("#botonEnviar");
 						
 						var obj =     {
 								"usuario": usuario,
 						        "contenido": contenido,
- 						        "grupo": grupo,
- 						    };
+/*  						        "grupo": grupo,
+ */ 						    };
 						botonEnviar.click(function(){
 							
 							
 							obj.usuario=usuario.val();
 							obj.contenido=contenido.val();
-							obj.grupo=grupo.val();
-							
+/* 							obj.grupo=grupo.val();
+ */							
 
 							$.ajax(	{
-								method:"POSTT",
+								method:"POST",
 								data:JSON.stringify(obj),
 								contentType:"application/json; charset=utf-8",
 								url: "/api/mandarMensaje"
