@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon"
+	href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+<link rel="mask-icon" type=""
+	href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+	color="#111" />
+<link rel="canonical"
+	href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+<link
+	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300'
+	rel='stylesheet' type='text/css'>
+<script src="https://use.typekit.net/hoy3lrg.js"></script>
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<script
+	src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<link href="../static/css/homeAdmi.css" type="text/css" rel="stylesheet"
+	th:href="@{/css/homeAdmi.css}" media="screen,projection">
+
+
+</head>
+
+<body>
+
+
+	<div id="frame">
+		<div align="right">
+			<select id="locales">
+				<option selected value="" th:text="#{change.language}"></option>
+				<option value="en" th:text="#{lang.eng}"></option>
+				<option value="de" th:text="#{lang.es}"></option>
+			</select>
+		</div>
+
+		<div id="sidepanel">
+			<div id="profile">
+				<p>Mike Ross</p>
+			</div>
+
+			<div id="contacts">
+				<ul>
+					<li onclick="print(this)" th:each="group: ${groups}"
+						class="contact">
+						<div class="wrap">
+							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
+							<div class="meta">
+								<p th:text="${group.name_Room}" class="name"></p>
+								<input type="hidden" th:value="${group.group_id}" />
+								<p class="preview"></p>
+								<br><br>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+		</div>
+
+
+
+
+		<div class="content">
+			<div class="contact-profile">
+
+				<p>Informacion</p>
+				<div class="settings-media" id="settings">
+
+					<i class="" id="return" title="Informacion">return</i>
+
+				</div>
+			</div>
+
+			<div class="setting">
+
+				<ul>
+					<br>
+					<li><p>Number of rooms: </p><input type="text"
+						class="form-control" th:field="*{metrics.numberOfRooms}" disabled />
+					</li>
+					<br>
+					<li><p>Number of User: </p><input type="text"
+						class="form-control" th:field="*{metrics.numberOfUsers}" disabled />
+					</li>
+					<br>
+					<li><p>Average of users per room: </p><input
+						type="text" class="form-control"
+						th:field="*{metrics.averageOfUsersPerRoom}" disabled /></li>
+					<br>
+					<li><p>Date last message: </p><input type="text"
+						class="form-control" th:field="*{metrics.dateLastMessage}"
+						disabled /></li>
+					<br>
+					<li><p>Date first login: </p> <input type="text"
+						class="form-control" th:field="*{metrics.dateFirstLogin}" disabled />
+					</li>
+					<br>
+					<li><p>User with more message: </p><input type="text"
+						class="form-control" th:field="*{metrics.idBigUser}" disabled /></li>
+					<br>
+					<li><p>Quantity messages' user: </p> <input
+						type="text" class="form-control" th:field="*{metrics.idBigUser}"
+						disabled /></li>
+					<br>
+					<li><p>Longest Message: </p> <input type="text"
+						class="form-control" th:field="*{metrics.idLongestMessage}"
+						disabled /></li>
+					<br>
+					<li><p>Last room created: </p> <input type="text"
+						class="form-control" th:field="*{metrics.idLastRoomCreated}"
+						disabled /></li>
+					<br>
+					<li><p>Room with more message: </p> <input type="text"
+						class="form-control" th:field="*{metrics.idBiggestRoom}" disabled /></li>
+					<br>
+					<li><p>Quantity of message: </p> <input type="text"
+						class="form-control"
+						th:field="*{metrics.numberMessagesBiggestRoom}" disabled /></li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<script>
+		/* Lenguaje */
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('?lang=' + selectedOption);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
