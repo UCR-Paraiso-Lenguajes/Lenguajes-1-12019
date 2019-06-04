@@ -78,6 +78,7 @@ function upDateNEWMessagesFrame(){
 				for (key in data) {
 					if (data.hasOwnProperty(key))
 						msclass = data[size].type;
+						console.log(msclass);
 					mstext = data[size].message.message;
 					$(
 							'<li class='+msclass+'><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>'
