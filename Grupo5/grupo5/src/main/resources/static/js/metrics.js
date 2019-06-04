@@ -16,7 +16,7 @@ var rooms = new Vue({
     },
     mounted() {
         axios
-            .get('http://localhost:8080/getRooms')
+            .get('http://localhost:8080/admin/getRooms')
             .then(response => (this.rooms = response.data))
     }
 })
