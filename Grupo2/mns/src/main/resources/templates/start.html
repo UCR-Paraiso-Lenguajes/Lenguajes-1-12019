@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Inicio</title>
+<title>Enviar Correo</title>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -26,10 +26,16 @@
   	<div class="container" style="max-width: 600px; padding: 40px 20px;">
 	<h1>Inicio</h1>
 			<label>Ingrese su correo electronico:</label>
-            <input type="text"
-				class="form-control" placeholder="Correo" /> 
+            
+            
+            <form th:object="${userForm}" th:action="@{/signup}" method="post">
+            
+            	<input type="text"class="form-control" placeholder="Correo" th:field="*{email}" /> 
 				<br></br>
-				<button type="button" class="btn btn-info">Enviar Correo</button>
+				<button type="submit" class="btn btn-info">Enviar Correo</button>
 
+			
+			</form>
+			
 </body>
 </html>

@@ -50,7 +50,6 @@ public class UserData {
 		.withProcedureName("Add")
 		.withoutProcedureColumnMetaDataAccess()
 		.declareParameters(new SqlOutParameter("@idUser", Types.INTEGER))
-		.declareParameters(new SqlParameter("@name", Types.VARCHAR))
 		.declareParameters(new SqlParameter("@email", Types.VARCHAR));
 		
    }
@@ -59,7 +58,6 @@ public class UserData {
 	public User save(User user) throws SQLException{
 		
 		SqlParameterSource parameterSource = new MapSqlParameterSource()
-		.addValue("@name", user.getName())
 		.addValue("@email", user.getEmail());
 		
 		Map<String, Object> outParameters = simpleJdbcCallUser.execute(parameterSource);
@@ -84,7 +82,6 @@ class ListUsers implements ResultSetExtractor<List<User>> {
 			if (user == null) { 
 				user = new User();
 				user.setIdUser(id);
-				user.setName(rs.getString("name"));
 				user.setEmail(rs.getString("email"));
 				map.put(id, user);
 			} 
