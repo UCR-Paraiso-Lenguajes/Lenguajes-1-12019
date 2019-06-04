@@ -68,7 +68,15 @@ public class Room {
 	public void setUsers(ArrayList<User> users) {
 		this.users = users;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Room{" +
+				"idRoom=" + idRoom +
+				", roomName='" + roomName + '\'' +
+				", version=" + version +
+				", messages=" + messages +
+				", users=" + users +
+				'}';
+	}
 }
