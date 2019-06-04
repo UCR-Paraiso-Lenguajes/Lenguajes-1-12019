@@ -23,11 +23,11 @@ public class NotificationService {
 	}
 	
 	
-	public void sendNotification(User user, String hash) throws MailException{
+	public void sendNotification(String email, String hash) throws MailException{
 		
 		
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(user.getEmail());
+		mail.setTo(email);
 		mail.setFrom("chatproyectouno@gmail.com");
 		mail.setSubject("Prueba de correo chat");
 		mail.setText("Bienvenido al chat de CEA adjunto encontrará una URL para ingresar al sitio:" +hash);

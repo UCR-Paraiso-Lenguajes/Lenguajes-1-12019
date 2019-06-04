@@ -10,9 +10,11 @@ import java.util.List;
 @Service
 public class RoleBusiness {
     @Autowired
-    private RoleDao prueba;
+    private RoleDao roleDao;
 
     public List<Role> gerRolePerId (int id) {
-        return prueba.getRolePerId(id);
+        return roleDao.getRolePerId(id);
     }
+    
+   
 }

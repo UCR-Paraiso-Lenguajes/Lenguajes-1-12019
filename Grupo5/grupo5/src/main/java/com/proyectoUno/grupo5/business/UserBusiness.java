@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.business;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,10 @@ public class UserBusiness {
 	public Object getUsers(int id_room) {
 		return userDao.getUsers(id_room);
 	}
+	
+	public Boolean invitar(String emails) throws SQLException {
+		
+		return userDao.invitar(emails);
+	}
+
 }

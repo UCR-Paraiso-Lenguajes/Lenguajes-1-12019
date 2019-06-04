@@ -30,6 +30,7 @@ public class MessageBussiness {
 	    public Map<Integer, Message> getMessagesSincro(List<Message> message){
 	    	
 	    	
+	    	
 	   	return messageDao.getMessagesSincro(message);
 	    	
 	    	
