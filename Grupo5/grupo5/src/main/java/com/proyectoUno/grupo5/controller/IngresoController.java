@@ -1,5 +1,6 @@
 package com.proyectoUno.grupo5.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +30,9 @@ public class IngresoController {
  	Role roleUser = new Role(3, "room_user");
 	 
     @RequestMapping(value = "/ingreso", method = RequestMethod.GET)
-    public String ingreso(Model model,@ModelAttribute(name="user") User user){
-    	
+    public String ingreso(Model model,@ModelAttribute(name="user") User user) throws SQLException{
+		userBusiness.invitar("alfonsoaju6@gmail.com,alfonsoaju6@gmail.com, esteban5671@gmail.com");
+
         return "ingreso";
     }
     @RequestMapping(value="/ingreso", method=RequestMethod.POST)
@@ -45,7 +47,8 @@ public class IngresoController {
     	userBusiness.insertUser(user);
     	try {
     		
-    		notificationService.sendNotification(user, user.getHash());
+    		notificationService.sendNotification(user.getEmail(), user.getHash());
+    		
     		
     	}catch(MailException e) {
     		throw e;
