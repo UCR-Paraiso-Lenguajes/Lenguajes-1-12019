@@ -54,20 +54,22 @@
 					<li id="usersList" th:each="user: ${users}"
 						class="contact">
 						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
-								<p th:text="${user.user_email}" class="name"></p>
-								<p class="preview"></p>
-								<button type="button" class="btn btn-secondary btn-lg">Delete</button>
-								
-								<br><br>
-							</div>
+							<ul>
+								<li><img src="http://emilcarlsson.se/assets/rachelzane.png"
+									alt="" />
+									<div class="meta">
+										<p th:text="${user.user_email}" class="name"></p>
+										<p class="preview"></p>
+										<button type="button" class="btn btn-secondary btn-lg">Delete</button>
+									</div>
+									</li>
+							</ul>
+
 						</div>
-					</li>
-
-				</ul>
 			</div>
+			</li>
 
+			</ul>
 		</div>
 
 
@@ -83,6 +85,7 @@
 			
 
 			<div class="setting">
+
 
 				<ul>
 					<br>
@@ -133,7 +136,7 @@
 
 		</div>
 	</div>
-
+	
 
 	<script>
 		/* Lenguaje */
