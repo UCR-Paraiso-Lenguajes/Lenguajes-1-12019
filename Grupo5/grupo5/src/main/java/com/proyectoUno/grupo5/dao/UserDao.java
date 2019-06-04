@@ -50,7 +50,7 @@ public class UserDao {
 		});
 	}
 
-	public Boolean invitar(String emails) throws SQLException {
+	public Boolean invitar(String emails, int idRoom) throws SQLException {
 
 		String[] invitados = emails.split(",");
 		List<User> users = getIdUser();
@@ -68,8 +68,22 @@ public class UserDao {
 			statement.setString(1, invitados[i]);
 			statement.setString(2, "localhost:8080/msn/?idUser=" + idUser);
     		notificationService.sendNotification(invitados[i], "localhost:8080/msn/?idUser=" + idUser);
-
+    		
+			String sqlInsert2 = "insert into user_room(id_user, id_room) values(?,?)";
+			CallableStatement statement2 = connection.prepareCall(sqlInsert2);
+			statement2.setInt(1, idUser);
+			statement2.setInt(2, idRoom);
+			
+			
+			String sqlInsert3 = "insert into user_role_room(id_roleUser, id_userRole,id_room) values(?,?,?)";
+			CallableStatement statement3 = connection.prepareCall(sqlInsert3);
+			statement3.setInt(1, 2);
+			statement3.setInt(2, idUser);
+			statement3.setInt(3, idRoom);
+    		
 			statement.execute();
+			statement2.execute();
+			statement3.execute();
 			
 		}
 		
