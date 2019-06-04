@@ -50,8 +50,8 @@ public class UsuarioController {
 																				 */) {
 		if (usuarioBusiness.existeHash(hash) /* && grupoBusiness.existeGrupo(idGrupo) */ ) {
 			Usuario usuario = usuarioBusiness.getUsuarioHash(hash);
-			Grupo grupo1 = new Grupo("los amigos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
-			Grupo grupo2 = new Grupo("bebasos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
+			Grupo grupo1 = new Grupo("Amigos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
+			Grupo grupo2 = new Grupo("Los informáticos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
 			Mensaje mensaje = new Mensaje(usuario, "hola juan", 1, grupo1);
 
 			grupo1.mandarMensaje(mensaje);
@@ -92,8 +92,8 @@ public class UsuarioController {
 
 			usuarioBusiness.save(usuario);
 
-			Grupo grupo1 = new Grupo("los amigos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
-			Grupo grupo2 = new Grupo("bebasos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
+			Grupo grupo1 = new Grupo("Amigos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
+			Grupo grupo2 = new Grupo("Los informáticos", 0, 0, new UsuarioAdmin("dssdjds"), new UsuarioOwner("dsjsds"));
 			Mensaje mensaje = new Mensaje(usuario, "hola juan", 1, grupo1);
 
 			grupo1.mandarMensaje(mensaje);
@@ -109,7 +109,7 @@ public class UsuarioController {
 			return "interfazchat";
 
 		} else {
-			return "expiroenlace";
+			return "enlaceexpiro";
 		}
 	}
 

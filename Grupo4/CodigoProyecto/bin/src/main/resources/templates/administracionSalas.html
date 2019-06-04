@@ -1,6 +1,37 @@
 <!doctype html>
 <html lang="es" xmlns:th="http:www.thymeleaf.org">
 <head>
+<meta charset="UTF-8">
+<title>Insertar nueva pelicula</title>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h3>Cursos del plan de estudios</h3>
+  <br>
+  <div class="container">
+    <table class="table table-striped">
+	  <tbody><tr>
+	  	<th>Nombre</th>
+	    <th>Sigla</th>
+        <th>Creditos</th>
+        <th>Ciclo</th>
+	  </tr>
+	   <tr th:each="curso : ${cursos}">
+	    <td><span th:text="${curso.nombre}"></span></td>
+        <td><span th:text="${curso.sigla}"></span></td>
+	    <td><span th:text="${curso.creditos}"></span></td>
+        <td><span th:text="${curso.ciclo}"></span></td>
+	  </tr>
+	</tbody></table>
+  </div>
+
+
+
+</body></html>>
+<head>
 <meta charset="utf-8">
 <title>Administracion</title>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -15,41 +46,37 @@
 <body>
 <div class="container">
 <br>
-  <h3 style="color: rgb(101, 180, 206) ;">Administracion</h3>
+  <h3 style="color: rgb(101, 180, 206) ;">Administración</h3>
 </div>
 <div class="container">
 <br>
   <table width="974" height="498" border="0">
   <tbody>
     <tr>
-      <td width="500"  style="vertical-align: top;">
-      	<p><span style="color: rgb(101, 180, 206);" type="Usuarios de la sala: " th:text=${idGrupo}" > </span></p><br>
+      <td width="400"  style="vertical-align: top;">
+      	<p><span style="color: rgb(101, 180, 206);">Salas</span></p><br>
       	<table width="490" border="0" class="table table-striped">
       	  <tbody>
-      	   <tr th:each="usuario : ${usuarios}">
-      	      <td> <span width="49">foto </span></td>
-      	      <td> <span width="203" th:text="${usuario.NombreUsuario}" /span></td>
-      	      <td> <span width="73"><input type="button" name="button" id="button" value="Promover" class="btn btn-success"> </span></td>
-      	      <td> <span width="82"><input type="button" name="button2" id="button2" value="Castigar" class="btn btn-danger"> </span></td>
-    	      </tr>
-    	    </tbody>
+      	   <tr th:each="usuario : ${salas}">
+      	      <td> <span class="align-center"  th:text="${salas.nombre}" href="url">prueba</span></td>
+    	   </tr>
+    	  </tbody>
   	  </table>
       	<p>&nbsp;</p>
       	<br>
-      
       </td>
       <td width="500" style="vertical-align: top;">
           <p><span style="color: rgb(101, 180, 206);">Metricas</span></p><br>
           
             <table width="436" border="0">
-        	 <tbody>
+              <tbody>
                 <tr>
                   <td width="231"><label>Cantidad de salas: </label></td>
-                   <td><span th:text="${metricas.cantidadRooms}"></span></td>
+                   <td><span th:text="${metricas.cantidadSalas}"></span></td>
                 </tr>
                 <tr>
                   <td><label>Cantidad de usuarios:</label></td>
-                   <td><span th:text="${metricas.cantidadUsuariosGrupos}"></span></td>
+                   <td><span th:text="${metricas.cantidadUsuarios}"></span></td>
                 </tr>
                 <tr>
                   <td><label>Promedio de usuarios por grupo:</label></td>
@@ -64,24 +91,24 @@
                    <td><span th:text="${metricas.fechaPrimerLogin}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Usuario con mas mensajes:</label></td>
-                   <td><span th:text="${metricas.usuarioMasMensajes.hash}"></span></td>
+                  <td><label>Usuario con m�s mensajes:</label></td>
+                   <td><span th:text="${metricas.usuarioMasMensajes}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Mensaje mas largo:</label></td>
-                   <td><span th:text="${metricas.mensajeLargo.contenido}"></span></td>
+                  <td><label>Mensaje m�s largo:</label></td>
+                   <td><span th:text="${metricas.mensajeLargo}"></span></td>
                 </tr>
                 <tr>
-                  <td><label>Ultimo grupo creado:</label></td>
-                   <td><span th:text="${metricas.ultimoGrupo.nombre}"></span></td>
+                  <td><label>�ltimo grupo creado:</label></td>
+                   <td><span th:text="${metricas.ultimoGrupo}"></span></td>
                 </tr>
                 <tr>
                   <td><label>Grupo con mas mensajes:</label></td>
-                  <td><span th:text="${metricas.grupoMasMensajes.nombre}"></span></td>
+                  <td><span th:text="${metricas.grupoMasMensajes}"></span></td>
                 </tr>
               </tbody>
-            </table>            
-            <br>
+            </table>            <br>
+
       </td>
     </tr>
   </tbody>

@@ -26,12 +26,16 @@ public class GrupoBusiness {
 	private GrupoData grupoData;
 	@Autowired
 	private MensajeData mensajeData;
+	@Autowired
+	private MensajeData mensajeData;
 
 	public ArrayList<Grupo> listarGrupos() {
 		return grupoData.listarGrupos();
 	}
 
 	public ArrayList<Usuario> usuariosPorGrupo(int idGrupo) {
+	@Transactional
+	public ArrayList<Usuario> usuariosPorGrupo(int idGrupo){
 		return grupoData.buscarUsuariosPorGrupo(idGrupo);
 	}
 
