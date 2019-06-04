@@ -78,14 +78,12 @@
 				</ul>
 			</div>
 			<div id="bottom-bar">
-				<button id="addcontact">
+				<button id="addcontact" th:onclick="|window.location.href='/msn/invite?idUserRoom=${idUserRoom}'|">
 					<i th:title="#{addgroup.text}" class="fa fa-user-plus fa-fw"
 						aria-hidden="true" ></i></button>
 
 			</div>
 		</div>
-
-
 
 
 		<div class="content">
