@@ -60,7 +60,6 @@ public class MetricsController {
 						model.addAttribute("groups",groups);
 						Iterator<User> users = userBusiness.findUsersCertainRoom(roomID);
 
-
 		model.addAttribute("metrics", metrics);
 		model.addAttribute("users", users);
 
