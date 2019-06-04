@@ -24,7 +24,7 @@ import com.chat.domain.UserClient;
 
 
 @Repository
-public class MetricDat {
+public class MetricData {
 	
 	@Autowired
 	private DataSource dataSource;

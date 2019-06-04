@@ -13,7 +13,7 @@
 
 </head>
 <body>
-	<div class="container">
+	<div class="container"  >
 
 		<div class="row">
 			<div id="panelTop" class="panel panel-default">
@@ -78,20 +78,20 @@
 
 							<ul id="listMetrics" class="list-group list-group-flush">
 								<div class="table-wrapper-scroll-y my-custom-scrollbar">
-									<li class="list-group-item">Average of Users Per Groups:</li>
-									<li class="list-group-item">Date of the first login:</li>
+									<li class="list-group-item">Average of Users Per Groups: </li> <span th:text="${avgUser}"></span>
+									<li class="list-group-item">Date of the first login:</li> <span th:text="${firtsLogin}"></span>
 									<li class="list-group-item">Date of the last message:</li>
 									<li class="list-group-item">Last group created:</li>
 									<li class="list-group-item">Longer message:</li>
 									<li class="list-group-item">More messages per group:</li>
 									<li class="list-group-item">More message per user:</li>
-									<li class="list-group-item">Quantity room:</li>
-									<li class="list-group-item">Quantity user:</li>
+									<li class="list-group-item">Quantity room: </li> <span th:text="${quantityRooms}"></span>
+									<li class="list-group-item">Quantity user:</li><span th:text="${quantityUser}"></span>
 									<li class="list-group-item">User per room Prom:</li>
 								</div>
 							</ul>
 						</div>
-					</div>
+					</div>q
 				</div>
 			</div>
 		</div>
