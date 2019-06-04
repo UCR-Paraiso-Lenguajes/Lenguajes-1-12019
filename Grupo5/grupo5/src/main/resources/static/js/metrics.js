@@ -32,7 +32,6 @@ var admin = new Vue({
             this.metricDetails = false;
             this.idRoom = idRoom;
             this.getUsers();
-
         },
         promoveAdmin: function (idUser) {
             axios.put(('http://localhost:8080/msn/admin/room/' + this.idRoom + '/' + idUser))

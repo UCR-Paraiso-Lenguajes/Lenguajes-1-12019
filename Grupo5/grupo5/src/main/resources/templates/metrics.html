@@ -71,7 +71,7 @@
             </div>
             <div v-if="userDetails" class="col-sm-8">
                 <div v-if="alert" class="alert alert-info">
-                    <strong>Status</strong> Procesando..................
+                    <strong>Status:</strong> Procesando..................
                 </div>
                 <table class="table table-striped">
                     <thead>
@@ -84,7 +84,8 @@
                         <tr v-for="user in users">
                             <td>{{user.idUser}}</td>
                             <td>{{user.email}}</td>
-                            <td><button @click="promoveAdmin(user.idUser)" v-if="user.idRole==2" class="btn btn-success">Promove
+                            <td><button @click="promoveAdmin(user.idUser)" v-if="user.idRole==2"
+                                    class="btn btn-success">Promove
                                     Admin</button></td>
                             <td><button @click="banUser(user.idUser)" class="btn btn-danger">Ban User</button></td>
                         </tr>
