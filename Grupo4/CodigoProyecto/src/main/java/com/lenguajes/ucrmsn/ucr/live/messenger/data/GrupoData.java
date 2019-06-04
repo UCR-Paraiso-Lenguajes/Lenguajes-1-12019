@@ -164,7 +164,7 @@ class getAllUsersByRoomIDExtractor implements ResultSetExtractor<List<Usuario>>{
 
 	@Override
 	public List<Usuario> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Usuario> list = new LinkedList<>();
+		List<Usuario> list = new ArrayList<>();
 		Usuario usuario = null;
 		while(rs.next()) {
 			Integer idUsuarioActual = rs.getInt("id");
@@ -180,7 +180,7 @@ class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>>{
 
 	@Override
 	public List<Grupo> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Grupo> list = new LinkedList<>();
+		List<Grupo> list = new ArrayList<>();
 		Grupo grupo = null;
 		while(rs.next()) {
 			Integer idGrupoActual = rs.getInt("id");
@@ -198,7 +198,7 @@ class MensajeWithGrupoExtractor implements ResultSetExtractor<List<Mensaje>>{
 
 	@Override
 	public List<Mensaje> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Mensaje> list = new LinkedList<>();
+		List<Mensaje> list = new ArrayList<>();
 		Mensaje mensaje = null;
 		while(rs.next()) {
 			Integer idMensajeActual = rs.getInt("id");

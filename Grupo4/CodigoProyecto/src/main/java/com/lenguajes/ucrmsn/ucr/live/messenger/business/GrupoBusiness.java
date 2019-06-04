@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lenguajes.ucrmsn.ucr.live.messenger.data.GrupoData;
+import com.lenguajes.ucrmsn.ucr.live.messenger.data.MensajeData;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.HashEnviados;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Grupo;
 import com.lenguajes.ucrmsn.ucr.live.messenger.domain.Mensaje;
@@ -32,6 +33,9 @@ public class GrupoBusiness {
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private GrupoData grupoData;
+	@Autowired
+	private MensajeData mensajeData;
+	
 	
 	public ArrayList<Grupo> listarGrupos(){
 		
@@ -127,8 +131,10 @@ public class GrupoBusiness {
 		mensaje.setGrupo(grupo);
 		grupo.mandarMensaje(mensaje);
 		grupo.setCantidadMensajes(grupo.getCantidadMensajes()+1);
-		grupoData.update(grupo);
-
+		/*
+		 * grupoData.update(grupo);
+		 */
+		mensajeData.nuevoMensaje(mensaje);
 	}
 
 	@Transactional

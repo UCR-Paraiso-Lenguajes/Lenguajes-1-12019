@@ -129,6 +129,14 @@ public class UsuarioData {
 		String sqlSelect="select id,codigoHash,cantidadMensajes from USUARIO" ;
 		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new UsuarioExtractor());
 	}
+	@Transactional(readOnly=true)
+	public Usuario getUsuarioporId(int id){
+		
+		String sqlSelect="select id,codigoHash,cantidadMensajes from USUARIO where id="+id ;
+		
+		return (Usuario) jdbcTemplate.query(sqlSelect, new UsuarioPoridExtractor());
+	}
+
 	class UsuarioExtractor implements ResultSetExtractor<List<Usuario>>{
 
 		@Override
@@ -138,7 +146,7 @@ public class UsuarioData {
 			while(rs.next()) {
 				Integer idUsuarioActual = rs.getInt("id");
 					usuario = new Usuario();
-					usuario.setId(idUsuarioActual);
+					usuario.setId(idUsuarioActual);	
 					usuario.setHash(rs.getString("codigoHash"));
 					usuario.setCantidadMensajes(rs.getInt("cantidadMensajes"));
 
@@ -147,6 +155,25 @@ public class UsuarioData {
 			
 			
 			return list;
+		}
+		
+			
+		}
+	class UsuarioPoridExtractor implements ResultSetExtractor<Usuario>{
+
+		@Override
+		public Usuario extractData(ResultSet rs) throws SQLException, DataAccessException {
+			
+			Usuario usuario = null;
+			while(rs.next()) {
+				Integer idUsuarioActual = rs.getInt("id");
+					usuario = new Usuario();
+					usuario.setId(idUsuarioActual);
+					usuario.setHash(rs.getString("codigoHash"));
+					usuario.setCantidadMensajes(rs.getInt("cantidadMensajes"));					}
+			
+			
+			return usuario;
 		}
 	}
 }
