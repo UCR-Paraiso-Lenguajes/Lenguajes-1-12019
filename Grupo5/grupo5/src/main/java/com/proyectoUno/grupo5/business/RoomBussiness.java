@@ -15,7 +15,9 @@ public class RoomBussiness {
 
 
     public Boolean insertRoom(Room room) throws SQLException {
-        return roomDao.insertRoom(room);
+    	if(room == null) throw new RuntimeException("El room es requerido.");
+    	if(room.getRoomName().length() == 0 ) throw new RuntimeException("El nombre es requerido.");
+    	return roomDao.insertRoom(room);
     }
 
 
@@ -26,6 +28,14 @@ public class RoomBussiness {
 	public List<Room> getRooms() {
 		return roomDao.listRooms();
 	}
+
+
+	public void assignRoom(int id_user) {
+		roomDao.assignRoom(id_user);
+	}
+
+
+
 	
 
     

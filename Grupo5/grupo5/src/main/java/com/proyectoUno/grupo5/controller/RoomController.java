@@ -32,22 +32,23 @@ public class RoomController {
         return "createRoom";
     }
     
-    @RequestMapping(value="/createRoom", method=RequestMethod.POST)
+  /*  @RequestMapping(value="/createRoom", method=RequestMethod.POST)
     public String ingreso(@ModelAttribute(name="room")  Room room, Model model) {
     	
     	
     	room.setRoomName(room.getRoomName());
     	room.setVersion(0);
-          	
+      
+    	
     	try {
     		roomBusiness.insertRoom(room);
     	}
     	catch (SQLException e) {
 			e.printStackTrace();
 		}
-    	
+   
     	return "createRoomSucessfull";
-    }
+    }*/
     }
     
     
