@@ -158,155 +158,10 @@ public class GrupoData {
  }
 
  @Transactional(readOnly = true)
- public ArrayList<Usuario> buscarUsuariosPorGrupo(int idGrupo) {
+ public ArrayList<Usuario> buscarUsuariosPorGrupo(String idGrupo) {
   String sqlSelect = "select usuarioId, from USUARIO_GRUPO where grupoId= " + idGrupo;
   return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
  }
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
-	private SimpleJdbcCall simpleJdbcCall;
-
-	@Autowired
-	private DataSource dataSource;
-
-	@Transactional(readOnly = true)
-	public void save(Grupo grupo) {
-		Connection conexion = null;
-		try {
-			conexion = dataSource.getConnection();
-			conexion.setAutoCommit(false);
-
-			if (grupo.getListaMensajes().isEmpty() == true) {
-				crearTablaMensajes(grupo.getNombre());
-			}
-
-			String sqlInsertrol = "INSERT INTO GRUPO(nombre,numeroParticipantes,idOwner,idAdmin) VALUES(?,?,?,?)";
-			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
-			statementrol.setString(1, grupo.getNombre());
-			statementrol.setInt(2, grupo.getNumeroParticipantes());
-			statementrol.setInt(3, grupo.getDueno().getId());
-			statementrol.setInt(3, grupo.getAdministrador().getId());
-			statementrol.executeUpdate();
-			conexion.commit();
-		} catch (SQLException e) {
-			try {
-				conexion.rollback();
-			} catch (SQLException e2) {
-				throw new RuntimeException(e2);
-			}
-			throw new RuntimeException(e);
-		} finally {
-			if (conexion != null) {
-				try {
-					conexion.close();
-				} catch (SQLException e3) {
-					throw new RuntimeException(e3);
-				}
-			}
-		}
-	}
-
-	public void crearTablaMensajes(String nombreGrupo) {
-		String sql = "create table MENSAJE" + nombreGrupo + "(id integer PRIMARY KEY AUTO_INCREMENT,"
-				+ " idGrupo integer, contenido varchar(50), version integer, idUsuario integer);";
-		jdbcTemplate.batchUpdate(sql);
-	}
-
-	@Transactional(readOnly = true)
-	public void delete(Grupo grupo) {
-		Connection conexion = null;
-		try {
-			conexion = dataSource.getConnection();
-			conexion.setAutoCommit(false);
-			String sqlInsertrol = "DELETE FROM GRUPO WHERE id=(?)";
-			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
-			statementrol.setInt(1, grupo.getId());
-			statementrol.executeUpdate();
-			conexion.commit();
-		} catch (SQLException e) {
-			try {
-				conexion.rollback();
-			} catch (SQLException e2) {
-				throw new RuntimeException(e2);
-			}
-			throw new RuntimeException(e);
-		} finally {
-			if (conexion != null) {
-				try {
-					conexion.close();
-				} catch (SQLException e3) {
-					throw new RuntimeException(e3);
-				}
-			}
-		}
-	}
-
-	@Transactional(readOnly = true)
-	public void update(Grupo grupo) {
-		Connection conexion = null;
-		try {
-			conexion = dataSource.getConnection();
-			conexion.setAutoCommit(false);
-			String sqlInsertrol = "UPDATE GRUPO SET nombre=(?),"
-					+ "numeroParticipantes=(?),cantidadMensajes=(?)  WHERE id=(?)";
-			PreparedStatement statementrol = conexion.prepareStatement(sqlInsertrol);
-			statementrol.setString(1, grupo.getNombre());
-			statementrol.setInt(2, grupo.getNumeroParticipantes());
-			statementrol.setInt(3, grupo.getCantidadMensajes());
-			statementrol.setInt(4, grupo.getId());
-
-			statementrol.executeUpdate();
-			conexion.commit();
-		} catch (SQLException e) {
-			try {
-				conexion.rollback();
-			} catch (SQLException e2) {
-				throw new RuntimeException(e2);
-			}
-			throw new RuntimeException(e);
-		} finally {
-			if (conexion != null) {
-				try {
-					conexion.close();
-				} catch (SQLException e3) {
-					throw new RuntimeException(e3);
-				}
-			}
-		}
-	}
-
-	@Transactional(readOnly = true)
-	public ArrayList<Mensaje> buscarMensajes() {
-
-		String sqlSelect = "select id,version,contenido from MENSAJE";
-		return (ArrayList<Mensaje>) jdbcTemplate.query(sqlSelect, new MensajeWithGrupoExtractor());
-	}
-
-	@Transactional(readOnly = true)
-	public ArrayList<Grupo> listarGrupos() {
-		String sqlSelect = "select id,nombre from GRUPO";
-		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
-	}
-
-	@Transactional(readOnly = true)
-	public ArrayList<Grupo> buscarGrupoPorId(int id) {
-		String sqlSelect = "select id,nombre from GRUPO where grupoId= " + id;
-		return (ArrayList<Grupo>) jdbcTemplate.query(sqlSelect, new getAllRoomsExtractor());
-	}
-
-	@Transactional(readOnly = true)
-	public ArrayList<Usuario> buscarUsuariosPorGrupo(String idGrupo) {
-		String sqlSelect = "select usuarioId from USUARIO_GRUPO where grupoId= " + idGrupo;
-		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
-	}
-	
-	@Transactional(readOnly=true)
-	public ArrayList<Usuario> buscarUsuariosPorGrupo(int idGrupo){
-		
-		String sqlSelect="select usuarioId from USUARIO_GRUPO where grupoId= "+idGrupo ;
-		return (ArrayList<Usuario>) jdbcTemplate.query(sqlSelect, new getAllUsersByRoomIDExtractor());
-	}
-
 }
 
 class getAllUsersByRoomIDExtractor implements ResultSetExtractor<List<Usuario>> {
@@ -343,20 +198,6 @@ class getAllRoomsExtractor implements ResultSetExtractor<List<Grupo>> {
 
   return list;
  }
-	@Override
-	public List<Grupo> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<Grupo> list = new ArrayList<>();
-		Grupo grupo = null;
-		while (rs.next()) {
-			Integer idGrupoActual = rs.getInt("id");
-				grupo = new Grupo();
-				grupo.setId(idGrupoActual);	
-				grupo.setNombre(rs.getString("nombre"));
-				list.add(grupo);
-			}
-				
-		return list;
-	}
 }
 
 class MensajeWithGrupoExtractor implements ResultSetExtractor<List<Mensaje>> {
@@ -375,4 +216,3 @@ class MensajeWithGrupoExtractor implements ResultSetExtractor<List<Mensaje>> {
   return list;
  }
 }
-
