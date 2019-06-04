@@ -116,7 +116,7 @@
 						<script th:inline="javascript">
 						/*<![CDATA[*/ 
 							
-						var usuario =  /*[[${usuario.getHash()}]]*/, null;
+						var usuario =  /*[[${usuario}]]*/, null;
 						var contenido= $("#botonEnviar");
 						var grupo =  /*[[${grupo}]]*/, null;
 						var botonEnviar = $("#botonEnviar");
@@ -135,7 +135,7 @@
 							
 
 							$.ajax(	{
-								method:"PUT",
+								method:"POSTT",
 								data:JSON.stringify(obj),
 								contentType:"application/json; charset=utf-8",
 								url: "/api/mandarMensaje"
