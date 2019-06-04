@@ -19,6 +19,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.proyectoUno.grupo5.domain.Message;
+import com.proyectoUno.grupo5.domain.Room;
 @Repository
 public class MessageDao {
 	
@@ -31,6 +32,10 @@ public class MessageDao {
 
 	    
 	    private Map<Integer, Message> messages;
+	    private Map<Integer,Message> filterHash;
+
+	    
+	    private Room room;
 	    
 	    public Boolean insertMessage(Message message){
 	    	
@@ -80,7 +85,7 @@ public class MessageDao {
 	    public List<Message> getMessagesByIdRoom(int idRoom){
 	    	
 	    	
-	    	String sqlSelect = "SELECT id_message,date_fecha,contenido,id_user,id_room from message WHERE id_room="+idRoom;
+	    	String sqlSelect = "SELECT id_message,date,containt,id_user,id_room from message WHERE id_room="+idRoom;
 			
 			return jdbcTemplate.query(sqlSelect, new MessageWithExtractor());
 	    	 
@@ -93,4 +98,25 @@ public class MessageDao {
 
 	    	return synchonizedMessage;
 	    }
+	    
+	    public Map<Integer, Message> getMessagesSincro(int idRoom){
+			
+	    	
+	    	for (Map.Entry<Integer, Message> entry : messages.entrySet()) {
+	    		
+	    		if(entry.getValue().getIdRoom()==idRoom) {
+	    			
+	    			filterHash.put(entry.getKey(), entry.getValue());
+	    		}
+	    		
+	    		
+	    	    
+	    	}
+	    	
+	    	return filterHash;
+	    	
+	    }
+	    
+	    
+	    
 }
