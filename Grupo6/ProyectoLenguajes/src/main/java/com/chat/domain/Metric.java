@@ -2,6 +2,8 @@ package com.chat.domain;
 
 import java.sql.Date;
 
+import com.chat.exeption.chatException;
+
 public class Metric {
 
 	private int quantityRoom;
@@ -20,8 +22,6 @@ public class Metric {
 			double averageOfUsersPerGroup, Date dateOfThLastMessage, Date dateOfTheFirstLogin,
 			String moreMessagesPerUser, String longestMessage, String lastGroupCreated, String moreMessagesPerGroup) {
 		super();
-		if (quantityRoom < 0)
-			throw new RuntimeException("El id de la sala debe ser mayor  0.");
 		this.quantityRoom = quantityRoom;
 		this.quantityUser = quantityUser;
 		this.userPerRoomProm = userPerRoomProm;

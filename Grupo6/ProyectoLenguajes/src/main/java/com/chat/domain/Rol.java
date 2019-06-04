@@ -1,5 +1,7 @@
 package com.chat.domain;
 
+import com.chat.exeption.chatException;
+
 public class Rol {
 
 	private int id;
@@ -7,8 +9,8 @@ public class Rol {
 
 	public Rol(int id, String name) {
 		super();
-		if(id <0) throw new RuntimeException("El id del Rol debe ser mayor  0.");
-		if(name == null || name.trim().equals("")) throw new RuntimeException("El nombre es requerido");
+		if(id <0) throw new chatException("El id del Rol debe ser mayor  0.");
+		if(name == null || name.trim().equals("")) throw new chatException("El nombre es requerido");
 		this.id = id;
 		this.name = name;
 	}

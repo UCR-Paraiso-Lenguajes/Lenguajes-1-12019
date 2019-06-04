@@ -13,6 +13,7 @@ import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rooms;
 import com.chat.domain.UserClient;
+import com.chat.exeption.chatException;
 
 @Service
 public class ChatRoomBussines {
@@ -22,28 +23,47 @@ public class ChatRoomBussines {
 
 	@Autowired
 	private MessageData messageData;
-	
+
 	@Autowired
 	private UserData userData;
 
-	public void addRom(ChatRoom chatRoom) {
+	public boolean addRom(ChatRoom chatRoom) {
+		ArrayList<ChatRoom> rooms = chatRomData.getRooms();
+		if (chatRoom.getUser_creator().getAvatar()== null || chatRoom.getUser_creator().getAvatar().trim().equals(""))
+			throw new chatException("El usuario creador es requerido");
+		
+		
+		for (int i = 0; i < rooms.size(); i++) {
+			System.out.println(rooms.get(i).toString());
+			if (rooms.get(i).getName().equalsIgnoreCase(chatRoom.getName()))
+				throw new chatException("El nombre es igual a otro grupo");
+		}
+        
 		chatRomData.add(chatRoom);
+		return true;
 	}
 
-	public ArrayList<ChatRoom> getRoomsByGuess(String email, int room){
+	public ArrayList<ChatRoom> getRoomsByGuess(String email, int room) {
 
+		ArrayList<ChatRoom> roomsTemp = chatRomData.getRooms();
+		for (int i = 0; i < roomsTemp.size(); i++) {
+			if ((roomsTemp.get(i).getId()== room )&& (roomsTemp.get(1).getListUsers().size()==50))
+				throw new chatException("El grupo esta lleno");
+		}
+		
 		ArrayList<ChatRoom> rooms = chatRomData.getRoomsByUserEmail(email, room);
-		if(rooms.isEmpty()) {
+		if (rooms.isEmpty()) {
 			UserClient user = userData.getUserByEmail(email);
-			if(user.getId() < 0) {
+			if (user.getId() < 0) {
 				userData.addUserClient(user);
-			}else {
+			} else {
 				user = userData.getUserByEmail(email);
 			}
 			chatRomData.addUserByChatRoom(room, user.getId(), 1);
 		}
 		return rooms;
 	}
+
 
 
 	public Iterator<ChatRoom> getRooms(){
@@ -87,7 +107,7 @@ public class ChatRoomBussines {
 		return rooms.iterator();
 	}
 
-	public Iterator<Message> loadMessages(ChatRoom room){
+	public Iterator<Message> loadMessages(ChatRoom room) {
 		return messageData.getMessages(room).iterator();
 	}
 

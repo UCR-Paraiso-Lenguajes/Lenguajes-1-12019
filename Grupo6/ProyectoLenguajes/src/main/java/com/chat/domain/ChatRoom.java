@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.chat.exeption.chatException;
+
 public class ChatRoom {
 
 	private int id;
@@ -15,18 +17,19 @@ public class ChatRoom {
 	private UserAdmin user_creator;
 	private String avatar;
 
-	public ChatRoom(int id, String name, int version, String url, List<UserAdmin> listUsers, List<Message> listMessage, UserAdmin userCreator) {
+	public ChatRoom(int id, String name, int version, String url, List<UserAdmin> listUsers, List<Message> listMessage,
+			UserAdmin userCreator) {
 		super();
 		if (id < 0)
-			throw new RuntimeException("El id de la sala debe ser mayor  0.");
+			throw new chatException("El id de la sala debe ser mayor a 0");
 		if (name == null || name.trim().equals(""))
-			throw new RuntimeException("El nombre es requerido");
+			throw new chatException("El nombre es requerido");
 		if (version < 0)
-			throw new RuntimeException("La version de la sala debe ser mayor  0.");
+			throw new chatException("La version de la sala debe ser mayor  0.");
 		if (url == null || url.trim().equals(""))
-			throw new RuntimeException("La url es requerida");
+			throw new chatException("La url es requerida");
 		if (userCreator == null)
-			throw new RuntimeException("El usuario creador es requerido");
+			throw new chatException("El usuario creador es requerido");
 		this.id = id;
 		this.name = name;
 		this.version = version;

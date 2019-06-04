@@ -14,11 +14,6 @@
 </head>
 <body>
 
-	<div id="internalization">
-		<button data-tr="Spanish" id="btn-es" class="btn btn-default"></button>
-		<button data-tr="English" id="btn-en" class="btn btn-default"></button>
-	</div>
-
 	<div class="container">
 
 		<div class="row">
@@ -31,17 +26,14 @@
 					method="post">
 
 					<div class="form-group">
-
-						<span data-tr="Enter your email"></span> <input type="text"
-							class="form-control" id="username"
+						<h2>Login to continue!</h2>
+						<input type="username" class="form-control" id="username"
 							placeholder="Enter your username" name="username"> <br>
-
-						<span data-tr="Enter your password"></span> <input type="password"
-							class="form-control" id="password"
+						<input type="password" class="form-control" id="password"
 							placeholder="Enter your password" name="password">
 					</div>
-					<button id="button" type="submit" class="btn btn-default"
-						data-tr="Log In"></button>
+					<button id="button" type="submit" class="btn btn-default">Log
+						In</button>
 				</form>
 			</div>
 		</div>
@@ -51,43 +43,6 @@
 
 	<div id="footer"></div>
 </body>
-
-<script>
-	frases = {
-		"es" : {
-			"Enter your email" : "Ingresa tu correo",
-			"Enter your password" : "Ingresa tu contraseña",
-			"Log In" : "Inicia Sesión",
-			"Spanish" : "Español",
-			"English" : "Ingles"
-		}
-	};
-
-	/**
-	 * Función que cambia todos los elementos al nuevo idioma.
-	 *
-	 * @param {string} lang
-	 */
-	function cambiarIdioma(lang) {
-		var elems = document.querySelectorAll('[data-tr]');
-		for (var x = 0; x < elems.length; x++) {
-			elems[x].innerHTML = frases.hasOwnProperty(lang) ? frases[lang][elems[x].dataset.tr]
-					: elems[x].dataset.tr;
-		}
-
-	}
-
-	window.onload = function() {
-		cambiarIdioma();
-
-		document.getElementById('btn-es').addEventListener('click',
-				cambiarIdioma.bind(null, 'es'));
-
-		document.getElementById('btn-en').addEventListener('click',
-				cambiarIdioma.bind(null, 'en'));
-
-	}
-</script>
 
 <style>
 body {
@@ -99,18 +54,13 @@ body {
 	margin-top: 125px;
 }
 
-#internalization {
-	margin-top: 25px;
-	margin-left: 75%;
-}
-
 #colform {
+	opacity: 0.5;
 	border-radius: 25px;
 	border: 2px solid #3D6F99;
 	padding: 20px;
 	width: 350px;
 	height: 250px;
-	margin-left: 25px;
 }
 </style>
 

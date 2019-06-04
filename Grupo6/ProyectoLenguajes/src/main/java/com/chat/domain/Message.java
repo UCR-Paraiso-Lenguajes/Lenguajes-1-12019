@@ -2,6 +2,8 @@ package com.chat.domain;
 
 import java.sql.Date;
 
+import com.chat.exeption.chatException;
+
 public class Message {
 	private int id;
 	private String message;
@@ -11,9 +13,12 @@ public class Message {
 	public Message(int id, String message, Date date, int idSendingUser) {
 		super();
 		if (id < 0)
-			throw new RuntimeException("El id del mensaje debe ser mayor  0.");
+			throw new chatException("El id del mensaje debe ser mayor  0.");
 		if (message == null || message.trim().equals(""))
-			throw new RuntimeException("El mensaje es requerida es requerido");
+			throw new chatException("El mensaje es requerido");
+		if (id < 0)
+			throw new chatException("El id enviando a usuario debe ser mayor  0.");
+		if (message == null || message.trim().equals(""))
 		this.id = id;
 		this.message = message;
 		this.date = date;
