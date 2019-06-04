@@ -30,7 +30,7 @@ public class AdministracionController {
 	 }
 	 
 	 @RequestMapping(value="/administracionUsuarios", method=RequestMethod.GET )
-	 public String listarUsuarios(Model model ,@RequestParam("idGrupo") int idGrupo) {
+	 public String listarUsuarios(Model model ,@RequestParam("idGrupo") String idGrupo) {
 		 
 		  model.addAttribute("usuarios",grupoBusiness.usuariosPorGrupo(idGrupo));
 		  model.addAttribute("idGrupo",idGrupo);
