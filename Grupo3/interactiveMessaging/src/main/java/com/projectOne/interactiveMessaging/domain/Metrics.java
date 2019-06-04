@@ -76,7 +76,7 @@ public class Metrics {
 		}
 	}
 	
-	public boolean compareLongerMessage( String messageNew) {
+	private boolean compareLongerMessage( String messageNew) {
 		if(messageNew.length()> LongestMessage.length()) {
 			return true;
 		}

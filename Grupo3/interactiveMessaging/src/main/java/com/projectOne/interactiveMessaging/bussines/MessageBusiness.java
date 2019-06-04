@@ -12,6 +12,7 @@ import com.projectOne.interactiveMessaging.data.MessageData;
 import com.projectOne.interactiveMessaging.domain.ClassListNewMessages;
 import com.projectOne.interactiveMessaging.domain.GroupUser;
 import com.projectOne.interactiveMessaging.domain.Message;
+import com.projectOne.interactiveMessaging.domain.Metrics;
 import com.projectOne.interactiveMessaging.domain.SingleGroupMessage;
 import com.projectOne.interactiveMessaging.domain.TableMessagesGroups;
 import com.projectOne.interactiveMessaging.domain.User;
@@ -24,6 +25,7 @@ public class MessageBusiness {
 	private UserBusiness userBusiness;
 	@Autowired
 	private GroupBusiness groupBusiness;
+	Metrics metrics = Metrics.getInstance();
 	
 	private TableMessagesGroups tableGroups = new TableMessagesGroups();
 	public ArrayList<Message> getMessagesByRange(int inicio, int fin, Iterator<User> userList, String nameMessageTableGroup, int idUserPage){
@@ -54,6 +56,8 @@ public class MessageBusiness {
 		//Segundo Construir el mensaje con
 		//int message_id, String message, User userTransmitter, Timestamp dateMessage
 		Message message = new Message(1,text,userTransmitter,timestamp);
+		metrics.updateMessageMetrics(text);
+		
 		//Tercero construir SingleGroupMessage
 		SingleGroupMessage singleGroupMessage = new SingleGroupMessage(idGroup,message);
 		
@@ -79,6 +83,7 @@ public class MessageBusiness {
 		ClassListNewMessages classList = new ClassListNewMessages();
 		singleGroupMessage.setUsersIDs(tableGroups.getGroup(idGroup).getIds());
 		classList.storeNewMessage(singleGroupMessage);
+		
 	}
 	public void addUserGroupRT(int idGroup, int idUser) {
 		if(tableGroups.existUserFromAnyGroup(idUser)) {

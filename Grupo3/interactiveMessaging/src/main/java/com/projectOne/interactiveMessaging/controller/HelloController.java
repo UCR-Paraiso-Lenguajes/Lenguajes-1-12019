@@ -1,19 +1,37 @@
 package com.projectOne.interactiveMessaging.controller;
 
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 import javax.validation.Valid;
+import java.net.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.projectOne.interactiveMessaging.bussines.EmailBussines;
 import com.projectOne.interactiveMessaging.bussines.GroupBusiness;
+import com.projectOne.interactiveMessaging.bussines.MessageBusiness;
+import com.projectOne.interactiveMessaging.bussines.MetricsBusiness;
 import com.projectOne.interactiveMessaging.bussines.UserBusiness;
+import com.projectOne.interactiveMessaging.data.UserData;
+
+import com.projectOne.interactiveMessaging.domain.Message;
+import com.projectOne.interactiveMessaging.domain.Metrics;
 import com.projectOne.interactiveMessaging.domain.Room;
+import com.projectOne.interactiveMessaging.domain.User;
+import com.projectOne.interactiveMessaging.bussines.EmailBussines;
 import com.projectOne.interactiveMessaging.form.EmailForm;
 
 @Controller
@@ -21,7 +39,13 @@ public class HelloController {
 
 	@Autowired
     private EmailBussines emailBussines;
+	@Autowired
 
+	private MessageBusiness messageBusiness;
+
+	@Autowired
+
+	private UserData userData;
 	@Autowired
 	private GroupBusiness groupBusiness;
 	
@@ -30,6 +54,8 @@ public class HelloController {
 	
 	@Autowired
 	private MetricsController metricsController;
+	@Autowired
+	private MetricsBusiness metricsBusiness;
 	
 	@RequestMapping("/")
     public String login() {
@@ -40,6 +66,7 @@ public class HelloController {
 	public String loginAdmin(@RequestParam("email") String mail,@RequestParam("password") String password,Model model) {
 		
 		if(mail.equalsIgnoreCase("soporte.soft.inc@gmail.com") && password.equalsIgnoreCase("grupo3info")) {
+			metricsBusiness.loadDataMetrics();
 			return metricsController.metrics(model);
 		}else
 		
@@ -79,6 +106,12 @@ public class HelloController {
         return "chat";
     }
 	
+	@RequestMapping(value="/chatSetting", method=RequestMethod.GET)
+    public String chatSetting(Model model, @RequestParam("id") int id, @RequestParam("id_role") int id_role) {
+		Iterator<User> user = userBusiness.findUsersOwnerOrAdmin(id, id_role);
+		model.addAttribute("user", user);
+        return "setting";
+    }
 	
 	@RequestMapping(value="/invite", method=RequestMethod.POST )
 	public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup)  {
