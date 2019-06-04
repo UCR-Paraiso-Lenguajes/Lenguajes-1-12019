@@ -57,7 +57,7 @@ public class MetricsDao {
 	                    metrics.setAverageUsersForRooms(rs.getInt("average_user_per_group"));
 	                    metrics.setDate_last_message(rs.getDate("date_last_message"));
 	                    metrics.setDate_first_login(rs.getDate("date_first_login"));
-	                    metrics.setUser_with_more_message(rs.getInt("user_with_more_message"));
+	                    metrics.setUser_with_more_message(rs.getString("user_with_more_message"));
 	                    metrics.setQuantityOfMessageUser(rs.getInt("quantity_meesage_user"));
 	                    metrics.setLast_group_created(rs.getString("last_group_created"));
 	                    metrics.setGroup_with_more_message(rs.getString("group_with_more_message"));
@@ -198,17 +198,17 @@ public class MetricsDao {
 	    }
 	    
 	    @Transactional(readOnly = true)
-	    public Integer updateMetricUserMoreMessage() {
-	        String sqlSelect = "Select MAX(temporaryTable.Number_Of_Menssages) as quantity_of_message,temporaryTable.id_user as id_user from (Select Count(id_message) AS Number_Of_Menssages, id_user From message Group by id_user) temporaryTable;";
+	    public String updateMetricUserMoreMessage() {
+	        String sqlSelect = "Select MAX(temporaryTable.Number_Of_Menssages) as quantity_of_message, email from (Select Count(id_message) AS Number_Of_Menssages, id_user From message Group by id_user) temporaryTable join user where temporaryTable.id_user=user.id_user;";
 	        return jdbcTemplate.query(sqlSelect, new UserMoreMessageExtractor());
 	    }
-	    class UserMoreMessageExtractor implements ResultSetExtractor<Integer> {
+	    class UserMoreMessageExtractor implements ResultSetExtractor<String> {
 
 	        @Override
-	        public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
-	        	int resultado = 1;
+	        public String extractData(ResultSet rs) throws SQLException, DataAccessException {
+	        	String resultado = "";
 	        	while (rs.next()) {
-	               resultado= rs.getInt("id_user");
+	               resultado= rs.getString("email");
 	                   
 
 	                }
@@ -286,9 +286,9 @@ public class MetricsDao {
 	    }
 	    
 	    @Transactional
-	    public void update(Integer quantity_rooms, Integer quantity_users, double average_user_per_group, Date date_last_message, Integer user_with_more_message, Integer quantity_meesage_user, String last_group_created, Integer quantity_meessage_room, String group_with_more_message) 
+	    public void update(Integer quantity_rooms, Integer quantity_users, double average_user_per_group, Date date_last_message, String user_with_more_message, Integer quantity_meesage_user, String last_group_created, Integer quantity_meessage_room, String group_with_more_message) 
 		{
-			String sqlSelect = "UPDATE metrics SET quantity_rooms="+quantity_rooms+",quantity_users="+quantity_users+",average_user_per_group="+average_user_per_group+",date_last_message=\""+date_last_message+"\",user_with_more_message="+user_with_more_message+",quantity_meesage_user="+quantity_meesage_user+",last_group_created=\""+last_group_created+"\",group_with_more_message=\""+group_with_more_message+"\",quantity_meessage_room="+quantity_meessage_room+" WHERE id_metrics=1";
+			String sqlSelect = "UPDATE metrics SET quantity_rooms="+quantity_rooms+",quantity_users="+quantity_users+",average_user_per_group="+average_user_per_group+",date_last_message=\""+date_last_message+"\",user_with_more_message=\""+user_with_more_message+"\",quantity_meesage_user="+quantity_meesage_user+",last_group_created=\""+last_group_created+"\",group_with_more_message=\""+group_with_more_message+"\",quantity_meessage_room="+quantity_meessage_room+" WHERE id_metrics=1";
 			jdbcTemplate.batchUpdate(sqlSelect);
 		}
 

@@ -10,7 +10,7 @@ public class Metrics {
 	private int averageUsersForRooms;
 	private Date date_last_message;
 	private Date date_first_login;
-	private int user_with_more_message;
+	private String user_with_more_message;
 	private int quantityOfMessageUser;
 	private String message;
 	private String last_group_created;
@@ -22,7 +22,7 @@ public class Metrics {
 	
 	
 	public Metrics(int idmetrics, int quantityOfRooms, int quantityOfUsers, int averageUsersForRooms,
-			Date date_last_message, Date date_first_login, int user_with_more_message, int quantityOfMessageUser,
+			Date date_last_message, Date date_first_login, String user_with_more_message, int quantityOfMessageUser,
 			String message, String last_group_created, String group_with_more_message, int quantityOfMessageRoom) {
 		super();
 		this.idmetrics = idmetrics;
@@ -85,10 +85,10 @@ public class Metrics {
 	public void setDate_first_login(Date date_first_login) {
 		this.date_first_login = date_first_login;
 	}
-	public int getUser_with_more_message() {
+	public String getUser_with_more_message() {
 		return user_with_more_message;
 	}
-	public void setUser_with_more_message(int user_with_more_message) {
+	public void setUser_with_more_message(String user_with_more_message) {
 		this.user_with_more_message = user_with_more_message;
 	}
 	public int getQuantityOfMessageUser() {
