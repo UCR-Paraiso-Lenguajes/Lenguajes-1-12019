@@ -3,6 +3,12 @@ package com.projectOne.interactiveMessaging.domain;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import com.projectOne.interactiveMessaging.data.GroupData;
+import com.projectOne.interactiveMessaging.data.MessageData;
+import com.projectOne.interactiveMessaging.data.UserData;
 
 public class Metrics {
 	
@@ -18,7 +24,9 @@ public class Metrics {
 	private String LastRoomCreated;
 	private String BiggestRoom;
 	private int numberMessagesBiggestRoom;
+	
 	private int sumOfUsersPerGroup; //Esta variable no se debe de mostrar en el html
+	private int quantityMessageBigUser;
 	private static Metrics instance = new Metrics();//genera el Singlenton
 	
 	
@@ -56,6 +64,17 @@ public class Metrics {
 		return instance;
 	}
 
+	/**
+	 * Este metodo se debe de llamar cada vez que se envie y guarde en nuevo mensaje a la base
+	 * compara el mensaje nuevo que se envia con el que esta en base de datos paraver si es el mas
+	 * extenso o no
+	 * @param newMessage
+	 */
+	public void updateMessageMetrics(String newMessage) {
+		if(compareLongerMessage(newMessage)) {
+			this.LongestMessage = newMessage;
+		}
+	}
 	
 	public boolean compareLongerMessage( String messageNew) {
 		if(messageNew.length()> LongestMessage.length()) {
@@ -63,6 +82,109 @@ public class Metrics {
 		}
 		return false;
 	}
+	
+	
+	/**
+	 * Actualiza cantidad de usuarios y nombre
+	 * Se debe de actualizar cada que se envie un nuevo mensaje
+	 * @param user
+	 */
+	public void updateUserMoreMessage(User user) {
+		if(compareUserMoreMessage(user.getNumberMessages())) {
+			this.BigUser=user.getUser_email();
+			this.quantityMessageBigUser = user.getNumberMessages();
+		}
+	}
+	
+	
+	/**
+	 * Metodo que actualiza la cantidad de usuarios de la aplicacion
+	 * Pasar por parametro userData.findAllTheUsers()
+	 */
+	public void updateNumbersOfUsers(Iterator<User> users) {
+		int contUsers = 0;
+		while(users.hasNext()) {
+			contUsers++;
+			users.next();
+		}
+		this.numberOfUsers = contUsers;
+	}
+	
+	
+	/**
+	 * Metodo cuenta la cantidad de grupos creados en la aplicacion, TODOS los grupos
+	 * Debe ir por parametro groupData.getGroups();
+	 */
+	public void updateNumbersOfRooms(Iterator<Room> rooms) {
+		int contGroup = 0;
+		while(rooms.hasNext()) {
+			contGroup++;
+			rooms.next();
+		}
+		this.numberOfRooms = contGroup;
+	}
+	
+	
+	/**
+	 * Metodo debe ser llamado cuando se cree un nuevo grupoo se elimine algun usuario de del grupo
+	 * @param sumOfUsers
+	 */
+	public void updateAverageOfUsersPerRoom(int sumOfUsers) {
+		this.sumOfUsersPerGroup += sumOfUsers;
+		this.averageOfUsersPerRoom =  this.sumOfUsersPerGroup / this.numberOfRooms; 
+	}
+	
+	/**
+	 *
+	 * actualiza la fecha de cada ultimo mensaje
+	 * debe ser llamado cada que se realice el ultimo mensaje
+	 * @param newDate
+	 */
+	public void updateDateLastMessage(Timestamp newDate) {
+			this.dateLastMessage = newDate;
+	}
+	
+	/**
+	 * Metodo busca la fecha de login del primer usuario
+	 * a conveniencia se tomara la fecha del grupo apenas se crea
+	 * por tanto debe de ser llamado cuando se crea un nuevo grupo
+	 * se debe llamar cuandocargue la app
+	 * @param dateFirstLogin
+	 */
+	public void updateDateFirstLogin( Iterator<Room> rooms) {
+		List<Room> roomsArray = new ArrayList<>(); 
+		rooms.forEachRemaining(roomsArray::add);
+		this.dateFirstLogin= roomsArray.get(0).getDateCreate();
+	}
+	
+	/**
+	 * Metodo que actualiza el ultimo grupo creado
+	 * Metodo debe de ser llamado cuando se accione el boton de ver metricas
+	 */
+	public void updateLastGroupCreate(Iterator<Room> rooms) {
+		List<Room> roomsArray = new ArrayList<>(); 
+		rooms.forEachRemaining(roomsArray::add);
+		this.LastRoomCreated = roomsArray.get(roomsArray.size()-1).getName_Room();
+	}
+	
+	/**
+	 * Debe de llamarse cada vez que se accione el boton
+	 */
+	public void updateGroupMoreMessages(GroupData gruopData, UserData userData, MessageData messageData) {
+		int cantidadMayor = 0;
+		Iterator <Room> grupos = gruopData.getGroups();
+		while(grupos.hasNext()) {
+			
+			List<Message> mensajes = new ArrayList<>(); 
+			messageData.getMessagesByRange(0, 9999, userData.findAllTheUsers(), grupos.next().getName_Room()).forEachRemaining(mensajes::add);
+			
+			if(cantidadMayor > mensajes.size()) {
+				cantidadMayor = mensajes.size();
+			}
+			
+		}
+	}
+	
 	
 	public int getId_Metrics() {
 		return id_Metrics;
@@ -167,6 +289,20 @@ public class Metrics {
 	public void setSumOfUsersPerGroup(int sumOfUsersPerGroup) {
 		this.sumOfUsersPerGroup = sumOfUsersPerGroup;
 	}
+	
+	
+
+	public int getQuantityMessageBigUser() {
+		return quantityMessageBigUser;
+	}
+
+
+
+	public void setQuantityMessageBigUser(int quantityMessageBigUser) {
+		this.quantityMessageBigUser = quantityMessageBigUser;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -177,6 +313,15 @@ public class Metrics {
 				+ ", LastRoomCreated=" + LastRoomCreated + ", BiggestRoom=" + BiggestRoom
 				+ ", numberMessagesBiggestRoom=" + numberMessagesBiggestRoom + ", sumOfUsersPerGroup="
 				+ sumOfUsersPerGroup + "]";
+	}
+
+
+
+	public boolean compareUserMoreMessage(int numberMessages) {
+		if(quantityMessageBigUser > numberMessages) {
+			return true;
+		}
+		return false;
 	}
 
 	

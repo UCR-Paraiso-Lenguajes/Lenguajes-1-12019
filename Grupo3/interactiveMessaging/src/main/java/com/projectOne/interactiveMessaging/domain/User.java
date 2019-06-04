@@ -42,6 +42,16 @@ public class User {
 	public void setRoles(ArrayList<Role> roles) {
 		this.roles = roles;
 	}
+	
+	
+
+	public int getNumberMessages() {
+		return numberMessages;
+	}
+
+	public void setNumberMessages(int numberMessages) {
+		this.numberMessages = numberMessages;
+	}
 
 	public User(int user_id, String user_email, int numberMessages) {
 		this.user_id = user_id;

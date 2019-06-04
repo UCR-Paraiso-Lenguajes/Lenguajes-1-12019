@@ -44,35 +44,32 @@
 			</select>
 		</div>
 
-<div id="sidepanel">
+		<div id="sidepanel">
 			<div id="profile">
-				<p th:text="#{groupsAdmi.text}"></p>
-				<br> <br>
+				<p>Mike Ross</p>
 			</div>
 
 			<div id="contacts">
 				<ul>
-					<li th:each="group: ${groups}" class="contact">
+					<li id="usersList" th:each="user: ${users}"
+						class="contact">
 						<div class="wrap">
-							<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-							<div class="meta">
-								<ul>
-									<br>
-									<li><a th:href="@{metricsUser(group=${group.group_id})}"
-										style='text-decoration: none; color: #f2efef;'>
-											<p th:text="${group.name_Room}" class="name"></p> <input
-											type="hidden" th:value="${group.group_id}" />
-											<p class="preview"></p>
-											<li>
-								</ul>
+							<ul>
+								<li><img src="http://emilcarlsson.se/assets/rachelzane.png"
+									alt="" />
+									<div class="meta">
+										<p th:text="${user.user_email}" class="name"></p>
+										<p class="preview"></p>
+										<button type="button" class="btn btn-secondary btn-lg">Delete</button>
+									</div>
+									</li>
+							</ul>
 
-							</div>
 						</div>
-					</li>
-
-				</ul>
 			</div>
+			</li>
 
+			</ul>
 		</div>
 
 
@@ -88,6 +85,7 @@
 			
 
 			<div class="setting">
+
 
 				<ul>
 					<br>
@@ -138,7 +136,7 @@
 
 		</div>
 	</div>
-
+	
 
 	<script>
 		/* Lenguaje */
@@ -151,8 +149,16 @@
 			});
 		});
 		
+		var ulM = jQuery("#usersList");
+		function upDateListUser(){
+			ulM.empty();
+		};
 		
-		
+		$(document).ready(function() {
+		    alert( "ready!" );
+		    upDateListUser();
+		    
+		});
 		
 	</script>
 </body>

@@ -30,13 +30,13 @@ public class MetricsDataTest {
 	
 	@Autowired
 	private MetricsData metricsData;
-//	Metrics metrics = Metrics.getInstance();
+	Metrics metrics = Metrics.getInstance();
 //	Iterator<Metrics> metrics;
 	
 	@Before
     public void setUp() {
     //Inicialización de variables antes de cada Test
-//		metrics = metricsData.findMetrics(1);
+		metrics = metricsData.findMetrics(1);
 	}
 	
 //	@Test
@@ -54,80 +54,80 @@ public class MetricsDataTest {
 //	}
 	
 	
-//	
+	
+	@Test
+	public void findMetrics_NotNull_Test() {
+		assertNotNull(metrics);
+	}
+	
 //	@Test
-//	public void findMetrics_NotNull_Test() {
-//		assertNotNull(metrics);
+//	public void findMetrics_IsEmpty_Test() {
+//		assertTrue(metrics.hasNext());
 //	}
-//	
-////	@Test
-////	public void findMetrics_IsEmpty_Test() {
-////		assertTrue(metrics.hasNext());
-////	}
-//	
-//	@Test
-//	public void findMetrics_ObjectCorrect_Test() {
-//		assertSame(metrics, metrics);
-//	}
-//	
-//	@Test
-//	public void findMetrics_forId_Test() {
-//		int id= metrics.getId_Metrics();
-//		assertEquals(1, id);
-//	}
-//	
-//	@Test
-//	public void findMetrics_numbersUsers_Test() {
-//		int numbersUsers= metrics.getNumberOfUsers();
-//		assertEquals(30, numbersUsers);
-//	}
-//	
-//	@Test
-//	public void findMetrics_getNumberOfRooms_Test() {
-//		int numbersRooms= metrics.getNumberOfRooms();
-//		assertEquals(5, numbersRooms);
-//	}
-//	
-//	@Test
-//	public void findMetrics_getAverageOfUsersPerRoom_Test() {
-//		float average= metrics.getAverageOfUsersPerRoom();
-//		assertEquals(1.2, average,0.0002);
-//	}
-//	
-//	@Test
-//	public void findMetrics_getDateLastMessage_Test() {
-//		Timestamp date= metrics.getDateLastMessage();
-//		assertEquals("2019-05-14", date+"");
-//	}
-//	
-//	@Test
-//	public void findMetrics_getDateFirstLogin_Test() {
-//		Timestamp date=  metrics.getDateFirstLogin();
-//		assertEquals("2019-05-19", date+"");
-//	}
-//	
-//	@Test
-//	public void findMetrics_getIdBigUser_Test() {
-//		String BigerUser= metrics.getBigUser();
-//		assertEquals("21", BigerUser);
-//	}
-//	
-//	@Test
-//	public void findMetrics_getNumberMessagesBigUser_Test() {
-//		int numberMessageBIgUser= metrics.getNumberMessagesBigUser();
-//		assertEquals(200, numberMessageBIgUser);
-//	}
-//	
-//	@Test
-//	public void findMetrics_getIdLongestMessage_Test() {
-//		String LongestMessage= metrics.getLongestMessage();
-//		assertEquals("12", LongestMessage);
-//	}
-//	
-//	@Test
-//	public void findMetrics_getIdLastRoomCreated_Test() {
-//		String LastRoomCreated= metrics.getLastRoomCreated();
-//		assertEquals("22", LastRoomCreated);
-//	}
+	
+	@Test
+	public void findMetrics_ObjectCorrect_Test() {
+		assertSame(metrics, metrics);
+	}
+	
+	@Test
+	public void findMetrics_forId_Test() {
+		int id= metrics.getId_Metrics();
+		assertEquals(1, id);
+	}
+	
+	@Test
+	public void findMetrics_numbersUsers_Test() {
+		int numbersUsers= metrics.getNumberOfUsers();
+		assertEquals(30, numbersUsers);
+	}
+	
+	@Test
+	public void findMetrics_getNumberOfRooms_Test() {
+		int numbersRooms= metrics.getNumberOfRooms();
+		assertEquals(5, numbersRooms);
+	}
+	
+	@Test
+	public void findMetrics_getAverageOfUsersPerRoom_Test() {
+		float average= metrics.getAverageOfUsersPerRoom();
+		assertEquals(1.2, average,0.0002);
+	}
+	
+	@Test
+	public void findMetrics_getDateLastMessage_Test() {
+		Timestamp date= metrics.getDateLastMessage();
+		assertEquals("2019-05-14 23:00:00", date+"");
+	}
+	
+	@Test
+	public void findMetrics_getDateFirstLogin_Test() {
+		Timestamp date=  metrics.getDateFirstLogin();
+		assertEquals("2019-05-19 23:00:00", date+"");
+	}
+	
+	@Test
+	public void findMetrics_getIdBigUser_Test() {
+		String BigerUser= metrics.getBigUser();
+		assertEquals("21", BigerUser);
+	}
+	
+	@Test
+	public void findMetrics_getNumberMessagesBigUser_Test() {
+		int numberMessageBIgUser= metrics.getNumberMessagesBigUser();
+		assertEquals(200, numberMessageBIgUser);
+	}
+	
+	@Test
+	public void findMetrics_getIdLongestMessage_Test() {
+		String LongestMessage= metrics.getLongestMessage();
+		assertEquals("12", LongestMessage);
+	}
+	
+	@Test
+	public void findMetrics_getIdLastRoomCreated_Test() {
+		String LastRoomCreated= metrics.getLastRoomCreated();
+		assertEquals("22", LastRoomCreated);
+	}
 
 }

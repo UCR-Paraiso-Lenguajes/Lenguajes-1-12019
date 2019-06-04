@@ -455,6 +455,7 @@ body {
 	max-height: calc(100% - 93px);
 	overflow-y: scroll;
 	overflow-x: hidden;
+	color: black !important;
 }
 
 @media screen and (max-width: 735px) {
@@ -479,6 +480,7 @@ body {
 	margin: 15px 15px 5px 15px;
 	width: calc(100% - 25px);
 	font-size: 0.9em;
+	color: black !important;
 }
 
 #frame .content .setting ul li:nth-last-child(1) {
@@ -497,6 +499,7 @@ body {
 	border-radius: 20px;
 	max-width: 205px;
 	line-height: 130%;
+	color: black !important;
 }
 
 @media screen and (min-width: 735px) {
@@ -505,27 +508,36 @@ body {
 	}
 }
 
-#frame .content .contact-group img {
-	width: 150px;
-	border-radius: 50%;
-	float: center;
-	margin: 9px 12px 0 9px;
-}
-
 #frame .content .contact-group p {
 	float: center;
+	color: black !important;
 }
-#frame .content .contact-group b{
+
+#frame .content .contact-group b {
 	float: center;
-  	font-weight: bold;
+	font-weight: bold;
+	color: black !important;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	float: left;
+	padding-top: 5px;
+	text-align: right;
+	width: 140px;
 }
 
 #frame .content .contact-group input {
-   font-family : inherit;
-   font-size   : 100%;
-   border-radius: 15px;
-   border: 1px solid #39c;
-   background-color: #def;
-
- }
-
+	font-family: inherit;
+	font-size: 100%;
+	border-radius: 15px;
+	border: 1px solid #39c;
+	background-color: #def;
+	color: black !important;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+	*display: inline; /* for IE7*/
+	zoom: 1; /* for IE7*/
+	vertical-align: middle;
+	margin-left: 20px
+}

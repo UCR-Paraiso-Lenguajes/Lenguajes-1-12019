@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,19 +37,19 @@ public class MetricsData {
 	
 	@Transactional(readOnly=true)
 	public boolean saveMetrics(int idMetrics, int numberOfRooms, int numberOfUsers, float averageOfUsersPerRoom,
-			Date dateLastMessage, Date dateFirstLogin, int idBigUser, int numberMessagesBigUser, int idLongestMessage,
-			int idLastRoomCreated, int idBiggestRoom, int numberMessagesBiggestRoom) {
-		if(idMetrics==0 || numberOfRooms==0 || numberOfUsers==0 || averageOfUsersPerRoom==0
-				|| dateLastMessage.equals("") || dateFirstLogin.equals("") || idBigUser==0
-				||numberMessagesBigUser==0 || idLongestMessage==0 || idLastRoomCreated==0 || idBiggestRoom==0
-				||numberMessagesBiggestRoom==0) throw new RuntimeException("Los campos vienen vacío");
+			Timestamp dateLastMessage, Timestamp dateFirstLogin, String BigUser, int numberMessagesBigUser, String LongestMessage,
+			String LastRoomCreated, String BiggestRoom, int numberMessagesBiggestRoom, int sumOfUsersPerGroup, int quantityMessageBigUser) {
+//		if(idMetrics==0 || numberOfRooms==0 || numberOfUsers==0 || averageOfUsersPerRoom==0
+//				|| dateLastMessage.equals("") || dateFirstLogin.equals("") || BigUser==0
+//				||numberMessagesBigUser==0 || LongestMessage==0 || LastRoomCreated==0 || BiggestRoom==0
+//				||numberMessagesBiggestRoom==0) throw new RuntimeException("Los campos vienen vacío");
 		
 		Connection conexion = null; 
 		try {
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
 			String mySqlInsertMetrics="";
-			mySqlInsertMetrics="Insert INTO Metrics values(?,?,?,?,?,?,?,?,?,?,?,?)";
+			mySqlInsertMetrics="Insert INTO Metrics values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			PreparedStatement statementMetrics = conexion.prepareStatement(mySqlInsertMetrics);
 			statementMetrics.setInt(1, idMetrics);
@@ -57,12 +58,14 @@ public class MetricsData {
 			statementMetrics.setFloat(4, averageOfUsersPerRoom);
 			statementMetrics.setDate(5, new java.sql.Date(dateLastMessage.getTime()));
 			statementMetrics.setDate(6,  new java.sql.Date(dateFirstLogin.getTime()));
-			statementMetrics.setInt(7, idBigUser);
+			statementMetrics.setString(7, BigUser);
 			statementMetrics.setInt(8, numberMessagesBigUser);
-			statementMetrics.setInt(9, idLongestMessage);
-			statementMetrics.setInt(10, idLastRoomCreated);
-			statementMetrics.setInt(11, idBiggestRoom);
+			statementMetrics.setString(9, LongestMessage);
+			statementMetrics.setString(10, LastRoomCreated);
+			statementMetrics.setString(11, BiggestRoom);
 			statementMetrics.setInt(12, numberMessagesBiggestRoom);
+			statementMetrics.setInt(13, sumOfUsersPerGroup);
+			statementMetrics.setInt(14, quantityMessageBigUser);
 			statementMetrics.executeUpdate();
 			
 			
@@ -89,9 +92,9 @@ public class MetricsData {
 	@Transactional(readOnly=true)
 	public Metrics findMetrics (int idMetrics){
 		//TODO Falta el parametro de entrada para ver porque voy a buscar
-		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom,"
-				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, idLongestMessage,"
-				+ "idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom " //sumOfUsersPerGroup
+		String mySqlSelect = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, "
+				+ "dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser, LongestMessage, "
+				+ "LastRoomCreated, BiggestRoom, numberMessagesBiggestRoom, sumOfUsersPerGroup, quantityMessageBigUser " 
 				+ "FROM Metrics "
 				+ "WHERE idMetrics = "+ idMetrics;
 		
@@ -102,7 +105,7 @@ public class MetricsData {
 	@Transactional(readOnly=true)
 	public Metrics recoverMetricsData(){
 		String mysqlSelectMetrics = "SELECT idMetrics, numberOfRooms, numberOfUsers, averageOfUsersPerRoom, dateLastMessage, dateFirstLogin, idBigUser, numberMessagesBigUser," + 
-				" idLongestMessage, idLastRoomCreated, idBiggestRoom, numberMessagesBiggestRoom from Metrics";
+				" LongestMessage, LastRoomCreated, BiggestRoom, numberMessagesBiggestRoom,sumOfUsersPerGroup,quantityMessageBigUser from Metrics";
 		return jdbcTemplate.query(mysqlSelectMetrics, new MetricsExtractor());
 	}
 	
@@ -135,11 +138,12 @@ class MetricsExtractor implements ResultSetExtractor<Metrics>{
 					metrics.setDateFirstLogin(rs.getTimestamp("dateFirstLogin"));
 					metrics.setBigUser(rs.getInt("idBigUser")+"");
 					metrics.setNumberMessagesBigUser(rs.getInt("numberMessagesBigUser"));
-					metrics.setLongestMessage(rs.getInt("idLongestMessage")+"");
-					metrics.setLastRoomCreated(rs.getInt("idLastRoomCreated")+"");
-					metrics.setBiggestRoom(rs.getInt("idBiggestRoom")+"");
+					metrics.setLongestMessage(rs.getString("LongestMessage"));
+					metrics.setLastRoomCreated(rs.getString("LastRoomCreated"));
+					metrics.setBiggestRoom(rs.getInt("BiggestRoom")+"");
 					metrics.setNumberMessagesBiggestRoom(rs.getInt("numberMessagesBiggestRoom"));
-//					metrics.setSumOfUsersPerGroup(rs.getInt("sumOfUsersPerGroup")); //DEscomentar cuando se actualica base datos
+					metrics.setSumOfUsersPerGroup(rs.getInt("sumOfUsersPerGroup")); 
+					metrics.setQuantityMessageBigUser(rs.getInt("quantityMessageBigUser"));
 			}
 			return metrics;
 	}

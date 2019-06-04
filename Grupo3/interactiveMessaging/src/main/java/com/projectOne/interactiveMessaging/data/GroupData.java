@@ -152,6 +152,15 @@ public class GroupData {
 			stmt.setTimestamp(3, timestamp);
 			stmt.setString(4, nameGroup+"Messages");
 			stmt.execute();
+			jdbcTemplate.execute("CREATE TABLE `"+nameGroup+"Messages` (\r\n" + 
+					"					`id` int(11) NOT NULL auto_increment, \r\n" + 
+					"					`messageM` varchar(500) NOT NULL, \r\n" + 
+					"					`idUser` int(11) NOT NULL,\r\n" + 
+					"					`dateM` datetime NOT NULL,\r\n" + 
+					"					`size` int(11) NOT NULL,\r\n" + 
+					"					PRIMARY KEY (`id`)\r\n" + 
+					"					) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+			
 			
 			connection.commit();
 			return idNewGroup;

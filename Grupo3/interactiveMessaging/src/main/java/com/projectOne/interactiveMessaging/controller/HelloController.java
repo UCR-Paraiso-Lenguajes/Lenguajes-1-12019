@@ -75,24 +75,30 @@ public class HelloController {
         return "loginUser";
     }
 
-    @PostMapping("/signIn")
+    
+    
+	@PostMapping("/signIn")
     public String sendMail( @RequestParam("email") String mail){
-
-       emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitacion","te invitamos por medio de este link:   ");
+    	String ip="192.168.1.120";
+    	int idUser = userBusiness.save(mail);
+    	String linkToParticipateInChat = "http://"+ip+":8080/msn/chat?idUser="+idUser; 
+    	emailBussines.sendMail("soporte.soft.inc@gmail.com",mail,"Invitación\n","Te invitamos por medio de este link:   \n"+linkToParticipateInChat);
 
         return "loginUser";
     }
 	
+	
+	
 	@RequestMapping(value="/chat", method=RequestMethod.GET)
-    public String chat(Model model) {
+    public String chat(Model model, @RequestParam("idUser") int idUser) {
 
-		ArrayList<Message> messages=
+		//ArrayList<Message> messages=
 
-		messageBusiness.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages",1);///Aqui cambiar el usuario y grupo
-				model.addAttribute("messages",messages);
-				model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
-				List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
-				model.addAttribute("groups",groups);
+		//messageBusiness.getMessagesByRange(1, 999999, userData.findUsersCertainRoom(2),"LosMagnificosMessages",idUser);///Aqui cambiar el usuario y grupo
+		//model.addAttribute("messages",messages);
+		model.addAttribute("idUserRoom",idUser);///Aqui cambiar el usuario
+		List<Room> groups = groupBusiness.getGroupsOfUser(idUser);///Aqui cambiar el id usuario
+		model.addAttribute("groups",groups);
         return "chat";
     }
 	
@@ -104,7 +110,7 @@ public class HelloController {
     }
 	
 	@RequestMapping(value="/invite", method=RequestMethod.POST )
-	public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup) throws UnknownHostException {
+	public String invitePost(@Valid EmailForm emailForm, BindingResult bindingResult, Model model, @RequestParam("nameGroup") String nameGroup)  {
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("emailForm", new EmailForm());
 	        return "invite";
@@ -126,10 +132,10 @@ public class HelloController {
 	
 	//enviar correos a varias personas!
 		@RequestMapping(value="/invite", method=RequestMethod.GET )
-		public String inviteGet(EmailForm emailForm, Model model) {
+		public String inviteGet(EmailForm emailForm, Model model,@RequestParam("idUserRoom") int idUser) {
 			model.addAttribute("emailForm", new EmailForm());
-			model.addAttribute("idUserRoom",1);///Aqui cambiar el usuario
-			List<Room> groups = groupBusiness.getGroupsOfUser(1);///Aqui cambiar el id usuario
+			model.addAttribute("idUserRoom",idUser);///Aqui cambiar el usuario
+			List<Room> groups = groupBusiness.getGroupsOfUser(idUser);///Aqui cambiar el id usuario
 			model.addAttribute("groups",groups);
 	        return "invite";
 	    }
