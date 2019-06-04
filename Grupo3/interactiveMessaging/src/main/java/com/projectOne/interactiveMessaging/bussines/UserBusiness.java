@@ -24,5 +24,13 @@ public class UserBusiness {
 	public int save(String correoUser) { 
 		return userData.save(correoUser);
 	}
+	
+	public Iterator<User> findUsersCertainRoom(int roomID){
+		
+		
+		return userData.findUsersCertainRoom(roomID);
+		
+		
+	}
 
 }
