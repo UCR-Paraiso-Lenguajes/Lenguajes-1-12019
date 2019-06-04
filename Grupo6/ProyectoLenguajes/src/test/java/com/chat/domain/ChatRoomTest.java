@@ -1,5 +1,6 @@
 package com.chat.domain;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -29,8 +30,16 @@ public class ChatRoomTest {
 		ChatRoom chatRoom = new ChatRoom(2, "", 2, "/localhost:8585", users, messages, userCreator);
 
 	}
+
+	@Test
+	public void testChatRoomBussinesWithObjectUserAdmin() {
+		List<UserAdmin> users = new ArrayList<>();
+		List<Message> messages = new ArrayList<>();
+	    Rol rol = new Rol(2, "nombre");
+	    UserAdmin userCreator = new UserAdmin(2, "xxx", "picachu", "valeria2@gmai.com", "Raul", rol);
+	    ChatRoom chatRoom = new ChatRoom(2, "Valeria", 2, "/localhost:8585", users, messages, userCreator);
+	    assertEquals(users,chatRoom.getListUsers() ) ;
 	
-	
-	
+	}
 
 }
