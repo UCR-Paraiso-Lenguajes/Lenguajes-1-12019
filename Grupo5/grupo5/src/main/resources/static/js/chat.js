@@ -41,8 +41,7 @@ var room = new Vue({
             this.isRoom = false;
             this.isChat = true;
             this.idRoom = idRoom;
-            this.isChat = !this.isChat;
-            this.isRoom = false;
+            alert(this.idRoom);
             this.getMessagePerRoom();
         },
         enviarMensaje: function () {
