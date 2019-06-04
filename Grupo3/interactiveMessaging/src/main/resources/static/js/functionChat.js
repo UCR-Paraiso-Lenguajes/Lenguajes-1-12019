@@ -87,8 +87,7 @@ $(window).on('keydown', function(e) {
 	}
 });
 
-/*
- * //////////////////////////////////Acciones para Pop Up /////////////////////////////*/
+/*Acciones para Pop Up*/
 
 
 var btnAbrirPopup = document.getElementById('btn-abrir-popup'), overlay = document
