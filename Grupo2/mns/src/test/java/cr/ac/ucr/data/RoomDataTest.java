@@ -1,28 +1,32 @@
 package cr.ac.ucr.data;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
+import java.sql.SQLException;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cr.ac.ucr.business.RoomBusiness;
-import cr.ac.ucr.domain.Room;
+import cr.ac.ucr.exceptions.ProjectExceptions;
 
 
 public class RoomDataTest {
 	
 	@Autowired
 	private RoomData roomData;
-	private RoomBusiness roomBusiness;
 	
 	@Test
 	public void crearInsertarGrupo() {
 		
 		
 		
-		roomBusiness.save("Los marcianos", 2, 3, 3, 8);
+		try {
+			roomData.save("Los marcianos", 2, 3, 3, 8);
+		} catch (SQLException e) {
+			throw new ProjectExceptions(e);
+		}
+		
+		
+		
+		
 	}
 
 }

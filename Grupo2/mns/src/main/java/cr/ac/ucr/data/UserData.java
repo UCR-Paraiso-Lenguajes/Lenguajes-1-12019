@@ -1,7 +1,10 @@
 package cr.ac.ucr.data;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,8 +22,9 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import cr.ac.ucr.domain.User;
 
@@ -30,7 +34,6 @@ public class UserData {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private SimpleJdbcCall simpleJdbcCallUser;
 	private DataSource dataSource;
 	
 	
@@ -41,11 +44,46 @@ public class UserData {
 	}
 	
 	
+	
+	public User create(User user) throws SQLException {
+			
+		Connection conexion = null;
+			
+		conexion = dataSource.getConnection();
+	
+		
+		String insertUser = "INSERT INTO User  (hash, mail)  VALUES(?,?)";
+		
+		PreparedStatement prest;
+		prest = conexion.prepareStatement(insertUser,Statement.RETURN_GENERATED_KEYS);
+		prest.setString(1,user.getHash() );
+		prest.setString(2, user.getEmail());
+		prest.executeUpdate();
+		
+		return user;
+	
+	}
+	
+	
+	public User save(final User user) {
+		String insertUser = "INSERT INTO User  (hash, mail)  VALUES(:hash,:email)";
+		KeyHolder holder = new GeneratedKeyHolder();
+			SqlParameterSource parameters = new MapSqlParameterSource()
+					.addValue("name", user.getHash())
+					.addValue("email", user.getEmail());
+			jdbcTemplate.update(insertUser, parameters, holder);
+			user.setIdUser(holder.getKey().intValue());
+			return user;
+	}
+
+	
+	
+	
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		
 		this.dataSource = dataSource;
-		this.simpleJdbcCallUser = new SimpleJdbcCall(dataSource)
+		new SimpleJdbcCall(dataSource)
 		.withCatalogName("dbo")
 		.withProcedureName("Add")
 		.withoutProcedureColumnMetaDataAccess()
@@ -54,20 +92,7 @@ public class UserData {
 		
    }
 	
-	@Transactional
-	public User save(User user) throws SQLException{
-		
-		SqlParameterSource parameterSource = new MapSqlParameterSource()
-		.addValue("@email", user.getEmail());
-		
-		Map<String, Object> outParameters = simpleJdbcCallUser.execute(parameterSource);
-		user.setIdUser(Integer.parseInt(outParameters.get("@idUser").toString()));
-		
-
-		return user;
-		
-
-	}
+	
 }
 
 class ListUsers implements ResultSetExtractor<List<User>> {
