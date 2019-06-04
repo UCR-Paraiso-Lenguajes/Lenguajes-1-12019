@@ -31,14 +31,15 @@ public class RoomDao {
 	private List<Message> listMessages;
 	private List<List> rooms;
 
-	public Boolean insertRoom(Room r) {
+	public Boolean insertRoom(Room room) {
+		
 		String query = "insert into room(room_name,version) values(?,?)";
 
 		return jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
 			@Override
 			public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
-				ps.setString(1, r.getRoomName());
-				ps.setInt(2, r.getVersion());
+				ps.setString(1, room.getRoomName());
+				ps.setInt(2, room.getVersion());
 
 				return ps.execute();
 
