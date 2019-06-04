@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.Test;
@@ -25,16 +26,18 @@ public class UserDataTest {
 	
 	@Test 
 	public void save() {
-		User savedUser = userData.save(getUser());
+		User savedUser;
+		savedUser = userData.create(getUser());
+
 		List<User> userListFromDb = userData.findUsers();
 		
 		
 		for (User user : userListFromDb) {
-			if(user.getHash().equals(savedUser.getHash())) {
-
-				assertEquals(savedUser.getHash(), user.getHash());
-				assertEquals(savedUser.getEmail(), user.getEmail());
-			}
+				if(user.getHash().equals(savedUser.getHash())) {
+		
+					assertEquals(savedUser.getHash(), user.getHash());
+					assertEquals(savedUser.getEmail(), user.getEmail());
+				}
 		}
 	}
 	

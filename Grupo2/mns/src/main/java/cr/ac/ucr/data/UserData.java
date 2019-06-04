@@ -45,7 +45,7 @@ public class UserData {
 	
 	
 	
-	public User create(User user) throws SQLException {
+	public User save(User user) throws SQLException {
 			
 		Connection conexion = null;
 			
@@ -60,17 +60,32 @@ public class UserData {
 		prest.setString(2, user.getEmail());
 		prest.executeUpdate();
 		
+		ResultSet rs = prest.getGeneratedKeys();
+        if(rs.next())
+        {
+            int last_inserted_id = rs.getInt(1);
+        }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		conexion.close();
 		return user;
 	
 	}
 	
 	
-	public User save(final User user) {
-		String insertUser = "INSERT INTO User  (hash, mail)  VALUES(:hash,:email)";
+	public User create(final User user) {
+		final String insertUser = "INSERT INTO User  (hash, mail) VALUES(:hash,:mail)";
 		KeyHolder holder = new GeneratedKeyHolder();
 			SqlParameterSource parameters = new MapSqlParameterSource()
-					.addValue("name", user.getHash())
-					.addValue("email", user.getEmail());
+					.addValue("hash", user.getHash())
+					.addValue("mail", user.getEmail());
 			jdbcTemplate.update(insertUser, parameters, holder);
 			user.setIdUser(holder.getKey().intValue());
 			return user;
