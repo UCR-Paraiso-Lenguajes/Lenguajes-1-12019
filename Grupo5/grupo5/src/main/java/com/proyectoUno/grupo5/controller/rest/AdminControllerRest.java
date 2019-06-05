@@ -85,11 +85,11 @@ public class AdminControllerRest {
 	}
 	
 	@RequestMapping(value="/invite", method=RequestMethod.POST)
-	public ResponseEntity<Object> invitar(@RequestBody String emails) throws SQLException{
+	public ResponseEntity<Object> invitar(@RequestBody String emails,@RequestBody  int idRole) throws SQLException{
 		
 		
 		
-		return new ResponseEntity<>(userBusiness.invitar(emails), HttpStatus.OK);
+		return new ResponseEntity<>(userBusiness.invitar(emails, idRole), HttpStatus.OK);
 		
 	}
 	
