@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proyectoUno.grupo5.business.MetricsBusiness;
 import com.proyectoUno.grupo5.business.RoomBussiness;
 import com.proyectoUno.grupo5.business.UserBusiness;
+import com.proyectoUno.grupo5.domain.Message;
 import com.proyectoUno.grupo5.domain.Metrics;
 import com.proyectoUno.grupo5.domain.Room;
 import com.proyectoUno.grupo5.domain.User;
@@ -82,4 +83,14 @@ public class AdminControllerRest {
 	{
 		metricBusiness.promoteUser(id_room,id_user);
 	}
+	
+	@RequestMapping(value="/invite", method=RequestMethod.POST)
+	public ResponseEntity<Object> invitar(@RequestBody String emails,@RequestBody  int idRole) throws SQLException{
+		
+		
+		
+		return new ResponseEntity<>(userBusiness.invitar(emails, idRole), HttpStatus.OK);
+		
+	}
+	
 }

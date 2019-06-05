@@ -1,4 +1,4 @@
-package com.proyectoUno.grupo5;
+package com.proyectoUno.grupo5.businessTest;
 
 import static org.junit.Assert.*;
 
