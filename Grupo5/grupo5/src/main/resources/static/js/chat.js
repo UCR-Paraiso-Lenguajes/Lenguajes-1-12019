@@ -13,7 +13,10 @@ var room = new Vue({
         users: [],
         admin: 'Administrador',
         member: 'Member',
-        alert: false
+        alert: false,
+        invitar: false,
+        emails: ''
+
     },
     mounted() {
         let url = 'url' + window.location;
@@ -81,6 +84,18 @@ var room = new Vue({
             axios
                 .get('http://localhost:8080/msn/admin/rooms/userRole/' + this.idRoom)
                 .then(response => (this.users = response.data));
+        },
+        invitarGente: function () {
+            this.invitar = true;
+        },
+        sendInvitation: function () {
+
+            axios.post('http://localhost:8080/msn/invite/' + this.idRoom + '/' + this.emails)
+                .then(response => { })
+                .catch(e => {
+                    this.errors.push(e)
+                });
+            this.invitar = false;
         }
     }
 })

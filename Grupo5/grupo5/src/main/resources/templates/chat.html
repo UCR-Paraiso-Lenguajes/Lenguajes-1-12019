@@ -77,7 +77,9 @@
                             <div style="clear:both">
                                 <button type="button" class="btn btn-default" data-toggle="modal"
                                     data-target="#myModal">Ver Info</button>
-                                <button class="btn btn-default">Invitar</button>
+                                <button @click="invitarGente" class="btn btn-default">Invitar</button>
+                                <textarea v-if="invitar" v-model="emails" class="form-control" type="text"></textarea>
+                                <button v-if="invitar" @click="sendInvitation" class="btn btn-success">Invitar</button>
                             </div>
                         </div>
                         <div id="chatbox">
@@ -171,7 +173,7 @@
                                 <tr v-for="user in users">
                                     <td>{{user.idUser}}</td>
                                     <td>{{user.email}}</td>
-                                    <td v-if="user.idRole==1">Administrador</td> 
+                                    <td v-if="user.idRole==1">Administrador</td>
                                     <td v-else>Member</td>
                                 </tr>
                             </tbody>
