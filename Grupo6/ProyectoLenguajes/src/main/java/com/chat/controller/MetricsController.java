@@ -20,12 +20,22 @@ public class MetricsController {
 
 	@RequestMapping(value = "/metric", method = RequestMethod.GET)
 	public String metric(Model model) {
-		model.addAttribute("rooms", roomBusiness.getRooms());
+		/*model.addAttribute("rooms", roomBusiness.getRooms());
 		model.addAttribute("firtsLogin", metricData.getFechaPrimerLogueo());
 		model.addAttribute("avgUser", metricData.getAvgUserPerGroup());
 		model.addAttribute("quantityRooms", metricData.getQuantityRooms());
-		model.addAttribute("quantityUser", metricData.getQuantityUser());
+		model.addAttribute("quantityUser", metricData.getQuantityUser()); */
 		
+		model.addAttribute("rooms", roomBusiness.getRooms());
+		model.addAttribute("firtsLogin", "00-00-0000");
+		model.addAttribute("avgUser", 0);
+		model.addAttribute("quantityRooms", 0);
+		model.addAttribute("quantityUser", 0); 
+		model.addAttribute("lastMessage", 0); 
+		model.addAttribute("lastGroup", 0); 
+		model.addAttribute("longerMessage", 0);
+		model.addAttribute("moreGroup", 0);
+		model.addAttribute("moreuser", 0);
 
 		return "metric";
 	}
