@@ -58,7 +58,7 @@ var room = new Vue({
             this.insertMessage();
             setInterval(() => {
                 this.getMessagePerRoom();
-            }, 3000);
+            }, 30000);
         },
         getMessagePerRoom: function () {
             axios

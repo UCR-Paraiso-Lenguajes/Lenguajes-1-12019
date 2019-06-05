@@ -44,7 +44,7 @@ public class MessageDao {
 	    	updateMetricMesage(message.getContenido());
 	    	  
 	    	  String query="insert into message(containt,id_user,id_room) values(?,?,?)";
-	    	  updateVersion(message.getIdRoom());
+	    	 	//updateVersion(message.getIdRoom());
 	          return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
 	              @Override
 	              public Boolean doInPreparedStatement(PreparedStatement ps)
@@ -164,7 +164,7 @@ public class MessageDao {
 			
 		}
 	       
-	       @Transactional
+	     //  @Transactional
 	    private void updateVersionAct(int idRoom, int version) {
 	    		String sqlSelect = "UPDATE room SET version="+version+"WHERE id_room="+idRoom+"";
 				jdbcTemplate.batchUpdate(sqlSelect);
