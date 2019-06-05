@@ -20,7 +20,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.proyectoUno.grupo5.business.UserBusiness;
-import com.proyectoUno.grupo5.domain.Role;
 import com.proyectoUno.grupo5.domain.Room;
 import com.proyectoUno.grupo5.domain.User;
 
@@ -51,7 +50,7 @@ public class UserDao {
 	}
 
 	public Boolean invitar(String emails, int idRoom) throws SQLException {
-
+		
 		String[] invitados = emails.split(",");
 		List<User> users = getIdUser();
 		int idUser = users.get(0).getIdUser() + 1;
@@ -68,8 +67,8 @@ public class UserDao {
 			statement.setString(1, invitados[i]);
 			statement.setString(2, "localhost:8080/msn/?idUser=" + idUser);
     		notificationService.sendNotification(invitados[i], "localhost:8080/msn/?idUser=" + idUser);
-    		
-			String sqlInsert2 = "insert into user_room(id_user, id_room) values(?,?)";
+
+    		String sqlInsert2 = "insert into user_room(id_user, id_room) values(?,?)";
 			CallableStatement statement2 = connection.prepareCall(sqlInsert2);
 			statement2.setInt(1, idUser);
 			statement2.setInt(2, idRoom);
@@ -84,7 +83,6 @@ public class UserDao {
 			statement.execute();
 			statement2.execute();
 			statement3.execute();
-			
 		}
 		
 			connection.close();
@@ -175,8 +173,7 @@ public class UserDao {
 		}
 
 	}
-	
-	
+
 	public List<User> getUsersWithRoom(int id_room) {
 		String queryGetId = "select ur.id_user,user.email, urr.id_roleUser from user_room as ur join user join(Select id_roleUser, id_userRole from user_role_room where id_room="+id_room+") as urr where ur.id_room="+id_room+" && ur.id_user=user.id_user && ur.id_user= urr.id_userRole";
 		return jdbcTemplate.query(queryGetId, new UserRoomRoleExtractor());
