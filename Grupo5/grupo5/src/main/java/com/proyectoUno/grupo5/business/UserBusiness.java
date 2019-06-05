@@ -29,9 +29,9 @@ public class UserBusiness {
 		return userDao.getUsers(id_room);
 	}
 	
-	public Boolean invitar(String emails, int idRoom) throws SQLException {
+	public Boolean invitar(String emails) throws SQLException {
 		
-		return userDao.invitar(emails,idRoom);
+		return userDao.invitar(emails);
 	}
 
 	public Object getUsersWithRole(int id_room) {

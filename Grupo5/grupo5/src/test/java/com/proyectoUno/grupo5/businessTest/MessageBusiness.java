@@ -23,7 +23,7 @@ public class MessageBusiness {
 				"\r\n" + 
 				"Pellentesque at finibus mi. Ut nisi nunc, ullamcorper eget efficitur ac, pulvinar id justo. Nulla eu velit sed lacus condimentum varius nec nec diam. Pellentesque ornare laoreet risus, in blandit tellus mattis nec. Mauris suscipit imperdiet eros sed iaculis. Nulla eu tellus sit amet justo lobortis elementum cursus at odio. Donec auctor, risus eu condimentum hendrerit, urna ex fermentum magna, ut congue felis magna quis ex. Praesent ante tortor, tincidunt at dictum in, mattis quis ipsum. Donec a lacus sit amet sem sagittis vulputate. Etiam sed porttitor ex, vitae venenatis massa. Proin aliquam ex et lorem aliquet mollis. Aenean magna tellus, molestie at diam in, fringilla sagittis neque.",1,1);
 		messageBusiness.insertMessage(message);
-		assertFalse(messageBusiness.insertMessage(message);)
+		assertFalse(messageBusiness.insertMessage(message));
 		
 	}
 
