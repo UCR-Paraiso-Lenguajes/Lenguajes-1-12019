@@ -84,12 +84,10 @@ public class AdminControllerRest {
 		metricBusiness.promoteUser(id_room,id_user);
 	}
 	
-	@RequestMapping(value="/invite", method=RequestMethod.POST)
-	public ResponseEntity<Object> invitar(@RequestBody String emails,@RequestBody  int idRole) throws SQLException{
-		
-		
-		
-		return new ResponseEntity<>(userBusiness.invitar(emails, idRole), HttpStatus.OK);
+	@RequestMapping(value="/invite/{idRoom}/{emails}", method=RequestMethod.POST)
+	public ResponseEntity<Object> invitar(@PathVariable String emails,@PathVariable  int idRoom) throws SQLException{
+
+		return new ResponseEntity<>(userBusiness.invitar(emails, idRoom), HttpStatus.OK);
 		
 	}
 	
