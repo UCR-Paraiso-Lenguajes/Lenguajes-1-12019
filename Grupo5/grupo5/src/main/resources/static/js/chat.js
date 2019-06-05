@@ -10,17 +10,17 @@ var room = new Vue({
         idRoom: 0,
         sendMessage: {},
         roomName: '',
+        users: [],
+        admin: 'Administrador',
+        member: 'Member',
+        alert: false
     },
     mounted() {
         let url = 'url' + window.location;
         let user = url.split('=');
         this.idUser = user[1];
-        console.log(this.idUser);
-        axios
-            .get('http://localhost:8080/msn/getRoomPerUser?idUser=' + this.idUser)
-            .then(response => (this.rooms = response.data));
         setInterval(() => {
-            this.getRoomsPerUser(), 1000
+            this.getRoomsPerUser(), 10000
         })
     },
     methods: {
@@ -33,16 +33,20 @@ var room = new Vue({
             axios.post('http://localhost:8080/msn/createRoom/' + this.roomName + '/' + this.idUser)
                 .then(response => { })
                 .catch(e => {
-                    //this.errors.push(e)
+                    this.errors.push(e)
                 });
+            this.alert = true;
+            setTimeout(() => {
+                this.alert = false;
+            }, 10000);
             this.roomName = '';
         },
         verChatPerRoom: function (idRoom) {
             this.isRoom = false;
             this.isChat = true;
             this.idRoom = idRoom;
-            alert(this.idRoom);
             this.getMessagePerRoom();
+            this.info();
         },
         enviarMensaje: function () {
             this.sendMessage = {
@@ -55,8 +59,6 @@ var room = new Vue({
             setInterval(() => {
                 this.getMessagePerRoom();
             }, 3000);
-
-
         },
         getMessagePerRoom: function () {
             axios
@@ -74,6 +76,11 @@ var room = new Vue({
             axios
                 .get('http://localhost:8080/msn/getRoomPerUser?idUser=' + this.idUser)
                 .then(response => (this.rooms = response.data));
+        },
+        info: function () {
+            axios
+                .get('http://localhost:8080/msn/admin/rooms/userRole/' + this.idRoom)
+                .then(response => (this.users = response.data));
         }
     }
 })

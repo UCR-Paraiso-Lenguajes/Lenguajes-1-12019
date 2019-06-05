@@ -44,7 +44,7 @@ public class MessageDao {
 	    	updateMetricMesage(message.getContenido());
 	    	  
 	    	  String query="insert into message(containt,id_user,id_room) values(?,?,?)";
-
+	    	  updateVersion(message.getIdRoom());
 	          return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
 	              @Override
 	              public Boolean doInPreparedStatement(PreparedStatement ps)
@@ -60,7 +60,9 @@ public class MessageDao {
 	          });
 	    }
 
-	    class MessageWithExtractor implements ResultSetExtractor<List<Message>> {
+	
+
+		class MessageWithExtractor implements ResultSetExtractor<List<Message>> {
 
 	        @Override
 	        public List<Message> extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -155,8 +157,22 @@ public class MessageDao {
 
 	    }
 	    
-	    
-	    public void updateMetricMesage(String message) {
+	       private void updateVersion(int idRoom) {
+			int version=versionFinal();
+			version=version+1;
+			updateVersionAct(idRoom,version);
+			
+		}
+	       
+	       @Transactional
+	    private void updateVersionAct(int idRoom, int version) {
+	    		String sqlSelect = "UPDATE room SET version="+version+"WHERE id_room="+idRoom+"";
+				jdbcTemplate.batchUpdate(sqlSelect);
+			
+		}
+
+
+		public void updateMetricMesage(String message) {
 	    	String messageInMetrics = updateMetricMessage();
 	    	
 	    	if(message.length()>messageInMetrics.length()) {
@@ -164,6 +180,28 @@ public class MessageDao {
 	    	}
 	    	
 	    	
+	    }
+	    
+	    @Transactional(readOnly = true)
+	    public Integer versionFinal() {
+	        String sqlSelect = "select version from room";
+	        return jdbcTemplate.query(sqlSelect, new VersionExtractor());
+	    }
+	    class VersionExtractor implements ResultSetExtractor<Integer> {
+
+	        @Override
+	        public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
+	        	int resultado = 0;
+	        	while (rs.next()) {
+	               resultado= rs.getInt("version");
+	                   
+
+	                }
+
+	         
+	            return resultado;
+	        }
+
 	    }
 	    
 	    @Transactional
