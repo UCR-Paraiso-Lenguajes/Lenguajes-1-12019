@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chat.bussines.ChatRoomBussines;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
+import com.chat.domain.Msj;
 
 @RestController
 public class ChatRoomControllerRest {
@@ -33,5 +34,14 @@ public class ChatRoomControllerRest {
 	public @ResponseBody Iterator<Message> loadMessages(@RequestBody ChatRoom chatRoom, HttpServletRequest servlet){
 		HttpSession sesion = servlet.getSession();
 		return chatRoomBussines.loadMessages(chatRoom);
+	}
+	
+	@RequestMapping(value="api/message", method=RequestMethod.PUT )
+	public @ResponseBody void addMessageChatRoom(@RequestBody Msj message, HttpServletRequest servlet){
+		System.out.println(message.getMessaje()+"   "+message.getRoomName());
+		
+		HttpSession sesion = servlet.getSession();	
+		
+		//chatRoomBussines.addRom(chatRoom);		
 	}
 }

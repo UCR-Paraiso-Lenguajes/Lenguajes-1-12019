@@ -31,7 +31,7 @@ public class MetricControllerRest {
 	@RequestMapping(value="api/Metric", method=RequestMethod.POST )
 	public @ResponseBody void addChatRoom()
 	{
-		metricData.getQuantityRooms();
+		//metricData.getQuantityRooms();
 		//metricData.addQuantityRoom();
 	}
 	/*@RequestMapping(value="api/MectricUser", method=RequestMethod.GET )

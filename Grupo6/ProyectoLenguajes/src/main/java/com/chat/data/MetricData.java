@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,10 +23,9 @@ import com.chat.domain.*;
 import com.chat.data.*;
 import com.chat.domain.UserClient;
 
-
 @Repository
 public class MetricData {
-	
+
 	@Autowired
 	private DataSource dataSource;
 
@@ -38,7 +38,7 @@ public class MetricData {
 			conexion = dataSource.getConnection();
 			conexion.setAutoCommit(false);
 			PreparedStatement statementQuantityRoom = conexion.prepareStatement(sqlInsertQuantityRoom);
-			//debe de ser el metric actualizado
+			// debe de ser el metric actualizado
 			statementQuantityRoom.setInt(1, 8);
 
 			statementQuantityRoom.executeUpdate();
@@ -47,30 +47,44 @@ public class MetricData {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	@Transactional
-	public int getQuantityRooms() {
 
+	@Transactional
+	public int add() {
 		Connection conexion = null;
 		ResultSet rs = null;
-		int quantityRooms=0;
-		try{
-
-			String selectSql = "SELECT room_id FROM Room";
+		int numberRow = 0;
+		try {
 			conexion = dataSource.getConnection();
+			conexion.setAutoCommit(false);
+
+			String selectSql = "SELECT count(*) from chat_db.room;";
+			conexion.commit();
 			PreparedStatement statement = conexion.prepareStatement(selectSql);
-			
+
 			rs = statement.executeQuery();
-			if (rs.last()) {
-				quantityRooms = rs.getRow();
-				 rs.beforeFirst();
+			while (rs.next()) {
+				numberRow = rs.getInt("count(*)");
 			}
-			
-		}catch (Exception e){
+			statement.execute(selectSql);
+
+			conexion.commit();
+		} catch (SQLException e) {
+			try {
+				conexion.rollback();
+			} catch (SQLException e1) {
+				throw new RuntimeException(e1);
+			}
 			throw new RuntimeException(e);
+		} finally {
+			if (conexion != null) {
+				try {
+					conexion.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
 		}
-		//System.out.println(quantityRooms);
-		return quantityRooms;
+		return numberRow;
 	}
 
 	@Transactional
@@ -78,93 +92,84 @@ public class MetricData {
 
 		Connection conexion = null;
 		ResultSet rs = null;
-		int quantityUsers=0;
-		try{
+		int quantityUsers = 0;
+		try {
 			String selectSql = "SELECT id FROM user_client";
 			conexion = dataSource.getConnection();
 			PreparedStatement statement = conexion.prepareStatement(selectSql);
-			
+
 			rs = statement.executeQuery();
 			if (rs.last()) {
 				quantityUsers = rs.getRow();
-				 rs.beforeFirst();
+				rs.beforeFirst();
 			}
-			
-		}catch (Exception e){
+
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		//System.out.println(quantityUsers);
+		// System.out.println(quantityUsers);
 		return quantityUsers;
 	}
-	
+
 	@Transactional(readOnly = true)
 	public ArrayList<Integer> getIdRoom() {
 		ArrayList<Integer> idRooms = new ArrayList<Integer>();
 		String sql = "SELECT id_room FROM room_user";
 		Connection conexion = null;
 		ResultSet rs = null;
-		try{
+		try {
 			conexion = dataSource.getConnection();
 			PreparedStatement statement = conexion.prepareStatement(sql);
 			rs = statement.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				idRooms.add(rs.getInt("id_room"));
 			}
-		}catch (Exception e){
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return idRooms;
 	}
-	
-	
+
 	@Transactional
 	public int getAvgUserPerGroup() {
 
 		ArrayList<ChatRoom> chatRooms = new ArrayList<>();
 		ChatRoomData chatData = new ChatRoomData();
 		chatRooms = (ArrayList<ChatRoom>) chatData.getRooms();
-		
+
 		ArrayList<UserClient> users = new ArrayList<>();
 		UserData userData = new UserData();
 		users = (ArrayList<UserClient>) userData.getUser();
-		
-		ArrayList<Integer> cantidadUsuariosPorChat = new ArrayList<>();
-		
-/*
-		int cantidadRooms=0;
-		for (int i = 0; i < chatRooms.size(); i++) {
-			int cantidadUsuarios=0;
 
-			for (int j = 0; j < users.size(); j++) {
-				if(chatRooms.get(i).getId() == 0//debe de comparar con el id_room de user_room
-						) {
-				cantidadUsuarios++;
-				}
-			}			}
-			cantidadUsuariosPorChat.add(i,cantidadUsuarios);
-			cantidadRooms++;
-		}
-		
-		int promedioUsuarios=0;
-		for (int i = 0; i < cantidadUsuariosPorChat.size(); i++) {
-			promedioUsuarios+=cantidadUsuariosPorChat.get(i);
-		}
-		promedioUsuarios=(promedioUsuarios/cantidadUsuariosPorChat.size())*100;
-		
-		return promedioUsuarios;*/
+		ArrayList<Integer> cantidadUsuariosPorChat = new ArrayList<>();
+
+		/*
+		 * int cantidadRooms=0; for (int i = 0; i < chatRooms.size(); i++) { int
+		 * cantidadUsuarios=0;
+		 * 
+		 * for (int j = 0; j < users.size(); j++) { if(chatRooms.get(i).getId() ==
+		 * 0//debe de comparar con el id_room de user_room ) { cantidadUsuarios++; } } }
+		 * cantidadUsuariosPorChat.add(i,cantidadUsuarios); cantidadRooms++; }
+		 * 
+		 * int promedioUsuarios=0; for (int i = 0; i < cantidadUsuariosPorChat.size();
+		 * i++) { promedioUsuarios+=cantidadUsuariosPorChat.get(i); }
+		 * promedioUsuarios=(promedioUsuarios/cantidadUsuariosPorChat.size())*100;
+		 * 
+		 * return promedioUsuarios;
+		 */
 		return 1;
 	}
 
 	public String getFechaUltimoMensaje(ChatRoom chatRoom) {
-		
+
 		ChatRoomData chatData = new ChatRoomData();
 		MessageData messagesData = new MessageData();
-		
+
 		String mensaje = "";
-		
+
 		ArrayList<ChatRoom> rooms = chatData.getAllNameRooms();
 		ArrayList<Message> ultimosMensajes = new ArrayList<Message>();
-		
+
 		for (int i = 0; i < rooms.size(); i++) {
 			messagesData = (MessageData) messagesData.getUltimosMessages(rooms.get(i));
 		}
@@ -176,43 +181,43 @@ public class MetricData {
 			throw new RuntimeException(e.getMessage());
 		}
 		for (int i = 0; i < ultimosMensajes.size(); i++) {
-			if(fechaActual.compareTo(ultimosMensajes.get(i).getDate()) > 0) {
-				fechaActual=ultimosMensajes.get(i).getDate();
-			}	
+			if (fechaActual.compareTo(ultimosMensajes.get(i).getDate()) > 0) {
+				fechaActual = ultimosMensajes.get(i).getDate();
+			}
 		}
 		mensaje = fechaActual.toString();
-		
+
 		return mensaje;
 	}
-	
+
 	public String getFechaPrimerLogueo() {
 		HistorialLogueoData historialLogueoData = new HistorialLogueoData();
-		String fecha="";
+		String fecha = "";
 		ArrayList<HistorialLogueo> logueos = historialLogueoData.getLogin();
-		
+
 		fecha = logueos.get(logueos.size()).getFecha();
-		
+
 		return fecha;
 	}
-	
+
 	public String getUsuarioMasMensajes() {
-		String usuario="";
-		int cantidadMensajes=0;
-		
+		String usuario = "";
+		int cantidadMensajes = 0;
+
 		ChatRoomData chatData = new ChatRoomData();
 		MessageData messagesData = new MessageData();
-		
+
 		ArrayList<ChatRoom> rooms = chatData.getAllNameRooms();
 		ArrayList<UserClient> usuarioMensajes = new ArrayList<UserClient>();
-		
+
 		for (int i = 0; i < rooms.size(); i++) {
-			if(cantidadMensajes < rooms.get(i).getListMessage().size()) {
+			if (cantidadMensajes < rooms.get(i).getListMessage().size()) {
 				cantidadMensajes = rooms.get(i).getListMessage().size();
 				usuarioMensajes = (ArrayList<UserClient>) rooms.get(i).getListUsers();
 			}
 		}
-		usuario= usuarioMensajes.toString();
-	return usuario;
+		usuario = usuarioMensajes.toString();
+		return usuario;
 	}
-	
+
 }

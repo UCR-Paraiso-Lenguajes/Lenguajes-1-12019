@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.chat.data.ChatRoomData;
+import com.chat.data.UserData;
 import com.chat.domain.ChatRoom;
 import com.chat.domain.Message;
 import com.chat.domain.Rol;
@@ -27,8 +28,10 @@ import com.chat.exeption.chatException;
 public class UserBussinesTest {
 	@Autowired
 	UserBussines userBussines;
+	@Autowired
+	UserData userdata;
 
-	/*@Test
+	@Test
 	public void testUserBussinessEmail() {
 
 		Rol rol = new Rol(2, "nombre");
@@ -37,9 +40,9 @@ public class UserBussinesTest {
 
 		assertTrue(userBussines.sendEmail(user, 1));
 
-	}*/
+	}
 
-	/*@Test
+	@Test
 	public void testUserBussinesUserfakeAnd() {
 
 		Rol rol = new Rol(2, "nombre");
@@ -49,14 +52,13 @@ public class UserBussinesTest {
 		assertFalse(userBussines.SetParametters(user).getAvatar() == null);
 		assertNotNull(userBussines.SetParametters(user));
 
-	}*/
+	}
 
 	
 	@Test(expected = chatException.class)
-	public void testUserBussinessEmail() {
+	public void testUserBussinessEmailParam() {
 
 		UserClient user = null;
-
 		assertTrue(userBussines.sendEmail(user, 1));
 		assertNull(userBussines.SetParametters(user));
 

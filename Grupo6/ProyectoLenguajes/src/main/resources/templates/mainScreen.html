@@ -108,7 +108,7 @@
 
 						<div id="messageInput" class="form-group" >
 							<label for="message"></label> <input id="messageForm" type="text"
-								class="form-control" maxlength="500">
+								class="form-control" maxlength="500"/>
 						</div>
 					</div>
 
@@ -148,7 +148,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" id="invite" data-tr="Invite">
+					<input type="submit" class="btn btn-primary" data-dismiss="modal" id="invite" data-tr="Invite">
 					<button type="button" class="btn btn-default" data-dismiss="modal" data-tr="Close"></button>
 				</div>
 
@@ -222,6 +222,31 @@
 
 <script type="text/javascript">
 
+var roomName = $("#roomName");
+var messageChat = $("#messageChat");
+var send = $("#btnSendMessage");
+
+var mess = {
+		"room" : roomName,
+		"message" : messageChat
+	};
+
+	send.click(function() {
+		
+		mess.room = roomName.val();
+		mess.message = messageChat.val();
+		
+		$.ajax({
+			method : "PUT",
+			data : JSON.stringify(mess),
+			contentType : "application/json; charset=utf-8",
+			//dataType : "json",
+			url : "api/message"
+		})
+	})
+
+	
+	
 frases = {
 		"es" : {
 			"University of Costa Rica" : "Universidad de Costa Rica",
@@ -276,9 +301,15 @@ frases = {
 	function getValues() {
 
 		var messageChat = document.getElementById("messageForm").value;
-
+		var currentdate = new Date(); 
+		var datetime =  + currentdate.getHours() + ":"  
+		                + currentdate.getMinutes();
+		                
+		                console.log(datetime);
+		                
 		 document.getElementById("item").innerHTML += '<img src="https://i.ibb.co/qykwRR1/img17.png" height="25" width="25"> <div id="item" class="text">'
-				+ messageChat + '</div>';
+				+ messageChat + '</div>' 
+				+'<span style="color:black;font-weight:bold">'+datetime+'</span>';
 
 				var DivPannelMsg =document.getElementById("containerMessages");
 				
@@ -382,8 +413,6 @@ frases = {
 
 	});
 
-
-
 	/*function seleccionarGrupo(elem) {
 		console.log(elem);
 		var txt = elem.textContent || elem.innerText;
@@ -414,9 +443,6 @@ frases = {
 			alert("Exito");
 		});
 	});
-	
-	
-	
 </script>
 <style>
 

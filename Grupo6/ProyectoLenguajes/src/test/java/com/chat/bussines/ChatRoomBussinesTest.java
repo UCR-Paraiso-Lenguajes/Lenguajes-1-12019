@@ -27,7 +27,7 @@ public class ChatRoomBussinesTest {
 	@Autowired
 	ChatRoomData chatRomData;
 
-	/*@Test(expected = chatException.class)
+	@Test(expected = chatException.class)
 	public void testChatRoomBussinesWithException() {
 
 		List<UserAdmin> users = new ArrayList<>();
@@ -62,7 +62,7 @@ public class ChatRoomBussinesTest {
 
 		chatRoomBussines.getRoomsByGuess("25", 5);
 
-	}*/
+	}
 	
 	@Test(expected = chatException.class)
 	public void testChatRoomBussinesWithCreate() {

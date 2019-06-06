@@ -1,5 +1,7 @@
 package com.chat.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.chat.bussines.ChatRoomBussines;
+import com.chat.bussines.MetricBussines;
 import com.chat.data.MetricData;
+import com.chat.data.MetricsData;
 
 @Controller
 public class MetricsController {
@@ -16,26 +20,25 @@ public class MetricsController {
 	private ChatRoomBussines roomBusiness;
 
 	@Autowired
-	MetricData metricData;
+	MetricsData metricsData;
 
 	@RequestMapping(value = "/metric", method = RequestMethod.GET)
-	public String metric(Model model) {
-		/*model.addAttribute("rooms", roomBusiness.getRooms());
-		model.addAttribute("firtsLogin", metricData.getFechaPrimerLogueo());
-		model.addAttribute("avgUser", metricData.getAvgUserPerGroup());
-		model.addAttribute("quantityRooms", metricData.getQuantityRooms());
-		model.addAttribute("quantityUser", metricData.getQuantityUser()); */
-		
+	public String metric(Model model) throws SQLException {
+
 		model.addAttribute("rooms", roomBusiness.getRooms());
-		model.addAttribute("firtsLogin", "00-00-0000");
+
+		model.addAttribute("firtsLogin", metricsData.firtsLogin());
 		model.addAttribute("avgUser", 0);
-		model.addAttribute("quantityRooms", 0);
-		model.addAttribute("quantityUser", 0); 
-		model.addAttribute("lastMessage", 0); 
-		model.addAttribute("lastGroup", 0); 
+
+		model.addAttribute("quantityRooms", metricsData.getQuantityRooms());
+		model.addAttribute("quantityUser", metricsData.quantityUsers());
+		model.addAttribute("lastMessage", metricsData.dateLastMessage());
+		// model.addAttribute("lastGroup", metricsData.lastGroupCreated());
+		model.addAttribute("lastGroup", 0);
+		// model.addAttribute("longerMessage", metricsData.getLongerMessage());
 		model.addAttribute("longerMessage", 0);
-		model.addAttribute("moreGroup", 0);
-		model.addAttribute("moreuser", 0);
+		model.addAttribute("moreGroup", metricsData.getGroupMoreMessage());
+		// model.addAttribute("moreGroup",0);*/
 
 		return "metric";
 	}

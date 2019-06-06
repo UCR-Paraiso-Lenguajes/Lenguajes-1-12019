@@ -101,8 +101,8 @@ public class ChatRoomBussines {
 			int valueAvatar = r.nextInt((max - min) + 1) + min;
 			String avatar = img[valueAvatar];
 			chatRoom.setAvatar(avatar);
-			chatRoom.setListMessage(messageData.getMessages(chatRoom));
-			System.out.println(chatRoom.toString());
+			//chatRoom.setListMessage(messageData.getMessages(chatRoom));
+			//System.out.println(chatRoom.toString());
 		}
 		return rooms.iterator();
 	}

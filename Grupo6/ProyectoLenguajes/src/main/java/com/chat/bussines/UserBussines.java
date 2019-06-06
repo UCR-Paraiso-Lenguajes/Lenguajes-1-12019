@@ -15,6 +15,7 @@ import com.ram.configuration.AppConfig;
 import com.ram.service.MailService;
 import com.ram.service.MailServiceImpl;
 
+
 @Service
 public class UserBussines {
 
@@ -111,6 +112,6 @@ public class UserBussines {
 		context.close();
 
 		return true;
-	}
+}
 
 }
