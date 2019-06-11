@@ -1,0 +1,15 @@
+1. Se pueden tener varios assert por cada caso de prueba pero lo mejor sería poner solo uno por cada caso,
+ya que si alguna de las pruebas falla será más fácil saber cuál, a diferencia si se tienen varios asserts 
+en un mismo método.
+2. Las transacciones son sentencias SQL para realizar de una forma más sencilla la lógica de la aplicación, 
+también se pueden usar en procedimientos almacenados. Se usan para que los datos sean íntegros, seguros
+y mantengan un estado consistente.
+3. La autenticación se refiere al nombre de usuario y contraseña que se necesita para poder
+acceder a la aplicación mientras que la autorización es el permiso que tienen los usuarios para
+poder visualizar ciertos recursos de la apicación así como actualizarlos, borrarlos entre otros.
+4. Esta anotación se utiliza para poder reducir el código y no tener que instanciar una clase.
+5. La anotación @RequestMapping se usa para poder rutear, es decir si se quiere mostrar
+una vista al usuario, @RequestMapping recibe por ejemplo la ruta /home, 
+desde el navegador el usuario puede esciribir esa ruta y así le mostrará la vista.
+
+
