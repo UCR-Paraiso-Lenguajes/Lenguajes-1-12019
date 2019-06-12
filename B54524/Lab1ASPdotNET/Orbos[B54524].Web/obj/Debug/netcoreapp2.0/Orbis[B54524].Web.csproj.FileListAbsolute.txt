@@ -1,0 +1,13 @@
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.deps.json
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.runtimeconfig.json
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.runtimeconfig.dev.json
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.dll
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.pdb
+F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.csprojResolveAssemblyReference.cache
+F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.csproj.CoreCompileInputs.cache
+F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.AssemblyInfoInputs.cache
+F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.AssemblyInfo.cs
+F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.dll
+F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.pdb
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Model.dll
+F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Model.pdb

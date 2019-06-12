@@ -1,0 +1,52 @@
+﻿
+@model dynamic 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Libros</h2>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <label>Publicador</label>
+            <select id="Select1">
+                @foreach (var publicador in Model.Publicadores)
+                {
+                    <option>
+                        @publicador.NombrePublicador
+                    </option>
+                }
+            
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <table style="width:100%;">
+            <thead>
+                <tr>
+                    <td>Codigo del libro</td>
+                    <td>Titulo</td>
+                    <td>Precio</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var libro in Model.Libros)
+                {
+                <tr>
+                    <td>
+                        @libro.codLibro
+                    </td>
+                    <td>
+                        @libro.TituloLibro
+                    </td>
+                    <td>
+                        @libro.ISBN
+                    </td>
+                </tr>
+                }
+            </tbody>
+    </table>
+    </div>
+</div>
+

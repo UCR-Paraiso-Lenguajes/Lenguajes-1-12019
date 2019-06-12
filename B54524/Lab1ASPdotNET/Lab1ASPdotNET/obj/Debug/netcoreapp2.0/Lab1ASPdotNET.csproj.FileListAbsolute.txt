@@ -1,0 +1,10 @@
+F:\Lab1ASPdotNET\Lab1ASPdotNET\bin\Debug\netcoreapp2.0\Lab1ASPdotNET.deps.json
+F:\Lab1ASPdotNET\Lab1ASPdotNET\bin\Debug\netcoreapp2.0\Lab1ASPdotNET.runtimeconfig.json
+F:\Lab1ASPdotNET\Lab1ASPdotNET\bin\Debug\netcoreapp2.0\Lab1ASPdotNET.runtimeconfig.dev.json
+F:\Lab1ASPdotNET\Lab1ASPdotNET\bin\Debug\netcoreapp2.0\Lab1ASPdotNET.dll
+F:\Lab1ASPdotNET\Lab1ASPdotNET\bin\Debug\netcoreapp2.0\Lab1ASPdotNET.pdb
+F:\Lab1ASPdotNET\Lab1ASPdotNET\obj\Debug\netcoreapp2.0\Lab1ASPdotNET.csproj.CoreCompileInputs.cache
+F:\Lab1ASPdotNET\Lab1ASPdotNET\obj\Debug\netcoreapp2.0\Lab1ASPdotNET.AssemblyInfoInputs.cache
+F:\Lab1ASPdotNET\Lab1ASPdotNET\obj\Debug\netcoreapp2.0\Lab1ASPdotNET.AssemblyInfo.cs
+F:\Lab1ASPdotNET\Lab1ASPdotNET\obj\Debug\netcoreapp2.0\Lab1ASPdotNET.dll
+F:\Lab1ASPdotNET\Lab1ASPdotNET\obj\Debug\netcoreapp2.0\Lab1ASPdotNET.pdb

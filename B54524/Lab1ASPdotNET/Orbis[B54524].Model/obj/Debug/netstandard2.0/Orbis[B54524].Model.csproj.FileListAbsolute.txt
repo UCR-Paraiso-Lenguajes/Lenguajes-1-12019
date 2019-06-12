@@ -1,0 +1,15 @@
+C:\Users\LabC-390561\source\repos\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.deps.json
+C:\Users\LabC-390561\source\repos\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.dll
+C:\Users\LabC-390561\source\repos\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\source\repos\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\source\repos\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\source\repos\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.AssemblyInfo.cs
+F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.csprojResolveAssemblyReference.cache
+F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.csproj.CoreCompileInputs.cache
+F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.AssemblyInfoInputs.cache
+F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.AssemblyInfo.cs
+F:\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.deps.json
+F:\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.dll
+F:\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.pdb
+F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.dll
+F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.pdb
