@@ -1,0 +1,9 @@
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\Entidades.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\Entidades.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\Data.csproj.CopyComplete
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.pdb

@@ -1,0 +1,12 @@
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Entidades\bin\Debug\Entidades.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Entidades\bin\Debug\Entidades.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Entidades\obj\Debug\Entidades.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Entidades\bin\Debug\Entidades.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Entidades\obj\Debug\Entidades.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Entidades\obj\Debug\Entidades.pdb
