@@ -27,7 +27,10 @@ namespace Servicios
             return publicadorData.GetByCodPublicador(codPublicador);
 
         }
-
+        public List<Publicador> getPublicadores()
+        {
+            return publicadorData.getPublicadores();
+        }
 
         }
 }

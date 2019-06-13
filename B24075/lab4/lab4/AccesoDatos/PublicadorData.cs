@@ -63,6 +63,47 @@ namespace AccesoDatos
             return listaLibros;
         }
 
+
+        /// <summary>
+        /// Priscilla Mena
+        /// Efecto: devuelve una lista con todos los publicadores
+        /// Requiere: -
+        /// Modifica: -
+        /// Devuelve: lista de publicadores
+        /// </summary>
+        /// <returns></returns>
+        public List<Publicador> getPublicadores()
+        {
+
+            List<Publicador> lista = new List<Publicador>();
+
+            SqlConnection sqlConnection = conexion.conexionLab();
+
+            SqlCommand sqlCommand = new SqlCommand("select e.* from  editorial e ;", sqlConnection);
+         
+            SqlDataReader reader;
+            sqlConnection.Open();
+            reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                
+                Publicador publicador = new Publicador();
+
+               
+                publicador.nombre = reader["nombre"].ToString();
+                publicador.direccion = reader["direccion"].ToString();
+                publicador.telefono = reader["telefono"].ToString();
+                publicador.idPublicador = Convert.ToInt32(reader["id_editorial"].ToString());
+               
+                lista.Add(publicador);
+            }
+
+            sqlConnection.Close();
+
+            return lista;
+        }
+
         #endregion
 
     }
