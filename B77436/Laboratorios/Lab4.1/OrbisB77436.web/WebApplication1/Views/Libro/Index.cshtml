@@ -1,0 +1,71 @@
+﻿@model OrbisB77436.web.Models.PublicadorLibro
+@{
+    ViewData["Title"] = "";
+}
+
+<div class="container">
+    <h3>Seleccione un publicador:</h3>
+    <div class="row">
+        <select id="publicadorSelect">
+            @foreach (var publicador in Model.Publicadores)
+            {
+                <option value="@publicador.Id_publicador">@publicador.Nombre_publicador</option>
+            }
+        </select>
+        <table class="table table-striped" id="tablaLibros">
+            <tr>
+                <th>CodigoLibro</th>
+                <th>Titulo</th>
+                <th>Precio</th>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<script>
+        var table = $("#tablaLibros");
+        var select = $("#publicadorSelect");
+    $("#publicadorSelect").click(function () {
+
+            table.empty();
+            printHeaderTable();
+            var publicadorSelected = select.children("option:selected").val();
+            var url = "/Libro/GetAll/" + publicadorSelected;
+            $.get(url, null, function (data) {
+                if (data.length === 0) {
+                    alert("El publicador seleccionado no tiene libros");
+                } else {
+                    var size = 0;
+                    for (key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            $(
+                                '<tr>' +
+                                '<td>' + data[size].id_libro + '</td>' +
+                                '<td>' + data[size].titulo + '</td>' +
+                                '<td>' + data[size].precio + '</td>' +
+                                '</tr>'
+                            )
+                                .appendTo(table);
+                            size = size + 1;
+                        }
+
+
+                    }
+                }
+
+
+            });
+
+        });
+    
+    function printHeaderTable() {
+        $(
+            '<tr>' +
+            '<th>CodigoLibro</th>' +
+            '<th>Titulo</th>' +
+            '<th>Precio</th>' +
+            '</tr>'
+        )
+            .appendTo(table);
+    }
+</script>
