@@ -1623,11 +1623,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "F:\\Lab1ASPdotNET\\Orbis[B54524].Model\\Orbis[B54524].Model.csproj",
+      "projectUniqueName": "C:\\Users\\LabC-390561\\Desktop\\repo2\\Lenguajes-1-12019\\B54524\\Lab1ASPdotNET\\Orbis[B54524].Model\\Orbis[B54524].Model.csproj",
       "projectName": "Orbis[B54524].Model",
-      "projectPath": "F:\\Lab1ASPdotNET\\Orbis[B54524].Model\\Orbis[B54524].Model.csproj",
+      "projectPath": "C:\\Users\\LabC-390561\\Desktop\\repo2\\Lenguajes-1-12019\\B54524\\Lab1ASPdotNET\\Orbis[B54524].Model\\Orbis[B54524].Model.csproj",
       "packagesPath": "C:\\Users\\LabC-390561\\.nuget\\packages\\",
-      "outputPath": "F:\\Lab1ASPdotNET\\Orbis[B54524].Model\\obj\\",
+      "outputPath": "C:\\Users\\LabC-390561\\Desktop\\repo2\\Lenguajes-1-12019\\B54524\\Lab1ASPdotNET\\Orbis[B54524].Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

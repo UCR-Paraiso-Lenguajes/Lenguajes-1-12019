@@ -11,3 +11,16 @@ F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.dll
 F:\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.pdb
 F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Model.dll
 F:\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Model.pdb
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.deps.json
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.runtimeconfig.json
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.runtimeconfig.dev.json
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.dll
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Web.pdb
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Model.dll
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\bin\Debug\netcoreapp2.0\Orbis[B54524].Model.pdb
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.AssemblyInfo.cs
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.dll
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbos[B54524].Web\obj\Debug\netcoreapp2.0\Orbis[B54524].Web.pdb

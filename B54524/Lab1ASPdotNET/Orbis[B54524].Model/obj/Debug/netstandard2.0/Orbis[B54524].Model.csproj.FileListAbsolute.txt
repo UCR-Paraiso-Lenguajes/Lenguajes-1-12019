@@ -13,3 +13,12 @@ F:\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Mode
 F:\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.pdb
 F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.dll
 F:\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.pdb
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.deps.json
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.dll
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\bin\Debug\netstandard2.0\Orbis[B54524].Model.pdb
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.AssemblyInfo.cs
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.dll
+C:\Users\LabC-390561\Desktop\repo2\Lenguajes-1-12019\B54524\Lab1ASPdotNET\Orbis[B54524].Model\obj\Debug\netstandard2.0\Orbis[B54524].Model.pdb

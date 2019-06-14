@@ -22,18 +22,21 @@ namespace Orbis_B54524_.Web.Controllers
         public IActionResult Index()
         {
             string sql = configuration.GetConnectionString("sql");
-            IEnumerable<Libro> libro = new LibroBusiness(sql).GetByPublicadorCode();
             dynamic Model = new ExpandoObject();
             Model.Publicadores = new PublicadorBusiness(sql).getAll();
             Model.Libros = new LibroBusiness(sql).GetByPublicadorCode();
             return View(Model);
         }
+        //[Route("LibroController/IndexPost")]
         [HttpPost]
-        public IActionResult Index(int codPublicador)
+        public IActionResult Index(string Segmentation)
         {
+            int id = Convert.ToInt32(Segmentation);
             string sql = configuration.GetConnectionString("sql");
-            IEnumerable<Libro> libro = new LibroBusiness(sql).GetByPublicadorCode(codPublicador);
-            return View(libro);
+            dynamic Model = new ExpandoObject();
+            Model.Publicadores = new PublicadorBusiness(sql).getAll();
+            Model.Libros = new LibroBusiness(sql).GetByPublicadorCode(id);
+            return View(Model);
         }
     }
 }
