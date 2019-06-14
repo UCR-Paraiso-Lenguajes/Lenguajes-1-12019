@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <H2>Seleccione un publicador</H2>
+    <label>Publicador: </label>
+    <select class="browser-default custom-select" id="publicadorSelect">
+        @foreach (var publicador in Model)
+        {
+            <option value="@publicador.Id_publicador">
+                @publicador.Nombre_publicador
+            </option>
+        }
+    </select>
+</div>
+
+<button type="button" class="btn btn-primary" id="btn_showBooks">Mostrar Libros</button>
+<table class="table table-striped" id="myTable">
+    <tr>
+        <th>Titulo</th>
+        <th>Año</th>
+        <th>Precio</th>
+    </tr>
+
+</table>
+ 
+
+<script>
+    var table = $("#myTable");
+    var select = $("#publicadorSelect");
+    $("#btn_showBooks").click(function () {
+        table.empty();
+        printHeaderTable();
+        var publicadorSelected = select.children("option:selected").val();
+        var url = "/Libro/GetLibros/" + publicadorSelected;
+        $.get(url, null, function (data) {
+            if (data.length === 0) {
+                alert("El publicador seleccionado no tiene libros");
+            } else {
+                var size = 0;
+                for (key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        $(
+                            '<tr>' +
+                            '<td>' + data[size].titulo + '</td>' +
+                            '<td>' + data[size].año + '</td>' +
+                            '<td>' + data[size].precio + '</td>' +
+                            '</tr>'
+                        )
+                            .appendTo(table);
+                        size = size + 1;
+                    }
+
+
+                }
+            }
+
+
+        });
+
+    });
+    function printHeaderTable() {
+        $(
+            '<tr>' +
+            '<th>Titulo</th>' +
+            '<th>Año</th>' +
+            '<th>Precio</th>' +
+            '</tr>'
+        )
+            .appendTo(table);
+    }
+</script>
