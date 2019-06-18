@@ -1,0 +1,14 @@
+C:\Users\LabC-390561\source\repos\OrbisB40894\OrbisB40894.Model\bin\Debug\netcoreapp2.0\OrbisB40894.Model.deps.json
+C:\Users\LabC-390561\source\repos\OrbisB40894\OrbisB40894.Model\bin\Debug\netcoreapp2.0\OrbisB40894.Model.dll
+C:\Users\LabC-390561\source\repos\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\source\repos\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\source\repos\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\source\repos\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.AssemblyInfo.cs
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.csproj.CoreCompileInputs.cache
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.AssemblyInfoInputs.cache
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.AssemblyInfo.cs
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\bin\Debug\netcoreapp2.0\OrbisB40894.Model.deps.json
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\bin\Debug\netcoreapp2.0\OrbisB40894.Model.dll
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\bin\Debug\netcoreapp2.0\OrbisB40894.Model.pdb
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.dll
+C:\Users\Space\Desktop\OrbisB40894\OrbisB40894.Model\obj\Debug\netcoreapp2.0\OrbisB40894.Model.pdb
