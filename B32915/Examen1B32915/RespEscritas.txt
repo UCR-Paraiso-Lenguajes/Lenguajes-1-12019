@@ -1,0 +1,27 @@
+Respuestas Parte Teorica
+R1/Cada validacion logica debe tener una doble validacion ya que esta implica un valor
+que debe cumplirse para realizar una accion y otro que no es acceptado.
+
+R2/ El manejo de transacciones se utiliza cuando se necesitan 
+modificar más de una tabla consecutivamente o si se realizan 
+consultas a tablas transaccionales que necesitan el interbloqueo 
+en el proceso para que se cumpla una implementacion sin afectar la integridad de los
+datos. Ademas se encargan de realizar un control mediante un Rollback en caso que no 
+se realice adecuadamente lo implementado, evitando que se realice todo el
+proceso en lugar de una sola parte.
+
+R3/La autentificacion se encarga de validar que el usuario es el 
+correspondiente mediante algún algoritmo o una validacion de credenciales.
+La autorización determina a que dominios o modulos tiene acceso
+el usuario que es autentificado.
+
+R4/ El annotation @autowire se encarga de inicializar una clase
+con un unica instancia dentro de una clase para acceder a la misma.
+Con esto evita que se creen
+multiples instancias de un mismo objeto dentro de una clase. Ademas precarga
+los metodos o variables internos de la clase instanciada en lugar de tener que 
+crear y buscar de nuevo en cada instancia realizada como normalmente se acostumbra
+
+R5/ El annotation @RequestMapping crea un "mapeo" o informacion de ruteo 
+que le permite a la aplicacion identificar un html y enviar o solicitar 
+informacion junto al controlador
