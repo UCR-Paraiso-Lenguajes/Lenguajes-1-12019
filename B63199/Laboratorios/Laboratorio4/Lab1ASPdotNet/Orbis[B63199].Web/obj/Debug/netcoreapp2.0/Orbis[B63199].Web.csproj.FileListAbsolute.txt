@@ -1,0 +1,37 @@
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.deps.json
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.runtimeconfig.json
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.runtimeconfig.dev.json
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.dll
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.pdb
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.AssemblyInfo.cs
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.dll
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.pdb
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.deps.json
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.runtimeconfig.json
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.runtimeconfig.dev.json
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.dll
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.pdb
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.AssemblyInfo.cs
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.dll
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.pdb
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Model.dll
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Model.pdb
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.deps.json
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.runtimeconfig.json
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.runtimeconfig.dev.json
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.dll
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Web.pdb
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Model.dll
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\bin\Debug\netcoreapp2.0\Orbis[B63199].Model.pdb
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.csprojResolveAssemblyReference.cache
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.csproj.CoreCompileInputs.cache
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.AssemblyInfoInputs.cache
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.AssemblyInfo.cs
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.dll
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Orbis[B63199].Web\obj\Debug\netcoreapp2.0\Orbis[B63199].Web.pdb

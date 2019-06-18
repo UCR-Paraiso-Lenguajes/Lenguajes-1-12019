@@ -1,0 +1,70 @@
+﻿@Model  IEnumerable<Domain.Publicadores>
+@*@Model    IEnumerable<Domain.Libro>*@
+        @*@Model  dynamic*@
+
+        @{
+            ViewData["Tile"] = "Libro";
+        }
+
+
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Index</title>
+
+
+            <div class="container">
+
+                <label>Publicador: </label>
+                <ul>
+                    <select>
+                        @foreach (var publicador in Model)
+                        {
+                            <option value=@publicador.idPublicador>
+                                @publicador.nombrePubicador
+                            </option>
+
+                        }
+                    </select>
+                </ul>
+
+                <ul>
+
+                    <table class="table">
+
+                        <tr>
+                            <td>Código del libro</td>
+                            <td>Título</td>
+                            <td>Precio</td>
+                        <tr />
+                        @*<tr>
+                                @foreach (var libros in Model)
+                                {
+                                    <th>
+                                        @libros.codLibro
+                                    </th>
+                                    <th>
+                                        @libros.tituloLibro
+                                    </th>
+                                    <th>
+                                        @libros.precio
+                                    </th>
+
+                                }
+
+                            </tr>*@
+
+
+
+                    </table>
+
+                </ul>
+
+
+            </div>
+
+        </head>
+        <body>
+
+        </body>
+    </html>
