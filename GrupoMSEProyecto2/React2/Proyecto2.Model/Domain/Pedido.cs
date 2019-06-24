@@ -39,7 +39,18 @@ namespace Proyecto2.Model.Domain
             get { return ordenDeCompra; }
             set { ordenDeCompra = value ?? throw new CompanniaException("La orden de compra no debe estar vacia"); }
         }
-        private List<ProductoCantidad> productos;
+
+        protected Pedido(int id,string email, string direccion, OrdenDeCompra ordenDeCompra)
+        {
+            Id = id;
+            Email = email;
+            Direccion = direccion;
+            OrdenDeCompra = ordenDeCompra;
+        }
+        /*
+* Esta lista de productos ya esta encapsulada en Orden de Compra
+   private List<ProductoCantidad> productos;
+*/
 
     }
 }
