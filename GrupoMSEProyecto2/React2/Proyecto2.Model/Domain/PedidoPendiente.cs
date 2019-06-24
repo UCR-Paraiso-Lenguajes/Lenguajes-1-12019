@@ -15,5 +15,18 @@ namespace Proyecto2.Model.Domain
                 fechaUltimoUso = value;
             }
         }
+
+        public PedidoPendiente(int id, string email, string direccion, OrdenDeCompra ordenDeCompra, DateTime fechaUltimoUso)
+        {
+            Id = id;
+            Email = email;
+            Direccion = direccion;
+            OrdenDeCompra = ordenDeCompra;
+            FechaUltimoUso = fechaUltimoUso;
+        }
+
+        public PedidoPendiente()
+        {
+        }
     }
 }

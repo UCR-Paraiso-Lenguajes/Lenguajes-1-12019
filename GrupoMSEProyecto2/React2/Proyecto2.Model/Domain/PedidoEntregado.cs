@@ -44,5 +44,9 @@ namespace Proyecto2.Model.Domain
             TotalCompra = totalCompra;
             TotalProductosEntregados = totalProductosEntregados;
         }
+
+        public PedidoEntregado()
+        {
+        }
     }
 }

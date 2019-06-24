@@ -33,5 +33,9 @@ namespace Proyecto2.Model.Domain
             FechaDespacho = fechaDespacho;
             TotalCompra = totalCompra;
         }
+
+        public PedidoDespachado()
+        {
+        }
     }
 }

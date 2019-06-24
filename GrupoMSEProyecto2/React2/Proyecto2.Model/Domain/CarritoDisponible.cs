@@ -16,7 +16,7 @@ namespace Proyecto2.Model.Domain
         }
         public Pedido Comprar()
         {
-            return new Despachado();
+            return new PedidoDespachado();
         }
         public void Quitar(Producto producto)
         {
