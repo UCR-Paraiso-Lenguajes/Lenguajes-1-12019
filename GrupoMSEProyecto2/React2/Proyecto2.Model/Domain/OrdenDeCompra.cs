@@ -13,52 +13,22 @@ namespace Proyecto2.Model.Domain
             get { return productosCantidad; }
             set { productosCantidad = value ?? throw new CompanniaException("La lista con los productos y su cantidad no debe ser vacio"); }
         }
-        private List<ProductoCantidadPrecioCompraTotal> productosTotalCompra;
-        public List<ProductoCantidadPrecioCompraTotal> ProductosTotalCompra
+        private int totalCompra;
+        public int TotalCompra
         {
-            get { return productosTotalCompra; }
-            private set
+            get { return totalCompra; }
+            set
             {
-                productosTotalCompra = value ?? throw new CompanniaException("La lista con los productos y su cantidad no debe ser vacio");
+                if(value<0) throw new CompanniaException("El total de Compra debe ser positivo");
+                totalCompra = value;
             }
-        }
-        private List<ProductoCantidadPrecioCompraTotal> setProductosTotalCompra(List<ProductoCantidad> productosCantidad)
-        {
-            if (productosCantidad.Count <= 0) throw new CompanniaException("La lista con los productos y su cantidad no debe ser vacio"); 
-            foreach (ProductoCantidad productoCantidad in productosCantidad)
-            {
-                ProductoCantidadPrecioCompraTotal productoTotal = new ProductoCantidadPrecioCompraTotal(productoCantidad.Producto, productoCantidad.Cantidad);
-                productosTotalCompra.Add(productoTotal);
-            }
-            return productosTotalCompra;
         }
 
-            
-       
-        public OrdenDeCompra(List<ProductoCantidad> productosCantidad)
+        public OrdenDeCompra(List<ProductoCantidad> productosCantidad, int totalCompra)
         {
             ProductosCantidad = productosCantidad;
-            ProductosTotalCompra = setProductosTotalCompra(ProductosCantidad);
+            TotalCompra = totalCompra;
         }
     }
-    public class ProductoCantidadPrecioCompraTotal : ProductoCantidad
-    {
-        private float compraTotalProducto;
-        public float CompraTotalProducto
-        {
-            get { return compraTotalProducto; }
-            private set
-            {
-                if (value <= 0) throw new CompanniaException("La compraTotalProducto debe ser menor y diferente a cero");
-                compraTotalProducto = value;
-            }
-        }
-
-        public ProductoCantidadPrecioCompraTotal(Producto producto, int cantidad)
-        {
-            Producto = producto;
-            Cantidad = cantidad;
-            CompraTotalProducto = this.Producto.PrecioUnitario*this.Cantidad;
-        }
-    }
+   
 }

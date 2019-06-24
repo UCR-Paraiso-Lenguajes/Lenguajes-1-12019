@@ -24,9 +24,26 @@ namespace Proyecto2.Model.Domain
                 cantidad = value;
             }
         }
+        private float compraTotalProducto;
+        public float CompraTotalProducto
+        {
+            get { return compraTotalProducto; }
+            private set
+            {
+                if (value <= 0) throw new CompanniaException("La compraTotalProducto debe ser menor y diferente a cero");
+                compraTotalProducto = value;
+            }
+        }
 
         public ProductoCantidad()
         {
+        }
+
+        protected ProductoCantidad(Producto producto, int cantidad, float compraTotalProducto)
+        {
+            Producto = producto;
+            Cantidad = cantidad;
+            CompraTotalProducto = this.Producto.PrecioUnitario * this.Cantidad;
         }
     }
 }
