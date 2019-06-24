@@ -7,7 +7,7 @@ using System.Text;
 namespace Proyecto2.Model.Data
 {
 
-    /*
+    
     public class CarritoData
     {
         private string connectionString;
@@ -22,13 +22,15 @@ namespace Proyecto2.Model.Data
             this.connectionString = connectiostring;
         }
 
-        public IEnumerable<Carrito> GetAll()
+        public IEnumerable<Carrito> ObtenerCarritoPorUsuario(int idComprador,String email)
         {
             List<Carrito> carrito = new List<Carrito>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "select id, idUser from Carrito";
+                string sql = "select c.id, u.id, u.nombre, u.passwordComprador, u.emailPrincipal, "+
+"p.id, p.impuesto, p.nombre, p.descripcion, p.precio, p.cantidadDisponible from Carrito c inner join Comprador u on c.idUser = u.id "+
+"inner join CarritoProducto cp on cp.idCarrito = c.id inner join Producto p on cp.idProducto = p.id where u.emailPrincipal = "+email;
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -38,6 +40,8 @@ namespace Proyecto2.Model.Data
                             string id = reader.GetString(0);
                             int idUser = reader.GetInt32(1);
 
+                            //Carrito(string id, Usuario usuario, decimal subtotal, int total, List < ProductoCantidad > productoCantidad)
+                            //ProductoCantidad(Producto producto, int cantidad, float compraTotalProducto)
                             //carrito.Add(new Carrito(id_publicador, nombre_publicador, url_sitio_web));
                         }
                         reader.Close();
@@ -49,5 +53,5 @@ namespace Proyecto2.Model.Data
             return carrito;
         }
     }
-    */
+    
 }
