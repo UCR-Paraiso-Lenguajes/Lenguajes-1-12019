@@ -6,6 +6,8 @@ using System.Text;
 
 namespace Proyecto2.Model.Data
 {
+
+    /*
     public class CarritoData
     {
         private string connectionString;
@@ -47,6 +49,5 @@ namespace Proyecto2.Model.Data
             return carrito;
         }
     }
-
-    }
+    */
 }

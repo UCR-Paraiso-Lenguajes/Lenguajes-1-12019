@@ -3,8 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proyecto2Lenguajes.Model.Domain
+namespace Proyecto2.Model.Domain
 {
+    /// <summary>
+    /// Clase que gestiona un conjunto de productos
+    /// </summary>
+    public class Productos {
+        private List<Producto> productos = new List<Producto>();
+
+        public IEnumerator<Producto> GetProductos()
+        {
+            return productos.GetEnumerator();
+        }
+       
+        public void AddProductos(Producto producto)
+        {
+            productos.Add(producto);
+        }
+
+
+    }
+
+
+
     /// <summary>
     /// Clase que administra los productos
     /// </summary>
@@ -15,8 +36,17 @@ namespace Proyecto2Lenguajes.Model.Domain
         {
 
         }
-
-
+        /*Maes agregue este atributo, creo que es importante tenerlo*/
+        private float precioUnitario;
+        public float PrecioUnitario
+        {
+            get { return precioUnitario; }
+            set
+            {
+                if (value < 0 || value == 0) throw new CompanniaException("El id debe ser mayor y distinto de cero");
+                precioUnitario = value;
+            }
+        }
         private int idProducto;
         public int IdProducto
         {
@@ -27,8 +57,8 @@ namespace Proyecto2Lenguajes.Model.Domain
             }
         }
 
-        private double porcentajeImpuesto;
-        public double PorcentajeImpuesto
+        private decimal porcentajeImpuesto;
+        public decimal PorcentajeImpuesto
         {
             get { return porcentajeImpuesto; }
             set {
