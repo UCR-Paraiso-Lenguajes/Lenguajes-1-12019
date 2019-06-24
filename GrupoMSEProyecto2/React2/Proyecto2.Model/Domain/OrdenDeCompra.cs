@@ -13,8 +13,8 @@ namespace Proyecto2.Model.Domain
             get { return productosCantidad; }
             set { productosCantidad = value ?? throw new CompanniaException("La lista con los productos y su cantidad no debe ser vacio"); }
         }
-        private int totalCompra;
-        public int TotalCompra
+        private float totalCompra;
+        public float TotalCompra
         {
             get { return totalCompra; }
             set
@@ -24,7 +24,7 @@ namespace Proyecto2.Model.Domain
             }
         }
 
-        public OrdenDeCompra(List<ProductoCantidad> productosCantidad, int totalCompra)
+        public OrdenDeCompra(List<ProductoCantidad> productosCantidad, float totalCompra)
         {
             ProductosCantidad = productosCantidad;
             TotalCompra = totalCompra;

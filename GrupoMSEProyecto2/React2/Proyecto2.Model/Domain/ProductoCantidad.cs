@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Proyecto2.Model.Domain
 {
-    public abstract class ProductoCantidad
+    public class ProductoCantidad
     {
         private Producto producto;
 
@@ -35,11 +35,11 @@ namespace Proyecto2.Model.Domain
             }
         }
 
-        public ProductoCantidad()
+        private ProductoCantidad()
         {
         }
 
-        protected ProductoCantidad(Producto producto, int cantidad, float compraTotalProducto)
+        public ProductoCantidad(Producto producto, int cantidad, float compraTotalProducto)
         {
             Producto = producto;
             Cantidad = cantidad;

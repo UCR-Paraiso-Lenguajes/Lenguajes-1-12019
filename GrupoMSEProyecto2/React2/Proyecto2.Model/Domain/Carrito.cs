@@ -52,23 +52,23 @@ namespace Proyecto2.Model.Domain
             get { return productos; }
             set { productos = value ?? throw new CompanniaException("Los productos no pueden estar vacios"); }
         }*/
-        private List<ProductoCantidad> productoCantidad;
-        public List<ProductoCantidad> ProductoCantidad
+        private Pedido pedido;
+        public Pedido Pedido
         {
-            get { return productoCantidad; }
+            get { return pedido; }
             set
             {
-                productoCantidad = value ?? throw new CompanniaException("Los productos cantidad no pueden estar vacios");
+                pedido = value ?? throw new CompanniaException("El pedido tiene problemas");
             }
         }
         public Carrito() { }
-        public Carrito(string id, Usuario usuario, decimal subtotal, int total, List<ProductoCantidad> productoCantidad)
+        public Carrito(string id, Usuario usuario, decimal subtotal, int total, Pedido pedido)
         {
             Id = id;
             Usuario = usuario;
             Subtotal = subtotal;
             Total = total;
-            ProductoCantidad = productoCantidad;
+            Pedido = pedido;
         }
     }
 }
