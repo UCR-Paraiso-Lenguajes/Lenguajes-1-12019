@@ -100,7 +100,14 @@ namespace Proyecto2.Model.Domain
             }
         }
 
-
-
+        public Producto(float precioUnitario, int idProducto, decimal porcentajeImpuesto, string nombre, string descripcion, int cantidadDisponible)
+        {
+            PrecioUnitario = precioUnitario;
+            IdProducto = idProducto;
+            PorcentajeImpuesto = porcentajeImpuesto;
+            Nombre = nombre;
+            Descripcion = descripcion;
+            CantidadDisponible = cantidadDisponible;
+        }
     }
 }
