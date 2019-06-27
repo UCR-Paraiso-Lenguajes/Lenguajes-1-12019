@@ -1,0 +1,10 @@
+1-Debe haber un assert por cada difurcacion de codigo y en que hay que hacer muchos asserts.
+
+2-Son anotaciones que permiten accesar carateristicas especificas del manejo transaccional de la base de datos. Se usan cuando se cuando se ejecuta una consulta de solo lectura o cuando se necesita que se realizen todas las transacciones se realizen y si ocurre un fallo el dbms recupere el estado anterior.
+
+3-Autenticacion: Es verificar que la personal sea quien dice ser.
+Autorizacion: Que el usuario tenga permisos para accder o realizar la accion que solicita.
+
+4-Hace que el mismo framework instacie las variables con los datos dados en el application.properties.
+
+5-Permite asignarle una direccion del url para a un metodo en especifico y el metodo http que utiliza.
