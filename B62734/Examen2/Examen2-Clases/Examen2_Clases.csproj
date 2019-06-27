@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Examen2.Clases</RootNamespace>
+    <AssemblyName>Examen2_Clases</AssemblyName>
+  </PropertyGroup>
+
+</Project>
