@@ -1,0 +1,118 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 480104 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=13924, tid=0x00000000000021a8
+#
+# JRE version:  (8.0_121-b13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.121-b13 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000003174000):  JavaThread "Unknown thread" [_thread_in_vm, id=8616, stack(0x0000000003050000,0x0000000003150000)]
+
+Stack: [0x0000000003050000,0x0000000003150000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000003174000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=8616, stack(0x0000000003050000,0x0000000003150000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff76abb0000 - 0x00007ff76abe7000 	C:\Program Files\Java\jre1.8.0_121\bin\javaw.exe
+0x00007ffd232a0000 - 0x00007ffd23481000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd20ac0000 - 0x00007ffd20b71000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd1fad0000 - 0x00007ffd1fd43000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd223b0000 - 0x00007ffd22451000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd20be0000 - 0x00007ffd20c7e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd22870000 - 0x00007ffd228cb000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd23090000 - 0x00007ffd231b4000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd226d0000 - 0x00007ffd22860000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd1f8c0000 - 0x00007ffd1f8e0000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd22380000 - 0x00007ffd223a8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd1fe00000 - 0x00007ffd1ff92000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd1f720000 - 0x00007ffd1f7bf000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd1f7c0000 - 0x00007ffd1f8b8000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd107a0000 - 0x00007ffd10a09000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.706_none_fb43a2cb30647007\COMCTL32.dll
+0x00007ffd20730000 - 0x00007ffd20a52000 	C:\WINDOWS\System32\combase.dll
+0x00007ffd1ffa0000 - 0x00007ffd2001a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd22280000 - 0x00007ffd222ad000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000066800000 - 0x00000000668d2000 	C:\Program Files\Java\jre1.8.0_121\bin\msvcr100.dll
+0x00000000668e0000 - 0x000000006717b000 	C:\Program Files\Java\jre1.8.0_121\bin\server\jvm.dll
+0x00007ffd22b10000 - 0x00007ffd22b18000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffd1d220000 - 0x00007ffd1d243000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffd12fd0000 - 0x00007ffd12fda000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd053e0000 - 0x00007ffd053e9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd23010000 - 0x00007ffd2307c000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd1d1f0000 - 0x00007ffd1d21a000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ffd1fd50000 - 0x00007ffd1fd99000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x0000000067fc0000 - 0x0000000067fcf000 	C:\Program Files\Java\jre1.8.0_121\bin\verify.dll
+0x0000000067f90000 - 0x0000000067fb9000 	C:\Program Files\Java\jre1.8.0_121\bin\java.dll
+0x0000000067f70000 - 0x0000000067f86000 	C:\Program Files\Java\jre1.8.0_121\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61389 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Xverify:none -XX:TieredStopAtLevel=1 -Dfile.encoding=UTF-8 
+java_command: com.orbis.b53953.Prueba1Application --spring.output.ansi.enabled=always
+java_class_path (initial): C:\Users\daniela\Documents\Lenguajes2\Prueba-1\target\classes;C:\Users\daniela\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.1.3.RELEASE\spring-boot-starter-jdbc-2.1.3.RELEASE.jar;C:\Users\daniela\.m2\repository\org\springframework\boot\spring-boot-starter\2.1.3.RELEASE\spring-boot-starter-2.1.3.RELEASE.jar;C:\Users\daniela\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar;C:\Users\daniela\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.1.3.RELEASE\spring-boot-autoconfigure-2.1.3.RELEASE.jar;C:\Users\daniela\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.1.3.RELEASE\spring-boot-starter-logging-2.1.3.RELEASE.jar;C:\Users\daniela\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\daniela\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\daniela\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;C:\Users\daniela\.m2\repository\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;C:\Users\daniela\.m2\repository\org\slf4j\jul-to-slf4j\1.7.25\jul-to-slf4j-1.7.25.jar;C:\Users\daniela\.m2\repository\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;C:\Users\daniela\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;C:\Users\daniela\.m2\repository\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;C:\Users\daniela\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\daniela\.m2\repository\org\springframework\spring-jdbc\5.1.5.RELEASE\spring-jdbc-5.1.5.RELEASE.jar;C:\Users\daniela\.m2\repository\org\springframework\spring-beans\5.1.5.RELEASE\spring-beans-5.1.5.RELEASE.jar;C:\Users\daniela\.m2\repository\org\springframework\spring-tx\5.1.5.RELEASE\spring-tx-5.1.5.RELEASE.jar;C:\Users\daniela\.m2\repository\com\microsoft\sqlserver\mssql-jdbc\6.4.0.jre8\mssql-jdbc-6.4.0.jre8.jar;C:\User
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Broadcom\Broadcom 802.11 Network Adapter;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Skype\Phone\C:\cygwin64\bin\;C:\cygwin64\lib\;C:\WINDOWS\System32\OpenSSH\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;C:\Users\daniela\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\daniela\AppData\Local\Programs\Python\Python36\;C:\Users\daniela\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\daniela\AppData\Local\Programs\Python\Python37-32\;C:\Users\daniela\AppData\Local\Microsoft\WindowsApps;C:\Users\daniela\Documents\Arquitectura\SPRING TOOL SUITE\sts-3.9.7.RELEASE;
+USERNAME=daniela
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 17134 (10.0.17134.706)
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 4112528k(359248k free), swap 8208528k(9516k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.121-b13) for windows-amd64 JRE (1.8.0_121-b13), built on Dec 12 2016 18:21:36 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Tue Apr 23 15:33:04 2019
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

@@ -1,0 +1,17 @@
+1) Debe haber un caso de prueba por cada condición if, 
+cada caso de prueba deberá contener
+los suficientes asserts para acabar la 
+mayor parte de posibildades de que haya una "pulga".
+
+2) Operaciones que se hacen sobre una base de datos,
+que se ejecutan como una sola.Muchas veces es necesario 
+que varias operaciones se realicen, esto quiere decur, 
+que se ejecuten o todas o ninguna.
+
+3) Autowire= Resolver e insertar beans, constructores, 
+propiedades, instaladores. 
+Además, hace la inicialización de variables.
+
+4) RequestMapping= Es para mapear las rutas, 
+donde podemos responder peticiones mediante 
+metodos POSTS o GETS.

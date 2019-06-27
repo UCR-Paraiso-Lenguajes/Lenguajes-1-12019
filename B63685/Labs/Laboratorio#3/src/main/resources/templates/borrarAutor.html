@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Borrar Autor</title>
+
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  
+  <script type="text/javascript">
+   $.ajax({
+		
+		url:"/orbis/api/getAutor",
+		type: "GET",
+		success: function(data){
+			
+			console.log("GET DATA API RESPONSE ID:"+data.idAutor);
+			console.log("GET DATA API RESPONSE AUTOR:"+data.nombreAutor);
+			console.log("GET DATA API RESPONSE AUTOR:"+data.apellidosAutor);
+			
+			$(document).ready(function(){
+				 
+				  
+			    $("#id").text(data.idAutor);
+			    $("#nombreAutor").text(data.nombreAutor);
+			    $("#apellidoAutor").text(data.apellidosAutor);
+			  });
+			
+		},error:function(jqXHR, textStatus, errorThrown){		
+		}	
+		
+	});
+   
+   </script>
+</head>
+<body>
+
+
+<h1>Esta seguro que desea borrar este autor?</h1>
+
+<table class="table table-striped">
+		<tr>
+			<td>Identificacion</td>
+			<td>Nombre  Autor</td>
+			<td>Apellidos Autor</td>
+			
+		</tr>
+		<tr>
+		      
+		    <td><p id="id"></p></td>
+			<td><p id="nombreAutor"></p></td>
+			<td><p id="apellidoAutor"></p></td>
+			
+		</tr>
+		
+	</table>
+	<p id=mensajeExito></p>
+	
+	
+		<button type="button" class="btn btn-primary" id="btn-editar" onclick="apiBorrar();">Borrar</button>
+	
+
+<script type="text/javascript">
+
+
+function apiBorrar() {
+
+	var modelObj = {
+	idAutor: $("#id").text(),
+	nombreAutor:$("#nombreAutor").text(),
+	apellidosAutor:$("#apellidoAutor").text()
+
+	};
+	
+	//var idAutor = idAutor: $("#identificacon").val();
+	console.log("post data:"+modelObj.idAutor);		
+
+	$.ajax({
+	type: "DELETE",
+	url: "/orbis/api/borrarAutor",
+	headers: {
+    "Content-Type": "application/json"
+	},
+	data: JSON.stringify(modelObj),
+	success: function (data) {
+	console.log("POST API RESPONSE::"+data);
+	$(document).ready(function(){
+		 
+		  
+	    $("#mensajeExito").text("El autor ha borrado correctamente");
+	  
+	  });
+	
+},
+error: function (jqXHR, textStatus, errorThrown) {
+}
+});
+
+}
+
+
+
+
+</script>
+
+	
+
+
+</body>
+</html>

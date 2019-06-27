@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insertar peli</title>
+</head>
+<body>
+    
+    <div class="container " style="max-width: 600px; pading: 40px 20px;">
+        <h1>Insertar nueva pel&iacute;cula</h1>
+        <form th:object="${peliculaForm}" action="#"
+                th:action="@{/insertarPelicula}" method="post">
+            <label>T&iacute;tulo:<input type="text" th:field="*{titulo}"
+                        class="form-control" placeholder="Titulo" /> </label>
+                <div th:if="${#fields.hasErrors('titulo')}">
+                El titulo debe contener almenos 2 letras
+                </div>
+                <div style="clear:both; display: block; height: 10px;"></div>
+            <label> G&eacute;nero
+               <select th:field="*{codGenero}">
+                <option th:each="genero: ${generos}" th:value="${genero.codGenero}"
+                        th:text="${genero.nombreGenero}"></option>
+               </select>            
+            </label>
+                <div style="clear:both; display: block; height: 10px;"></div>
+            
+            <label>Total Pel&iacute;culas
+                <input type="number" th:field="*{totalPeliculas}" class="form-control" 
+                       placeholder="Total Peliculas"/></label>
+                       
+            <div th:if="${#fields.hasErrors('totalPeliculas')}">
+                Debe ingresar almenos 2 peliculas
+                </div>
+            <div style="clear:both; display: block; height: 10px;"></div>    
+        
+        
+        
+            <label>Subtitulada
+                <input type="checkbox" th:field="*{subtitulada}" class="form-control" /></label>
+                <input type="checkbox" th:field="*{estreno}" class="form-control" />
+            <label>Estreno</label>
+            
+            <button type="submit">Salvar</button>
+        
+        </form>
+    </div>
+</body>
+</html>

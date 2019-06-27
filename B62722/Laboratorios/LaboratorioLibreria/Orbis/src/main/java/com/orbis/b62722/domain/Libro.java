@@ -1,6 +1,5 @@
 package com.orbis.b62722.domain;
 
-import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,7 +7,7 @@ public class Libro {
 	
 	private int id_libro;
 	private String titulo;
-	private int año;
+	private int ano;
 	private float precio;
 	private Editorial editorial;
 	private List<Autor> autores;
@@ -21,7 +20,7 @@ public class Libro {
 	public int getId_libro() {
 		return id_libro;
 	}
-
+  
 	public void setId_libro(int id_libro) {
 		if(id_libro <= 0) throw new RuntimeException("El id debe ser mayor a 0.");
 		this.id_libro = id_libro;
@@ -36,13 +35,12 @@ public class Libro {
 		this.titulo = titulo;
 	}
 
-	public int getAño() {
-		return año;
+	public int getAno() {
+		return ano;
 	}
 
-	public void setAño(int año) {
-		this.año = año;
-	}
+	public void setAno(int ano) {
+		this.ano = ano;
 
 	public float getPrecio() {
 		return precio;
@@ -68,9 +66,4 @@ public class Libro {
 	public void setAutores(List<Autor> autores) {
 		this.autores = autores;
 	}
-	
-	
-	
-	
-
 }

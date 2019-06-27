@@ -1,0 +1,6 @@
+C:\Users\pmena\Downloads\Proyecto - Copy\Entidades\bin\Debug\Entidades.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Entidades\bin\Debug\Entidades.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Entidades\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\Entidades\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\Entidades\obj\Debug\Entidades.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Entidades\obj\Debug\Entidades.pdb

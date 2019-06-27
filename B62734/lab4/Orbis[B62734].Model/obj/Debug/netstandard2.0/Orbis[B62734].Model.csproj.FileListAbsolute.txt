@@ -1,0 +1,9 @@
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\obj\Debug\netstandard2.0\Orbis[B62734].Model.csproj.CoreCompileInputs.cache
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\obj\Debug\netstandard2.0\Orbis[B62734].Model.AssemblyInfoInputs.cache
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\obj\Debug\netstandard2.0\Orbis[B62734].Model.AssemblyInfo.cs
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\bin\Debug\netstandard2.0\Orbis[B62734].Model.deps.json
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\bin\Debug\netstandard2.0\Orbis[B62734].Model.dll
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\bin\Debug\netstandard2.0\Orbis[B62734].Model.pdb
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\obj\Debug\netstandard2.0\Orbis[B62734].Model.csprojAssemblyReference.cache
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\obj\Debug\netstandard2.0\Orbis[B62734].Model.dll
+C:\Users\dfonse\source\repos\Laboratorio4\Orbis[B62734].Model\obj\Debug\netstandard2.0\Orbis[B62734].Model.pdb

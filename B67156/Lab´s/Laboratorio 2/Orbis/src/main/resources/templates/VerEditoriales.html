@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Editoriales</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<div class="container">
+<h1>Editoriales</h1>
+	<form action="#" th:action="@{/VerEditoriales}" method="post">
+	<div>
+		<input type="radio" name="group1" value="PorCodigo" onchange="pulsadoPorCodigoE(this);" checked>Por Codigo 
+		<input type="radio" name="group1" value="RangodeCodigos" onchange="pulsadoPorRangoE(this);" > Rango de Codigos<br>
+	</div><br>
+	<div>Codigo de editorial <input type="number" id="codEdit" min="1" name="id_editorial" placeholder="Valor" required/> <br> <br></div>
+	 <div>Rangos <input type="number" id="rangoCodMayor" min="1" disabled="disabled" name="txtRangos" placeholder="Valor mayor" >
+	<input type="number" id="rangoCodMenor" min="1" disabled="disabled" name="txtRangos2" placeholder="Valor menor" ><br><br></div>	
+	<input type="submit" value="Buscar" />
+	</form>
+	
+	 <!-- <form action="#" th:action="@{/VerRangoEditoriales}" method="post">
+	<input type="submit" value="Buscar Rango" />
+	</form>  -->
+	
+	<script>
+		function pulsadoPorCodigoE(radioButton) {
+			document.getElementById("codEdit").required = true;
+			document.getElementById("rangoCodMayor").required = false;
+			document.getElementById("rangoCodMenor").required = false;
+			document.getElementById("codEdit").disabled = false;
+			document.getElementById("rangoCodMayor").disabled = true; 
+			document.getElementById("rangoCodMenor").disabled = true; 
+			 
+		}
+		function pulsadoPorRangoE(radioButton) {
+			document.getElementById("codEdit").required = false;
+			document.getElementById("rangoCodMayor").required = true;
+			document.getElementById("rangoCodMenor").required = true;
+			document.getElementById("codEdit").disabled = true;
+			document.getElementById("rangoCodMayor").disabled = false; 
+			document.getElementById("rangoCodMenor").disabled = false;
+		}
+	</script>
+	
+
+
+<table class="table table-striped">
+	  <tr>
+	    <th>Codigo</th>
+	    <th>Nombre</th>
+	    <th>Direccion</th>
+	    <th>Telefono</th>
+	  </tr>
+	   <tr th:each="editorial : ${editorial}">
+	   <td>
+	   <a th:href="@{mostrar_librosTwo(id_editorial=${editorial.id})}">
+	    <span th:text="${editorial.id}"></span></td>
+	    <td><span th:text="${editorial.nombre}"></span></td>
+	    <td><span th:text="${editorial.direccion}"></span></td>
+	    <td><span th:text="${editorial.telefono}"></span></td>
+	  </tr>
+	</table>
+</body>
+</html>

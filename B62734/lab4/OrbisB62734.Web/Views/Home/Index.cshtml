@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<br>
+<div class="dropdown">
+    <td>
+        @Html.DropDownList("listaPublicadores", (IEnumerable
+        <SelectListItem>)TempData["listaPublicadores"])
+    </td>
+
+    <div class="submit">
+        <button class="buscarPublicadores">Buscar</button>
+
+    </div>
+    <br>
+    <div>
+        Total de resultados de la busqueda:
+    </div>
+    <br>
+    <div>
+        <table style="width: 100%">
+            <tr>
+                <th>Codigo del libro</th>
+                <th>Titulo</th>
+                <th>Precio</th>
+            </tr>
+         
+        </table>
+    </div>
+</div>

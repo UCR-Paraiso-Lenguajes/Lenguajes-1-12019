@@ -2,3 +2,10 @@
 *bin/
 *target/
 *.project
+.classpath
+*.settings/
+*mvnw
+*.cmd
+*.mvn/
+*.attach_pid28819
+

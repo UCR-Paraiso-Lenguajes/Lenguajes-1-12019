@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<title>Insertar Libros</title>
+</head>
+<body>
+
+	<div class="container" style="max-width: 400px; padding: 20px 20px;">
+		<h2>Insertar nuevo Libro</h2>
+
+
+		<form th:object="${libroForm}" action="/action_page.php"
+			class="was-validated" th:action="@{/insertarLibro/salvar}"
+			method="post">
+
+			<div class="form-group">
+				<label for="titulo">Titulo:</label> <input type="text"
+					class="form-control" id="titulo" placeholder="Titulo" name="titulo"
+					required>
+				<div class="invalid-feedback">Por favor escriba el titulo.</div>
+				<div th:if="${#fields.hasErrors('titulo')}">El título debe
+					contener al menos dos letras</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="anno">Año::</label> <input type="number"
+					class="form-control" id="anno" placeholder="2019" value="2019"
+					name="ano">
+				<div class="invalid-feedback">Por favor escriba año del libro.</div>
+			</div>
+
+
+			<div class="form-group">
+				<label>Publicador: </label> <select th:field="*{id_Editorial}"
+					class="form-control">
+					<option th:each="lista: ${listaEditorial}"
+						th:value="${lista.id_Editorial}" th:text="${lista.nombre}">
+					</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="isbn">ISBN:</label> <input type="number"
+					class="form-control" id="isbn" placeholder="Isbn" name="isbn"
+					required>
+				<div class="invalid-feedback">Por favor escriba el ISBN del
+					libro.</div>
+			</div>
+
+			<div class="form-group">
+				<label for="isbn">Precio:</label> <input type="number"
+					class="form-control" id="precio" placeholder="precio" name="precio"
+					step=".01" required>
+				<div class="invalid-feedback">Por favor escriba el Precio del
+					libro.</div>
+			</div>
+
+			<div class="form-group">
+				<label for="listActors">Seleccione 1 o más autores:</label>
+
+
+				<div class=row>
+					<div class="col-md-4">
+
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<select name="*{id_autor}" id="id_autor" class="custom-select"
+									multiple>
+									<option th:each="lista: ${listaAutores}"
+										th:value="${lista.id_autor}" th:text="${lista.nombre_Autor}">
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-2">
+						<button type="button" class="btn btn-success"
+							onclick="agregarAutor()">Agregar</button>
+						<button type="button" class="btn btn-success"
+							onclick="removerAutor()">Remover</button>
+					</div>
+
+					<div class="col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-body">
+
+								<select th:field="*{listaAutoresDelLibro}"
+									id="listaAutoresDelLibro" class="custom-select" multiple>
+									<option th:each="lista: ${listaAutoresDelLibro}"
+										th:value="${lista.id_autor}"
+										th:text="${lista.nombre_Autor}+' '+lista.apellidos_autor">
+									</option>
+								</select>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+			<button type="submit" class="btn btn-info">Insertar Libro</button>
+		</form>
+
+
+	</div>
+
+</body>
+<script>
+	function agregarAutor() {
+
+		var autor = document.getElementById("id_autor");
+		var autorSeleccionado = autor.options[autor.selectedIndex];
+
+		var listaAutor = document.getElementById("listaAutoresDelLibro");
+		listaAutor.add(autorSeleccionado);
+
+	}
+
+	function removerAutor() {
+
+		var autor = document.getElementById("listaAutoresDelLibro");
+		var autorSeleccionado = autor.options[autor.selectedIndex];
+
+		var listaAutor = document.getElementById("id_autor");
+		listaAutor.add(autorSeleccionado);
+
+	}
+</script>
+
+
+</html>
+
