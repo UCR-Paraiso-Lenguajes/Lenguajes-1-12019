@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Departamento";
+}
+<h2>Departamentos</h2>
+<div class="container">
+    <div class="row">
+        <table style="width:100%;">
+            <thead>
+                <tr>
+                    <td>Acción</td>
+                    <td>Id Departamento</td>
+                    <td>Nombre </td>
+                    <td>Marcado</td>
+                    <td>Jefatura</td>
+                </tr>
+            </thead>
+            <tbody>
+                @using (Html.BeginForm("Departamento", "Departamento", FormMethod.Post))
+                {
+                    @foreach (var dep in Model.dep)
+                    {
+                        <tr>
+                            <td>
+                                <input type="submit" class="button1" value="@dep.IdDepartamento" id="id" name="id" />
+                            </td>
+                            <td>
+                                @dep.IdDepartamento
+                            </td>
+                            <td>
+                                @dep.NombreDepartamento
+                            </td>
+                            <td>
+                                @dep.Marcado
+                            </td>
+                            <td>
+                                @dep.Jefatuta.NombreDepartamento
+                            </td>
+                        </tr>
+                        }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

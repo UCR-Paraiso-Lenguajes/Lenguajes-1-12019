@@ -1,0 +1,131 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Web\\Examen2.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Model\\Examen2.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Model\\Examen2.Model.csproj",
+        "projectName": "Examen2.Model",
+        "projectPath": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Model\\Examen2.Model.csproj",
+        "packagesPath": "C:\\Users\\Extreme PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Extreme PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Moq": {
+              "target": "Package",
+              "version": "[4.12.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Web\\Examen2.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Web\\Examen2.Web.csproj",
+        "projectName": "Examen2.Web",
+        "projectPath": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Web\\Examen2.Web.csproj",
+        "packagesPath": "C:\\Users\\Extreme PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Extreme PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Model\\Examen2.Model.csproj": {
+                "projectPath": "C:\\Users\\Extreme PC\\Desktop\\Examen2\\Examen2.Model\\Examen2.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
