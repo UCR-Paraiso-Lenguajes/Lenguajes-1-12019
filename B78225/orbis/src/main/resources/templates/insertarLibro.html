@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+     	crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <title>Insertar Libro</title>
+</head>
+
+<body>
+
+    <div class="container" style="width: 1000px; padding: 40px 20 px;" align="center">
+
+        <h1>Insertar Libro</h1>
+        <form  th:object="${libroForm}" action="#" th:action="@{/insertarLibro}" method="post" onsubmit="seleccionaTodos()">
+
+            <label> Titulo:
+                <input type="text" th:field="*{titulo}" class="form-control" placeholder="Titulo">
+            </label>
+            <div th:if="${#fields.hasErrors('titulo')}" class="alert alert-danger" role="alert">Debe ingresar al menos dos lobros</div>
+
+            <div style = "clear:both; display:block; height:30px;">
+            </div>
+            <label class="form-group"> Editorial:
+                <select th:field="*{idEditorial}">
+                    <option th:each="editorial: ${editoriales}" th:value="${editorial.idEditorial}" th:text="${editorial.nombre}">
+                    </option>
+                </select>
+            
+            </label>
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <label> Año
+                <input type="number" th:field="*{ano}" class="form-control" placeholder="Año">
+            </label>
+            <div th:if="${#fields.hasErrors('ano')}" class="alert alert-danger" role="alert">Debe ingresar un año válido</div>
+
+            
+            <div style="clear: both; display: block; height: 30px;"></div>
+            <label>ISBN
+                <input type="text" th:field="*{ISBN}" class="form-control">
+            </label>
+
+            <div th:if="${#fields.hasErrors('ISBN')}" class="alert alert-danger" role="alert">Debe ingresar un ISBN de 10 caracteres máximo</div>
+
+            <div style ="clear:both; display:block; height:10px; width:500px; "align="center"></div>
+            <label class="form-group"> Elija los autores: </label>
+            
+            
+            <div class="column">
+            
+      
+            <div class="form-group"> 
+            <select id="autoresDisponibles" multiple="multiple" onchange="muestraAutoresSeleccionados()">
+                <option th:each="autor: ${autores}" th:value="${autor.idAutor}" th:text="${autor.nombreApellidos}"></option>
+            </select>
+            </div>
+            </div>
+            
+             <div class="column" style ="width:100px">
+             
+             </div>
+             
+             <div class="column">
+ 			
+            <div class="form-group">             
+                <select id="autoresSeleccionados" th:field="*{idAutor}" multiple="multiple" onclick="eliminaOpcionSeleccionada()">
+                </select>
+            </div>
+            
+              </div>
+            
+            
+        
+           
+
+            <div th:if="${#fields.hasErrors('idAutor')}" class="alert alert-danger" role="alert">Debe ingresar al menos un autor</div>
+
+            <label> Precio:
+                <input type="number" th:field="*{precio}" class="form-control" placeholder="Precio">
+            </label>
+
+		 	<div th:if="${#fields.hasErrors('precio')}" class="alert alert-danger" role="alert">Debe ingresar un precio mayor a 1</div>
+
+            <div style "clear:both; display:block; height:10px;"></div>
+            <button type="submit">Insertar</button>
+        </form>
+
+
+    </div>
+
+    <script type="text/javascript">
+        function muestraAutoresSeleccionados() {
+            var autoresDisponibles = document.getElementById("autoresDisponibles");
+            var autoresSeleccionados = document.getElementById("autoresSeleccionados");
+            for (i = 0; i < autoresDisponibles.length; i++) {
+                currentOption = autoresDisponibles[i];
+                if (currentOption.selected == true) {
+                    autoresSeleccionados.options[autoresSeleccionados.options.length] =
+                        new Option(currentOption.innerHTML, currentOption.value, false, false);
+                } // end if
+            } // end for     
+        } // end muestraAutoresSeleccionados
+    </script>
+
+    <script type="text/javascript">
+        function eliminaOpcionSeleccionada() {
+            var autoresSeleccionados = document.getElementById("autoresSeleccionados");
+            var tamanoLista = autoresSeleccionados.options.length;
+            for (i = 0; i < tamanoLista; i++) {
+                currentOption = autoresSeleccionados[i];
+
+                if (currentOption.selected == true) {
+
+                    if (autoresSeleccionados.options[i].value == currentOption.value) {
+                        autoresSeleccionados.remove(i);
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function seleccionaTodos() {
+            var autoresSeleccionados = document.getElementById("autoresSeleccionados");
+            var tamanoLista = autoresSeleccionados.options.length;
+            for (i = 0; i < tamanoLista; i++) {
+                currentOption = autoresSeleccionados[i];
+                currentOption.selected = true;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
