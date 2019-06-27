@@ -1,0 +1,9 @@
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\bin\Debug\netcoreapp2.1\ModelExamen2.deps.json
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\bin\Debug\netcoreapp2.1\ModelExamen2.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\bin\Debug\netcoreapp2.1\ModelExamen2.pdb
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\obj\Debug\netcoreapp2.1\ModelExamen2.csprojAssemblyReference.cache
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\obj\Debug\netcoreapp2.1\ModelExamen2.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\obj\Debug\netcoreapp2.1\ModelExamen2.AssemblyInfoInputs.cache
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\obj\Debug\netcoreapp2.1\ModelExamen2.AssemblyInfo.cs
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\obj\Debug\netcoreapp2.1\ModelExamen2.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\ModelExamen2\obj\Debug\netcoreapp2.1\ModelExamen2.pdb
