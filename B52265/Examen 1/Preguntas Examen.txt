@@ -1,0 +1,18 @@
+1. Segun lo visto en clase cuantos asserts debe tener un caso de prueba y como afecta esto los casos propuestos arriba?
+por lo menos 1 caso por cada feature.
+
+2. Que son y cuando se usa el "Manejo de transacciones"?
+Las transacciones se utilizan cuando se van a realizar acciones transaccionales, donde se requiere que la accion se 
+realiza completamente o no, lo que si en caso de falla permisa realizar roll-back para volver al estado anterior.
+
+3. Cual es la diferencia entre autentificacio y autorizacion.
+autentificacion es la identificacion de un cliente o persona como cuenta valida o usuario valida
+y autorizacion es que tipos de acceso tiene esta persona dentro del sistema, a que pantallas puede y no entrar.
+
+4. Que hace la notacion @Autowire
+hace todo las inicializacion necesarias para la instancia, por debajo spring se encarga de toda configuracion, de las clases
+como @Repository o @Service.
+
+5.Que hace el @RequestMapping? 
+se encarga de mapear la peticion del metodo solicidado, indicaria la url para acceder a este.
+
