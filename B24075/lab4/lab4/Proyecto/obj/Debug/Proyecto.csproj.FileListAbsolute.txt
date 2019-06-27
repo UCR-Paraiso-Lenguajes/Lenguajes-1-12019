@@ -1,0 +1,414 @@
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Proyecto.dll.config
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Proyecto.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Proyecto.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csc.exe
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csc.exe.config
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csc.rsp
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csi.exe
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csi.exe.config
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csi.rsp
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.AppContext.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Console.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.Compression.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.Pipes.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Claims.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.ValueTuple.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.XPath.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\vbc.exe
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\vbc.exe.config
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\vbc.rsp
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\VBCSCompiler.exe
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Entidades.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Microsoft.ReportViewer.WinForms.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Servicios.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\AccesoDatos.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Entidades.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Servicios.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\AccesoDatos.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CopyComplete
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Proyecto.dll.config
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Proyecto.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Proyecto.pdb
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csc.exe
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csc.exe.config
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csc.rsp
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csi.exe
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csi.exe.config
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\csi.rsp
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.AppContext.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Console.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.Compression.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Claims.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.ValueTuple.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\vbc.exe
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\vbc.exe.config
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\vbc.rsp
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\VBCSCompiler.exe
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Entidades.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Servicios.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\AccesoDatos.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Entidades.pdb
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Servicios.pdb
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\AccesoDatos.pdb
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CopyComplete
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.dll
+C:\Users\Priscilla\Desktop\Plantilla\Proyecto\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Proyecto.dll.config
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Proyecto.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Proyecto.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\csc.exe
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\csc.exe.config
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\csc.rsp
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\csi.exe
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\csi.exe.config
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\csi.rsp
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.AppContext.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Console.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.IO.Compression.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.Claims.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.ValueTuple.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\vbc.exe
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\vbc.exe.config
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\vbc.rsp
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\VBCSCompiler.exe
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Entidades.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Servicios.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\AccesoDatos.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Entidades.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Servicios.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\AccesoDatos.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CopyComplete
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\obj\Debug\Proyecto.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Proyecto.dll.config
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Proyecto.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Proyecto.pdb
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\csc.exe
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\csc.exe.config
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\csc.rsp
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\csi.exe
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\csi.exe.config
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\csi.rsp
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.AppContext.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Console.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.Compression.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Claims.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.ValueTuple.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\vbc.exe
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\vbc.exe.config
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\vbc.rsp
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\VBCSCompiler.exe
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Entidades.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Servicios.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\AccesoDatos.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Entidades.pdb
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Servicios.pdb
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\AccesoDatos.pdb
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Priscilla\Documents\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.csproj.CopyComplete
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Proyecto.dll.config
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Proyecto.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Proyecto.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\csc.exe
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\csc.exe.config
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\csc.rsp
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\csi.exe
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\csi.exe.config
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\csi.rsp
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.AppContext.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Console.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.Compression.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.IO.Pipes.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Claims.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.ValueTuple.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.XPath.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\vbc.exe
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\vbc.exe.config
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\vbc.rsp
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\VBCSCompiler.exe
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Entidades.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Microsoft.ReportViewer.WinForms.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Servicios.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\AccesoDatos.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Entidades.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Servicios.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\AccesoDatos.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.csproj.CopyComplete
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Proyecto\obj\Debug\Proyecto.pdb

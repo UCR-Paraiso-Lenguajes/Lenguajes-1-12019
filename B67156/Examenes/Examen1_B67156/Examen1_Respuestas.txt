@@ -1,0 +1,11 @@
+
+1. Se debe de realizar la mayor posibilidad de pruebas posibles, con los asserts verificamos si los datos que estamos manipulando son los correctos o no.La afectación que puede tener es la robustez del codigo, ya que entre mas pruebas se hagan, mas se conocera de los posibles errores que pueda tener el codigo.
+
+2. El manejo de transacciones se utiliza cuando se manipula algun procedimiento de manera que exista seguridad en a la hora de realizar un cambio. Muchas veces se les conoce como transacciones atomicas, que es cuando se realiza una transaccion pero por algun motivo falla, entonces no se debe de guardar ningun cambio.Es decir se debe de hacer nuevamente.
+
+3.Autenticacion: verifica el usuario pidiendole los datos personales o credenciales.
+Autorizacion: Verifica si el usuario tiene permiso de acceder a ciertos recursos.
+
+4.Permite facilitar la instacia de constructores, agregando beans para poder lograrlo, no es necesario estar haciendo "new Object()"
+
+5. Me permite relacionar la UI, con las capa del controller mapeando el metodo (ya sea para post o get) en el cual se le hace la anotacion.

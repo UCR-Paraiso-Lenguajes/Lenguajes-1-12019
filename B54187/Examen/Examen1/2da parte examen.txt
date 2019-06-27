@@ -1,0 +1,20 @@
+1- Se debe tener unn assert por cada caso de prueba, debido a que entre más casos de prueba existan,
+va a ser más complicado encontrar la falla que se presentó. Por eso se debe tener uno aunque se pueden agregar
+los casos de prueba que el programador quiera.
+
+2- Transacciones uno o varios comandos de SQL que se encuentran agrupados para realizar una tarea específica completamente.
+Esto se puede realizar de dos maneras: 
+1 en la base de datos directamente mendiante procedimientos almacenados.
+2 directamente desde el código del desarrollador. 
+Por ejemplo, se pueden hacer transacciones de dinero mediante este tipo de líneas, cumpliendo así con las propiedades ACID y
+así asegurar la integridad de la información que se está modificando.
+
+3- *Autenticación: Se refiere a asegurar que la persona que está accediendo sea de verdad esa persona y no alguien más.
+   *Autorización: Se refiere a identificar cuales son los permisos con los que cuentan las personas que están ingresando.
+	
+
+4- @Autowire se encarga de buscar un objeto específico.
+
+5- @RequestMapping Se encarga de devolver el html al cual el usuario está haciendo una petición.
+
+

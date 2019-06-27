@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+crossorigin="anonymous"></script>
+<title>Insertar Libro</title>
+</head>
+
+
+
+<body>
+	
+    <div class="container " style="max-width: 600px; pading: 40px 20px;">
+        <h1 class="jumbotron">Insertar Nuevo Libro</h1>
+        <form th:object="${libroForm}" action="#"
+                th:action="@{/insertarLibro}" method="post">
+            
+            
+            <label>T&iacute;tulo:<input type="text" th:field="*{nombre_libro}" class="form-control" placeholder="Titulo" /> </label>
+            <div style="clear:both; display: block; height: 10px;"></div>
+                
+                
+            <label>Año:<input type="text" th:field="*{ano}" class="form-control" placeholder="Titulo" /> </label>
+            <div style="clear:both; display: block; height: 10px;"></div>
+            
+            
+            <label> Editorial
+               <select th:field="*{id_editorial}">
+                <option th:each="editorial: ${editoriales}" th:value="${editorial.id_editorial}"
+                        th:text="${editorial.nombre}"></option>
+               </select>            
+            </label>
+            <div style="clear:both; display: block; height: 10px;"></div>
+
+            
+            <label> Precio
+                <input type="number" th:field="*{precio}" class="form-control" placeholder="Precio"/>
+            </label>
+            
+            <div style="clear:both; display: block; height: 10px;"></div>    
+        
+        	<h3 >Seleccione 1 o m&aacute;s autores</h3>
+        
+        	<table class="table">
+	            <tr>
+	                <th>
+	                	<label> 
+	               			<select multiple="multiple" id="autores_sel" >
+	                			<option th:each="autor: ${autores}" th:value="${autor.id_autor}"
+	                       		th:text="${autor.nombre_autor}"></option>
+	               			</select>            
+            			</label>
+					</th>
+					
+	                <th>
+						<button type="button" class="button btn-success" onclick="pasar()"> >> </button>
+						<br/>
+						<button type="button" class="button btn-success" onclick="devolver()"> << </button>
+					</th>
+					
+	                <th>
+						<select  th:field="*{id_autor}"  id="copia_sel" multiple="multiple" ></select>   
+					</th>
+	            </tr>
+        	</table>
+        	
+            
+            <button type="submit">Insertar Libro</button>
+        
+        </form>
+    </div>
+    
+    
+</body>
+
+    <script type="text/javascript">
+
+//        function pasar() { 
+  //          obj=document.getElementById('autores_sel'); 
+    //        if (obj.selectedIndex==-1) return; 
+      //      valor=obj.value; 
+        //    txt=obj.options[obj.selectedIndex].text; 
+          //  obj.options[obj.selectedIndex]=null; 
+          //  obj2=document.getElementById('copia_sel'); 
+        //    opc = new Option(txt,valor); 
+       //     eval(obj2.options[obj2.options.length]=opc);     
+     //   } 
+        
+        
+        function pasar() {
+              let leftSelect = document.getElementById("autores_sel");
+              let text = leftSelect.options[leftSelect.selectedIndex].text;
+              let value = leftSelect.options[leftSelect.selectedIndex].value;
+              let rightSelect = document.getElementById("copia_sel");
+              rightSelect.options[rightSelect.options.length] = new Option(text, value, true, true);
+              leftSelect.remove(leftSelect.selectedIndex);
+        }
+            
+        function devolver() {
+            let rightSelect = document.getElementById("copia_sel");
+            let text = rightSelect.options[rightSelect.selectedIndex].text;
+            let value = rightSelect.options[rightSelect.selectedIndex].value;
+            let leftSelect = document.getElementById("autores_sel");
+            leftSelect.options[leftSelect.options.length] = new Option(text, value, true, true);
+            rightSelect.remove(rightSelect.selectedIndex);
+        }
+
+
+    </script>
+</html>

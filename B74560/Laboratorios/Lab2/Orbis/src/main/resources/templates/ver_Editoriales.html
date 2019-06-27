@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Listas de Editoriales</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous">
+	
+</script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous">
+	
+</script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous">
+	
+</script>
+
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<br>
+		<h1>Listas de Editoriales</h1>
+		<br> <br>
+		<form action="#" th:action="ver_Editoriales" method="post">
+			Identificaci&oacute;n de Editorial: <input type="number" min="1"
+				name="id_editorial" [(ngModel)]="id_editorial"
+				#id_editorial="ngModel" placeholder="Identificaci&oacute;n"
+				required=true /> <br> <br> <input type="submit"
+				value="Buscar Editorial" /> <br> <br>
+		</form>
+
+		<br>
+		<table class="table table-striped">
+
+			<tr>
+				<th>Identificaci&oacute;n Editorial</th>
+				<th>Nombre Editorial</th>
+				<th>Direcci&oacute;n</th>
+
+			</tr>
+
+			<tr th:each="editorial : ${editorial}">
+				<td><a th:href="@{mostrar_librosID(id=${editorial.id_editorial})}">
+						<span th:text="${editorial.id_editorial}"></span>
+				</a></td>
+				<td><span th:text="${editorial.nombre}"></span></td>
+				</a>
+				</td>
+				<td><span th:text="${editorial.direccion}"></span></td>
+			</tr>
+
+		</table>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrbisB40894.Model", "OrbisB40894.Model\OrbisB40894.Model.csproj", "{869B0F2C-1E99-4EA9-8606-111F216E80D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrbisB40894.Web", "OrbisB40894.Web\OrbisB40894.Web.csproj", "{984CB759-3F8C-4965-8DF1-7B082E1D3E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{869B0F2C-1E99-4EA9-8606-111F216E80D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{869B0F2C-1E99-4EA9-8606-111F216E80D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{869B0F2C-1E99-4EA9-8606-111F216E80D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{869B0F2C-1E99-4EA9-8606-111F216E80D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{984CB759-3F8C-4965-8DF1-7B082E1D3E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{984CB759-3F8C-4965-8DF1-7B082E1D3E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{984CB759-3F8C-4965-8DF1-7B082E1D3E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{984CB759-3F8C-4965-8DF1-7B082E1D3E84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F51006A-4116-48F8-A9FB-D2AE7FD31FE2}
+	EndGlobalSection
+EndGlobal

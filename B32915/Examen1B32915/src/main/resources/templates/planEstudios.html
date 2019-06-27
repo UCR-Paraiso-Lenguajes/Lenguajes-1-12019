@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+
+<script type="text/javascript" charset="utf8"
+	src="/DataTables/datatables.js"></script>
+
+<head>
+<meta charset="UTF-8">
+<title>Plan Estudios</title>
+<head>
+</head>
+<body>
+
+	<div class="container">
+
+		<div id="rowTable" class="row">
+
+			<div class="col-lg-2"></div>
+
+			<div class="col-lg-8">
+
+				<table id="table" class="display">
+
+					<thead>
+
+						<tr>
+
+							<th>Nombre</th>
+							<th>Siglas</th>
+							<th>Creditos</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<tr th:each="entry,status : ${cursos}">
+
+							<td><span th:text="${entry.nombre}" id="nameCourse"></span></td>
+							<td><span th:text="${entry.siglas}" id="siglas"></span></td>
+							<td><span th:text="${entry.creditos}" id="credits"></span></td>
+
+						</tr>
+
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+<script type="text/javascript">
+	
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#table').DataTable();
+	});
+</script>
+
+<style>
+#rowTable {
+	margin-top: 50px;
+}
+</style>
+</html>
