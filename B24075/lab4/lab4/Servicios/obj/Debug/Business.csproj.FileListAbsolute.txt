@@ -1,0 +1,11 @@
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\bin\Debug\Servicios.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\bin\Debug\Servicios.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\bin\Debug\AccesoDatos.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\bin\Debug\Entidades.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\bin\Debug\AccesoDatos.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\bin\Debug\Entidades.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\obj\Debug\Business.csprojAssemblyReference.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\obj\Debug\Business.csproj.CoreCompileInputs.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\obj\Debug\Business.csproj.CopyComplete
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\obj\Debug\Servicios.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\Servicios\obj\Debug\Servicios.pdb

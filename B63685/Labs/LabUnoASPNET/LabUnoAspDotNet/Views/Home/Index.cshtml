@@ -1,0 +1,68 @@
+﻿@using OrbisB63685Model.Data;
+@using OrbisB63685Model.Domain;
+@model OrbisB63685Model.Domain.Editorial;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <br />
+            Buscar libro por editorial:
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <br />
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+                @Html.DropDownListFor(m => m.idEditorial, Model.Editoriales, "Seleccione una editorial")
+
+
+            </td>
+        </tr>
+
+
+    </table>
+    <br />
+}
+
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        @{
+
+
+            IEnumerable<Libro> lista = new List<Libro>();
+
+
+            LibroData libro = new LibroData();
+            lista = libro.GetByCodEditorial(ViewBag.Message);
+
+
+            <tr><td><strong>Codigo libro</strong></td><td><strong>Titulo del Libro</strong></td><td><strong>Precio</strong></td></tr>
+
+
+            foreach (Libro element in lista)
+            {
+                Console.WriteLine(element.TituloLibro);
+
+                <tr>
+
+                    <td> @element.CodLibro </td>
+                    <td> @element.TituloLibro </td>
+                    <td> @element.Precio </td>
+
+                </tr>
+            }
+
+
+        }
+    </table>
+
+
+
+
+
+

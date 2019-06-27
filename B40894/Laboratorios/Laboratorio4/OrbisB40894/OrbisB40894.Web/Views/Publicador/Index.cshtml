@@ -1,0 +1,41 @@
+﻿
+@model IEnumerable<OrbisB40894.Model.Domain.Publicador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>Publicador</h2>
+
+<div class="container">
+
+    @{
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        @foreach (var publicador in Model)
+        {
+            listItems.Add(new SelectListItem
+            {
+
+                Value = @publicador.Id_publicador.ToString(),
+                Text = @publicador.Nombre
+
+            });
+
+        }
+
+
+    }
+
+    @Html.DropDownList("yourDropName", listItems, new { @class = "form-control" })
+
+
+
+
+
+
+
+
+
+</div>
+

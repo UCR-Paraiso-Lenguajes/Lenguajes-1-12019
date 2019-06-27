@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="Proyecto.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="cleartype" content="on" />
+   
+    <%-- Estilos con formato UCR  --%>
+    <link href="css/Lanamme.css" rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
+    <link href="css/bootstrap-dialog.css" rel="stylesheet" />
+
+    <!-- Table -->
+    <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
+    <script src='<%=Page.ResolveUrl("~/Scripts/jquery-3.0.0.js") %>'></script>
+    <script src='<%=Page.ResolveUrl("~/Scripts/datatables.min.js") %>'></script>
+
+    <script src='<%=Page.ResolveUrl("~/Scripts/bootstrap-dialog.js") %>'></script>
+    <script src='<%=Page.ResolveUrl("~/Scripts/Dialogo.js") %>'></script>
+
+
+    <script src='<%=Page.ResolveUrl("~/Scripts/bootstrap.js") %>'></script>
+    <!-- Bootstrap PDF Viewer solo para visualizar archivos -->
+    <script src='<%=Page.ResolveUrl("~/Scripts/pdf.js") %>'></script>
+
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <!----Navbar---->
+          
+
+            
+
+
+            <div class="content">
+                <%--Elementos para cada pagina --%>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <div class="modal modal-sm modal-static fade" id="ModalAlerta" role="alertdialog">
+                    <div class="modal-dialog">
+                    </div>
+                </div>
+
+                <div class="messageText">
+                    <asp:Label ID="mensaje" Text="" runat="server"></asp:Label>
+                    <asp:Label runat="server" ID="alert" Text="" Visible="true"></asp:Label>
+                </div>
+            </div>
+          
+        </div>
+       
+    </form>
+
+    <%--Dentro de este espacio se ponen los scripts que tienen que correr al cargar la pagina  --%>
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

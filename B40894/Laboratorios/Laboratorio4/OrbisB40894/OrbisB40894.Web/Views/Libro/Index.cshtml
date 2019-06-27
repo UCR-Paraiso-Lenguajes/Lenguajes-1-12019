@@ -1,0 +1,40 @@
+﻿
+
+
+@model IEnumerable<OrbisB40894.Model.Domain.Libro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>Libro</h2>
+
+<div class="container">
+
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>ID </th>
+            <th>Titulo </th>
+            <th>Precio </th>
+            
+        </tr>
+
+        @foreach (var libro in Model)
+        {
+    <tr>
+        <td>@libro.Cod_libro
+        <td> @libro.Titulo
+        <td> @libro.Precio
+
+    </tr>
+            }
+
+
+    </table>
+
+
+
+</div>
+

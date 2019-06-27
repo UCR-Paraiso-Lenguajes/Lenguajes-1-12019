@@ -1,0 +1,33 @@
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.deps.json
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.runtimeconfig.json
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.runtimeconfig.dev.json
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.dll
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.pdb
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.AssemblyInfo.cs
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.dll
+C:\Users\LabC-390561\Documents\Lenguajes 30519\Laboratorio4b63199\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.pdb
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.deps.json
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.runtimeconfig.json
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.runtimeconfig.dev.json
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.dll
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.pdb
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.csprojResolveAssemblyReference.cache
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.csproj.CoreCompileInputs.cache
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.AssemblyInfoInputs.cache
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.AssemblyInfo.cs
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.dll
+C:\Users\LabC-390561\Desktop\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.pdb
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.deps.json
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.runtimeconfig.json
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.runtimeconfig.dev.json
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.dll
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\bin\Debug\netcoreapp2.0\Lab1ASPdotNet.pdb
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.csprojResolveAssemblyReference.cache
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.csproj.CoreCompileInputs.cache
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.AssemblyInfoInputs.cache
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.AssemblyInfo.cs
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.dll
+F:\Laboratorio 4 Lyk 11619\Lab1ASPdotNet\Lab1ASPdotNet\obj\Debug\netcoreapp2.0\Lab1ASPdotNet.pdb

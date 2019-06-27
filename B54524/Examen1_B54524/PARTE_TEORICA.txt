@@ -1,0 +1,20 @@
+Jean Carlos Monge Mendez
+
+1. Minimo un assert True ó assert false, 
+para validar que se cumpla o no una condición
+
+2. Son operaciones atomicas, que se tienen que realizar todo o nada,
+se utilizan para mantener los datos consistentes, por ejemplo en bases de datos
+cuando se necesitan hacer modificaciones en varias tablas
+
+3. La Autentificación solo valida que es un usuario existente, 
+la autorización tiene que ver más con permisos. Un usuario puede ser 
+autentificado exitosamente pero eso no quiere decir que este autorizado
+para modificar o eliminar datos del sistema.
+
+4. Inicializa una variable en memoria, o las variables de un método
+es equivalente a "= new Object()"
+
+5. Cuando se accede a la direccion que esta en el request mapping, 
+le indica al metodo que tiene esa dirección, que tiene que ejecutarse.
+Pueden haber request mapping repetidos, si el request method es diferente.
