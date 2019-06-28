@@ -1,0 +1,36 @@
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.deps.json
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.runtimeconfig.json
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.runtimeconfig.dev.json
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.dll
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.pdb
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csprojAssemblyReference.cache
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csproj.CoreCompileInputs.cache
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.AssemblyInfoInputs.cache
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.AssemblyInfo.cs
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.dll
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.pdb
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\model.dll
+C:\Users\Space\source\TestExamen2\bin\Debug\netcoreapp2.1\model.pdb
+C:\Users\Space\source\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csproj.CopyComplete
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.deps.json
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.runtimeconfig.json
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.runtimeconfig.dev.json
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.dll
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.pdb
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\model.dll
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\bin\Debug\netcoreapp2.1\model.pdb
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csprojAssemblyReference.cache
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csproj.CoreCompileInputs.cache
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.AssemblyInfoInputs.cache
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.AssemblyInfo.cs
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csproj.CopyComplete
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.dll
+C:\Users\alfonso\Desktop\Cursos ucr\LenguajesParaAplicacionesComerciales\CarpetaLimpiaxD\Examen2B63685\ExamenDefinitivo\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.pdb

@@ -1,0 +1,80 @@
+﻿
+
+@using B40894Examen2.Controllers;
+
+@using model.Domain;
+
+@using model.Data;
+
+
+
+
+@{
+    ViewData["Title"] = "DesplegaOrganigrama";
+}
+
+
+
+
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+
+    @{
+
+        DepartamentosData depar = new DepartamentosData();
+
+        DepartamentosController controller = new DepartamentosController();
+
+
+        IEnumerable<Departamentos> listaDepartamentos = new List<Departamentos>();
+
+        listaDepartamentos = controller.GetAll();
+
+     
+        <tr><td><strong>Nombre</strong></td><td><strong>Marcado</strong></td><td><strong>Id departamento</strong></td>><td><strong>Jefatura</strong></td></tr>
+
+
+        foreach (Departamentos departamentos in listaDepartamentos)
+        {
+
+
+
+            <tr>
+
+                @{ if (departamentos.Jefatura != null)
+                    {
+                        depar.JerarquiasDeDepartamento(13, listaDepartamentos);
+
+                        if (departamentos.Marcado)
+                        {
+
+
+                            <td style="background-color:blue"> @departamentos.Nombre </td>
+                            <td> @departamentos.Marcado </td>
+                            <td> @departamentos.IdDepartamento </td>
+                            <td> @departamentos.Jefatura.Nombre</td>
+                        }
+
+
+                        else
+                        {
+                            <td> @departamentos.Nombre </td>
+                            <td> @departamentos.Marcado </td>
+                            <td> @departamentos.IdDepartamento </td>
+                            <td> @departamentos.Jefatura.Nombre</td>
+                        }
+                    }
+                }
+
+
+            </tr>
+
+
+
+
+
+        }
+    }
+</table>
+
+
+
