@@ -1,0 +1,33 @@
+﻿@model List<Examen2B73331.Model.Domain.Departamento>;
+@{
+    ViewData["Title"] = "Libro";
+}
+
+<div class="container">
+    <h2>Lista de Departamentos</h2>
+    <div class="row">
+       
+        <table class="table table-striped" id="myTable">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Jefatura</th>
+            </tr>
+            @foreach (var departamento in Model)
+            {
+                <tr>
+                    <th value="@departamento.Id">
+                        @departamento.Id
+                    </th>
+                    <th>@departamento.Nombre</th>
+                    <th>@departamento.Jefatura.Nombre</th>
+
+                </tr>
+            }
+
+
+
+
+        </table>
+    </div>
+</div>
