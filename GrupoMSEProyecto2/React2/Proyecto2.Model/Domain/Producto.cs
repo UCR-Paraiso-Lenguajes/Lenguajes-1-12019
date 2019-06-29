@@ -37,8 +37,8 @@ namespace Proyecto2.Model.Domain
 
         }
         /*Maes agregue este atributo, creo que es importante tenerlo*/
-        private float precioUnitario;
-        public float PrecioUnitario
+        private double precioUnitario;
+        public double PrecioUnitario
         {
             get { return precioUnitario; }
             set
@@ -57,13 +57,13 @@ namespace Proyecto2.Model.Domain
             }
         }
 
-        private decimal porcentajeImpuesto;
-        public decimal PorcentajeImpuesto
+        private double impuesto;
+        public double Impuesto
         {
-            get { return porcentajeImpuesto; }
+            get { return impuesto; }
             set {
                 if (value < 0 || value >100) throw new CompanniaException("El impuesto no puede ser negativo y no puede exceder el 100%");
-                porcentajeImpuesto = value;
+                impuesto = value;
             }
         }
 
@@ -99,15 +99,22 @@ namespace Proyecto2.Model.Domain
                 cantidadDisponible = value;
             }
         }
-
-        public Producto(float precioUnitario, int idProducto, decimal porcentajeImpuesto, string nombre, string descripcion, int cantidadDisponible)
+        private double precioProductoConImpuesto;
+        public double PrecioProductoConImpuesto
+        {
+            get { return precioProductoConImpuesto; }
+            private set { if (value <= 0) throw new CompanniaException("El precio con impuesto debe ser positivo"); precioProductoConImpuesto = value; }
+        }
+        /*Para sacar el precio del producto con impuesto corresponde a ValorUnitario - (ValorUnitario * (PorcentajeImpuesto/(100)))*/
+        public Producto(double precioUnitario, int idProducto, double impuestoC, string nombre, string descripcion, int cantidadDisponible)
         {
             PrecioUnitario = precioUnitario;
             IdProducto = idProducto;
-            PorcentajeImpuesto = porcentajeImpuesto;
+            Impuesto = impuestoC;
             Nombre = nombre;
             Descripcion = descripcion;
             CantidadDisponible = cantidadDisponible;
+            PrecioProductoConImpuesto = PrecioUnitario - (PrecioUnitario * Impuesto);
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace Proyecto2.Model.Domain
 {
-    public class PedidoPendiente : Pedido
+    public sealed class PedidoPendiente : Pedido
     {
         private DateTime fechaUltimoUso;
         public DateTime FechaUltimoUso

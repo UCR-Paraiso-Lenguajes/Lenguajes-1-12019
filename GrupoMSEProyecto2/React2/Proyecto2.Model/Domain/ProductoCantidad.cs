@@ -24,8 +24,8 @@ namespace Proyecto2.Model.Domain
                 cantidad = value;
             }
         }
-        private float compraTotalProducto;
-        public float CompraTotalProducto
+        private double compraTotalProducto;
+        public double CompraTotalProducto
         {
             get { return compraTotalProducto; }
             private set
@@ -39,11 +39,11 @@ namespace Proyecto2.Model.Domain
         {
         }
 
-        public ProductoCantidad(Producto producto, int cantidad, float compraTotalProducto)
+        public ProductoCantidad(Producto producto, int cantidad)
         {
             Producto = producto;
             Cantidad = cantidad;
-            CompraTotalProducto = this.Producto.PrecioUnitario * this.Cantidad;
+            CompraTotalProducto = this.Producto.PrecioProductoConImpuesto * this.Cantidad;
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace Proyecto2.Model.Domain
 {
-    public class PedidoEntregado : Pedido
+    public sealed class PedidoEntregado : Pedido
     {
         private DateTime fechaEntrega;
         public DateTime FechaEntrega
@@ -14,8 +14,8 @@ namespace Proyecto2.Model.Domain
                 fechaEntrega = value;
             }
         }
-        private float totalCompra;
-        public float TotalCompra
+        private double totalCompra;
+        public double TotalCompra
         {
             get { return totalCompra; }
             set
@@ -34,7 +34,7 @@ namespace Proyecto2.Model.Domain
             }
         }
 
-        public PedidoEntregado(int id, string email, string direccion, OrdenDeCompra ordenDeCompra, DateTime fechaEntrega, float totalCompra, int totalProductosEntregados)
+        public PedidoEntregado(int id, string email, string direccion, OrdenDeCompra ordenDeCompra, DateTime fechaEntrega, double totalCompra, int totalProductosEntregados)
         {
             Id = id;
             Email = email;

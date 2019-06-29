@@ -61,7 +61,7 @@ namespace Proyecto2.Model.Domain
                 pedido = value ?? throw new CompanniaException("El pedido tiene problemas");
             }
         }
-        public Carrito() { }
+        private Carrito() { }
         public Carrito(string id, Usuario usuario, decimal subtotal, int total, Pedido pedido)
         {
             Id = id;
