@@ -35,11 +35,23 @@ namespace Proyecto2.Tests.Domain
         public void Positive()
         {
             /*int id, string email, string direccion, OrdenDeCompra ordenDeCompra, DateTime fechaUltimoUso*/
-            PedidoPendiente pedidoPendiente = new PedidoPendiente(1, "helloWorld@hotmail.com","Perez Zeledon, San Jose, Costa Rica",getOrdenDeCompra(6),new DateTime().Date);
+            PedidoPendiente pedidoPendiente = new PedidoPendiente(1, "helloWorld@hotmail.com","Perez Zeledon, San Jose, Costa Rica",getOrdenDeCompra(6),DateTime.Now);
             PedidoDespachado pedidoDespachado = new PedidoDespachado(2, "helloWorld2@hotmail.com", "Desamparados, San Jose, Costa Rica", getOrdenDeCompra(7),
-                new DateTime().Date, getOrdenDeCompra(7).TotalCompra);
+                DateTime.Now, getOrdenDeCompra(7).TotalCompra);
             PedidoEntregado pedidoEntregado = new PedidoEntregado(3, "helloWorld3@hotmail.com", "Barrio Mexico, San Jose, Costa Rica", getOrdenDeCompra(8),
-                new DateTime().Date, getOrdenDeCompra(8).TotalCompra, getOrdenDeCompra(8).ProductosCantidad.Count);
+                DateTime.Now, getOrdenDeCompra(8).TotalCompra, getOrdenDeCompra(8).ProductosCantidad.Count);
+
+            Assert.AreNotEqual(pedidoPendiente,pedidoDespachado);
+            Assert.AreNotEqual(pedidoDespachado, pedidoEntregado);
+            Assert.AreNotEqual(pedidoPendiente, pedidoEntregado);
+
+            Assert.NotNull(pedidoPendiente.Email);
+            Assert.NotNull(pedidoDespachado.Email);
+            Assert.NotNull(pedidoEntregado.Email);
+
+            Assert.False(pedidoPendiente.Direccion.Equals("Desamparados, San Jose, Costa Rica"));
+            Assert.False(pedidoDespachado.Direccion.Equals("Barrio Mexico, San Jose, Costa Rica"));
+            Assert.False(pedidoEntregado.Direccion.Equals("Perez Zeledon, San Jose, Costa Rica"));
 
         }
     }
