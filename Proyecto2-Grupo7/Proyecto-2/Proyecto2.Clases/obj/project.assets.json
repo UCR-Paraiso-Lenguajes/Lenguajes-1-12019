@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dfonse\\source\\repos\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
+      "projectUniqueName": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
       "projectName": "Proyecto2.Clases",
-      "projectPath": "C:\\Users\\dfonse\\source\\repos\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
+      "projectPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
       "packagesPath": "C:\\Users\\dfonse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dfonse\\source\\repos\\Proyecto-2\\Proyecto2.Clases\\obj\\",
+      "outputPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
