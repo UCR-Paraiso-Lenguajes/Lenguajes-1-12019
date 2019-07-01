@@ -54,9 +54,12 @@ namespace Proyecto2.Model.Domain
             }
         }
 
-
-
-
-
+        public Usuario(decimal idUsuario, string nombre, string pasword, string correoPrincipal)
+        {
+            IdUsuario = idUsuario;
+            Nombre = nombre;
+            Pasword = pasword;
+            CorreoPrincipal = correoPrincipal;
+        }
     }
 }
