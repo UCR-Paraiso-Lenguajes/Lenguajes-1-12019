@@ -1,0 +1,14 @@
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.deps.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.runtimeconfig.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.runtimeconfig.dev.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.pdb
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.csprojAssemblyReference.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.RazorAssemblyInfo.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.RazorAssemblyInfo.cs
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.AssemblyInfoInputs.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.AssemblyInfo.cs
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.RazorTargetAssemblyInfo.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\ExamenPriscilla\obj\Debug\netcoreapp2.1\ExamenPriscilla.pdb

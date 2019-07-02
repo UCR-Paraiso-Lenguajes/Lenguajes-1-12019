@@ -1,0 +1,17 @@
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.deps.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.runtimeconfig.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.runtimeconfig.dev.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.csprojAssemblyReference.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.AssemblyInfoInputs.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.AssemblyInfo.cs
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\ExamenPriscilla.pdb
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.csproj.CopyComplete
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\bin\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.pdb
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\XUnitTestExamenPriscilla\obj\Debug\netcoreapp2.1\XUnitTestExamenPriscilla.pdb

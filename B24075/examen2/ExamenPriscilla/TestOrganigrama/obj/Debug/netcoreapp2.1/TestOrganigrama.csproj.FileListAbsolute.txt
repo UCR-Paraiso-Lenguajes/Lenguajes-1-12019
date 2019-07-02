@@ -1,0 +1,17 @@
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\TestOrganigrama.deps.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\TestOrganigrama.runtimeconfig.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\TestOrganigrama.runtimeconfig.dev.json
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\TestOrganigrama.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\TestOrganigrama.pdb
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\ExamenPriscilla.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\bin\Debug\netcoreapp2.1\ExamenPriscilla.pdb
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.csprojAssemblyReference.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.AssemblyInfoInputs.cache
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.AssemblyInfo.cs
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.csproj.CopyComplete
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.dll
+C:\Users\Priscilla\source\repos\ExamenPriscilla\TestOrganigrama\obj\Debug\netcoreapp2.1\TestOrganigrama.pdb
