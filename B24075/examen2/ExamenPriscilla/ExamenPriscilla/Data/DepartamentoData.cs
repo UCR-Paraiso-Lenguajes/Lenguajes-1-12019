@@ -87,17 +87,49 @@ namespace ExamenPriscilla.Data
         {
             List<Departamento> departamentosAct = departamentos;
 
-            Departamento nuevo = departamento;
-            nuevo.id = id;
-            departamentos.Add(nuevo);
-            foreach (var depto in departamentosAct)
+            foreach (var depto in departamentosAct) {
                 if (depto.id.Equals(id))
-                    departamentosAct.Remove(item: depto); 
+                {
 
-            return nuevo;
+                    depto.id = id;
+                    depto.nombre = departamento.nombre;
+                    depto.marcado = departamento.marcado;
+                    depto.jefatura = departamento.jefatura;
+                }
+            }
 
+            return departamento;
 
         }
+
+        public Departamento actualizarMarcar(String id, Departamento departamento)
+        {
+            List<Departamento> departamentosAct = departamentos;
+
+            foreach (var depto in departamentosAct)
+            {
+                if (depto.id.Equals(id))
+                {
+                    marcar(depto);
+                  
+                }
+            }
+
+            return departamento;
+
+        }
+
+        public void marcar(Departamento departamento)
+        {
+            departamento.marcado = true;
+            if (departamento.jefatura == null)
+            {
+                return;
+            }
+
+            marcar(departamento.jefatura);
+        }
+
 
 
         public void eliminarDepartamento(String id)

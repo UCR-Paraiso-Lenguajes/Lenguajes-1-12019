@@ -48,11 +48,22 @@ namespace ExamenPriscilla.Controllers
             return this.departamentoData.agregarDepartamento(value);
         }
 
+        //// PUT api/values/5
+        //[HttpPut("{id}")]
+        //public Departamento Put(String id, [FromBody] Departamento value)
+        //{
+        //    return this.departamentoData.actualizarDepartamento(id, value);
+        //}
+
+
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public Departamento Put(String id, [FromBody] Departamento value)
         {
-            return this.departamentoData.actualizarDepartamento(id, value);
+        return this.departamentoData.actualizarMarcar( id, value);
+
+           
         }
 
         // DELETE api/values/5
