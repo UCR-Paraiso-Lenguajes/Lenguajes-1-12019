@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco.csproj": {}
+  },
+  "projects": {
+    "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco.csproj",
+        "projectName": "ProyectoDosGrupoCinco",
+        "projectPath": "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco.csproj",
+        "packagesPath": "C:\\Users\\Space\\.nuget\\packages\\",
+        "outputPath": "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\ProyectoDosGrupoCinco\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Space\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.6.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

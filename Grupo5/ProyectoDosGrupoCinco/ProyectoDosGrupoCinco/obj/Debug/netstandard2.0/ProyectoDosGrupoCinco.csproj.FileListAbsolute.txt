@@ -1,0 +1,9 @@
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\bin\Debug\netstandard2.0\ProyectoDosGrupoCinco.deps.json
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\bin\Debug\netstandard2.0\ProyectoDosGrupoCinco.dll
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\bin\Debug\netstandard2.0\System.Data.SqlClient.dll
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\bin\Debug\netstandard2.0\System.Data.SqlClient.xml
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\obj\Debug\netstandard2.0\ProyectoDosGrupoCinco.csprojAssemblyReference.cache
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\obj\Debug\netstandard2.0\ProyectoDosGrupoCinco.csproj.CoreCompileInputs.cache
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\obj\Debug\netstandard2.0\ProyectoDosGrupoCinco.AssemblyInfoInputs.cache
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\obj\Debug\netstandard2.0\ProyectoDosGrupoCinco.AssemblyInfo.cs
+D:\Documentos\Lenguajes-1-12019\Grupo5\ProyectoDosGrupoCinco\ProyectoDosGrupoCinco\obj\Debug\netstandard2.0\ProyectoDosGrupoCinco.csproj.CopyComplete

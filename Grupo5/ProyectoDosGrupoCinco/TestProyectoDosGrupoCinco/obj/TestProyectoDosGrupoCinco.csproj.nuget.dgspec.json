@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco.csproj": {}
+  },
+  "projects": {
+    "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco.csproj",
+        "projectName": "TestProyectoDosGrupoCinco",
+        "projectPath": "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco.csproj",
+        "packagesPath": "C:\\Users\\Space\\.nuget\\packages\\",
+        "outputPath": "D:\\Documentos\\Lenguajes-1-12019\\Grupo5\\ProyectoDosGrupoCinco\\TestProyectoDosGrupoCinco\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Space\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.8.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.10.0, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.10.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
