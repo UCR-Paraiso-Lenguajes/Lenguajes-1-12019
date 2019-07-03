@@ -13,11 +13,11 @@ namespace ProyectoDosGrupoCinco.Data
             List<Producto> productos = new List<Producto>();
             using (SqlConnection connection = new SqlConnection("data source=" +
                 "163.178.173.148;initial " +
-                "catalog=NombreDeLaBase;user id=estudiantesrp;password=estudiantesrp;" +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=estudiantesrp;password=estudiantesrp;" +
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select * from NombreDeLaTabla";
+                string sql = "select * from Producto";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())

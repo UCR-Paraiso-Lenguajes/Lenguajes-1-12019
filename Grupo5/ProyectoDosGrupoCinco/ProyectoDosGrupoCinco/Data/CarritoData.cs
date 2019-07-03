@@ -11,9 +11,9 @@ namespace ProyectoDosGrupoCinco.Data
         {
             List<Carrito> carritos = new List<Carrito>();
             using (SqlConnection connection = new SqlConnection("data source=" +
-                "163.178.173.148;initial " +
-                "catalog=NombreDeLaBase;user id=estudiantesrp;password=estudiantesrp;" +
-                "multipleactiveresultsets=True"))
+              "163.178.173.148;initial " +
+              "catalog=AmisIngenieria;user id=lenguajesap;password=lenguajesap;" +
+              "multipleactiveresultsets=True"))
             {
                 connection.Open();
                 string sql = "select * from NombreDeLaTabla";
