@@ -26,23 +26,29 @@ namespace WebProyectoDosGrupoCinco.Controllers
         }
 
         // GET: api/Producto/5
+        [Route("getById")]
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public Producto Get(int id)
         {
-            return "value";
+            return productoData.GetProductById(id);
         }
 
         // POST: api/Producto
+        [Route("insert")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Producto producto)
         {
+            productoData.InsertarProducto(producto);
 
         }
 
         // PUT: api/Producto/5
+        [Route("update")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Producto productoActualizar)
         {
+
+            productoData.actualizarProducto(id, productoActualizar);
         }
 
         // DELETE: api/ApiWithActions/5
@@ -50,7 +56,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            productoData.deleteProduct(id);
+            productoData.Delete(id);
 
         }
     }

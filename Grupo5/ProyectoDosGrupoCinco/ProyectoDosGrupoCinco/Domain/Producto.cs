@@ -15,6 +15,10 @@ namespace ProyectoDosGrupoCinco.Domain
         private int cantidadDisponible;
         private string imagen;
 
+        public Producto()
+        {
+        }
+
         public Producto(int idProducto, decimal impuesto, string nombre, string descripcion, int cantidadDisponible)
         {
             this.IdProducto = idProducto;
