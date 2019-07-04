@@ -9,7 +9,16 @@ namespace ProyectoDosGrupoCinco.Domain
         private int idCarrito;
         private int idProducto;
 
+        public ProductoCarrito(int idCarrito, int idProducto)
+        {
+            IdCarrito = idCarrito;
+            IdProducto = idProducto;
+            
+        }
+        public ProductoCarrito()
+        {
 
+        }
         public int IdCarrito
         {
             get
