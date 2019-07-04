@@ -13,11 +13,11 @@ namespace ProyectoDosGrupoCinco.Data
             List<Producto> productos = new List<Producto>();
             using (SqlConnection connection = new SqlConnection("data source=" +
                 "163.178.173.148;initial " +
-                "catalog=ProyectoDosLenguajesGrupo05;user id=estudiantesrp;password=estudiantesrp;" +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select * from Producto";
+                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion from Producto";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -26,9 +26,12 @@ namespace ProyectoDosGrupoCinco.Data
                         {
                             int id = reader.GetInt32(0);
                             string nombre = reader.GetString(1);
+                            int impuesto = reader.GetInt32(2);
+                            int cantidadDisponible = reader.GetInt32(3);
+                            string descripcion = reader.GetString(4);
 
+                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible));
 
-                            //  carritos.Add(new CarritoDisponible(id, nombre));
                         }
                         reader.Close();
                     };

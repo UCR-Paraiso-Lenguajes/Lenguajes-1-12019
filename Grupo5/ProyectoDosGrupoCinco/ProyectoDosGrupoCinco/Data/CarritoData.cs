@@ -12,11 +12,11 @@ namespace ProyectoDosGrupoCinco.Data
             List<Carrito> carritos = new List<Carrito>();
             using (SqlConnection connection = new SqlConnection("data source=" +
               "163.178.173.148;initial " +
-              "catalog=AmisIngenieria;user id=lenguajesap;password=lenguajesap;" +
+              "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
               "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select * from NombreDeLaTabla";
+                string sql = "select * from Carrito";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
