@@ -41,5 +41,34 @@ namespace ProyectoDosGrupoCinco.Data
 
             return productos;
         }
+
+        public void deleteProduct()
+        {
+            using (SqlConnection conn = new SqlConnection("data source=" +
+                "163.178.173.148;initial " +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                "multipleactiveresultsets=True"))
+            {
+                conn.Open();
+
+                string sql = "delete from Producto where id = " + 2;
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                           
+                        }
+                        reader.Close();
+                    };
+                }
+                conn.Close();
+            }
+        }
+
+
+
     }
 }

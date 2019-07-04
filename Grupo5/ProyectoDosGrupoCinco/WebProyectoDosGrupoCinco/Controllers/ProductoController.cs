@@ -36,6 +36,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         // PUT: api/Producto/5
@@ -45,9 +46,12 @@ namespace WebProyectoDosGrupoCinco.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [Route("delete")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            productoData.deleteProduct(id);
+
         }
     }
 }
