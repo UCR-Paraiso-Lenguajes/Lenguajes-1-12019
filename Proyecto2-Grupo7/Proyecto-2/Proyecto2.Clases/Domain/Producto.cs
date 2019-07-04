@@ -7,21 +7,36 @@ namespace Proyecto2.Clases.Domain
     public class Producto
     {
       
-        public Producto(string id, decimal impuesto, string nombre, string descripcion, int cantidadDisponible)
+        public Producto(string id, decimal impuesto,string url_image, string nombre, string descripcion, int cantidadDisponible)
         {
             Id = id;
             Impuesto = impuesto;
             Nombre = nombre;
+            Url_image = url_image;
             Descripcion = descripcion;
             CantidadDisponible = cantidadDisponible;
-
-
 
         }
 
         public Producto()
         {
 
+        }
+
+        private string url_image;
+        public string Url_image
+        {
+            get
+            {
+
+                return url_image;
+                }
+
+            set
+            {
+                if(string.IsNullOrEmpty(value)) throw new Exception("El url es requerido");
+                url_image = value;
+            }
         }
 
         private string id;

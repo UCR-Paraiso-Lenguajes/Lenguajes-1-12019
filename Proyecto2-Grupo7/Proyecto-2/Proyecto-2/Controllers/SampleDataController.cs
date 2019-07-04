@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto2.Clases.Data;
+using Proyecto2.Clases.Domain;
+
 
 namespace Proyecto_2.Controllers
 {
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        ProductoData data = new ProductoData();
 
         [HttpGet("[action]")]
         public IEnumerable<Producto> Products(string summary)
         {
-            List<Producto> products = new List<Producto>();
-            for (int i = 50; i > 0; i--)
+
+            IEnumerable<Producto> products = data.listaProducto();
+
+            /*for (int i = 50; i > 0; i--)
             {
                 products.Add(new Producto(
                 $@"Ford 2{i}",
@@ -27,7 +33,7 @@ namespace Proyecto_2.Controllers
             if (!string.IsNullOrEmpty(summary))
             {
                 products.Where(p => p.Summary.Contains(summary) || p.Title.Contains(summary));
-            }
+            }*/
 
             return products;
         }
@@ -65,22 +71,5 @@ namespace Proyecto_2.Controllers
         //    }
     }
 
-    public class Producto
-    {
-
-        public Producto(string title, string summary, string image, int price, int amount)
-        {
-            this.Title = title;
-            this.Summary = summary;
-            this.Image = image;
-            this.Price = price;
-            this.Amount = amount;
-        }
-
-        public string Title { get; set; }
-        public string Image { get; set; }
-        public string Summary { get; set; }
-        public decimal Price { get; set; }
-        public int Amount { get; set; }
-    }
+    
 }
