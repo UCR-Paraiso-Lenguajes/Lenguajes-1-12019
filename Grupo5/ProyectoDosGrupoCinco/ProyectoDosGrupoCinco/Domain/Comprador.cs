@@ -12,5 +12,17 @@ namespace ProyectoDosGrupoCinco.Domain
         private string password;
         private string emailPrincipal;
 
+        public int IdComprador{
+            get
+            {
+                return idComprador;
+            }
+            set
+            {
+
+                idComprador = value;
+            }
+        }
+
     }
 }
