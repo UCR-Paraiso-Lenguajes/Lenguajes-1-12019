@@ -42,45 +42,62 @@ namespace ProyectoDosGrupoCinco.Data
             return productos;
         }
 
-        public void actualizarProducto(int id, Producto productoActualizar)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public void InsertarProducto(Producto producto)
         {
 
 
-            using (SqlConnection conn = new SqlConnection("data source=" +
-               "163.178.173.148;initial " +
-               "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
-               "multipleactiveresultsets=True"))
+            /* using (SqlConnection conn = new SqlConnection("data source=" +
+                "163.178.173.148;initial " +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                "multipleactiveresultsets=True"))
+             {
+                 conn.Open();
+
+                 string sql = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion)" +
+                     "VALUES(" + "'"+producto.Nombre+"'" + producto.Impuesto +"\n"+ producto.CantidadDisponible +"'"+producto.Descripcion+"'"+  ");";
+
+                 using (SqlCommand command = new SqlCommand(sql, conn))
+                 {
+
+                     using (SqlDataReader reader = command.ExecuteReader())
+                     {
+                         while (reader.Read())
+                         {
+
+                         }
+                         reader.Close();
+                     };
+                 }
+                 conn.Close();
+             }*/
+
+
+            using (SqlConnection connection = new SqlConnection("data source=" +
+                 "163.178.173.148;initial " +
+                 "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                 "multipleactiveresultsets=True"))
             {
-                conn.Open();
-                /*
-                 INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion)
-                VALUES ('Zapato', 200, 12, 'zapato talla 40');
-                 */
-                string sql = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion)" +
-                    "VALUES(" + producto.Nombre + producto.Impuesto+producto.CantidadDisponible+producto.Descripcion+");";
+                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion) " +
+                   
+                    "VALUES (@nombre,@impuesto,@cantidad_disponible, @descripcion)";
 
-                using (SqlCommand command = new SqlCommand(sql, conn))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@nombre", producto.Nombre);
+                    command.Parameters.AddWithValue("@impuesto", producto.Impuesto);
+                    command.Parameters.AddWithValue("@cantidad_disponible", producto.CantidadDisponible);
+                    command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
 
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
 
-                        }
-                        reader.Close();
-                    };
+                    // Check Error
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
                 }
-                conn.Close();
             }
-
-
-
 
 
 
@@ -95,7 +112,7 @@ namespace ProyectoDosGrupoCinco.Data
             {
                 conn.Open();
 
-                string sql = "delete from Producto where id = " + productoId;
+                string sql = "delete from Producto where id = " + 4;
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
 
@@ -148,6 +165,40 @@ namespace ProyectoDosGrupoCinco.Data
 
             return producto;
         }
+        public void actualizarProducto(int id, Producto producto)
+        {
 
+            using (SqlConnection conn = new SqlConnection("data source=" +
+           "163.178.173.148;initial " +
+           "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+           "multipleactiveresultsets=True"))
+            {
+                conn.Open();
+
+                string sql = "UPDATE Producto SET nombre = " + "'" + producto.Nombre + "'"                     
+                    + ", impuesto = "+"'"+ producto.Impuesto +"'"+
+                    ", cantidad_disponible = "+"'"+ producto.CantidadDisponible+"'"
+                  + ", descripcion = "+ "'"+producto.Descripcion+"'" + "WHERE id = "+ id;
+
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                        }
+                        reader.Close();
+                    };
+                }
+                conn.Close();
+            }
+
+
+        }
     }
+
+ 
 }

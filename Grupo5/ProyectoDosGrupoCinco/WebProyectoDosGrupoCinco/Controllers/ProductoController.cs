@@ -27,7 +27,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
 
         // GET: api/Producto/5
         [Route("getById")]
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Producto Get(int id)
         {
             return productoData.GetProductById(id);
@@ -45,18 +45,18 @@ namespace WebProyectoDosGrupoCinco.Controllers
         // PUT: api/Producto/5
         [Route("update")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Producto productoActualizar)
+        public void Put([FromBody] Producto productoActualizar)
         {
 
-            productoData.actualizarProducto(id, productoActualizar);
+            productoData.actualizarProducto(productoActualizar.IdProducto, productoActualizar);
         }
 
         // DELETE: api/ApiWithActions/5
         [Route("delete")]
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Producto producto)
         {
-            productoData.Delete(id);
+            productoData.Delete(producto.IdProducto);
 
         }
     }
