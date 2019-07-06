@@ -1,0 +1,132 @@
+body{
+    background: #34495e;
+    color: white;
+}
+.vr {
+    border-right: 1px solid #ccc !important;
+ }
+.well{
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 8%;
+     color: white !important;
+     background: #576574
+ }
+.well:hover{
+     background: #10ac84;
+ }
+.inputChat{
+     border: 0;
+     background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 300px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+ }
+
+.inputChat:focus{
+    width: 380px;
+    border-color: #2ecc71;
+ }
+ #textChat{
+     text-align: center;
+ }
+.cen{
+    text-align: center;
+}
+.der{
+    text-align: right;
+}
+
+/*chat*/
+/* CSS Document */
+/*body {
+    font:12px arial;
+    color: #222;
+    text-align:center;
+    padding:35px; }*/
+  
+form, p, span {
+    margin:0;
+    padding:0; }
+  
+input { font:12px arial; }
+  
+a {
+    color:#0000FF;
+    text-decoration:none; }
+  
+    a:hover { text-decoration:underline; }
+  
+#wrapper, #loginform {
+    margin:0 auto;
+    padding-bottom:25px;
+    background:#EBF4FB;
+    width:90%;
+    border:1px solid #ACD8F0; }
+  
+#loginform { padding-top:18px; }
+  
+    #loginform p { margin: 5px; }
+  
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#dfe6e9;
+    height:270px;
+    width:80%;
+    border:1px solid #ACD8F0;
+    overflow:auto;
+    color: black;
+ }
+    
+  
+#usermsg {
+    width:80%;
+    color: black;
+    border:4% solid #ACD8F0; }
+  
+#submit { width: 60px; }
+  
+.error { color: #ff0000; }
+  
+#menu { padding:12.5px 25px 12.5px 25px; }
+  
+.welcome { float:left; }
+  
+.logout { float:right; }
+  
+.msgln { margin:0 0 2px 0; }
+
+.table{
+    background: #303952;
+    color: white;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #596275;
+ }
+ .p{
+     font-size: 1vw;
+ }
+ .msj{
+     background: #b2bec3;
+}
+.estilotextarea {
+    width:400px;height:100px;border: 2px solid #990000;
+}
+/*.navbar-brand
+{
+    position:absolute;
+    width:100%;
+    left:0;
+    text-align:center;
+    margin:auto;
+}*/

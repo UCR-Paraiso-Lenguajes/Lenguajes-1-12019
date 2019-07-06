@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <h2>Despliegue De Departamentos</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Nombre</th>
+                            <th>Jefatura</th>
+                            <th>seleccionado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var departamento in Model)
+                        {
+                        <tr  onclick="GetMessage()">
+                            <td> @departamento.ID</td>
+                            <td> @departamento.Nombre</td>
+                            <td>
+                                @if (@departamento.Jefatura != null)
+                                {
+                                    @departamento.Jefatura.Nombre
+                                }
+                            </td>
+                            <td>
+                                @if (@departamento.Marcado == true)
+                                {
+                                    <div>seleccionado</div>
+                                }
+                            </td>
+                        </tr>
+                        }
+                        </tbody>
+                </table>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

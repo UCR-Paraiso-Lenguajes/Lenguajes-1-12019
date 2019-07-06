@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+Alfonso Jiménez Ulloa
+=======
 Jose Alfonso Jiménez Ulloa
+>>>>>>> 929d725e10210efba60d2ebb2da78f00919cf3b9
 Esteban Barrantes Mora
 Andrés Coto Serrano

@@ -64,7 +64,7 @@ public class PeliculaController {
 		}else {
 			Pelicula pelicula = new Pelicula();
 			BeanUtils.copyProperties(peliculaForm, pelicula);
-			pelicula.getGenero().setCodGenero(peliculaForm.getCodGenero());
+			//pelicula.getGenero().setCodGenero(peliculaForm.getCodGenero());
 			peliculaBusiness.save(pelicula);
 			
 			model.addAttribute("peliculas", peliculaBusiness.findMoviesByTittleAndGender("it", "suspenso"));
