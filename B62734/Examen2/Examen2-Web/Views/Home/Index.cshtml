@@ -1,0 +1,35 @@
+﻿@using Examen2_Clases.Domain;
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<br>
+
+
+<br>
+<div>
+    Departamentos:
+</div>
+<br>
+<div  class="containerr">
+    <table style="width: 100%" class="table">
+
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Jefatura</th>
+        </tr>
+
+        @foreach (var departamento in (IEnumerable<Departamento>)TempData["listaDepartamentos"])
+        {
+            
+            <tr>
+                <td>@departamento.Id</td>
+                <td>@departamento.Nombre</td>
+
+            </tr>
+        }
+    </table>
+</div>
+ 

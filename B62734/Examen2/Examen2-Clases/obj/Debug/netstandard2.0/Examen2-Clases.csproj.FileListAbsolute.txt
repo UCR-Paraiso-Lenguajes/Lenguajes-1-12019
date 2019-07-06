@@ -1,0 +1,9 @@
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\obj\Debug\netstandard2.0\Examen2-Clases.csprojAssemblyReference.cache
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\obj\Debug\netstandard2.0\Examen2-Clases.csproj.CoreCompileInputs.cache
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\obj\Debug\netstandard2.0\Examen2-Clases.AssemblyInfoInputs.cache
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\obj\Debug\netstandard2.0\Examen2-Clases.AssemblyInfo.cs
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\bin\Debug\netstandard2.0\Examen2.Clases.deps.json
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\bin\Debug\netstandard2.0\Examen2.Clases.dll
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\bin\Debug\netstandard2.0\Examen2.Clases.pdb
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\obj\Debug\netstandard2.0\Examen2.Clases.dll
+C:\Users\dfonse\source\repos\DanielFonsecaSolano-Examen2\Examen2-Clases\obj\Debug\netstandard2.0\Examen2.Clases.pdb
