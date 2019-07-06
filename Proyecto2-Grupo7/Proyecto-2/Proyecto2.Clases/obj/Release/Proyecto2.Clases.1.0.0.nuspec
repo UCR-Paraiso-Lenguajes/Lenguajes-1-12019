@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Proyecto2.Clases</id>
+    <version>1.0.0</version>
+    <authors>Proyecto2.Clases</authors>
+    <owners>Proyecto2.Clases</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="EntityFramework.SqlServerCompact" version="6.2.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SqlClient" version="4.6.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\bin\Release\netstandard2.0\Proyecto2.Clases.dll" target="lib\netstandard2.0\Proyecto2.Clases.dll" />
+  </files>
+</package>

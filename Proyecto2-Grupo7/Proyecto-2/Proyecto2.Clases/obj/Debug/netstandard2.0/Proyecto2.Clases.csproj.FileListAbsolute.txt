@@ -7,3 +7,12 @@ C:\Users\Leonardo\Desktop\RepoDos\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\
 C:\Users\Leonardo\Desktop\RepoDos\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\bin\Debug\netstandard2.0\Proyecto2.Clases.pdb
 C:\Users\Leonardo\Desktop\RepoDos\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.dll
 C:\Users\Leonardo\Desktop\RepoDos\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.pdb
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\bin\Debug\netstandard2.0\Proyecto2.Clases.deps.json
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\bin\Debug\netstandard2.0\Proyecto2.Clases.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\bin\Debug\netstandard2.0\Proyecto2.Clases.pdb
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.csprojAssemblyReference.cache
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.csproj.CoreCompileInputs.cache
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.AssemblyInfoInputs.cache
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.AssemblyInfo.cs
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Clases\obj\Debug\netstandard2.0\Proyecto2.Clases.pdb

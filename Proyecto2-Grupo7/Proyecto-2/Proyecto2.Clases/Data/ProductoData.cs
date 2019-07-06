@@ -16,41 +16,111 @@ namespace Proyecto2.Clases.Data
         {
         }
 
-        public IEnumerable<Producto> listaProducto()
+
+        public IEnumerable<Producto> ListProducts()
         {
-            List<Producto> listaProducto = new List<Producto>();
-
-            SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;;" +
-           "User id=estudiantesrp;Password=estudiantesrp");
-
-            String sql = "select * from Producto";
-            SqlDataAdapter daProducto = new SqlDataAdapter();
-
-            daProducto.SelectCommand = new SqlCommand(sql);
-            daProducto.SelectCommand.CommandType = System.Data.CommandType.TableDirect;
-            
-            DataSet dsProducto = new DataSet();
-            daProducto.Fill(dsProducto, "Producto"); //"Estado" seria el nombre del datatable dentro del dataset
-
-            Producto producto = new Producto();
-           
-            foreach (DataRow row in dsProducto.Tables["id_producto"].Rows)
+            List<Producto> productos = new List<Producto>();
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
             {
-                 producto.Id =""+Int32.Parse(row["id_producto"].ToString());
-                 producto.Nombre = row["nombre"].ToString();
-                producto.Url_image = row["url_image"].ToString();
-                producto.Impuesto = decimal.Parse(row["impuesto"].ToString());
-                 producto.Descripcion = row["descripcion"].ToString();
-                 producto.CantidadDisponible = Int32.Parse(row["cantidad_disponible"].ToString());
+                connection.Open();
+                string sql = "select id_producto, url_image, nombre, cantidad_disponible,impuesto,descripcion  from Producto";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
 
-                listaProducto.Add(producto);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            string nombre = reader.GetString(1);
+                            string url_image = reader.GetString(2);
+                            int cantidadDisponible = reader.GetInt32(3);
+                            decimal impuesto = reader.GetDecimal(4);
+                            string descripcion = reader.GetString(5);
+
+
+
+                            productos.Add(new Producto(id.ToString(), impuesto, url_image, nombre, descripcion, cantidadDisponible));
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
             }
 
-            Console.WriteLine(listaProducto);
+            return productos;
+        }
 
-            return listaProducto.AsEnumerable<Producto>();
+        public void Insertar(Producto producto)
+        {
+
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT into Producto (impuesto, url_image, nombre, descripcion, cantidad_disponible) VALUES (@impuesto, @url_image, @nombre, @descripcion, @cantidad_disponible )";
+                    command.Parameters.AddWithValue("@impuesto", producto.Impuesto);
+                    command.Parameters.AddWithValue("@url_image", producto.Url_image);
+                    command.Parameters.AddWithValue("@nombre", producto.Nombre);
+                    command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
+                    command.Parameters.AddWithValue("@cantidad_disponible", producto.CantidadDisponible);
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException)
+                    {
+                        // error here
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
 
         }
-        
+        public void Actualizar(Producto producto)
+        {
+
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "UPDATE Producto set impuesto=@impuesto, url_image= @url_image, nombre=@nombre, descripcion=@descripcion, cantidad_disponible=@cantidad_disponible where id_producto=@id";
+                    command.Parameters.AddWithValue("@id", producto.Id);
+                    command.Parameters.AddWithValue("@impuesto", producto.Impuesto);
+                    command.Parameters.AddWithValue("@url_image", producto.Url_image);
+                    command.Parameters.AddWithValue("@nombre", producto.Nombre);
+                    command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
+                    command.Parameters.AddWithValue("@cantidad_disponible", producto.CantidadDisponible);
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException)
+                    {
+                        // error here
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+
     }
 }

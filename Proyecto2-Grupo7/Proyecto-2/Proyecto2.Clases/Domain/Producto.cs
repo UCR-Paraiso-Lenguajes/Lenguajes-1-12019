@@ -101,8 +101,13 @@ namespace Proyecto2.Clases.Domain
             }
             set
             {
-                if (value <= 0) throw new Exception("La cantidad debe ser positiva.");
-                cantidadDisponible = value;
+                if (value <= -1) { throw new Exception("La cantidad debe ser positiva."); }
+                else
+                {
+
+                    cantidadDisponible = value;
+
+                }
             }
         }
 

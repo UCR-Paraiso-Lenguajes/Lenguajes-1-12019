@@ -7,29 +7,58 @@ export class Product extends Component {
     constructor(props) {
         super(props);
     }
-
+    handleClick() {
+        var image = this.props.image;
+        var title = this.props.title;
+        var description = this.props.description;
+        var cantidadDisponible = this.props.cantidadDisponible - 1;
+        var id = this.props.id;
+        var impuesto = this.props.impuesto;
+        fetch('api/actualizarProducto', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                url_image: image,
+                id: id,
+                impuesto: impuesto,
+                nombre: title,
+                descripcion: description,
+                cantidadDisponible: cantidadDisponible
+            })
+        })
+    }
     render() {
         return (
             <div>
                 <Grid>
                     <Row>
-                        <img src="https://www.ford.mx/content/dam/Ford/website-assets/latam/mx/nameplate/figo/2019/showroom/ford-figo-2019-auto-compacto-lateral-gris.png" />
+                        <img src={this.props.image} />
                     </Row>
                     <Row>
                         <h1>{this.props.title}</h1>
                     </Row>
                     <Row>
                         <p>
-                            Conoce Ford Figo 2019 y descubre todo lo <br />
-                            que puedes hacer con este gran Auto Compacto
+                            {this.props.description}
 
                         </p>
                     </Row>
                     <Row>
-                        <Button variant="primary">Agregar</Button>
+                        <p>
+                            {this.props.cantidadDisponible}
+
+                        </p>
+                    </Row>
+                    <Row>
+                        <Button variant="primary" onClick={this.handleClick()}>Agregar</Button>
                     </Row>
                 </Grid>
             </div>
         );
     }
+   
+
 }

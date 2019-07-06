@@ -13,7 +13,7 @@ export class Products extends Component {
     super(props);
       this.state = { products: [], loading: true };
 
-      fetch('api/SampleData/Products')
+      fetch('api/productos')
           .then(response => response.json())
           .then(data => {
               this.setState({ products: data, loading: false });
@@ -31,19 +31,15 @@ export class Products extends Component {
                 <Search Tittle="buscar" />
                 <BtnCarrito />
             </Row>
+            <Row>
             {this.state.products.map(product =>
-                <Row>
+               
                     <Col sm={4}>
-                        <Product title={product.title} />
+                        <Product title={product.nombre} image={product.url_image} description={product.descripcion} cantidadDisponible={product.cantidadDisponible} id={product.id} impuesto={product.impuesto} />
                     </Col>
-                    <Col sm={4}>
-                        <Product title={product.title} />
-                    </Col>
-                    <Col sm={4}>
-                        <Product title={product.title} />
-                    </Col>
+                )}
                 </Row>
-            )}
+          
               </Grid >
     );
   }
