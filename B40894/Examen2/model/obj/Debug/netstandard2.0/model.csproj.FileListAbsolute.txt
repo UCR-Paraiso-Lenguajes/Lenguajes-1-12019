@@ -1,0 +1,9 @@
+C:\Users\Space\source\model\bin\Debug\netstandard2.0\model.deps.json
+C:\Users\Space\source\model\bin\Debug\netstandard2.0\model.dll
+C:\Users\Space\source\model\bin\Debug\netstandard2.0\model.pdb
+C:\Users\Space\source\model\obj\Debug\netstandard2.0\model.csprojAssemblyReference.cache
+C:\Users\Space\source\model\obj\Debug\netstandard2.0\model.csproj.CoreCompileInputs.cache
+C:\Users\Space\source\model\obj\Debug\netstandard2.0\model.AssemblyInfoInputs.cache
+C:\Users\Space\source\model\obj\Debug\netstandard2.0\model.AssemblyInfo.cs
+C:\Users\Space\source\model\obj\Debug\netstandard2.0\model.dll
+C:\Users\Space\source\model\obj\Debug\netstandard2.0\model.pdb
