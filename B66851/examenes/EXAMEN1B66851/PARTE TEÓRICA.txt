@@ -1,0 +1,25 @@
+1. SEGÚN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y
+CÓMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA? 5PTS.
+
+	Se recominda uno por cada caso de prueba,
+
+2. QUÉ SON Y CUÁNDO SE USA EL “MANEJO DE TRANSACCIONES”? 5PTS
+
+	Son comandos de bases de datos(SQL) 
+	Se utilizan cuando se va a realizar un accion delicada, que requiera de seguridad, persistencia, atomicidad, 
+	por ejemplo una transaccion bancaria, en donde es esencial que las modifiaciones se lleven a cabo sin ningun tipo de error.
+
+
+3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACIÓN Y AUTORIZACIÓN? 5PTS
+
+
+	Autenticaion es el proceso en el cual se ingresan las credenciales como el usuario y contraseñas, 
+	y la autorizacion es el proceso que viene despues, es cuando se verifican los permisos y accesos del usuario.
+
+4. QUÉ HACE LA ANOTACIÓN @AUTOWIRE? 5PTS
+
+	Sirve para inyectar codigo de manera automatica.	
+
+5. QUÉ HACE LA ANOTACIÓN @REQUESTMAPPING? 5PTS
+
+	Permite responder a la aplicaion, las peticiones que se generen desde el html 
