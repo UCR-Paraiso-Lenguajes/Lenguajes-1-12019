@@ -1,0 +1,6 @@
+1. Se deben hacer una cantidad de asserts en donde se asegura que 
+lo que se esta trayendo es lo correcto, si bien no se le pueden hacer asserts a todos los datos que traigo del data, si puedo probar con datos clave. Esto afectta que realmente me aseguro de que mis metodos y los datos son validos.
+2. Transacciones son actividades atomicas de la base de datos, que busca realizar un conjunto de instrucciones, si alguna instruccion falla, la transaccion no se realiza en la base de datos. Se usa cuando hay peligro de apagonazos de luz o fallos que me hagan perdida de informacion.
+3.Autenticacion verifica quien soy yo cuando entro a la aplicacion, autorizacion me delimita que puedo y no puedo hacer en la aplicacion.
+4. La notacion autowire me facilita poner constructores para instancia de variables globales, me agrega un bean que a una clase ya instanseado.
+5. RequestMapping me facilita conectar el controller con las UI. Por medio de los metodos con dicha anotacion puedo realizar metodos HTTP como post y get.
