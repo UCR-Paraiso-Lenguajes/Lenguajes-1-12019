@@ -1,0 +1,12 @@
+1- Al menos dos
+
+2-Una transaccion es un conjunto de sentencias SQL que deben aplicarse a la base de datos 
+de manera completa, de otra forma no se aplicará ninguna de ellas. Ademas un manejo de transacciones 
+se usa cuando se quiere preservar la integridad de los datos.
+
+3-Autenticacion es el proceso mediante el cual se verifica a un usuario solicitando sus datos y 
+la Autorizacion es el proceso por el cual se verifica a que puede acceder ese usuario en nuestra aplicacion
+
+4-Sustituye la declaración de los atributos del bean en el xml
+
+5-Se encarga de relacionar un método con una petición http.
