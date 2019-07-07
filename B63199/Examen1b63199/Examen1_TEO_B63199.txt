@@ -1,0 +1,42 @@
+PARTE TEORICA - KAREN GUILLEN ARGUELLO 
+
+
+1. Según los visto en clase cuanto asserts debe tener un caso de prueba y cómo afecta esto los casos propuestos arribas? 
+
+Assert sirve para probar que un valor es verdader0, y pese a que se puede usr más de una vez, en un caso, para confirmar suele ser
+utilizado uno, ya que es más simple de comprender, y tiende a ser más exacto. 
+
+
+2. Qué son y cuándo se usa el manejo de transacciones? 
+
+
+La transacción es un conjunto de órdenes que se ejecutan formando una unidad de trabajo, 
+es decir, en forma indivisible o atómica.
+Se Utiliza como Modelo de 
+procesos concurrentes.
+Se usa para admitir operaciones concurrentes que preserven la
+integridad de los datos.  
+
+
+3. Cuál es la diferencia entre Autenticación y Autorización? 
+
+La autenticación es el proceso por el cual se identifica un cliente (persona) 
+como válida para posteriormente acceder a ciertos recursos definidos. 
+
+La autorización es el proceso sobre el cual se establecen que tipos de 
+recursos están permitidos o denegados para cierto usuario o grupo de usuarios concreto.
+
+
+4. Qué hace la Anotación @Autowire? 
+
+Permite no tener que definir la propiedad que se quiere inyectar. 
+@Autowired se puede poner encima del atributo que se quiere inyectar, encima del método setter de dicho método o también encima del 
+constructor 
+y dependiendo de donde se ponga la inyección se haría por atributo, por setter o por constructor como es lógico.
+
+
+5. Qué hace la Anotación @RequestMapping?
+
+@RequestMapping: Anotación que se encarga de relacionar un método con una petición http.
+
+Se usa la anotación @RequestMapping para mapear URLs
