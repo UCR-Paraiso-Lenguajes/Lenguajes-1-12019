@@ -5,24 +5,7 @@ namespace Proyecto2.Model.Domain
 {
     public sealed class PedidoDespachado : Pedido
     {
-        private DateTime fechaDespacho;
-        public DateTime FechaDespacho
-        {
-            get { return fechaDespacho; }
-            set {
-                if (value == null) throw new CompanniaException("La fecha no debe ser nula");
-                fechaDespacho = value;
-            }
-        }
-        private double totalCompra;
-        public double TotalCompra
-        {
-            get { return totalCompra; }
-            set {
-                if (value<=0) throw new CompanniaException("Un total debe ser mayor a cero");
-                totalCompra = value;
-            }
-        }
+        
 
         public PedidoDespachado(int id, string email, string direccion, OrdenDeCompra ordenDeCompra, DateTime fechaDespacho, double totalCompra)
         {

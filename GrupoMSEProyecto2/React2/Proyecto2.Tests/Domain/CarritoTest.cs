@@ -20,15 +20,13 @@ namespace Proyecto2.Tests.Domain
             List<ProductoCantidad> listaProductos = new List<ProductoCantidad>();
             ProductoCantidad productoCantidad;
             Producto producto;
-            double totalCompra = 0;
             for (int i = 1; i < cantidadProductos; i++)
             {
-                producto = new Producto(2000, i, 0.05, "Producto " + i, "ProductoCarritoPrueba" + i, 11);
+                producto = new Producto(2000, i, 0.05, "Producto " + i, "ProductoCarritoPrueba" + i, 11, "https://pictures.dealer.com/t/twowheelmotorsportguelphtc/0354/1447ce5c0fe8b9e07bb124be064018d2x.jpg?impolicy=resize&w=240");
                 productoCantidad = new ProductoCantidad(producto, i);
                 listaProductos.Add(productoCantidad);
-                totalCompra = totalCompra + (i * productoCantidad.CompraTotalProducto);
             }
-            return new OrdenDeCompra(listaProductos, totalCompra);
+            return new OrdenDeCompra(listaProductos);
             
         }
         [Test]
@@ -38,17 +36,17 @@ namespace Proyecto2.Tests.Domain
 
             Usuario usuario1 = new Usuario(1, "Esteban Arrieta", "Esteban123", "esteban123@hotmail.com");
             PedidoPendiente pedidoPendiente = new PedidoPendiente(1, "helloWorld@hotmail.com", "Perez Zeledon, San Jose, Costa Rica", getOrdenDeCompra(6), DateTime.Now);
-            Carrito  carrito1 = new Carrito("c111",usuario1,15000.6,175000, pedidoPendiente);
+            Carrito  carrito1 = new Carrito("c111",usuario1,pedidoPendiente);
 
             Usuario usuario2 = new Usuario(2, "Manfred Gonzalez", "Manfred123", "manfred123@gmail.com");
             PedidoDespachado pedidoDespachado = new PedidoDespachado(2, "helloWorld2@hotmail.com", "Desamparados, San Jose, Costa Rica", getOrdenDeCompra(7),
                 DateTime.Now, getOrdenDeCompra(7).TotalCompra);
-            Carrito carrito2 = new Carrito("c222", usuario2, 18000.6, 20000, pedidoDespachado);
+            Carrito carrito2 = new Carrito("c222", usuario2,pedidoDespachado);
 
             Usuario usuario3 = new Usuario(3, "Santiago Brenes", "Santiago123", "santiago123@yahoo.com");
             PedidoEntregado pedidoEntregado = new PedidoEntregado(3, "helloWorld3@hotmail.com", "Barrio Mexico, San Jose, Costa Rica", getOrdenDeCompra(8),
                 DateTime.Now, getOrdenDeCompra(8).TotalCompra, getOrdenDeCompra(8).ProductosCantidad.Count);
-            Carrito carrito3 = new Carrito("c333", usuario3, 12000.6, 36000, pedidoEntregado);
+            Carrito carrito3 = new Carrito("c333", usuario3,pedidoEntregado);
 
             Assert.IsNotNull(carrito1);
             Assert.IsNotNull(carrito2);
@@ -64,7 +62,6 @@ namespace Proyecto2.Tests.Domain
 
             Assert.IsFalse(carrito3.Pedido == null);
             Assert.IsNotEmpty(carrito1.Usuario.Nombre);
-            
 
 
         }

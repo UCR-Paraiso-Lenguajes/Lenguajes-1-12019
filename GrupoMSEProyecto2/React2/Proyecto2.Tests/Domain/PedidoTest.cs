@@ -20,15 +20,13 @@ namespace Proyecto2.Tests.Domain
             List<ProductoCantidad> listaProductos = new List<ProductoCantidad>();
             ProductoCantidad productoCantidad;
             Producto producto;
-            double totalCompra = 0;
             for (int i = 1; i < cantidadProductos; i++)
             {
-                producto = new Producto(2000, i, 0.05, "Producto " + i, "ProductoCarritoPrueba" + i, 11);
+                producto = new Producto(2000, i, 0.05, "Producto " + i, "ProductoCarritoPrueba" + i, 11, "https://pictures.dealer.com/t/twowheelmotorsportguelphtc/0354/1447ce5c0fe8b9e07bb124be064018d2x.jpg?impolicy=resize&w=240");
                 productoCantidad = new ProductoCantidad(producto, i);
                 listaProductos.Add(productoCantidad);
-                totalCompra = totalCompra + (i * productoCantidad.CompraTotalProducto);
             }
-            return new OrdenDeCompra(listaProductos, totalCompra);
+            return new OrdenDeCompra(listaProductos);
 
         }
         [Test]

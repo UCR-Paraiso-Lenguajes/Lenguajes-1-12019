@@ -22,15 +22,13 @@ namespace Proyecto2.Tests.Domain
             List<ProductoCantidad> listaProductos = new List<ProductoCantidad>();
             ProductoCantidad productoCantidad;
             Producto producto;
-            double totalCompra = 0;
             for (int i = 1; i < 10; i++)
             {
-                producto = new Producto(2000, i, 0.05, "Producto " + i, "ProductoCarritoPrueba" + i, 11);
+                producto = new Producto(2000, i, 0.05, "Producto " + i, "ProductoCarritoPrueba" + i, 11, "https://pictures.dealer.com/t/twowheelmotorsportguelphtc/0354/1447ce5c0fe8b9e07bb124be064018d2x.jpg?impolicy=resize&w=240");
                 productoCantidad = new ProductoCantidad(producto, i);
                 listaProductos.Add(productoCantidad);
-                totalCompra = totalCompra + (i * productoCantidad.CompraTotalProducto);
             }
-            OrdenDeCompra orden1 = new OrdenDeCompra(listaProductos, totalCompra);
+            OrdenDeCompra orden1 = new OrdenDeCompra(listaProductos);
 
             Assert.NotNull(orden1);
             Assert.NotNull(orden1.ProductosCantidad);
@@ -45,8 +43,14 @@ namespace Proyecto2.Tests.Domain
             Assert.AreNotEqual(orden1.ProductosCantidad[1].Producto.Nombre, "Producto 1");
             Assert.AreEqual(orden1.ProductosCantidad[1].Cantidad, 2);
 
+            Assert.True(orden1.SubTotalCompra < orden1.TotalCompra);
+
             Assert.AreNotEqual(orden1.TotalCompra,541000);
-            Assert.AreEqual(orden1.TotalCompra, 541500);
+            Assert.AreEqual(orden1.TotalCompra, 94500);
+            Assert.AreNotEqual(orden1.SubTotalCompra, 541000);
+            Assert.AreEqual(orden1.SubTotalCompra, 90000);
+
+            
         }
     }
 }
