@@ -1,0 +1,19 @@
+Respuestas Parte teórica
+
+1) Un caso de prueba debe tener al menos un assert por cada funcionalidad
+significativa del sistema, esto afecto a los casos de arriba ya que se propone verificar que los metodos funcionen efizcamente y cumplan con su objetivo.
+
+2) Las transacciones básicamente son un conjunto de acciones ejecutadas una detrás de la otra,
+con el fin de realizar algún cambio en la base de datos. En caso de que algo salga mal se devuelve a un
+estado consistente, es decir, volver a su estado incial, su objetivo es no echar a perder los datos. Se utiliza
+más que todo para verificar que los datos de inserción, actualización o eliminar, se realizaron correctamente o si hubo errores 
+en su ejecución.
+
+3) La autenticación se refiere a reconocer a un usuario como existente en el sistema, mientras que la autorización se refiere a los
+permisos que ese usuario tiene sobre el sistema. 
+
+4) Básicamente es una anotación que sirve para inyección de dependencias, es decir, en lugar de que cada clase tenga que instanciar los objetos que necesita,
+sea esta anotación la que inyecte dichos objetos. Facilitando así el control.
+
+5) Basicamente es una anotación que me permite relacionar un metodo con una petición http, es decir el metodo se ejecutará cuando se acceda a la ruta u url especificada.
+
