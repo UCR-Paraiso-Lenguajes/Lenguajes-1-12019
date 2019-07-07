@@ -30,11 +30,20 @@ namespace Proyecto2.Model.Domain
             get { return compraTotalProducto; }
             private set
             {
-                if (value <= 0) throw new CompanniaException("La compraTotalProducto debe ser menor y diferente a cero");
+                if (value <= 0) throw new CompanniaException("La compraTotalProducto debe ser mayor y diferente a cero");
                 compraTotalProducto = value;
             }
         }
-
+        private double compraSubTotalProducto;
+        public double CompraSubTotalProducto
+        {
+            get { return compraSubTotalProducto; }
+            private set
+            {
+                if (value <= 0) throw new CompanniaException("La compraSubTotalProducto debe ser mayor y diferente a cero");
+                compraSubTotalProducto = value;
+            }
+        }
         private ProductoCantidad()
         {
         }
@@ -44,6 +53,7 @@ namespace Proyecto2.Model.Domain
             Producto = producto;
             Cantidad = cantidad;
             CompraTotalProducto = this.Producto.PrecioProductoConImpuesto * this.Cantidad;
+            CompraSubTotalProducto = this.Producto.PrecioUnitario * this.Cantidad;
         }
     }
 }

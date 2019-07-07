@@ -105,8 +105,17 @@ namespace Proyecto2.Model.Domain
             get { return precioProductoConImpuesto; }
             private set { if (value <= 0) throw new CompanniaException("El precio con impuesto debe ser positivo"); precioProductoConImpuesto = value; }
         }
+        private string imagen;
+        public String Imagen
+        {
+            get { return imagen; }
+            set {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)) throw new CompanniaException("Debe haber una imagen para el producto");
+                imagen = value;
+            }
+        }
         /*Para sacar el precio del producto con impuesto corresponde a ValorUnitario - (ValorUnitario * (PorcentajeImpuesto/(100)))*/
-        public Producto(double precioUnitario, int idProducto, double impuestoC, string nombre, string descripcion, int cantidadDisponible)
+        public Producto(double precioUnitario, int idProducto, double impuestoC, string nombre, string descripcion, int cantidadDisponible, string imagen)
         {
             PrecioUnitario = precioUnitario;
             IdProducto = idProducto;
@@ -114,7 +123,8 @@ namespace Proyecto2.Model.Domain
             Nombre = nombre;
             Descripcion = descripcion;
             CantidadDisponible = cantidadDisponible;
-            PrecioProductoConImpuesto = PrecioUnitario - (PrecioUnitario * Impuesto);
+            Imagen = imagen;
+            PrecioProductoConImpuesto = PrecioUnitario + (PrecioUnitario * Impuesto);
         }
     }
 }
