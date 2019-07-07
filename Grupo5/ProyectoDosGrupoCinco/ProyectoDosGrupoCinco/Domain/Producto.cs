@@ -14,18 +14,20 @@ namespace ProyectoDosGrupoCinco.Domain
         private string descripcion;
         private int cantidadDisponible;
         private string imagen;
+        private int precio;
 
         public Producto()
         {
         }
 
-        public Producto(int idProducto, decimal impuesto, string nombre, string descripcion, int cantidadDisponible)
+        public Producto(int idProducto, decimal impuesto, string nombre, string descripcion, int cantidadDisponible, int precio)
         {
             this.IdProducto = idProducto;
             this.Impuesto = impuesto;
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.CantidadDisponible = cantidadDisponible;
+            this.Precio = precio;
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
@@ -34,5 +36,6 @@ namespace ProyectoDosGrupoCinco.Domain
         public int CantidadDisponible { get => cantidadDisponible; set => cantidadDisponible = value; }
         public string Imagen { get => imagen; set => imagen = value; }
         public int IdProducto { get => idProducto; set => idProducto = value; }
+        public int Precio { get => precio; set => precio = value; }
     }
 }

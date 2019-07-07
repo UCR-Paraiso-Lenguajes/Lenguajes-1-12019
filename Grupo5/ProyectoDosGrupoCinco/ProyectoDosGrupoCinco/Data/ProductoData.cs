@@ -17,7 +17,7 @@ namespace ProyectoDosGrupoCinco.Data
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion from Producto";
+                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion, precio from Producto";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -29,8 +29,9 @@ namespace ProyectoDosGrupoCinco.Data
                             int impuesto = reader.GetInt32(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
+                            int precio = reader.GetInt32(5);
 
-                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible));
+                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio));
 
                         }
                         reader.Close();
@@ -48,30 +49,6 @@ namespace ProyectoDosGrupoCinco.Data
         {
 
 
-            /* using (SqlConnection conn = new SqlConnection("data source=" +
-                "163.178.173.148;initial " +
-                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
-                "multipleactiveresultsets=True"))
-             {
-                 conn.Open();
-
-                 string sql = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion)" +
-                     "VALUES(" + "'"+producto.Nombre+"'" + producto.Impuesto +"\n"+ producto.CantidadDisponible +"'"+producto.Descripcion+"'"+  ");";
-
-                 using (SqlCommand command = new SqlCommand(sql, conn))
-                 {
-
-                     using (SqlDataReader reader = command.ExecuteReader())
-                     {
-                         while (reader.Read())
-                         {
-
-                         }
-                         reader.Close();
-                     };
-                 }
-                 conn.Close();
-             }*/
 
 
             using (SqlConnection connection = new SqlConnection("data source=" +
@@ -79,7 +56,7 @@ namespace ProyectoDosGrupoCinco.Data
                  "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
                  "multipleactiveresultsets=True"))
             {
-                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion) " +
+                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion, precio) " +
                    
                     "VALUES (@nombre,@impuesto,@cantidad_disponible, @descripcion)";
 
@@ -89,6 +66,8 @@ namespace ProyectoDosGrupoCinco.Data
                     command.Parameters.AddWithValue("@impuesto", producto.Impuesto);
                     command.Parameters.AddWithValue("@cantidad_disponible", producto.CantidadDisponible);
                     command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
+                    command.Parameters.AddWithValue("@precio", producto.Precio);
+
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
@@ -141,7 +120,7 @@ namespace ProyectoDosGrupoCinco.Data
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion from Producto WHERE id = "+id;
+                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion, precio from Producto WHERE id = "+id;
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -153,8 +132,9 @@ namespace ProyectoDosGrupoCinco.Data
                             int impuesto = reader.GetInt32(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
+                            int precio = reader.GetInt32(5);
 
-                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible);
+                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio);
 
                         }
                         reader.Close();
@@ -178,7 +158,7 @@ namespace ProyectoDosGrupoCinco.Data
                 string sql = "UPDATE Producto SET nombre = " + "'" + producto.Nombre + "'"                     
                     + ", impuesto = "+"'"+ producto.Impuesto +"'"+
                     ", cantidad_disponible = "+"'"+ producto.CantidadDisponible+"'"
-                  + ", descripcion = "+ "'"+producto.Descripcion+"'" + "WHERE id = "+ id;
+                  + ", descripcion = "+ "'"+producto.Descripcion+"'" + ", precio = " + "'"+ producto.Precio+"'" + "WHERE id = "+ id;
 
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
@@ -198,7 +178,46 @@ namespace ProyectoDosGrupoCinco.Data
 
 
         }
+
+        public List<Producto> BuscarPorDescripcion(string descripcionBuscar)
+        {
+            List<Producto> productos = new List<Producto>();
+            using (SqlConnection connection = new SqlConnection("data source=" +
+                "163.178.173.148;initial " +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                "multipleactiveresultsets=True"))
+            {
+                connection.Open();
+                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion, precio from Producto WHERE descripcion LIKE '%" + descripcionBuscar+"%'" ;
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idProducto = reader.GetInt32(0);
+                            string nombre = reader.GetString(1);
+                            int impuesto = reader.GetInt32(2);
+                            int cantidadDisponible = reader.GetInt32(3);
+                            string descripcion = reader.GetString(4);
+                            int precio = reader.GetInt32(5);
+
+                            productos.Add(new Producto(idProducto, impuesto, nombre, descripcion, cantidadDisponible, precio));
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+
+            return productos;
+
+        }
+
+
+
     }
 
- 
+
 }
