@@ -56,9 +56,9 @@ namespace ProyectoDosGrupoCinco.Data
                  "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
                  "multipleactiveresultsets=True"))
             {
-                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion, precio) " +
-                   
-                    "VALUES (@nombre,@impuesto,@cantidad_disponible, @descripcion)";
+                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion, precio,ruta_imagen ) " +
+
+                    "VALUES (@nombre,@impuesto,@cantidad_disponible, @descripcion, @ruta_imagen )";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -67,6 +67,8 @@ namespace ProyectoDosGrupoCinco.Data
                     command.Parameters.AddWithValue("@cantidad_disponible", producto.CantidadDisponible);
                     command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
                     command.Parameters.AddWithValue("@precio", producto.Precio);
+                    command.Parameters.AddWithValue("@ruta_imagen", producto.Imagen);
+
 
 
                     connection.Open();
@@ -158,7 +160,8 @@ namespace ProyectoDosGrupoCinco.Data
                 string sql = "UPDATE Producto SET nombre = " + "'" + producto.Nombre + "'"                     
                     + ", impuesto = "+"'"+ producto.Impuesto +"'"+
                     ", cantidad_disponible = "+"'"+ producto.CantidadDisponible+"'"
-                  + ", descripcion = "+ "'"+producto.Descripcion+"'" + ", precio = " + "'"+ producto.Precio+"'" + "WHERE id = "+ id;
+                  + ", descripcion = "+ "'"+producto.Descripcion+"'" + ", precio = " + "'"+ producto.Precio+"'" + ", ruta_imagen= " +"'" +producto.Imagen+"'"
+                  + "WHERE id = "+ id;
 
 
                 using (SqlCommand command = new SqlCommand(sql, conn))

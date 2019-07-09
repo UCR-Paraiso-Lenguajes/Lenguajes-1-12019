@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoDosGrupoCinco.Business;
 using ProyectoDosGrupoCinco.Data;
 using ProyectoDosGrupoCinco.Domain;
 
@@ -15,14 +16,23 @@ namespace WebProyectoDosGrupoCinco.Controllers
     {
 
         ProductoData productoData = new ProductoData();
+        ProductoBusiness productoBusiness = new ProductoBusiness();
 
         // GET: api/Producto
         [Route("getAll")]
-        [HttpGet]
-        public IEnumerable<Producto> Get()
+        [HttpGet("{indice}")]
+        public IEnumerable<Producto> Get(int indice)
         {
 
-            return productoData.ListProducts();
+            return productoBusiness.CargarProductos(indice);
+        }
+
+        [Route("getProductByDescription")]
+        [HttpGet("{descripcion}")]
+        public IEnumerable<Producto> GetProductByDescription(string descripcion)
+        {
+
+            return productoBusiness.BuscarPorDescripcion(descripcion);
         }
 
         // GET: api/Producto/5

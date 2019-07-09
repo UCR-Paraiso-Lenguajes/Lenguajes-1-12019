@@ -36,12 +36,25 @@ namespace ProyectoDosGrupoCinco.Business
             for(int i=empezar; i <= terminar; i++)
             {
 
-                productosTemp.Add(productos[i]);
-                
+                if (i >= productos.Count)
+                {
+
+                    break;
+
+                }
+                else
+                {
+                    productosTemp.Add(productos[i]);
+                }
+
+
+
 
             }
 
-            return null;
+            productos = productosTemp;
+
+            return productos;
         }
 
 
