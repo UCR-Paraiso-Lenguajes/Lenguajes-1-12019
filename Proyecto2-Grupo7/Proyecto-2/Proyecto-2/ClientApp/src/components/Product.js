@@ -6,30 +6,9 @@ export class Product extends Component {
 
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
     }
-    handleClick() {
-        var image = this.props.image;
-        var title = this.props.title;
-        var description = this.props.description;
-        var cantidadDisponible = this.props.cantidadDisponible - 1;
-        var id = this.props.id;
-        var impuesto = this.props.impuesto;
-        fetch('api/actualizarProducto', {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                url_image: image,
-                id: id,
-                impuesto: impuesto,
-                nombre: title,
-                descripcion: description,
-                cantidadDisponible: cantidadDisponible
-            })
-        })
-    }
+   
     render() {
         return (
             <div>
@@ -53,12 +32,38 @@ export class Product extends Component {
                         </p>
                     </Row>
                     <Row>
-                        <Button variant="primary" onClick={this.handleClick()}>Agregar</Button>
+                        <Button variant="primary" onClick={this.handleClick}>Agregar</Button>
                     </Row>
                 </Grid>
             </div>
         );
     }
-   
+    handleClick() {
+        var image = this.props.image;
+        var title = this.props.title;
+        var description = this.props.description;
+        var cantidadDisponible = this.props.cantidadDisponible - 1;
+        var id = this.props.id;
+        var impuesto = this.props.impuesto;
+        fetch('api/actualizarProducto', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                url_image: image,
+                id: id,
+                impuesto: impuesto,
+                nombre: title,
+                descripcion: description,
+                cantidadDisponible: cantidadDisponible
+            })
+        }
+
+        )
+        window.location.reload(); 
+
+    }
 
 }

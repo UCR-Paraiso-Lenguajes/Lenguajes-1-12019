@@ -53,7 +53,40 @@ namespace Proyecto2.Clases.Data
 
             return productos;
         }
+        public Producto ListProductsbyid(string id)
+        {
+            Producto producto = new Producto();
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
+            {
+                connection.Open();
+                string sql = "select url_image, nombre, cantidad_disponible,impuesto,descripcion  from Producto where id_producto="+id;
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
 
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string nombre = reader.GetString(0);
+                            string url_image = reader.GetString(1);
+                            int cantidadDisponible = reader.GetInt32(2);
+                            decimal impuesto = reader.GetDecimal(3);
+                            string descripcion = reader.GetString(4);
+
+                            producto = new Producto(id, impuesto, url_image, nombre, descripcion, cantidadDisponible);
+
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+
+            return producto;
+        }
         public void Insertar(Producto producto)
         {
 
