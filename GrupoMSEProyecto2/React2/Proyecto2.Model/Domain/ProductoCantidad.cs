@@ -12,7 +12,11 @@ namespace Proyecto2.Model.Domain
         public Producto Producto
         {
             get { return producto; }
-            set { producto = value ?? throw new CompanniaException("El producto debe existir"); }
+            set { producto = value ?? throw new CompanniaException("El producto debe existir");
+                CompraTotalProducto = this.producto.PrecioProductoConImpuesto * this.Cantidad;
+                CompraSubTotalProducto = this.producto.PrecioUnitario * this.Cantidad;
+            }
+            
         }
 
         private int cantidad;
@@ -22,6 +26,8 @@ namespace Proyecto2.Model.Domain
             set {
                 if (value < 0) throw new CompanniaException("La cantidad no puede ser 0 o negativo");
                 cantidad = value;
+                CompraTotalProducto = this.Producto.PrecioProductoConImpuesto * this.cantidad;
+                CompraSubTotalProducto = this.Producto.PrecioUnitario * this.cantidad;
             }
         }
         private double compraTotalProducto;

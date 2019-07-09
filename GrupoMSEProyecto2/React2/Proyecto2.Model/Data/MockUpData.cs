@@ -108,6 +108,45 @@ namespace Proyecto2.Model.Data
             }
             return false;
         }
+        public bool actualizaCarrito(string idCarrito, Carrito carritoNuevo)
+        {
+            if (!carritoNuevo.Id.Equals(idCarrito)) carritoNuevo.Id = idCarrito;
+            foreach (Carrito carrito in carritos)
+            {
+                if(carrito.Id == idCarrito)
+                {
+                    carritos.Remove(carrito);
+                    carritos.Add(carritoNuevo);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void insertaCarrito(Carrito carritoNuevo)
+        {
+            carritos.Add(carritoNuevo);
+        }
+        public bool eliminaCarrito(string idCarrito)
+        {
+            foreach (Carrito carrito in carritos)
+            {
+                if (carrito.Id == idCarrito)
+                {
+                    carritos.Remove(carrito);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void guardaUsuario(Usuario usuarioAGuardar)
+        {
+            usuarios.Add(usuarioAGuardar);
+        }
+        public List<Carrito> traeListaCarritos()
+        {
+            return carritos;
+        }
+
         public MockUpData()
         {
             llenaMockCarritos();
