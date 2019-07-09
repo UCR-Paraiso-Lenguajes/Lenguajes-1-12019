@@ -9,12 +9,54 @@ namespace ProyectoDosGrupoCinco.Business
    public class ProductoBusiness
     {
         ProductoData productoData = new ProductoData();
+
         public List<Producto> CargarProductos(int indice)//que tengan cantidad
         {
+
+            List<Producto> productos = productoData.ListProducts();
+            List<Producto> productosTemp = new List<Producto>();
+
+            int empezar = 0;
+            int terminar = indice * 50;
+
+            if (indice == 0)
+            {
+                terminar = 50;
+            }
+
+            for(int i = 0; i<indice; i++)
+            {
+
+                empezar +=50*i;
+            }
+            if (empezar != 0)
+            {
+                empezar += 1;
+            }
+            for(int i=empezar; i <= terminar; i++)
+            {
+
+                productosTemp.Add(productos[i]);
+                
+
+            }
+
             return null;
         }
 
-        public List<Producto> BuscarPorDescripcion(string descripcion)//descripciones truncadas
+
+
+
+
+
+
+
+
+
+
+
+
+        public List<Producto> BuscarPorDescripcion(string descripcion)//descripciones truncadas (descripcion, indice)
         {
             return productoData.BuscarPorDescripcion(descripcion);
         }

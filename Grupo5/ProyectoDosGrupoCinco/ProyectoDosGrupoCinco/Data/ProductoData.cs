@@ -8,7 +8,7 @@ namespace ProyectoDosGrupoCinco.Data
 {
     public class ProductoData
     {
-        public IEnumerable<Producto> ListProducts()
+        public List<Producto> ListProducts()
         {
             List<Producto> productos = new List<Producto>();
             using (SqlConnection connection = new SqlConnection("data source=" +
