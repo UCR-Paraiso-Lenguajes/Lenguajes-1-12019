@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto2Lenguajes.Model.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -30,6 +31,25 @@ namespace Proyecto2.Model.Domain
 
 
             }*/
+        }
+
+        private int idProducto;
+        public int IdProducto
+        {
+            get { return idProducto; }
+            set { if (value <= 0) throw new CompanniaException("El id producto no debe ser menor a 1"); idProducto = value; }
+        }
+        private int cantidadProducto;
+        public int CantidadProducto
+        {
+            get { return cantidadProducto; }
+            set { if (value <= 0) throw new CompanniaException("La cantidad de productos no puede ser negativo"); cantidadProducto = value; }
+        }
+        public Bodega(int idProducto, int cantidadProducto)
+        {
+            IdProducto = idProducto;
+            CantidadProducto = cantidadProducto;
+
         }
 
 

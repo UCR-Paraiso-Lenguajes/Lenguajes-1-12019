@@ -38,7 +38,7 @@ namespace Proyecto2.Model.Data
                             string passwordComprador = reader.GetString(2);
                             string emailPrincipal = reader.GetString(3);
 
-                            //comprador.Add(new Usuario(id_publicador, nombre_publicador, url_sitio_web));
+                            comprador.Add(new Usuario(id, nombre, passwordComprador, emailPrincipal));
                         }
                         reader.Close();
                     };
@@ -47,6 +47,63 @@ namespace Proyecto2.Model.Data
             }
 
             return comprador;
+        }
+
+
+        public void InsertarComprador(Usuario usuario)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "Insert into Comprador(id,nombre,passwordComprador,emailPrincipal) values(@id, @nombre, @passwordComprador, @emailPrincipal)";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add(new SqlParameter("@id", usuario.IdUsuario));
+                    command.Parameters.Add(new SqlParameter("@nombre", usuario.Nombre));
+                    command.Parameters.Add(new SqlParameter("@passwordComprador", usuario.Pasword));
+                    command.Parameters.Add(new SqlParameter("@emailPrincipal", usuario.CorreoPrincipal));
+                }
+                connection.Close();
+            }
+        }
+
+
+        public void ActualizaComprador(Usuario usuario)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"UPDATE Comprador SET 
+                          nombre = @nombre,
+                          passwordComprador = @passwordComprador,
+                          emailPrincipal = @emailPrincipal
+                    WHERE id = @id";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("nombre", usuario.Nombre);
+                    command.Parameters.AddWithValue("cantidadProducto", usuario.Pasword);
+                    command.Parameters.AddWithValue("emailPrincipal", usuario.CorreoPrincipal);
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        public void BorrarComprador(int Id)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"DELETE FROM Comprador 
+                   WHERE id = @Id";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("Id", Id);
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
         }
     }
 }

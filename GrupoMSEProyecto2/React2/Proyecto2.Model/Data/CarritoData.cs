@@ -52,6 +52,61 @@ namespace Proyecto2.Model.Data
 
             return carrito;
         }
+
+        public void InsertarCarrito(Carrito carrito)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "insert into Carrito(idProducto,cantidadProducto) values(@idProducto,@cantidadProducto)";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add(new SqlParameter("@idProducto", idProducto));
+                    command.Parameters.Add(new SqlParameter("@cantidadProducto", cantidadProducto));
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+;
+        }
+
+
+        public void Actualiza(Carrito carrito)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"UPDATE Carrito SET 
+                          cantidadProducto = @CantidadProducto
+                    WHERE idProducto = " + idProducto;
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("idProducto", idProducto);
+                    command.Parameters.AddWithValue("cantidadProducto", cantidadProducto);
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+
+        public void BorrarCarrito(int Id)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"DELETE FROM Carrito 
+                   WHERE idProducto = @Id";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("Id", Id);
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
     }
     
 }
