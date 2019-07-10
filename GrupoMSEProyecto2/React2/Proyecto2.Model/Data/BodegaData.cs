@@ -46,60 +46,53 @@ namespace Proyecto2.Model.Data
             return bodega;
         }
 
-        public void InsertarBodega( int idProducto, int cantidadProducto)
-        {
+        //se inserta en bodega cuando se inserta un nuevo producto
+        //public void InsertarBodega( int idProducto, int cantidadProducto)
+        //{
             
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string sql = "insert into Bodega(idProducto,cantidadProducto) values(@idProducto,@cantidadProducto)";
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.Add(new SqlParameter("@idProducto",idProducto));
-                    command.Parameters.Add(new SqlParameter("@cantidadProducto", cantidadProducto));
-                    command.ExecuteNonQuery();
-                }
-                connection.Close();
-            }
-;
-        }
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        string sql = "insert into Bodega(idProducto,cantidadProducto) values(@idProducto,@cantidadProducto)";
+        //        using (SqlCommand command = new SqlCommand(sql, connection))
+        //        {
+        //            command.Parameters.Add(new SqlParameter("@idProducto",idProducto));
+        //            command.Parameters.Add(new SqlParameter("@cantidadProducto", cantidadProducto));
+        //            command.ExecuteNonQuery();
+        //        }
+        //        connection.Close();
+        //    }
+        //}
 
 
-        public void Actualiza(int idProducto, int cantidadProducto)
+        public void Actualiza(Producto producto, int cantidadInventario)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+
                 connection.Open();
-                string sql = @"UPDATE Bodega SET 
-                          cantidadProducto = @CantidadProducto
-                    WHERE idProducto = " + idProducto;
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                string sqlProducto = "update Producto set impuesto=@impuesto, nombre=@nombre,descripcion=@descripcion,precio=@precio,cantidadDisponible=@cantidadDisponible, imagen=@imagen where id= " + producto.IdProducto;
+                string sqlBodega = "update Bodega set cantidadProducto = @cantidadProducto where idProducto = " + producto.IdProducto;
+                using (SqlCommand command = new SqlCommand(sqlProducto, connection))
                 {
-                    command.Parameters.AddWithValue("idProducto", idProducto);
-                    command.Parameters.AddWithValue("cantidadProducto", cantidadProducto);
+                    command.Parameters.AddWithValue("impuesto", producto.Impuesto);
+                    command.Parameters.AddWithValue("nombre", producto.Nombre);
+                    command.Parameters.AddWithValue("descripcion", producto.Descripcion);
+                    command.Parameters.AddWithValue("precio", producto.PrecioUnitario);
+                    command.Parameters.AddWithValue("cantidadDisponible", cantidadInventario);
+                    command.Parameters.AddWithValue("imagen", producto.Imagen);
+
+                    SqlCommand commandBodega = new SqlCommand(sqlBodega, connection);
+                    commandBodega.Parameters.AddWithValue("cantidadProducto", cantidadInventario);
                     command.ExecuteNonQuery();
+                    commandBodega.ExecuteNonQuery();
                 }
                 connection.Close();
             }
         }
 
 
-        public void BorrarBodega(int Id)
-        {
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string sql = @"DELETE FROM Bodega 
-                   WHERE idProducto = @Id";
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.AddWithValue("Id", Id);
-                    command.ExecuteNonQuery();
-                }
-                connection.Close();
-            }
-        }
+        
 
 
     }

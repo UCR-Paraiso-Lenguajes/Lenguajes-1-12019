@@ -37,12 +37,12 @@ namespace Proyecto2.Model.Data
                             Decimal impuesto = reader.GetDecimal(1);
                             string nombre = reader.GetString(2);
                             string descripcion = reader.GetString(3);
-                            float precio = reader.GetFloat(4);
+                            Double precio = (Double)reader.GetDouble(4);
                             int cantidadDis = reader.GetInt32(5);
                             string imagen = reader.GetString(6);
                             int cantidadProducto = reader.GetInt32(7);
 
-                            productoCantidad.Add(new ProductoCantidad(new Producto(precio,id,(double)impuesto,nombre,descripcion,cantidadDis,imagen),cantidadProducto));
+                            productoCantidad.Add(new ProductoCantidad(new Producto((float)precio,id,(double)impuesto,nombre,descripcion,cantidadDis,imagen),cantidadProducto));
                         }
                         reader.Close();
                     };

@@ -37,11 +37,43 @@ namespace Proyecto2.Model.Data
                             Decimal impuesto = reader.GetDecimal(1);
                             string nombre = reader.GetString(2);
                             string descripcion = reader.GetString(3);
-                            float precio = reader.GetFloat(4);
+                            Double precio = (Double)reader.GetDouble(4);
                             int cantidadDis = reader.GetInt32(5);
                             string imagen = reader.GetString(6);
 
-                            producto.Add(new Producto(precio, id, (double)impuesto, nombre, descripcion, cantidadDis, imagen));
+                            producto.Add(new Producto((float)precio, id, (double)impuesto, nombre, descripcion, cantidadDis, imagen));
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+
+            return producto;
+        }
+
+        public IEnumerable<Producto> ObtenerRango(int indice)
+        {
+            List<Producto> producto = new List<Producto>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "select p.id, p.impuesto, p.nombre, p.descripcion, p.precio, p.cantidadDisponible, p.imagen from Producto p where p.id between "+indice+" and "+(indice+49);
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            Decimal impuesto = reader.GetDecimal(1);
+                            string nombre = reader.GetString(2);
+                            string descripcion = reader.GetString(3);
+                            Double precio = (Double)reader.GetDouble(4);
+                            int cantidadDis = reader.GetInt32(5);
+                            string imagen = reader.GetString(6);
+
+                            producto.Add(new Producto((float)precio, id, (double)impuesto, nombre, descripcion, cantidadDis, imagen));
                         }
                         reader.Close();
                     };
@@ -54,7 +86,7 @@ namespace Proyecto2.Model.Data
 
 
 
-        public void InsertarProducto(ProductoCantidad productoCantidad)
+        public void InsertarProducto(Producto producto)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -64,16 +96,16 @@ namespace Proyecto2.Model.Data
                 string sqlBodega = "insert into Bodega(idProducto, cantidadProducto) values (@idProducto,@cantidadProducto)";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.Add(new SqlParameter("@id", productoCantidad.Producto.IdProducto));
-                    command.Parameters.Add(new SqlParameter("@impuesto", productoCantidad.Producto.Impuesto));
-                    command.Parameters.Add(new SqlParameter("@nombre", productoCantidad.Producto.Nombre));
-                    command.Parameters.Add(new SqlParameter("@descripcion", productoCantidad.Producto.Descripcion));
-                    command.Parameters.Add(new SqlParameter("@precio", productoCantidad.Producto.PrecioUnitario));
-                    command.Parameters.Add(new SqlParameter("@cantidadDisponible", productoCantidad.Producto.CantidadDisponible));
-                    command.Parameters.Add(new SqlParameter("@imagen", productoCantidad.Producto.Imagen));
+                    command.Parameters.Add(new SqlParameter("@id", producto.IdProducto));
+                    command.Parameters.Add(new SqlParameter("@impuesto", producto.Impuesto));
+                    command.Parameters.Add(new SqlParameter("@nombre", producto.Nombre));
+                    command.Parameters.Add(new SqlParameter("@descripcion", producto.Descripcion));
+                    command.Parameters.Add(new SqlParameter("@precio", producto.PrecioUnitario));
+                    command.Parameters.Add(new SqlParameter("@cantidadDisponible", producto.CantidadDisponible));
+                    command.Parameters.Add(new SqlParameter("@imagen", producto.Imagen));
                     SqlCommand commandBodega = new SqlCommand(sqlBodega, connection);
-                    commandBodega.Parameters.Add(new SqlParameter("@idProducto", productoCantidad.Producto.IdProducto));
-                    commandBodega.Parameters.Add(new SqlParameter("@cantidadProducto", productoCantidad.Cantidad));
+                    commandBodega.Parameters.Add(new SqlParameter("@idProducto", producto.IdProducto));
+                    commandBodega.Parameters.Add(new SqlParameter("@cantidadProducto", producto.CantidadDisponible));
                     command.ExecuteNonQuery();
                     commandBodega.ExecuteNonQuery();
                 }
@@ -83,25 +115,25 @@ namespace Proyecto2.Model.Data
         }
 
 
-        public void Actualiza(ProductoCantidad productoCantidad)
+        public void Actualiza(Producto producto)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
                 connection.Open();
-                string sqlProducto = "update Producto set impuesto=@impuesto, nombre=@nombre,descripcion=@descripcion,precio=@precio,cantidadDisponible=@cantidadDisponible, imagen=@imagen where id= " + productoCantidad.Producto.IdProducto;
-                string sqlBodega = "update Bodega set cantidadProducto = @cantidadProducto where idProducto = " + productoCantidad.Producto.IdProducto;
+                string sqlProducto = "update Producto set impuesto=@impuesto, nombre=@nombre,descripcion=@descripcion,precio=@precio,cantidadDisponible=@cantidadDisponible, imagen=@imagen where id= " + producto.IdProducto;
+                string sqlBodega = "update Bodega set cantidadProducto = @cantidadProducto where idProducto = " + producto.IdProducto;
                 using (SqlCommand command = new SqlCommand(sqlProducto, connection))
                 {
-                    command.Parameters.AddWithValue("impuesto", productoCantidad.Producto.Impuesto);
-                    command.Parameters.AddWithValue("nombre", productoCantidad.Producto.Nombre);
-                    command.Parameters.AddWithValue("descripcion", productoCantidad.Producto.Descripcion);
-                    command.Parameters.AddWithValue("precio", productoCantidad.Producto.PrecioUnitario);
-                    command.Parameters.AddWithValue("cantidadDisponible", productoCantidad.Producto.CantidadDisponible);
-                    command.Parameters.AddWithValue("imagen", productoCantidad.Producto.Imagen);
+                    command.Parameters.AddWithValue("impuesto", producto.Impuesto);
+                    command.Parameters.AddWithValue("nombre", producto.Nombre);
+                    command.Parameters.AddWithValue("descripcion", producto.Descripcion);
+                    command.Parameters.AddWithValue("precio", producto.PrecioUnitario);
+                    command.Parameters.AddWithValue("cantidadDisponible", producto.CantidadDisponible);
+                    command.Parameters.AddWithValue("imagen", producto.Imagen);
 
                     SqlCommand commandBodega = new SqlCommand(sqlBodega, connection);
-                    commandBodega.Parameters.AddWithValue("cantidadProducto", productoCantidad.Cantidad);
+                    commandBodega.Parameters.AddWithValue("cantidadProducto", producto.CantidadDisponible);
                     command.ExecuteNonQuery();
                     commandBodega.ExecuteNonQuery();
                 }

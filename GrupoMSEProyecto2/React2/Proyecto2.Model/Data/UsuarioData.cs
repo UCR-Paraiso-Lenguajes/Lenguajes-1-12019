@@ -62,6 +62,7 @@ namespace Proyecto2.Model.Data
                     command.Parameters.Add(new SqlParameter("@nombre", usuario.Nombre));
                     command.Parameters.Add(new SqlParameter("@passwordComprador", usuario.Pasword));
                     command.Parameters.Add(new SqlParameter("@emailPrincipal", usuario.CorreoPrincipal));
+                    command.ExecuteNonQuery();
                 }
                 connection.Close();
             }
@@ -77,11 +78,11 @@ namespace Proyecto2.Model.Data
                           nombre = @nombre,
                           passwordComprador = @passwordComprador,
                           emailPrincipal = @emailPrincipal
-                    WHERE id = @id";
+                    WHERE id = "+usuario.IdUsuario;
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("nombre", usuario.Nombre);
-                    command.Parameters.AddWithValue("cantidadProducto", usuario.Pasword);
+                    command.Parameters.AddWithValue("passwordComprador", usuario.Pasword);
                     command.Parameters.AddWithValue("emailPrincipal", usuario.CorreoPrincipal);
                     command.ExecuteNonQuery();
                 }

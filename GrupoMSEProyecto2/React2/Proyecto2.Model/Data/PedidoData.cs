@@ -43,7 +43,7 @@ namespace Proyecto2.Model.Data
                             int totalProductosEntregados = reader.GetInt32(7);
                             DateTime fechaDespacho = reader.GetDateTime(8);
 
-                            pedidos.Add(new Pedido());
+                            //pedidos.Add();
                         }
                         reader.Close();
                     };
@@ -71,13 +71,12 @@ namespace Proyecto2.Model.Data
                 string sql = "insert into Pedido(idProducto,cantidadProducto) values(@idProducto,@cantidadProducto)";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.Add(new SqlParameter("@idProducto", idProducto));
-                    command.Parameters.Add(new SqlParameter("@cantidadProducto", cantidadProducto));
+                    //command.Parameters.Add(new SqlParameter("@idProducto", idProducto));
+                    //command.Parameters.Add(new SqlParameter("@cantidadProducto", cantidadProducto));
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
             }
-;
         }
 
 
@@ -85,17 +84,17 @@ namespace Proyecto2.Model.Data
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = @"UPDATE Pedido SET 
-                          cantidadProducto = @CantidadProducto
-                    WHERE idProducto = " + idProducto;
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.AddWithValue("idProducto", idProducto);
-                    command.Parameters.AddWithValue("cantidadProducto", cantidadProducto);
-                    command.ExecuteNonQuery();
-                }
-                connection.Close();
+                //connection.Open();
+                //string sql = @"UPDATE Pedido SET 
+                //          cantidadProducto = @CantidadProducto
+                //    WHERE idProducto = " + idProducto;
+                //using (SqlCommand command = new SqlCommand(sql, connection))
+                //{
+                //    command.Parameters.AddWithValue("idProducto", idProducto);
+                //    command.Parameters.AddWithValue("cantidadProducto", cantidadProducto);
+                //    command.ExecuteNonQuery();
+                //}
+                //connection.Close();
             }
         }
 
