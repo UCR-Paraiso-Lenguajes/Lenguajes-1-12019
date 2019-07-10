@@ -4643,7 +4643,7 @@
   },
   "libraries": {
     "EntityFramework.SqlServerCompact/6.2.0": {
-      "sha512": "pGPxxPUCsckMg/UP/EOfklanNCCGIQvJzMBt56UnjwutzlVni7dJL92LFeQR2foI+O2E4NjlCaWWHXxGI7gpQw==",
+      "sha512": "wa1ILjn73fU1W1DVC/KeJMrVqfzJ4nQeXqZgRRwxpyKgqusAfc576Mj09tUOn3dmuWiju15BqiSxNuJGJnKmLQ==",
       "type": "package",
       "path": "entityframework.sqlservercompact/6.2.0",
       "hasTools": true,
@@ -7261,7 +7261,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
-      "sha512": "T261YUlVUH1nINaPN7odLnV/Qx3nNXaM+ZqOfMRy+W9uP4ZmaDPMGIjzxzauKYF/Td0zBZx8VzUOW+QBOFq84g==",
+      "sha512": "xvNRQmZOYfuReVC9trT8sTYVRm7yJzI5z1YZ4iO6Im/EWOWoqqLNoYG0sY8EHnp4DOtioGJ/hmJ+ksqaJN8aBA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration/2.1.1",
       "files": [
@@ -7274,7 +7274,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.1.1": {
-      "sha512": "a42G/myvJTNq2D0aS/ryYR614V0RLlqNCv/pIQ+vrR96LlXhVo96n5xOrtGDWebfkMgFWlU+Bg0Wrks/pNXNZQ==",
+      "sha512": "Su++Q22kR3EaWmg7flhuAX0xZFPVL4z99HYc9CNQZksi4L/lCzxyIRXJUV3qTEyyX8wkl6sx3RDVUcYcBTdjlg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.contracts/2.1.1",
       "files": [
@@ -7287,7 +7287,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.1.1": {
-      "sha512": "8RlWoUsGqK/fxqQTIgFizBYJinUpVSkrNax1tKugqahYNtUsdhJlRYj/y5fRl+bdNzoMKnbz/9iRwU01oSBe8g==",
+      "sha512": "uIhfMpJOjQi/fBtKglWDP8lSuiX5AOQwomCS6hZ37EzKB5tMnaH+Z7DbkEFoZLaGcLDaskoOJ0nhIjA9A2i0Rg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.core/2.1.1",
       "files": [
@@ -7300,7 +7300,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.1.1": {
-      "sha512": "ubJdwxSYJlvZsS3Ae7AKtAS5d1TjAO9+4GBTuyX13O/ek7INPJxqLLYGuD5TIvk6UQl0tHA1tvq+QrtjRCkLuA==",
+      "sha512": "d4xk6rWvW9HR2/QdwQ7OfrbmQcMi4EE3IlZT3JwfIRFdbtCXDFz+PCjs/qomLC+d+vlEXZuPvneX+G5FF9d1MA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.design/2.1.1",
       "files": [
@@ -7323,7 +7323,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.1.1": {
-      "sha512": "HvhP/iwUa9Y7ArQ0xIWOEp8HFz7si5EEC6r1WdpQSWr/l9iilNKnPzpmb4gb8SbmJAZ7Qt9nHEmHPH6+xbDVwg==",
+      "sha512": "03wiQubZKezzT5OKgnExDOnzrtn/TQG4QDQfOJI524yZ2CCC/h4PxtPmO5FDH7x1qP/99EXLaZYojE9fZ7u9Yw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.1.1",
       "files": [
@@ -7337,7 +7337,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.1.1": {
-      "sha512": "PTJYeSfXooNP77z2cpfo8TgCWE2G17qnpJ7c2GSREdJt65PBjA5/kuw2LMUIDGN+XbTDNREYwj0956Kp76+xyA==",
+      "sha512": "8rubHXs2ufTJ205H2c9aSga/X8ToURtGguISBHEGkAcz/1Qp922jAaGvGvvJNhoXiBg/9K5VupkfkJDvnhN3/Q==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.templating/2.1.1",
       "files": [
@@ -7350,7 +7350,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.1.1": {
-      "sha512": "2CyDpIyKv/Ehoc5ds7tAMnVljAR9a+rKXKQ7WrWQ70/SXwrvlgFPklh+5GYeUJViNCVIoQO0aSi/oiixdTFdKw==",
+      "sha512": "MRtBhRi0CQ36yi9r08l/j7I24a2bfiAW9N6fSq69M5mZFw1vjijPaM2NPokWv9hqT0aUCLNKCX7A6E20XgYE1w==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.utils/2.1.1",
       "files": [
@@ -7363,7 +7363,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.1.1": {
-      "sha512": "SOOsomV+rRKH9BrAK3IDs6NMT9qkpWqllF5nnd9meZsa7o7oFbJsX4hlJQaKAUgD7ACawgDfwPLNJehz7Ge2KQ==",
+      "sha512": "LhsJrKf4fMqOyaVqAexbpkR6GmHDuVeek+s1NFGwFYFZAgSbnLmBt8DIw41zGbEXO/GYiPLTOTA7F1fJknsf6g==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.1.1",
       "files": [
@@ -7802,7 +7802,7 @@
       ]
     },
     "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
-      "sha512": "c3YNH1GQJbfIPJeCnr4avseugSqPrxwIqzthYyZDN6EuOyNOzq+y2KSUfRcXauya1sF4foESTgwM5e1A8arAKw==",
+      "sha512": "LdIvj7Bi2jiaNTqY/ezZGVXHe1KI5fjLSI026O1TjVzsmdgTP/zTF+f3nwHCjwttyhsPBEiswv0PekimPWZwWg==",
       "type": "package",
       "path": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
@@ -7828,7 +7828,7 @@
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.5.0": {
-      "sha512": "AJfX7owAAkMjWQYhoml5IBfXh8UyYPjktn8pK0BFGAdKgBS7HqMz1fw5vdzfZUWfhtTPDGCjgNttt46ZyEmSjg==",
+      "sha512": "X4hp5h5M2plTWZnUd79d0x4actSMj9L3Hv6e1Lu+oGi35XSaXg21ha4Rqmt2KrIesfUwMfpET8QhMkS1eiWqRQ==",
       "type": "package",
       "path": "runtime.native.system.data.sqlclient.sni/4.5.0",
       "files": [
@@ -7843,7 +7843,7 @@
       ]
     },
     "runtime.native.System.IO.Compression/4.3.0": {
-      "sha512": "INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
+      "sha512": "b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
       "type": "package",
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
@@ -7923,7 +7923,7 @@
       ]
     },
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
-      "sha512": "kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
+      "sha512": "Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
       "type": "package",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
@@ -7962,7 +7962,7 @@
       ]
     },
     "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
-      "sha512": "ytoewC6wGorL7KoCAvRfsgoJPJbNq+64k2SqW6JcOAebWsFUvCCYgfzQMrnpvPiEl4OrblUlhF2ji+Q1+SVLrQ==",
+      "sha512": "JGc0pAWRE8lB4Ucygk2pYSKbUPLlAIq6Bczf5/WF2D/VKJEPtYlVUMxk8fbl1zRfTWzSHi+VcFZlaPlWiNxeKg==",
       "type": "package",
       "path": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
@@ -8324,7 +8324,7 @@
       ]
     },
     "System.Collections.Specialized/4.3.0": {
-      "sha512": "Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
+      "sha512": "NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
       "type": "package",
       "path": "system.collections.specialized/4.3.0",
       "files": [
@@ -8572,7 +8572,7 @@
       ]
     },
     "System.Data.SqlClient/4.6.1": {
-      "sha512": "7MTJhBFt4/tSJ2VRpG+TQNPcDdbCnWuoYzbe0kD5O3mQ7aZ2Q+Q3D9Y5Y3/aper5Gp3Lrs+8edk9clvxyPYXPw==",
+      "sha512": "u980l3uFvJ3N/Hin95Po9wn3zzKMvogu/ZnrOZWM/lsMjEatFPXWbxN+coTMeEFUewsopy5xOP8rZD5oXcAZkA==",
       "type": "package",
       "path": "system.data.sqlclient/4.6.1",
       "files": [
@@ -10982,7 +10982,7 @@
       ]
     },
     "System.Runtime.Serialization.Primitives/4.3.0": {
-      "sha512": "Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+      "sha512": "2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
       "type": "package",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
@@ -11308,7 +11308,7 @@
       ]
     },
     "System.Security.Cryptography.Csp/4.3.0": {
-      "sha512": "X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==",
+      "sha512": "yO2k5o+Z+DiFRBvvB9vdRRAGHi6bm02M9OWXfCqQ8K0UxD3Woc3svQheZfb7PoTEFs0kGacO0IzzMWsb6Mkeow==",
       "type": "package",
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
@@ -11379,7 +11379,7 @@
       ]
     },
     "System.Security.Cryptography.OpenSsl/4.3.0": {
-      "sha512": "h4CEgOgv5PKVF/HwaHzJRiVboL2THYCou97zpmhjghx5frc7fIvlkY1jL+lnIQyChrJDMNEXS6r7byGif8Cy4w==",
+      "sha512": "vOYy7Jv9KsG3ld2hLt0GoERd82SZi4BelrbXLwI9yFBYX7kpbvUCWYo4eyevk47cuJXZ9ZLVAryANcc7iY71aA==",
       "type": "package",
       "path": "system.security.cryptography.openssl/4.3.0",
       "files": [
@@ -12585,23 +12585,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dfonse\\.nuget\\packages\\": {},
+    "C:\\Users\\Leonardo\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto-2\\Proyecto-2.csproj",
+      "projectUniqueName": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto-2\\Proyecto-2.csproj",
       "projectName": "Proyecto-2",
-      "projectPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto-2\\Proyecto-2.csproj",
-      "packagesPath": "C:\\Users\\dfonse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto-2\\obj\\",
+      "projectPath": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto-2\\Proyecto-2.csproj",
+      "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto-2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\dfonse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12614,8 +12614,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj": {
-              "projectPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj"
+            "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj": {
+              "projectPath": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj"
             }
           }
         }
@@ -12645,6 +12645,7 @@
             "version": "[2.1.1, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12667,7 +12668,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"EntityFramework.SqlServerCompact 6.2.0\" se restauró con \".NETFramework,Version=v4.6.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v2.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'EntityFramework.SqlServerCompact 6.2.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "EntityFramework.SqlServerCompact",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
