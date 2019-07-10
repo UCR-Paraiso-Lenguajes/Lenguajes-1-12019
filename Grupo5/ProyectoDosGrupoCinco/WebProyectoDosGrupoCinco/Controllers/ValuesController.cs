@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using ProyectoDosGrupoCinco.Business;
 
 namespace WebProyectoDosGrupoCinco.Controllers
 {
@@ -10,10 +13,17 @@ namespace WebProyectoDosGrupoCinco.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        OrdenDeCompraBusiness ordenDeCompraBusiness = new OrdenDeCompraBusiness();
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+
+            ordenDeCompraBusiness.resumenCompra("alfonsoaju6@gmail.com", "hola");
+    
+            
+
             return new string[] { "value1", "value2" };
         }
 

@@ -71,6 +71,9 @@ namespace ProyectoDosGrupoCinco.Business
 
         public List<Producto> BuscarPorDescripcion(string descripcion)//descripciones truncadas (descripcion, indice)
         {
+
+          
+
             return productoData.BuscarPorDescripcion(descripcion);
         }
 

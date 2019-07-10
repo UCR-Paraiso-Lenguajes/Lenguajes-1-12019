@@ -21,7 +21,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
         // GET: api/Producto
         [Route("getAll")]
         [HttpGet("{indice}")]
-        public IEnumerable<Producto> Get(int indice)
+        public IEnumerable<Producto> GetAll(int indice)
         {
 
             return productoBusiness.CargarProductos(indice);
