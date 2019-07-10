@@ -23,7 +23,6 @@ namespace Proyecto2.Clases.Data
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
 
-
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -39,11 +38,11 @@ namespace Proyecto2.Clases.Data
                 }
                 connection.Close();
             }
-            carrito.Comprador = ListCompradorbyid(compradorId);
-            carrito.ProductoCantidad = ListProductCantidadbyCarrito("" + idCarrito);
+            carrito.Comprador = ListCompradorbyid(compradorId.ToString());
+            carrito.ProductoCantidad = ListProductCantidadbyCarrito(idCarrito.ToString());
             return carrito;
         }
-        private Comprador ListCompradorbyid(int idComprador)
+        public Comprador ListCompradorbyid(string idComprador)
         {
             Comprador comprador = new Comprador();
             using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
@@ -63,7 +62,7 @@ namespace Proyecto2.Clases.Data
                     {
                         while (reader.Read())
                         {
-                            comprador.Id = ""+idComprador;
+                            comprador.Id =idComprador;
                             comprador.Nombre = reader.GetString(0);
                             comprador.Password= reader.GetString(1);
                             comprador.EmailPrincipal = reader.GetString(2);
@@ -79,7 +78,7 @@ namespace Proyecto2.Clases.Data
             return comprador ;
         }
       
-        private List<ProductoCantidad> ListProductCantidadbyCarrito(String idCarrito)
+        public List<ProductoCantidad> ListProductCantidadbyCarrito(String idCarrito)
         {
             List<ProductoCantidad> productosCantidad = new List<ProductoCantidad>();
             ProductoData productoData = new ProductoData();
@@ -99,7 +98,7 @@ namespace Proyecto2.Clases.Data
                            int  id = reader.GetInt32(0);
                             int cantidad = reader.GetInt32(1);
 
-                            ProductoCantidad productoCantidad = new ProductoCantidad(productoData.ListProductsbyid(""+id),cantidad);
+                            ProductoCantidad productoCantidad = new ProductoCantidad(productoData.ListProductsbyid(id.ToString()),cantidad);
 
                             productosCantidad.Add(productoCantidad);
 
@@ -111,6 +110,103 @@ namespace Proyecto2.Clases.Data
             }
 
             return productosCantidad;
+        }
+
+        public List<Carrito> listarCarritos()
+        {
+            List<Carrito> carritos = new List<Carrito>();
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
+            {
+                connection.Open();
+                string sql = "select id_carrito, id_comprador from Carrito";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id_carrito = reader.GetInt32(0);
+                            int id_comprador = reader.GetInt32(0);
+
+
+                            Comprador comprador= ListCompradorbyid(id_comprador.ToString());
+                            List<ProductoCantidad> productos = ListProductCantidadbyCarrito(id_carrito.ToString());
+                            carritos.Add(new Carrito(productos, id_carrito.ToString(), comprador));
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+
+            return carritos;
+        }
+
+
+        public void InsertarCarrito(Carrito carrito)
+        {
+
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT into Carrito (id_comprador) VALUES (@id_comprador)";
+                    command.Parameters.AddWithValue("@id_co", carrito.Comprador.Id);
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException)
+                    {
+                        // error here
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void InsertarProductoCantidad(ProductoCantidad productoCantidad, string idCarrito)
+        {
+
+            using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
+           "User id=estudiantesrp;Password=estudiantesrp"))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT into ProductoCantidad (id_producto, cantidad, id_carrito) VALUES (@id_producto, @cantidad, @id_carrito)";
+                    command.Parameters.AddWithValue("@id_producto", productoCantidad.Producto.Id);
+                    command.Parameters.AddWithValue("@cantidad", productoCantidad.Cantidad);
+                    command.Parameters.AddWithValue("@id_carrito", idCarrito);
+                    
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException)
+                    {
+                        // error here
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
         }
 
     }
