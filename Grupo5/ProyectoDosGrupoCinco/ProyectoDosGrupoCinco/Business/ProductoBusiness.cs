@@ -58,7 +58,52 @@ namespace ProyectoDosGrupoCinco.Business
         }
 
 
+        public List<Producto> CargarProductosBuscar(List<Producto> productosRecibida,int indice)//que tengan cantidad
+        {
 
+            List<Producto> productos = productosRecibida;
+            List<Producto> productosTemp = new List<Producto>();
+
+            int empezar = 0;
+            int terminar = indice * 50;
+
+            if (indice == 0)
+            {
+                terminar = 50;
+            }
+
+            for (int i = 0; i < indice; i++)
+            {
+
+                empezar += 50 * i;
+            }
+            if (empezar != 0)
+            {
+                empezar += 1;
+            }
+            for (int i = empezar; i <= terminar; i++)
+            {
+
+                if (i >= productos.Count)
+                {
+
+                    break;
+
+                }
+                else
+                {
+                    productosTemp.Add(productos[i]);
+                }
+
+
+
+
+            }
+
+            productos = productosTemp;
+
+            return productos;
+        }
 
 
 
@@ -74,7 +119,7 @@ namespace ProyectoDosGrupoCinco.Business
 
           
 
-            return productoData.BuscarPorDescripcion(descripcion);
+            return CargarProductosBuscar(productoData.BuscarPorDescripcion(descripcion),1);
         }
 
         public Producto MostrarDetalle(int idProducto)
