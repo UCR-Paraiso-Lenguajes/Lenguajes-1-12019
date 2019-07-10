@@ -10,9 +10,10 @@ namespace Proyecto2.Clases.Data
 {
     public class CarritoData
     {
-        public Carrito getCarritobyid(string idCarrito)
+        public Carrito getCarritobyid(int idCarrito)
         {
-            Carrito carrito = new Carrito(); 
+            Carrito carrito = new Carrito();
+            int compradorId = 0;
             using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
            "User id=estudiantesrp;Password=estudiantesrp"))
             {
@@ -27,8 +28,8 @@ namespace Proyecto2.Clases.Data
                     {
                         while (reader.Read())
                         {
-                         carrito.Id=idCarrito;
-                         carrito.Comprador = ListCompradorbyid(reader.GetString(0));
+                         carrito.Id=idCarrito.ToString();
+                            compradorId = reader.GetInt32(0);
 
 
 
@@ -38,27 +39,31 @@ namespace Proyecto2.Clases.Data
                 }
                 connection.Close();
             }
-            carrito.ProductoCantidad = ListProductCantidadbyCarrito(idCarrito);
+            carrito.Comprador = ListCompradorbyid(compradorId);
+            carrito.ProductoCantidad = ListProductCantidadbyCarrito("" + idCarrito);
             return carrito;
         }
-        private Comprador ListCompradorbyid(string idComprador)
+        private Comprador ListCompradorbyid(int idComprador)
         {
             Comprador comprador = new Comprador();
             using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +
            "User id=estudiantesrp;Password=estudiantesrp"))
             {
                 connection.Open();
-                string sql = "select nombre,password,email_principal from Comprador where id_comprador=" + idComprador;
+              
 
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlCommand command = new SqlCommand())
                 {
-
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "select nombre, password, email_principal from Comprador where id_comprador = @id_comprador";
+                    command.Parameters.AddWithValue("@id_comprador", idComprador);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            comprador.Id = idComprador;
+                            comprador.Id = ""+idComprador;
                             comprador.Nombre = reader.GetString(0);
                             comprador.Password= reader.GetString(1);
                             comprador.EmailPrincipal = reader.GetString(2);
@@ -91,10 +96,10 @@ namespace Proyecto2.Clases.Data
                     {
                         while (reader.Read())
                         {
-                            String id = reader.GetString(0);
+                           int  id = reader.GetInt32(0);
                             int cantidad = reader.GetInt32(1);
 
-                            ProductoCantidad productoCantidad = new ProductoCantidad(productoData.ListProductsbyid(id),cantidad);
+                            ProductoCantidad productoCantidad = new ProductoCantidad(productoData.ListProductsbyid(""+id),cantidad);
 
                             productosCantidad.Add(productoCantidad);
 

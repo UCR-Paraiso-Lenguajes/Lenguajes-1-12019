@@ -18,6 +18,8 @@ namespace Proyecto2.Clases.Domain
 
         public Carrito()
         {
+            comprador = new Comprador();
+            productoCantidad = new List<ProductoCantidad>();
 
         }
 
@@ -59,8 +61,9 @@ namespace Proyecto2.Clases.Domain
             }
             set
             {
-                if (comprador == null) throw new Exception("El comprador es requerido.");
                 comprador = value;
+                if (comprador.Id == null) throw new Exception("El comprador es requerido.");
+
             }
         }
 

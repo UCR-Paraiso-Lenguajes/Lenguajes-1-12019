@@ -17,7 +17,7 @@ namespace Proyecto2.Clases.Data
         }
 
 
-        public IEnumerable<Producto> ListProducts()
+        public List<Producto> ListProducts()
         {
             List<Producto> productos = new List<Producto>();
             using (SqlConnection connection = new SqlConnection("Server=163.178.173.148;" + "DataBase=group7_DB;" +

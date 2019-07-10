@@ -12,11 +12,20 @@ namespace Proyecto_2.Controllers
     public class CarritoController : ControllerBase
     {
         CarritoData carritoData = new CarritoData();
-        [HttpPost("api/getCarrito")]
-        public Carrito GetCarrito([FromBody] String idCarrito)
+        Carrito carrito = new Carrito();
+
+        [HttpPost("api/getCarrito/{idCarrito}")]
+        public Carrito GetCarrito(int idCarrito)
         {
 
            return carritoData.getCarritobyid(idCarrito);
+        }
+        [HttpPost("api/productoCarrito")]
+        public Carrito ProductoCarrito([FromBody] ProductoCantidad producto)
+        {
+
+            carrito.Add(producto);
+            return carrito;
         }
     }
 }
