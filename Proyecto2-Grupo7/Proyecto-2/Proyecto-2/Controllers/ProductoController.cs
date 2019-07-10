@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto2.Clases.Data;
 using Proyecto2.Clases.Domain;
+using Proyecto2.Clases.Bussiness;
 
 
 namespace Proyecto_2.Controllers
@@ -12,7 +13,7 @@ namespace Proyecto_2.Controllers
     public class ProductoController : Controller
     {
          ProductoData productoData = new ProductoData();
-
+        CompanniaBussiness companniaBussiness = new CompanniaBussiness();
 
         [HttpPost("api/insertarProducto")]
         public void AgregarProducto([FromBody] Producto producto)
@@ -31,8 +32,7 @@ namespace Proyecto_2.Controllers
         [HttpGet("api/productos")]
         public IEnumerable<Producto> ListarProducto()
         {
-            IEnumerable<Producto> products = productoData.ListProducts();
-            return products;
+            return companniaBussiness.ListarProducto(50);
         }
     }
 }

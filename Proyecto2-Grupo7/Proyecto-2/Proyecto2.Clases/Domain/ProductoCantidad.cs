@@ -29,8 +29,8 @@ namespace Proyecto2.Clases.Domain
             }
             set
             {
-                if (producto == null) throw new Exception("El producto es requerido.");
                 producto = value;
+                if (producto == null) throw new Exception("El producto es requerido.");
             }
 
 

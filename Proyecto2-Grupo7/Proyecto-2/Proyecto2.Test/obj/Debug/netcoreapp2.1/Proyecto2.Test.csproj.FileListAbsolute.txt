@@ -1,0 +1,15 @@
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\Proyecto2.Test.deps.json
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\Proyecto2.Test.runtimeconfig.json
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\Proyecto2.Test.runtimeconfig.dev.json
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\Proyecto2.Test.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\bin\Debug\netcoreapp2.1\Proyecto2.Test.pdb
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\obj\Debug\netcoreapp2.1\Proyecto2.Test.csprojAssemblyReference.cache
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\obj\Debug\netcoreapp2.1\Proyecto2.Test.csproj.CoreCompileInputs.cache
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\obj\Debug\netcoreapp2.1\Proyecto2.Test.AssemblyInfoInputs.cache
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\obj\Debug\netcoreapp2.1\Proyecto2.Test.AssemblyInfo.cs
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\obj\Debug\netcoreapp2.1\Proyecto2.Test.dll
+C:\Users\dfonse\Documents\GitHub\Lenguajes-1-12019\Proyecto2-Grupo7\Proyecto-2\Proyecto2.Test\obj\Debug\netcoreapp2.1\Proyecto2.Test.pdb
