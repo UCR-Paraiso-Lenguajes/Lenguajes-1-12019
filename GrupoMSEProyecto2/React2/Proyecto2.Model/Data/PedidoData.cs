@@ -43,14 +43,19 @@ namespace Proyecto2.Model.Data
                             int totalProductosEntregados = reader.GetInt32(7);
                             DateTime fechaDespacho = reader.GetDateTime(8);
 
-                            //pedidos.Add();
+                            if (fechaUltimo == null && fechaEntrega == null && totalProductosEntregados == 0)
+                                pedidos.Add(new PedidoDespachado(id, email, direccion, null, fechaDespacho, totalCompra));
+                            else if (fechaUltimo == null && fechaDespacho == null)
+                                pedidos.Add(new PedidoEntregado(id, email, direccion, null, fechaEntrega, totalCompra, totalProductosEntregados));
+                            else if (fechaEntrega == null && totalCompra == 0 && totalProductosEntregados == 0 && fechaDespacho==null)
+                                pedidos.Add(new PedidoPendiente(id,email,direccion,null,fechaUltimo));
+                            
                         }
                         reader.Close();
                     };
                 }
                 connection.Close();
             }
-
             return pedidos;
         }
 

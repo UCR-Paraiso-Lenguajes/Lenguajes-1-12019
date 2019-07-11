@@ -58,6 +58,7 @@ namespace Proyecto2.Model.Data
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+	//carrito
                 connection.Open();
                 string sql = "insert into Carrito(idProducto,cantidadProducto) values(@idProducto,@cantidadProducto)";
                 using (SqlCommand command = new SqlCommand(sql, connection))
