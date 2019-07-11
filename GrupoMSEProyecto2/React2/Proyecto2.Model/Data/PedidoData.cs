@@ -94,6 +94,49 @@ namespace Proyecto2.Model.Data
             return orden;
         }
 
+        public IEnumerable<Pedido> ObtenerPedidoRango(int indice)
+        {
+            List<Pedido> pedidos = new List<Pedido>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "select p.id, p.email, p.direccion, p.tipo, p.fechaUltimoUso, p.fechaEntrega, p.totalProductosEntregados, p.fechaDespacho from Pedido p where p.id between " + indice + " and " + indice + 49;
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            string email = reader.GetString(1);
+                            string direccion = reader.GetString(2);
+                            string tipo = reader.GetString(3);
+                            DateTime fechaUltimo = reader.GetDateTime(4);
+                            DateTime fechaEntrega = reader.GetDateTime(5);
+                            int totalProductosEntregados = reader.GetInt32(6);
+                            DateTime fechaDespacho = reader.GetDateTime(7);
+
+                            List<ProductoCantidad> listaProducto = ordenCompra(indice);
+                            OrdenDeCompra orden = new OrdenDeCompra(listaProducto);
+
+                            if (fechaUltimo.Year.Equals(1850) && fechaEntrega.Year.Equals(1850) && totalProductosEntregados == 0)
+                                pedidos.Add(new PedidoDespachado(id, email, direccion, orden, fechaDespacho, orden.TotalCompra));
+                            else if (fechaUltimo.Year.Equals(1850) && fechaDespacho.Year.Equals(1850))
+                                pedidos.Add(new PedidoEntregado(id, email, direccion, orden, fechaEntrega, orden.TotalCompra, totalProductosEntregados));
+                            else if (fechaEntrega.Year.Equals(1850) && totalProductosEntregados == 0 && fechaDespacho.Year.Equals(1850))
+                                pedidos.Add(new PedidoPendiente(id, email, direccion, orden, fechaUltimo));
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+            return pedidos;
+        }
+
         public void InsertarPedido(Pedido pedido)
         {
             string tipo = "";
@@ -143,6 +186,117 @@ namespace Proyecto2.Model.Data
                 connection.Close();
             }
             insertarPedidoProducto(pedido.Id,pedido.OrdenDeCompra.ProductosCantidad);
+        }
+
+        public void ActualizaEstado(Pedido pedido)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+                Object tipoPedido = pedido;
+                string sqlActualiza = "";
+                DateTime ultimo = new DateTime();
+                int id = 0;
+                string email = "";
+                string direccion = "";
+                string tipo = "";
+                DateTime fechaUltimo = new DateTime();
+                DateTime fechaEntrega = new DateTime();
+                int totalProductosEntregados = 0;
+                DateTime fechaDes = new DateTime();
+                DateTime actual = new DateTime();
+
+                TimeSpan ts = new TimeSpan();
+                if (tipoPedido is PedidoDespachado)
+                {
+                    sqlActualiza = "update Pedido set email=@email, direccion=@direccion, tipo=@tipo, fechaUltimoUso=@fechaUltimoUso, fechaEntrega=@fechaEntrega,totalProductosEntregados=@totalProductosEntregados, fechaDespacho=@fechaDespacho where tipo = 'Despachado' and id = " + pedido.Id;
+                    ultimo = DateTime.Parse("01-01-1850");
+                }
+                string buscaDespachados = "select p.id, p.email, p.direccion, p.tipo, p.fechaUltimoUso, p.fechaEntrega,p.totalProductosEntregados, p.fechaDespacho from Pedido p  where p.tipo = 'Despachado' and p.id=" + pedido.Id;
+                using (SqlCommand command = new SqlCommand(buscaDespachados, connection))
+                {
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            id = reader.GetInt32(0);
+                            email = reader.GetString(1);
+                            direccion = reader.GetString(2);
+                            tipo = reader.GetString(3);
+                            fechaUltimo = reader.GetDateTime(4);
+                            fechaEntrega = reader.GetDateTime(5);
+                            totalProductosEntregados = reader.GetInt32(6);
+                            fechaDes = reader.GetDateTime(7);
+                            actual = DateTime.Now;
+                            ts = actual - fechaDes;
+
+
+                        }
+                        reader.Close();
+                    };
+
+                }
+
+                using (SqlCommand command = new SqlCommand(sqlActualiza, connection))
+                {
+                    int cantidadDias = ts.Days;
+                    string tipoE = "Entregado";
+                    if (cantidadDias >= 12)
+                    {
+
+
+                        DateTime nueva = DateTime.Now;
+                        int total = ObtenerTotalProductoEntregado(id);
+                        command.Parameters.AddWithValue("email", email);
+                        command.Parameters.AddWithValue("direccion", direccion);
+                        command.Parameters.AddWithValue("tipo", tipoE);
+                        command.Parameters.AddWithValue("fechaUltimoUso", ultimo);
+                        command.Parameters.AddWithValue("fechaEntrega", nueva);
+                        command.Parameters.AddWithValue("totalProductosEntregados", total);
+                        command.Parameters.AddWithValue("fechaDespacho", ultimo);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                connection.Close();
+
+
+            }
+
+        }
+
+        private int ObtenerTotalProductoEntregado(int idPedido)
+        {
+            int total = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "select sum(cantidadComprado) as totalProductoEntregado from PedidoProducto where idPedido=" + idPedido;
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            try
+                            {
+                                total = reader.GetInt32(0);
+                            }
+                            catch (Exception e)
+                            {
+                            }
+
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+            return total;
         }
 
         private void insertarPedidoProducto(int idPedido, List<ProductoCantidad> listaProductosCant)

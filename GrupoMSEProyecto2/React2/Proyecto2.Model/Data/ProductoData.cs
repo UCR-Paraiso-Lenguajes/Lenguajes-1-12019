@@ -148,11 +148,14 @@ namespace Proyecto2.Model.Data
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+                string sqlPedidoProducto = "delete PedidoProducto where idProducto = " + Id;
                 string sqlBodega = "delete Bodega where idProducto = " + Id;
                 string sqlProducto = "delete Producto where id = " + Id;
                 using (SqlCommand command = new SqlCommand(sqlBodega, connection))
                 {
                     SqlCommand commandProducto = new SqlCommand(sqlProducto, connection);
+                    SqlCommand commandPedidoProducto = new SqlCommand(sqlPedidoProducto, connection);
+                    commandPedidoProducto.ExecuteNonQuery();
                     command.ExecuteNonQuery();
                     commandProducto.ExecuteNonQuery();
                 }

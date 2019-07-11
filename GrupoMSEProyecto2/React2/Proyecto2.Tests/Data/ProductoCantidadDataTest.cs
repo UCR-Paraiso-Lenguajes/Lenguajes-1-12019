@@ -40,10 +40,13 @@ namespace Proyecto2.Tests.Data
             ProductoCantidadData productoCantidad = new ProductoCantidadData(sqlconnect);
 
             
-            Producto producto = new Producto(80000, 4, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
+            Producto producto = new Producto(80000, 3, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
             ProductoCantidad pcNuevo = new ProductoCantidad(producto, 2);
-
+            Assert.AreEqual(3, producto.IdProducto);
+            Assert.AreEqual(80000, producto.PrecioUnitario);
+            Assert.AreEqual("LG", producto.Nombre);
             productoCantidad.InsertarProductoCantidad(pcNuevo);
+            productoCantidad.BorrarProductoCantidad(producto.IdProducto);
 
         }
 

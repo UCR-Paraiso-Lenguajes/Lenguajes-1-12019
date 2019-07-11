@@ -73,6 +73,7 @@ namespace Proyecto2.Tests.Data
             Assert.AreEqual(10, producto.CantidadDisponible);
 
             productoData.InsertarProducto(producto);
+            productoData.BorrarProducto(producto.IdProducto);
 
         }
 
@@ -102,6 +103,9 @@ namespace Proyecto2.Tests.Data
 
 
         }
+
+
+        
 
         [Test]
         public void BorrarProducto()
