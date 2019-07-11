@@ -29,11 +29,11 @@ namespace ProyectoDosGrupoCinco.Data
                             decimal impuesto = reader.GetDecimal(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
-                          //  string rutaImagen = reader.GetString(5);
+                            string rutaImagen = reader.GetString(5);
                             int precio = reader.GetInt32(6);
                            
 
-                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, " "));
+                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen));
 
                         }
                         reader.Close();
