@@ -73,15 +73,16 @@ namespace Proyecto2.Clases.Bussiness
                 }
             }
             if (carritoRecuperado.Id == null) {
+            
 
                 List<ProductoCantidad> productosCantidad = new List<ProductoCantidad>();
-                carritoRecuperado.Comprador= carritoData.ListCompradorbyid(idComprador);
+                carritoRecuperado= new Carrito(productosCantidad,"0",carritoData.ListCompradorbyid(idComprador));
                 carritoData.InsertarCarrito(carritoRecuperado);
+                
 
 
             };
-
-
+            
             return carritoRecuperado;
         }
 
@@ -107,7 +108,7 @@ namespace Proyecto2.Clases.Bussiness
 
                 if (producto.CantidadDisponible > 0) {
 
-                    producto.CantidadDisponible = producto.CantidadDisponible - 1;
+                    producto.CantidadDisponible = producto.CantidadDisponible - productoCantidad.Cantidad;
                     productoData.Actualizar(producto);
 
                 }
