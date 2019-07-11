@@ -13,12 +13,7 @@ namespace ProyectoDosGrupoCinco.Business
     {
         OrdenDeCompraData ordenDeCompraData = new OrdenDeCompraData();
 
-        public void resumenCompra(string correoEnviar, string cuerpoMensaje)
-        {
-
-
-            ordenDeCompraData.ResumenCompra(correoEnviar, cuerpoMensaje);
-        }
+   
 
 
 
