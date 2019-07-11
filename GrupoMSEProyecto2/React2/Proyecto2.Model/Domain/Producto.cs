@@ -124,7 +124,7 @@ namespace Proyecto2.Model.Domain
             Descripcion = descripcion;
             CantidadDisponible = cantidadDisponible;
             Imagen = imagen;
-            PrecioProductoConImpuesto = PrecioUnitario + (PrecioUnitario * Impuesto/100);
+            PrecioProductoConImpuesto = PrecioUnitario + (PrecioUnitario * Impuesto);
         }
     }
 }
