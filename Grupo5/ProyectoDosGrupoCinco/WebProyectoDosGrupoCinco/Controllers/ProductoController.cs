@@ -20,6 +20,13 @@ namespace WebProyectoDosGrupoCinco.Controllers
         ProductoBusiness productoBusiness = new ProductoBusiness();
 
         // GET: api/Producto
+        [Route("getAllProducts")]
+        [HttpPost]
+        public IEnumerable<Producto> GetAll()
+        {
+            return productoBusiness.getAllProduct();
+        }
+
         [Route("getAll")]
         [HttpPost]
         public IEnumerable<Producto> GetAll([FromBody]int indice)
