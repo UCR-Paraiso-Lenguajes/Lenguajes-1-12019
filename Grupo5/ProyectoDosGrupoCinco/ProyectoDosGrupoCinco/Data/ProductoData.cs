@@ -26,7 +26,7 @@ namespace ProyectoDosGrupoCinco.Data
                         {
                             int id = reader.GetInt32(0);
                             string nombre = reader.GetString(1);
-                            int impuesto = reader.GetInt32(2);
+                            decimal impuesto = reader.GetDecimal(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
                             int precio = reader.GetInt32(5);
@@ -47,9 +47,6 @@ namespace ProyectoDosGrupoCinco.Data
 
         public void InsertarProducto(Producto producto)
         {
-
-
-
 
             using (SqlConnection connection = new SqlConnection("data source=" +
                  "163.178.173.148;initial " +
