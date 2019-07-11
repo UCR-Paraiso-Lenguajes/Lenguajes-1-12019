@@ -1,6 +1,3 @@
-
-
-
 import React, { Component } from 'react';
 import { Col, Grid, Row, Button } from 'react-bootstrap';
 
@@ -57,7 +54,8 @@ export class Register extends Component {
         var userName = document.getElementById("userName").value;
         var userMail = document.getElementById("email").value;
         var password = document.getElementById("passOne").value;
-        
+        console.log(userName);
+        console.log(userMail);
         fetch('api/crearComprador', {
             method: 'POST',
             headers: {
@@ -65,7 +63,7 @@ export class Register extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                UserName: userName,
+                Nombre: userName,
                 EmailPrincipal: userMail,
                 Password: password
             })
