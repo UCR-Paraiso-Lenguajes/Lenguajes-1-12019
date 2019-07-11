@@ -235,5 +235,38 @@ namespace Tests
         }
 
 
+        [Test]
+        public void BuscarPedido()
+        {
+            PedidosData pedidosData = new PedidosData();
+            PedidoPendiente pedidopendiente=pedidosData.PedidoPorId(1);
+
+        }
+
+        [Test]
+        public void ListarPedido()
+        {
+            PedidoBusiness pedidoBusiness = new PedidoBusiness();
+            List<PedidoPendiente> pedidosPendientes = pedidoBusiness.CargarPedidos(2);
+
+            bool verifica = true;
+
+            foreach (PedidoPendiente item in pedidosPendientes)
+            {
+
+                if (item.IdPedido > 50)
+                {
+                    verifica = false;
+                    Console.WriteLine(item.IdPedido);
+                }
+
+            }
+
+
+
+            Assert.AreEqual(verifica, true);
+
+        }
+
     }
 }
