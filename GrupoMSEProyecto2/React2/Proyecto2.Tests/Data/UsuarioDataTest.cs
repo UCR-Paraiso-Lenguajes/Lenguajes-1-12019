@@ -7,7 +7,7 @@ using Proyecto2.Model.Domain;
 
 namespace Proyecto2.Tests.Data
 {
-    public class UsuarioDataTest
+    public class CorreoTest
     {
         [SetUp]
         public void Setup()
@@ -26,6 +26,7 @@ namespace Proyecto2.Tests.Data
             
 
             IEnumerable<Usuario> lista = comprador.GetAll();
+            
 
             Assert.NotNull(lista);
 
