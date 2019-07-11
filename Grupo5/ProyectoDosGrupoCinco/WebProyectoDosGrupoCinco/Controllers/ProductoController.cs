@@ -21,23 +21,23 @@ namespace WebProyectoDosGrupoCinco.Controllers
         // GET: api/Producto
         [Route("getAll")]
         [HttpGet("{indice}")]
-        public IEnumerable<Producto> GetAll(int indice)
+        public IEnumerable<Producto> GetAll([FromBody]int indice)
         {
 
-            return productoBusiness.CargarProductos(indice);
+            return productoBusiness.CargarProductos(2);
         }
 
         [Route("getProductByDescription")]
         [HttpGet("{descripcion}")]
         public IEnumerable<Producto> GetProductByDescription(string descripcion, int indice)
         {
-
+            
             return productoBusiness.BuscarPorDescripcion(descripcion,indice);
         }
 
         // GET: api/Producto/5
         [Route("getById")]
-        [HttpGet("{id}")]
+        [HttpPost]
         public Producto Get(int id)
         {
             return productoData.GetProductById(id);
