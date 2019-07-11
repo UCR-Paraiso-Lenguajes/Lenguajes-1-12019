@@ -33,6 +33,7 @@ namespace ProyectoDosGrupoCinco.Data
                                 carrito = new CarritoDisponible(id, total, subtotal);
                             }
                             else {
+
                                 carrito = new CarritoDisponible(id, id_comprador, total, subtotal);
                             }
 
@@ -94,14 +95,15 @@ namespace ProyectoDosGrupoCinco.Data
                  "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
                  "multipleactiveresultsets=True"))
             {
-                String query = "INSERT INTO Producto_Carrito (id_carrito,id_producto) " +
+                String query = "INSERT INTO Producto_Carrito (id_carrito,id_producto,cantidad) " +
 
-                    "VALUES (@id_carrito,@id_producto)";
+                    "VALUES (@id_carrito,@id_producto,@cantidad)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id_carrito", productoCarrito.IdCarrito);
                     command.Parameters.AddWithValue("@id_producto", productoCarrito.IdProducto);
+                    command.Parameters.AddWithValue("@cantidad", productoCarrito.Cantidad);
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
@@ -116,6 +118,38 @@ namespace ProyectoDosGrupoCinco.Data
 
         }
 
+
+        public void carritoProductoActualizar(ProductoCarrito productoCarrito)
+        {
+
+
+            using (SqlConnection conn = new SqlConnection("data source=" +
+           "163.178.173.148;initial " +
+           "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+           "multipleactiveresultsets=True"))
+            {
+                conn.Open();
+                string sql = "UPDATE Producto_Carrito SET cantidad="+productoCarrito.Cantidad+" WHERE id_carrito= "+productoCarrito.IdCarrito+" AND id_producto="+productoCarrito.IdProducto+" ";
+                
+
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                        }
+                        reader.Close();
+                    };
+                }
+                conn.Close();
+            }
+
+
+        }
 
 
 

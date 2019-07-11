@@ -152,6 +152,66 @@ namespace Tests
         }
 
 
+        [Test]
+        public void CarritoAgregar()
+        {
+
+            
+            CarritoData carritoData = new CarritoData();
+
+          /*CarritoDisponible carritoDisponible = carritoData.CarritoDisponible(3);*/
+
+            ProductoData productoData = new ProductoData();
+
+            Producto producto = productoData.GetProductById(2);
+
+            ProductoCarrito productoCarrito = new ProductoCarrito(3, producto.IdProducto, 10);
+
+            try
+            {
+                carritoData.carritoProducto(productoCarrito);
+            }
+            catch (Exception e)
+            {
+                carritoData.carritoProductoActualizar(productoCarrito);
+            }
+
+
+        }
+
+
+
+        [Test]
+        public void CarritoComprar()
+        {
+
+
+            OrdenDeCompra ordenDeCompra = new OrdenDeCompra();
+            OrdenDeCompraData ordenDeCompraData = new OrdenDeCompraData();
+            ProductoData productoData = new ProductoData();
+
+            List<ProductoCantidad> productoCantidads = new List<ProductoCantidad>();
+
+            ProductoCantidad productoCantidad = new ProductoCantidad();
+
+            productoCantidad.Producto = productoData.GetProductById(2);
+            productoCantidad.Cantidad = 50;
+
+            productoCantidads.Add(productoCantidad);
+
+            ordenDeCompra.IdOrdenDeCompra = 1;
+            ordenDeCompra.Email = "esteban5671@gmail.com";
+            ordenDeCompra.Direccion = "calle roma";
+            ordenDeCompra.ProductosCantidad = productoCantidads;
+            
+
+
+            ordenDeCompraData.ComprarCarrito(ordenDeCompra);
+
+
+        }
+
+
 
     }
 }

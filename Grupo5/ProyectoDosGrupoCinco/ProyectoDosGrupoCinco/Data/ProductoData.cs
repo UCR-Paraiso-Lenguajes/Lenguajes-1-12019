@@ -135,7 +135,7 @@ namespace ProyectoDosGrupoCinco.Data
                             string descripcion = reader.GetString(4);
                             string rutaImagen = reader.GetString(5);
                             int precio = reader.GetInt32(6);
-                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, " ");
+                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen);
 
                         }
                         reader.Close();
