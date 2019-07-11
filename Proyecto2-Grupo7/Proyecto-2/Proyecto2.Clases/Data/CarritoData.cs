@@ -158,7 +158,7 @@ namespace Proyecto2.Clases.Data
                     command.Connection = connection;
                     command.CommandType = CommandType.Text;
                     command.CommandText = "INSERT into Carrito (id_comprador) VALUES (@id_comprador)";
-                    command.Parameters.AddWithValue("@id_co", carrito.Comprador.Id);
+                    command.Parameters.AddWithValue("@id_comprador", carrito.Comprador.Id);
                     try
                     {
                         connection.Open();
