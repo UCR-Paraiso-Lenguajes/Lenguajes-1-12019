@@ -28,7 +28,7 @@ namespace Proyecto2.Tests.Data
             Assert.NotNull(lista);
 
         }
-        
+
         [Test]
         public void InsertarProductoCantidad()
         {
@@ -40,11 +40,10 @@ namespace Proyecto2.Tests.Data
             ProductoCantidadData productoCantidad = new ProductoCantidadData(sqlconnect);
 
             
-            Producto producto = new Producto(80000, 3, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
+            Producto producto = new Producto(80000, 4, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
             ProductoCantidad pcNuevo = new ProductoCantidad(producto, 2);
 
             productoCantidad.InsertarProductoCantidad(pcNuevo);
-            productoCantidad.BorrarProductoCantidad(3);
 
         }
 
@@ -58,10 +57,6 @@ namespace Proyecto2.Tests.Data
                 "multipleactiveresultsets=True";
             ProductoCantidadData productoCantidad = new ProductoCantidadData(sqlconnect);
 
-            Producto producto1 = new Producto(80000, 3, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
-            ProductoCantidad pcNuevo = new ProductoCantidad(producto1, 2);
-
-            productoCantidad.InsertarProductoCantidad(pcNuevo);
 
             Producto producto = new Producto(45000, 3, 4, "Alcatel", "Celular", 15, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
             ProductoCantidad pcActualizar = new ProductoCantidad(producto, 5);
