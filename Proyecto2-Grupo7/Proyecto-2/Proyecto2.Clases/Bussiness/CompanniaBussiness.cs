@@ -10,6 +10,7 @@ namespace Proyecto2.Clases.Bussiness
     {
         ProductoData productoData = new ProductoData();
         CarritoData carritoData = new CarritoData();
+        PedidoData pedidoData = new PedidoData();
 
         public IEnumerable<Producto> ListarProducto(int indice)
         {
@@ -83,16 +84,85 @@ namespace Proyecto2.Clases.Bussiness
 
             return carritoRecuperado;
         }
-        public void AgregarProductoAlCarrito(ProductoCantidad productoCantidad ,string idCarrito) {
-
-            carritoData.InsertarProductoCantidad(productoCantidad,idCarrito);
-            Producto productoActualizar = new Producto();
-            productoActualizar = ProductoPorId(productoCantidad.Producto.Id);
-            productoActualizar.CantidadDisponible = productoActualizar.CantidadDisponible - 1;
-            productoData.Actualizar(productoActualizar);
 
 
+        public void AgregarProductoAlCarrito(Producto producto, int cantidadDisponible, string idCarrito) {
+
+
+            ProductoCantidad productoCantidad = new ProductoCantidad(producto, cantidadDisponible);
+            carritoData.InsertarProductoCantidad(productoCantidad, idCarrito);
+        }
+   
+
+            public void comprarCarrito(int idCarrito, string email, string direccion){
+
+            List<ProductoCantidad> productoCantidads = carritoData.ListProductCantidadbyCarrito(idCarrito.ToString());
+            Pedido pedido = new Pedido(carritoData.getCarritobyid(idCarrito),"0",email,direccion,productoCantidads);
+            pedidoData.Insertar(pedido);
+            
+            foreach (ProductoCantidad productoCantidad in productoCantidads)
+            {
+                Producto producto = productoData.ListProductsbyid(productoCantidad.Producto.Id);
+
+
+                if (producto.CantidadDisponible > 0) {
+
+                    producto.CantidadDisponible = producto.CantidadDisponible - 1;
+                    productoData.Actualizar(producto);
+
+                }
+            }
+          
         }
 
+        public IEnumerable<Pedido> ListarPedido(int indice)
+        {
+            int cont = 0;
+            List<Pedido> pedidos = pedidoData.ListaPedido();
+            List<Pedido> pedidosContados = new List<Pedido>();
+            if (pedidos.Capacity >= indice)
+            {
+                foreach (Pedido pedido in pedidos)
+                {
+                    if (pedidosContados.Capacity <= 50)
+                    {
+                        pedidosContados.Add(pedido);
+                    }
+                }
+            }
+            else
+            {
+                return pedidos;
+            }
+            return pedidosContados;
+        }
+
+        public Pedido PedidosPorId(string id)
+        {
+            Pedido pedidoTemp = new Pedido();
+            List<Pedido> pedidos = pedidoData.ListaPedido();
+
+
+            foreach (Pedido pedido in pedidos)
+            {
+                if (pedido.Id.Equals(id))
+                {
+                    pedidoTemp = pedido;
+                }
+            }
+            return pedidoTemp;
+        }
+
+
+
+
+
     }
-}
+
+
+
+
+
+
+    }
+
