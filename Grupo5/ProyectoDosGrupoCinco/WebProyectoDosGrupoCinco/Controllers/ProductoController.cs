@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -20,11 +21,10 @@ namespace WebProyectoDosGrupoCinco.Controllers
 
         // GET: api/Producto
         [Route("getAll")]
-        [HttpGet("{indice}")]
+        [HttpPost]
         public IEnumerable<Producto> GetAll([FromBody]int indice)
         {
-
-            return productoBusiness.CargarProductos(2);
+            return productoBusiness.CargarProductos(indice);
         }
 
         [Route("getProductByDescription")]
