@@ -15,12 +15,13 @@ namespace ProyectoDosGrupoCinco.Domain
         private int cantidadDisponible;
         private string imagen;
         private int precio;
+    
 
         public Producto()
         {
         }
 
-        public Producto(int idProducto, decimal impuesto, string nombre, string descripcion, int cantidadDisponible, int precio)
+        public Producto(int idProducto, decimal impuesto, string nombre, string descripcion, int cantidadDisponible, int precio,string imagen)
         {
             this.IdProducto = idProducto;
             this.Impuesto = impuesto;
@@ -28,7 +29,21 @@ namespace ProyectoDosGrupoCinco.Domain
             this.Descripcion = descripcion;
             this.CantidadDisponible = cantidadDisponible;
             this.Precio = precio;
+            this.Imagen = imagen;
         }
+
+        public Producto(string nombre, decimal impuesto, int cantidadDisponible, string descripcion, string imagen, int precio)
+        {
+            this.Impuesto = impuesto;
+            this.Nombre = nombre;
+            this.Descripcion = descripcion;
+            this.CantidadDisponible = cantidadDisponible;
+            this.Precio = precio;
+            this.Imagen = imagen;
+        }
+
+
+
 
         public string Nombre { get => nombre; set => nombre = value; }
         public decimal Impuesto { get => impuesto; set => impuesto = value; }
