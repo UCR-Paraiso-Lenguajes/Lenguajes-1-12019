@@ -1,8 +1,10 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
 using MimeKit.Utils;
+using ProyectoDosGrupoCinco.Domain;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace ProyectoDosGrupoCinco.Data
@@ -48,6 +50,51 @@ namespace ProyectoDosGrupoCinco.Data
                 client.Send(message);
                 client.Disconnect(true);
             }
+        }
+
+        public List<ProductoCarrito> ListProductosDeCarrito()
+        {
+            List<ProductoCarrito> productos = new List<ProductoCarrito>();
+
+            using (SqlConnection connection = new SqlConnection("data source=" +
+                "163.178.173.148;initial " +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                "multipleactiveresultsets=True"))
+            {
+                /*Select id_carrito,id_producto
+from Producto_Carrito
+JOIN Producto
+ON (Producto_Carrito.id_producto = Producto.id)
+where Producto_Carrito.id_carrito=1
+*/
+                connection.Open();
+                string sql = "select id_carrito, id_producto from Producto_Carrito JOIN Producto ON (Producto_Carrito.id_producto=Producto.id)" +
+                    "WHERE Producto_Carrito.id_carrito=1";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            string nombre = reader.GetString(1);
+                            decimal impuesto = reader.GetDecimal(2);
+                            int cantidadDisponible = reader.GetInt32(3);
+                            string descripcion = reader.GetString(4);
+                            string rutaImagen = reader.GetString(5);
+                            int precio = reader.GetInt32(6);
+                            int idCarrito = reader.GetInt32(7);
+
+                            productos.Add(new ProductoCarrito());
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+
+            return productos;
         }
 
     }

@@ -129,7 +129,7 @@ namespace ProyectoDosGrupoCinco.Data
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select nombre, correo, rol, estado, password from Usuario";
+                string sql = "select id, nombre, correo, rol, estado, password from Usuario";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
