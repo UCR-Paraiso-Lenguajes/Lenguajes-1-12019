@@ -20,6 +20,13 @@ namespace WebProyectoDosGrupoCinco.Controllers
         ProductoBusiness productoBusiness = new ProductoBusiness();
 
         // GET: api/Producto
+        [Route("getAllProducts")]
+        [HttpGet]
+        public IEnumerable<Producto> GetAll()
+        {
+            return productoBusiness.getAllProduct();
+        }
+
         [Route("getAll")]
         [HttpPost]
         public IEnumerable<Producto> GetAll([FromBody]int indice)
@@ -64,9 +71,11 @@ namespace WebProyectoDosGrupoCinco.Controllers
         // DELETE: api/ApiWithActions/5
         [Route("delete")]
         [HttpDelete("{id}")]
-        public void Delete(Producto producto)
+        public int Delete([FromBody]int idProducto)
         {
-            productoData.Delete(producto.IdProducto);
+            productoData.Delete(idProducto);
+
+            return idProducto;
 
         }
     }

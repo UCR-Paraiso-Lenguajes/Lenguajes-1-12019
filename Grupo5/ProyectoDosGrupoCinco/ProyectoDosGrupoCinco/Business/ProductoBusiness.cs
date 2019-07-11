@@ -109,7 +109,10 @@ namespace ProyectoDosGrupoCinco.Business
 
 
 
-
+        public List<Producto> getAllProduct()
+        {
+            return productoData.ListProducts();
+        }
 
 
 

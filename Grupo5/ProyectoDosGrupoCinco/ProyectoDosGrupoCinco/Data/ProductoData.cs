@@ -92,7 +92,7 @@ namespace ProyectoDosGrupoCinco.Data
             {
                 conn.Open();
 
-                string sql = "delete from Producto where id = " + 4;
+                string sql = "delete from Producto where id = " + productoId;
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
 
@@ -135,7 +135,7 @@ namespace ProyectoDosGrupoCinco.Data
                             string descripcion = reader.GetString(4);
                             string rutaImagen = reader.GetString(5);
                             int precio = reader.GetInt32(6);
-                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen);
+                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, " ");
 
                         }
                         reader.Close();
