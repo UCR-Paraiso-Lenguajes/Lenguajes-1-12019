@@ -181,5 +181,37 @@ namespace Tests
 
 
 
+        [Test]
+        public void CarritoComprar()
+        {
+
+
+            OrdenDeCompra ordenDeCompra = new OrdenDeCompra();
+            OrdenDeCompraData ordenDeCompraData = new OrdenDeCompraData();
+            ProductoData productoData = new ProductoData();
+
+            List<ProductoCantidad> productoCantidads = new List<ProductoCantidad>();
+
+            ProductoCantidad productoCantidad = new ProductoCantidad();
+
+            productoCantidad.Producto = productoData.GetProductById(2);
+            productoCantidad.Cantidad = 50;
+
+            productoCantidads.Add(productoCantidad);
+
+            ordenDeCompra.IdOrdenDeCompra = 1;
+            ordenDeCompra.Email = "esteban5671@gmail.com";
+            ordenDeCompra.Direccion = "calle roma";
+            ordenDeCompra.ProductosCantidad = productoCantidads;
+            
+
+
+            ordenDeCompraData.ComprarCarrito(ordenDeCompra);
+
+
+        }
+
+
+
     }
 }
