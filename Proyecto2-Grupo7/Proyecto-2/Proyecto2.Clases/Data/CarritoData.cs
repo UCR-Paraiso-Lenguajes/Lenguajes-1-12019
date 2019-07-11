@@ -129,7 +129,7 @@ namespace Proyecto2.Clases.Data
                         while (reader.Read())
                         {
                             int id_carrito = reader.GetInt32(0);
-                            int id_comprador = reader.GetInt32(0);
+                            int id_comprador = reader.GetInt32(1);
 
 
                             Comprador comprador= ListCompradorbyid(id_comprador.ToString());

@@ -73,7 +73,6 @@ namespace Proyecto2.Clases.Domain
             set
             {
                 comprador = value;
-                if (comprador.Id == null) throw new Exception("El comprador es requerido.");
 
             }
         }
