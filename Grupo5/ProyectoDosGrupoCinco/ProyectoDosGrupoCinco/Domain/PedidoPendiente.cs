@@ -10,5 +10,17 @@ namespace ProyectoDosGrupoCinco.Domain
         {
             OrdenDeCompra = ordenDeCompra;
         }
+
+
+        public PedidoPendiente(OrdenDeCompra ordenDeCompra, int id)
+        {
+            IdPedido = id;
+            OrdenDeCompra = ordenDeCompra;
+        }
+
+        public PedidoPendiente()
+        {
+         
+        }
     }
 }

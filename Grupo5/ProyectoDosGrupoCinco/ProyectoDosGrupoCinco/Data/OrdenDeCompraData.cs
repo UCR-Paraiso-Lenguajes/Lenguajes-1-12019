@@ -77,7 +77,6 @@ namespace ProyectoDosGrupoCinco.Data
                     command.Parameters.AddWithValue("@email", ordenDeCompra.Email);
 
 
-
                     connection.Open();
                     int result = command.ExecuteNonQuery();
 
@@ -87,6 +86,8 @@ namespace ProyectoDosGrupoCinco.Data
                 }
 
             }
+
+
         }
 
         public List<ProductoCarrito> ListProductosDeCarrito(int idCarrito)

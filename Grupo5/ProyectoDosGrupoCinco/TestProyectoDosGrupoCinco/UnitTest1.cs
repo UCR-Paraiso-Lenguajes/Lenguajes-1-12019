@@ -211,6 +211,28 @@ namespace Tests
 
         }
 
+        [Test]
+        public void PedidoDespachado()
+        {
+            OrdenDeCompra ordenDeCompra = new OrdenDeCompra();
+            List<ProductoCantidad> productoCantidads = new List<ProductoCantidad>();
+            ProductoData productoData = new ProductoData();
+
+            ProductoCantidad productoCantidad = new ProductoCantidad();
+
+            productoCantidad.Producto = productoData.GetProductById(2);
+            productoCantidad.Cantidad = 50;
+
+            ordenDeCompra.IdOrdenDeCompra = 1;
+            ordenDeCompra.Email = "esteban5671@gmail.com";
+            ordenDeCompra.Direccion = "calle roma";
+            ordenDeCompra.ProductosCantidad = productoCantidads;
+            PedidoPendiente pedido = new PedidoPendiente(ordenDeCompra);
+
+            PedidosData pedidosData = new PedidosData();
+
+            pedidosData.pedidoDespachado(pedido);
+        }
 
 
     }

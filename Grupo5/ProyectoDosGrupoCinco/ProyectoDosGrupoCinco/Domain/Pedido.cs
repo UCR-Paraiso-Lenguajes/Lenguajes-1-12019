@@ -7,9 +7,16 @@ namespace ProyectoDosGrupoCinco.Domain
    public abstract class Pedido
     {
         private OrdenDeCompra ordenDeCompra;
+        private int idPedido;
 
         public Pedido(OrdenDeCompra ordenDeCompra)
         {
+            this.OrdenDeCompra = ordenDeCompra;
+        }
+
+        public Pedido(OrdenDeCompra ordenDeCompra, int idPedido)
+        {
+            this.IdPedido = idPedido;
             this.OrdenDeCompra = ordenDeCompra;
         }
 
@@ -28,6 +35,19 @@ namespace ProyectoDosGrupoCinco.Domain
             {
 
                 ordenDeCompra = value;
+            }
+        }
+
+        public int IdPedido
+        {
+            get
+            {
+                return idPedido;
+            }
+            set
+            {
+
+                idPedido = value;
             }
         }
     }

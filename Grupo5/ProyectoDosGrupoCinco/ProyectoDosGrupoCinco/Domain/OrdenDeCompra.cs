@@ -12,6 +12,7 @@ namespace ProyectoDosGrupoCinco.Domain
         private string direccion;
         private List<ProductoCantidad> productosCantidad;
 
+     
         public int IdOrdenDeCompra { get => idOrdenDeCompra; set => idOrdenDeCompra = value; }
         public string Email { get => email; set => email = value; }
         public string Direccion { get => direccion; set => direccion = value; }
