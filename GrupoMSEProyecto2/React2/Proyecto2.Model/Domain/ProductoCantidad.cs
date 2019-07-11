@@ -36,7 +36,7 @@ namespace Proyecto2.Model.Domain
             get { return compraTotalProducto; }
             private set
             {
-                if (value <= 0) throw new CompanniaException("La compraTotalProducto debe ser mayor y diferente a cero");
+                if (value < 0) throw new CompanniaException("La compraTotalProducto debe ser mayor y diferente a cero");
                 compraTotalProducto = value;
             }
         }
@@ -46,7 +46,7 @@ namespace Proyecto2.Model.Domain
             get { return compraSubTotalProducto; }
             private set
             {
-                if (value <= 0) throw new CompanniaException("La compraSubTotalProducto debe ser mayor y diferente a cero");
+                if (value < 0) throw new CompanniaException("La compraSubTotalProducto debe ser mayor y diferente a cero");
                 compraSubTotalProducto = value;
             }
         }
