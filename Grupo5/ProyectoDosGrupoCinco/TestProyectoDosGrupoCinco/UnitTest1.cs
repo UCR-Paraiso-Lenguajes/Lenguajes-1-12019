@@ -29,21 +29,21 @@ namespace Tests
             Producto producto=productoData.GetProductById(3);
 
 
-            Assert.AreEqual("llavero", producto.Nombre);
+            Assert.AreEqual("Cables de alimentación", producto.Nombre);
             Assert.AreEqual(3, producto.IdProducto);
-            Assert.AreEqual(5.00, producto.Impuesto);
-            Assert.AreEqual(500, producto.Precio);
-            Assert.AreEqual("Llavero de game of thrones", producto.Descripcion);
-            Assert.AreEqual(1000, producto.CantidadDisponible);
+            Assert.AreEqual(2.00, producto.Impuesto);
+            Assert.AreEqual(2700, producto.Precio);
+            Assert.AreEqual("PCI EXPRESS POWER CABLE", producto.Descripcion);
+            Assert.AreEqual(100, producto.CantidadDisponible);
   
 
         }
 
-      /*  [Test]
+        [Test]
         public void BuscarProducto2()
         {
             decimal impuesto = 5;
-            Producto nuevoProducto=new Producto("test", impuesto, 50, "test", "imagen", 50);
+            Producto nuevoProducto=new Producto("test", impuesto, 50, "test", "'https://i56.photozi.com/images/hoFwB.jpg'", 50);
 
             
             
@@ -74,7 +74,7 @@ namespace Tests
             Assert.AreEqual(50, producto.CantidadDisponible);
 
 
-        }*/
+        }
 
         [Test]
         public void ListarProducto()

@@ -121,7 +121,7 @@ namespace ProyectoDosGrupoCinco.Data
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion, precio from Producto WHERE id = "+id;
+                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion,ruta_imagen, precio from Producto WHERE id = "+id;
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -130,13 +130,12 @@ namespace ProyectoDosGrupoCinco.Data
                         {
                             int idProducto = reader.GetInt32(0);
                             string nombre = reader.GetString(1);
-                            int impuesto = reader.GetInt32(2);
+                            decimal impuesto = reader.GetDecimal(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
-                            int precio = reader.GetInt32(6);
                             string rutaImagen = reader.GetString(5);
-
-                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen);
+                            int precio = reader.GetInt32(6);
+                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, " ");
 
                         }
                         reader.Close();
@@ -203,9 +202,8 @@ namespace ProyectoDosGrupoCinco.Data
                             int impuesto = reader.GetInt32(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
-                            int precio = reader.GetInt32(6);
                             string rutaImagen = reader.GetString(5);
-
+                            int precio = reader.GetInt32(6);
                             productos.Add(new Producto(idProducto, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen));
 
                         }
