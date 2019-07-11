@@ -17,20 +17,6 @@ namespace ProyectoDosGrupoCinco.Data
             string cuerpoMensaje = "";
             int precio = 0;
 
-            /*     
-            List<ProductoCarrito> listaProductosComprar = ListProductosDeCarrito(idCarrito);
-            Producto producto = new Producto();
-            List<Producto> productosComprados = new List<Producto>();
-            foreach(ProductoCarrito productosComprar in listaProductosComprar)
-            {
-
-              producto =  productoData.GetProductById(productosComprar.IdProducto);
-              productosComprados.Add(producto);
-
-
-
-            }*/
-
             cuerpoMensaje = "correo específicado: "+ ordenDeCompra.Email +"<br><br> Dirección a la que se enviará el parquete: <br>"+ ordenDeCompra.Direccion+"<br><br><br>Los productos solicitados son los siguientes:<br><br>   ";
 
             foreach (ProductoCantidad productosComprar in ordenDeCompra.ProductosCantidad)
@@ -69,12 +55,38 @@ namespace ProyectoDosGrupoCinco.Data
                 client.Send(message);
                 client.Disconnect(true);
             }
+
+            InsertOrdenDeCompra(ordenDeCompra);
         }
 
 
-        public void ResumenCompra(string correoEnviar, string cuerpoMensaje)
+        public void InsertOrdenDeCompra(OrdenDeCompra ordenDeCompra)
         {
-         
+            using (SqlConnection connection = new SqlConnection("data source=" +
+                 "163.178.173.148;initial " +
+                 "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                 "multipleactiveresultsets=True"))
+            {
+                String query = "INSERT INTO Pedido (direccion,email) " +
+
+                    "VALUES (@direccion,@email)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@direccion", ordenDeCompra.Direccion);
+                    command.Parameters.AddWithValue("@email", ordenDeCompra.Email);
+
+
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
+                }
+
+            }
         }
 
         public List<ProductoCarrito> ListProductosDeCarrito(int idCarrito)
