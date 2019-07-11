@@ -48,9 +48,6 @@ namespace ProyectoDosGrupoCinco.Data
         public void InsertarProducto(Producto producto)
         {
 
-
-
-
             using (SqlConnection connection = new SqlConnection("data source=" +
                  "163.178.173.148;initial " +
                  "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
