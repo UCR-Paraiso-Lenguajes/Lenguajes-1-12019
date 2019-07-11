@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Col, Grid, Row, Button } from 'react-bootstrap';
 import './login.css';
+import Cookies from "universal-cookie";
 
 
 export class Login extends Component {
@@ -47,6 +48,7 @@ export class Login extends Component {
         handleClick() {
             var userMail = document.getElementById("emailUser");
             var password = document.getElementById("password");
+
             fetch('api/logearComprador', {
                 method: 'POST',
                 headers: {
@@ -57,10 +59,12 @@ export class Login extends Component {
                     EmailPrincipal: userMail,
                     Password: password
                 })
+              
             }
 
             )
             window.location.reload();
+            
 
         }
     }

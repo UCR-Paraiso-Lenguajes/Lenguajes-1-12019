@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Col, Grid, Row, Button } from 'react-bootstrap';
 import { ProductCantidad } from './ProductCantidad';
+import Cookies from "universal-cookie";
 
 export class ShoppingCart extends Component {
     displayName = ShoppingCart.name
@@ -10,7 +11,10 @@ export class ShoppingCart extends Component {
     constructor(props) {
         super(props);
         this.state = { products: [], loading: true };
-        fetch('api/getProductosCarrito/1')
+        const cookies = new Cookies();
+        var carritoId = cookies.get('carritoId');
+
+        fetch('api/getProductosCarrito/' + carritoId)
    
             .then(response => response.json())
             .then(data => {
@@ -21,7 +25,10 @@ export class ShoppingCart extends Component {
     render() {
         return (
             <Grid>
-             
+                <script
+                    src="/path/to/js.cookie.js"
+                   
+                ></script>
                         <div class="container">
                             <button id="btncomprar" class="btn btn-primary">Realizar compra</button>
 
@@ -30,6 +37,7 @@ export class ShoppingCart extends Component {
                         <table class="egt">
 
                         <Row>
+                          
                             {this.state.products.map(product =>
 
                                 <Col sm={4}>
