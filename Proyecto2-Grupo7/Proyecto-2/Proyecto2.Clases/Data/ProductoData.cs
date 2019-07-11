@@ -69,8 +69,9 @@ namespace Proyecto2.Clases.Data
                     {
                         while (reader.Read())
                         {
-                            string nombre = reader.GetString(0);
-                            string url_image = reader.GetString(1);
+                            
+                            string url_image = reader.GetString(0);
+                            string nombre = reader.GetString(1);
                             int cantidadDisponible = reader.GetInt32(2);
                             decimal impuesto = reader.GetDecimal(3);
                             string descripcion = reader.GetString(4);

@@ -1,0 +1,11 @@
+﻿
+
+
+.label [id="emailUser"] {
+    /* If a menu item's text is too long, truncate it */
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: 100%;
+}
