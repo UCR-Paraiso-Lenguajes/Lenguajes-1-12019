@@ -19,10 +19,11 @@ namespace WebProyectoDosGrupoCinco.Controllers
 
         // GET: api/OrdenDeCompra
         [HttpPost]
-        [Route("comprarCarrito/{direccion}/{correoEnviar}/{productosComprados}")]
-        public void ComprarCarrito(string direccion, string correoEnviar, List<Producto> productosComprados)
+        [Route("comprarCarrito")]
+        public OrdenDeCompra ComprarCarrito(OrdenDeCompra ordenDeCompra)
         {
-           ordenDeCompraData.ComprarCarrito(direccion,correoEnviar,productosComprados);
+           ordenDeCompraData.ComprarCarrito(ordenDeCompra);
+            return ordenDeCompra;
         }
 
         // GET: api/OrdenDeCompra/5
