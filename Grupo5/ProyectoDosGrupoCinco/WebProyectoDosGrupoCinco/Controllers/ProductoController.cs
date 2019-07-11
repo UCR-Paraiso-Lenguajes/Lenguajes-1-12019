@@ -71,9 +71,11 @@ namespace WebProyectoDosGrupoCinco.Controllers
         // DELETE: api/ApiWithActions/5
         [Route("delete")]
         [HttpDelete("{id}")]
-        public void Delete(Producto producto)
+        public int Delete([FromBody]int idProducto)
         {
-            productoData.Delete(producto.IdProducto);
+            productoData.Delete(idProducto);
+
+            return idProducto;
 
         }
     }
