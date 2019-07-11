@@ -8,7 +8,6 @@ import Cookies from "universal-cookie";
 
 export class Login extends Component {
     displayName = Login.name
-    this.state = { login: [], loading: true };
 
     constructor(props) {
         super(props);
@@ -59,9 +58,7 @@ export class Login extends Component {
                     EmailPrincipal: userMail,
                     Password: password
                 })
-                .then(data => {
-                  this.setState({ login:data , loading: false });
-                 })
+              
             }
 
             )
