@@ -12,7 +12,7 @@ namespace ProyectoDosGrupoCinco.Data
   public class OrdenDeCompraData
     {
         ProductoData productoData = new ProductoData();
-        public void ComprarCarrito(string direccion, string correoEnviar, List<Producto> productosComprados)
+        public void ComprarCarrito(OrdenDeCompra ordenDeCompra)
         {
             string cuerpoMensaje = "";
             int precio = 0;
@@ -31,19 +31,19 @@ namespace ProyectoDosGrupoCinco.Data
 
             }*/
 
-            cuerpoMensaje = "correo específicado: "+ correoEnviar +"<br><br> Dirección a la que se enviará el parquete: <br>"+ direccion+"<br><br><br>Los productos solicitados son los siguientes:<br><br>   ";
+            cuerpoMensaje = "correo específicado: "+ ordenDeCompra.Email +"<br><br> Dirección a la que se enviará el parquete: <br>"+ ordenDeCompra.Direccion+"<br><br><br>Los productos solicitados son los siguientes:<br><br>   ";
 
-            foreach (Producto productosComprar in productosComprados)
+            foreach (ProductoCantidad productosComprar in ordenDeCompra.ProductosCantidad)
             {
-                cuerpoMensaje += productosComprar.Nombre+" precio: "+ productosComprar.Precio+"<br><br>";
-                precio += productosComprar.Precio;
+                cuerpoMensaje += productosComprar.Producto.Nombre+" precio: "+ productosComprar.Producto.Precio+"<br><br>";
+                precio += productosComprar.Producto.Precio;
             }
             cuerpoMensaje+="<br><br><br> Para un total de: " +precio;
             
 
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Resumen de compra", correoEnviar));
-            message.To.Add(new MailboxAddress("cliente", correoEnviar));
+            message.From.Add(new MailboxAddress("Resumen de compra", ordenDeCompra.Email));
+            message.To.Add(new MailboxAddress("cliente", ordenDeCompra.Email));
             message.Subject = "Resumen de compra";
 
             var bodyBuilder = new BodyBuilder();
