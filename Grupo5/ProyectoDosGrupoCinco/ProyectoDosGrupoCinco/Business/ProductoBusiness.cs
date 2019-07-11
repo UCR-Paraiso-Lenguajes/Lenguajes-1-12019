@@ -114,12 +114,12 @@ namespace ProyectoDosGrupoCinco.Business
 
 
 
-        public List<Producto> BuscarPorDescripcion(string descripcion)//descripciones truncadas (descripcion, indice)
+        public List<Producto> BuscarPorDescripcion(string descripcion, int indice)//descripciones truncadas (descripcion, indice)
         {
 
           
 
-            return CargarProductosBuscar(productoData.BuscarPorDescripcion(descripcion),1);
+            return CargarProductosBuscar(productoData.BuscarPorDescripcion(descripcion), indice);
         }
 
         public Producto MostrarDetalle(int idProducto)

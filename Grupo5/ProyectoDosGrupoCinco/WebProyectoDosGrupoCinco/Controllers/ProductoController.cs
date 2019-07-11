@@ -29,10 +29,10 @@ namespace WebProyectoDosGrupoCinco.Controllers
 
         [Route("getProductByDescription")]
         [HttpGet("{descripcion}")]
-        public IEnumerable<Producto> GetProductByDescription(string descripcion)
+        public IEnumerable<Producto> GetProductByDescription(string descripcion, int indice)
         {
 
-            return productoBusiness.BuscarPorDescripcion(descripcion);
+            return productoBusiness.BuscarPorDescripcion(descripcion,indice);
         }
 
         // GET: api/Producto/5
