@@ -17,7 +17,7 @@ namespace ProyectoDosGrupoCinco.Data
                 "multipleactiveresultsets=True"))
             {
                 connection.Open();
-                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion, precio from Producto";
+                string sql = "select id, nombre, impuesto, cantidad_disponible, descripcion,ruta_imagen, precio from Producto";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -29,9 +29,11 @@ namespace ProyectoDosGrupoCinco.Data
                             decimal impuesto = reader.GetDecimal(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
-                            int precio = reader.GetInt32(5);
+                          //  string rutaImagen = reader.GetString(5);
+                            int precio = reader.GetInt32(6);
+                           
 
-                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio));
+                            productos.Add(new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, " "));
 
                         }
                         reader.Close();
@@ -53,9 +55,9 @@ namespace ProyectoDosGrupoCinco.Data
                  "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
                  "multipleactiveresultsets=True"))
             {
-                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion, precio,ruta_imagen ) " +
+                String query = "INSERT INTO Producto (nombre, impuesto, cantidad_disponible, descripcion, ruta_imagen, precio ) " +
 
-                    "VALUES (@nombre,@impuesto,@cantidad_disponible, @descripcion, @ruta_imagen )";
+                    "VALUES (@nombre,@impuesto,@cantidad_disponible, @descripcion,@ruta_imagen, @precio  )";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -131,9 +133,10 @@ namespace ProyectoDosGrupoCinco.Data
                             int impuesto = reader.GetInt32(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
-                            int precio = reader.GetInt32(5);
+                            int precio = reader.GetInt32(6);
+                            string rutaImagen = reader.GetString(5);
 
-                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio);
+                            producto = new Producto(id, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen);
 
                         }
                         reader.Close();
@@ -200,9 +203,10 @@ namespace ProyectoDosGrupoCinco.Data
                             int impuesto = reader.GetInt32(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             string descripcion = reader.GetString(4);
-                            int precio = reader.GetInt32(5);
+                            int precio = reader.GetInt32(6);
+                            string rutaImagen = reader.GetString(5);
 
-                            productos.Add(new Producto(idProducto, impuesto, nombre, descripcion, cantidadDisponible, precio));
+                            productos.Add(new Producto(idProducto, impuesto, nombre, descripcion, cantidadDisponible, precio, rutaImagen));
 
                         }
                         reader.Close();
