@@ -61,7 +61,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
 
         // PUT: api/Producto/5
         [Route("update")]
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put([FromBody] Producto productoActualizar)
         {
 
