@@ -116,5 +116,44 @@ namespace ProyectoDosGrupoCinco.Data
             return usuario;
         }
 
+
+
+        public List<Usuario> GetAllUsuarios()
+        {
+
+            List<Usuario> usuarios = new List<Usuario>();
+
+            using (SqlConnection connection = new SqlConnection("data source=" +
+                "163.178.173.148;initial " +
+                "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+                "multipleactiveresultsets=True"))
+            {
+                connection.Open();
+                string sql = "select nombre, correo, rol, estado, password from Usuario";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idUsuario = reader.GetInt32(0);
+                            string nombre = reader.GetString(1);
+                            string correo = reader.GetString(2);
+                            string rol = reader.GetString(3);
+                            bool estado = reader.GetBoolean(4);
+                            string password = reader.GetString(5);
+
+                            usuarios.Add(new Usuario(idUsuario, nombre, correo, rol, estado, password));
+
+                        }
+                        reader.Close();
+                    };
+                }
+                connection.Close();
+            }
+
+
+            return usuarios;
+        }
     }
 }

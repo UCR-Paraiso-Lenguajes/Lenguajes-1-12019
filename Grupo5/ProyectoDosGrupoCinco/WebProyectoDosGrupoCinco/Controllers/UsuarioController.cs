@@ -15,7 +15,13 @@ namespace WebProyectoDosGrupoCinco.Controllers
     {
 
         UsuarioBusiness usuarioBusiness = new UsuarioBusiness();
-     
+
+        [HttpGet]
+        [Route("getAll")]
+        public List<Usuario> Get()
+        {
+            return usuarioBusiness.GetAllUsuarios();
+        }
 
         // GET: api/Usuario/5
         [HttpGet("{id}", Name = "Get")]

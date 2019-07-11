@@ -29,7 +29,10 @@ namespace ProyectoDosGrupoCinco.Business
             usuarioData.InsertarUsuario(usuario);
         }
 
-
+        public List<Usuario> GetAllUsuarios()
+        {
+            return usuarioData.GetAllUsuarios();
+        }
     }
 
 }
