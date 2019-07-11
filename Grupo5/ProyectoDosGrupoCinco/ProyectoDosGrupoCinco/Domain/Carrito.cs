@@ -10,6 +10,7 @@ namespace ProyectoDosGrupoCinco.Domain
         private int idCarrito;
         private List<Producto> productos;
         private Comprador usuario;
+        private Comprador comprador;
         private decimal subTotal;
         private decimal total;
 
@@ -25,6 +26,8 @@ namespace ProyectoDosGrupoCinco.Domain
                 usuario = value;
             }
         }
+
+       
 
         public decimal SubTotal {
             get
@@ -71,6 +74,7 @@ namespace ProyectoDosGrupoCinco.Domain
             SubTotal = subtotal;
         }
 
+    
         public Carrito(int idCarrito, int total, int subtotal)
         {
             IdCarrito = idCarrito;

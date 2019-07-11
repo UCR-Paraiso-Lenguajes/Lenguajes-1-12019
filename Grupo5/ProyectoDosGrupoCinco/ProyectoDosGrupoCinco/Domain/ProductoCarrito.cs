@@ -8,12 +8,21 @@ namespace ProyectoDosGrupoCinco.Domain
     {
         private int idCarrito;
         private int idProducto;
+        private int cantidad;
+
+        public ProductoCarrito(int idCarrito, int idProducto, int cantidad)
+        {
+            IdCarrito = idCarrito;
+            IdProducto = idProducto;
+            Cantidad = cantidad;
+        }
+
 
         public ProductoCarrito(int idCarrito, int idProducto)
         {
             IdCarrito = idCarrito;
             IdProducto = idProducto;
-            
+           
         }
         public ProductoCarrito()
         {
@@ -29,6 +38,19 @@ namespace ProyectoDosGrupoCinco.Domain
             {
 
                 idCarrito = value;
+            }
+        }
+
+        public int Cantidad
+        {
+            get
+            {
+                return cantidad;
+            }
+            set
+            {
+
+                cantidad = value;
             }
         }
 

@@ -12,8 +12,8 @@ namespace ProyectoDosGrupoCinco.Domain
         private string direccion;
         private List<ProductoCantidad> productosCantidad;
 
-
-
-
+        public OrdenDeCompra(OrdenDeCompra ordenDeCompra) : base(ordenDeCompra)
+        {
+        }
     }
 }

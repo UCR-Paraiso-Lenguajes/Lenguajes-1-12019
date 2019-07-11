@@ -152,6 +152,34 @@ namespace Tests
         }
 
 
+        [Test]
+        public void CarritoAgregar()
+        {
+
+            
+            CarritoData carritoData = new CarritoData();
+
+          /*CarritoDisponible carritoDisponible = carritoData.CarritoDisponible(3);*/
+
+            ProductoData productoData = new ProductoData();
+
+            Producto producto = productoData.GetProductById(2);
+
+            ProductoCarrito productoCarrito = new ProductoCarrito(3, producto.IdProducto, 10);
+
+            try
+            {
+                carritoData.carritoProducto(productoCarrito);
+            }
+            catch (Exception e)
+            {
+                carritoData.carritoProductoActualizar(productoCarrito);
+            }
+
+
+        }
+
+
 
     }
 }

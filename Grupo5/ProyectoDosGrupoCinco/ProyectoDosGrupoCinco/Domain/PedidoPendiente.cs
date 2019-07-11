@@ -4,7 +4,11 @@ using System.Text;
 
 namespace ProyectoDosGrupoCinco.Domain
 {
-   public class PedidoPendiente:Pedido
+    public class PedidoPendiente : Pedido
     {
+        public PedidoPendiente(OrdenDeCompra ordenDeCompra)
+        {
+            OrdenDeCompra = ordenDeCompra;
+        }
     }
 }
