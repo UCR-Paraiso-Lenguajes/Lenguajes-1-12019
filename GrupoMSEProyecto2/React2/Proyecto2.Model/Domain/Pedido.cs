@@ -90,13 +90,27 @@ namespace Proyecto2.Model.Domain
                 fechaDespacho = value;
             }
         }
-        protected Pedido(int id,string email, string direccion, OrdenDeCompra ordenDeCompra)
+        public Pedido(int id,string email, string direccion, OrdenDeCompra ordenDeCompra)
         {
             Id = id;
             Email = email;
             Direccion = direccion;
             OrdenDeCompra = ordenDeCompra;
         }
+
+        public Pedido(int id, string email, string direccion, OrdenDeCompra ordenDeCompra, DateTime fechaUltimoUso, DateTime fechaEntrega, double totalCompra, int totalProductosEntregados, DateTime fechaDespacho) : this(id, email, direccion, ordenDeCompra)
+        {
+            Id = id;
+            Email = email;
+            Direccion = direccion;
+            OrdenDeCompra = ordenDeCompra;
+            FechaUltimoUso = fechaUltimoUso;
+            FechaEntrega = fechaEntrega;
+            TotalCompra = totalCompra;
+            TotalProductosEntregados = totalProductosEntregados;
+            FechaDespacho = fechaDespacho;
+        }
+
         /*
 * Esta lista de productos ya esta encapsulada en Orden de Compra
    private List<ProductoCantidad> productos;

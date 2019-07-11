@@ -11,33 +11,26 @@ namespace api.Controllers
 {
     
     
-    public class CarritoController : Controller
+    public class ProductoController : Controller
     {
-        private CarritoBusiness carritoBusiness = new CarritoBusiness();
+        private static string sqlconnectc = "data source = " +
+                "163.178.173.148;initial " +
+                "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
+                "multipleactiveresultsets=True";
+        private ProductoData productoData = new ProductoData(sqlconnectc);
         // GET api/values
-        [HttpGet("api/carritousuario/{idUsuario}")]
-        public Object TraeCarritoPorIdUsuario(int idUsuario)
+        [HttpGet("api/productosrango/{indice}")]
+        public IEnumerable<Producto> TraeProductoPorIndice(int indice)
         {
-            Object salida = carritoBusiness.ObtenerCarritoPorUsuario(idUsuario);
-            if (salida is Carrito)
-            {
-                Carrito carrito = (Carrito)salida;
-                return carrito;
-            }
-            else
-            {
-                return false;
-            }
-            
-            
+            return productoData.ObtenerRango(indice);
         }
 
-        
+        /*
         [HttpPost("api/carritoBaseDeDatos")]
         public void InsertarCarrito([FromBody] Carrito carrito)
         {
-            carritoBusiness.InsertarCarrito(carrito);
-        }
+            //carritoBusiness.InsertarCarrito(carrito);
+        }*/
 
         // POST api/values
         [HttpPost]
