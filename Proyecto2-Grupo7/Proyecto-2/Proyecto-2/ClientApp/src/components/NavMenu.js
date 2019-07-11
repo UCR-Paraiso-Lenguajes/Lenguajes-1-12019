@@ -28,7 +28,21 @@ export class NavMenu extends Component {
                             <Glyphicon glyph='shopping-cart' /> Carrito de Compras
               </NavItem>
                     </LinkContainer>
-                
+                    <LinkContainer to={'/organizacions'} exact>
+                        <NavItem>
+                            <Glyphicon glyph='globe' /> Organizacion
+              </NavItem>
+                    </LinkContainer>
+                    <LinkContainer to={'/impuestos'} exact>
+                        <NavItem>
+                            <Glyphicon glyph='euro' /> Impuesto
+              </NavItem>
+                    </LinkContainer>
+                    <LinkContainer to={'/nuevoProducto'} exact>
+                        <NavItem>
+                            <Glyphicon glyph='euro' /> Nuevo Producto
+              </NavItem>
+                    </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -47,6 +47,7 @@ export class Login extends Component {
         handleClick() {
             var userMail = document.getElementById("emailUser");
             var password = document.getElementById("password");
+
             fetch('api/logearComprador', {
                 method: 'POST',
                 headers: {
