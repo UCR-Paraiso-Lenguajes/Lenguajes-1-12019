@@ -34,8 +34,8 @@ namespace Proyecto2.Clases.Data
                         while (reader.Read())
                         {
                             int id = reader.GetInt32(0);
-                            string nombre = reader.GetString(1);
-                            string url_image = reader.GetString(2);
+                            string url_image = reader.GetString(1);
+                            string nombre = reader.GetString(2);
                             int cantidadDisponible = reader.GetInt32(3);
                             decimal impuesto = reader.GetDecimal(4);
                             string descripcion = reader.GetString(5);

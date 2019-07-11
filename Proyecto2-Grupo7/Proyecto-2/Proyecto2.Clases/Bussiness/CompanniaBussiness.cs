@@ -12,7 +12,7 @@ namespace Proyecto2.Clases.Bussiness
         CarritoData carritoData = new CarritoData();
         PedidoData pedidoData = new PedidoData();
 
-        public IEnumerable<Producto> ListarProducto(int indice)
+        public List<Producto> ListarProducto(int indice)
         {
             int cont = 0;
             List<Producto> products = productoData.ListProducts();
@@ -50,6 +50,22 @@ namespace Proyecto2.Clases.Bussiness
             return productoTemp;
         }
 
+        public ProductoCantidad ProductoCantidadPorId(string idCarrito, string idProducto)
+        {
+            ProductoCantidad productoCantidadTemp = new ProductoCantidad();
+            List<ProductoCantidad> products = carritoData.ListProductCantidadbyCarrito(idCarrito);
+
+
+            foreach (ProductoCantidad productoCantidad in products)
+            {
+                if (productoCantidad.Producto.Id.Equals(idProducto))
+                {
+                    productoCantidadTemp = productoCantidad;
+                }
+            }
+            return productoCantidadTemp;
+        }
+
 
         public void ActualizarInventario(Producto producto, int cantidad)
         {
@@ -63,8 +79,6 @@ namespace Proyecto2.Clases.Bussiness
         public Carrito recuperarCarrito(string idComprador) {
             Carrito carritoRecuperado = new Carrito();
             List<Carrito> carritos  =carritoData.listarCarritos();
-
-
             foreach (Carrito carrito in carritos)
             {
                 if (carrito.Comprador.Id.Equals(idComprador))
@@ -73,16 +87,21 @@ namespace Proyecto2.Clases.Bussiness
                 }
             }
             if (carritoRecuperado.Id == null) {
-            
-
                 List<ProductoCantidad> productosCantidad = new List<ProductoCantidad>();
                 carritoRecuperado= new Carrito(productosCantidad,"0",carritoData.ListCompradorbyid(idComprador));
                 carritoData.InsertarCarrito(carritoRecuperado);
-                
+                List<Carrito> carritos2 = carritoData.listarCarritos();
+                foreach (Carrito carrito2 in carritos2)
+                {
+                    if (carrito2.Comprador.Id.Equals(idComprador))
+                    {
+                        carritoRecuperado = carrito2;
+                    }
+                }
+
 
 
             };
-            
             return carritoRecuperado;
         }
 
@@ -98,7 +117,10 @@ namespace Proyecto2.Clases.Bussiness
             public void comprarCarrito(int idCarrito, string email, string direccion){
 
             List<ProductoCantidad> productoCantidads = carritoData.ListProductCantidadbyCarrito(idCarrito.ToString());
-            Pedido pedido = new Pedido(carritoData.getCarritobyid(idCarrito),"0",email,direccion,productoCantidads);
+            Carrito carrito = new Carrito();
+            carrito = carritoData.getCarritobyid(idCarrito);
+            Pedido pedido = new Pedido(carrito,"0",email,direccion,productoCantidads);
+            
             pedidoData.Insertar(pedido);
             
             foreach (ProductoCantidad productoCantidad in productoCantidads)
@@ -116,7 +138,7 @@ namespace Proyecto2.Clases.Bussiness
           
         }
 
-        public IEnumerable<Pedido> ListarPedido(int indice)
+        public List<Pedido> ListarPedido(int indice)
         {
             int cont = 0;
             List<Pedido> pedidos = pedidoData.ListaPedido();
@@ -147,6 +169,22 @@ namespace Proyecto2.Clases.Bussiness
             foreach (Pedido pedido in pedidos)
             {
                 if (pedido.Id.Equals(id))
+                {
+                    pedidoTemp = pedido;
+                }
+            }
+            return pedidoTemp;
+        }
+
+        public Pedido PedidosPorIdCarrito(string id)
+        {
+            Pedido pedidoTemp = new Pedido();
+            List<Pedido> pedidos = pedidoData.ListaPedido();
+
+
+            foreach (Pedido pedido in pedidos)
+            {
+                if (pedido.OrdenDeCompra.Id.Equals(id))
                 {
                     pedidoTemp = pedido;
                 }

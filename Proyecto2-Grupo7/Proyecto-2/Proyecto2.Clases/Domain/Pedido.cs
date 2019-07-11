@@ -34,7 +34,7 @@ namespace Proyecto2.Clases.Domain
             }
             set
             {
-                if (ordenDeCompra == null) throw new Exception("La orden de compras es requerida.");
+                
                 ordenDeCompra = value;
             }
         }

@@ -75,7 +75,7 @@ namespace Proyecto2.Clases.Domain
             }
             set
             {
-                if (string.IsNullOrEmpty(value)) throw new Exception("El nombre es requerido");
+                //if (string.IsNullOrEmpty(value)) throw new Exception("El nombre es requerido");
                 nombre = value;
             }
         }
@@ -101,7 +101,7 @@ namespace Proyecto2.Clases.Domain
             }
             set
             {
-                if (value <= -1) { throw new Exception("La cantidad debe ser positiva."); }
+                if (value <-1) { throw new Exception("La cantidad debe ser positiva."); }
                 else
                 {
 

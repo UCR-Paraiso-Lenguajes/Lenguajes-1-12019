@@ -65,9 +65,9 @@ namespace Proyecto2.Clases.Data
                         while (reader.Read())
                         {
                             int id_pedido = reader.GetInt32(0);
-                            int id_carrito = reader.GetInt32(0);
-                            string email = reader.GetString(1);
-                            string direccion = reader.GetString(2);
+                            int id_carrito = reader.GetInt32(1);
+                            string email = reader.GetString(2);
+                            string direccion = reader.GetString(3);
 
 
                             List<ProductoCantidad> productoCantidads = carritoData.ListProductCantidadbyCarrito(id_carrito.ToString());
