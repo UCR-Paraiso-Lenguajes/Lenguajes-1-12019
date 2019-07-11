@@ -18,7 +18,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
         OrdenDeCompraData ordenDeCompraData = new OrdenDeCompraData();
 
         // GET: api/OrdenDeCompra
-        [HttpGet]
+        [HttpPost]
         [Route("comprarCarrito")]
         public OrdenDeCompra ComprarCarrito(OrdenDeCompra ordenDeCompra)
         {
