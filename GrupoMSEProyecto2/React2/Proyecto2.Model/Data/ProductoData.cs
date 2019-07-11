@@ -34,14 +34,14 @@ namespace Proyecto2.Model.Data
                         while (reader.Read())
                         {
                             int id = reader.GetInt32(0);
-                            Decimal impuesto = reader.GetDecimal(1);
+                            Double impuesto = Convert.ToDouble(reader.GetDecimal(1)) / 100;
                             string nombre = reader.GetString(2);
                             string descripcion = reader.GetString(3);
                             Double precio = (Double)reader.GetDouble(4);
                             int cantidadDis = reader.GetInt32(5);
                             string imagen = reader.GetString(6);
 
-                            producto.Add(new Producto((float)precio, id, (double)impuesto, nombre, descripcion, cantidadDis, imagen));
+                            producto.Add(new Producto((float)precio, id, impuesto, nombre, descripcion, cantidadDis, imagen));
                         }
                         reader.Close();
                     };
@@ -66,14 +66,14 @@ namespace Proyecto2.Model.Data
                         while (reader.Read())
                         {
                             int id = reader.GetInt32(0);
-                            Decimal impuesto = reader.GetDecimal(1);
+                            Double impuesto = Convert.ToDouble(reader.GetDecimal(1)) / 100;
                             string nombre = reader.GetString(2);
                             string descripcion = reader.GetString(3);
                             Double precio = (Double)reader.GetDouble(4);
                             int cantidadDis = reader.GetInt32(5);
                             string imagen = reader.GetString(6);
 
-                            producto.Add(new Producto((float)precio, id, (double)impuesto, nombre, descripcion, cantidadDis, imagen));
+                            producto.Add(new Producto((float)precio, id, impuesto, nombre, descripcion, cantidadDis, imagen));
                         }
                         reader.Close();
                     };
