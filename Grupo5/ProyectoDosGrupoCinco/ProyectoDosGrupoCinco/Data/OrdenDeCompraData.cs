@@ -12,10 +12,12 @@ namespace ProyectoDosGrupoCinco.Data
   public class OrdenDeCompraData
     {
         ProductoData productoData = new ProductoData();
-        public void ComprarCarrito(string direccion, string correoEnviar, int idCarrito)
+        public void ComprarCarrito(string direccion, string correoEnviar, List<Producto> productosComprados)
         {
             string cuerpoMensaje = "";
             int precio = 0;
+
+            /*     
             List<ProductoCarrito> listaProductosComprar = ListProductosDeCarrito(idCarrito);
             Producto producto = new Producto();
             List<Producto> productosComprados = new List<Producto>();
@@ -27,7 +29,7 @@ namespace ProyectoDosGrupoCinco.Data
 
 
 
-            }
+            }*/
 
             cuerpoMensaje = "correo específicado: "+ correoEnviar +"<br><br> Dirección a la que se enviará el parquete: <br>"+ direccion+"<br><br><br>Los productos solicitados son los siguientes:<br><br>   ";
 
