@@ -181,6 +181,39 @@ namespace ProyectoDosGrupoCinco.Data
 
         }
 
+
+        public void actualizarCantidad(int id,int cantidad)
+        {
+
+            using (SqlConnection conn = new SqlConnection("data source=" +
+           "163.178.173.148;initial " +
+           "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
+           "multipleactiveresultsets=True"))
+            {
+                conn.Open();
+
+                string sql = "UPDATE Producto SET cantidad_disponible = " + "'" + cantidad + "'"
+                                 + "WHERE id = " + id;
+
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                        }
+                        reader.Close();
+                    };
+                }
+                conn.Close();
+            }
+
+
+        }
+
         public List<Producto> BuscarPorDescripcion(string descripcionBuscar)
         {
             List<Producto> productos = new List<Producto>();

@@ -104,5 +104,28 @@ namespace Tests
         }
 
 
+        [Test]
+        public void ActualizarInventario()
+        {
+            ProductoBusiness productoBusiness = new ProductoBusiness();
+
+            productoBusiness.ActualizarCantidad(7, 500);
+
+            ProductoData productoData = new ProductoData();
+
+            Producto producto = productoData.GetProductById(7);
+
+
+
+
+            Assert.AreEqual(producto.CantidadDisponible, 500);
+
+
+
+
+        }
+
+
+
     }
 }

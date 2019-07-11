@@ -127,5 +127,18 @@ namespace ProyectoDosGrupoCinco.Business
             return null;
 
         }
+
+
+        public void ActualizarProducto(int id, Producto producto)
+        {
+            productoData.actualizarProducto(id, producto);
+
+        }
+
+        public void ActualizarCantidad(int id, int cantidad)
+        {
+            productoData.actualizarCantidad(id, cantidad);
+
+        }
     }
 }
