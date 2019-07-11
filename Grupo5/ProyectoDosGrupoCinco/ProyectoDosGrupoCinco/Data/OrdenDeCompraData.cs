@@ -11,17 +11,34 @@ namespace ProyectoDosGrupoCinco.Data
 {
   public class OrdenDeCompraData
     {
-
-        public void ComprarCarrito()
+        ProductoData productoData = new ProductoData();
+        public void ComprarCarrito(string direccion, string correoEnviar, int idCarrito)
         {
+            string cuerpoMensaje = "";
+            int precio = 0;
+            List<ProductoCarrito> listaProductosComprar = ListProductosDeCarrito(idCarrito);
+            Producto producto = new Producto();
+            List<Producto> productosComprados = new List<Producto>();
+            foreach(ProductoCarrito productosComprar in listaProductosComprar)
+            {
+
+              producto =  productoData.GetProductById(productosComprar.IdProducto);
+              productosComprados.Add(producto);
+
+
+
+            }
+
+            cuerpoMensaje = "correo específicado: "+ correoEnviar +"<br><br> Dirección a la que se enviará el parquete: <br>"+ direccion+"<br><br><br>Los productos solicitados son los siguientes:<br><br>   ";
+
+            foreach (Producto productosComprar in productosComprados)
+            {
+                cuerpoMensaje += productosComprar.Nombre+" precio: "+ productosComprar.Precio+"<br><br>";
+                precio += productosComprar.Precio;
+            }
+            cuerpoMensaje+="<br><br><br> Para un total de: " +precio;
             
 
-
-        }
-
-
-        public void ResumenCompra(string correoEnviar, string cuerpoMensaje)
-        {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Resumen de compra", correoEnviar));
             message.To.Add(new MailboxAddress("cliente", correoEnviar));
@@ -35,7 +52,7 @@ namespace ProyectoDosGrupoCinco.Data
             image.ContentId = MimeUtils.GenerateMessageId();
 
 
-            bodyBuilder.HtmlBody = string.Format(@"<div style=""{0}""><center><img src=""cid:{1}""></center></div> <br><div style =""{2}"" ><strong><h1>A continuación podrás ver el resumen de tú compra</h1></strong>{3}</div>", "background-color:cadetblue; width:900px;heigth:100px", image.ContentId, "color:#229954", cuerpoMensaje);
+            bodyBuilder.HtmlBody = string.Format(@"<div style=""{0}""><center><img src=""cid:{1}""></center></div> <br><div style =""{2}"" ><strong><h1>A continuación podrás ver el resumen de tú compra</h1></strong></div><div style =""{3}""><strong>{4}</strong></div>", "background-color:cadetblue; width:900px;heigth:100px", image.ContentId, "color:#229954", "color:#5DADE2", cuerpoMensaje);
 
 
 
@@ -52,7 +69,13 @@ namespace ProyectoDosGrupoCinco.Data
             }
         }
 
-        public List<ProductoCarrito> ListProductosDeCarrito()
+
+        public void ResumenCompra(string correoEnviar, string cuerpoMensaje)
+        {
+         
+        }
+
+        public List<ProductoCarrito> ListProductosDeCarrito(int idCarrito)
         {
             List<ProductoCarrito> productos = new List<ProductoCarrito>();
 
@@ -61,31 +84,21 @@ namespace ProyectoDosGrupoCinco.Data
                 "catalog=ProyectoDosLenguajesGrupo05;user id=lenguajesap;password=lenguajesap;" +
                 "multipleactiveresultsets=True"))
             {
-                /*Select id_carrito,id_producto
-from Producto_Carrito
-JOIN Producto
-ON (Producto_Carrito.id_producto = Producto.id)
-where Producto_Carrito.id_carrito=1
-*/
+               
                 connection.Open();
                 string sql = "select id_carrito, id_producto from Producto_Carrito JOIN Producto ON (Producto_Carrito.id_producto=Producto.id)" +
-                    "WHERE Producto_Carrito.id_carrito=1";
+                    "WHERE Producto_Carrito.id_carrito="+idCarrito;
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int id = reader.GetInt32(0);
-                            string nombre = reader.GetString(1);
-                            decimal impuesto = reader.GetDecimal(2);
-                            int cantidadDisponible = reader.GetInt32(3);
-                            string descripcion = reader.GetString(4);
-                            string rutaImagen = reader.GetString(5);
-                            int precio = reader.GetInt32(6);
-                            int idCarrito = reader.GetInt32(7);
+                            int idShoppingCart = reader.GetInt32(0);
+                            int idProducto = reader.GetInt32(1);
+                            
 
-                            productos.Add(new ProductoCarrito());
+                            productos.Add(new ProductoCarrito(idShoppingCart, idProducto));
 
                         }
                         reader.Close();
