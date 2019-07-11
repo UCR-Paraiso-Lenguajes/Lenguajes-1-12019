@@ -25,5 +25,25 @@ namespace ProyectoDosGrupoCinco.Domain
           
         }
 
+        public void Asignar(Producto producto, int cantidad)
+        {
+
+        }
+
+        public bool ValidaAsignar(Producto producto, int cantidad)
+        {
+            return true;
+        }
+
+        void Quitar(Producto producto)
+        {
+
+        }
+
+        public Carrito Recuperar()
+        {
+            return null;
+        }
+
     }
 }
