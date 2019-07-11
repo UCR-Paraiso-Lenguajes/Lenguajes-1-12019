@@ -126,6 +126,32 @@ namespace Tests
         }
 
 
+        [Test]
+        public void RecuperarCarrito()
+        {
+
+            try
+            {
+                CarritoData carritoData = new CarritoData();
+
+                carritoData.CarritoDisponible(2);
+            }
+            catch (Exception e)
+            {
+                CarritoData carritoData2 = new CarritoData();
+                CarritoDisponible carrito = new CarritoDisponible(1,100,1000);
+
+                carritoData2.crearCarrito(carrito);
+            }
+
+            
+
+
+
+
+        }
+
+
 
     }
 }
