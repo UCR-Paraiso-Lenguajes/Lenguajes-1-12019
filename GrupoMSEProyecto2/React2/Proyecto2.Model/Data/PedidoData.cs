@@ -10,14 +10,14 @@ namespace Proyecto2.Model.Data
     {
         private string connectionString;
 
-        string sqlconnect = "data source = " +
+        private string sqlconnect = "data source = " +
                 "163.178.173.148;initial " +
                 "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
                 "multipleactiveresultsets=True";
 
-        public PedidoData(string connectiostring)
+        public PedidoData()
         {
-            this.connectionString = connectiostring;
+            this.connectionString = sqlconnect;
         }
 
         public Pedido ObtenerPedido(int idPedido)
@@ -142,9 +142,30 @@ namespace Proyecto2.Model.Data
                 }
                 connection.Close();
             }
+            insertarPedidoProducto(pedido.Id,pedido.OrdenDeCompra.ProductosCantidad);
         }
 
-
+        private void insertarPedidoProducto(int idPedido, List<ProductoCantidad> listaProductosCant)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                    foreach (ProductoCantidad productoCantidad in listaProductosCant)
+                    {
+                
+                        string sql = "insert into PedidoProducto(idPedido,idProducto,cantidadComprado) values(@idPedido,@idProducto,@cantidadComprado)";
+                        using (SqlCommand command = new SqlCommand(sql, connection))
+                        {
+                            command.Parameters.Add(new SqlParameter("@idPedido", idPedido));
+                            command.Parameters.Add(new SqlParameter("@idProducto", productoCantidad.Producto.IdProducto));
+                            command.Parameters.Add(new SqlParameter("@cantidadComprado", productoCantidad.Cantidad));
+                            command.ExecuteNonQuery();
+                        }
+                        
+                    }
+                connection.Close();
+            }
+        }
         
 
 

@@ -21,7 +21,7 @@ namespace Proyecto2.Tests.Data
                 "163.178.173.148;initial " +
                 "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
                 "multipleactiveresultsets=True";
-            PedidoData pedidoData = new PedidoData(sqlconnect);
+            PedidoData pedidoData = new PedidoData();
 
 
 
@@ -41,7 +41,7 @@ namespace Proyecto2.Tests.Data
                 "163.178.173.148;initial " +
                 "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
                 "multipleactiveresultsets=True";
-            PedidoData pedidoData = new PedidoData(sqlconnect);
+            PedidoData pedidoData = new PedidoData();
 
             List<ProductoCantidad> listaProducto = new List<ProductoCantidad>();
             Producto producto = new Producto(80000, 4, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
@@ -52,11 +52,11 @@ namespace Proyecto2.Tests.Data
             listaProducto.Add(productoCantidad2);
             
             OrdenDeCompra orden = new OrdenDeCompra(listaProducto);
-            PedidoEntregado pedido = new PedidoEntregado(4,"emmanuelsolano33@gmail,com","Paraiso,Cartago",orden, DateTime.Now, orden.TotalCompra,2);
+            PedidoEntregado pedido = new PedidoEntregado(59,"manfredgh@gmail,com","Alvarado,Cartago",orden, DateTime.Now, orden.TotalCompra, orden.ProductosCantidad.Count);
 
-            Assert.AreEqual(4, pedido.Id);
-            Assert.AreEqual("emmanuelsolano33@gmail,com", pedido.Email);
-            Assert.AreEqual("Paraiso,Cartago", pedido.Direccion);
+            Assert.AreEqual(59, pedido.Id);
+            Assert.AreEqual("manfredgh@gmail,com", pedido.Email);
+            Assert.AreEqual("Alvarado,Cartago", pedido.Direccion);
             Assert.AreEqual(2, pedido.TotalProductosEntregados);
    
 
@@ -65,7 +65,7 @@ namespace Proyecto2.Tests.Data
 
         }
 
-
+        
         [Test]
         public void InsertarPedidoDespachar()
         {
@@ -74,7 +74,7 @@ namespace Proyecto2.Tests.Data
                 "163.178.173.148;initial " +
                 "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
                 "multipleactiveresultsets=True";
-            PedidoData pedidoData = new PedidoData(sqlconnect);
+            PedidoData pedidoData = new PedidoData();
 
             List<ProductoCantidad> listaProducto = new List<ProductoCantidad>();
             Producto producto = new Producto(80000, 4, 5, "LG", "Celular", 10, "https://www.alcatelmobile.com/media/catalog/product/cache/image/1100x1100/e9c3970ab036de70892d86c6d221abfe/a/l/alcatel_1x_front_pebble_blue_with_ui__3.png");
@@ -109,7 +109,7 @@ namespace Proyecto2.Tests.Data
                 "163.178.173.148;initial " +
                 "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
                 "multipleactiveresultsets=True";
-            PedidoData pedidoData = new PedidoData(sqlconnect);
+            PedidoData pedidoData = new PedidoData();
 
             pedidoData.BorrarPedido(5);
 

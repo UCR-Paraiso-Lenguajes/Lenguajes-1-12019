@@ -135,16 +135,24 @@ namespace Proyecto2.Model.Data
 
         public void InsertarCarrito(Carrito carrito)
         {
-
+            PedidoData pedidoData = new PedidoData();
+            pedidoData.InsertarPedido(carrito.Pedido);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 	//carrito
                 connection.Open();
-                string sql = "insert into Carrito(idProducto,cantidadProducto) values(@idProducto,@cantidadProducto)";
+                string sql = "insert into Carrito(id,idUser) values(@id,@idUser)";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    //command.Parameters.Add(new SqlParameter("@idProducto", idProducto));
-                    //command.Parameters.Add(new SqlParameter("@cantidadProducto", cantidadProducto));
+                    command.Parameters.Add(new SqlParameter("@id", carrito.Id));
+                    command.Parameters.Add(new SqlParameter("@idUser", carrito.Usuario.IdUsuario));
+                    command.ExecuteNonQuery();
+                }
+                sql = "insert into CarritoPedido(idCarrito,idPedido) values(@idCarrito,@idPedido)";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.Add(new SqlParameter("@idCarrito", carrito.Id));
+                    command.Parameters.Add(new SqlParameter("@idPedido", carrito.Pedido.Id));
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -152,40 +160,147 @@ namespace Proyecto2.Model.Data
 ;
         }
 
-
-        public void Actualiza(Carrito carrito)
+        
+        public void Actualiza(int idUser,ProductoCantidad productoCantidad)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            Carrito carrito = (Carrito)ObtenerCarritoPorUsuario(idUser);
+            bool encontrado = false;
+            foreach (ProductoCantidad prod in carrito.Pedido.OrdenDeCompra.ProductosCantidad)
             {
-                //connection.Open();
-                //string sql = @"UPDATE Carrito SET 
-                //          cantidadProducto = @CantidadProducto
-                //    WHERE idProducto = " + idProducto;
-                //using (SqlCommand command = new SqlCommand(sql, connection))
-                //{
-                //    command.Parameters.AddWithValue("idProducto", idProducto);
-                //    command.Parameters.AddWithValue("cantidadProducto", cantidadProducto);
-                //    command.ExecuteNonQuery();
-                //}
-                //connection.Close();
+                if (prod.Producto.IdProducto == productoCantidad.Producto.IdProducto) encontrado = true;
             }
+            if (encontrado)
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sql = "update PedidoProducto set cantidadComprado = cantidadComprado + @cantidadComprado where idPedido = " + carrito.Pedido.Id+" AND idProducto = "+productoCantidad.Producto.IdProducto;
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.Add(new SqlParameter("@cantidadComprado", productoCantidad.Cantidad));
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+            }
+            else
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sql = "insert PedidoProducto(idPedido,idProducto,cantidadComprado) values(@idPedido,@idProducto,@cantidadComprado)";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.Add(new SqlParameter("@idPedido", carrito.Pedido.Id));
+                        command.Parameters.Add(new SqlParameter("@idProducto", productoCantidad.Producto.IdProducto));
+                        command.Parameters.Add(new SqlParameter("@cantidadComprado", productoCantidad.Cantidad));
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+            }
+            
         }
+       
 
-
-        public void BorrarCarrito(int Id)
+        public void BorrarCarrito(Carrito carrito)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = @"DELETE FROM Carrito 
-                   WHERE idProducto = @Id";
+                string sql = "DELETE PedidoProducto WHERE idPedido = @idPedido";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.AddWithValue("Id", Id);
+                    command.Parameters.AddWithValue("idPedido", carrito.Pedido.Id);
+                    command.ExecuteNonQuery();
+                }
+                sql = "DELETE CarritoPedido WHERE idPedido = @idPedido";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("idPedido", carrito.Pedido.Id);
+                    command.ExecuteNonQuery();
+                }
+                sql = "DELETE Pedido WHERE id = @id";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("id", carrito.Pedido.Id);
+                    command.ExecuteNonQuery();
+                }
+                sql = "DELETE Carrito WHERE id = @id";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("id", carrito.Id);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
+            }
+        }
+        public bool Comprar(Carrito carrito)
+        {
+            foreach (ProductoCantidad productoCantidad in carrito.Pedido.OrdenDeCompra.ProductosCantidad)
+            {
+                if (productoCantidad.Producto.CantidadDisponible < productoCantidad.Cantidad) return false;
+            }
+            Object carritoUsuario = ObtenerCarritoPorUsuario(Convert.ToInt32(carrito.Usuario.IdUsuario));
+            if (carritoUsuario is Boolean)
+            {
+                InsertarCarrito(carrito);
+                actualizaCantidadProductos(carrito.Pedido.OrdenDeCompra.ProductosCantidad);
+                return true;
+            }
+            else if(carritoUsuario is Carrito)
+            {
+                BorrarCarrito((Carrito)carritoUsuario);
+                InsertarCarrito((Carrito)carritoUsuario);
+                actualizaCantidadProductos(carrito.Pedido.OrdenDeCompra.ProductosCantidad);
+                return true;
+            }
+
+            return false;
+        }
+        private void actualizaCantidadProductos(List<ProductoCantidad>productoCantidads)
+        {
+            Producto productoActualizar = new Producto();
+            int cantidad = 0;
+            foreach (ProductoCantidad productoCantidad in productoCantidads)
+            {
+                cantidad = productoCantidad.Producto.CantidadDisponible - productoCantidad.Cantidad;
+                if (cantidad <= 0)
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string sql = "DELETE PedidoProducto WHERE idPedido = @idPedido";
+                        using (SqlCommand command = new SqlCommand(sql, connection))
+                        {
+                            command.Parameters.AddWithValue("idPedido", productoActualizar.IdProducto);
+                            command.ExecuteNonQuery();
+                        }
+                        sql = "DELETE Producto WHERE id = @id";
+                        using (SqlCommand command = new SqlCommand(sql, connection))
+                        {
+                            command.Parameters.AddWithValue("id", productoActualizar.IdProducto);
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+                }
+                else
+                {
+                    productoActualizar.CantidadDisponible = cantidad;
+                    //double precioUnitario, int idProducto, double impuestoC, string nombre, string descripcion, int cantidadDisponible, string imagen
+                    Producto productoActualizado = new Producto(productoCantidad.Producto.PrecioUnitario, productoCantidad.Producto.IdProducto, productoCantidad.Producto.Impuesto,
+                        productoCantidad.Producto.Nombre, productoCantidad.Producto.Descripcion, cantidad, productoCantidad.Producto.Imagen);
+
+                    string sqlconnect = "data source = " +
+                "163.178.173.148;initial " +
+                "catalog=IF4101_2019_PROYECTO2;user id=estudiantesrp;password=estudiantesrp;" +
+                "multipleactiveresultsets=True";
+                    ProductoData productoData = new ProductoData(sqlconnect);
+                    productoData.Actualiza(productoActualizado);
+
+                }
             }
         }
     }

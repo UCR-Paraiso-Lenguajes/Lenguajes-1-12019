@@ -50,7 +50,7 @@ namespace Proyecto2.Model.Domain
                 compraSubTotalProducto = value;
             }
         }
-        private ProductoCantidad()
+        public ProductoCantidad()
         {
         }
 

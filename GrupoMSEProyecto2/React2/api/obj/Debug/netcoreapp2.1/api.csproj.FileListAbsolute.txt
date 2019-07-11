@@ -1,0 +1,17 @@
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\api.deps.json
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.json
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.dev.json
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\api.dll
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\api.pdb
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\Proyecto2.Model.dll
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\bin\Debug\netcoreapp2.1\Proyecto2.Model.pdb
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.csprojAssemblyReference.cache
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.csproj.CoreCompileInputs.cache
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cache
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cs
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.AssemblyInfoInputs.cache
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.AssemblyInfo.cs
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.csproj.CopyComplete
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.dll
+C:\Users\OscarLuis\Desktop\Manfred\UniversidaddeCostaRica\Third Year\Lenguajes\REPOSITORIO\GrupoMSEProyecto2\React2\api\obj\Debug\netcoreapp2.1\api.pdb
