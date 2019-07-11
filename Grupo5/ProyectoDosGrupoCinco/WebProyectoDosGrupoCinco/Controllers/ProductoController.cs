@@ -21,7 +21,7 @@ namespace WebProyectoDosGrupoCinco.Controllers
 
         // GET: api/Producto
         [Route("getAllProducts")]
-        [HttpPost]
+        [HttpGet]
         public IEnumerable<Producto> GetAll()
         {
             return productoBusiness.getAllProduct();
