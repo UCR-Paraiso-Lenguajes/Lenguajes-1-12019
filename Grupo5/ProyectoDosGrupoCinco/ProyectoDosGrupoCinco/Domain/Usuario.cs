@@ -28,7 +28,20 @@ namespace ProyectoDosGrupoCinco.Domain
             this.password = password;
         }
 
-   
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+
+                password = value;
+            }
+        }
+
+
         public int IdUsuario
         {
             get
@@ -82,18 +95,8 @@ namespace ProyectoDosGrupoCinco.Domain
         }
 
 
-        public string Password
-        {
-            get
-            {
-                return Proteccion.Decrypt(password);
-            }
-            set
-            {
-
-                password = Proteccion.Encrypt(value);
-            }
-        }
+      
+        
 
 
         public bool Estado

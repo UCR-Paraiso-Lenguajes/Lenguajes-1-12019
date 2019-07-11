@@ -16,13 +16,13 @@ namespace ProyectoDosGrupoCinco.Business
         }
 
         /// Esta función desencripta la contraseña
-        public static string Decrypt(this string password)
+      /*  public static string Decrypt(this string password)
         {
             string result = string.Empty;
             byte[] decryted = Convert.FromBase64String(password);
             result = System.Text.Encoding.Unicode.GetString(decryted);
             return result;
-        }
+        }*/
 
     }
 }
