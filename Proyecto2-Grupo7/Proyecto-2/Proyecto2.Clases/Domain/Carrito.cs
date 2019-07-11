@@ -15,6 +15,13 @@ namespace Proyecto2.Clases.Domain
           
 
         }
+        public Carrito(string id, Comprador comprador)
+        {
+            Id = id;
+            Comprador = comprador;
+
+
+        }
 
         public Carrito()
         {
@@ -23,6 +30,7 @@ namespace Proyecto2.Clases.Domain
 
         }
 
+      
 
         private List<ProductoCantidad> productoCantidad = new List<ProductoCantidad>();
         public List<ProductoCantidad> ProductoCantidad = new List<ProductoCantidad>();
@@ -53,6 +61,9 @@ namespace Proyecto2.Clases.Domain
         }
 
         private Comprador comprador;
+        private Func<string> toString1;
+        private Func<string> toString2;
+
         public Comprador Comprador
         {
             get
@@ -62,7 +73,6 @@ namespace Proyecto2.Clases.Domain
             set
             {
                 comprador = value;
-                if (comprador.Id == null) throw new Exception("El comprador es requerido.");
 
             }
         }

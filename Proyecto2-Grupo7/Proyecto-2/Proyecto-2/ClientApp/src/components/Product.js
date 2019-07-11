@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Grid, Row, Button } from 'react-bootstrap';
+import Cookies from "universal-cookie";
 
 export class Product extends Component {
     displayName = Product.name
@@ -62,8 +63,10 @@ export class Product extends Component {
         }
 
         )
-        window.location.reload(); 
 
+        window.location.reload(); 
+        const cookies = new Cookies();
+        cookies.set('carritoId', 1);
     }
 
 }

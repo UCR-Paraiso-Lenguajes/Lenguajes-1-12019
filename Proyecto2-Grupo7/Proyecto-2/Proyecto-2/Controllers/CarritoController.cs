@@ -14,18 +14,19 @@ namespace Proyecto_2.Controllers
         CarritoData carritoData = new CarritoData();
         Carrito carrito = new Carrito();
 
-        [HttpPost("api/getCarrito/{idCarrito}")]
-        public Carrito GetCarrito(int idCarrito)
+        [HttpGet("api/getProductosCarrito/{idCarrito}")]
+        public IEnumerable<ProductoCantidad> GetProductosCarrito(int idCarrito)
         {
 
-           return carritoData.getCarritobyid(idCarrito);
+           return carritoData.getCarritobyid(idCarrito).ProductoCantidad;
         }
-        [HttpPost("api/productoCarrito")]
-        public Carrito ProductoCarrito([FromBody] ProductoCantidad producto)
+        [HttpPost("api/productoCarrito/{idCarrito}")]
+        public Carrito ProductoCarrito([FromBody] ProductoCantidad producto,int idCarrito)
         {
-
+            carrito = carritoData.getCarritobyid(idCarrito);
             carrito.Add(producto);
             return carrito;
         }
+
     }
 }

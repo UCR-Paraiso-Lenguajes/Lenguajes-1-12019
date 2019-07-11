@@ -19,7 +19,6 @@ export class Search extends Component {
            
             <Col sm={3}> <input type="text" class="form-control" /></Col>  
 
-            <Col sm={2}><i class="glyphicon glyphicon-search"></i></Col>  
                 
 
         </div >

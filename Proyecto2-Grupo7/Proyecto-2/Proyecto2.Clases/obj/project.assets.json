@@ -228,7 +228,7 @@
   },
   "libraries": {
     "EntityFramework.SqlServerCompact/6.2.0": {
-      "sha512": "wa1ILjn73fU1W1DVC/KeJMrVqfzJ4nQeXqZgRRwxpyKgqusAfc576Mj09tUOn3dmuWiju15BqiSxNuJGJnKmLQ==",
+      "sha512": "pGPxxPUCsckMg/UP/EOfklanNCCGIQvJzMBt56UnjwutzlVni7dJL92LFeQR2foI+O2E4NjlCaWWHXxGI7gpQw==",
       "type": "package",
       "path": "entityframework.sqlservercompact/6.2.0",
       "hasTools": true,
@@ -430,7 +430,7 @@
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.5.0": {
-      "sha512": "X4hp5h5M2plTWZnUd79d0x4actSMj9L3Hv6e1Lu+oGi35XSaXg21ha4Rqmt2KrIesfUwMfpET8QhMkS1eiWqRQ==",
+      "sha512": "AJfX7owAAkMjWQYhoml5IBfXh8UyYPjktn8pK0BFGAdKgBS7HqMz1fw5vdzfZUWfhtTPDGCjgNttt46ZyEmSjg==",
       "type": "package",
       "path": "runtime.native.system.data.sqlclient.sni/4.5.0",
       "files": [
@@ -490,7 +490,7 @@
       ]
     },
     "System.Buffers/4.4.0": {
-      "sha512": "Ii2bedd4HVzddupdU35n3ygohUPlNn7MDimBOYcwWNce2NizQ1fCSaQJY1Tzv80aMqOGpVcU4wZr/Xe50xcTwg==",
+      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
       "type": "package",
       "path": "system.buffers/4.4.0",
       "files": [
@@ -515,7 +515,7 @@
       ]
     },
     "System.Data.SqlClient/4.6.1": {
-      "sha512": "u980l3uFvJ3N/Hin95Po9wn3zzKMvogu/ZnrOZWM/lsMjEatFPXWbxN+coTMeEFUewsopy5xOP8rZD5oXcAZkA==",
+      "sha512": "7MTJhBFt4/tSJ2VRpG+TQNPcDdbCnWuoYzbe0kD5O3mQ7aZ2Q+Q3D9Y5Y3/aper5Gp3Lrs+8edk9clvxyPYXPw==",
       "type": "package",
       "path": "system.data.sqlclient/4.6.1",
       "files": [
@@ -639,7 +639,7 @@
       ]
     },
     "System.Numerics.Vectors/4.4.0": {
-      "sha512": "gdRrUJs1RrjW3JB5p82hYjA67xoeFLvh0SdSIWjTiN8qExlbFt/RtXwVYNc5BukJ/f9OKzQQS6gakzbJeHTqHg==",
+      "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
       "type": "package",
       "path": "system.numerics.vectors/4.4.0",
       "files": [
@@ -850,23 +850,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Leonardo\\.nuget\\packages\\": {},
+    "C:\\Users\\dfonse\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
+      "projectUniqueName": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
       "projectName": "Proyecto2.Clases",
-      "projectPath": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
-      "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Leonardo\\Desktop\\RepoDos\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\obj\\",
+      "projectPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\Proyecto2.Clases.csproj",
+      "packagesPath": "C:\\Users\\dfonse\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dfonse\\Documents\\GitHub\\Lenguajes-1-12019\\Proyecto2-Grupo7\\Proyecto-2\\Proyecto2.Clases\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dfonse\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -918,7 +918,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'EntityFramework.SqlServerCompact 6.2.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"EntityFramework.SqlServerCompact 6.2.0\" se restauró con \".NETFramework,Version=v4.6.1\" en lugar de la plataforma de destino del proyecto \".NETStandard,Version=v2.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "EntityFramework.SqlServerCompact",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
