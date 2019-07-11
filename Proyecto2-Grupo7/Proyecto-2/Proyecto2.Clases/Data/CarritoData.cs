@@ -28,7 +28,7 @@ namespace Proyecto2.Clases.Data
                         while (reader.Read())
                         {
                          carrito.Id=idCarrito.ToString();
-                            compradorId = reader.GetInt32(0);
+                          compradorId = reader.GetInt32(0);
 
 
 
@@ -96,7 +96,7 @@ namespace Proyecto2.Clases.Data
                         while (reader.Read())
                         {
                            int  id = reader.GetInt32(0);
-                            int cantidad = reader.GetInt32(1);
+                           int cantidad = reader.GetInt32(1);
 
                             ProductoCantidad productoCantidad = new ProductoCantidad(productoData.ListProductsbyid(id.ToString()),cantidad);
 

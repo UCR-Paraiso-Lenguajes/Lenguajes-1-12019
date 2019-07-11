@@ -2,17 +2,25 @@
 
 import React, { Component } from 'react';
 import { Col, Grid, Row, Button } from 'react-bootstrap';
+import { ProductCantidad } from './ProductCantidad';
 
 export class ShoppingCart extends Component {
     displayName = ShoppingCart.name
 
     constructor(props) {
         super(props);
+        this.state = { products: [], loading: true };
+        fetch('api/getProductosCarrito/1')
+   
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ products: data, loading: false });
+            });
     }
 
     render() {
         return (
-            <div>
+            <Grid>
              
                         <div class="container">
                             <button id="btncomprar" class="btn btn-primary">Realizar compra</button>
@@ -21,31 +29,20 @@ export class ShoppingCart extends Component {
                         <div id="listado" class="row">
                         <table class="egt">
 
-                            <tr>
+                        <Row>
+                            {this.state.products.map(product =>
 
-                                <td>Celda 1</td>
-
-                                <td>Celda 2</td>
-
-                                <td>Celda 3</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Celda 4</td>
-
-                                <td>Celda 5</td>
-
-                                <td>Celda 6</td>
-
-                            </tr>
+                                <Col sm={4}>
+                                    <ProductCantidad title={product.producto.nombre} cantidad={product.cantidad}/>
+                                </Col>
+                            )}
+                        </Row>
 
                         </table>
 
                       
                         </div>
-                        </div>
+                        </Grid>
              
            
         );

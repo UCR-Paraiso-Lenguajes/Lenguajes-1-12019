@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { Col, Grid, Row, Button } from 'react-bootstrap';
-
+import './login.css';
 
 
 export class Login extends Component {
