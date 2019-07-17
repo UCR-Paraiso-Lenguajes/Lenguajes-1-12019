@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Peliculas";
+}
+
+<div class="container">
+
+    <h2 class="jumbotron btn-success" >Only The Best</h2>
+
+    <div id="divPeliculas">
+
+    </div>
+
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var pelis = $('#divPeliculas');
+        var salto = 1;
+
+
+        $.ajax({
+            type: 'GET',
+            url: 'api/peliculas/',
+            datatype: 'json',
+            success: function (data) {
+                pelis.empty();
+                $.each(data, function (index, val) {
+
+
+                    pelis.append('<img src="' + val.imagen + '" > ');
+
+                    if (salto % 6 == 0) {
+                        pelis.append(' <hr />');
+                    }
+
+                    salto++;
+
+
+                });
+            }
+        });
+
+
+    });
+
+    </script>
+}
