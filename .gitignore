@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 B77436/tarea2/tarea2/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree
 B77436/tarea2/tarea2/.metadata/.lock
 B77436/tarea2/tarea2/.metadata/.log
@@ -105,3 +106,16 @@ Grupo5/ProyectoDosGrupoCinco/ProyectoDosGrupoCinco/obj/Debug/netstandard2.0/Proy
 Grupo5/ProyectoDosGrupoCinco/ProyectoDosGrupoCinco/obj/Debug/netstandard2.0/ProyectoDosGrupoCinco.dll
 Grupo5/ProyectoDosGrupoCinco/ProyectoDosGrupoCinco/bin/Debug/netstandard2.0/ProyectoDosGrupoCinco.pdb
 Grupo5/ProyectoDosGrupoCinco/ProyectoDosGrupoCinco/bin/Debug/netstandard2.0/ProyectoDosGrupoCinco.dll
+=======
+*.gitignore
+*bin/
+*target/
+*.project
+.classpath
+*.settings/
+*mvnw
+*.cmd
+*.mvn/
+*.attach_pid28819
+
+>>>>>>> c56e4ba662c69b40ebfc8ed159922169788b7718

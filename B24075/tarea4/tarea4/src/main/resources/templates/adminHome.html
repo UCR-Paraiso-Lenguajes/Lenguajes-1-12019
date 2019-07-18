@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>adminHome</title>
+
+</head>
+<body>
+
+Welcome  <span sec:authentication="principal.username"> User</span>
+<div sec:authorize="hasRole('ADMIN')">Only admin</div>
+
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

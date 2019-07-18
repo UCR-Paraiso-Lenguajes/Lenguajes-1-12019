@@ -1,0 +1,74 @@
+﻿
+@model  IEnumerable<model.Domain.Departamento> 
+
+  
+
+    @{
+       
+    }
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Organigrama </h1>
+            <!--Bootstrap Basic Table using .table class-->
+            <table class="table">
+                <tr class="text-center">
+                    <th>
+
+                        <p class="text-muted">ID</p>
+                    </th>
+                    <th>
+
+                        <p class="text-muted">Nombre</p>
+                    </th>
+                    <th>
+                        <p class="text-muted">Seleccionado</p>
+                    </th>
+                    <th>
+                        <p class="text-muted">Jefatura</p>
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var departamento in Model)
+                {
+            <tr class="text-center">
+
+                <td>
+                    @departamento.IdDepartamento
+                </td>
+                <td>
+                    @departamento.Nombre
+                </td>
+                <th>
+                    @departamento.Marcado
+                </th>
+                <td>
+                    @if (@departamento.Jefatura != null)
+                    {
+                        @departamento.Jefatura.Nombre
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Seleccionar", "Seleccion", new { id = @departamento.IdDepartamento })
+                </td>
+
+            </tr>
+                }
+
+            </table>
+        </div>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+
+</html>

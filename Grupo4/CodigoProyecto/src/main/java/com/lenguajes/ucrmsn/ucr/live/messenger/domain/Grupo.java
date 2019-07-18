@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import com.lenguajes.ucrmsn.ucr.live.messenger.excepciones.UsuarioException;
+
 public class Grupo {
 	private int id;
 	private String nombre;
@@ -26,67 +28,102 @@ public class Grupo {
 		listaMiembros=new ArrayList<Usuario>();
 		listaMensajes=new Stack<Mensaje>();
 	}
-	public boolean nuevoMiembro(Usuario usuario) {
-		listaMiembros.add(usuario);
+
+	public boolean nuevoMiembro(Usuario usuario) throws UsuarioException {
+		if (listaMiembros.contains(usuario)) {
+			throw new UsuarioException("El usuario ya existe en el grupo.");
+		} else
+			listaMiembros.add(usuario);
+
 		return true;
 	}
-	public void eliminarMiembro(Usuario usuario) {
-		listaMiembros.remove(usuario);
+
+	public void eliminarMiembro(Usuario usuario) throws UsuarioException {
+		if (!listaMiembros.contains(usuario)) {
+			throw new UsuarioException("El usuario no existe");
+		} else
+			listaMiembros.remove(usuario);
 	}
-	public boolean promoverMiembro(Usuario usuario) {
-		Rol rol=new Rol(1,"Administrador");
-		usuario.nuevoRol(rol);
+	
+	public boolean promoverMiembro(Usuario usuario) throws UsuarioException {
+		if (!listaMiembros.contains(usuario)) {
+			throw new UsuarioException("El usuario no existe");
+		} else {
+			Rol rol = new Rol(1, "Administrador");
+			usuario.nuevoRol(rol);
+		}
 		return true;
 	}
+	
 	public boolean mandarMensaje(Mensaje mensaje) {
-		listaMensajes.add(mensaje);
+		if (mensaje.getContenido().equals(null)) {
+			throw new RuntimeException("Mensaje Vacio");
+		} else {
+			listaMensajes.add(mensaje);
+		}
 		return true;
 	}
+	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public int getNumeroParticipantes() {
 		return numeroParticipantes;
 	}
+
 	public void setNumeroParticipantes(int numeroParticipantes) {
 		this.numeroParticipantes = numeroParticipantes;
 	}
+
 	public int getCantidadMensajes() {
 		return cantidadMensajes;
 	}
+
 	public void setCantidadMensajes(int cantidadMensajes) {
 		this.cantidadMensajes = cantidadMensajes;
 	}
+
 	public ArrayList<Usuario> getListaUsuarios() {
 		return listaMiembros;
 	}
+
 	public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
 		this.listaMiembros = listaUsuarios;
 	}
+
 	public Stack getListaMensajes() {
 		return listaMensajes;
 	}
+
 	public void setListaMensajes(Stack listaMensajes) {
 		this.listaMensajes = listaMensajes;
 	}
+
 	public Usuario getAdministrador() {
 		return administrador;
 	}
+
 	public void setAdministrador(Usuario administrador) {
 		this.administrador = administrador;
 	}
+
 	public Usuario getDueno() {
 		return dueno;
 	}
+
 	public void setDueno(Usuario dueno) {
 		this.dueno = dueno;
 	}

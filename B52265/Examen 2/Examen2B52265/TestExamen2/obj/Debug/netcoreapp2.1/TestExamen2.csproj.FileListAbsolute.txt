@@ -1,0 +1,15 @@
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.deps.json
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.runtimeconfig.json
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.runtimeconfig.dev.json
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\bin\Debug\netcoreapp2.1\TestExamen2.pdb
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csprojAssemblyReference.cache
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.AssemblyInfoInputs.cache
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.AssemblyInfo.cs
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.dll
+C:\Users\Andres\Desktop\Carpeta de la U\Lenguajes\RepoLenguajes\B52265\Examen 2\Examen2B52265\TestExamen2\obj\Debug\netcoreapp2.1\TestExamen2.pdb

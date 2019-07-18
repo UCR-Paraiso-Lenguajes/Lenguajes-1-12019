@@ -1,0 +1,15 @@
+1. SEGÚN LOS VISTO EN CLASE CUANTO ASSERTS DEBE TENER UN CASO DE PRUEBA Y              CÓMO AFECTA ESTO LOS CASOS PROPUESTOS ARRIBA? 5PTS. 
+R/ No existe una cantidad especifica que dicte un rango comun, pero hay que realizar las pruebas necesarias validando todos los objetos y variables, que tengan los valores correctos para validar su buen funcionamiento.
+Afecta los casos propuestos arriba, segun la cantidad de variables y objetos que hay declarado y que tuvieran un dato de interes mio, para saber que este correcto, lo hecho en los metodos
+
+2. QUÉ SON Y CUÁNDO SE USA EL “MANEJO DE TRANSACCIONES”? 5PTS 
+Es una declaracion que se realiza a un metodo especifico o una clase y son un conjunto de una o varias sentencias de SQL, se utiliza principalmente cuando se hace conexion con una base de datos, ya que las transacciones dan seguridad, ya que si ocurriera un error al consultar, insertar, borrar o actualizar un datos, regrese a su estado original, y no afecta la integridad de los datos, manteniendolos a salvo.
+
+3. CUAL ES LA DIFERENCIA ENTRE AUTENTICACIÓN Y AUTORIZACIÓN? 5PTS 
+La autentificacion: se refiere al proceso en que un usuario ingresa las credenciales para poder acceder a un recurso
+Autorizacion: se refiere a que si el usuario posee un permiso de acceso o no a un recurso especifico.
+4. QUÉ HACE LA ANOTACIÓN @AUTOWIRE? 5PTS 
+Esta anotación le permite a Spring resolver e inyectar beans de colaboración en su bean, se puede usar en propiedades, instaladores y constructores.
+
+5. QUÉ HACE LA ANOTACIÓN @REQUESTMAPPING? 5PTS   
+Esta annotacion provee informacion de ruteo y pregunta a spring que si llega una solcitud dehttp que tiene el mismo nombre y le asigna  el metodo a esa pagina que se mapeo con la URL

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Edición de Autores</title>
+</head>
+<body>
+<h1>Edición de la información del Autor</h1>
+<p>Información del autor a editar<p>
+
+<div class="container"> 
+
+  <div class="form-group">
+    <label for="identificacion">Identificacion:</label>
+    <input type="number" class="form-control" id="identificacion" readonly="readonly" th:value="${autor.id}">
+  </div>
+  <div class="form-group">
+    <label  for="nombre">Nombre:</label>
+    <br>
+    <br>
+    <input id="nombre" type="text" class="form-control" th:value="${autor.nombre}">
+  </div>
+  <div class="form-group">
+    <label  for="apellidos">Apellidos:</label>
+    <input  type="text" class="form-control" id="apellidos" th:value="${autor.apellidos}">
+  </div>
+  <button id="editar" >Editar</button>
+</div>
+
+<script>
+var editarbtn = $("#editar");
+var identificacion = $("#identificacion");
+var nombre = $("#nombre");
+var apellidos = $("#apellidos");
+
+
+$("#editar").click(function(){
+	
+	var obj =     {
+			"id": identificacion.val(),
+	        "nombre": nombre.val(),
+	        "apellidos": apellidos.val(),
+	    };
+	
+	$.ajax(	{
+		method:"PUT",
+		data:JSON.stringify(obj),
+		contentType:"application/json; charset=utf-8",
+		dataType:"json",
+		url: "api/editarAutor/"+identificacion.val()
+	}).done(function( data ) {
+		alert("Exito");
+	});
+});
+
+</script>
+
+</body>
+</html>

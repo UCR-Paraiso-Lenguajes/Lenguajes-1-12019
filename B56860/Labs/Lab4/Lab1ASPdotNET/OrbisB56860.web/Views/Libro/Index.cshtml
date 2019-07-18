@@ -1,0 +1,102 @@
+﻿@model IEnumerable<OrbisB56860.Model.Domain.Publicador> 
+
+@{
+    ViewData["Title"] = "Index";
+    //var publicadores = (IEnumerable<OrbisB56860.Model.Domain.Publicador>)ViewData["publicadores"];
+}
+
+<h2>Seleccione un publicador</h2>
+
+<br/>
+
+<h4>Publicador</h4>
+
+
+<select id="selectId" class="form-control">
+
+    @foreach (var publicador in Model)
+    {
+
+        <option value="@publicador.IdPublicador"> @publicador.Nombre</option>
+
+    }
+
+</select>
+
+<br />
+<br />
+
+<table id="tablaId" class="table table-bordered table-responsive table-hover"></table>
+
+
+<h3 id="idh3"></h3>
+
+
+<script>
+
+    var h3 = $(idh3) 
+    var tabla = $("#tablaId");
+    var select = $("#selectId");
+
+    select.last();
+
+    $("#selectId").click(function () {
+
+        tabla.add
+
+        tabla.empty();
+
+        printHeaderTable();
+
+        h3.empty();
+
+        var publicadorSelected = select.children("option:selected").val();
+        var url = "/Libro/Accion/" + publicadorSelected;
+
+        //seleccionar el id publicador
+        $.get(url, null, function (data) {
+            if (data.length === 0) {
+                printMensaje();
+            } else {
+                var size = 0;
+                for (key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        $(
+                            '<tr>' +
+                            '<td>' + data[size].idLibro + '</td>' +
+                            '<td>' + data[size].titulo + '</td>' +
+                            '<td>' + data[size].precio + '</td>' +
+                            '</tr>'
+                        )
+                            .appendTo(tabla);
+                        size = size + 1;
+                    }
+
+
+                }
+            }
+
+
+        });
+
+    });
+
+
+
+    function printHeaderTable() {
+        $(
+            '<tr>' +
+            '<th>Id</th>' +
+            '<th>Título</th>' +
+            '<th>Precio</th>' +
+            '</tr>'
+        )
+            .appendTo(tabla);
+    };
+    function printMensaje() {
+        $(
+            '<h3 style="color:orangered;">No hay registros relacionados a ese publicador</h3>'
+        )
+            .appendTo(h3);
+    };
+</script>

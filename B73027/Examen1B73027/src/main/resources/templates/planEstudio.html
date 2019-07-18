@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Plan de Estudios</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<table class="table table-striped">
+	<thead>
+      <tr>
+      	 <th>Id Area</th>
+        <th>Nombre del Curso</th>
+        <th>Siglas del curso</th>
+        <th>Creditos del curso</th>
+        <th>Ciclo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="cursos : ${cursos}">
+      	<td><span th:text="${cursos.idArea}"></span></td>
+        <td><span th:text="${cursos.nombreCurso}"></span></td>
+        <td><span th:text="${cursos.siglasCurso}"></span></td>
+        <td><span th:text="${cursos.creditosCurso}"></span></td>
+        <td><span th:text="${cursos.numCiclo}"></span></td>
+      </tr>      
+    </tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\bin\Debug\Entidades.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\bin\Debug\Entidades.pdb
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\lcarrion\Desktop\Plantilla\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\bin\Debug\Entidades.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\bin\Debug\Entidades.pdb
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\Priscilla\Documents\plantilla lanamme\Proyecto\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\Entidades.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\bin\Debug\Entidades.pdb
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\pmena\Downloads\Proyecto - Copy\AccesoDatos\obj\Debug\AccesoDatos.pdb
