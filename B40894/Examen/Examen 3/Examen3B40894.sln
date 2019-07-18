@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebExamen3", "..\WebExamen3\WebExamen3.csproj", "{1C419CC9-BED1-4F34-A527-08F8EDB3034D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "modelExamen3", "..\modelExamen3\modelExamen3.csproj", "{FC647CCE-0C2D-4ECB-8A44-B9776FB78273}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C419CC9-BED1-4F34-A527-08F8EDB3034D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C419CC9-BED1-4F34-A527-08F8EDB3034D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C419CC9-BED1-4F34-A527-08F8EDB3034D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C419CC9-BED1-4F34-A527-08F8EDB3034D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC647CCE-0C2D-4ECB-8A44-B9776FB78273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC647CCE-0C2D-4ECB-8A44-B9776FB78273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC647CCE-0C2D-4ECB-8A44-B9776FB78273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC647CCE-0C2D-4ECB-8A44-B9776FB78273}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DC27B23-8219-4A2B-8793-6E2158064878}
+	EndGlobalSection
+EndGlobal
