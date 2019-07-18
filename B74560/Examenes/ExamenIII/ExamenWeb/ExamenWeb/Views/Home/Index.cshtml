@@ -1,0 +1,270 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<html class=''>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+
+    <style class="text/css">
+
+        html, body {
+            background: #24282C;
+            font-family: Open Sans, sans-serif;
+        }
+
+        .logo {
+            color: #dd0000;
+            align-content: initial;
+            animation-duration: 0.3s;
+            font-family: Open 'Comic Sans MS';
+            resize: vertical;
+        }
+
+        .window-margin {
+            max-width: 1200px;
+            padding: 60px;
+            margin: auto;
+        }
+
+        .window {
+            margin: auto;
+            border-radius: 5px;
+            background: #24282C;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgb(255, 0, 0);
+        }
+
+            .window .main .featured-movie {
+                position: relative;
+            }
+
+                .window .main .featured-movie .cover {
+                    width: 100%;
+                    height: 300px;
+                }
+
+                .window .main .featured-movie .bottom-bar {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 20px 30px;
+                    background: rgba(10, 10, 10, 0.8);
+                    color: #dd0000;
+                }
+
+                    .window .main .featured-movie .bottom-bar .title-container {
+                        float: left;
+                        font-weight: 100;
+                        font-size: 40px;
+                    }
+
+            .window .main .movie-list .list {
+                margin: 1px;
+                margin-right: 1px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .window .main .movie-list h4 {
+                font-weight: bold;
+                color: #ffffff;
+                margin: 25px;
+                white-space: nowrap;
+                display: inline;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .window .main .movie-list .list ul {
+                white-space: nowrap;
+                display: inline;
+            }
+
+            .window .main .movie-list .list li {
+                flex: 0 0 25px;
+                padding-bottom: 50px;
+                margin-right: 0.3px;
+                display: inline;
+            }
+
+                .window .main .movie-list .list li img {
+                    width: 142px;
+                    height: 200px;
+                    margin: 0 0.3px;
+                    cursor: pointer;
+                }
+
+                .window .main .movie-list .list li .title,
+                .window .main .movie-list .list li .genre {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    cursor: pointer;
+                }
+
+                .window .main .movie-list .list li .title {
+                    font-weight: bold;
+                    font-size: 13px;
+                    margin-bottom: 0.3px;
+                    color: #ffffff;
+                }
+
+                .window .main .movie-list .list li .genre {
+                    color: #999;
+                    font-size: 12px;
+                }
+    </style>
+
+</head>
+
+<body>
+
+    <h1><b class="logo">PELIX</b></h1>
+    <img class="logo" src="https://cdn.pixabay.com/photo/2017/01/14/18/56/camera-1980184_960_720.png"  style=" height: 50px; width: 50px;" alt="" />
+    <div class="window-margin">
+        <div class="window">
+
+            <div class="main" role="main">
+
+                <div class="featured-movie">
+                    <img class="cover" src="https://as01.epimg.net/meristation/imagenes/2018/01/22/reportaje/1516604400_722996_1531823096_sumario_normal.jpg" alt="" />
+                    <div class="bottom-bar">
+                        <div class="title-container">
+                            <b> PELIX: </b>
+                            Todo en Peliculas y Series
+                        </div>
+                    </div> <!-- bottom bar -->
+
+                </div> <!-- featured -->
+                <h1 />
+                <div id="listaPeliculas" class="movie-list">
+
+
+
+
+
+
+                </div> <!-- movie list -->
+
+            </div> <!-- main -->
+        </div> <!-- window -->
+    </div> <!-- window margin -->
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            /*Listas de filas, segun Genero*/
+            var listas = ["Populares", "Accion", "Comedia", "Ciencia Ficcion",
+                "Romanticas", "Documentales", "Drama", "Infantiles", "Familiares",
+                "Aventura", "Terror"];
+
+            var urlImagenes = "http://localhost:50361/api/listarpeliculas";
+
+            var urlNombres = "http://localhost:50361/api/listarPeliculaNombres";
+
+            var listasNombres = [];
+
+            $.get(urlNombres, null, function (data) {
+
+                if (data.length === 0) {
+
+                    alert("NO HAY PELICULAS REGISTRADAS");
+
+                }
+                else {
+                    for (var i = 0; i < data.length; i++) {
+
+                        listasNombres[i] = data[i];
+
+                    }
+                }
+
+            });
+
+
+
+
+            $.get(urlImagenes, null, function (data) {
+
+                if (data.length === 0) {
+                    alert("NO HAY PELICULAS REGISTRADAS");
+                }
+                else {
+
+                    var aux = 1;
+
+                    for (var i = 0; i < listas.length; i++) {
+                        $(
+
+                            '<h4>' + listas[i] + '</h4>' +
+                            '<ul class="list" style="width:1020px;height:250px; overflow-y: scroll;" id="' + i + 'row">' +
+                            '</ul >'
+
+                        )
+                            .appendTo('#listaPeliculas');
+                        for (var j = 0; j < 6; j++) {
+
+                            $(
+
+                                '<li>' +
+                                '<img src="' + data[aux - 1] + '" alt="" />' +
+                                '<p class="title">' + listasNombres[aux - 1] + '</p>' +
+                                '<p class="genre">' + listas[i] + '</p>' +
+                                '</li>'
+
+                            )
+
+                                .appendTo('#' + i + 'row');
+
+                            if (listas[i].indexOf("Populares") != -1) {
+
+                                $(
+
+                                    '<li>' +
+                                    '<img class="tile__img" src="' + data[aux] + '" alt="" />' +
+                                    '<p class="title">' + listasNombres[aux] + '</p>' +
+                                    '<p class="genre">' + listas[i] + '</p>' +
+                                    '</li>'
+
+
+                                )
+
+                                    .appendTo('#' + i + 'row');
+
+                                aux = aux + 1;
+                            }
+
+                            aux = aux + 1;
+
+                        }
+
+                    }
+
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+
+</body>
+</html>
