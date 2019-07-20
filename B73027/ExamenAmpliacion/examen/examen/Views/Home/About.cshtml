@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+    <style type="text/css">
+
+        html, body {
+            padding: 0 10px;
+            margin: 0;
+            background: #0E0F11;
+            color: #ecf0f1;
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+        }
+
+        h1, p {
+            text-align: left;
+        }
+
+        p {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+        }
+
+
+        .row__inner {
+            transition: 450ms transform;
+            font-size: 0;
+            white-space: nowrap;
+            margin: 50px;
+            
+        }
+
+        .tile {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 200px;
+            font-size: 50px;
+            cursor: pointer;
+            transition: 450ms all;
+            transform-origin: center left;
+        }
+
+        .tile__img {
+            width: 350ms;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .titulo {
+            width: 450ms;
+            height: 147px;
+            object-fit: cover;
+            vertical-align: top;
+        }
+
+        .genero {
+        
+        
+        
+        }
+
+
+    </style>
+
+
+
+    <div class="left">
+
+        <h1></h1>
+        <img class="titulo" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/1dd5ee3c-73af-40bc-80d9-b0050cff2557/d5uomxw-cb20a6a9-6018-4b74-a60c-ebaf0910da3a.png" />
+
+    </div>
+
+    <ul id="listaFilas">
+
+       
+
+    </ul>
+</head>
+<body>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = "http://localhost:56042/api/peliculas";
+            $.get(url, null, function (data) {
+
+                if (data.length === 0) {
+                    alert("El publicador seleccionado no tiene libros");
+                } else {
+                    var size = 0;
+                    var contador = 1;
+                    var idFila = null;
+                    var myArray = ['Terror', 'Suspenso', 'Comedia', 'Infantil', 'Familiar', 'Series', 'Dramas', 'Novelas', 'Tendencias', 'Ciencia Ficcion'];
+                    for (var i = 0; i < 10; i++) {
+                        $(
+                            '<li> <h3 class="">' + myArray[i] + '</h3>' +
+                            '<div class="row">' +
+                            '<div class= "row__inner" id="' + i + 'Fila">' +
+                            '</div>' +
+                            '</div>'+
+                            '</li >'
+                            
+
+                        )
+                            .appendTo('#listaFilas');
+                        for (var j = 0; j < 6; j++) {
+                            $(
+                                '<div class="tile">'+
+                                    '<div class="tile__media">'+
+                                '<img class="tile__img" src="' + data[contador - 1]+'" alt="" />'+
+                                    '</div>'+
+                                    '<div class="tile__details">'+
+                                '</div>' +
+                                '</div>'
+                            )
+                                .appendTo('#' + i +'Fila');
+                            console.log(data[contador - 1]);
+                            contador = contador + 1;
+                        }
+                        console.log("VUELTA NUMERO: " + i);
+                    }
+                    
+                    
+                }
+
+
+            });
+        });
+        
+    </script>
+
+</body>
+</html>
+
+
