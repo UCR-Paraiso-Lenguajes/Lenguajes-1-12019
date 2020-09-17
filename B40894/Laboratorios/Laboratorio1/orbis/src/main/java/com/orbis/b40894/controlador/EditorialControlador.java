@@ -19,7 +19,7 @@ private int cantidadFin=2;
 	private EditorialLogica editorialLogica;
 
 @RequestMapping(value="/editorial", method=RequestMethod.GET )
-	public String encontrarLibros(Model model/*, @RequestParam int cantidadInicio,  @RequestParam int cantidadFin*/) {
+	public String encontrarLibros(Model model/*,   int cantidadInicio,  @RequestParam int cantidadFin*/) {
 		model.addAttribute("editoriales", editorialLogica.buscarEditorial(cantidadInicio, cantidadFin));
 		return "editorial";
 	}	
